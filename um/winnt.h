@@ -14790,11 +14790,27 @@ typedef struct _SCRUB_DATA_INPUT {
 
     DWORD ObjectId[4];
 
+#if (_WIN32_WINNT >= _WIN32_WINNT_WIN10_FE)
+    //
+    // Start scrubbing at byte offset for byte count
+    // Both must be cluster aligned
+    //
+
+    ULONGLONG StartingByteOffset;
+
+    ULONGLONG ByteCount;
+
     //
     // Reserved
     //
 
+    DWORD Reserved[40];
+
+#else
+
     DWORD Reserved[41];
+
+#endif
 
     //
     // Opaque data returned from the previous call to restart the
@@ -14969,9 +14985,29 @@ typedef struct _SCRUB_DATA_OUTPUT {
 
     ULONGLONG TotalNumberOfDataBytesInUse;
 
+#if (_WIN32_WINNT >= _WIN32_WINNT_WIN10_FE)
+
+    //
+    //  Next scrub starting offset in bytes
+    //
+
+    ULONGLONG NextStartingByteOffset;
+
+    ULONGLONG ValidDataLength;
+
+#endif
+
+#else
+
+#if (_WIN32_WINNT >= _WIN32_WINNT_WIN10_FE)
+
+    ULONGLONG Reserved2[6];
+
 #else
 
     ULONGLONG Reserved2[4];
+
+#endif
 
 #endif
 

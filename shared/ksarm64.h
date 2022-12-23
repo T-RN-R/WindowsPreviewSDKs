@@ -465,7 +465,7 @@
 #define PrInstrumentationCallback 0x390
 #define PrMitigationFlags2 0xa94
 #define KernelProcessObjectLength 0x3f0
-#define ExecutiveProcessObjectLength 0xd00
+#define ExecutiveProcessObjectLength 0xc80
 #define Win32BatchFlushCallout 0x7
 
 //
@@ -502,7 +502,7 @@
 //
 
 #define EtCid 0x4e8
-#define EtPicoContext 0x660
+#define EtPicoContext 0x650
 
 #define ThType 0x0
 #define ThSize 0x2
