@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -101,12 +101,12 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Core::IMicrosoftAccountMultiFactorOneTimeCodedInfo> = L"Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorOneTimeCodedInfo";
     template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Core::IMicrosoftAccountMultiFactorSessionInfo> = L"Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorSessionInfo";
     template <> inline constexpr auto& name_v<Windows::Security::Authentication::Identity::Core::IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo> = L"Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo";
-    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Identity::Core::IMicrosoftAccountMultiFactorAuthenticationManager>{ 0x0FD340A5,0xF574,0x4320,{ 0xA0,0x8E,0x0A,0x19,0xA8,0x23,0x22,0xAA } };
-    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Identity::Core::IMicrosoftAccountMultiFactorAuthenticatorStatics>{ 0xD964C2E6,0xF446,0x4C71,{ 0x8B,0x79,0x6E,0xA4,0x02,0x4A,0xA9,0xB8 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Identity::Core::IMicrosoftAccountMultiFactorGetSessionsResult>{ 0x4E23A9A0,0xE9FA,0x497A,{ 0x95,0xDE,0x6D,0x57,0x47,0xBF,0x97,0x4C } };
-    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Identity::Core::IMicrosoftAccountMultiFactorOneTimeCodedInfo>{ 0x82BA264B,0xD87C,0x4668,{ 0xA9,0x76,0x40,0xCF,0xAE,0x54,0x7D,0x08 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Identity::Core::IMicrosoftAccountMultiFactorSessionInfo>{ 0x5F7EABB4,0xA278,0x4635,{ 0xB7,0x65,0xB4,0x94,0xEB,0x26,0x0A,0xF4 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Identity::Core::IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo>{ 0xAA7EC5FB,0xDA3F,0x4088,{ 0xA2,0x0D,0x56,0x18,0xAF,0xAD,0xB2,0xE5 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Identity::Core::IMicrosoftAccountMultiFactorAuthenticationManager>{ 0x0FD340A5,0xF574,0x4320,{ 0xA0,0x8E,0x0A,0x19,0xA8,0x23,0x22,0xAA } }; // 0FD340A5-F574-4320-A08E-0A19A82322AA
+    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Identity::Core::IMicrosoftAccountMultiFactorAuthenticatorStatics>{ 0xD964C2E6,0xF446,0x4C71,{ 0x8B,0x79,0x6E,0xA4,0x02,0x4A,0xA9,0xB8 } }; // D964C2E6-F446-4C71-8B79-6EA4024AA9B8
+    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Identity::Core::IMicrosoftAccountMultiFactorGetSessionsResult>{ 0x4E23A9A0,0xE9FA,0x497A,{ 0x95,0xDE,0x6D,0x57,0x47,0xBF,0x97,0x4C } }; // 4E23A9A0-E9FA-497A-95DE-6D5747BF974C
+    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Identity::Core::IMicrosoftAccountMultiFactorOneTimeCodedInfo>{ 0x82BA264B,0xD87C,0x4668,{ 0xA9,0x76,0x40,0xCF,0xAE,0x54,0x7D,0x08 } }; // 82BA264B-D87C-4668-A976-40CFAE547D08
+    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Identity::Core::IMicrosoftAccountMultiFactorSessionInfo>{ 0x5F7EABB4,0xA278,0x4635,{ 0xB7,0x65,0xB4,0x94,0xEB,0x26,0x0A,0xF4 } }; // 5F7EABB4-A278-4635-B765-B494EB260AF4
+    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Identity::Core::IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo>{ 0xAA7EC5FB,0xDA3F,0x4088,{ 0xA2,0x0D,0x56,0x18,0xAF,0xAD,0xB2,0xE5 } }; // AA7EC5FB-DA3F-4088-A20D-5618AFADB2E5
     template <> struct default_interface<Windows::Security::Authentication::Identity::Core::MicrosoftAccountMultiFactorAuthenticationManager>{ using type = Windows::Security::Authentication::Identity::Core::IMicrosoftAccountMultiFactorAuthenticationManager; };
     template <> struct default_interface<Windows::Security::Authentication::Identity::Core::MicrosoftAccountMultiFactorGetSessionsResult>{ using type = Windows::Security::Authentication::Identity::Core::IMicrosoftAccountMultiFactorGetSessionsResult; };
     template <> struct default_interface<Windows::Security::Authentication::Identity::Core::MicrosoftAccountMultiFactorOneTimeCodedInfo>{ using type = Windows::Security::Authentication::Identity::Core::IMicrosoftAccountMultiFactorOneTimeCodedInfo; };

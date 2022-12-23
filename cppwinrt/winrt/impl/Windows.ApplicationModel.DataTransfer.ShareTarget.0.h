@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -45,10 +45,10 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation> = L"Windows.ApplicationModel.DataTransfer.ShareTarget.IShareOperation";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation2> = L"Windows.ApplicationModel.DataTransfer.ShareTarget.IShareOperation2";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation3> = L"Windows.ApplicationModel.DataTransfer.ShareTarget.IShareOperation3";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::ShareTarget::IQuickLink>{ 0x603E4308,0xF0BE,0x4ADC,{ 0xAC,0xC9,0x8B,0x27,0xAB,0x9C,0xF5,0x56 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation>{ 0x2246BAB8,0xD0F8,0x41C1,{ 0xA8,0x2A,0x41,0x37,0xDB,0x65,0x04,0xFB } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation2>{ 0x0FFB97C1,0x9778,0x4A09,{ 0x8E,0x5B,0xCB,0x5E,0x48,0x2D,0x05,0x55 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation3>{ 0x5EF6B382,0xB7A7,0x4571,{ 0xA2,0xA6,0x99,0x4A,0x03,0x49,0x88,0xB2 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::ShareTarget::IQuickLink>{ 0x603E4308,0xF0BE,0x4ADC,{ 0xAC,0xC9,0x8B,0x27,0xAB,0x9C,0xF5,0x56 } }; // 603E4308-F0BE-4ADC-ACC9-8B27AB9CF556
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation>{ 0x2246BAB8,0xD0F8,0x41C1,{ 0xA8,0x2A,0x41,0x37,0xDB,0x65,0x04,0xFB } }; // 2246BAB8-D0F8-41C1-A82A-4137DB6504FB
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation2>{ 0x0FFB97C1,0x9778,0x4A09,{ 0x8E,0x5B,0xCB,0x5E,0x48,0x2D,0x05,0x55 } }; // 0FFB97C1-9778-4A09-8E5B-CB5E482D0555
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation3>{ 0x5EF6B382,0xB7A7,0x4571,{ 0xA2,0xA6,0x99,0x4A,0x03,0x49,0x88,0xB2 } }; // 5EF6B382-B7A7-4571-A2A6-994A034988B2
     template <> struct default_interface<Windows::ApplicationModel::DataTransfer::ShareTarget::QuickLink>{ using type = Windows::ApplicationModel::DataTransfer::ShareTarget::IQuickLink; };
     template <> struct default_interface<Windows::ApplicationModel::DataTransfer::ShareTarget::ShareOperation>{ using type = Windows::ApplicationModel::DataTransfer::ShareTarget::IShareOperation; };
     template <> struct abi<Windows::ApplicationModel::DataTransfer::ShareTarget::IQuickLink>

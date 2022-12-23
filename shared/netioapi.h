@@ -3183,6 +3183,7 @@ Return Value:
 #define DNS_SETTING_DISABLE_UNCONSTRAINED_QUERIES 0x0400
 #define DNS_SETTING_SUPPLEMENTAL_SEARCH_LIST      0x0800
 #define DNS_SETTING_DOH                           0x1000
+#define DNS_SETTING_DOH_PROFILE                   0x2000
 
 #define DNS_ENABLE_AUTO_DOH                       0x0001
 
@@ -3191,6 +3192,8 @@ Return Value:
 #define DNS_DOH_SERVER_SETTINGS_ENABLE_AUTO       0x0001
 #define DNS_DOH_SERVER_SETTINGS_ENABLE            0x0002
 #define DNS_DOH_SERVER_SETTINGS_FALLBACK_TO_UDP   0x0004
+
+#define DNS_DOH_AUTO_UPGRADE_SERVER               0x0008
 
 typedef struct _DNS_SETTINGS
 {
@@ -3288,6 +3291,8 @@ typedef struct _DNS_INTERFACE_SETTINGS3
     PWSTR SupplementalSearchList;
     ULONG cServerProperties;
     DNS_SERVER_PROPERTY *ServerProperties;
+    ULONG cProfileServerProperties;
+    DNS_SERVER_PROPERTY *ProfileServerProperties;
 } DNS_INTERFACE_SETTINGS3;
 
 NETIOAPI_API

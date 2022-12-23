@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -44,9 +44,9 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Composition::Diagnostics::ICompositionDebugHeatMaps> = L"Windows.UI.Composition.Diagnostics.ICompositionDebugHeatMaps";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::Diagnostics::ICompositionDebugSettings> = L"Windows.UI.Composition.Diagnostics.ICompositionDebugSettings";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::Diagnostics::ICompositionDebugSettingsStatics> = L"Windows.UI.Composition.Diagnostics.ICompositionDebugSettingsStatics";
-    template <> inline constexpr guid guid_v<Windows::UI::Composition::Diagnostics::ICompositionDebugHeatMaps>{ 0xE49C90AC,0x2FF3,0x5805,{ 0x71,0x8C,0xB7,0x25,0xEE,0x07,0x65,0x0F } };
-    template <> inline constexpr guid guid_v<Windows::UI::Composition::Diagnostics::ICompositionDebugSettings>{ 0x2831987E,0x1D82,0x4D38,{ 0xB7,0xB7,0xEF,0xD1,0x1C,0x7B,0xC3,0xD1 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Composition::Diagnostics::ICompositionDebugSettingsStatics>{ 0x64EC1F1E,0x6AF8,0x4AF8,{ 0xB8,0x14,0xC8,0x70,0xFD,0x5A,0x95,0x05 } };
+    template <> inline constexpr guid guid_v<Windows::UI::Composition::Diagnostics::ICompositionDebugHeatMaps>{ 0xE49C90AC,0x2FF3,0x5805,{ 0x71,0x8C,0xB7,0x25,0xEE,0x07,0x65,0x0F } }; // E49C90AC-2FF3-5805-718C-B725EE07650F
+    template <> inline constexpr guid guid_v<Windows::UI::Composition::Diagnostics::ICompositionDebugSettings>{ 0x2831987E,0x1D82,0x4D38,{ 0xB7,0xB7,0xEF,0xD1,0x1C,0x7B,0xC3,0xD1 } }; // 2831987E-1D82-4D38-B7B7-EFD11C7BC3D1
+    template <> inline constexpr guid guid_v<Windows::UI::Composition::Diagnostics::ICompositionDebugSettingsStatics>{ 0x64EC1F1E,0x6AF8,0x4AF8,{ 0xB8,0x14,0xC8,0x70,0xFD,0x5A,0x95,0x05 } }; // 64EC1F1E-6AF8-4AF8-B814-C870FD5A9505
     template <> struct default_interface<Windows::UI::Composition::Diagnostics::CompositionDebugHeatMaps>{ using type = Windows::UI::Composition::Diagnostics::ICompositionDebugHeatMaps; };
     template <> struct default_interface<Windows::UI::Composition::Diagnostics::CompositionDebugSettings>{ using type = Windows::UI::Composition::Diagnostics::ICompositionDebugSettings; };
     template <> struct abi<Windows::UI::Composition::Diagnostics::ICompositionDebugHeatMaps>

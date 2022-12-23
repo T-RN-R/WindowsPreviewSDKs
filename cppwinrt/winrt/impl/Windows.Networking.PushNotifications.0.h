@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -99,18 +99,18 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Networking::PushNotifications::IRawNotification> = L"Windows.Networking.PushNotifications.IRawNotification";
     template <> inline constexpr auto& name_v<Windows::Networking::PushNotifications::IRawNotification2> = L"Windows.Networking.PushNotifications.IRawNotification2";
     template <> inline constexpr auto& name_v<Windows::Networking::PushNotifications::IRawNotification3> = L"Windows.Networking.PushNotifications.IRawNotification3";
-    template <> inline constexpr guid guid_v<Windows::Networking::PushNotifications::IPushNotificationChannel>{ 0x2B28102E,0xEF0B,0x4F39,{ 0x9B,0x8A,0xA3,0xC1,0x94,0xDE,0x70,0x81 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::PushNotifications::IPushNotificationChannelManagerForUser>{ 0xA4C45704,0x1182,0x42C7,{ 0x88,0x90,0xF5,0x63,0xC4,0x89,0x0D,0xC4 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::PushNotifications::IPushNotificationChannelManagerForUser2>{ 0xC38B066A,0x7CC1,0x4DAC,{ 0x87,0xFD,0xBE,0x6E,0x92,0x04,0x14,0xA4 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::PushNotifications::IPushNotificationChannelManagerStatics>{ 0x8BAF9B65,0x77A1,0x4588,{ 0xBD,0x19,0x86,0x15,0x29,0xA9,0xDC,0xF0 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::PushNotifications::IPushNotificationChannelManagerStatics2>{ 0xB444A65D,0xA7E9,0x4B28,{ 0x95,0x0E,0xF3,0x75,0xA9,0x07,0xF9,0xDF } };
-    template <> inline constexpr guid guid_v<Windows::Networking::PushNotifications::IPushNotificationChannelManagerStatics3>{ 0x4701FEFE,0x0EDE,0x4A3F,{ 0xAE,0x78,0xBF,0xA4,0x71,0x49,0x69,0x25 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::PushNotifications::IPushNotificationChannelManagerStatics4>{ 0xBC540EFB,0x7820,0x5A5B,{ 0x9C,0x01,0xB4,0x75,0x7F,0x77,0x40,0x25 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::PushNotifications::IPushNotificationChannelsRevokedEventArgs>{ 0x20E1A24C,0x1A34,0x5BEB,{ 0xAA,0xE2,0x40,0xC2,0x32,0xC8,0xC1,0x40 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::PushNotifications::IPushNotificationReceivedEventArgs>{ 0xD1065E0C,0x36CD,0x484C,{ 0xB9,0x35,0x0A,0x99,0xB7,0x53,0xCF,0x00 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::PushNotifications::IRawNotification>{ 0x1A227281,0x3B79,0x42AC,{ 0x99,0x63,0x22,0xAB,0x00,0xD4,0xF0,0xB7 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::PushNotifications::IRawNotification2>{ 0xE6D0CF19,0x0C6F,0x4CDD,{ 0x94,0x24,0xEE,0xC5,0xBE,0x01,0x4D,0x26 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::PushNotifications::IRawNotification3>{ 0x62737DDE,0x8A73,0x424C,{ 0xAB,0x44,0x56,0x35,0xF4,0x0A,0x96,0xE5 } };
+    template <> inline constexpr guid guid_v<Windows::Networking::PushNotifications::IPushNotificationChannel>{ 0x2B28102E,0xEF0B,0x4F39,{ 0x9B,0x8A,0xA3,0xC1,0x94,0xDE,0x70,0x81 } }; // 2B28102E-EF0B-4F39-9B8A-A3C194DE7081
+    template <> inline constexpr guid guid_v<Windows::Networking::PushNotifications::IPushNotificationChannelManagerForUser>{ 0xA4C45704,0x1182,0x42C7,{ 0x88,0x90,0xF5,0x63,0xC4,0x89,0x0D,0xC4 } }; // A4C45704-1182-42C7-8890-F563C4890DC4
+    template <> inline constexpr guid guid_v<Windows::Networking::PushNotifications::IPushNotificationChannelManagerForUser2>{ 0xC38B066A,0x7CC1,0x4DAC,{ 0x87,0xFD,0xBE,0x6E,0x92,0x04,0x14,0xA4 } }; // C38B066A-7CC1-4DAC-87FD-BE6E920414A4
+    template <> inline constexpr guid guid_v<Windows::Networking::PushNotifications::IPushNotificationChannelManagerStatics>{ 0x8BAF9B65,0x77A1,0x4588,{ 0xBD,0x19,0x86,0x15,0x29,0xA9,0xDC,0xF0 } }; // 8BAF9B65-77A1-4588-BD19-861529A9DCF0
+    template <> inline constexpr guid guid_v<Windows::Networking::PushNotifications::IPushNotificationChannelManagerStatics2>{ 0xB444A65D,0xA7E9,0x4B28,{ 0x95,0x0E,0xF3,0x75,0xA9,0x07,0xF9,0xDF } }; // B444A65D-A7E9-4B28-950E-F375A907F9DF
+    template <> inline constexpr guid guid_v<Windows::Networking::PushNotifications::IPushNotificationChannelManagerStatics3>{ 0x4701FEFE,0x0EDE,0x4A3F,{ 0xAE,0x78,0xBF,0xA4,0x71,0x49,0x69,0x25 } }; // 4701FEFE-0EDE-4A3F-AE78-BFA471496925
+    template <> inline constexpr guid guid_v<Windows::Networking::PushNotifications::IPushNotificationChannelManagerStatics4>{ 0xBC540EFB,0x7820,0x5A5B,{ 0x9C,0x01,0xB4,0x75,0x7F,0x77,0x40,0x25 } }; // BC540EFB-7820-5A5B-9C01-B4757F774025
+    template <> inline constexpr guid guid_v<Windows::Networking::PushNotifications::IPushNotificationChannelsRevokedEventArgs>{ 0x20E1A24C,0x1A34,0x5BEB,{ 0xAA,0xE2,0x40,0xC2,0x32,0xC8,0xC1,0x40 } }; // 20E1A24C-1A34-5BEB-AAE2-40C232C8C140
+    template <> inline constexpr guid guid_v<Windows::Networking::PushNotifications::IPushNotificationReceivedEventArgs>{ 0xD1065E0C,0x36CD,0x484C,{ 0xB9,0x35,0x0A,0x99,0xB7,0x53,0xCF,0x00 } }; // D1065E0C-36CD-484C-B935-0A99B753CF00
+    template <> inline constexpr guid guid_v<Windows::Networking::PushNotifications::IRawNotification>{ 0x1A227281,0x3B79,0x42AC,{ 0x99,0x63,0x22,0xAB,0x00,0xD4,0xF0,0xB7 } }; // 1A227281-3B79-42AC-9963-22AB00D4F0B7
+    template <> inline constexpr guid guid_v<Windows::Networking::PushNotifications::IRawNotification2>{ 0xE6D0CF19,0x0C6F,0x4CDD,{ 0x94,0x24,0xEE,0xC5,0xBE,0x01,0x4D,0x26 } }; // E6D0CF19-0C6F-4CDD-9424-EEC5BE014D26
+    template <> inline constexpr guid guid_v<Windows::Networking::PushNotifications::IRawNotification3>{ 0x62737DDE,0x8A73,0x424C,{ 0xAB,0x44,0x56,0x35,0xF4,0x0A,0x96,0xE5 } }; // 62737DDE-8A73-424C-AB44-5635F40A96E5
     template <> struct default_interface<Windows::Networking::PushNotifications::PushNotificationChannel>{ using type = Windows::Networking::PushNotifications::IPushNotificationChannel; };
     template <> struct default_interface<Windows::Networking::PushNotifications::PushNotificationChannelManagerForUser>{ using type = Windows::Networking::PushNotifications::IPushNotificationChannelManagerForUser; };
     template <> struct default_interface<Windows::Networking::PushNotifications::PushNotificationChannelsRevokedEventArgs>{ using type = Windows::Networking::PushNotifications::IPushNotificationChannelsRevokedEventArgs; };

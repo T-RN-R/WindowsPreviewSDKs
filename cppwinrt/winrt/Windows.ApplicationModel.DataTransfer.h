@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_ApplicationModel_DataTransfer_H
 #define WINRT_Windows_ApplicationModel_DataTransfer_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200514.2"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200609.3"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.ApplicationModel.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
@@ -697,9 +697,9 @@ namespace winrt::impl
     }
     template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DataRequestDeferral) consume_Windows_ApplicationModel_DataTransfer_IDataRequest<D>::GetDeferral() const
     {
-        void* value{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::DataTransfer::IDataRequest)->GetDeferral(&value));
-        return Windows::ApplicationModel::DataTransfer::DataRequestDeferral{ value, take_ownership_from_abi };
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::DataTransfer::IDataRequest)->GetDeferral(&result));
+        return Windows::ApplicationModel::DataTransfer::DataRequestDeferral{ result, take_ownership_from_abi };
     }
     template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_DataTransfer_IDataRequestDeferral<D>::Complete() const
     {
@@ -711,33 +711,33 @@ namespace winrt::impl
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::DataTransfer::IDataRequestedEventArgs)->get_Request(&value));
         return Windows::ApplicationModel::DataTransfer::DataRequest{ value, take_ownership_from_abi };
     }
-    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_ApplicationModel_DataTransfer_IDataTransferManager<D>::DataRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataTransferManager, Windows::ApplicationModel::DataTransfer::DataRequestedEventArgs> const& eventHandler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_ApplicationModel_DataTransfer_IDataTransferManager<D>::DataRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataTransferManager, Windows::ApplicationModel::DataTransfer::DataRequestedEventArgs> const& handler) const
     {
-        winrt::event_token eventCookie{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::DataTransfer::IDataTransferManager)->add_DataRequested(*(void**)(&eventHandler), put_abi(eventCookie)));
-        return eventCookie;
+        winrt::event_token token{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::DataTransfer::IDataTransferManager)->add_DataRequested(*(void**)(&handler), put_abi(token)));
+        return token;
     }
-    template <typename D> typename consume_Windows_ApplicationModel_DataTransfer_IDataTransferManager<D>::DataRequested_revoker consume_Windows_ApplicationModel_DataTransfer_IDataTransferManager<D>::DataRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataTransferManager, Windows::ApplicationModel::DataTransfer::DataRequestedEventArgs> const& eventHandler) const
+    template <typename D> typename consume_Windows_ApplicationModel_DataTransfer_IDataTransferManager<D>::DataRequested_revoker consume_Windows_ApplicationModel_DataTransfer_IDataTransferManager<D>::DataRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataTransferManager, Windows::ApplicationModel::DataTransfer::DataRequestedEventArgs> const& handler) const
     {
-        return impl::make_event_revoker<D, DataRequested_revoker>(this, DataRequested(eventHandler));
+        return impl::make_event_revoker<D, DataRequested_revoker>(this, DataRequested(handler));
     }
-    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_DataTransfer_IDataTransferManager<D>::DataRequested(winrt::event_token const& eventCookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_DataTransfer_IDataTransferManager<D>::DataRequested(winrt::event_token const& token) const noexcept
     {
-        WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::ApplicationModel::DataTransfer::IDataTransferManager)->remove_DataRequested(impl::bind_in(eventCookie)));
+        WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::ApplicationModel::DataTransfer::IDataTransferManager)->remove_DataRequested(impl::bind_in(token)));
     }
-    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_ApplicationModel_DataTransfer_IDataTransferManager<D>::TargetApplicationChosen(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataTransferManager, Windows::ApplicationModel::DataTransfer::TargetApplicationChosenEventArgs> const& eventHandler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_ApplicationModel_DataTransfer_IDataTransferManager<D>::TargetApplicationChosen(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataTransferManager, Windows::ApplicationModel::DataTransfer::TargetApplicationChosenEventArgs> const& handler) const
     {
-        winrt::event_token eventCookie{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::DataTransfer::IDataTransferManager)->add_TargetApplicationChosen(*(void**)(&eventHandler), put_abi(eventCookie)));
-        return eventCookie;
+        winrt::event_token token{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::DataTransfer::IDataTransferManager)->add_TargetApplicationChosen(*(void**)(&handler), put_abi(token)));
+        return token;
     }
-    template <typename D> typename consume_Windows_ApplicationModel_DataTransfer_IDataTransferManager<D>::TargetApplicationChosen_revoker consume_Windows_ApplicationModel_DataTransfer_IDataTransferManager<D>::TargetApplicationChosen(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataTransferManager, Windows::ApplicationModel::DataTransfer::TargetApplicationChosenEventArgs> const& eventHandler) const
+    template <typename D> typename consume_Windows_ApplicationModel_DataTransfer_IDataTransferManager<D>::TargetApplicationChosen_revoker consume_Windows_ApplicationModel_DataTransfer_IDataTransferManager<D>::TargetApplicationChosen(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataTransferManager, Windows::ApplicationModel::DataTransfer::TargetApplicationChosenEventArgs> const& handler) const
     {
-        return impl::make_event_revoker<D, TargetApplicationChosen_revoker>(this, TargetApplicationChosen(eventHandler));
+        return impl::make_event_revoker<D, TargetApplicationChosen_revoker>(this, TargetApplicationChosen(handler));
     }
-    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_DataTransfer_IDataTransferManager<D>::TargetApplicationChosen(winrt::event_token const& eventCookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_DataTransfer_IDataTransferManager<D>::TargetApplicationChosen(winrt::event_token const& token) const noexcept
     {
-        WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::ApplicationModel::DataTransfer::IDataTransferManager)->remove_TargetApplicationChosen(impl::bind_in(eventCookie)));
+        WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::ApplicationModel::DataTransfer::IDataTransferManager)->remove_TargetApplicationChosen(impl::bind_in(token)));
     }
     template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_ApplicationModel_DataTransfer_IDataTransferManager2<D>::ShareProvidersRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataTransferManager, Windows::ApplicationModel::DataTransfer::ShareProvidersRequestedEventArgs> const& handler) const
     {
@@ -759,15 +759,15 @@ namespace winrt::impl
     }
     template <typename D> WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DataTransferManager) consume_Windows_ApplicationModel_DataTransfer_IDataTransferManagerStatics<D>::GetForCurrentView() const
     {
-        void* value{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::DataTransfer::IDataTransferManagerStatics)->GetForCurrentView(&value));
-        return Windows::ApplicationModel::DataTransfer::DataTransferManager{ value, take_ownership_from_abi };
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::DataTransfer::IDataTransferManagerStatics)->GetForCurrentView(&result));
+        return Windows::ApplicationModel::DataTransfer::DataTransferManager{ result, take_ownership_from_abi };
     }
     template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_ApplicationModel_DataTransfer_IDataTransferManagerStatics2<D>::IsSupported() const
     {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::DataTransfer::IDataTransferManagerStatics2)->IsSupported(&value));
-        return value;
+        bool result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::DataTransfer::IDataTransferManagerStatics2)->IsSupported(&result));
+        return result;
     }
     template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_ApplicationModel_DataTransfer_IDataTransferManagerStatics3<D>::ShowShareUI(Windows::ApplicationModel::DataTransfer::ShareUIOptions const& options) const
     {
@@ -867,9 +867,9 @@ namespace winrt::impl
     }
     template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Deferral) consume_Windows_ApplicationModel_DataTransfer_IShareProvidersRequestedEventArgs<D>::GetDeferral() const
     {
-        void* value{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::DataTransfer::IShareProvidersRequestedEventArgs)->GetDeferral(&value));
-        return Windows::Foundation::Deferral{ value, take_ownership_from_abi };
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::DataTransfer::IShareProvidersRequestedEventArgs)->GetDeferral(&result));
+        return Windows::Foundation::Deferral{ result, take_ownership_from_abi };
     }
     template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_ApplicationModel_DataTransfer_IShareTargetInfo<D>::AppUserModelId() const
     {
@@ -2066,11 +2066,11 @@ namespace winrt::impl
             return 0;
         }
         catch (...) { return to_hresult(); }
-        int32_t __stdcall GetDeferral(void** value) noexcept final try
+        int32_t __stdcall GetDeferral(void** result) noexcept final try
         {
-            clear_abi(value);
+            clear_abi(result);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<Windows::ApplicationModel::DataTransfer::DataRequestDeferral>(this->shim().GetDeferral());
+            *result = detach_from<Windows::ApplicationModel::DataTransfer::DataRequestDeferral>(this->shim().GetDeferral());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2107,32 +2107,32 @@ namespace winrt::impl
     template <typename D>
     struct produce<D, Windows::ApplicationModel::DataTransfer::IDataTransferManager> : produce_base<D, Windows::ApplicationModel::DataTransfer::IDataTransferManager>
     {
-        int32_t __stdcall add_DataRequested(void* eventHandler, winrt::event_token* eventCookie) noexcept final try
+        int32_t __stdcall add_DataRequested(void* handler, winrt::event_token* token) noexcept final try
         {
-            zero_abi<winrt::event_token>(eventCookie);
+            zero_abi<winrt::event_token>(token);
             typename D::abi_guard guard(this->shim());
-            *eventCookie = detach_from<winrt::event_token>(this->shim().DataRequested(*reinterpret_cast<Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataTransferManager, Windows::ApplicationModel::DataTransfer::DataRequestedEventArgs> const*>(&eventHandler)));
+            *token = detach_from<winrt::event_token>(this->shim().DataRequested(*reinterpret_cast<Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataTransferManager, Windows::ApplicationModel::DataTransfer::DataRequestedEventArgs> const*>(&handler)));
             return 0;
         }
         catch (...) { return to_hresult(); }
-        int32_t __stdcall remove_DataRequested(winrt::event_token eventCookie) noexcept final
+        int32_t __stdcall remove_DataRequested(winrt::event_token token) noexcept final
         {
             typename D::abi_guard guard(this->shim());
-            this->shim().DataRequested(*reinterpret_cast<winrt::event_token const*>(&eventCookie));
+            this->shim().DataRequested(*reinterpret_cast<winrt::event_token const*>(&token));
             return 0;
         }
-        int32_t __stdcall add_TargetApplicationChosen(void* eventHandler, winrt::event_token* eventCookie) noexcept final try
+        int32_t __stdcall add_TargetApplicationChosen(void* handler, winrt::event_token* token) noexcept final try
         {
-            zero_abi<winrt::event_token>(eventCookie);
+            zero_abi<winrt::event_token>(token);
             typename D::abi_guard guard(this->shim());
-            *eventCookie = detach_from<winrt::event_token>(this->shim().TargetApplicationChosen(*reinterpret_cast<Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataTransferManager, Windows::ApplicationModel::DataTransfer::TargetApplicationChosenEventArgs> const*>(&eventHandler)));
+            *token = detach_from<winrt::event_token>(this->shim().TargetApplicationChosen(*reinterpret_cast<Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataTransferManager, Windows::ApplicationModel::DataTransfer::TargetApplicationChosenEventArgs> const*>(&handler)));
             return 0;
         }
         catch (...) { return to_hresult(); }
-        int32_t __stdcall remove_TargetApplicationChosen(winrt::event_token eventCookie) noexcept final
+        int32_t __stdcall remove_TargetApplicationChosen(winrt::event_token token) noexcept final
         {
             typename D::abi_guard guard(this->shim());
-            this->shim().TargetApplicationChosen(*reinterpret_cast<winrt::event_token const*>(&eventCookie));
+            this->shim().TargetApplicationChosen(*reinterpret_cast<winrt::event_token const*>(&token));
             return 0;
         }
     };
@@ -2168,11 +2168,11 @@ namespace winrt::impl
             return 0;
         }
         catch (...) { return to_hresult(); }
-        int32_t __stdcall GetForCurrentView(void** value) noexcept final try
+        int32_t __stdcall GetForCurrentView(void** result) noexcept final try
         {
-            clear_abi(value);
+            clear_abi(result);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<Windows::ApplicationModel::DataTransfer::DataTransferManager>(this->shim().GetForCurrentView());
+            *result = detach_from<Windows::ApplicationModel::DataTransfer::DataTransferManager>(this->shim().GetForCurrentView());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2182,10 +2182,10 @@ namespace winrt::impl
     template <typename D>
     struct produce<D, Windows::ApplicationModel::DataTransfer::IDataTransferManagerStatics2> : produce_base<D, Windows::ApplicationModel::DataTransfer::IDataTransferManagerStatics2>
     {
-        int32_t __stdcall IsSupported(bool* value) noexcept final try
+        int32_t __stdcall IsSupported(bool* result) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<bool>(this->shim().IsSupported());
+            *result = detach_from<bool>(this->shim().IsSupported());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2375,11 +2375,11 @@ namespace winrt::impl
             return 0;
         }
         catch (...) { return to_hresult(); }
-        int32_t __stdcall GetDeferral(void** value) noexcept final try
+        int32_t __stdcall GetDeferral(void** result) noexcept final try
         {
-            clear_abi(value);
+            clear_abi(result);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<Windows::Foundation::Deferral>(this->shim().GetDeferral());
+            *result = detach_from<Windows::Foundation::Deferral>(this->shim().GetDeferral());
             return 0;
         }
         catch (...) { return to_hresult(); }

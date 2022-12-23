@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -89,10 +89,10 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Globalization::DateTimeFormatting::IDateTimeFormatter2> = L"Windows.Globalization.DateTimeFormatting.IDateTimeFormatter2";
     template <> inline constexpr auto& name_v<Windows::Globalization::DateTimeFormatting::IDateTimeFormatterFactory> = L"Windows.Globalization.DateTimeFormatting.IDateTimeFormatterFactory";
     template <> inline constexpr auto& name_v<Windows::Globalization::DateTimeFormatting::IDateTimeFormatterStatics> = L"Windows.Globalization.DateTimeFormatting.IDateTimeFormatterStatics";
-    template <> inline constexpr guid guid_v<Windows::Globalization::DateTimeFormatting::IDateTimeFormatter>{ 0x95EECA10,0x73E0,0x4E4B,{ 0xA1,0x83,0x3D,0x6A,0xD0,0xBA,0x35,0xEC } };
-    template <> inline constexpr guid guid_v<Windows::Globalization::DateTimeFormatting::IDateTimeFormatter2>{ 0x27C91A86,0xBDAA,0x4FD0,{ 0x9E,0x36,0x67,0x1D,0x5A,0xA5,0xEE,0x03 } };
-    template <> inline constexpr guid guid_v<Windows::Globalization::DateTimeFormatting::IDateTimeFormatterFactory>{ 0xEC8D8A53,0x1A2E,0x412D,{ 0x88,0x15,0x3B,0x74,0x5F,0xB1,0xA2,0xA0 } };
-    template <> inline constexpr guid guid_v<Windows::Globalization::DateTimeFormatting::IDateTimeFormatterStatics>{ 0xBFCDE7C0,0xDF4C,0x4A2E,{ 0x90,0x12,0xF4,0x7D,0xAF,0x3F,0x12,0x12 } };
+    template <> inline constexpr guid guid_v<Windows::Globalization::DateTimeFormatting::IDateTimeFormatter>{ 0x95EECA10,0x73E0,0x4E4B,{ 0xA1,0x83,0x3D,0x6A,0xD0,0xBA,0x35,0xEC } }; // 95EECA10-73E0-4E4B-A183-3D6AD0BA35EC
+    template <> inline constexpr guid guid_v<Windows::Globalization::DateTimeFormatting::IDateTimeFormatter2>{ 0x27C91A86,0xBDAA,0x4FD0,{ 0x9E,0x36,0x67,0x1D,0x5A,0xA5,0xEE,0x03 } }; // 27C91A86-BDAA-4FD0-9E36-671D5AA5EE03
+    template <> inline constexpr guid guid_v<Windows::Globalization::DateTimeFormatting::IDateTimeFormatterFactory>{ 0xEC8D8A53,0x1A2E,0x412D,{ 0x88,0x15,0x3B,0x74,0x5F,0xB1,0xA2,0xA0 } }; // EC8D8A53-1A2E-412D-8815-3B745FB1A2A0
+    template <> inline constexpr guid guid_v<Windows::Globalization::DateTimeFormatting::IDateTimeFormatterStatics>{ 0xBFCDE7C0,0xDF4C,0x4A2E,{ 0x90,0x12,0xF4,0x7D,0xAF,0x3F,0x12,0x12 } }; // BFCDE7C0-DF4C-4A2E-9012-F47DAF3F1212
     template <> struct default_interface<Windows::Globalization::DateTimeFormatting::DateTimeFormatter>{ using type = Windows::Globalization::DateTimeFormatting::IDateTimeFormatter; };
     template <> struct abi<Windows::Globalization::DateTimeFormatting::IDateTimeFormatter>
     {

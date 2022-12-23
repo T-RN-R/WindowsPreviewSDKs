@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -41,11 +41,11 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::System::Profile::SystemManufacturers::ISystemSupportDeviceInfo> = L"Windows.System.Profile.SystemManufacturers.ISystemSupportDeviceInfo";
     template <> inline constexpr auto& name_v<Windows::System::Profile::SystemManufacturers::ISystemSupportInfoStatics> = L"Windows.System.Profile.SystemManufacturers.ISystemSupportInfoStatics";
     template <> inline constexpr auto& name_v<Windows::System::Profile::SystemManufacturers::ISystemSupportInfoStatics2> = L"Windows.System.Profile.SystemManufacturers.ISystemSupportInfoStatics2";
-    template <> inline constexpr guid guid_v<Windows::System::Profile::SystemManufacturers::IOemSupportInfo>{ 0x8D2EAE55,0x87EF,0x4266,{ 0x86,0xD0,0xC4,0xAF,0xBE,0xB2,0x9B,0xB9 } };
-    template <> inline constexpr guid guid_v<Windows::System::Profile::SystemManufacturers::ISmbiosInformationStatics>{ 0x080CCA7C,0x637C,0x48C4,{ 0xB7,0x28,0xF9,0x27,0x38,0x12,0xDB,0x8E } };
-    template <> inline constexpr guid guid_v<Windows::System::Profile::SystemManufacturers::ISystemSupportDeviceInfo>{ 0x05880B99,0x8247,0x441B,{ 0xA9,0x96,0xA1,0x78,0x4B,0xAB,0x79,0xA8 } };
-    template <> inline constexpr guid guid_v<Windows::System::Profile::SystemManufacturers::ISystemSupportInfoStatics>{ 0xEF750974,0xC422,0x45D7,{ 0xA4,0x4D,0x5C,0x1C,0x00,0x43,0xA2,0xB3 } };
-    template <> inline constexpr guid guid_v<Windows::System::Profile::SystemManufacturers::ISystemSupportInfoStatics2>{ 0x33F349A4,0x3FA1,0x4986,{ 0xAA,0x4B,0x05,0x74,0x20,0x45,0x5E,0x6D } };
+    template <> inline constexpr guid guid_v<Windows::System::Profile::SystemManufacturers::IOemSupportInfo>{ 0x8D2EAE55,0x87EF,0x4266,{ 0x86,0xD0,0xC4,0xAF,0xBE,0xB2,0x9B,0xB9 } }; // 8D2EAE55-87EF-4266-86D0-C4AFBEB29BB9
+    template <> inline constexpr guid guid_v<Windows::System::Profile::SystemManufacturers::ISmbiosInformationStatics>{ 0x080CCA7C,0x637C,0x48C4,{ 0xB7,0x28,0xF9,0x27,0x38,0x12,0xDB,0x8E } }; // 080CCA7C-637C-48C4-B728-F9273812DB8E
+    template <> inline constexpr guid guid_v<Windows::System::Profile::SystemManufacturers::ISystemSupportDeviceInfo>{ 0x05880B99,0x8247,0x441B,{ 0xA9,0x96,0xA1,0x78,0x4B,0xAB,0x79,0xA8 } }; // 05880B99-8247-441B-A996-A1784BAB79A8
+    template <> inline constexpr guid guid_v<Windows::System::Profile::SystemManufacturers::ISystemSupportInfoStatics>{ 0xEF750974,0xC422,0x45D7,{ 0xA4,0x4D,0x5C,0x1C,0x00,0x43,0xA2,0xB3 } }; // EF750974-C422-45D7-A44D-5C1C0043A2B3
+    template <> inline constexpr guid guid_v<Windows::System::Profile::SystemManufacturers::ISystemSupportInfoStatics2>{ 0x33F349A4,0x3FA1,0x4986,{ 0xAA,0x4B,0x05,0x74,0x20,0x45,0x5E,0x6D } }; // 33F349A4-3FA1-4986-AA4B-057420455E6D
     template <> struct default_interface<Windows::System::Profile::SystemManufacturers::OemSupportInfo>{ using type = Windows::System::Profile::SystemManufacturers::IOemSupportInfo; };
     template <> struct default_interface<Windows::System::Profile::SystemManufacturers::SystemSupportDeviceInfo>{ using type = Windows::System::Profile::SystemManufacturers::ISystemSupportDeviceInfo; };
     template <> struct abi<Windows::System::Profile::SystemManufacturers::IOemSupportInfo>

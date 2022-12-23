@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -58,11 +58,11 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Networking::IHostName> = L"Windows.Networking.IHostName";
     template <> inline constexpr auto& name_v<Windows::Networking::IHostNameFactory> = L"Windows.Networking.IHostNameFactory";
     template <> inline constexpr auto& name_v<Windows::Networking::IHostNameStatics> = L"Windows.Networking.IHostNameStatics";
-    template <> inline constexpr guid guid_v<Windows::Networking::IEndpointPair>{ 0x33A0AA36,0xF8FA,0x4B30,{ 0xB8,0x56,0x76,0x51,0x7C,0x3B,0xD0,0x6D } };
-    template <> inline constexpr guid guid_v<Windows::Networking::IEndpointPairFactory>{ 0xB609D971,0x64E0,0x442B,{ 0xAA,0x6F,0xCC,0x8C,0x8F,0x18,0x1F,0x78 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::IHostName>{ 0xBF8ECAAD,0xED96,0x49A7,{ 0x90,0x84,0xD4,0x16,0xCA,0xE8,0x8D,0xCB } };
-    template <> inline constexpr guid guid_v<Windows::Networking::IHostNameFactory>{ 0x458C23ED,0x712F,0x4576,{ 0xAD,0xF1,0xC2,0x0B,0x2C,0x64,0x35,0x58 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::IHostNameStatics>{ 0xF68CD4BF,0xA388,0x4E8B,{ 0x91,0xEA,0x54,0xDD,0x6D,0xD9,0x01,0xC0 } };
+    template <> inline constexpr guid guid_v<Windows::Networking::IEndpointPair>{ 0x33A0AA36,0xF8FA,0x4B30,{ 0xB8,0x56,0x76,0x51,0x7C,0x3B,0xD0,0x6D } }; // 33A0AA36-F8FA-4B30-B856-76517C3BD06D
+    template <> inline constexpr guid guid_v<Windows::Networking::IEndpointPairFactory>{ 0xB609D971,0x64E0,0x442B,{ 0xAA,0x6F,0xCC,0x8C,0x8F,0x18,0x1F,0x78 } }; // B609D971-64E0-442B-AA6F-CC8C8F181F78
+    template <> inline constexpr guid guid_v<Windows::Networking::IHostName>{ 0xBF8ECAAD,0xED96,0x49A7,{ 0x90,0x84,0xD4,0x16,0xCA,0xE8,0x8D,0xCB } }; // BF8ECAAD-ED96-49A7-9084-D416CAE88DCB
+    template <> inline constexpr guid guid_v<Windows::Networking::IHostNameFactory>{ 0x458C23ED,0x712F,0x4576,{ 0xAD,0xF1,0xC2,0x0B,0x2C,0x64,0x35,0x58 } }; // 458C23ED-712F-4576-ADF1-C20B2C643558
+    template <> inline constexpr guid guid_v<Windows::Networking::IHostNameStatics>{ 0xF68CD4BF,0xA388,0x4E8B,{ 0x91,0xEA,0x54,0xDD,0x6D,0xD9,0x01,0xC0 } }; // F68CD4BF-A388-4E8B-91EA-54DD6DD901C0
     template <> struct default_interface<Windows::Networking::EndpointPair>{ using type = Windows::Networking::IEndpointPair; };
     template <> struct default_interface<Windows::Networking::HostName>{ using type = Windows::Networking::IHostName; };
     template <> struct abi<Windows::Networking::IEndpointPair>

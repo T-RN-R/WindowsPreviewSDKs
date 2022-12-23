@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -229,23 +229,23 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Media::Import::IPhotoImportSourceStatics> = L"Windows.Media.Import.IPhotoImportSourceStatics";
     template <> inline constexpr auto& name_v<Windows::Media::Import::IPhotoImportStorageMedium> = L"Windows.Media.Import.IPhotoImportStorageMedium";
     template <> inline constexpr auto& name_v<Windows::Media::Import::IPhotoImportVideoSegment> = L"Windows.Media.Import.IPhotoImportVideoSegment";
-    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportDeleteImportedItemsFromSourceResult>{ 0xF4E112F8,0x843D,0x428A,{ 0xA1,0xA6,0x81,0x51,0x02,0x92,0xB0,0xAE } };
-    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportFindItemsResult>{ 0x3915E647,0x6C78,0x492B,{ 0x84,0x4E,0x8F,0xE5,0xE8,0xF6,0xBF,0xB9 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportFindItemsResult2>{ 0xFBDD6A3B,0xECF9,0x406A,{ 0x81,0x5E,0x50,0x15,0x62,0x5B,0x0A,0x88 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportImportItemsResult>{ 0xE4D4F478,0xD419,0x4443,{ 0xA8,0x4E,0xF0,0x6A,0x85,0x0C,0x0B,0x00 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportItem>{ 0xA9D07E76,0x9BFC,0x43B8,{ 0xB3,0x56,0x63,0x3B,0x6A,0x98,0x8C,0x9E } };
-    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportItem2>{ 0xF1053505,0xF53B,0x46A3,{ 0x9E,0x30,0x36,0x10,0x79,0x1A,0x91,0x10 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportItemImportedEventArgs>{ 0x42CB2FDD,0x7D68,0x47B5,{ 0xBC,0x7C,0xCE,0xB7,0x3E,0x0C,0x77,0xDC } };
-    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportManagerStatics>{ 0x2771903D,0xA046,0x4F06,{ 0x9B,0x9C,0xBF,0xD6,0x62,0xE8,0x32,0x87 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportOperation>{ 0xD9F797E4,0xA09A,0x4EE4,{ 0xA4,0xB1,0x20,0x94,0x02,0x77,0xA5,0xBE } };
-    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportSelectionChangedEventArgs>{ 0x10461782,0xFA9D,0x4C30,{ 0x8B,0xC9,0x4D,0x64,0x91,0x15,0x72,0xD5 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportSession>{ 0xAA63916E,0xECDB,0x4EFE,{ 0x94,0xC6,0x5F,0x5C,0xAF,0xE3,0x4C,0xFB } };
-    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportSession2>{ 0x2A526710,0x3EC6,0x469D,{ 0xA3,0x75,0x2B,0x9F,0x47,0x85,0x39,0x1E } };
-    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportSidecar>{ 0x46D7D757,0xF802,0x44C7,{ 0x9C,0x98,0x7A,0x71,0xF4,0xBC,0x14,0x86 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportSource>{ 0x1F8EA35E,0x145B,0x4CD6,{ 0x87,0xF1,0x54,0x96,0x5A,0x98,0x2F,0xEF } };
-    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportSourceStatics>{ 0x0528E586,0x32D8,0x467C,{ 0x8C,0xEE,0x23,0xA1,0xB2,0xF4,0x3E,0x85 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportStorageMedium>{ 0xF2B9B093,0xFC85,0x487F,{ 0x87,0xC2,0x58,0xD6,0x75,0xD0,0x5B,0x07 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportVideoSegment>{ 0x623C0289,0x321A,0x41D8,{ 0x91,0x66,0x8C,0x62,0xA3,0x33,0x27,0x6C } };
+    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportDeleteImportedItemsFromSourceResult>{ 0xF4E112F8,0x843D,0x428A,{ 0xA1,0xA6,0x81,0x51,0x02,0x92,0xB0,0xAE } }; // F4E112F8-843D-428A-A1A6-81510292B0AE
+    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportFindItemsResult>{ 0x3915E647,0x6C78,0x492B,{ 0x84,0x4E,0x8F,0xE5,0xE8,0xF6,0xBF,0xB9 } }; // 3915E647-6C78-492B-844E-8FE5E8F6BFB9
+    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportFindItemsResult2>{ 0xFBDD6A3B,0xECF9,0x406A,{ 0x81,0x5E,0x50,0x15,0x62,0x5B,0x0A,0x88 } }; // FBDD6A3B-ECF9-406A-815E-5015625B0A88
+    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportImportItemsResult>{ 0xE4D4F478,0xD419,0x4443,{ 0xA8,0x4E,0xF0,0x6A,0x85,0x0C,0x0B,0x00 } }; // E4D4F478-D419-4443-A84E-F06A850C0B00
+    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportItem>{ 0xA9D07E76,0x9BFC,0x43B8,{ 0xB3,0x56,0x63,0x3B,0x6A,0x98,0x8C,0x9E } }; // A9D07E76-9BFC-43B8-B356-633B6A988C9E
+    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportItem2>{ 0xF1053505,0xF53B,0x46A3,{ 0x9E,0x30,0x36,0x10,0x79,0x1A,0x91,0x10 } }; // F1053505-F53B-46A3-9E30-3610791A9110
+    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportItemImportedEventArgs>{ 0x42CB2FDD,0x7D68,0x47B5,{ 0xBC,0x7C,0xCE,0xB7,0x3E,0x0C,0x77,0xDC } }; // 42CB2FDD-7D68-47B5-BC7C-CEB73E0C77DC
+    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportManagerStatics>{ 0x2771903D,0xA046,0x4F06,{ 0x9B,0x9C,0xBF,0xD6,0x62,0xE8,0x32,0x87 } }; // 2771903D-A046-4F06-9B9C-BFD662E83287
+    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportOperation>{ 0xD9F797E4,0xA09A,0x4EE4,{ 0xA4,0xB1,0x20,0x94,0x02,0x77,0xA5,0xBE } }; // D9F797E4-A09A-4EE4-A4B1-20940277A5BE
+    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportSelectionChangedEventArgs>{ 0x10461782,0xFA9D,0x4C30,{ 0x8B,0xC9,0x4D,0x64,0x91,0x15,0x72,0xD5 } }; // 10461782-FA9D-4C30-8BC9-4D64911572D5
+    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportSession>{ 0xAA63916E,0xECDB,0x4EFE,{ 0x94,0xC6,0x5F,0x5C,0xAF,0xE3,0x4C,0xFB } }; // AA63916E-ECDB-4EFE-94C6-5F5CAFE34CFB
+    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportSession2>{ 0x2A526710,0x3EC6,0x469D,{ 0xA3,0x75,0x2B,0x9F,0x47,0x85,0x39,0x1E } }; // 2A526710-3EC6-469D-A375-2B9F4785391E
+    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportSidecar>{ 0x46D7D757,0xF802,0x44C7,{ 0x9C,0x98,0x7A,0x71,0xF4,0xBC,0x14,0x86 } }; // 46D7D757-F802-44C7-9C98-7A71F4BC1486
+    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportSource>{ 0x1F8EA35E,0x145B,0x4CD6,{ 0x87,0xF1,0x54,0x96,0x5A,0x98,0x2F,0xEF } }; // 1F8EA35E-145B-4CD6-87F1-54965A982FEF
+    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportSourceStatics>{ 0x0528E586,0x32D8,0x467C,{ 0x8C,0xEE,0x23,0xA1,0xB2,0xF4,0x3E,0x85 } }; // 0528E586-32D8-467C-8CEE-23A1B2F43E85
+    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportStorageMedium>{ 0xF2B9B093,0xFC85,0x487F,{ 0x87,0xC2,0x58,0xD6,0x75,0xD0,0x5B,0x07 } }; // F2B9B093-FC85-487F-87C2-58D675D05B07
+    template <> inline constexpr guid guid_v<Windows::Media::Import::IPhotoImportVideoSegment>{ 0x623C0289,0x321A,0x41D8,{ 0x91,0x66,0x8C,0x62,0xA3,0x33,0x27,0x6C } }; // 623C0289-321A-41D8-9166-8C62A333276C
     template <> struct default_interface<Windows::Media::Import::PhotoImportDeleteImportedItemsFromSourceResult>{ using type = Windows::Media::Import::IPhotoImportDeleteImportedItemsFromSourceResult; };
     template <> struct default_interface<Windows::Media::Import::PhotoImportFindItemsResult>{ using type = Windows::Media::Import::IPhotoImportFindItemsResult; };
     template <> struct default_interface<Windows::Media::Import::PhotoImportImportItemsResult>{ using type = Windows::Media::Import::IPhotoImportImportItemsResult; };

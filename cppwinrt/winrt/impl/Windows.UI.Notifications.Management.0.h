@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -43,8 +43,8 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Notifications::Management::UserNotificationListenerAccessStatus> = L"Windows.UI.Notifications.Management.UserNotificationListenerAccessStatus";
     template <> inline constexpr auto& name_v<Windows::UI::Notifications::Management::IUserNotificationListener> = L"Windows.UI.Notifications.Management.IUserNotificationListener";
     template <> inline constexpr auto& name_v<Windows::UI::Notifications::Management::IUserNotificationListenerStatics> = L"Windows.UI.Notifications.Management.IUserNotificationListenerStatics";
-    template <> inline constexpr guid guid_v<Windows::UI::Notifications::Management::IUserNotificationListener>{ 0x62553E41,0x8A06,0x4CEF,{ 0x82,0x15,0x60,0x33,0xA5,0xBE,0x4B,0x03 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Notifications::Management::IUserNotificationListenerStatics>{ 0xFF6123CF,0x4386,0x4AA3,{ 0xB7,0x3D,0xB8,0x04,0xE5,0xB6,0x3B,0x23 } };
+    template <> inline constexpr guid guid_v<Windows::UI::Notifications::Management::IUserNotificationListener>{ 0x62553E41,0x8A06,0x4CEF,{ 0x82,0x15,0x60,0x33,0xA5,0xBE,0x4B,0x03 } }; // 62553E41-8A06-4CEF-8215-6033A5BE4B03
+    template <> inline constexpr guid guid_v<Windows::UI::Notifications::Management::IUserNotificationListenerStatics>{ 0xFF6123CF,0x4386,0x4AA3,{ 0xB7,0x3D,0xB8,0x04,0xE5,0xB6,0x3B,0x23 } }; // FF6123CF-4386-4AA3-B73D-B804E5B63B23
     template <> struct default_interface<Windows::UI::Notifications::Management::UserNotificationListener>{ using type = Windows::UI::Notifications::Management::IUserNotificationListener; };
     template <> struct abi<Windows::UI::Notifications::Management::IUserNotificationListener>
     {

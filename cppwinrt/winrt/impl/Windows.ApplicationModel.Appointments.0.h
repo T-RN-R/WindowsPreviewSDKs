@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -349,39 +349,39 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentStoreChangedEventArgs> = L"Windows.ApplicationModel.Appointments.IAppointmentStoreChangedEventArgs";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentStoreNotificationTriggerDetails> = L"Windows.ApplicationModel.Appointments.IAppointmentStoreNotificationTriggerDetails";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IFindAppointmentsOptions> = L"Windows.ApplicationModel.Appointments.IFindAppointmentsOptions";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointment>{ 0xDD002F2F,0x2BDD,0x4076,{ 0x90,0xA3,0x22,0xC2,0x75,0x31,0x29,0x65 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointment2>{ 0x5E85983C,0x540F,0x3452,{ 0x9B,0x5C,0x0D,0xD7,0xAD,0x4C,0x65,0xA2 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointment3>{ 0xBFCC45A9,0x8961,0x4991,{ 0x93,0x4B,0xC4,0x87,0x68,0xE5,0xA9,0x6C } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentCalendar>{ 0x5273819D,0x8339,0x3D4F,{ 0xA0,0x2F,0x64,0x08,0x44,0x52,0xBB,0x5D } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentCalendar2>{ 0x18E7E422,0x2467,0x4E1C,{ 0xA4,0x59,0xD8,0xA2,0x93,0x03,0xD0,0x92 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentCalendar3>{ 0xEB23D22B,0xA685,0x42AE,{ 0x84,0x95,0xB3,0x11,0x9A,0xDB,0x41,0x67 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentCalendarSyncManager>{ 0x2B21B3A0,0x4AFF,0x4392,{ 0xBC,0x5F,0x56,0x45,0xFF,0xCF,0xFB,0x17 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentCalendarSyncManager2>{ 0x647528AD,0x0D29,0x4C7C,{ 0xAA,0xA7,0xBF,0x99,0x68,0x05,0x53,0x7C } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentConflictResult>{ 0xD5CDF0BE,0x2F2F,0x3B7D,{ 0xAF,0x0A,0xA7,0xE2,0x0F,0x3A,0x46,0xE3 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentException>{ 0xA2076767,0x16F6,0x4BCE,{ 0x9F,0x5A,0x86,0x00,0xB8,0x01,0x9F,0xCB } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentInvitee>{ 0x13BF0796,0x9842,0x495B,{ 0xB0,0xE7,0xEF,0x8F,0x79,0xC0,0x70,0x1D } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentManagerForUser>{ 0x70261423,0x73CC,0x4660,{ 0xB3,0x18,0xB0,0x13,0x65,0x30,0x2A,0x03 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentManagerStatics>{ 0x3A30FA01,0x5C40,0x499D,{ 0xB3,0x3F,0xA4,0x30,0x50,0xF7,0x4F,0xC4 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentManagerStatics2>{ 0x0A81F60D,0xD04F,0x4034,{ 0xAF,0x72,0xA3,0x65,0x73,0xB4,0x5F,0xF0 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentManagerStatics3>{ 0x2F9AE09C,0xB34C,0x4DC7,{ 0xA3,0x5D,0xCA,0xFD,0x88,0xAE,0x3E,0xC6 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentParticipant>{ 0x615E2902,0x9718,0x467B,{ 0x83,0xFB,0xB2,0x93,0xA1,0x91,0x21,0xDE } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentPropertiesStatics>{ 0x25141FE9,0x68AE,0x3AAE,{ 0x85,0x5F,0xBC,0x44,0x41,0xCA,0xA2,0x34 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentPropertiesStatics2>{ 0xDFFC434B,0xB017,0x45DD,{ 0x8A,0xF5,0xD1,0x63,0xD1,0x08,0x01,0xBB } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentRecurrence>{ 0xD87B3E83,0x15A6,0x487B,{ 0xB9,0x59,0x0C,0x36,0x1E,0x60,0xE9,0x54 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentRecurrence2>{ 0x3DF3A2E0,0x05A7,0x4F50,{ 0x9F,0x86,0xB0,0x3F,0x94,0x36,0x25,0x4D } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentRecurrence3>{ 0x89FF96D9,0xDA4D,0x4A17,{ 0x8D,0xD2,0x1C,0xEB,0xC2,0xB5,0xFF,0x9D } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentStore>{ 0xA461918C,0x7A47,0x4D96,{ 0x96,0xC9,0x15,0xCD,0x8A,0x05,0xA7,0x35 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentStore2>{ 0x25C48C20,0x1C41,0x424F,{ 0x80,0x84,0x67,0xC1,0xCF,0xE0,0xA8,0x54 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentStore3>{ 0x4251940B,0xB078,0x470A,{ 0x9A,0x40,0xC2,0xE0,0x17,0x61,0xF7,0x2F } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentStoreChange>{ 0xA5A6E035,0x0A33,0x3654,{ 0x84,0x63,0xB5,0x43,0xE9,0x0C,0x3B,0x79 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentStoreChange2>{ 0xB37D0DCE,0x5211,0x4402,{ 0xA6,0x08,0xA9,0x6F,0xE7,0x0B,0x8E,0xE2 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentStoreChangeReader>{ 0x8B2409F1,0x65F3,0x42A0,{ 0x96,0x1D,0x4C,0x20,0x9B,0xF3,0x03,0x70 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentStoreChangeTracker>{ 0x1B25F4B1,0x8ECE,0x4F17,{ 0x93,0xC8,0xE6,0x41,0x24,0x58,0xFD,0x5C } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentStoreChangeTracker2>{ 0xB66AAF45,0x9542,0x4CF7,{ 0x85,0x50,0xEB,0x37,0x0E,0x0C,0x08,0xD3 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentStoreChangedDeferral>{ 0x4CB82026,0xFEDB,0x4BC3,{ 0x96,0x62,0x95,0xA9,0xBE,0xFD,0xF4,0xDF } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentStoreChangedEventArgs>{ 0x2285F8B9,0x0791,0x417E,{ 0xBF,0xEA,0xCC,0x6D,0x41,0x63,0x6C,0x8C } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentStoreNotificationTriggerDetails>{ 0x9B33CB11,0xC301,0x421E,{ 0xAF,0xEF,0x04,0x7E,0xCF,0xA7,0x6A,0xDB } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IFindAppointmentsOptions>{ 0x55F7DC55,0x9942,0x3086,{ 0x82,0xB5,0x2C,0xB2,0x9F,0x64,0xD5,0xF5 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointment>{ 0xDD002F2F,0x2BDD,0x4076,{ 0x90,0xA3,0x22,0xC2,0x75,0x31,0x29,0x65 } }; // DD002F2F-2BDD-4076-90A3-22C275312965
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointment2>{ 0x5E85983C,0x540F,0x3452,{ 0x9B,0x5C,0x0D,0xD7,0xAD,0x4C,0x65,0xA2 } }; // 5E85983C-540F-3452-9B5C-0DD7AD4C65A2
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointment3>{ 0xBFCC45A9,0x8961,0x4991,{ 0x93,0x4B,0xC4,0x87,0x68,0xE5,0xA9,0x6C } }; // BFCC45A9-8961-4991-934B-C48768E5A96C
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentCalendar>{ 0x5273819D,0x8339,0x3D4F,{ 0xA0,0x2F,0x64,0x08,0x44,0x52,0xBB,0x5D } }; // 5273819D-8339-3D4F-A02F-64084452BB5D
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentCalendar2>{ 0x18E7E422,0x2467,0x4E1C,{ 0xA4,0x59,0xD8,0xA2,0x93,0x03,0xD0,0x92 } }; // 18E7E422-2467-4E1C-A459-D8A29303D092
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentCalendar3>{ 0xEB23D22B,0xA685,0x42AE,{ 0x84,0x95,0xB3,0x11,0x9A,0xDB,0x41,0x67 } }; // EB23D22B-A685-42AE-8495-B3119ADB4167
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentCalendarSyncManager>{ 0x2B21B3A0,0x4AFF,0x4392,{ 0xBC,0x5F,0x56,0x45,0xFF,0xCF,0xFB,0x17 } }; // 2B21B3A0-4AFF-4392-BC5F-5645FFCFFB17
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentCalendarSyncManager2>{ 0x647528AD,0x0D29,0x4C7C,{ 0xAA,0xA7,0xBF,0x99,0x68,0x05,0x53,0x7C } }; // 647528AD-0D29-4C7C-AAA7-BF996805537C
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentConflictResult>{ 0xD5CDF0BE,0x2F2F,0x3B7D,{ 0xAF,0x0A,0xA7,0xE2,0x0F,0x3A,0x46,0xE3 } }; // D5CDF0BE-2F2F-3B7D-AF0A-A7E20F3A46E3
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentException>{ 0xA2076767,0x16F6,0x4BCE,{ 0x9F,0x5A,0x86,0x00,0xB8,0x01,0x9F,0xCB } }; // A2076767-16F6-4BCE-9F5A-8600B8019FCB
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentInvitee>{ 0x13BF0796,0x9842,0x495B,{ 0xB0,0xE7,0xEF,0x8F,0x79,0xC0,0x70,0x1D } }; // 13BF0796-9842-495B-B0E7-EF8F79C0701D
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentManagerForUser>{ 0x70261423,0x73CC,0x4660,{ 0xB3,0x18,0xB0,0x13,0x65,0x30,0x2A,0x03 } }; // 70261423-73CC-4660-B318-B01365302A03
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentManagerStatics>{ 0x3A30FA01,0x5C40,0x499D,{ 0xB3,0x3F,0xA4,0x30,0x50,0xF7,0x4F,0xC4 } }; // 3A30FA01-5C40-499D-B33F-A43050F74FC4
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentManagerStatics2>{ 0x0A81F60D,0xD04F,0x4034,{ 0xAF,0x72,0xA3,0x65,0x73,0xB4,0x5F,0xF0 } }; // 0A81F60D-D04F-4034-AF72-A36573B45FF0
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentManagerStatics3>{ 0x2F9AE09C,0xB34C,0x4DC7,{ 0xA3,0x5D,0xCA,0xFD,0x88,0xAE,0x3E,0xC6 } }; // 2F9AE09C-B34C-4DC7-A35D-CAFD88AE3EC6
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentParticipant>{ 0x615E2902,0x9718,0x467B,{ 0x83,0xFB,0xB2,0x93,0xA1,0x91,0x21,0xDE } }; // 615E2902-9718-467B-83FB-B293A19121DE
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentPropertiesStatics>{ 0x25141FE9,0x68AE,0x3AAE,{ 0x85,0x5F,0xBC,0x44,0x41,0xCA,0xA2,0x34 } }; // 25141FE9-68AE-3AAE-855F-BC4441CAA234
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentPropertiesStatics2>{ 0xDFFC434B,0xB017,0x45DD,{ 0x8A,0xF5,0xD1,0x63,0xD1,0x08,0x01,0xBB } }; // DFFC434B-B017-45DD-8AF5-D163D10801BB
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentRecurrence>{ 0xD87B3E83,0x15A6,0x487B,{ 0xB9,0x59,0x0C,0x36,0x1E,0x60,0xE9,0x54 } }; // D87B3E83-15A6-487B-B959-0C361E60E954
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentRecurrence2>{ 0x3DF3A2E0,0x05A7,0x4F50,{ 0x9F,0x86,0xB0,0x3F,0x94,0x36,0x25,0x4D } }; // 3DF3A2E0-05A7-4F50-9F86-B03F9436254D
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentRecurrence3>{ 0x89FF96D9,0xDA4D,0x4A17,{ 0x8D,0xD2,0x1C,0xEB,0xC2,0xB5,0xFF,0x9D } }; // 89FF96D9-DA4D-4A17-8DD2-1CEBC2B5FF9D
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentStore>{ 0xA461918C,0x7A47,0x4D96,{ 0x96,0xC9,0x15,0xCD,0x8A,0x05,0xA7,0x35 } }; // A461918C-7A47-4D96-96C9-15CD8A05A735
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentStore2>{ 0x25C48C20,0x1C41,0x424F,{ 0x80,0x84,0x67,0xC1,0xCF,0xE0,0xA8,0x54 } }; // 25C48C20-1C41-424F-8084-67C1CFE0A854
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentStore3>{ 0x4251940B,0xB078,0x470A,{ 0x9A,0x40,0xC2,0xE0,0x17,0x61,0xF7,0x2F } }; // 4251940B-B078-470A-9A40-C2E01761F72F
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentStoreChange>{ 0xA5A6E035,0x0A33,0x3654,{ 0x84,0x63,0xB5,0x43,0xE9,0x0C,0x3B,0x79 } }; // A5A6E035-0A33-3654-8463-B543E90C3B79
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentStoreChange2>{ 0xB37D0DCE,0x5211,0x4402,{ 0xA6,0x08,0xA9,0x6F,0xE7,0x0B,0x8E,0xE2 } }; // B37D0DCE-5211-4402-A608-A96FE70B8EE2
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentStoreChangeReader>{ 0x8B2409F1,0x65F3,0x42A0,{ 0x96,0x1D,0x4C,0x20,0x9B,0xF3,0x03,0x70 } }; // 8B2409F1-65F3-42A0-961D-4C209BF30370
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentStoreChangeTracker>{ 0x1B25F4B1,0x8ECE,0x4F17,{ 0x93,0xC8,0xE6,0x41,0x24,0x58,0xFD,0x5C } }; // 1B25F4B1-8ECE-4F17-93C8-E6412458FD5C
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentStoreChangeTracker2>{ 0xB66AAF45,0x9542,0x4CF7,{ 0x85,0x50,0xEB,0x37,0x0E,0x0C,0x08,0xD3 } }; // B66AAF45-9542-4CF7-8550-EB370E0C08D3
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentStoreChangedDeferral>{ 0x4CB82026,0xFEDB,0x4BC3,{ 0x96,0x62,0x95,0xA9,0xBE,0xFD,0xF4,0xDF } }; // 4CB82026-FEDB-4BC3-9662-95A9BEFDF4DF
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentStoreChangedEventArgs>{ 0x2285F8B9,0x0791,0x417E,{ 0xBF,0xEA,0xCC,0x6D,0x41,0x63,0x6C,0x8C } }; // 2285F8B9-0791-417E-BFEA-CC6D41636C8C
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointmentStoreNotificationTriggerDetails>{ 0x9B33CB11,0xC301,0x421E,{ 0xAF,0xEF,0x04,0x7E,0xCF,0xA7,0x6A,0xDB } }; // 9B33CB11-C301-421E-AFEF-047ECFA76ADB
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IFindAppointmentsOptions>{ 0x55F7DC55,0x9942,0x3086,{ 0x82,0xB5,0x2C,0xB2,0x9F,0x64,0xD5,0xF5 } }; // 55F7DC55-9942-3086-82B5-2CB29F64D5F5
     template <> struct default_interface<Windows::ApplicationModel::Appointments::Appointment>{ using type = Windows::ApplicationModel::Appointments::IAppointment; };
     template <> struct default_interface<Windows::ApplicationModel::Appointments::AppointmentCalendar>{ using type = Windows::ApplicationModel::Appointments::IAppointmentCalendar; };
     template <> struct default_interface<Windows::ApplicationModel::Appointments::AppointmentCalendarSyncManager>{ using type = Windows::ApplicationModel::Appointments::IAppointmentCalendarSyncManager; };

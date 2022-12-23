@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -71,13 +71,13 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Devices::Spi::ISpiControllerStatics> = L"Windows.Devices.Spi.ISpiControllerStatics";
     template <> inline constexpr auto& name_v<Windows::Devices::Spi::ISpiDevice> = L"Windows.Devices.Spi.ISpiDevice";
     template <> inline constexpr auto& name_v<Windows::Devices::Spi::ISpiDeviceStatics> = L"Windows.Devices.Spi.ISpiDeviceStatics";
-    template <> inline constexpr guid guid_v<Windows::Devices::Spi::ISpiBusInfo>{ 0x9929444A,0x54F2,0x48C6,{ 0xB9,0x52,0x9C,0x32,0xFC,0x02,0xC6,0x69 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Spi::ISpiConnectionSettings>{ 0x5283A37F,0xF935,0x4B9F,{ 0xA7,0xA7,0x3A,0x78,0x90,0xAF,0xA5,0xCE } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Spi::ISpiConnectionSettingsFactory>{ 0xFF99081E,0x10C4,0x44B7,{ 0x9F,0xEA,0xA7,0x48,0xB5,0xA4,0x6F,0x31 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Spi::ISpiController>{ 0xA8D3C829,0x9895,0x4159,{ 0xA9,0x34,0x87,0x41,0xF1,0xEE,0x6D,0x27 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Spi::ISpiControllerStatics>{ 0x0D5229E2,0x138B,0x4E48,{ 0xB9,0x64,0x4F,0x2F,0x79,0xB9,0xC5,0xA2 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Spi::ISpiDevice>{ 0x05D5356D,0x11B6,0x4D39,{ 0x84,0xD5,0x95,0xDF,0xB4,0xC9,0xF2,0xCE } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Spi::ISpiDeviceStatics>{ 0xA278E559,0x5720,0x4D3F,{ 0xBD,0x93,0x56,0xF5,0xFF,0x5A,0x58,0x79 } };
+    template <> inline constexpr guid guid_v<Windows::Devices::Spi::ISpiBusInfo>{ 0x9929444A,0x54F2,0x48C6,{ 0xB9,0x52,0x9C,0x32,0xFC,0x02,0xC6,0x69 } }; // 9929444A-54F2-48C6-B952-9C32FC02C669
+    template <> inline constexpr guid guid_v<Windows::Devices::Spi::ISpiConnectionSettings>{ 0x5283A37F,0xF935,0x4B9F,{ 0xA7,0xA7,0x3A,0x78,0x90,0xAF,0xA5,0xCE } }; // 5283A37F-F935-4B9F-A7A7-3A7890AFA5CE
+    template <> inline constexpr guid guid_v<Windows::Devices::Spi::ISpiConnectionSettingsFactory>{ 0xFF99081E,0x10C4,0x44B7,{ 0x9F,0xEA,0xA7,0x48,0xB5,0xA4,0x6F,0x31 } }; // FF99081E-10C4-44B7-9FEA-A748B5A46F31
+    template <> inline constexpr guid guid_v<Windows::Devices::Spi::ISpiController>{ 0xA8D3C829,0x9895,0x4159,{ 0xA9,0x34,0x87,0x41,0xF1,0xEE,0x6D,0x27 } }; // A8D3C829-9895-4159-A934-8741F1EE6D27
+    template <> inline constexpr guid guid_v<Windows::Devices::Spi::ISpiControllerStatics>{ 0x0D5229E2,0x138B,0x4E48,{ 0xB9,0x64,0x4F,0x2F,0x79,0xB9,0xC5,0xA2 } }; // 0D5229E2-138B-4E48-B964-4F2F79B9C5A2
+    template <> inline constexpr guid guid_v<Windows::Devices::Spi::ISpiDevice>{ 0x05D5356D,0x11B6,0x4D39,{ 0x84,0xD5,0x95,0xDF,0xB4,0xC9,0xF2,0xCE } }; // 05D5356D-11B6-4D39-84D5-95DFB4C9F2CE
+    template <> inline constexpr guid guid_v<Windows::Devices::Spi::ISpiDeviceStatics>{ 0xA278E559,0x5720,0x4D3F,{ 0xBD,0x93,0x56,0xF5,0xFF,0x5A,0x58,0x79 } }; // A278E559-5720-4D3F-BD93-56F5FF5A5879
     template <> struct default_interface<Windows::Devices::Spi::SpiBusInfo>{ using type = Windows::Devices::Spi::ISpiBusInfo; };
     template <> struct default_interface<Windows::Devices::Spi::SpiConnectionSettings>{ using type = Windows::Devices::Spi::ISpiConnectionSettings; };
     template <> struct default_interface<Windows::Devices::Spi::SpiController>{ using type = Windows::Devices::Spi::ISpiController; };

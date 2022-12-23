@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -202,29 +202,29 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IWindowingEnvironmentChangedEventArgs> = L"Windows.UI.WindowManagement.IWindowingEnvironmentChangedEventArgs";
     template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IWindowingEnvironmentRemovedEventArgs> = L"Windows.UI.WindowManagement.IWindowingEnvironmentRemovedEventArgs";
     template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IWindowingEnvironmentStatics> = L"Windows.UI.WindowManagement.IWindowingEnvironmentStatics";
-    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindow>{ 0x663014A6,0xB75E,0x5DBD,{ 0x99,0x5C,0xF0,0x11,0x7F,0xA3,0xFB,0x61 } };
-    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowChangedEventArgs>{ 0x1DE1F3BE,0xA655,0x55AD,{ 0xB2,0xB6,0xEB,0x24,0x0F,0x88,0x03,0x56 } };
-    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowCloseRequestedEventArgs>{ 0xE9FF01DA,0xE7A2,0x57A8,{ 0x8B,0x5E,0x39,0xC4,0x00,0x3A,0xFD,0xBB } };
-    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowClosedEventArgs>{ 0xCC7DF816,0x9520,0x5A06,{ 0x82,0x1E,0x45,0x6A,0xD8,0xB3,0x58,0xAA } };
-    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowFrame>{ 0x9EE22601,0x7E5D,0x52AF,{ 0x84,0x6B,0x01,0xDC,0x6C,0x29,0x65,0x67 } };
-    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowFrameStyle>{ 0xAC412946,0xE1AC,0x5230,{ 0x94,0x4A,0xC6,0x08,0x73,0xDC,0xF4,0xA9 } };
-    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowPlacement>{ 0x03DC815E,0xE7A9,0x5857,{ 0x9C,0x03,0x7D,0x67,0x05,0x94,0x41,0x0E } };
-    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowPresentationConfiguration>{ 0xB5A43EE3,0xDF33,0x5E67,{ 0xBD,0x31,0x10,0x72,0x45,0x73,0x00,0xDF } };
-    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowPresentationConfigurationFactory>{ 0xFD3606A6,0x7875,0x5DE8,{ 0x84,0xFF,0x63,0x51,0xEE,0x13,0xDD,0x0D } };
-    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowPresenter>{ 0x5AE9ED73,0xE1FD,0x5317,{ 0xAD,0x78,0x5A,0x3E,0xD2,0x71,0xBB,0xDE } };
-    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowStatics>{ 0xFF1F3EA3,0xB769,0x50EF,{ 0x98,0x73,0x10,0x8C,0xD0,0xE8,0x97,0x46 } };
-    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowTitleBar>{ 0x6E932C84,0xF644,0x541D,{ 0xA2,0xD7,0x0C,0x26,0x24,0x37,0x84,0x2D } };
-    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowTitleBarOcclusion>{ 0xFEA3CFFD,0x2CCF,0x5FC3,{ 0xAE,0xAE,0xF8,0x43,0x87,0x6B,0xF3,0x7E } };
-    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowTitleBarVisibility>{ 0xA215A4E3,0x6E7E,0x5651,{ 0x8C,0x3B,0x62,0x48,0x19,0x52,0x81,0x54 } };
-    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::ICompactOverlayPresentationConfiguration>{ 0xA7E5750F,0x5730,0x56C6,{ 0x8E,0x1F,0xD6,0x3F,0xF4,0xD7,0x98,0x0D } };
-    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IDefaultPresentationConfiguration>{ 0xD8C2B53B,0x2168,0x5703,{ 0xA8,0x53,0xD5,0x25,0x58,0x9F,0xE2,0xB9 } };
-    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IDisplayRegion>{ 0xDB50C3A2,0x4094,0x5F47,{ 0x8C,0xB1,0xEA,0x01,0xDD,0xAF,0xAA,0x94 } };
-    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IFullScreenPresentationConfiguration>{ 0x43D3DCD8,0xD2A8,0x503D,{ 0xA6,0x26,0x15,0x53,0x3D,0x6D,0x5F,0x62 } };
-    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IWindowingEnvironment>{ 0x264363C0,0x2A49,0x5417,{ 0xB3,0xAE,0x48,0xA7,0x1C,0x63,0xA3,0xBD } };
-    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IWindowingEnvironmentAddedEventArgs>{ 0xFF2A5B7F,0xF183,0x5C66,{ 0x99,0xB2,0x42,0x90,0x82,0x06,0x92,0x99 } };
-    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IWindowingEnvironmentChangedEventArgs>{ 0x4160CFC6,0x023D,0x5E9A,{ 0xB4,0x31,0x35,0x0E,0x67,0xDC,0x97,0x8A } };
-    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IWindowingEnvironmentRemovedEventArgs>{ 0x2E5B5473,0xBEFF,0x5E53,{ 0x93,0x16,0x7E,0x77,0x5F,0xE5,0x68,0xB3 } };
-    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IWindowingEnvironmentStatics>{ 0x874E9FB7,0xC642,0x55AB,{ 0x8A,0xA2,0x16,0x2F,0x73,0x4A,0x9A,0x72 } };
+    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindow>{ 0x663014A6,0xB75E,0x5DBD,{ 0x99,0x5C,0xF0,0x11,0x7F,0xA3,0xFB,0x61 } }; // 663014A6-B75E-5DBD-995C-F0117FA3FB61
+    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowChangedEventArgs>{ 0x1DE1F3BE,0xA655,0x55AD,{ 0xB2,0xB6,0xEB,0x24,0x0F,0x88,0x03,0x56 } }; // 1DE1F3BE-A655-55AD-B2B6-EB240F880356
+    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowCloseRequestedEventArgs>{ 0xE9FF01DA,0xE7A2,0x57A8,{ 0x8B,0x5E,0x39,0xC4,0x00,0x3A,0xFD,0xBB } }; // E9FF01DA-E7A2-57A8-8B5E-39C4003AFDBB
+    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowClosedEventArgs>{ 0xCC7DF816,0x9520,0x5A06,{ 0x82,0x1E,0x45,0x6A,0xD8,0xB3,0x58,0xAA } }; // CC7DF816-9520-5A06-821E-456AD8B358AA
+    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowFrame>{ 0x9EE22601,0x7E5D,0x52AF,{ 0x84,0x6B,0x01,0xDC,0x6C,0x29,0x65,0x67 } }; // 9EE22601-7E5D-52AF-846B-01DC6C296567
+    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowFrameStyle>{ 0xAC412946,0xE1AC,0x5230,{ 0x94,0x4A,0xC6,0x08,0x73,0xDC,0xF4,0xA9 } }; // AC412946-E1AC-5230-944A-C60873DCF4A9
+    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowPlacement>{ 0x03DC815E,0xE7A9,0x5857,{ 0x9C,0x03,0x7D,0x67,0x05,0x94,0x41,0x0E } }; // 03DC815E-E7A9-5857-9C03-7D670594410E
+    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowPresentationConfiguration>{ 0xB5A43EE3,0xDF33,0x5E67,{ 0xBD,0x31,0x10,0x72,0x45,0x73,0x00,0xDF } }; // B5A43EE3-DF33-5E67-BD31-1072457300DF
+    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowPresentationConfigurationFactory>{ 0xFD3606A6,0x7875,0x5DE8,{ 0x84,0xFF,0x63,0x51,0xEE,0x13,0xDD,0x0D } }; // FD3606A6-7875-5DE8-84FF-6351EE13DD0D
+    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowPresenter>{ 0x5AE9ED73,0xE1FD,0x5317,{ 0xAD,0x78,0x5A,0x3E,0xD2,0x71,0xBB,0xDE } }; // 5AE9ED73-E1FD-5317-AD78-5A3ED271BBDE
+    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowStatics>{ 0xFF1F3EA3,0xB769,0x50EF,{ 0x98,0x73,0x10,0x8C,0xD0,0xE8,0x97,0x46 } }; // FF1F3EA3-B769-50EF-9873-108CD0E89746
+    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowTitleBar>{ 0x6E932C84,0xF644,0x541D,{ 0xA2,0xD7,0x0C,0x26,0x24,0x37,0x84,0x2D } }; // 6E932C84-F644-541D-A2D7-0C262437842D
+    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowTitleBarOcclusion>{ 0xFEA3CFFD,0x2CCF,0x5FC3,{ 0xAE,0xAE,0xF8,0x43,0x87,0x6B,0xF3,0x7E } }; // FEA3CFFD-2CCF-5FC3-AEAE-F843876BF37E
+    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IAppWindowTitleBarVisibility>{ 0xA215A4E3,0x6E7E,0x5651,{ 0x8C,0x3B,0x62,0x48,0x19,0x52,0x81,0x54 } }; // A215A4E3-6E7E-5651-8C3B-624819528154
+    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::ICompactOverlayPresentationConfiguration>{ 0xA7E5750F,0x5730,0x56C6,{ 0x8E,0x1F,0xD6,0x3F,0xF4,0xD7,0x98,0x0D } }; // A7E5750F-5730-56C6-8E1F-D63FF4D7980D
+    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IDefaultPresentationConfiguration>{ 0xD8C2B53B,0x2168,0x5703,{ 0xA8,0x53,0xD5,0x25,0x58,0x9F,0xE2,0xB9 } }; // D8C2B53B-2168-5703-A853-D525589FE2B9
+    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IDisplayRegion>{ 0xDB50C3A2,0x4094,0x5F47,{ 0x8C,0xB1,0xEA,0x01,0xDD,0xAF,0xAA,0x94 } }; // DB50C3A2-4094-5F47-8CB1-EA01DDAFAA94
+    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IFullScreenPresentationConfiguration>{ 0x43D3DCD8,0xD2A8,0x503D,{ 0xA6,0x26,0x15,0x53,0x3D,0x6D,0x5F,0x62 } }; // 43D3DCD8-D2A8-503D-A626-15533D6D5F62
+    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IWindowingEnvironment>{ 0x264363C0,0x2A49,0x5417,{ 0xB3,0xAE,0x48,0xA7,0x1C,0x63,0xA3,0xBD } }; // 264363C0-2A49-5417-B3AE-48A71C63A3BD
+    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IWindowingEnvironmentAddedEventArgs>{ 0xFF2A5B7F,0xF183,0x5C66,{ 0x99,0xB2,0x42,0x90,0x82,0x06,0x92,0x99 } }; // FF2A5B7F-F183-5C66-99B2-429082069299
+    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IWindowingEnvironmentChangedEventArgs>{ 0x4160CFC6,0x023D,0x5E9A,{ 0xB4,0x31,0x35,0x0E,0x67,0xDC,0x97,0x8A } }; // 4160CFC6-023D-5E9A-B431-350E67DC978A
+    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IWindowingEnvironmentRemovedEventArgs>{ 0x2E5B5473,0xBEFF,0x5E53,{ 0x93,0x16,0x7E,0x77,0x5F,0xE5,0x68,0xB3 } }; // 2E5B5473-BEFF-5E53-9316-7E775FE568B3
+    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IWindowingEnvironmentStatics>{ 0x874E9FB7,0xC642,0x55AB,{ 0x8A,0xA2,0x16,0x2F,0x73,0x4A,0x9A,0x72 } }; // 874E9FB7-C642-55AB-8AA2-162F734A9A72
     template <> struct default_interface<Windows::UI::WindowManagement::AppWindow>{ using type = Windows::UI::WindowManagement::IAppWindow; };
     template <> struct default_interface<Windows::UI::WindowManagement::AppWindowChangedEventArgs>{ using type = Windows::UI::WindowManagement::IAppWindowChangedEventArgs; };
     template <> struct default_interface<Windows::UI::WindowManagement::AppWindowCloseRequestedEventArgs>{ using type = Windows::UI::WindowManagement::IAppWindowCloseRequestedEventArgs; };

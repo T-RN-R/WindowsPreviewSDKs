@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -309,56 +309,56 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ITargetApplicationChosenEventArgs> = L"Windows.ApplicationModel.DataTransfer.ITargetApplicationChosenEventArgs";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DataProviderHandler> = L"Windows.ApplicationModel.DataTransfer.DataProviderHandler";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::ShareProviderHandler> = L"Windows.ApplicationModel.DataTransfer.ShareProviderHandler";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IClipboardContentOptions>{ 0xE888A98C,0xAD4B,0x5447,{ 0xA0,0x56,0xAB,0x35,0x56,0x27,0x6D,0x2B } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IClipboardHistoryChangedEventArgs>{ 0xC0BE453F,0x8EA2,0x53CE,{ 0x9A,0xBA,0x8D,0x22,0x12,0x57,0x34,0x52 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IClipboardHistoryItem>{ 0x0173BD8A,0xAFFF,0x5C50,{ 0xAB,0x92,0x3D,0x19,0xF4,0x81,0xEC,0x58 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IClipboardHistoryItemsResult>{ 0xE6DFDEE6,0x0EE2,0x52E3,{ 0x85,0x2B,0xF2,0x95,0xDB,0x65,0x93,0x9A } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IClipboardStatics>{ 0xC627E291,0x34E2,0x4963,{ 0x8E,0xED,0x93,0xCB,0xB0,0xEA,0x3D,0x70 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IClipboardStatics2>{ 0xD2AC1B6A,0xD29F,0x554B,{ 0xB3,0x03,0xF0,0x45,0x23,0x45,0xFE,0x02 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackage>{ 0x61EBF5C7,0xEFEA,0x4346,{ 0x95,0x54,0x98,0x1D,0x7E,0x19,0x8F,0xFE } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackage2>{ 0x041C1FE9,0x2409,0x45E1,{ 0xA5,0x38,0x4C,0x53,0xEE,0xEE,0x04,0xA7 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackage3>{ 0x88F31F5D,0x787B,0x4D32,{ 0x96,0x5A,0xA9,0x83,0x81,0x05,0xA0,0x56 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackage4>{ 0x13A24EC8,0x9382,0x536F,{ 0x85,0x2A,0x30,0x45,0xE1,0xB2,0x9A,0x3B } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySet>{ 0xCD1C93EB,0x4C4C,0x443A,{ 0xA8,0xD3,0xF5,0xC2,0x41,0xE9,0x16,0x89 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySet2>{ 0xEB505D4A,0x9800,0x46AA,{ 0xB1,0x81,0x7B,0x6F,0x0F,0x2B,0x91,0x9A } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySet3>{ 0x9E87FD9B,0x5205,0x401B,{ 0x87,0x4A,0x45,0x56,0x53,0xBD,0x39,0xE8 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySet4>{ 0x6390EBF5,0x1739,0x4C74,{ 0xB2,0x2F,0x86,0x5F,0xAB,0x5E,0x85,0x45 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySetView>{ 0xB94CEC01,0x0C1A,0x4C57,{ 0xBE,0x55,0x75,0xD0,0x12,0x89,0x73,0x5D } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySetView2>{ 0x6054509B,0x8EBE,0x4FEB,{ 0x9C,0x1E,0x75,0xE6,0x9D,0xE5,0x4B,0x84 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySetView3>{ 0xDB764CE5,0xD174,0x495C,{ 0x84,0xFC,0x1A,0x51,0xF6,0xAB,0x45,0xD7 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySetView4>{ 0x4474C80D,0xD16F,0x40AE,{ 0x95,0x80,0x6F,0x85,0x62,0xB9,0x42,0x35 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySetView5>{ 0x6F0A9445,0x3760,0x50BB,{ 0x85,0x23,0xC4,0x20,0x2D,0xED,0x7D,0x78 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackageView>{ 0x7B840471,0x5900,0x4D85,{ 0xA9,0x0B,0x10,0xCB,0x85,0xFE,0x35,0x52 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackageView2>{ 0x40ECBA95,0x2450,0x4C1D,{ 0xB6,0xB4,0xED,0x45,0x46,0x3D,0xEE,0x9C } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackageView3>{ 0xD37771A8,0xDDAD,0x4288,{ 0x84,0x28,0xD1,0xCA,0xE3,0x94,0x12,0x8B } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackageView4>{ 0xDFE96F1F,0xE042,0x4433,{ 0xA0,0x9F,0x26,0xD6,0xFF,0xDA,0x8B,0x85 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataProviderDeferral>{ 0xC2CF2373,0x2D26,0x43D9,{ 0xB6,0x9D,0xDC,0xB8,0x6D,0x03,0xF6,0xDA } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataProviderRequest>{ 0xEBBC7157,0xD3C8,0x47DA,{ 0xAC,0xDE,0xF8,0x23,0x88,0xD5,0xF7,0x16 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataRequest>{ 0x4341AE3B,0xFC12,0x4E53,{ 0x8C,0x02,0xAC,0x71,0x4C,0x41,0x5A,0x27 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataRequestDeferral>{ 0x6DC4B89F,0x0386,0x4263,{ 0x87,0xC1,0xED,0x7D,0xCE,0x30,0x89,0x0E } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataRequestedEventArgs>{ 0xCB8BA807,0x6AC5,0x43C9,{ 0x8A,0xC5,0x9B,0xA2,0x32,0x16,0x31,0x82 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataTransferManager>{ 0xA5CAEE9B,0x8708,0x49D1,{ 0x8D,0x36,0x67,0xD2,0x5A,0x8D,0xA0,0x0C } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataTransferManager2>{ 0x30AE7D71,0x8BA8,0x4C02,{ 0x8E,0x3F,0xDD,0xB2,0x3B,0x38,0x87,0x15 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataTransferManagerStatics>{ 0xA9DA01AA,0xE00E,0x4CFE,{ 0xAA,0x44,0x2D,0xD9,0x32,0xDC,0xA3,0xD8 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataTransferManagerStatics2>{ 0xC54EC2EC,0x9F97,0x4D63,{ 0x98,0x68,0x39,0x5E,0x27,0x1A,0xD8,0xF5 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataTransferManagerStatics3>{ 0x05845473,0x6C82,0x4F5C,{ 0xAC,0x23,0x62,0xE4,0x58,0x36,0x1F,0xAC } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IHtmlFormatHelperStatics>{ 0xE22E7749,0xDD70,0x446F,{ 0xAE,0xFC,0x61,0xCE,0xE5,0x9F,0x65,0x5E } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IOperationCompletedEventArgs>{ 0xE7AF329D,0x051D,0x4FAB,{ 0xB1,0xA9,0x47,0xFD,0x77,0xF7,0x0A,0x41 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IOperationCompletedEventArgs2>{ 0x858FA073,0x1E19,0x4105,{ 0xB2,0xF7,0xC8,0x47,0x88,0x08,0xD5,0x62 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IShareCompletedEventArgs>{ 0x4574C442,0xF913,0x4F60,{ 0x9D,0xF7,0xCC,0x40,0x60,0xAB,0x19,0x16 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IShareProvider>{ 0x2FABE026,0x443E,0x4CDA,{ 0xAF,0x25,0x8D,0x81,0x07,0x0E,0xFD,0x80 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IShareProviderFactory>{ 0x172A174C,0xE79E,0x4F6D,{ 0xB0,0x7D,0x12,0x8F,0x46,0x9E,0x02,0x96 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IShareProviderOperation>{ 0x19CEF937,0xD435,0x4179,{ 0xB6,0xAF,0x14,0xE0,0x49,0x2B,0x69,0xF6 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IShareProvidersRequestedEventArgs>{ 0xF888F356,0xA3F8,0x4FCE,{ 0x85,0xE4,0x88,0x26,0xE6,0x3B,0xE7,0x99 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IShareTargetInfo>{ 0x385BE607,0xC6E8,0x4114,{ 0xB2,0x94,0x28,0xF3,0xBB,0x6F,0x99,0x04 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IShareUIOptions>{ 0x72FA8A80,0x342F,0x4D90,{ 0x95,0x51,0x2A,0xE0,0x4E,0x37,0x68,0x0C } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::ISharedStorageAccessManagerStatics>{ 0xC6132ADA,0x34B1,0x4849,{ 0xBD,0x5F,0xD0,0x9F,0xEE,0x31,0x58,0xC5 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IStandardDataFormatsStatics>{ 0x7ED681A1,0xA880,0x40C9,{ 0xB4,0xED,0x0B,0xEE,0x1E,0x15,0xF5,0x49 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IStandardDataFormatsStatics2>{ 0x42A254F4,0x9D76,0x42E8,{ 0x86,0x1B,0x47,0xC2,0x5D,0xD0,0xCF,0x71 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IStandardDataFormatsStatics3>{ 0x3B57B069,0x01D4,0x474C,{ 0x8B,0x5F,0xBC,0x8E,0x27,0xF3,0x8B,0x21 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::ITargetApplicationChosenEventArgs>{ 0xCA6FB8AC,0x2987,0x4EE3,{ 0x9C,0x54,0xD8,0xAF,0xBC,0xB8,0x6C,0x1D } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::DataProviderHandler>{ 0xE7ECD720,0xF2F4,0x4A2D,{ 0x92,0x0E,0x17,0x0A,0x2F,0x48,0x2A,0x27 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::ShareProviderHandler>{ 0xE7F9D9BA,0xE1BA,0x4E4D,{ 0xBD,0x65,0xD4,0x38,0x45,0xD3,0x21,0x2F } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IClipboardContentOptions>{ 0xE888A98C,0xAD4B,0x5447,{ 0xA0,0x56,0xAB,0x35,0x56,0x27,0x6D,0x2B } }; // E888A98C-AD4B-5447-A056-AB3556276D2B
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IClipboardHistoryChangedEventArgs>{ 0xC0BE453F,0x8EA2,0x53CE,{ 0x9A,0xBA,0x8D,0x22,0x12,0x57,0x34,0x52 } }; // C0BE453F-8EA2-53CE-9ABA-8D2212573452
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IClipboardHistoryItem>{ 0x0173BD8A,0xAFFF,0x5C50,{ 0xAB,0x92,0x3D,0x19,0xF4,0x81,0xEC,0x58 } }; // 0173BD8A-AFFF-5C50-AB92-3D19F481EC58
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IClipboardHistoryItemsResult>{ 0xE6DFDEE6,0x0EE2,0x52E3,{ 0x85,0x2B,0xF2,0x95,0xDB,0x65,0x93,0x9A } }; // E6DFDEE6-0EE2-52E3-852B-F295DB65939A
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IClipboardStatics>{ 0xC627E291,0x34E2,0x4963,{ 0x8E,0xED,0x93,0xCB,0xB0,0xEA,0x3D,0x70 } }; // C627E291-34E2-4963-8EED-93CBB0EA3D70
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IClipboardStatics2>{ 0xD2AC1B6A,0xD29F,0x554B,{ 0xB3,0x03,0xF0,0x45,0x23,0x45,0xFE,0x02 } }; // D2AC1B6A-D29F-554B-B303-F0452345FE02
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackage>{ 0x61EBF5C7,0xEFEA,0x4346,{ 0x95,0x54,0x98,0x1D,0x7E,0x19,0x8F,0xFE } }; // 61EBF5C7-EFEA-4346-9554-981D7E198FFE
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackage2>{ 0x041C1FE9,0x2409,0x45E1,{ 0xA5,0x38,0x4C,0x53,0xEE,0xEE,0x04,0xA7 } }; // 041C1FE9-2409-45E1-A538-4C53EEEE04A7
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackage3>{ 0x88F31F5D,0x787B,0x4D32,{ 0x96,0x5A,0xA9,0x83,0x81,0x05,0xA0,0x56 } }; // 88F31F5D-787B-4D32-965A-A9838105A056
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackage4>{ 0x13A24EC8,0x9382,0x536F,{ 0x85,0x2A,0x30,0x45,0xE1,0xB2,0x9A,0x3B } }; // 13A24EC8-9382-536F-852A-3045E1B29A3B
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySet>{ 0xCD1C93EB,0x4C4C,0x443A,{ 0xA8,0xD3,0xF5,0xC2,0x41,0xE9,0x16,0x89 } }; // CD1C93EB-4C4C-443A-A8D3-F5C241E91689
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySet2>{ 0xEB505D4A,0x9800,0x46AA,{ 0xB1,0x81,0x7B,0x6F,0x0F,0x2B,0x91,0x9A } }; // EB505D4A-9800-46AA-B181-7B6F0F2B919A
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySet3>{ 0x9E87FD9B,0x5205,0x401B,{ 0x87,0x4A,0x45,0x56,0x53,0xBD,0x39,0xE8 } }; // 9E87FD9B-5205-401B-874A-455653BD39E8
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySet4>{ 0x6390EBF5,0x1739,0x4C74,{ 0xB2,0x2F,0x86,0x5F,0xAB,0x5E,0x85,0x45 } }; // 6390EBF5-1739-4C74-B22F-865FAB5E8545
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySetView>{ 0xB94CEC01,0x0C1A,0x4C57,{ 0xBE,0x55,0x75,0xD0,0x12,0x89,0x73,0x5D } }; // B94CEC01-0C1A-4C57-BE55-75D01289735D
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySetView2>{ 0x6054509B,0x8EBE,0x4FEB,{ 0x9C,0x1E,0x75,0xE6,0x9D,0xE5,0x4B,0x84 } }; // 6054509B-8EBE-4FEB-9C1E-75E69DE54B84
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySetView3>{ 0xDB764CE5,0xD174,0x495C,{ 0x84,0xFC,0x1A,0x51,0xF6,0xAB,0x45,0xD7 } }; // DB764CE5-D174-495C-84FC-1A51F6AB45D7
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySetView4>{ 0x4474C80D,0xD16F,0x40AE,{ 0x95,0x80,0x6F,0x85,0x62,0xB9,0x42,0x35 } }; // 4474C80D-D16F-40AE-9580-6F8562B94235
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackagePropertySetView5>{ 0x6F0A9445,0x3760,0x50BB,{ 0x85,0x23,0xC4,0x20,0x2D,0xED,0x7D,0x78 } }; // 6F0A9445-3760-50BB-8523-C4202DED7D78
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackageView>{ 0x7B840471,0x5900,0x4D85,{ 0xA9,0x0B,0x10,0xCB,0x85,0xFE,0x35,0x52 } }; // 7B840471-5900-4D85-A90B-10CB85FE3552
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackageView2>{ 0x40ECBA95,0x2450,0x4C1D,{ 0xB6,0xB4,0xED,0x45,0x46,0x3D,0xEE,0x9C } }; // 40ECBA95-2450-4C1D-B6B4-ED45463DEE9C
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackageView3>{ 0xD37771A8,0xDDAD,0x4288,{ 0x84,0x28,0xD1,0xCA,0xE3,0x94,0x12,0x8B } }; // D37771A8-DDAD-4288-8428-D1CAE394128B
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataPackageView4>{ 0xDFE96F1F,0xE042,0x4433,{ 0xA0,0x9F,0x26,0xD6,0xFF,0xDA,0x8B,0x85 } }; // DFE96F1F-E042-4433-A09F-26D6FFDA8B85
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataProviderDeferral>{ 0xC2CF2373,0x2D26,0x43D9,{ 0xB6,0x9D,0xDC,0xB8,0x6D,0x03,0xF6,0xDA } }; // C2CF2373-2D26-43D9-B69D-DCB86D03F6DA
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataProviderRequest>{ 0xEBBC7157,0xD3C8,0x47DA,{ 0xAC,0xDE,0xF8,0x23,0x88,0xD5,0xF7,0x16 } }; // EBBC7157-D3C8-47DA-ACDE-F82388D5F716
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataRequest>{ 0x4341AE3B,0xFC12,0x4E53,{ 0x8C,0x02,0xAC,0x71,0x4C,0x41,0x5A,0x27 } }; // 4341AE3B-FC12-4E53-8C02-AC714C415A27
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataRequestDeferral>{ 0x6DC4B89F,0x0386,0x4263,{ 0x87,0xC1,0xED,0x7D,0xCE,0x30,0x89,0x0E } }; // 6DC4B89F-0386-4263-87C1-ED7DCE30890E
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataRequestedEventArgs>{ 0xCB8BA807,0x6AC5,0x43C9,{ 0x8A,0xC5,0x9B,0xA2,0x32,0x16,0x31,0x82 } }; // CB8BA807-6AC5-43C9-8AC5-9BA232163182
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataTransferManager>{ 0xA5CAEE9B,0x8708,0x49D1,{ 0x8D,0x36,0x67,0xD2,0x5A,0x8D,0xA0,0x0C } }; // A5CAEE9B-8708-49D1-8D36-67D25A8DA00C
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataTransferManager2>{ 0x30AE7D71,0x8BA8,0x4C02,{ 0x8E,0x3F,0xDD,0xB2,0x3B,0x38,0x87,0x15 } }; // 30AE7D71-8BA8-4C02-8E3F-DDB23B388715
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataTransferManagerStatics>{ 0xA9DA01AA,0xE00E,0x4CFE,{ 0xAA,0x44,0x2D,0xD9,0x32,0xDC,0xA3,0xD8 } }; // A9DA01AA-E00E-4CFE-AA44-2DD932DCA3D8
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataTransferManagerStatics2>{ 0xC54EC2EC,0x9F97,0x4D63,{ 0x98,0x68,0x39,0x5E,0x27,0x1A,0xD8,0xF5 } }; // C54EC2EC-9F97-4D63-9868-395E271AD8F5
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IDataTransferManagerStatics3>{ 0x05845473,0x6C82,0x4F5C,{ 0xAC,0x23,0x62,0xE4,0x58,0x36,0x1F,0xAC } }; // 05845473-6C82-4F5C-AC23-62E458361FAC
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IHtmlFormatHelperStatics>{ 0xE22E7749,0xDD70,0x446F,{ 0xAE,0xFC,0x61,0xCE,0xE5,0x9F,0x65,0x5E } }; // E22E7749-DD70-446F-AEFC-61CEE59F655E
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IOperationCompletedEventArgs>{ 0xE7AF329D,0x051D,0x4FAB,{ 0xB1,0xA9,0x47,0xFD,0x77,0xF7,0x0A,0x41 } }; // E7AF329D-051D-4FAB-B1A9-47FD77F70A41
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IOperationCompletedEventArgs2>{ 0x858FA073,0x1E19,0x4105,{ 0xB2,0xF7,0xC8,0x47,0x88,0x08,0xD5,0x62 } }; // 858FA073-1E19-4105-B2F7-C8478808D562
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IShareCompletedEventArgs>{ 0x4574C442,0xF913,0x4F60,{ 0x9D,0xF7,0xCC,0x40,0x60,0xAB,0x19,0x16 } }; // 4574C442-F913-4F60-9DF7-CC4060AB1916
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IShareProvider>{ 0x2FABE026,0x443E,0x4CDA,{ 0xAF,0x25,0x8D,0x81,0x07,0x0E,0xFD,0x80 } }; // 2FABE026-443E-4CDA-AF25-8D81070EFD80
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IShareProviderFactory>{ 0x172A174C,0xE79E,0x4F6D,{ 0xB0,0x7D,0x12,0x8F,0x46,0x9E,0x02,0x96 } }; // 172A174C-E79E-4F6D-B07D-128F469E0296
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IShareProviderOperation>{ 0x19CEF937,0xD435,0x4179,{ 0xB6,0xAF,0x14,0xE0,0x49,0x2B,0x69,0xF6 } }; // 19CEF937-D435-4179-B6AF-14E0492B69F6
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IShareProvidersRequestedEventArgs>{ 0xF888F356,0xA3F8,0x4FCE,{ 0x85,0xE4,0x88,0x26,0xE6,0x3B,0xE7,0x99 } }; // F888F356-A3F8-4FCE-85E4-8826E63BE799
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IShareTargetInfo>{ 0x385BE607,0xC6E8,0x4114,{ 0xB2,0x94,0x28,0xF3,0xBB,0x6F,0x99,0x04 } }; // 385BE607-C6E8-4114-B294-28F3BB6F9904
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IShareUIOptions>{ 0x72FA8A80,0x342F,0x4D90,{ 0x95,0x51,0x2A,0xE0,0x4E,0x37,0x68,0x0C } }; // 72FA8A80-342F-4D90-9551-2AE04E37680C
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::ISharedStorageAccessManagerStatics>{ 0xC6132ADA,0x34B1,0x4849,{ 0xBD,0x5F,0xD0,0x9F,0xEE,0x31,0x58,0xC5 } }; // C6132ADA-34B1-4849-BD5F-D09FEE3158C5
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IStandardDataFormatsStatics>{ 0x7ED681A1,0xA880,0x40C9,{ 0xB4,0xED,0x0B,0xEE,0x1E,0x15,0xF5,0x49 } }; // 7ED681A1-A880-40C9-B4ED-0BEE1E15F549
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IStandardDataFormatsStatics2>{ 0x42A254F4,0x9D76,0x42E8,{ 0x86,0x1B,0x47,0xC2,0x5D,0xD0,0xCF,0x71 } }; // 42A254F4-9D76-42E8-861B-47C25DD0CF71
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::IStandardDataFormatsStatics3>{ 0x3B57B069,0x01D4,0x474C,{ 0x8B,0x5F,0xBC,0x8E,0x27,0xF3,0x8B,0x21 } }; // 3B57B069-01D4-474C-8B5F-BC8E27F38B21
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::ITargetApplicationChosenEventArgs>{ 0xCA6FB8AC,0x2987,0x4EE3,{ 0x9C,0x54,0xD8,0xAF,0xBC,0xB8,0x6C,0x1D } }; // CA6FB8AC-2987-4EE3-9C54-D8AFBCB86C1D
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::DataProviderHandler>{ 0xE7ECD720,0xF2F4,0x4A2D,{ 0x92,0x0E,0x17,0x0A,0x2F,0x48,0x2A,0x27 } }; // E7ECD720-F2F4-4A2D-920E-170A2F482A27
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::ShareProviderHandler>{ 0xE7F9D9BA,0xE1BA,0x4E4D,{ 0xBD,0x65,0xD4,0x38,0x45,0xD3,0x21,0x2F } }; // E7F9D9BA-E1BA-4E4D-BD65-D43845D3212F
     template <> struct default_interface<Windows::ApplicationModel::DataTransfer::ClipboardContentOptions>{ using type = Windows::ApplicationModel::DataTransfer::IClipboardContentOptions; };
     template <> struct default_interface<Windows::ApplicationModel::DataTransfer::ClipboardHistoryChangedEventArgs>{ using type = Windows::ApplicationModel::DataTransfer::IClipboardHistoryChangedEventArgs; };
     template <> struct default_interface<Windows::ApplicationModel::DataTransfer::ClipboardHistoryItem>{ using type = Windows::ApplicationModel::DataTransfer::IClipboardHistoryItem; };
@@ -1222,14 +1222,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_DataTransfer_IDataTransferManager
     {
-        WINRT_IMPL_AUTO(winrt::event_token) DataRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataTransferManager, Windows::ApplicationModel::DataTransfer::DataRequestedEventArgs> const& eventHandler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) DataRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataTransferManager, Windows::ApplicationModel::DataTransfer::DataRequestedEventArgs> const& handler) const;
         using DataRequested_revoker = impl::event_revoker<Windows::ApplicationModel::DataTransfer::IDataTransferManager, &impl::abi_t<Windows::ApplicationModel::DataTransfer::IDataTransferManager>::remove_DataRequested>;
-        [[nodiscard]] DataRequested_revoker DataRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataTransferManager, Windows::ApplicationModel::DataTransfer::DataRequestedEventArgs> const& eventHandler) const;
-        WINRT_IMPL_AUTO(void) DataRequested(winrt::event_token const& eventCookie) const noexcept;
-        WINRT_IMPL_AUTO(winrt::event_token) TargetApplicationChosen(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataTransferManager, Windows::ApplicationModel::DataTransfer::TargetApplicationChosenEventArgs> const& eventHandler) const;
+        [[nodiscard]] DataRequested_revoker DataRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataTransferManager, Windows::ApplicationModel::DataTransfer::DataRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) DataRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) TargetApplicationChosen(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataTransferManager, Windows::ApplicationModel::DataTransfer::TargetApplicationChosenEventArgs> const& handler) const;
         using TargetApplicationChosen_revoker = impl::event_revoker<Windows::ApplicationModel::DataTransfer::IDataTransferManager, &impl::abi_t<Windows::ApplicationModel::DataTransfer::IDataTransferManager>::remove_TargetApplicationChosen>;
-        [[nodiscard]] TargetApplicationChosen_revoker TargetApplicationChosen(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataTransferManager, Windows::ApplicationModel::DataTransfer::TargetApplicationChosenEventArgs> const& eventHandler) const;
-        WINRT_IMPL_AUTO(void) TargetApplicationChosen(winrt::event_token const& eventCookie) const noexcept;
+        [[nodiscard]] TargetApplicationChosen_revoker TargetApplicationChosen(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::DataTransfer::DataTransferManager, Windows::ApplicationModel::DataTransfer::TargetApplicationChosenEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) TargetApplicationChosen(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::ApplicationModel::DataTransfer::IDataTransferManager>
     {

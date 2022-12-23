@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -46,8 +46,8 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Management::Policies::NamedPolicyKind> = L"Windows.Management.Policies.NamedPolicyKind";
     template <> inline constexpr auto& name_v<Windows::Management::Policies::INamedPolicyData> = L"Windows.Management.Policies.INamedPolicyData";
     template <> inline constexpr auto& name_v<Windows::Management::Policies::INamedPolicyStatics> = L"Windows.Management.Policies.INamedPolicyStatics";
-    template <> inline constexpr guid guid_v<Windows::Management::Policies::INamedPolicyData>{ 0x38DCB198,0x95AC,0x4077,{ 0xA6,0x43,0x80,0x78,0xCA,0xE2,0x64,0x00 } };
-    template <> inline constexpr guid guid_v<Windows::Management::Policies::INamedPolicyStatics>{ 0x7F793BE7,0x76C4,0x4058,{ 0x8C,0xAD,0x67,0x66,0x2C,0xD0,0x5F,0x0D } };
+    template <> inline constexpr guid guid_v<Windows::Management::Policies::INamedPolicyData>{ 0x38DCB198,0x95AC,0x4077,{ 0xA6,0x43,0x80,0x78,0xCA,0xE2,0x64,0x00 } }; // 38DCB198-95AC-4077-A643-8078CAE26400
+    template <> inline constexpr guid guid_v<Windows::Management::Policies::INamedPolicyStatics>{ 0x7F793BE7,0x76C4,0x4058,{ 0x8C,0xAD,0x67,0x66,0x2C,0xD0,0x5F,0x0D } }; // 7F793BE7-76C4-4058-8CAD-67662CD05F0D
     template <> struct default_interface<Windows::Management::Policies::NamedPolicyData>{ using type = Windows::Management::Policies::INamedPolicyData; };
     template <> struct abi<Windows::Management::Policies::INamedPolicyData>
     {

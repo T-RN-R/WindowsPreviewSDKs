@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -89,17 +89,17 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Rfcomm::IRfcommServiceProvider> = L"Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceProvider";
     template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Rfcomm::IRfcommServiceProvider2> = L"Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceProvider2";
     template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Rfcomm::IRfcommServiceProviderStatics> = L"Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceProviderStatics";
-    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Rfcomm::IRfcommDeviceService>{ 0xAE81FF1F,0xC5A1,0x4C40,{ 0x8C,0x28,0xF3,0xEF,0xD6,0x90,0x62,0xF3 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Rfcomm::IRfcommDeviceService2>{ 0x536CED14,0xEBCD,0x49FE,{ 0xBF,0x9F,0x40,0xEF,0xC6,0x89,0xB2,0x0D } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Rfcomm::IRfcommDeviceService3>{ 0x1C22ACE6,0xDD44,0x4D23,{ 0x86,0x6D,0x8F,0x34,0x86,0xEE,0x64,0x90 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Rfcomm::IRfcommDeviceServiceStatics>{ 0xA4A149EF,0x626D,0x41AC,{ 0xB2,0x53,0x87,0xAC,0x5C,0x27,0xE2,0x8A } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Rfcomm::IRfcommDeviceServiceStatics2>{ 0xAA8CB1C9,0xE78D,0x4BE4,{ 0x80,0x76,0x0A,0x3D,0x87,0xA0,0xA0,0x5F } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Rfcomm::IRfcommDeviceServicesResult>{ 0x3B48388C,0x7CCF,0x488E,{ 0x96,0x25,0xD2,0x59,0xA5,0x73,0x2D,0x55 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Rfcomm::IRfcommServiceId>{ 0x22629204,0x7E02,0x4017,{ 0x81,0x36,0xDA,0x1B,0x6A,0x1B,0x9B,0xBF } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Rfcomm::IRfcommServiceIdStatics>{ 0x2A179EBA,0xA975,0x46E3,{ 0xB5,0x6B,0x08,0xFF,0xD7,0x83,0xA5,0xFE } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Rfcomm::IRfcommServiceProvider>{ 0xEADBFDC4,0xB1F6,0x44FF,{ 0x9F,0x7C,0xE7,0xA8,0x2A,0xB8,0x68,0x21 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Rfcomm::IRfcommServiceProvider2>{ 0x736BDFC6,0x3C81,0x4D1E,{ 0xBA,0xF2,0xDD,0xBB,0x81,0x28,0x45,0x12 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Rfcomm::IRfcommServiceProviderStatics>{ 0x98888303,0x69CA,0x413A,{ 0x84,0xF7,0x43,0x44,0xC7,0x29,0x29,0x97 } };
+    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Rfcomm::IRfcommDeviceService>{ 0xAE81FF1F,0xC5A1,0x4C40,{ 0x8C,0x28,0xF3,0xEF,0xD6,0x90,0x62,0xF3 } }; // AE81FF1F-C5A1-4C40-8C28-F3EFD69062F3
+    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Rfcomm::IRfcommDeviceService2>{ 0x536CED14,0xEBCD,0x49FE,{ 0xBF,0x9F,0x40,0xEF,0xC6,0x89,0xB2,0x0D } }; // 536CED14-EBCD-49FE-BF9F-40EFC689B20D
+    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Rfcomm::IRfcommDeviceService3>{ 0x1C22ACE6,0xDD44,0x4D23,{ 0x86,0x6D,0x8F,0x34,0x86,0xEE,0x64,0x90 } }; // 1C22ACE6-DD44-4D23-866D-8F3486EE6490
+    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Rfcomm::IRfcommDeviceServiceStatics>{ 0xA4A149EF,0x626D,0x41AC,{ 0xB2,0x53,0x87,0xAC,0x5C,0x27,0xE2,0x8A } }; // A4A149EF-626D-41AC-B253-87AC5C27E28A
+    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Rfcomm::IRfcommDeviceServiceStatics2>{ 0xAA8CB1C9,0xE78D,0x4BE4,{ 0x80,0x76,0x0A,0x3D,0x87,0xA0,0xA0,0x5F } }; // AA8CB1C9-E78D-4BE4-8076-0A3D87A0A05F
+    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Rfcomm::IRfcommDeviceServicesResult>{ 0x3B48388C,0x7CCF,0x488E,{ 0x96,0x25,0xD2,0x59,0xA5,0x73,0x2D,0x55 } }; // 3B48388C-7CCF-488E-9625-D259A5732D55
+    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Rfcomm::IRfcommServiceId>{ 0x22629204,0x7E02,0x4017,{ 0x81,0x36,0xDA,0x1B,0x6A,0x1B,0x9B,0xBF } }; // 22629204-7E02-4017-8136-DA1B6A1B9BBF
+    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Rfcomm::IRfcommServiceIdStatics>{ 0x2A179EBA,0xA975,0x46E3,{ 0xB5,0x6B,0x08,0xFF,0xD7,0x83,0xA5,0xFE } }; // 2A179EBA-A975-46E3-B56B-08FFD783A5FE
+    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Rfcomm::IRfcommServiceProvider>{ 0xEADBFDC4,0xB1F6,0x44FF,{ 0x9F,0x7C,0xE7,0xA8,0x2A,0xB8,0x68,0x21 } }; // EADBFDC4-B1F6-44FF-9F7C-E7A82AB86821
+    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Rfcomm::IRfcommServiceProvider2>{ 0x736BDFC6,0x3C81,0x4D1E,{ 0xBA,0xF2,0xDD,0xBB,0x81,0x28,0x45,0x12 } }; // 736BDFC6-3C81-4D1E-BAF2-DDBB81284512
+    template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Rfcomm::IRfcommServiceProviderStatics>{ 0x98888303,0x69CA,0x413A,{ 0x84,0xF7,0x43,0x44,0xC7,0x29,0x29,0x97 } }; // 98888303-69CA-413A-84F7-4344C7292997
     template <> struct default_interface<Windows::Devices::Bluetooth::Rfcomm::RfcommDeviceService>{ using type = Windows::Devices::Bluetooth::Rfcomm::IRfcommDeviceService; };
     template <> struct default_interface<Windows::Devices::Bluetooth::Rfcomm::RfcommDeviceServicesResult>{ using type = Windows::Devices::Bluetooth::Rfcomm::IRfcommDeviceServicesResult; };
     template <> struct default_interface<Windows::Devices::Bluetooth::Rfcomm::RfcommServiceId>{ using type = Windows::Devices::Bluetooth::Rfcomm::IRfcommServiceId; };

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -178,19 +178,19 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::IStorePreviewPurchaseResults> = L"Windows.ApplicationModel.Store.Preview.IStorePreviewPurchaseResults";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::IStorePreviewSkuInfo> = L"Windows.ApplicationModel.Store.Preview.IStorePreviewSkuInfo";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::IWebAuthenticationCoreManagerHelper> = L"Windows.ApplicationModel.Store.Preview.IWebAuthenticationCoreManagerHelper";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IDeliveryOptimizationSettings>{ 0x1810FDA0,0xE853,0x565E,{ 0xB8,0x74,0x7A,0x8A,0x7B,0x9A,0x0E,0x0F } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IDeliveryOptimizationSettingsStatics>{ 0x5C817CAF,0xAED5,0x5999,{ 0xB4,0xC9,0x8C,0x60,0x89,0x8B,0xC4,0xF3 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics>{ 0x728F7FC0,0x8628,0x42EC,{ 0x84,0xA2,0x07,0x78,0x0E,0xB4,0x4D,0x8B } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics2>{ 0x657C4595,0xC8B7,0x4FE9,{ 0x9F,0x4C,0x4D,0x71,0x02,0x7D,0x34,0x7E } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics3>{ 0x6D45F57C,0xF144,0x4CB5,{ 0x9D,0x3F,0x4E,0xB0,0x5E,0x30,0xB6,0xD3 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics4>{ 0x20FF56D2,0x4EE3,0x4CF0,{ 0x9B,0x12,0x55,0x2C,0x03,0x31,0x0F,0x75 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics5>{ 0xF7613191,0x8FA9,0x49DB,{ 0x82,0x2B,0x01,0x60,0xE7,0xE4,0xE5,0xC5 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IStoreHardwareManufacturerInfo>{ 0xF292DC08,0xC654,0x43AC,{ 0xA2,0x1F,0x34,0x80,0x1C,0x9D,0x33,0x88 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IStorePreview>{ 0x8A157241,0x840E,0x49A9,{ 0xBC,0x01,0x5D,0x5B,0x01,0xFB,0xC8,0xE9 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IStorePreviewProductInfo>{ 0x1937DBB3,0x6C01,0x4C9D,{ 0x85,0xCD,0x5B,0xAB,0xAA,0xC2,0xB3,0x51 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IStorePreviewPurchaseResults>{ 0xB0DAAED1,0xD6C5,0x4E53,{ 0xA0,0x43,0xFB,0xA0,0xD8,0xE6,0x12,0x31 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IStorePreviewSkuInfo>{ 0x81FD76E2,0x0B26,0x48D9,{ 0x98,0xCE,0x27,0x46,0x1C,0x66,0x9D,0x6C } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IWebAuthenticationCoreManagerHelper>{ 0x06A50525,0xE715,0x4123,{ 0x92,0x76,0x9D,0x6F,0x86,0x5B,0xA5,0x5F } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IDeliveryOptimizationSettings>{ 0x1810FDA0,0xE853,0x565E,{ 0xB8,0x74,0x7A,0x8A,0x7B,0x9A,0x0E,0x0F } }; // 1810FDA0-E853-565E-B874-7A8A7B9A0E0F
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IDeliveryOptimizationSettingsStatics>{ 0x5C817CAF,0xAED5,0x5999,{ 0xB4,0xC9,0x8C,0x60,0x89,0x8B,0xC4,0xF3 } }; // 5C817CAF-AED5-5999-B4C9-8C60898BC4F3
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics>{ 0x728F7FC0,0x8628,0x42EC,{ 0x84,0xA2,0x07,0x78,0x0E,0xB4,0x4D,0x8B } }; // 728F7FC0-8628-42EC-84A2-07780EB44D8B
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics2>{ 0x657C4595,0xC8B7,0x4FE9,{ 0x9F,0x4C,0x4D,0x71,0x02,0x7D,0x34,0x7E } }; // 657C4595-C8B7-4FE9-9F4C-4D71027D347E
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics3>{ 0x6D45F57C,0xF144,0x4CB5,{ 0x9D,0x3F,0x4E,0xB0,0x5E,0x30,0xB6,0xD3 } }; // 6D45F57C-F144-4CB5-9D3F-4EB05E30B6D3
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics4>{ 0x20FF56D2,0x4EE3,0x4CF0,{ 0x9B,0x12,0x55,0x2C,0x03,0x31,0x0F,0x75 } }; // 20FF56D2-4EE3-4CF0-9B12-552C03310F75
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IStoreConfigurationStatics5>{ 0xF7613191,0x8FA9,0x49DB,{ 0x82,0x2B,0x01,0x60,0xE7,0xE4,0xE5,0xC5 } }; // F7613191-8FA9-49DB-822B-0160E7E4E5C5
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IStoreHardwareManufacturerInfo>{ 0xF292DC08,0xC654,0x43AC,{ 0xA2,0x1F,0x34,0x80,0x1C,0x9D,0x33,0x88 } }; // F292DC08-C654-43AC-A21F-34801C9D3388
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IStorePreview>{ 0x8A157241,0x840E,0x49A9,{ 0xBC,0x01,0x5D,0x5B,0x01,0xFB,0xC8,0xE9 } }; // 8A157241-840E-49A9-BC01-5D5B01FBC8E9
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IStorePreviewProductInfo>{ 0x1937DBB3,0x6C01,0x4C9D,{ 0x85,0xCD,0x5B,0xAB,0xAA,0xC2,0xB3,0x51 } }; // 1937DBB3-6C01-4C9D-85CD-5BABAAC2B351
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IStorePreviewPurchaseResults>{ 0xB0DAAED1,0xD6C5,0x4E53,{ 0xA0,0x43,0xFB,0xA0,0xD8,0xE6,0x12,0x31 } }; // B0DAAED1-D6C5-4E53-A043-FBA0D8E61231
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IStorePreviewSkuInfo>{ 0x81FD76E2,0x0B26,0x48D9,{ 0x98,0xCE,0x27,0x46,0x1C,0x66,0x9D,0x6C } }; // 81FD76E2-0B26-48D9-98CE-27461C669D6C
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::IWebAuthenticationCoreManagerHelper>{ 0x06A50525,0xE715,0x4123,{ 0x92,0x76,0x9D,0x6F,0x86,0x5B,0xA5,0x5F } }; // 06A50525-E715-4123-9276-9D6F865BA55F
     template <> struct default_interface<Windows::ApplicationModel::Store::Preview::DeliveryOptimizationSettings>{ using type = Windows::ApplicationModel::Store::Preview::IDeliveryOptimizationSettings; };
     template <> struct default_interface<Windows::ApplicationModel::Store::Preview::StoreHardwareManufacturerInfo>{ using type = Windows::ApplicationModel::Store::Preview::IStoreHardwareManufacturerInfo; };
     template <> struct default_interface<Windows::ApplicationModel::Store::Preview::StorePreviewProductInfo>{ using type = Windows::ApplicationModel::Store::Preview::IStorePreviewProductInfo; };

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -132,18 +132,18 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::VoiceCommands::IVoiceCommandServiceConnection> = L"Windows.ApplicationModel.VoiceCommands.IVoiceCommandServiceConnection";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::VoiceCommands::IVoiceCommandServiceConnectionStatics> = L"Windows.ApplicationModel.VoiceCommands.IVoiceCommandServiceConnectionStatics";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::VoiceCommands::IVoiceCommandUserMessage> = L"Windows.ApplicationModel.VoiceCommands.IVoiceCommandUserMessage";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::VoiceCommands::IVoiceCommand>{ 0x936F5273,0xEC82,0x42A6,{ 0xA5,0x5C,0xD2,0xD7,0x9E,0xC6,0xF9,0x20 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::VoiceCommands::IVoiceCommandCompletedEventArgs>{ 0xC85E675D,0xFE42,0x432C,{ 0x99,0x07,0x09,0xDF,0x9F,0xCF,0x64,0xE8 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::VoiceCommands::IVoiceCommandConfirmationResult>{ 0xA022593E,0x8221,0x4526,{ 0xB0,0x83,0x84,0x09,0x72,0x26,0x22,0x47 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::VoiceCommands::IVoiceCommandContentTile>{ 0x3EEFE9F0,0xB8C7,0x4C76,{ 0xA0,0xDE,0x16,0x07,0x89,0x5E,0xE3,0x27 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::VoiceCommands::IVoiceCommandDefinition>{ 0x7972AAD0,0x0974,0x4979,{ 0x98,0x4B,0xCB,0x89,0x59,0xCD,0x61,0xAE } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::VoiceCommands::IVoiceCommandDefinitionManagerStatics>{ 0x8FE7A69E,0x067E,0x4F16,{ 0xA1,0x8C,0x5B,0x17,0xE9,0x49,0x99,0x40 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::VoiceCommands::IVoiceCommandDisambiguationResult>{ 0xECC68CFE,0xC9AC,0x45DF,{ 0xA8,0xEA,0xFE,0xEA,0x08,0xEF,0x9C,0x5E } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::VoiceCommands::IVoiceCommandResponse>{ 0x0284B30E,0x8A3B,0x4CC4,{ 0xA6,0xA1,0xCA,0xD5,0xBE,0x27,0x16,0xB5 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::VoiceCommands::IVoiceCommandResponseStatics>{ 0x2932F813,0x0D3B,0x49F2,{ 0x96,0xDD,0x62,0x50,0x19,0xBD,0x3B,0x5D } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::VoiceCommands::IVoiceCommandServiceConnection>{ 0xD894BB9F,0x21DA,0x44A4,{ 0x98,0xA2,0xFB,0x13,0x19,0x20,0xA9,0xCC } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::VoiceCommands::IVoiceCommandServiceConnectionStatics>{ 0x370EBFFB,0x2D34,0x42DF,{ 0x87,0x70,0x07,0x4D,0x0F,0x33,0x46,0x97 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::VoiceCommands::IVoiceCommandUserMessage>{ 0x674EB3C0,0x44F6,0x4F07,{ 0xB9,0x79,0x4C,0x72,0x3F,0xC0,0x85,0x97 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::VoiceCommands::IVoiceCommand>{ 0x936F5273,0xEC82,0x42A6,{ 0xA5,0x5C,0xD2,0xD7,0x9E,0xC6,0xF9,0x20 } }; // 936F5273-EC82-42A6-A55C-D2D79EC6F920
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::VoiceCommands::IVoiceCommandCompletedEventArgs>{ 0xC85E675D,0xFE42,0x432C,{ 0x99,0x07,0x09,0xDF,0x9F,0xCF,0x64,0xE8 } }; // C85E675D-FE42-432C-9907-09DF9FCF64E8
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::VoiceCommands::IVoiceCommandConfirmationResult>{ 0xA022593E,0x8221,0x4526,{ 0xB0,0x83,0x84,0x09,0x72,0x26,0x22,0x47 } }; // A022593E-8221-4526-B083-840972262247
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::VoiceCommands::IVoiceCommandContentTile>{ 0x3EEFE9F0,0xB8C7,0x4C76,{ 0xA0,0xDE,0x16,0x07,0x89,0x5E,0xE3,0x27 } }; // 3EEFE9F0-B8C7-4C76-A0DE-1607895EE327
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::VoiceCommands::IVoiceCommandDefinition>{ 0x7972AAD0,0x0974,0x4979,{ 0x98,0x4B,0xCB,0x89,0x59,0xCD,0x61,0xAE } }; // 7972AAD0-0974-4979-984B-CB8959CD61AE
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::VoiceCommands::IVoiceCommandDefinitionManagerStatics>{ 0x8FE7A69E,0x067E,0x4F16,{ 0xA1,0x8C,0x5B,0x17,0xE9,0x49,0x99,0x40 } }; // 8FE7A69E-067E-4F16-A18C-5B17E9499940
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::VoiceCommands::IVoiceCommandDisambiguationResult>{ 0xECC68CFE,0xC9AC,0x45DF,{ 0xA8,0xEA,0xFE,0xEA,0x08,0xEF,0x9C,0x5E } }; // ECC68CFE-C9AC-45DF-A8EA-FEEA08EF9C5E
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::VoiceCommands::IVoiceCommandResponse>{ 0x0284B30E,0x8A3B,0x4CC4,{ 0xA6,0xA1,0xCA,0xD5,0xBE,0x27,0x16,0xB5 } }; // 0284B30E-8A3B-4CC4-A6A1-CAD5BE2716B5
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::VoiceCommands::IVoiceCommandResponseStatics>{ 0x2932F813,0x0D3B,0x49F2,{ 0x96,0xDD,0x62,0x50,0x19,0xBD,0x3B,0x5D } }; // 2932F813-0D3B-49F2-96DD-625019BD3B5D
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::VoiceCommands::IVoiceCommandServiceConnection>{ 0xD894BB9F,0x21DA,0x44A4,{ 0x98,0xA2,0xFB,0x13,0x19,0x20,0xA9,0xCC } }; // D894BB9F-21DA-44A4-98A2-FB131920A9CC
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::VoiceCommands::IVoiceCommandServiceConnectionStatics>{ 0x370EBFFB,0x2D34,0x42DF,{ 0x87,0x70,0x07,0x4D,0x0F,0x33,0x46,0x97 } }; // 370EBFFB-2D34-42DF-8770-074D0F334697
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::VoiceCommands::IVoiceCommandUserMessage>{ 0x674EB3C0,0x44F6,0x4F07,{ 0xB9,0x79,0x4C,0x72,0x3F,0xC0,0x85,0x97 } }; // 674EB3C0-44F6-4F07-B979-4C723FC08597
     template <> struct default_interface<Windows::ApplicationModel::VoiceCommands::VoiceCommand>{ using type = Windows::ApplicationModel::VoiceCommands::IVoiceCommand; };
     template <> struct default_interface<Windows::ApplicationModel::VoiceCommands::VoiceCommandCompletedEventArgs>{ using type = Windows::ApplicationModel::VoiceCommands::IVoiceCommandCompletedEventArgs; };
     template <> struct default_interface<Windows::ApplicationModel::VoiceCommands::VoiceCommandConfirmationResult>{ using type = Windows::ApplicationModel::VoiceCommands::IVoiceCommandConfirmationResult; };

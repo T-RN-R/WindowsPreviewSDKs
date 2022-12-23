@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -176,19 +176,19 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::IXboxLiveQualityOfServiceMeasurementStatics> = L"Windows.Networking.XboxLive.IXboxLiveQualityOfServiceMeasurementStatics";
     template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::IXboxLiveQualityOfServiceMetricResult> = L"Windows.Networking.XboxLive.IXboxLiveQualityOfServiceMetricResult";
     template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::IXboxLiveQualityOfServicePrivatePayloadResult> = L"Windows.Networking.XboxLive.IXboxLiveQualityOfServicePrivatePayloadResult";
-    template <> inline constexpr guid guid_v<Windows::Networking::XboxLive::IXboxLiveDeviceAddress>{ 0xF5BBD279,0x3C86,0x4B57,{ 0xA3,0x1A,0xB9,0x46,0x24,0x08,0xFD,0x01 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::XboxLive::IXboxLiveDeviceAddressStatics>{ 0x5954A819,0x4A79,0x4931,{ 0x82,0x7C,0x7F,0x50,0x3E,0x96,0x32,0x63 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::XboxLive::IXboxLiveEndpointPair>{ 0x1E9A839B,0x813E,0x44E0,{ 0xB8,0x7F,0xC8,0x7A,0x09,0x34,0x75,0xE4 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::XboxLive::IXboxLiveEndpointPairCreationResult>{ 0xD9A8BB95,0x2AAB,0x4D1E,{ 0x97,0x94,0x33,0xEC,0xC0,0xDC,0xF0,0xFE } };
-    template <> inline constexpr guid guid_v<Windows::Networking::XboxLive::IXboxLiveEndpointPairStateChangedEventArgs>{ 0x592E3B55,0xDE08,0x44E7,{ 0xAC,0x3B,0xB9,0xB9,0xA1,0x69,0x58,0x3A } };
-    template <> inline constexpr guid guid_v<Windows::Networking::XboxLive::IXboxLiveEndpointPairStatics>{ 0x64316B30,0x217A,0x4243,{ 0x8E,0xE1,0x67,0x29,0x28,0x1D,0x27,0xDB } };
-    template <> inline constexpr guid guid_v<Windows::Networking::XboxLive::IXboxLiveEndpointPairTemplate>{ 0x6B286ECF,0x3457,0x40CE,{ 0xB9,0xA1,0xC0,0xCF,0xE0,0x21,0x3E,0xA7 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::XboxLive::IXboxLiveEndpointPairTemplateStatics>{ 0x1E13137B,0x737B,0x4A23,{ 0xBC,0x64,0x08,0x70,0xF7,0x56,0x55,0xBA } };
-    template <> inline constexpr guid guid_v<Windows::Networking::XboxLive::IXboxLiveInboundEndpointPairCreatedEventArgs>{ 0xDC183B62,0x22BA,0x48D2,{ 0x80,0xDE,0xC2,0x39,0x68,0xBD,0x19,0x8B } };
-    template <> inline constexpr guid guid_v<Windows::Networking::XboxLive::IXboxLiveQualityOfServiceMeasurement>{ 0x4D682BCE,0xA5D6,0x47E6,{ 0xA2,0x36,0xCF,0xDE,0x5F,0xBD,0xF2,0xED } };
-    template <> inline constexpr guid guid_v<Windows::Networking::XboxLive::IXboxLiveQualityOfServiceMeasurementStatics>{ 0x6E352DCA,0x23CF,0x440A,{ 0xB0,0x77,0x5E,0x30,0x85,0x7A,0x82,0x34 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::XboxLive::IXboxLiveQualityOfServiceMetricResult>{ 0xAEEC53D1,0x3561,0x4782,{ 0xB0,0xCF,0xD3,0xAE,0x29,0xD9,0xFA,0x87 } };
-    template <> inline constexpr guid guid_v<Windows::Networking::XboxLive::IXboxLiveQualityOfServicePrivatePayloadResult>{ 0x5A6302AE,0x6F38,0x41C0,{ 0x9F,0xCC,0xEA,0x6C,0xB9,0x78,0xCA,0xFC } };
+    template <> inline constexpr guid guid_v<Windows::Networking::XboxLive::IXboxLiveDeviceAddress>{ 0xF5BBD279,0x3C86,0x4B57,{ 0xA3,0x1A,0xB9,0x46,0x24,0x08,0xFD,0x01 } }; // F5BBD279-3C86-4B57-A31A-B9462408FD01
+    template <> inline constexpr guid guid_v<Windows::Networking::XboxLive::IXboxLiveDeviceAddressStatics>{ 0x5954A819,0x4A79,0x4931,{ 0x82,0x7C,0x7F,0x50,0x3E,0x96,0x32,0x63 } }; // 5954A819-4A79-4931-827C-7F503E963263
+    template <> inline constexpr guid guid_v<Windows::Networking::XboxLive::IXboxLiveEndpointPair>{ 0x1E9A839B,0x813E,0x44E0,{ 0xB8,0x7F,0xC8,0x7A,0x09,0x34,0x75,0xE4 } }; // 1E9A839B-813E-44E0-B87F-C87A093475E4
+    template <> inline constexpr guid guid_v<Windows::Networking::XboxLive::IXboxLiveEndpointPairCreationResult>{ 0xD9A8BB95,0x2AAB,0x4D1E,{ 0x97,0x94,0x33,0xEC,0xC0,0xDC,0xF0,0xFE } }; // D9A8BB95-2AAB-4D1E-9794-33ECC0DCF0FE
+    template <> inline constexpr guid guid_v<Windows::Networking::XboxLive::IXboxLiveEndpointPairStateChangedEventArgs>{ 0x592E3B55,0xDE08,0x44E7,{ 0xAC,0x3B,0xB9,0xB9,0xA1,0x69,0x58,0x3A } }; // 592E3B55-DE08-44E7-AC3B-B9B9A169583A
+    template <> inline constexpr guid guid_v<Windows::Networking::XboxLive::IXboxLiveEndpointPairStatics>{ 0x64316B30,0x217A,0x4243,{ 0x8E,0xE1,0x67,0x29,0x28,0x1D,0x27,0xDB } }; // 64316B30-217A-4243-8EE1-6729281D27DB
+    template <> inline constexpr guid guid_v<Windows::Networking::XboxLive::IXboxLiveEndpointPairTemplate>{ 0x6B286ECF,0x3457,0x40CE,{ 0xB9,0xA1,0xC0,0xCF,0xE0,0x21,0x3E,0xA7 } }; // 6B286ECF-3457-40CE-B9A1-C0CFE0213EA7
+    template <> inline constexpr guid guid_v<Windows::Networking::XboxLive::IXboxLiveEndpointPairTemplateStatics>{ 0x1E13137B,0x737B,0x4A23,{ 0xBC,0x64,0x08,0x70,0xF7,0x56,0x55,0xBA } }; // 1E13137B-737B-4A23-BC64-0870F75655BA
+    template <> inline constexpr guid guid_v<Windows::Networking::XboxLive::IXboxLiveInboundEndpointPairCreatedEventArgs>{ 0xDC183B62,0x22BA,0x48D2,{ 0x80,0xDE,0xC2,0x39,0x68,0xBD,0x19,0x8B } }; // DC183B62-22BA-48D2-80DE-C23968BD198B
+    template <> inline constexpr guid guid_v<Windows::Networking::XboxLive::IXboxLiveQualityOfServiceMeasurement>{ 0x4D682BCE,0xA5D6,0x47E6,{ 0xA2,0x36,0xCF,0xDE,0x5F,0xBD,0xF2,0xED } }; // 4D682BCE-A5D6-47E6-A236-CFDE5FBDF2ED
+    template <> inline constexpr guid guid_v<Windows::Networking::XboxLive::IXboxLiveQualityOfServiceMeasurementStatics>{ 0x6E352DCA,0x23CF,0x440A,{ 0xB0,0x77,0x5E,0x30,0x85,0x7A,0x82,0x34 } }; // 6E352DCA-23CF-440A-B077-5E30857A8234
+    template <> inline constexpr guid guid_v<Windows::Networking::XboxLive::IXboxLiveQualityOfServiceMetricResult>{ 0xAEEC53D1,0x3561,0x4782,{ 0xB0,0xCF,0xD3,0xAE,0x29,0xD9,0xFA,0x87 } }; // AEEC53D1-3561-4782-B0CF-D3AE29D9FA87
+    template <> inline constexpr guid guid_v<Windows::Networking::XboxLive::IXboxLiveQualityOfServicePrivatePayloadResult>{ 0x5A6302AE,0x6F38,0x41C0,{ 0x9F,0xCC,0xEA,0x6C,0xB9,0x78,0xCA,0xFC } }; // 5A6302AE-6F38-41C0-9FCC-EA6CB978CAFC
     template <> struct default_interface<Windows::Networking::XboxLive::XboxLiveDeviceAddress>{ using type = Windows::Networking::XboxLive::IXboxLiveDeviceAddress; };
     template <> struct default_interface<Windows::Networking::XboxLive::XboxLiveEndpointPair>{ using type = Windows::Networking::XboxLive::IXboxLiveEndpointPair; };
     template <> struct default_interface<Windows::Networking::XboxLive::XboxLiveEndpointPairCreationResult>{ using type = Windows::Networking::XboxLive::IXboxLiveEndpointPairCreationResult; };

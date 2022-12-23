@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -93,12 +93,12 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::SocialInfo::ISocialFeedSharedItem> = L"Windows.ApplicationModel.SocialInfo.ISocialFeedSharedItem";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::SocialInfo::ISocialItemThumbnail> = L"Windows.ApplicationModel.SocialInfo.ISocialItemThumbnail";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::SocialInfo::ISocialUserInfo> = L"Windows.ApplicationModel.SocialInfo.ISocialUserInfo";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::SocialInfo::ISocialFeedChildItem>{ 0x0B6A985A,0xD59D,0x40BE,{ 0x98,0x0C,0x48,0x8A,0x2A,0xB3,0x0A,0x83 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::SocialInfo::ISocialFeedContent>{ 0xA234E429,0x3E39,0x494D,{ 0xA3,0x7C,0xF4,0x62,0xA2,0x49,0x45,0x14 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::SocialInfo::ISocialFeedItem>{ 0x4F1392AB,0x1F72,0x4D33,{ 0xB6,0x95,0xDE,0x3E,0x1D,0xB6,0x03,0x17 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::SocialInfo::ISocialFeedSharedItem>{ 0x7BFB9E40,0xA6AA,0x45A7,{ 0x9F,0xF6,0x54,0xC4,0x21,0x05,0xDD,0x1F } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::SocialInfo::ISocialItemThumbnail>{ 0x5CBF831A,0x3F08,0x497F,{ 0x91,0x7F,0x57,0xE0,0x9D,0x84,0xB1,0x41 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::SocialInfo::ISocialUserInfo>{ 0x9E5E1BD1,0x90D0,0x4E1D,{ 0x95,0x54,0x84,0x4D,0x46,0x60,0x7F,0x61 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::SocialInfo::ISocialFeedChildItem>{ 0x0B6A985A,0xD59D,0x40BE,{ 0x98,0x0C,0x48,0x8A,0x2A,0xB3,0x0A,0x83 } }; // 0B6A985A-D59D-40BE-980C-488A2AB30A83
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::SocialInfo::ISocialFeedContent>{ 0xA234E429,0x3E39,0x494D,{ 0xA3,0x7C,0xF4,0x62,0xA2,0x49,0x45,0x14 } }; // A234E429-3E39-494D-A37C-F462A2494514
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::SocialInfo::ISocialFeedItem>{ 0x4F1392AB,0x1F72,0x4D33,{ 0xB6,0x95,0xDE,0x3E,0x1D,0xB6,0x03,0x17 } }; // 4F1392AB-1F72-4D33-B695-DE3E1DB60317
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::SocialInfo::ISocialFeedSharedItem>{ 0x7BFB9E40,0xA6AA,0x45A7,{ 0x9F,0xF6,0x54,0xC4,0x21,0x05,0xDD,0x1F } }; // 7BFB9E40-A6AA-45A7-9FF6-54C42105DD1F
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::SocialInfo::ISocialItemThumbnail>{ 0x5CBF831A,0x3F08,0x497F,{ 0x91,0x7F,0x57,0xE0,0x9D,0x84,0xB1,0x41 } }; // 5CBF831A-3F08-497F-917F-57E09D84B141
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::SocialInfo::ISocialUserInfo>{ 0x9E5E1BD1,0x90D0,0x4E1D,{ 0x95,0x54,0x84,0x4D,0x46,0x60,0x7F,0x61 } }; // 9E5E1BD1-90D0-4E1D-9554-844D46607F61
     template <> struct default_interface<Windows::ApplicationModel::SocialInfo::SocialFeedChildItem>{ using type = Windows::ApplicationModel::SocialInfo::ISocialFeedChildItem; };
     template <> struct default_interface<Windows::ApplicationModel::SocialInfo::SocialFeedContent>{ using type = Windows::ApplicationModel::SocialInfo::ISocialFeedContent; };
     template <> struct default_interface<Windows::ApplicationModel::SocialInfo::SocialFeedItem>{ using type = Windows::ApplicationModel::SocialInfo::ISocialFeedItem; };

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -16,8 +16,8 @@ namespace winrt::impl
     template <> struct category<Windows::Graphics::Effects::IGraphicsEffectSource>{ using type = interface_category; };
     template <> inline constexpr auto& name_v<Windows::Graphics::Effects::IGraphicsEffect> = L"Windows.Graphics.Effects.IGraphicsEffect";
     template <> inline constexpr auto& name_v<Windows::Graphics::Effects::IGraphicsEffectSource> = L"Windows.Graphics.Effects.IGraphicsEffectSource";
-    template <> inline constexpr guid guid_v<Windows::Graphics::Effects::IGraphicsEffect>{ 0xCB51C0CE,0x8FE6,0x4636,{ 0xB2,0x02,0x86,0x1F,0xAA,0x07,0xD8,0xF3 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Effects::IGraphicsEffectSource>{ 0x2D8F9DDC,0x4339,0x4EB9,{ 0x92,0x16,0xF9,0xDE,0xB7,0x56,0x58,0xA2 } };
+    template <> inline constexpr guid guid_v<Windows::Graphics::Effects::IGraphicsEffect>{ 0xCB51C0CE,0x8FE6,0x4636,{ 0xB2,0x02,0x86,0x1F,0xAA,0x07,0xD8,0xF3 } }; // CB51C0CE-8FE6-4636-B202-861FAA07D8F3
+    template <> inline constexpr guid guid_v<Windows::Graphics::Effects::IGraphicsEffectSource>{ 0x2D8F9DDC,0x4339,0x4EB9,{ 0x92,0x16,0xF9,0xDE,0xB7,0x56,0x58,0xA2 } }; // 2D8F9DDC-4339-4EB9-9216-F9DEB75658A2
     template <> struct abi<Windows::Graphics::Effects::IGraphicsEffect>
     {
         struct __declspec(novtable) type : inspectable_abi

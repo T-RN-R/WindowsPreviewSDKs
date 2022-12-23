@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -115,18 +115,18 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Devices::HumanInterfaceDevice::IHidNumericControl> = L"Windows.Devices.HumanInterfaceDevice.IHidNumericControl";
     template <> inline constexpr auto& name_v<Windows::Devices::HumanInterfaceDevice::IHidNumericControlDescription> = L"Windows.Devices.HumanInterfaceDevice.IHidNumericControlDescription";
     template <> inline constexpr auto& name_v<Windows::Devices::HumanInterfaceDevice::IHidOutputReport> = L"Windows.Devices.HumanInterfaceDevice.IHidOutputReport";
-    template <> inline constexpr guid guid_v<Windows::Devices::HumanInterfaceDevice::IHidBooleanControl>{ 0x524DF48A,0x3695,0x408C,{ 0xBB,0xA2,0xE2,0xEB,0x5A,0xBF,0xBC,0x20 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::HumanInterfaceDevice::IHidBooleanControlDescription>{ 0x6196E543,0x29D8,0x4A2A,{ 0x86,0x83,0x84,0x9E,0x20,0x7B,0xBE,0x31 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::HumanInterfaceDevice::IHidBooleanControlDescription2>{ 0xC8EED2EA,0x8A77,0x4C36,{ 0xAA,0x00,0x5F,0xF0,0x44,0x9D,0x3E,0x73 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::HumanInterfaceDevice::IHidCollection>{ 0x7189F5A3,0x32F1,0x46E3,{ 0xBE,0xFD,0x44,0xD2,0x66,0x3B,0x7E,0x6A } };
-    template <> inline constexpr guid guid_v<Windows::Devices::HumanInterfaceDevice::IHidDevice>{ 0x5F8A14E7,0x2200,0x432E,{ 0x95,0xDA,0xD0,0x9B,0x87,0xD5,0x74,0xA8 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::HumanInterfaceDevice::IHidDeviceStatics>{ 0x9E5981E4,0x9856,0x418C,{ 0x9F,0x73,0x77,0xDE,0x0C,0xD8,0x57,0x54 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::HumanInterfaceDevice::IHidFeatureReport>{ 0x841D9B79,0x5AE5,0x46E3,{ 0x82,0xEF,0x1F,0xEC,0x5C,0x89,0x42,0xF4 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::HumanInterfaceDevice::IHidInputReport>{ 0xC35D0E50,0xF7E7,0x4E8D,{ 0xB2,0x3E,0xCA,0xBB,0xE5,0x6B,0x90,0xE9 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::HumanInterfaceDevice::IHidInputReportReceivedEventArgs>{ 0x7059C5CB,0x59B2,0x4DC2,{ 0x98,0x5C,0x0A,0xDC,0x61,0x36,0xFA,0x2D } };
-    template <> inline constexpr guid guid_v<Windows::Devices::HumanInterfaceDevice::IHidNumericControl>{ 0xE38A12A5,0x35A7,0x4B75,{ 0x89,0xC8,0xFB,0x1F,0x28,0xB1,0x08,0x23 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::HumanInterfaceDevice::IHidNumericControlDescription>{ 0x638D5E86,0x1D97,0x4C75,{ 0x92,0x7F,0x5F,0xF5,0x8B,0xA0,0x5E,0x32 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::HumanInterfaceDevice::IHidOutputReport>{ 0x62CB2544,0xC896,0x4463,{ 0x93,0xC1,0xDF,0x9D,0xB0,0x53,0xC4,0x50 } };
+    template <> inline constexpr guid guid_v<Windows::Devices::HumanInterfaceDevice::IHidBooleanControl>{ 0x524DF48A,0x3695,0x408C,{ 0xBB,0xA2,0xE2,0xEB,0x5A,0xBF,0xBC,0x20 } }; // 524DF48A-3695-408C-BBA2-E2EB5ABFBC20
+    template <> inline constexpr guid guid_v<Windows::Devices::HumanInterfaceDevice::IHidBooleanControlDescription>{ 0x6196E543,0x29D8,0x4A2A,{ 0x86,0x83,0x84,0x9E,0x20,0x7B,0xBE,0x31 } }; // 6196E543-29D8-4A2A-8683-849E207BBE31
+    template <> inline constexpr guid guid_v<Windows::Devices::HumanInterfaceDevice::IHidBooleanControlDescription2>{ 0xC8EED2EA,0x8A77,0x4C36,{ 0xAA,0x00,0x5F,0xF0,0x44,0x9D,0x3E,0x73 } }; // C8EED2EA-8A77-4C36-AA00-5FF0449D3E73
+    template <> inline constexpr guid guid_v<Windows::Devices::HumanInterfaceDevice::IHidCollection>{ 0x7189F5A3,0x32F1,0x46E3,{ 0xBE,0xFD,0x44,0xD2,0x66,0x3B,0x7E,0x6A } }; // 7189F5A3-32F1-46E3-BEFD-44D2663B7E6A
+    template <> inline constexpr guid guid_v<Windows::Devices::HumanInterfaceDevice::IHidDevice>{ 0x5F8A14E7,0x2200,0x432E,{ 0x95,0xDA,0xD0,0x9B,0x87,0xD5,0x74,0xA8 } }; // 5F8A14E7-2200-432E-95DA-D09B87D574A8
+    template <> inline constexpr guid guid_v<Windows::Devices::HumanInterfaceDevice::IHidDeviceStatics>{ 0x9E5981E4,0x9856,0x418C,{ 0x9F,0x73,0x77,0xDE,0x0C,0xD8,0x57,0x54 } }; // 9E5981E4-9856-418C-9F73-77DE0CD85754
+    template <> inline constexpr guid guid_v<Windows::Devices::HumanInterfaceDevice::IHidFeatureReport>{ 0x841D9B79,0x5AE5,0x46E3,{ 0x82,0xEF,0x1F,0xEC,0x5C,0x89,0x42,0xF4 } }; // 841D9B79-5AE5-46E3-82EF-1FEC5C8942F4
+    template <> inline constexpr guid guid_v<Windows::Devices::HumanInterfaceDevice::IHidInputReport>{ 0xC35D0E50,0xF7E7,0x4E8D,{ 0xB2,0x3E,0xCA,0xBB,0xE5,0x6B,0x90,0xE9 } }; // C35D0E50-F7E7-4E8D-B23E-CABBE56B90E9
+    template <> inline constexpr guid guid_v<Windows::Devices::HumanInterfaceDevice::IHidInputReportReceivedEventArgs>{ 0x7059C5CB,0x59B2,0x4DC2,{ 0x98,0x5C,0x0A,0xDC,0x61,0x36,0xFA,0x2D } }; // 7059C5CB-59B2-4DC2-985C-0ADC6136FA2D
+    template <> inline constexpr guid guid_v<Windows::Devices::HumanInterfaceDevice::IHidNumericControl>{ 0xE38A12A5,0x35A7,0x4B75,{ 0x89,0xC8,0xFB,0x1F,0x28,0xB1,0x08,0x23 } }; // E38A12A5-35A7-4B75-89C8-FB1F28B10823
+    template <> inline constexpr guid guid_v<Windows::Devices::HumanInterfaceDevice::IHidNumericControlDescription>{ 0x638D5E86,0x1D97,0x4C75,{ 0x92,0x7F,0x5F,0xF5,0x8B,0xA0,0x5E,0x32 } }; // 638D5E86-1D97-4C75-927F-5FF58BA05E32
+    template <> inline constexpr guid guid_v<Windows::Devices::HumanInterfaceDevice::IHidOutputReport>{ 0x62CB2544,0xC896,0x4463,{ 0x93,0xC1,0xDF,0x9D,0xB0,0x53,0xC4,0x50 } }; // 62CB2544-C896-4463-93C1-DF9DB053C450
     template <> struct default_interface<Windows::Devices::HumanInterfaceDevice::HidBooleanControl>{ using type = Windows::Devices::HumanInterfaceDevice::IHidBooleanControl; };
     template <> struct default_interface<Windows::Devices::HumanInterfaceDevice::HidBooleanControlDescription>{ using type = Windows::Devices::HumanInterfaceDevice::IHidBooleanControlDescription; };
     template <> struct default_interface<Windows::Devices::HumanInterfaceDevice::HidCollection>{ using type = Windows::Devices::HumanInterfaceDevice::IHidCollection; };

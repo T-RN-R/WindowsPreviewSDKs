@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -91,12 +91,12 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Devices::Lights::ILampAvailabilityChangedEventArgs> = L"Windows.Devices.Lights.ILampAvailabilityChangedEventArgs";
     template <> inline constexpr auto& name_v<Windows::Devices::Lights::ILampInfo> = L"Windows.Devices.Lights.ILampInfo";
     template <> inline constexpr auto& name_v<Windows::Devices::Lights::ILampStatics> = L"Windows.Devices.Lights.ILampStatics";
-    template <> inline constexpr guid guid_v<Windows::Devices::Lights::ILamp>{ 0x047D5B9A,0xEA45,0x4B2B,{ 0xB1,0xA2,0x14,0xDF,0xF0,0x0B,0xDE,0x7B } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Lights::ILampArray>{ 0x7ACE9787,0xC8A0,0x4E95,{ 0xA1,0xE0,0xD5,0x86,0x76,0x53,0x86,0x49 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Lights::ILampArrayStatics>{ 0x7BB8C98D,0x5FC1,0x452D,{ 0xBB,0x1F,0x4A,0xD4,0x10,0xD3,0x98,0xFF } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Lights::ILampAvailabilityChangedEventArgs>{ 0x4F6E3DED,0x07A2,0x499D,{ 0x92,0x60,0x67,0xE3,0x04,0x53,0x2B,0xA4 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Lights::ILampInfo>{ 0x30BB521C,0x0ACF,0x49DA,{ 0x8C,0x10,0x15,0x0B,0x9C,0xF6,0x27,0x13 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Lights::ILampStatics>{ 0xA822416C,0x8885,0x401E,{ 0xB8,0x21,0x8E,0x8B,0x38,0xA8,0xE8,0xEC } };
+    template <> inline constexpr guid guid_v<Windows::Devices::Lights::ILamp>{ 0x047D5B9A,0xEA45,0x4B2B,{ 0xB1,0xA2,0x14,0xDF,0xF0,0x0B,0xDE,0x7B } }; // 047D5B9A-EA45-4B2B-B1A2-14DFF00BDE7B
+    template <> inline constexpr guid guid_v<Windows::Devices::Lights::ILampArray>{ 0x7ACE9787,0xC8A0,0x4E95,{ 0xA1,0xE0,0xD5,0x86,0x76,0x53,0x86,0x49 } }; // 7ACE9787-C8A0-4E95-A1E0-D58676538649
+    template <> inline constexpr guid guid_v<Windows::Devices::Lights::ILampArrayStatics>{ 0x7BB8C98D,0x5FC1,0x452D,{ 0xBB,0x1F,0x4A,0xD4,0x10,0xD3,0x98,0xFF } }; // 7BB8C98D-5FC1-452D-BB1F-4AD410D398FF
+    template <> inline constexpr guid guid_v<Windows::Devices::Lights::ILampAvailabilityChangedEventArgs>{ 0x4F6E3DED,0x07A2,0x499D,{ 0x92,0x60,0x67,0xE3,0x04,0x53,0x2B,0xA4 } }; // 4F6E3DED-07A2-499D-9260-67E304532BA4
+    template <> inline constexpr guid guid_v<Windows::Devices::Lights::ILampInfo>{ 0x30BB521C,0x0ACF,0x49DA,{ 0x8C,0x10,0x15,0x0B,0x9C,0xF6,0x27,0x13 } }; // 30BB521C-0ACF-49DA-8C10-150B9CF62713
+    template <> inline constexpr guid guid_v<Windows::Devices::Lights::ILampStatics>{ 0xA822416C,0x8885,0x401E,{ 0xB8,0x21,0x8E,0x8B,0x38,0xA8,0xE8,0xEC } }; // A822416C-8885-401E-B821-8E8B38A8E8EC
     template <> struct default_interface<Windows::Devices::Lights::Lamp>{ using type = Windows::Devices::Lights::ILamp; };
     template <> struct default_interface<Windows::Devices::Lights::LampArray>{ using type = Windows::Devices::Lights::ILampArray; };
     template <> struct default_interface<Windows::Devices::Lights::LampAvailabilityChangedEventArgs>{ using type = Windows::Devices::Lights::ILampAvailabilityChangedEventArgs; };

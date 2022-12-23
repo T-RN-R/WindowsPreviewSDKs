@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -58,10 +58,10 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Devices::I2c::Provider::II2cDeviceProvider> = L"Windows.Devices.I2c.Provider.II2cDeviceProvider";
     template <> inline constexpr auto& name_v<Windows::Devices::I2c::Provider::II2cProvider> = L"Windows.Devices.I2c.Provider.II2cProvider";
     template <> inline constexpr auto& name_v<Windows::Devices::I2c::Provider::IProviderI2cConnectionSettings> = L"Windows.Devices.I2c.Provider.IProviderI2cConnectionSettings";
-    template <> inline constexpr guid guid_v<Windows::Devices::I2c::Provider::II2cControllerProvider>{ 0x61C2BB82,0x4510,0x4163,{ 0xA8,0x7C,0x4E,0x15,0xA9,0x55,0x89,0x80 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::I2c::Provider::II2cDeviceProvider>{ 0xAD342654,0x57E8,0x453E,{ 0x83,0x29,0xD1,0xE4,0x47,0xD1,0x03,0xA9 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::I2c::Provider::II2cProvider>{ 0x6F13083E,0xBF62,0x4FE2,{ 0xA9,0x5A,0xF0,0x89,0x99,0x66,0x98,0x18 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::I2c::Provider::IProviderI2cConnectionSettings>{ 0xE9DB4E34,0xE510,0x44B7,{ 0x80,0x9D,0xF2,0xF8,0x5B,0x55,0x53,0x39 } };
+    template <> inline constexpr guid guid_v<Windows::Devices::I2c::Provider::II2cControllerProvider>{ 0x61C2BB82,0x4510,0x4163,{ 0xA8,0x7C,0x4E,0x15,0xA9,0x55,0x89,0x80 } }; // 61C2BB82-4510-4163-A87C-4E15A9558980
+    template <> inline constexpr guid guid_v<Windows::Devices::I2c::Provider::II2cDeviceProvider>{ 0xAD342654,0x57E8,0x453E,{ 0x83,0x29,0xD1,0xE4,0x47,0xD1,0x03,0xA9 } }; // AD342654-57E8-453E-8329-D1E447D103A9
+    template <> inline constexpr guid guid_v<Windows::Devices::I2c::Provider::II2cProvider>{ 0x6F13083E,0xBF62,0x4FE2,{ 0xA9,0x5A,0xF0,0x89,0x99,0x66,0x98,0x18 } }; // 6F13083E-BF62-4FE2-A95A-F08999669818
+    template <> inline constexpr guid guid_v<Windows::Devices::I2c::Provider::IProviderI2cConnectionSettings>{ 0xE9DB4E34,0xE510,0x44B7,{ 0x80,0x9D,0xF2,0xF8,0x5B,0x55,0x53,0x39 } }; // E9DB4E34-E510-44B7-809D-F2F85B555339
     template <> struct default_interface<Windows::Devices::I2c::Provider::ProviderI2cConnectionSettings>{ using type = Windows::Devices::I2c::Provider::IProviderI2cConnectionSettings; };
     template <> struct abi<Windows::Devices::I2c::Provider::II2cControllerProvider>
     {

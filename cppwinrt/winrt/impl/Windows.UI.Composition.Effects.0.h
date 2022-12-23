@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -30,8 +30,8 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Composition::Effects::SceneLightingEffectReflectanceModel> = L"Windows.UI.Composition.Effects.SceneLightingEffectReflectanceModel";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::Effects::ISceneLightingEffect> = L"Windows.UI.Composition.Effects.ISceneLightingEffect";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::Effects::ISceneLightingEffect2> = L"Windows.UI.Composition.Effects.ISceneLightingEffect2";
-    template <> inline constexpr guid guid_v<Windows::UI::Composition::Effects::ISceneLightingEffect>{ 0x91BB5E52,0x95D1,0x4F8B,{ 0x9A,0x5A,0x64,0x08,0xB2,0x4B,0x8C,0x6A } };
-    template <> inline constexpr guid guid_v<Windows::UI::Composition::Effects::ISceneLightingEffect2>{ 0x9E270E81,0x72F0,0x4C5C,{ 0x95,0xF8,0x8A,0x6E,0x00,0x24,0xF4,0x09 } };
+    template <> inline constexpr guid guid_v<Windows::UI::Composition::Effects::ISceneLightingEffect>{ 0x91BB5E52,0x95D1,0x4F8B,{ 0x9A,0x5A,0x64,0x08,0xB2,0x4B,0x8C,0x6A } }; // 91BB5E52-95D1-4F8B-9A5A-6408B24B8C6A
+    template <> inline constexpr guid guid_v<Windows::UI::Composition::Effects::ISceneLightingEffect2>{ 0x9E270E81,0x72F0,0x4C5C,{ 0x95,0xF8,0x8A,0x6E,0x00,0x24,0xF4,0x09 } }; // 9E270E81-72F0-4C5C-95F8-8A6E0024F409
     template <> struct default_interface<Windows::UI::Composition::Effects::SceneLightingEffect>{ using type = Windows::UI::Composition::Effects::ISceneLightingEffect; };
     template <> struct abi<Windows::UI::Composition::Effects::ISceneLightingEffect>
     {

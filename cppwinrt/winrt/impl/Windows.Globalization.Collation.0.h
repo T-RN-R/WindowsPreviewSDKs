@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -25,9 +25,9 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Globalization::Collation::ICharacterGrouping> = L"Windows.Globalization.Collation.ICharacterGrouping";
     template <> inline constexpr auto& name_v<Windows::Globalization::Collation::ICharacterGroupings> = L"Windows.Globalization.Collation.ICharacterGroupings";
     template <> inline constexpr auto& name_v<Windows::Globalization::Collation::ICharacterGroupingsFactory> = L"Windows.Globalization.Collation.ICharacterGroupingsFactory";
-    template <> inline constexpr guid guid_v<Windows::Globalization::Collation::ICharacterGrouping>{ 0xFAE761BB,0x805D,0x4BB0,{ 0x95,0xBB,0xC1,0xF7,0xC3,0xE8,0xEB,0x8E } };
-    template <> inline constexpr guid guid_v<Windows::Globalization::Collation::ICharacterGroupings>{ 0xB8D20A75,0xD4CF,0x4055,{ 0x80,0xE5,0xCE,0x16,0x9C,0x22,0x64,0x96 } };
-    template <> inline constexpr guid guid_v<Windows::Globalization::Collation::ICharacterGroupingsFactory>{ 0x99EA9FD9,0x886D,0x4401,{ 0x9F,0x98,0x69,0xC8,0x2D,0x4C,0x2F,0x78 } };
+    template <> inline constexpr guid guid_v<Windows::Globalization::Collation::ICharacterGrouping>{ 0xFAE761BB,0x805D,0x4BB0,{ 0x95,0xBB,0xC1,0xF7,0xC3,0xE8,0xEB,0x8E } }; // FAE761BB-805D-4BB0-95BB-C1F7C3E8EB8E
+    template <> inline constexpr guid guid_v<Windows::Globalization::Collation::ICharacterGroupings>{ 0xB8D20A75,0xD4CF,0x4055,{ 0x80,0xE5,0xCE,0x16,0x9C,0x22,0x64,0x96 } }; // B8D20A75-D4CF-4055-80E5-CE169C226496
+    template <> inline constexpr guid guid_v<Windows::Globalization::Collation::ICharacterGroupingsFactory>{ 0x99EA9FD9,0x886D,0x4401,{ 0x9F,0x98,0x69,0xC8,0x2D,0x4C,0x2F,0x78 } }; // 99EA9FD9-886D-4401-9F98-69C82D4C2F78
     template <> struct default_interface<Windows::Globalization::Collation::CharacterGrouping>{ using type = Windows::Globalization::Collation::ICharacterGrouping; };
     template <> struct default_interface<Windows::Globalization::Collation::CharacterGroupings>{ using type = Windows::Globalization::Collation::ICharacterGroupings; };
     template <> struct abi<Windows::Globalization::Collation::ICharacterGrouping>

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -81,15 +81,15 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragUIOverride> = L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragUIOverride";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDropOperationTarget> = L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDropOperationTarget";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDropOperationTargetRequestedEventArgs> = L"Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDropOperationTargetRequestedEventArgs";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragDropManager>{ 0x7D56D344,0x8464,0x4FAF,{ 0xAA,0x49,0x37,0xEA,0x6E,0x2D,0x7B,0xD1 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragDropManagerStatics>{ 0x9542FDCA,0xDA12,0x4C1C,{ 0x8D,0x06,0x04,0x1D,0xB2,0x97,0x33,0xC3 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragInfo>{ 0x48353A8B,0xCB50,0x464E,{ 0x95,0x75,0xCD,0x4E,0x3A,0x7A,0xB0,0x28 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragInfo2>{ 0xC54691E5,0xE6FB,0x4D74,{ 0xB4,0xB1,0x8A,0x3C,0x17,0xF2,0x5E,0x9E } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragOperation>{ 0xCC06DE4F,0x6DB0,0x4E62,{ 0xAB,0x1B,0xA7,0x4A,0x02,0xDC,0x6D,0x85 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragOperation2>{ 0x824B1E2C,0xD99A,0x4FC3,{ 0x85,0x07,0x6C,0x18,0x2F,0x33,0xB4,0x6A } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragUIOverride>{ 0x89A85064,0x3389,0x4F4F,{ 0x88,0x97,0x7E,0x8A,0x3F,0xFB,0x3C,0x93 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDropOperationTarget>{ 0xD9126196,0x4C5B,0x417D,{ 0xBB,0x37,0x76,0x38,0x1D,0xEF,0x8D,0xB4 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDropOperationTargetRequestedEventArgs>{ 0x2ACA929A,0x5E28,0x4EA6,{ 0x82,0x9E,0x29,0x13,0x4E,0x66,0x5D,0x6D } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragDropManager>{ 0x7D56D344,0x8464,0x4FAF,{ 0xAA,0x49,0x37,0xEA,0x6E,0x2D,0x7B,0xD1 } }; // 7D56D344-8464-4FAF-AA49-37EA6E2D7BD1
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragDropManagerStatics>{ 0x9542FDCA,0xDA12,0x4C1C,{ 0x8D,0x06,0x04,0x1D,0xB2,0x97,0x33,0xC3 } }; // 9542FDCA-DA12-4C1C-8D06-041DB29733C3
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragInfo>{ 0x48353A8B,0xCB50,0x464E,{ 0x95,0x75,0xCD,0x4E,0x3A,0x7A,0xB0,0x28 } }; // 48353A8B-CB50-464E-9575-CD4E3A7AB028
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragInfo2>{ 0xC54691E5,0xE6FB,0x4D74,{ 0xB4,0xB1,0x8A,0x3C,0x17,0xF2,0x5E,0x9E } }; // C54691E5-E6FB-4D74-B4B1-8A3C17F25E9E
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragOperation>{ 0xCC06DE4F,0x6DB0,0x4E62,{ 0xAB,0x1B,0xA7,0x4A,0x02,0xDC,0x6D,0x85 } }; // CC06DE4F-6DB0-4E62-AB1B-A74A02DC6D85
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragOperation2>{ 0x824B1E2C,0xD99A,0x4FC3,{ 0x85,0x07,0x6C,0x18,0x2F,0x33,0xB4,0x6A } }; // 824B1E2C-D99A-4FC3-8507-6C182F33B46A
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragUIOverride>{ 0x89A85064,0x3389,0x4F4F,{ 0x88,0x97,0x7E,0x8A,0x3F,0xFB,0x3C,0x93 } }; // 89A85064-3389-4F4F-8897-7E8A3FFB3C93
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDropOperationTarget>{ 0xD9126196,0x4C5B,0x417D,{ 0xBB,0x37,0x76,0x38,0x1D,0xEF,0x8D,0xB4 } }; // D9126196-4C5B-417D-BB37-76381DEF8DB4
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDropOperationTargetRequestedEventArgs>{ 0x2ACA929A,0x5E28,0x4EA6,{ 0x82,0x9E,0x29,0x13,0x4E,0x66,0x5D,0x6D } }; // 2ACA929A-5E28-4EA6-829E-29134E665D6D
     template <> struct default_interface<Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragDropManager>{ using type = Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragDropManager; };
     template <> struct default_interface<Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragInfo>{ using type = Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragInfo; };
     template <> struct default_interface<Windows::ApplicationModel::DataTransfer::DragDrop::Core::CoreDragOperation>{ using type = Windows::ApplicationModel::DataTransfer::DragDrop::Core::ICoreDragOperation; };

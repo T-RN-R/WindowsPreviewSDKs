@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -73,12 +73,12 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Gaming::UI::IGameChatOverlayMessageSource> = L"Windows.Gaming.UI.IGameChatOverlayMessageSource";
     template <> inline constexpr auto& name_v<Windows::Gaming::UI::IGameChatOverlayStatics> = L"Windows.Gaming.UI.IGameChatOverlayStatics";
     template <> inline constexpr auto& name_v<Windows::Gaming::UI::IGameUIProviderActivatedEventArgs> = L"Windows.Gaming.UI.IGameUIProviderActivatedEventArgs";
-    template <> inline constexpr guid guid_v<Windows::Gaming::UI::IGameBarStatics>{ 0x1DB9A292,0xCC78,0x4173,{ 0xBE,0x45,0xB6,0x1E,0x67,0x28,0x3E,0xA7 } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::UI::IGameChatMessageReceivedEventArgs>{ 0xA28201F1,0x3FB9,0x4E42,{ 0xA4,0x03,0x7A,0xFC,0xE2,0x02,0x3B,0x1E } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::UI::IGameChatOverlay>{ 0xFBC64865,0xF6FC,0x4A48,{ 0xAE,0x07,0x03,0xAC,0x6E,0xD4,0x37,0x04 } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::UI::IGameChatOverlayMessageSource>{ 0x1E177397,0x59FB,0x4F4F,{ 0x8E,0x9A,0x80,0xAC,0xF8,0x17,0x74,0x3C } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::UI::IGameChatOverlayStatics>{ 0x89ACF614,0x7867,0x49F7,{ 0x96,0x87,0x25,0xD9,0xDB,0xF4,0x44,0xD1 } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::UI::IGameUIProviderActivatedEventArgs>{ 0xA7B3203E,0xCAF7,0x4DED,{ 0xBB,0xD2,0x47,0xDE,0x43,0xBB,0x6D,0xD5 } };
+    template <> inline constexpr guid guid_v<Windows::Gaming::UI::IGameBarStatics>{ 0x1DB9A292,0xCC78,0x4173,{ 0xBE,0x45,0xB6,0x1E,0x67,0x28,0x3E,0xA7 } }; // 1DB9A292-CC78-4173-BE45-B61E67283EA7
+    template <> inline constexpr guid guid_v<Windows::Gaming::UI::IGameChatMessageReceivedEventArgs>{ 0xA28201F1,0x3FB9,0x4E42,{ 0xA4,0x03,0x7A,0xFC,0xE2,0x02,0x3B,0x1E } }; // A28201F1-3FB9-4E42-A403-7AFCE2023B1E
+    template <> inline constexpr guid guid_v<Windows::Gaming::UI::IGameChatOverlay>{ 0xFBC64865,0xF6FC,0x4A48,{ 0xAE,0x07,0x03,0xAC,0x6E,0xD4,0x37,0x04 } }; // FBC64865-F6FC-4A48-AE07-03AC6ED43704
+    template <> inline constexpr guid guid_v<Windows::Gaming::UI::IGameChatOverlayMessageSource>{ 0x1E177397,0x59FB,0x4F4F,{ 0x8E,0x9A,0x80,0xAC,0xF8,0x17,0x74,0x3C } }; // 1E177397-59FB-4F4F-8E9A-80ACF817743C
+    template <> inline constexpr guid guid_v<Windows::Gaming::UI::IGameChatOverlayStatics>{ 0x89ACF614,0x7867,0x49F7,{ 0x96,0x87,0x25,0xD9,0xDB,0xF4,0x44,0xD1 } }; // 89ACF614-7867-49F7-9687-25D9DBF444D1
+    template <> inline constexpr guid guid_v<Windows::Gaming::UI::IGameUIProviderActivatedEventArgs>{ 0xA7B3203E,0xCAF7,0x4DED,{ 0xBB,0xD2,0x47,0xDE,0x43,0xBB,0x6D,0xD5 } }; // A7B3203E-CAF7-4DED-BBD2-47DE43BB6DD5
     template <> struct default_interface<Windows::Gaming::UI::GameChatMessageReceivedEventArgs>{ using type = Windows::Gaming::UI::IGameChatMessageReceivedEventArgs; };
     template <> struct default_interface<Windows::Gaming::UI::GameChatOverlay>{ using type = Windows::Gaming::UI::IGameChatOverlay; };
     template <> struct default_interface<Windows::Gaming::UI::GameChatOverlayMessageSource>{ using type = Windows::Gaming::UI::IGameChatOverlayMessageSource; };

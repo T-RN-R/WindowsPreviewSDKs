@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -54,11 +54,11 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Media::FaceAnalysis::IFaceDetectorStatics> = L"Windows.Media.FaceAnalysis.IFaceDetectorStatics";
     template <> inline constexpr auto& name_v<Windows::Media::FaceAnalysis::IFaceTracker> = L"Windows.Media.FaceAnalysis.IFaceTracker";
     template <> inline constexpr auto& name_v<Windows::Media::FaceAnalysis::IFaceTrackerStatics> = L"Windows.Media.FaceAnalysis.IFaceTrackerStatics";
-    template <> inline constexpr guid guid_v<Windows::Media::FaceAnalysis::IDetectedFace>{ 0x8200D454,0x66BC,0x34DF,{ 0x94,0x10,0xE8,0x94,0x00,0x19,0x54,0x14 } };
-    template <> inline constexpr guid guid_v<Windows::Media::FaceAnalysis::IFaceDetector>{ 0x16B672DC,0xFE6F,0x3117,{ 0x8D,0x95,0xC3,0xF0,0x4D,0x51,0x63,0x0C } };
-    template <> inline constexpr guid guid_v<Windows::Media::FaceAnalysis::IFaceDetectorStatics>{ 0xBC042D67,0x9047,0x33F6,{ 0x88,0x1B,0x67,0x46,0xC1,0xB2,0x18,0xB8 } };
-    template <> inline constexpr guid guid_v<Windows::Media::FaceAnalysis::IFaceTracker>{ 0x6BA67D8C,0xA841,0x4420,{ 0x93,0xE6,0x24,0x20,0xA1,0x88,0x4F,0xCF } };
-    template <> inline constexpr guid guid_v<Windows::Media::FaceAnalysis::IFaceTrackerStatics>{ 0xE9629198,0x1801,0x3FA5,{ 0x93,0x2E,0x31,0xD7,0x67,0xAF,0x6C,0x4D } };
+    template <> inline constexpr guid guid_v<Windows::Media::FaceAnalysis::IDetectedFace>{ 0x8200D454,0x66BC,0x34DF,{ 0x94,0x10,0xE8,0x94,0x00,0x19,0x54,0x14 } }; // 8200D454-66BC-34DF-9410-E89400195414
+    template <> inline constexpr guid guid_v<Windows::Media::FaceAnalysis::IFaceDetector>{ 0x16B672DC,0xFE6F,0x3117,{ 0x8D,0x95,0xC3,0xF0,0x4D,0x51,0x63,0x0C } }; // 16B672DC-FE6F-3117-8D95-C3F04D51630C
+    template <> inline constexpr guid guid_v<Windows::Media::FaceAnalysis::IFaceDetectorStatics>{ 0xBC042D67,0x9047,0x33F6,{ 0x88,0x1B,0x67,0x46,0xC1,0xB2,0x18,0xB8 } }; // BC042D67-9047-33F6-881B-6746C1B218B8
+    template <> inline constexpr guid guid_v<Windows::Media::FaceAnalysis::IFaceTracker>{ 0x6BA67D8C,0xA841,0x4420,{ 0x93,0xE6,0x24,0x20,0xA1,0x88,0x4F,0xCF } }; // 6BA67D8C-A841-4420-93E6-2420A1884FCF
+    template <> inline constexpr guid guid_v<Windows::Media::FaceAnalysis::IFaceTrackerStatics>{ 0xE9629198,0x1801,0x3FA5,{ 0x93,0x2E,0x31,0xD7,0x67,0xAF,0x6C,0x4D } }; // E9629198-1801-3FA5-932E-31D767AF6C4D
     template <> struct default_interface<Windows::Media::FaceAnalysis::DetectedFace>{ using type = Windows::Media::FaceAnalysis::IDetectedFace; };
     template <> struct default_interface<Windows::Media::FaceAnalysis::FaceDetector>{ using type = Windows::Media::FaceAnalysis::IFaceDetector; };
     template <> struct default_interface<Windows::Media::FaceAnalysis::FaceTracker>{ using type = Windows::Media::FaceAnalysis::IFaceTracker; };

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -77,11 +77,11 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Devices::Custom::IIOControlCode> = L"Windows.Devices.Custom.IIOControlCode";
     template <> inline constexpr auto& name_v<Windows::Devices::Custom::IIOControlCodeFactory> = L"Windows.Devices.Custom.IIOControlCodeFactory";
     template <> inline constexpr auto& name_v<Windows::Devices::Custom::IKnownDeviceTypesStatics> = L"Windows.Devices.Custom.IKnownDeviceTypesStatics";
-    template <> inline constexpr guid guid_v<Windows::Devices::Custom::ICustomDevice>{ 0xDD30251F,0xC48B,0x43BD,{ 0xBC,0xB1,0xDE,0xC8,0x8F,0x15,0x14,0x3E } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Custom::ICustomDeviceStatics>{ 0xC8220312,0xEF4C,0x46B1,{ 0xA5,0x8E,0xEE,0xB3,0x08,0xDC,0x89,0x17 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Custom::IIOControlCode>{ 0x0E9559E7,0x60C8,0x4375,{ 0xA7,0x61,0x7F,0x88,0x08,0x06,0x6C,0x60 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Custom::IIOControlCodeFactory>{ 0x856A7CF0,0x4C11,0x44AE,{ 0xAF,0xC6,0xB8,0xD4,0xA2,0x12,0x78,0x8F } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Custom::IKnownDeviceTypesStatics>{ 0xEE5479C2,0x5448,0x45DA,{ 0xAD,0x1B,0x24,0x94,0x8C,0x23,0x90,0x94 } };
+    template <> inline constexpr guid guid_v<Windows::Devices::Custom::ICustomDevice>{ 0xDD30251F,0xC48B,0x43BD,{ 0xBC,0xB1,0xDE,0xC8,0x8F,0x15,0x14,0x3E } }; // DD30251F-C48B-43BD-BCB1-DEC88F15143E
+    template <> inline constexpr guid guid_v<Windows::Devices::Custom::ICustomDeviceStatics>{ 0xC8220312,0xEF4C,0x46B1,{ 0xA5,0x8E,0xEE,0xB3,0x08,0xDC,0x89,0x17 } }; // C8220312-EF4C-46B1-A58E-EEB308DC8917
+    template <> inline constexpr guid guid_v<Windows::Devices::Custom::IIOControlCode>{ 0x0E9559E7,0x60C8,0x4375,{ 0xA7,0x61,0x7F,0x88,0x08,0x06,0x6C,0x60 } }; // 0E9559E7-60C8-4375-A761-7F8808066C60
+    template <> inline constexpr guid guid_v<Windows::Devices::Custom::IIOControlCodeFactory>{ 0x856A7CF0,0x4C11,0x44AE,{ 0xAF,0xC6,0xB8,0xD4,0xA2,0x12,0x78,0x8F } }; // 856A7CF0-4C11-44AE-AFC6-B8D4A212788F
+    template <> inline constexpr guid guid_v<Windows::Devices::Custom::IKnownDeviceTypesStatics>{ 0xEE5479C2,0x5448,0x45DA,{ 0xAD,0x1B,0x24,0x94,0x8C,0x23,0x90,0x94 } }; // EE5479C2-5448-45DA-AD1B-24948C239094
     template <> struct default_interface<Windows::Devices::Custom::CustomDevice>{ using type = Windows::Devices::Custom::ICustomDevice; };
     template <> struct default_interface<Windows::Devices::Custom::IOControlCode>{ using type = Windows::Devices::Custom::IIOControlCode; };
     template <> struct abi<Windows::Devices::Custom::ICustomDevice>

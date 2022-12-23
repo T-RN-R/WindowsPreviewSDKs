@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -171,22 +171,22 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Media::Protection::ComponentLoadFailedEventHandler> = L"Windows.Media.Protection.ComponentLoadFailedEventHandler";
     template <> inline constexpr auto& name_v<Windows::Media::Protection::RebootNeededEventHandler> = L"Windows.Media.Protection.RebootNeededEventHandler";
     template <> inline constexpr auto& name_v<Windows::Media::Protection::ServiceRequestedEventHandler> = L"Windows.Media.Protection.ServiceRequestedEventHandler";
-    template <> inline constexpr guid guid_v<Windows::Media::Protection::IComponentLoadFailedEventArgs>{ 0x95972E93,0x7746,0x417E,{ 0x84,0x95,0xF0,0x31,0xBB,0xC5,0x86,0x2C } };
-    template <> inline constexpr guid guid_v<Windows::Media::Protection::IComponentRenewalStatics>{ 0x6FFBCD67,0xB795,0x48C5,{ 0x8B,0x7B,0xA7,0xC4,0xEF,0xE2,0x02,0xE3 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Protection::IHdcpSession>{ 0x718845E9,0x64D7,0x426D,{ 0x80,0x9B,0x1B,0xE4,0x61,0x94,0x1A,0x2A } };
-    template <> inline constexpr guid guid_v<Windows::Media::Protection::IMediaProtectionManager>{ 0x45694947,0xC741,0x434B,{ 0xA7,0x9E,0x47,0x4C,0x12,0xD9,0x3D,0x2F } };
-    template <> inline constexpr guid guid_v<Windows::Media::Protection::IMediaProtectionPMPServer>{ 0x0C111226,0x7B26,0x4D31,{ 0x95,0xBB,0x9C,0x1B,0x08,0xEF,0x7F,0xC0 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Protection::IMediaProtectionPMPServerFactory>{ 0x602C8E5E,0xF7D2,0x487E,{ 0xAF,0x91,0xDB,0xC4,0x25,0x2B,0x21,0x82 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Protection::IMediaProtectionServiceCompletion>{ 0x8B5CCA18,0xCFD5,0x44EE,{ 0xA2,0xED,0xDF,0x76,0x01,0x0C,0x14,0xB5 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Protection::IMediaProtectionServiceRequest>{ 0xB1DE0EA6,0x2094,0x478D,{ 0x87,0xA4,0x8B,0x95,0x20,0x0F,0x85,0xC6 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Protection::IProtectionCapabilities>{ 0xC7AC5D7E,0x7480,0x4D29,{ 0xA4,0x64,0x7B,0xCD,0x91,0x3D,0xD8,0xE4 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Protection::IRevocationAndRenewalInformation>{ 0xF3A1937B,0x2501,0x439E,{ 0xA6,0xE7,0x6F,0xC9,0x5E,0x17,0x5F,0xCF } };
-    template <> inline constexpr guid guid_v<Windows::Media::Protection::IRevocationAndRenewalItem>{ 0x3099C20C,0x3CF0,0x49EA,{ 0x90,0x2D,0xCA,0xF3,0x2D,0x2D,0xDE,0x2C } };
-    template <> inline constexpr guid guid_v<Windows::Media::Protection::IServiceRequestedEventArgs>{ 0x34283BAF,0xABB4,0x4FC1,{ 0xBD,0x89,0x93,0xF1,0x06,0x57,0x3A,0x49 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Protection::IServiceRequestedEventArgs2>{ 0x553C69D6,0xFAFE,0x4128,{ 0x8D,0xFA,0x13,0x0E,0x39,0x8A,0x13,0xA7 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Protection::ComponentLoadFailedEventHandler>{ 0x95DA643C,0x6DB9,0x424B,{ 0x86,0xCA,0x09,0x1A,0xF4,0x32,0x08,0x1C } };
-    template <> inline constexpr guid guid_v<Windows::Media::Protection::RebootNeededEventHandler>{ 0x64E12A45,0x973B,0x4A3A,{ 0xB2,0x60,0x91,0x89,0x8A,0x49,0xA8,0x2C } };
-    template <> inline constexpr guid guid_v<Windows::Media::Protection::ServiceRequestedEventHandler>{ 0xD2D690BA,0xCAC9,0x48E1,{ 0x95,0xC0,0xD3,0x84,0x95,0xA8,0x40,0x55 } };
+    template <> inline constexpr guid guid_v<Windows::Media::Protection::IComponentLoadFailedEventArgs>{ 0x95972E93,0x7746,0x417E,{ 0x84,0x95,0xF0,0x31,0xBB,0xC5,0x86,0x2C } }; // 95972E93-7746-417E-8495-F031BBC5862C
+    template <> inline constexpr guid guid_v<Windows::Media::Protection::IComponentRenewalStatics>{ 0x6FFBCD67,0xB795,0x48C5,{ 0x8B,0x7B,0xA7,0xC4,0xEF,0xE2,0x02,0xE3 } }; // 6FFBCD67-B795-48C5-8B7B-A7C4EFE202E3
+    template <> inline constexpr guid guid_v<Windows::Media::Protection::IHdcpSession>{ 0x718845E9,0x64D7,0x426D,{ 0x80,0x9B,0x1B,0xE4,0x61,0x94,0x1A,0x2A } }; // 718845E9-64D7-426D-809B-1BE461941A2A
+    template <> inline constexpr guid guid_v<Windows::Media::Protection::IMediaProtectionManager>{ 0x45694947,0xC741,0x434B,{ 0xA7,0x9E,0x47,0x4C,0x12,0xD9,0x3D,0x2F } }; // 45694947-C741-434B-A79E-474C12D93D2F
+    template <> inline constexpr guid guid_v<Windows::Media::Protection::IMediaProtectionPMPServer>{ 0x0C111226,0x7B26,0x4D31,{ 0x95,0xBB,0x9C,0x1B,0x08,0xEF,0x7F,0xC0 } }; // 0C111226-7B26-4D31-95BB-9C1B08EF7FC0
+    template <> inline constexpr guid guid_v<Windows::Media::Protection::IMediaProtectionPMPServerFactory>{ 0x602C8E5E,0xF7D2,0x487E,{ 0xAF,0x91,0xDB,0xC4,0x25,0x2B,0x21,0x82 } }; // 602C8E5E-F7D2-487E-AF91-DBC4252B2182
+    template <> inline constexpr guid guid_v<Windows::Media::Protection::IMediaProtectionServiceCompletion>{ 0x8B5CCA18,0xCFD5,0x44EE,{ 0xA2,0xED,0xDF,0x76,0x01,0x0C,0x14,0xB5 } }; // 8B5CCA18-CFD5-44EE-A2ED-DF76010C14B5
+    template <> inline constexpr guid guid_v<Windows::Media::Protection::IMediaProtectionServiceRequest>{ 0xB1DE0EA6,0x2094,0x478D,{ 0x87,0xA4,0x8B,0x95,0x20,0x0F,0x85,0xC6 } }; // B1DE0EA6-2094-478D-87A4-8B95200F85C6
+    template <> inline constexpr guid guid_v<Windows::Media::Protection::IProtectionCapabilities>{ 0xC7AC5D7E,0x7480,0x4D29,{ 0xA4,0x64,0x7B,0xCD,0x91,0x3D,0xD8,0xE4 } }; // C7AC5D7E-7480-4D29-A464-7BCD913DD8E4
+    template <> inline constexpr guid guid_v<Windows::Media::Protection::IRevocationAndRenewalInformation>{ 0xF3A1937B,0x2501,0x439E,{ 0xA6,0xE7,0x6F,0xC9,0x5E,0x17,0x5F,0xCF } }; // F3A1937B-2501-439E-A6E7-6FC95E175FCF
+    template <> inline constexpr guid guid_v<Windows::Media::Protection::IRevocationAndRenewalItem>{ 0x3099C20C,0x3CF0,0x49EA,{ 0x90,0x2D,0xCA,0xF3,0x2D,0x2D,0xDE,0x2C } }; // 3099C20C-3CF0-49EA-902D-CAF32D2DDE2C
+    template <> inline constexpr guid guid_v<Windows::Media::Protection::IServiceRequestedEventArgs>{ 0x34283BAF,0xABB4,0x4FC1,{ 0xBD,0x89,0x93,0xF1,0x06,0x57,0x3A,0x49 } }; // 34283BAF-ABB4-4FC1-BD89-93F106573A49
+    template <> inline constexpr guid guid_v<Windows::Media::Protection::IServiceRequestedEventArgs2>{ 0x553C69D6,0xFAFE,0x4128,{ 0x8D,0xFA,0x13,0x0E,0x39,0x8A,0x13,0xA7 } }; // 553C69D6-FAFE-4128-8DFA-130E398A13A7
+    template <> inline constexpr guid guid_v<Windows::Media::Protection::ComponentLoadFailedEventHandler>{ 0x95DA643C,0x6DB9,0x424B,{ 0x86,0xCA,0x09,0x1A,0xF4,0x32,0x08,0x1C } }; // 95DA643C-6DB9-424B-86CA-091AF432081C
+    template <> inline constexpr guid guid_v<Windows::Media::Protection::RebootNeededEventHandler>{ 0x64E12A45,0x973B,0x4A3A,{ 0xB2,0x60,0x91,0x89,0x8A,0x49,0xA8,0x2C } }; // 64E12A45-973B-4A3A-B260-91898A49A82C
+    template <> inline constexpr guid guid_v<Windows::Media::Protection::ServiceRequestedEventHandler>{ 0xD2D690BA,0xCAC9,0x48E1,{ 0x95,0xC0,0xD3,0x84,0x95,0xA8,0x40,0x55 } }; // D2D690BA-CAC9-48E1-95C0-D38495A84055
     template <> struct default_interface<Windows::Media::Protection::ComponentLoadFailedEventArgs>{ using type = Windows::Media::Protection::IComponentLoadFailedEventArgs; };
     template <> struct default_interface<Windows::Media::Protection::HdcpSession>{ using type = Windows::Media::Protection::IHdcpSession; };
     template <> struct default_interface<Windows::Media::Protection::MediaProtectionManager>{ using type = Windows::Media::Protection::IMediaProtectionManager; };

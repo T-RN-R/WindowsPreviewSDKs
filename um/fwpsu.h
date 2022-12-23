@@ -1987,12 +1987,8 @@ typedef enum {
     InetDiscardSynAckWithFastopenCookieRequest = 29,
     InetDiscardPauseAccept = 30,
     InetDiscardSynAttack = 31,
-    InetDiscardNoData = 32,
-    InetDiscardCumAck = 33,
-    InetDiscardDupAck = 34,
-    InetDiscardOutOfSequence = 35,
-    InetDiscardAcceptInspection = 36,
-    InetDiscardAcceptRedirection = 37,
+    InetDiscardAcceptInspection = 32,
+    InetDiscardAcceptRedirection = 33,
     InetDiscardReasonMaxEnumValue
 } INET_DISCARD_REASON, *PINET_DISCARD_REASON;
 

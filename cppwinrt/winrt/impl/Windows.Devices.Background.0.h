@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -25,8 +25,8 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Devices::Background::DeviceUseDetails> = L"Windows.Devices.Background.DeviceUseDetails";
     template <> inline constexpr auto& name_v<Windows::Devices::Background::IDeviceServicingDetails> = L"Windows.Devices.Background.IDeviceServicingDetails";
     template <> inline constexpr auto& name_v<Windows::Devices::Background::IDeviceUseDetails> = L"Windows.Devices.Background.IDeviceUseDetails";
-    template <> inline constexpr guid guid_v<Windows::Devices::Background::IDeviceServicingDetails>{ 0x4AABEE29,0x2344,0x4AC4,{ 0x85,0x27,0x4A,0x8E,0xF6,0x90,0x56,0x45 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Background::IDeviceUseDetails>{ 0x7D565141,0x557E,0x4154,{ 0xB9,0x94,0xE4,0xF7,0xA1,0x1F,0xB3,0x23 } };
+    template <> inline constexpr guid guid_v<Windows::Devices::Background::IDeviceServicingDetails>{ 0x4AABEE29,0x2344,0x4AC4,{ 0x85,0x27,0x4A,0x8E,0xF6,0x90,0x56,0x45 } }; // 4AABEE29-2344-4AC4-8527-4A8EF6905645
+    template <> inline constexpr guid guid_v<Windows::Devices::Background::IDeviceUseDetails>{ 0x7D565141,0x557E,0x4154,{ 0xB9,0x94,0xE4,0xF7,0xA1,0x1F,0xB3,0x23 } }; // 7D565141-557E-4154-B994-E4F7A11FB323
     template <> struct default_interface<Windows::Devices::Background::DeviceServicingDetails>{ using type = Windows::Devices::Background::IDeviceServicingDetails; };
     template <> struct default_interface<Windows::Devices::Background::DeviceUseDetails>{ using type = Windows::Devices::Background::IDeviceUseDetails; };
     template <> struct abi<Windows::Devices::Background::IDeviceServicingDetails>

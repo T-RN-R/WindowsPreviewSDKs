@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -69,11 +69,11 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Media::ContentRestrictions::IRatedContentDescriptionFactory> = L"Windows.Media.ContentRestrictions.IRatedContentDescriptionFactory";
     template <> inline constexpr auto& name_v<Windows::Media::ContentRestrictions::IRatedContentRestrictions> = L"Windows.Media.ContentRestrictions.IRatedContentRestrictions";
     template <> inline constexpr auto& name_v<Windows::Media::ContentRestrictions::IRatedContentRestrictionsFactory> = L"Windows.Media.ContentRestrictions.IRatedContentRestrictionsFactory";
-    template <> inline constexpr guid guid_v<Windows::Media::ContentRestrictions::IContentRestrictionsBrowsePolicy>{ 0x8C0133A4,0x442E,0x461A,{ 0x87,0x57,0xFA,0xD2,0xF5,0xBD,0x37,0xE4 } };
-    template <> inline constexpr guid guid_v<Windows::Media::ContentRestrictions::IRatedContentDescription>{ 0x694866DF,0x66B2,0x4DC3,{ 0x96,0xB1,0xF0,0x90,0xEE,0xDE,0xE2,0x55 } };
-    template <> inline constexpr guid guid_v<Windows::Media::ContentRestrictions::IRatedContentDescriptionFactory>{ 0x2E38DF62,0x9B90,0x4FA6,{ 0x89,0xC1,0x4B,0x8D,0x2F,0xFB,0x35,0x73 } };
-    template <> inline constexpr guid guid_v<Windows::Media::ContentRestrictions::IRatedContentRestrictions>{ 0x3F7F23CB,0xBA07,0x4401,{ 0xA4,0x9D,0x8B,0x92,0x22,0x20,0x57,0x23 } };
-    template <> inline constexpr guid guid_v<Windows::Media::ContentRestrictions::IRatedContentRestrictionsFactory>{ 0xFB4B2996,0xC3BD,0x4910,{ 0x96,0x19,0x97,0xCF,0xD0,0x69,0x4D,0x56 } };
+    template <> inline constexpr guid guid_v<Windows::Media::ContentRestrictions::IContentRestrictionsBrowsePolicy>{ 0x8C0133A4,0x442E,0x461A,{ 0x87,0x57,0xFA,0xD2,0xF5,0xBD,0x37,0xE4 } }; // 8C0133A4-442E-461A-8757-FAD2F5BD37E4
+    template <> inline constexpr guid guid_v<Windows::Media::ContentRestrictions::IRatedContentDescription>{ 0x694866DF,0x66B2,0x4DC3,{ 0x96,0xB1,0xF0,0x90,0xEE,0xDE,0xE2,0x55 } }; // 694866DF-66B2-4DC3-96B1-F090EEDEE255
+    template <> inline constexpr guid guid_v<Windows::Media::ContentRestrictions::IRatedContentDescriptionFactory>{ 0x2E38DF62,0x9B90,0x4FA6,{ 0x89,0xC1,0x4B,0x8D,0x2F,0xFB,0x35,0x73 } }; // 2E38DF62-9B90-4FA6-89C1-4B8D2FFB3573
+    template <> inline constexpr guid guid_v<Windows::Media::ContentRestrictions::IRatedContentRestrictions>{ 0x3F7F23CB,0xBA07,0x4401,{ 0xA4,0x9D,0x8B,0x92,0x22,0x20,0x57,0x23 } }; // 3F7F23CB-BA07-4401-A49D-8B9222205723
+    template <> inline constexpr guid guid_v<Windows::Media::ContentRestrictions::IRatedContentRestrictionsFactory>{ 0xFB4B2996,0xC3BD,0x4910,{ 0x96,0x19,0x97,0xCF,0xD0,0x69,0x4D,0x56 } }; // FB4B2996-C3BD-4910-9619-97CFD0694D56
     template <> struct default_interface<Windows::Media::ContentRestrictions::ContentRestrictionsBrowsePolicy>{ using type = Windows::Media::ContentRestrictions::IContentRestrictionsBrowsePolicy; };
     template <> struct default_interface<Windows::Media::ContentRestrictions::RatedContentDescription>{ using type = Windows::Media::ContentRestrictions::IRatedContentDescription; };
     template <> struct default_interface<Windows::Media::ContentRestrictions::RatedContentRestrictions>{ using type = Windows::Media::ContentRestrictions::IRatedContentRestrictions; };

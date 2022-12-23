@@ -3467,6 +3467,15 @@
 #define ERROR_CIMFS_IMAGE_CORRUPT        470L
 
 //
+// MessageId: ERROR_CIMFS_IMAGE_VERSION_NOT_SUPPORTED
+//
+// MessageText:
+//
+// The system does not support this version of the CimFS image.
+//
+#define ERROR_CIMFS_IMAGE_VERSION_NOT_SUPPORTED 471L
+
+//
 // **** Available SYSTEM error codes ****
 //
 //
@@ -28922,6 +28931,15 @@
 // Package failed host runtime dependency or conflict validation.
 //
 #define ERROR_INSTALL_RESOLVE_HOSTRUNTIME_DEPENDENCY_FAILED 15665L
+
+//
+// MessageId: ERROR_STAGEFROMUPDATEAGENT_PACKAGE_NOT_APPLICABLE
+//
+// MessageText:
+//
+// AppxUpdateAgent attempted to stage a package that is not applicable.
+//
+#define ERROR_STAGEFROMUPDATEAGENT_PACKAGE_NOT_APPLICABLE 15666L
 
 //////////////////////////
 //                      //
@@ -63664,5 +63682,50 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 // The QUIC connection was canceled by the user.
 //
 #define ERROR_QUIC_USER_CANCELED         _HRESULT_TYPEDEF_(0x80410002L)
+
+//
+// MessageId: ERROR_QUIC_INTERNAL_ERROR
+//
+// MessageText:
+//
+// The QUIC connection encountered an internal error.
+//
+#define ERROR_QUIC_INTERNAL_ERROR        _HRESULT_TYPEDEF_(0x80410003L)
+
+//
+// MessageId: ERROR_QUIC_PROTOCOL_VIOLATION
+//
+// MessageText:
+//
+// The QUIC connection encountered a protocol violation.
+//
+#define ERROR_QUIC_PROTOCOL_VIOLATION    _HRESULT_TYPEDEF_(0x80410004L)
+
+//
+// MessageId: ERROR_QUIC_CONNECTION_IDLE
+//
+// MessageText:
+//
+// The QUIC connection was idle.
+//
+#define ERROR_QUIC_CONNECTION_IDLE       _HRESULT_TYPEDEF_(0x80410005L)
+
+//
+// MessageId: ERROR_QUIC_CONNECTION_TIMEOUT
+//
+// MessageText:
+//
+// The QUIC connection timed out while trying to contact the peer.
+//
+#define ERROR_QUIC_CONNECTION_TIMEOUT    _HRESULT_TYPEDEF_(0x80410006L)
+
+//
+// MessageId: ERROR_QUIC_ALPN_NEG_FAILURE
+//
+// MessageText:
+//
+// The QUIC connection failed to negotiate a compatible ALPN.
+//
+#define ERROR_QUIC_ALPN_NEG_FAILURE      _HRESULT_TYPEDEF_(0x80410007L)
 
 #endif//_WINERROR_

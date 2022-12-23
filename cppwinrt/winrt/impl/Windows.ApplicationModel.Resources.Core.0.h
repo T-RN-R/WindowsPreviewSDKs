@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -139,20 +139,20 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::IResourceManagerStatics> = L"Windows.ApplicationModel.Resources.Core.IResourceManagerStatics";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::IResourceMap> = L"Windows.ApplicationModel.Resources.Core.IResourceMap";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Resources::Core::IResourceQualifier> = L"Windows.ApplicationModel.Resources.Core.IResourceQualifier";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::INamedResource>{ 0x1C98C219,0x0B13,0x4240,{ 0x89,0xA5,0xD4,0x95,0xDC,0x18,0x9A,0x00 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::IResourceCandidate>{ 0xAF5207D9,0xC433,0x4764,{ 0xB3,0xFD,0x8F,0xA6,0xBF,0xBC,0xBA,0xDC } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::IResourceCandidate2>{ 0x69E5B468,0xF6FC,0x4013,{ 0xAA,0xA2,0xD5,0x3F,0x17,0x57,0xD3,0xB5 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::IResourceCandidate3>{ 0x08AE97F8,0x517A,0x4674,{ 0x95,0x8C,0x4A,0x3C,0x7C,0xD2,0xCC,0x6B } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::IResourceContext>{ 0x2FA22F4B,0x707E,0x4B27,{ 0xAD,0x0D,0xD0,0xD8,0xCD,0x46,0x8F,0xD2 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::IResourceContextStatics>{ 0x98BE9D6C,0x6338,0x4B31,{ 0x99,0xDF,0xB2,0xB4,0x42,0xF1,0x71,0x49 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::IResourceContextStatics2>{ 0x41F752EF,0x12AF,0x41B9,{ 0xAB,0x36,0xB1,0xEB,0x4B,0x51,0x24,0x60 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::IResourceContextStatics3>{ 0x20CF492C,0xAF0F,0x450B,{ 0x9D,0xA6,0x10,0x6D,0xD0,0xC2,0x9A,0x39 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::IResourceContextStatics4>{ 0x22EB9CCD,0xFB31,0x4BFA,{ 0xB8,0x6B,0xDF,0x9D,0x9D,0x7B,0xDC,0x39 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::IResourceManager>{ 0xF744D97B,0x9988,0x44FB,{ 0xAB,0xD6,0x53,0x78,0x84,0x4C,0xFA,0x8B } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::IResourceManager2>{ 0x9D66FE6C,0xA4D7,0x4C23,{ 0x9E,0x85,0x67,0x5F,0x30,0x4C,0x25,0x2D } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::IResourceManagerStatics>{ 0x1CC0FDFC,0x69EE,0x4E43,{ 0x99,0x01,0x47,0xF1,0x26,0x87,0xBA,0xF7 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::IResourceMap>{ 0x72284824,0xDB8C,0x42F8,{ 0xB0,0x8C,0x53,0xFF,0x35,0x7D,0xAD,0x82 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::IResourceQualifier>{ 0x785DA5B2,0x4AFD,0x4376,{ 0xA8,0x88,0xC5,0xF9,0xA6,0xB7,0xA0,0x5C } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::INamedResource>{ 0x1C98C219,0x0B13,0x4240,{ 0x89,0xA5,0xD4,0x95,0xDC,0x18,0x9A,0x00 } }; // 1C98C219-0B13-4240-89A5-D495DC189A00
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::IResourceCandidate>{ 0xAF5207D9,0xC433,0x4764,{ 0xB3,0xFD,0x8F,0xA6,0xBF,0xBC,0xBA,0xDC } }; // AF5207D9-C433-4764-B3FD-8FA6BFBCBADC
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::IResourceCandidate2>{ 0x69E5B468,0xF6FC,0x4013,{ 0xAA,0xA2,0xD5,0x3F,0x17,0x57,0xD3,0xB5 } }; // 69E5B468-F6FC-4013-AAA2-D53F1757D3B5
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::IResourceCandidate3>{ 0x08AE97F8,0x517A,0x4674,{ 0x95,0x8C,0x4A,0x3C,0x7C,0xD2,0xCC,0x6B } }; // 08AE97F8-517A-4674-958C-4A3C7CD2CC6B
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::IResourceContext>{ 0x2FA22F4B,0x707E,0x4B27,{ 0xAD,0x0D,0xD0,0xD8,0xCD,0x46,0x8F,0xD2 } }; // 2FA22F4B-707E-4B27-AD0D-D0D8CD468FD2
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::IResourceContextStatics>{ 0x98BE9D6C,0x6338,0x4B31,{ 0x99,0xDF,0xB2,0xB4,0x42,0xF1,0x71,0x49 } }; // 98BE9D6C-6338-4B31-99DF-B2B442F17149
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::IResourceContextStatics2>{ 0x41F752EF,0x12AF,0x41B9,{ 0xAB,0x36,0xB1,0xEB,0x4B,0x51,0x24,0x60 } }; // 41F752EF-12AF-41B9-AB36-B1EB4B512460
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::IResourceContextStatics3>{ 0x20CF492C,0xAF0F,0x450B,{ 0x9D,0xA6,0x10,0x6D,0xD0,0xC2,0x9A,0x39 } }; // 20CF492C-AF0F-450B-9DA6-106DD0C29A39
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::IResourceContextStatics4>{ 0x22EB9CCD,0xFB31,0x4BFA,{ 0xB8,0x6B,0xDF,0x9D,0x9D,0x7B,0xDC,0x39 } }; // 22EB9CCD-FB31-4BFA-B86B-DF9D9D7BDC39
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::IResourceManager>{ 0xF744D97B,0x9988,0x44FB,{ 0xAB,0xD6,0x53,0x78,0x84,0x4C,0xFA,0x8B } }; // F744D97B-9988-44FB-ABD6-5378844CFA8B
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::IResourceManager2>{ 0x9D66FE6C,0xA4D7,0x4C23,{ 0x9E,0x85,0x67,0x5F,0x30,0x4C,0x25,0x2D } }; // 9D66FE6C-A4D7-4C23-9E85-675F304C252D
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::IResourceManagerStatics>{ 0x1CC0FDFC,0x69EE,0x4E43,{ 0x99,0x01,0x47,0xF1,0x26,0x87,0xBA,0xF7 } }; // 1CC0FDFC-69EE-4E43-9901-47F12687BAF7
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::IResourceMap>{ 0x72284824,0xDB8C,0x42F8,{ 0xB0,0x8C,0x53,0xFF,0x35,0x7D,0xAD,0x82 } }; // 72284824-DB8C-42F8-B08C-53FF357DAD82
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Resources::Core::IResourceQualifier>{ 0x785DA5B2,0x4AFD,0x4376,{ 0xA8,0x88,0xC5,0xF9,0xA6,0xB7,0xA0,0x5C } }; // 785DA5B2-4AFD-4376-A888-C5F9A6B7A05C
     template <> struct default_interface<Windows::ApplicationModel::Resources::Core::NamedResource>{ using type = Windows::ApplicationModel::Resources::Core::INamedResource; };
     template <> struct default_interface<Windows::ApplicationModel::Resources::Core::ResourceCandidate>{ using type = Windows::ApplicationModel::Resources::Core::IResourceCandidate; };
     template <> struct default_interface<Windows::ApplicationModel::Resources::Core::ResourceCandidateVectorView>{ using type = Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Resources::Core::ResourceCandidate>; };

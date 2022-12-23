@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -290,47 +290,47 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionInfraredFrameSourceStatics> = L"Windows.Devices.Perception.IPerceptionInfraredFrameSourceStatics";
     template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionInfraredFrameSourceWatcher> = L"Windows.Devices.Perception.IPerceptionInfraredFrameSourceWatcher";
     template <> inline constexpr auto& name_v<Windows::Devices::Perception::IPerceptionVideoProfile> = L"Windows.Devices.Perception.IPerceptionVideoProfile";
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IKnownCameraIntrinsicsPropertiesStatics>{ 0x08C03978,0x437A,0x4D97,{ 0xA6,0x63,0xFD,0x31,0x95,0x60,0x02,0x49 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IKnownPerceptionColorFrameSourcePropertiesStatics>{ 0x5DF1CCA2,0x01F8,0x4A87,{ 0xB8,0x59,0xD5,0xE5,0xB7,0xE1,0xDE,0x4B } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IKnownPerceptionDepthFrameSourcePropertiesStatics>{ 0x5DF1CCA2,0x01F8,0x4A87,{ 0xB8,0x59,0xD5,0xE5,0xB7,0xE1,0xDE,0x4A } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IKnownPerceptionFrameSourcePropertiesStatics>{ 0x5DF1CCA2,0x01F8,0x4A87,{ 0xB8,0x59,0xD5,0xE5,0xB7,0xE1,0xDE,0x47 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IKnownPerceptionFrameSourcePropertiesStatics2>{ 0xA9C86871,0x05DC,0x4A4D,{ 0x8A,0x5C,0xA4,0xEC,0xF2,0x6B,0xBC,0x46 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IKnownPerceptionInfraredFrameSourcePropertiesStatics>{ 0x5DF1CCA2,0x01F8,0x4A87,{ 0xB8,0x59,0xD5,0xE5,0xB7,0xE1,0xDE,0x49 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IKnownPerceptionVideoFrameSourcePropertiesStatics>{ 0x5DF1CCA2,0x01F8,0x4A87,{ 0xB8,0x59,0xD5,0xE5,0xB7,0xE1,0xDE,0x48 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IKnownPerceptionVideoProfilePropertiesStatics>{ 0x8F08E2E7,0x5A76,0x43E3,{ 0xA1,0x3A,0xDA,0x3D,0x91,0xA9,0xEF,0x98 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionColorFrame>{ 0xFE621549,0x2CBF,0x4F94,{ 0x98,0x61,0xF8,0x17,0xEA,0x31,0x77,0x47 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionColorFrameArrivedEventArgs>{ 0x8FAD02D5,0x86F7,0x4D8D,{ 0xB9,0x66,0x5A,0x37,0x61,0xBA,0x9F,0x59 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionColorFrameReader>{ 0x7650F56E,0xB9F5,0x461B,{ 0x83,0xAD,0xF2,0x22,0xAF,0x2A,0xAA,0xDC } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionColorFrameSource>{ 0xDC6DBA7C,0x0B58,0x468D,{ 0x9C,0xA1,0x6D,0xB0,0x4C,0xC0,0x47,0x7C } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionColorFrameSource2>{ 0xF88008E5,0x5631,0x45ED,{ 0xAD,0x98,0x8C,0x6A,0xA0,0x4C,0xFB,0x91 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionColorFrameSourceAddedEventArgs>{ 0xD16BF4E6,0xDA24,0x442C,{ 0xBB,0xD5,0x55,0x54,0x9B,0x5B,0x94,0xF3 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionColorFrameSourceRemovedEventArgs>{ 0xD277FA69,0xEB4C,0x42EF,{ 0xBA,0x4F,0x28,0x8F,0x61,0x5C,0x93,0xC1 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionColorFrameSourceStatics>{ 0x5DF3CCA2,0x01F8,0x4A87,{ 0xB8,0x59,0xD5,0xE5,0xB7,0xE1,0xDE,0x49 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionColorFrameSourceWatcher>{ 0x96BD1392,0xE667,0x40C4,{ 0x89,0xF9,0x14,0x62,0xDE,0xA6,0xA9,0xCC } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionControlSession>{ 0x99998653,0x5A3D,0x417F,{ 0x92,0x39,0xF1,0x88,0x9E,0x54,0x8B,0x48 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionDepthCorrelatedCameraIntrinsics>{ 0x6548CA01,0x86DE,0x5BE1,{ 0x65,0x82,0x80,0x7F,0xCF,0x4C,0x95,0xCF } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionDepthCorrelatedCoordinateMapper>{ 0x5B4D9D1D,0xB5F6,0x469C,{ 0xB8,0xC2,0xB9,0x7A,0x45,0xE6,0x86,0x3B } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionDepthFrame>{ 0xA37B81FC,0x9906,0x4FFD,{ 0x91,0x61,0x00,0x24,0xB3,0x60,0xB6,0x57 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionDepthFrameArrivedEventArgs>{ 0x443D25B2,0xB282,0x4637,{ 0x91,0x73,0xAC,0x97,0x84,0x35,0xC9,0x85 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionDepthFrameReader>{ 0xB1A3C09F,0x299B,0x4612,{ 0xA4,0xF7,0x27,0x0F,0x25,0xA0,0x96,0xEC } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionDepthFrameSource>{ 0x79D433D6,0x47FB,0x4DF1,{ 0xBF,0xC9,0xF0,0x1D,0x40,0xBD,0x99,0x42 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionDepthFrameSource2>{ 0xE3D23D2E,0x6E2C,0x4E6D,{ 0x91,0xD9,0x70,0x4C,0xD8,0xDF,0xF7,0x9D } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionDepthFrameSourceAddedEventArgs>{ 0x93A48168,0x8BF8,0x45D2,{ 0xA2,0xF8,0x4A,0xC0,0x93,0x1C,0xC7,0xA6 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionDepthFrameSourceRemovedEventArgs>{ 0xA0C0CC4D,0xE96C,0x4D81,{ 0x86,0xDD,0x38,0xB9,0x5E,0x49,0xC6,0xDF } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionDepthFrameSourceStatics>{ 0x5DF3CCA2,0x01F8,0x4A87,{ 0xB8,0x59,0xD5,0xE5,0xB7,0xE1,0xDE,0x48 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionDepthFrameSourceWatcher>{ 0x780E96D1,0x8D02,0x4D2B,{ 0xAD,0xA4,0x5B,0xA6,0x24,0xA0,0xEB,0x10 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionFrameSourcePropertiesChangedEventArgs>{ 0x6C68E068,0xBCF1,0x4ECC,{ 0xB8,0x91,0x76,0x25,0xD1,0x24,0x4B,0x6B } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionFrameSourcePropertyChangeResult>{ 0x1E33390A,0x3C90,0x4D22,{ 0xB8,0x98,0xF4,0x2B,0xBA,0x64,0x18,0xFF } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionInfraredFrame>{ 0xB0886276,0x849E,0x4C7A,{ 0x8A,0xE6,0xB5,0x60,0x64,0x53,0x21,0x53 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionInfraredFrameArrivedEventArgs>{ 0x9F77FAC7,0xB4BD,0x4857,{ 0x9D,0x50,0xBE,0x8E,0xF0,0x75,0xDA,0xEF } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionInfraredFrameReader>{ 0x7960CE18,0xD39B,0x4FC8,{ 0xA0,0x4A,0x92,0x97,0x34,0xC6,0x75,0x6C } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionInfraredFrameSource>{ 0x55B08742,0x1808,0x494E,{ 0x9E,0x30,0x9D,0x2A,0x7B,0xE8,0xF7,0x00 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionInfraredFrameSource2>{ 0xDCD4D798,0x4B0B,0x4300,{ 0x8D,0x85,0x41,0x08,0x17,0xFA,0xA0,0x32 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionInfraredFrameSourceAddedEventArgs>{ 0x6D334120,0x95CE,0x4660,{ 0x90,0x7A,0xD9,0x80,0x35,0xAA,0x2B,0x7C } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionInfraredFrameSourceRemovedEventArgs>{ 0xEA1A8071,0x7A70,0x4A61,{ 0xAF,0x94,0x07,0x30,0x38,0x53,0xF6,0x95 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionInfraredFrameSourceStatics>{ 0x5DF3CCA2,0x01F8,0x4A87,{ 0xB8,0x59,0xD5,0xE5,0xB7,0xE1,0xDE,0x47 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionInfraredFrameSourceWatcher>{ 0x383CFF99,0xD70C,0x444D,{ 0xA8,0xB0,0x72,0x0C,0x2E,0x66,0xFE,0x3B } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionVideoProfile>{ 0x75763EA3,0x011A,0x470E,{ 0x82,0x25,0x6F,0x05,0xAD,0xE2,0x56,0x48 } };
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IKnownCameraIntrinsicsPropertiesStatics>{ 0x08C03978,0x437A,0x4D97,{ 0xA6,0x63,0xFD,0x31,0x95,0x60,0x02,0x49 } }; // 08C03978-437A-4D97-A663-FD3195600249
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IKnownPerceptionColorFrameSourcePropertiesStatics>{ 0x5DF1CCA2,0x01F8,0x4A87,{ 0xB8,0x59,0xD5,0xE5,0xB7,0xE1,0xDE,0x4B } }; // 5DF1CCA2-01F8-4A87-B859-D5E5B7E1DE4B
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IKnownPerceptionDepthFrameSourcePropertiesStatics>{ 0x5DF1CCA2,0x01F8,0x4A87,{ 0xB8,0x59,0xD5,0xE5,0xB7,0xE1,0xDE,0x4A } }; // 5DF1CCA2-01F8-4A87-B859-D5E5B7E1DE4A
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IKnownPerceptionFrameSourcePropertiesStatics>{ 0x5DF1CCA2,0x01F8,0x4A87,{ 0xB8,0x59,0xD5,0xE5,0xB7,0xE1,0xDE,0x47 } }; // 5DF1CCA2-01F8-4A87-B859-D5E5B7E1DE47
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IKnownPerceptionFrameSourcePropertiesStatics2>{ 0xA9C86871,0x05DC,0x4A4D,{ 0x8A,0x5C,0xA4,0xEC,0xF2,0x6B,0xBC,0x46 } }; // A9C86871-05DC-4A4D-8A5C-A4ECF26BBC46
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IKnownPerceptionInfraredFrameSourcePropertiesStatics>{ 0x5DF1CCA2,0x01F8,0x4A87,{ 0xB8,0x59,0xD5,0xE5,0xB7,0xE1,0xDE,0x49 } }; // 5DF1CCA2-01F8-4A87-B859-D5E5B7E1DE49
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IKnownPerceptionVideoFrameSourcePropertiesStatics>{ 0x5DF1CCA2,0x01F8,0x4A87,{ 0xB8,0x59,0xD5,0xE5,0xB7,0xE1,0xDE,0x48 } }; // 5DF1CCA2-01F8-4A87-B859-D5E5B7E1DE48
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IKnownPerceptionVideoProfilePropertiesStatics>{ 0x8F08E2E7,0x5A76,0x43E3,{ 0xA1,0x3A,0xDA,0x3D,0x91,0xA9,0xEF,0x98 } }; // 8F08E2E7-5A76-43E3-A13A-DA3D91A9EF98
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionColorFrame>{ 0xFE621549,0x2CBF,0x4F94,{ 0x98,0x61,0xF8,0x17,0xEA,0x31,0x77,0x47 } }; // FE621549-2CBF-4F94-9861-F817EA317747
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionColorFrameArrivedEventArgs>{ 0x8FAD02D5,0x86F7,0x4D8D,{ 0xB9,0x66,0x5A,0x37,0x61,0xBA,0x9F,0x59 } }; // 8FAD02D5-86F7-4D8D-B966-5A3761BA9F59
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionColorFrameReader>{ 0x7650F56E,0xB9F5,0x461B,{ 0x83,0xAD,0xF2,0x22,0xAF,0x2A,0xAA,0xDC } }; // 7650F56E-B9F5-461B-83AD-F222AF2AAADC
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionColorFrameSource>{ 0xDC6DBA7C,0x0B58,0x468D,{ 0x9C,0xA1,0x6D,0xB0,0x4C,0xC0,0x47,0x7C } }; // DC6DBA7C-0B58-468D-9CA1-6DB04CC0477C
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionColorFrameSource2>{ 0xF88008E5,0x5631,0x45ED,{ 0xAD,0x98,0x8C,0x6A,0xA0,0x4C,0xFB,0x91 } }; // F88008E5-5631-45ED-AD98-8C6AA04CFB91
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionColorFrameSourceAddedEventArgs>{ 0xD16BF4E6,0xDA24,0x442C,{ 0xBB,0xD5,0x55,0x54,0x9B,0x5B,0x94,0xF3 } }; // D16BF4E6-DA24-442C-BBD5-55549B5B94F3
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionColorFrameSourceRemovedEventArgs>{ 0xD277FA69,0xEB4C,0x42EF,{ 0xBA,0x4F,0x28,0x8F,0x61,0x5C,0x93,0xC1 } }; // D277FA69-EB4C-42EF-BA4F-288F615C93C1
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionColorFrameSourceStatics>{ 0x5DF3CCA2,0x01F8,0x4A87,{ 0xB8,0x59,0xD5,0xE5,0xB7,0xE1,0xDE,0x49 } }; // 5DF3CCA2-01F8-4A87-B859-D5E5B7E1DE49
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionColorFrameSourceWatcher>{ 0x96BD1392,0xE667,0x40C4,{ 0x89,0xF9,0x14,0x62,0xDE,0xA6,0xA9,0xCC } }; // 96BD1392-E667-40C4-89F9-1462DEA6A9CC
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionControlSession>{ 0x99998653,0x5A3D,0x417F,{ 0x92,0x39,0xF1,0x88,0x9E,0x54,0x8B,0x48 } }; // 99998653-5A3D-417F-9239-F1889E548B48
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionDepthCorrelatedCameraIntrinsics>{ 0x6548CA01,0x86DE,0x5BE1,{ 0x65,0x82,0x80,0x7F,0xCF,0x4C,0x95,0xCF } }; // 6548CA01-86DE-5BE1-6582-807FCF4C95CF
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionDepthCorrelatedCoordinateMapper>{ 0x5B4D9D1D,0xB5F6,0x469C,{ 0xB8,0xC2,0xB9,0x7A,0x45,0xE6,0x86,0x3B } }; // 5B4D9D1D-B5F6-469C-B8C2-B97A45E6863B
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionDepthFrame>{ 0xA37B81FC,0x9906,0x4FFD,{ 0x91,0x61,0x00,0x24,0xB3,0x60,0xB6,0x57 } }; // A37B81FC-9906-4FFD-9161-0024B360B657
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionDepthFrameArrivedEventArgs>{ 0x443D25B2,0xB282,0x4637,{ 0x91,0x73,0xAC,0x97,0x84,0x35,0xC9,0x85 } }; // 443D25B2-B282-4637-9173-AC978435C985
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionDepthFrameReader>{ 0xB1A3C09F,0x299B,0x4612,{ 0xA4,0xF7,0x27,0x0F,0x25,0xA0,0x96,0xEC } }; // B1A3C09F-299B-4612-A4F7-270F25A096EC
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionDepthFrameSource>{ 0x79D433D6,0x47FB,0x4DF1,{ 0xBF,0xC9,0xF0,0x1D,0x40,0xBD,0x99,0x42 } }; // 79D433D6-47FB-4DF1-BFC9-F01D40BD9942
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionDepthFrameSource2>{ 0xE3D23D2E,0x6E2C,0x4E6D,{ 0x91,0xD9,0x70,0x4C,0xD8,0xDF,0xF7,0x9D } }; // E3D23D2E-6E2C-4E6D-91D9-704CD8DFF79D
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionDepthFrameSourceAddedEventArgs>{ 0x93A48168,0x8BF8,0x45D2,{ 0xA2,0xF8,0x4A,0xC0,0x93,0x1C,0xC7,0xA6 } }; // 93A48168-8BF8-45D2-A2F8-4AC0931CC7A6
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionDepthFrameSourceRemovedEventArgs>{ 0xA0C0CC4D,0xE96C,0x4D81,{ 0x86,0xDD,0x38,0xB9,0x5E,0x49,0xC6,0xDF } }; // A0C0CC4D-E96C-4D81-86DD-38B95E49C6DF
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionDepthFrameSourceStatics>{ 0x5DF3CCA2,0x01F8,0x4A87,{ 0xB8,0x59,0xD5,0xE5,0xB7,0xE1,0xDE,0x48 } }; // 5DF3CCA2-01F8-4A87-B859-D5E5B7E1DE48
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionDepthFrameSourceWatcher>{ 0x780E96D1,0x8D02,0x4D2B,{ 0xAD,0xA4,0x5B,0xA6,0x24,0xA0,0xEB,0x10 } }; // 780E96D1-8D02-4D2B-ADA4-5BA624A0EB10
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionFrameSourcePropertiesChangedEventArgs>{ 0x6C68E068,0xBCF1,0x4ECC,{ 0xB8,0x91,0x76,0x25,0xD1,0x24,0x4B,0x6B } }; // 6C68E068-BCF1-4ECC-B891-7625D1244B6B
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionFrameSourcePropertyChangeResult>{ 0x1E33390A,0x3C90,0x4D22,{ 0xB8,0x98,0xF4,0x2B,0xBA,0x64,0x18,0xFF } }; // 1E33390A-3C90-4D22-B898-F42BBA6418FF
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionInfraredFrame>{ 0xB0886276,0x849E,0x4C7A,{ 0x8A,0xE6,0xB5,0x60,0x64,0x53,0x21,0x53 } }; // B0886276-849E-4C7A-8AE6-B56064532153
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionInfraredFrameArrivedEventArgs>{ 0x9F77FAC7,0xB4BD,0x4857,{ 0x9D,0x50,0xBE,0x8E,0xF0,0x75,0xDA,0xEF } }; // 9F77FAC7-B4BD-4857-9D50-BE8EF075DAEF
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionInfraredFrameReader>{ 0x7960CE18,0xD39B,0x4FC8,{ 0xA0,0x4A,0x92,0x97,0x34,0xC6,0x75,0x6C } }; // 7960CE18-D39B-4FC8-A04A-929734C6756C
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionInfraredFrameSource>{ 0x55B08742,0x1808,0x494E,{ 0x9E,0x30,0x9D,0x2A,0x7B,0xE8,0xF7,0x00 } }; // 55B08742-1808-494E-9E30-9D2A7BE8F700
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionInfraredFrameSource2>{ 0xDCD4D798,0x4B0B,0x4300,{ 0x8D,0x85,0x41,0x08,0x17,0xFA,0xA0,0x32 } }; // DCD4D798-4B0B-4300-8D85-410817FAA032
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionInfraredFrameSourceAddedEventArgs>{ 0x6D334120,0x95CE,0x4660,{ 0x90,0x7A,0xD9,0x80,0x35,0xAA,0x2B,0x7C } }; // 6D334120-95CE-4660-907A-D98035AA2B7C
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionInfraredFrameSourceRemovedEventArgs>{ 0xEA1A8071,0x7A70,0x4A61,{ 0xAF,0x94,0x07,0x30,0x38,0x53,0xF6,0x95 } }; // EA1A8071-7A70-4A61-AF94-07303853F695
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionInfraredFrameSourceStatics>{ 0x5DF3CCA2,0x01F8,0x4A87,{ 0xB8,0x59,0xD5,0xE5,0xB7,0xE1,0xDE,0x47 } }; // 5DF3CCA2-01F8-4A87-B859-D5E5B7E1DE47
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionInfraredFrameSourceWatcher>{ 0x383CFF99,0xD70C,0x444D,{ 0xA8,0xB0,0x72,0x0C,0x2E,0x66,0xFE,0x3B } }; // 383CFF99-D70C-444D-A8B0-720C2E66FE3B
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::IPerceptionVideoProfile>{ 0x75763EA3,0x011A,0x470E,{ 0x82,0x25,0x6F,0x05,0xAD,0xE2,0x56,0x48 } }; // 75763EA3-011A-470E-8225-6F05ADE25648
     template <> struct default_interface<Windows::Devices::Perception::PerceptionColorFrame>{ using type = Windows::Devices::Perception::IPerceptionColorFrame; };
     template <> struct default_interface<Windows::Devices::Perception::PerceptionColorFrameArrivedEventArgs>{ using type = Windows::Devices::Perception::IPerceptionColorFrameArrivedEventArgs; };
     template <> struct default_interface<Windows::Devices::Perception::PerceptionColorFrameReader>{ using type = Windows::Devices::Perception::IPerceptionColorFrameReader; };

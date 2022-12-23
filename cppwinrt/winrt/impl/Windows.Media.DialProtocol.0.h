@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -136,18 +136,18 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Media::DialProtocol::IDialReceiverApp> = L"Windows.Media.DialProtocol.IDialReceiverApp";
     template <> inline constexpr auto& name_v<Windows::Media::DialProtocol::IDialReceiverApp2> = L"Windows.Media.DialProtocol.IDialReceiverApp2";
     template <> inline constexpr auto& name_v<Windows::Media::DialProtocol::IDialReceiverAppStatics> = L"Windows.Media.DialProtocol.IDialReceiverAppStatics";
-    template <> inline constexpr guid guid_v<Windows::Media::DialProtocol::IDialApp>{ 0x555FFBD3,0x45B7,0x49F3,{ 0xBB,0xD7,0x30,0x2D,0xB6,0x08,0x46,0x46 } };
-    template <> inline constexpr guid guid_v<Windows::Media::DialProtocol::IDialAppStateDetails>{ 0xDDC4A4A1,0xF5DE,0x400D,{ 0xBE,0xA4,0x8C,0x84,0x66,0xBB,0x29,0x61 } };
-    template <> inline constexpr guid guid_v<Windows::Media::DialProtocol::IDialDevice>{ 0xFFF0EDAF,0x759F,0x41D2,{ 0xA2,0x0A,0x7F,0x29,0xCE,0x0B,0x37,0x84 } };
-    template <> inline constexpr guid guid_v<Windows::Media::DialProtocol::IDialDevice2>{ 0xBAB7F3D5,0x5BFB,0x4EBA,{ 0x8B,0x32,0xB5,0x7C,0x5C,0x5E,0xE5,0xC9 } };
-    template <> inline constexpr guid guid_v<Windows::Media::DialProtocol::IDialDevicePicker>{ 0xBA7E520A,0xFF59,0x4F4B,{ 0xBD,0xAC,0xD8,0x9F,0x49,0x5A,0xD6,0xE1 } };
-    template <> inline constexpr guid guid_v<Windows::Media::DialProtocol::IDialDevicePickerFilter>{ 0xC17C93BA,0x86C0,0x485D,{ 0xB8,0xD6,0x0F,0x9A,0x8F,0x64,0x15,0x90 } };
-    template <> inline constexpr guid guid_v<Windows::Media::DialProtocol::IDialDeviceSelectedEventArgs>{ 0x480B92AD,0xAC76,0x47EB,{ 0x9C,0x06,0xA1,0x93,0x04,0xDA,0x02,0x47 } };
-    template <> inline constexpr guid guid_v<Windows::Media::DialProtocol::IDialDeviceStatics>{ 0xAA69CC95,0x01F8,0x4758,{ 0x84,0x61,0x2B,0xBD,0x1C,0xDC,0x3C,0xF3 } };
-    template <> inline constexpr guid guid_v<Windows::Media::DialProtocol::IDialDisconnectButtonClickedEventArgs>{ 0x52765152,0x9C81,0x4E55,{ 0xAD,0xC2,0x0E,0xBE,0x99,0xCD,0xE3,0xB6 } };
-    template <> inline constexpr guid guid_v<Windows::Media::DialProtocol::IDialReceiverApp>{ 0xFD3E7C57,0x5045,0x470E,{ 0xB3,0x04,0x4D,0xD9,0xB1,0x3E,0x7D,0x11 } };
-    template <> inline constexpr guid guid_v<Windows::Media::DialProtocol::IDialReceiverApp2>{ 0x530C5805,0x9130,0x42AC,{ 0xA5,0x04,0x19,0x77,0xDC,0xB2,0xEA,0x8A } };
-    template <> inline constexpr guid guid_v<Windows::Media::DialProtocol::IDialReceiverAppStatics>{ 0x53183A3C,0x4C36,0x4D02,{ 0xB2,0x8A,0xF2,0xA9,0xDA,0x38,0xEC,0x52 } };
+    template <> inline constexpr guid guid_v<Windows::Media::DialProtocol::IDialApp>{ 0x555FFBD3,0x45B7,0x49F3,{ 0xBB,0xD7,0x30,0x2D,0xB6,0x08,0x46,0x46 } }; // 555FFBD3-45B7-49F3-BBD7-302DB6084646
+    template <> inline constexpr guid guid_v<Windows::Media::DialProtocol::IDialAppStateDetails>{ 0xDDC4A4A1,0xF5DE,0x400D,{ 0xBE,0xA4,0x8C,0x84,0x66,0xBB,0x29,0x61 } }; // DDC4A4A1-F5DE-400D-BEA4-8C8466BB2961
+    template <> inline constexpr guid guid_v<Windows::Media::DialProtocol::IDialDevice>{ 0xFFF0EDAF,0x759F,0x41D2,{ 0xA2,0x0A,0x7F,0x29,0xCE,0x0B,0x37,0x84 } }; // FFF0EDAF-759F-41D2-A20A-7F29CE0B3784
+    template <> inline constexpr guid guid_v<Windows::Media::DialProtocol::IDialDevice2>{ 0xBAB7F3D5,0x5BFB,0x4EBA,{ 0x8B,0x32,0xB5,0x7C,0x5C,0x5E,0xE5,0xC9 } }; // BAB7F3D5-5BFB-4EBA-8B32-B57C5C5EE5C9
+    template <> inline constexpr guid guid_v<Windows::Media::DialProtocol::IDialDevicePicker>{ 0xBA7E520A,0xFF59,0x4F4B,{ 0xBD,0xAC,0xD8,0x9F,0x49,0x5A,0xD6,0xE1 } }; // BA7E520A-FF59-4F4B-BDAC-D89F495AD6E1
+    template <> inline constexpr guid guid_v<Windows::Media::DialProtocol::IDialDevicePickerFilter>{ 0xC17C93BA,0x86C0,0x485D,{ 0xB8,0xD6,0x0F,0x9A,0x8F,0x64,0x15,0x90 } }; // C17C93BA-86C0-485D-B8D6-0F9A8F641590
+    template <> inline constexpr guid guid_v<Windows::Media::DialProtocol::IDialDeviceSelectedEventArgs>{ 0x480B92AD,0xAC76,0x47EB,{ 0x9C,0x06,0xA1,0x93,0x04,0xDA,0x02,0x47 } }; // 480B92AD-AC76-47EB-9C06-A19304DA0247
+    template <> inline constexpr guid guid_v<Windows::Media::DialProtocol::IDialDeviceStatics>{ 0xAA69CC95,0x01F8,0x4758,{ 0x84,0x61,0x2B,0xBD,0x1C,0xDC,0x3C,0xF3 } }; // AA69CC95-01F8-4758-8461-2BBD1CDC3CF3
+    template <> inline constexpr guid guid_v<Windows::Media::DialProtocol::IDialDisconnectButtonClickedEventArgs>{ 0x52765152,0x9C81,0x4E55,{ 0xAD,0xC2,0x0E,0xBE,0x99,0xCD,0xE3,0xB6 } }; // 52765152-9C81-4E55-ADC2-0EBE99CDE3B6
+    template <> inline constexpr guid guid_v<Windows::Media::DialProtocol::IDialReceiverApp>{ 0xFD3E7C57,0x5045,0x470E,{ 0xB3,0x04,0x4D,0xD9,0xB1,0x3E,0x7D,0x11 } }; // FD3E7C57-5045-470E-B304-4DD9B13E7D11
+    template <> inline constexpr guid guid_v<Windows::Media::DialProtocol::IDialReceiverApp2>{ 0x530C5805,0x9130,0x42AC,{ 0xA5,0x04,0x19,0x77,0xDC,0xB2,0xEA,0x8A } }; // 530C5805-9130-42AC-A504-1977DCB2EA8A
+    template <> inline constexpr guid guid_v<Windows::Media::DialProtocol::IDialReceiverAppStatics>{ 0x53183A3C,0x4C36,0x4D02,{ 0xB2,0x8A,0xF2,0xA9,0xDA,0x38,0xEC,0x52 } }; // 53183A3C-4C36-4D02-B28A-F2A9DA38EC52
     template <> struct default_interface<Windows::Media::DialProtocol::DialApp>{ using type = Windows::Media::DialProtocol::IDialApp; };
     template <> struct default_interface<Windows::Media::DialProtocol::DialAppStateDetails>{ using type = Windows::Media::DialProtocol::IDialAppStateDetails; };
     template <> struct default_interface<Windows::Media::DialProtocol::DialDevice>{ using type = Windows::Media::DialProtocol::IDialDevice; };

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -69,9 +69,9 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Management::IMdmAlert> = L"Windows.Management.IMdmAlert";
     template <> inline constexpr auto& name_v<Windows::Management::IMdmSession> = L"Windows.Management.IMdmSession";
     template <> inline constexpr auto& name_v<Windows::Management::IMdmSessionManagerStatics> = L"Windows.Management.IMdmSessionManagerStatics";
-    template <> inline constexpr guid guid_v<Windows::Management::IMdmAlert>{ 0xB0FBC327,0x28C1,0x4B52,{ 0xA5,0x48,0xC5,0x80,0x7C,0xAF,0x70,0xB6 } };
-    template <> inline constexpr guid guid_v<Windows::Management::IMdmSession>{ 0xFE89314C,0x8F64,0x4797,{ 0xA9,0xD7,0x9D,0x88,0xF8,0x6A,0xE1,0x66 } };
-    template <> inline constexpr guid guid_v<Windows::Management::IMdmSessionManagerStatics>{ 0xCF4AD959,0xF745,0x4B79,{ 0x9B,0x5C,0xDE,0x0B,0xF8,0xEF,0xE4,0x4B } };
+    template <> inline constexpr guid guid_v<Windows::Management::IMdmAlert>{ 0xB0FBC327,0x28C1,0x4B52,{ 0xA5,0x48,0xC5,0x80,0x7C,0xAF,0x70,0xB6 } }; // B0FBC327-28C1-4B52-A548-C5807CAF70B6
+    template <> inline constexpr guid guid_v<Windows::Management::IMdmSession>{ 0xFE89314C,0x8F64,0x4797,{ 0xA9,0xD7,0x9D,0x88,0xF8,0x6A,0xE1,0x66 } }; // FE89314C-8F64-4797-A9D7-9D88F86AE166
+    template <> inline constexpr guid guid_v<Windows::Management::IMdmSessionManagerStatics>{ 0xCF4AD959,0xF745,0x4B79,{ 0x9B,0x5C,0xDE,0x0B,0xF8,0xEF,0xE4,0x4B } }; // CF4AD959-F745-4B79-9B5C-DE0BF8EFE44B
     template <> struct default_interface<Windows::Management::MdmAlert>{ using type = Windows::Management::IMdmAlert; };
     template <> struct default_interface<Windows::Management::MdmSession>{ using type = Windows::Management::IMdmSession; };
     template <> struct abi<Windows::Management::IMdmAlert>

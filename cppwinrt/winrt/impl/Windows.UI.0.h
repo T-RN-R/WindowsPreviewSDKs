@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -46,13 +46,13 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::IColorsStatics> = L"Windows.UI.IColorsStatics";
     template <> inline constexpr auto& name_v<Windows::UI::IUIContentRoot> = L"Windows.UI.IUIContentRoot";
     template <> inline constexpr auto& name_v<Windows::UI::IUIContext> = L"Windows.UI.IUIContext";
-    template <> inline constexpr guid guid_v<Windows::UI::IColorHelper>{ 0x193CFBE7,0x65C7,0x4540,{ 0xAD,0x08,0x62,0x83,0xBA,0x76,0x87,0x9A } };
-    template <> inline constexpr guid guid_v<Windows::UI::IColorHelperStatics>{ 0x8504DBEA,0xFB6A,0x4144,{ 0xA6,0xC2,0x33,0x49,0x9C,0x92,0x84,0xF5 } };
-    template <> inline constexpr guid guid_v<Windows::UI::IColorHelperStatics2>{ 0x24D9AF02,0x6EB0,0x4B94,{ 0x85,0x5C,0xFC,0xF0,0x81,0x8D,0x9A,0x16 } };
-    template <> inline constexpr guid guid_v<Windows::UI::IColors>{ 0x9B8C9326,0x4CA6,0x4CE5,{ 0x89,0x94,0x9E,0xFF,0x65,0xCA,0xBD,0xCC } };
-    template <> inline constexpr guid guid_v<Windows::UI::IColorsStatics>{ 0xCFF52E04,0xCCA6,0x4614,{ 0xA1,0x7E,0x75,0x49,0x10,0xC8,0x4A,0x99 } };
-    template <> inline constexpr guid guid_v<Windows::UI::IUIContentRoot>{ 0x1DFCBAC6,0xB36B,0x5CB9,{ 0x9B,0xC5,0x2B,0x7A,0x0E,0xDD,0xC3,0x78 } };
-    template <> inline constexpr guid guid_v<Windows::UI::IUIContext>{ 0xBB5CFACD,0x5BD8,0x59D0,{ 0xA5,0x9E,0x1C,0x17,0xA4,0xD6,0xD2,0x43 } };
+    template <> inline constexpr guid guid_v<Windows::UI::IColorHelper>{ 0x193CFBE7,0x65C7,0x4540,{ 0xAD,0x08,0x62,0x83,0xBA,0x76,0x87,0x9A } }; // 193CFBE7-65C7-4540-AD08-6283BA76879A
+    template <> inline constexpr guid guid_v<Windows::UI::IColorHelperStatics>{ 0x8504DBEA,0xFB6A,0x4144,{ 0xA6,0xC2,0x33,0x49,0x9C,0x92,0x84,0xF5 } }; // 8504DBEA-FB6A-4144-A6C2-33499C9284F5
+    template <> inline constexpr guid guid_v<Windows::UI::IColorHelperStatics2>{ 0x24D9AF02,0x6EB0,0x4B94,{ 0x85,0x5C,0xFC,0xF0,0x81,0x8D,0x9A,0x16 } }; // 24D9AF02-6EB0-4B94-855C-FCF0818D9A16
+    template <> inline constexpr guid guid_v<Windows::UI::IColors>{ 0x9B8C9326,0x4CA6,0x4CE5,{ 0x89,0x94,0x9E,0xFF,0x65,0xCA,0xBD,0xCC } }; // 9B8C9326-4CA6-4CE5-8994-9EFF65CABDCC
+    template <> inline constexpr guid guid_v<Windows::UI::IColorsStatics>{ 0xCFF52E04,0xCCA6,0x4614,{ 0xA1,0x7E,0x75,0x49,0x10,0xC8,0x4A,0x99 } }; // CFF52E04-CCA6-4614-A17E-754910C84A99
+    template <> inline constexpr guid guid_v<Windows::UI::IUIContentRoot>{ 0x1DFCBAC6,0xB36B,0x5CB9,{ 0x9B,0xC5,0x2B,0x7A,0x0E,0xDD,0xC3,0x78 } }; // 1DFCBAC6-B36B-5CB9-9BC5-2B7A0EDDC378
+    template <> inline constexpr guid guid_v<Windows::UI::IUIContext>{ 0xBB5CFACD,0x5BD8,0x59D0,{ 0xA5,0x9E,0x1C,0x17,0xA4,0xD6,0xD2,0x43 } }; // BB5CFACD-5BD8-59D0-A59E-1C17A4D6D243
     template <> struct default_interface<Windows::UI::ColorHelper>{ using type = Windows::UI::IColorHelper; };
     template <> struct default_interface<Windows::UI::Colors>{ using type = Windows::UI::IColors; };
     template <> struct default_interface<Windows::UI::UIContentRoot>{ using type = Windows::UI::IUIContentRoot; };

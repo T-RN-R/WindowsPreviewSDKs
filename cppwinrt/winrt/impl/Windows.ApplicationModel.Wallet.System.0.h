@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -52,9 +52,9 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::System::IWalletItemSystemStore> = L"Windows.ApplicationModel.Wallet.System.IWalletItemSystemStore";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::System::IWalletItemSystemStore2> = L"Windows.ApplicationModel.Wallet.System.IWalletItemSystemStore2";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::System::IWalletManagerSystemStatics> = L"Windows.ApplicationModel.Wallet.System.IWalletManagerSystemStatics";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::System::IWalletItemSystemStore>{ 0x522E2BFF,0x96A2,0x4A17,{ 0x8D,0x19,0xFE,0x1D,0x9F,0x83,0x75,0x61 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::System::IWalletItemSystemStore2>{ 0xF98D3A4E,0xBE00,0x4FDD,{ 0x97,0x34,0x6C,0x11,0x3C,0x1A,0xC1,0xCB } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::System::IWalletManagerSystemStatics>{ 0xBEE8EB89,0x2634,0x4B9A,{ 0x8B,0x23,0xEE,0x89,0x03,0xC9,0x1F,0xE0 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::System::IWalletItemSystemStore>{ 0x522E2BFF,0x96A2,0x4A17,{ 0x8D,0x19,0xFE,0x1D,0x9F,0x83,0x75,0x61 } }; // 522E2BFF-96A2-4A17-8D19-FE1D9F837561
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::System::IWalletItemSystemStore2>{ 0xF98D3A4E,0xBE00,0x4FDD,{ 0x97,0x34,0x6C,0x11,0x3C,0x1A,0xC1,0xCB } }; // F98D3A4E-BE00-4FDD-9734-6C113C1AC1CB
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::System::IWalletManagerSystemStatics>{ 0xBEE8EB89,0x2634,0x4B9A,{ 0x8B,0x23,0xEE,0x89,0x03,0xC9,0x1F,0xE0 } }; // BEE8EB89-2634-4B9A-8B23-EE8903C91FE0
     template <> struct default_interface<Windows::ApplicationModel::Wallet::System::WalletItemSystemStore>{ using type = Windows::ApplicationModel::Wallet::System::IWalletItemSystemStore; };
     template <> struct abi<Windows::ApplicationModel::Wallet::System::IWalletItemSystemStore>
     {

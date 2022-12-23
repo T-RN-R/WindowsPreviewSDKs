@@ -3901,6 +3901,8 @@ typedef enum CLCTL_CODES {
     CLCTL_ENUM_AFFINITY_RULE_NAMES                  = CLCTL_EXTERNAL_CODE( 2935, CLUS_ACCESS_READ, CLUS_NO_MODIFY ),
     CLCTL_GET_NODES_IN_FD                           = CLCTL_EXTERNAL_CODE( 2936, CLUS_ACCESS_READ, CLUS_NO_MODIFY ),
 
+    CLCTL_FORCE_DB_FLUSH                            = CLCTL_EXTERNAL_CODE( 2937, CLUS_ACCESS_WRITE, CLUS_MODIFY ),
+
 //Internal codes:
 //A control code used by the Cluster service to notify a resource DLL of changes to the cluster environment. Applications cannot use internal control codes; they must use external control codes.
 
@@ -4968,6 +4970,9 @@ typedef enum CLUSCTL_CLUSTER_CODES {
 
     CLUSCTL_CLUSTER_GET_NODES_IN_FD =
 	    CLUSCTL_CLUSTER_CODE( CLCTL_GET_NODES_IN_FD ), 
+
+	CLUSCTL_CLUSTER_FORCE_FLUSH_DB = 
+		CLUSCTL_CLUSTER_CODE( CLCTL_FORCE_DB_FLUSH ),
 
 } CLUSCTL_CLUSTER_CODES;
 
@@ -7581,6 +7586,7 @@ typedef DWORD
 #define CLUSREG_NAME_CLOUDWITNESS_PRIMARY_KEY           L"PrimaryKey"
 #define CLUSREG_NAME_CLOUDWITNESS_ACCOUNT_NAME          L"AccountName"
 #define CLUSREG_NAME_CLOUDWITNESS_ENDPOINT_INFO         L"EndpointInfo"
+#define CLUSREG_NAME_CLOUDWITNESS_CONTAINER_NAME        L"ContainerName"
 #define CLOUD_WITNESS_CONTAINER_NAME                    L"msft-cloud-witness"
 
 // Storage Replica

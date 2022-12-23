@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -82,15 +82,15 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::ISpeechSynthesizerOptions2> = L"Windows.Media.SpeechSynthesis.ISpeechSynthesizerOptions2";
     template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::ISpeechSynthesizerOptions3> = L"Windows.Media.SpeechSynthesis.ISpeechSynthesizerOptions3";
     template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::IVoiceInformation> = L"Windows.Media.SpeechSynthesis.IVoiceInformation";
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechSynthesis::IInstalledVoicesStatic>{ 0x7D526ECC,0x7533,0x4C3F,{ 0x85,0xBE,0x88,0x8C,0x2B,0xAE,0xEB,0xDC } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechSynthesis::IInstalledVoicesStatic2>{ 0x64255F2E,0x358D,0x4058,{ 0xBE,0x9A,0xFD,0x3F,0xCB,0x42,0x35,0x30 } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechSynthesis::ISpeechSynthesisStream>{ 0x83E46E93,0x244C,0x4622,{ 0xBA,0x0B,0x62,0x29,0xC4,0xD0,0xD6,0x5D } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechSynthesis::ISpeechSynthesizer>{ 0xCE9F7C76,0x97F4,0x4CED,{ 0xAD,0x68,0xD5,0x1C,0x45,0x8E,0x45,0xC6 } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechSynthesis::ISpeechSynthesizer2>{ 0xA7C5ECB2,0x4339,0x4D6A,{ 0xBB,0xF8,0xC7,0xA4,0xF1,0x54,0x4C,0x2E } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechSynthesis::ISpeechSynthesizerOptions>{ 0xA0E23871,0xCC3D,0x43C9,{ 0x91,0xB1,0xEE,0x18,0x53,0x24,0xD8,0x3D } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechSynthesis::ISpeechSynthesizerOptions2>{ 0x1CBEF60E,0x119C,0x4BED,{ 0xB1,0x18,0xD2,0x50,0xC3,0xA2,0x57,0x93 } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechSynthesis::ISpeechSynthesizerOptions3>{ 0x401ED877,0x902C,0x4814,{ 0xA5,0x82,0xA5,0xD0,0xC0,0x76,0x9F,0xA8 } };
-    template <> inline constexpr guid guid_v<Windows::Media::SpeechSynthesis::IVoiceInformation>{ 0xB127D6A4,0x1291,0x4604,{ 0xAA,0x9C,0x83,0x13,0x40,0x83,0x35,0x2C } };
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechSynthesis::IInstalledVoicesStatic>{ 0x7D526ECC,0x7533,0x4C3F,{ 0x85,0xBE,0x88,0x8C,0x2B,0xAE,0xEB,0xDC } }; // 7D526ECC-7533-4C3F-85BE-888C2BAEEBDC
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechSynthesis::IInstalledVoicesStatic2>{ 0x64255F2E,0x358D,0x4058,{ 0xBE,0x9A,0xFD,0x3F,0xCB,0x42,0x35,0x30 } }; // 64255F2E-358D-4058-BE9A-FD3FCB423530
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechSynthesis::ISpeechSynthesisStream>{ 0x83E46E93,0x244C,0x4622,{ 0xBA,0x0B,0x62,0x29,0xC4,0xD0,0xD6,0x5D } }; // 83E46E93-244C-4622-BA0B-6229C4D0D65D
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechSynthesis::ISpeechSynthesizer>{ 0xCE9F7C76,0x97F4,0x4CED,{ 0xAD,0x68,0xD5,0x1C,0x45,0x8E,0x45,0xC6 } }; // CE9F7C76-97F4-4CED-AD68-D51C458E45C6
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechSynthesis::ISpeechSynthesizer2>{ 0xA7C5ECB2,0x4339,0x4D6A,{ 0xBB,0xF8,0xC7,0xA4,0xF1,0x54,0x4C,0x2E } }; // A7C5ECB2-4339-4D6A-BBF8-C7A4F1544C2E
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechSynthesis::ISpeechSynthesizerOptions>{ 0xA0E23871,0xCC3D,0x43C9,{ 0x91,0xB1,0xEE,0x18,0x53,0x24,0xD8,0x3D } }; // A0E23871-CC3D-43C9-91B1-EE185324D83D
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechSynthesis::ISpeechSynthesizerOptions2>{ 0x1CBEF60E,0x119C,0x4BED,{ 0xB1,0x18,0xD2,0x50,0xC3,0xA2,0x57,0x93 } }; // 1CBEF60E-119C-4BED-B118-D250C3A25793
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechSynthesis::ISpeechSynthesizerOptions3>{ 0x401ED877,0x902C,0x4814,{ 0xA5,0x82,0xA5,0xD0,0xC0,0x76,0x9F,0xA8 } }; // 401ED877-902C-4814-A582-A5D0C0769FA8
+    template <> inline constexpr guid guid_v<Windows::Media::SpeechSynthesis::IVoiceInformation>{ 0xB127D6A4,0x1291,0x4604,{ 0xAA,0x9C,0x83,0x13,0x40,0x83,0x35,0x2C } }; // B127D6A4-1291-4604-AA9C-83134083352C
     template <> struct default_interface<Windows::Media::SpeechSynthesis::SpeechSynthesisStream>{ using type = Windows::Media::SpeechSynthesis::ISpeechSynthesisStream; };
     template <> struct default_interface<Windows::Media::SpeechSynthesis::SpeechSynthesizer>{ using type = Windows::Media::SpeechSynthesis::ISpeechSynthesizer; };
     template <> struct default_interface<Windows::Media::SpeechSynthesis::SpeechSynthesizerOptions>{ using type = Windows::Media::SpeechSynthesis::ISpeechSynthesizerOptions; };

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -22,8 +22,8 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::System::Power::Diagnostics::ForegroundEnergyDiagnostics> = L"Windows.System.Power.Diagnostics.ForegroundEnergyDiagnostics";
     template <> inline constexpr auto& name_v<Windows::System::Power::Diagnostics::IBackgroundEnergyDiagnosticsStatics> = L"Windows.System.Power.Diagnostics.IBackgroundEnergyDiagnosticsStatics";
     template <> inline constexpr auto& name_v<Windows::System::Power::Diagnostics::IForegroundEnergyDiagnosticsStatics> = L"Windows.System.Power.Diagnostics.IForegroundEnergyDiagnosticsStatics";
-    template <> inline constexpr guid guid_v<Windows::System::Power::Diagnostics::IBackgroundEnergyDiagnosticsStatics>{ 0xD7663702,0xD3A6,0x46E0,{ 0x8F,0x9B,0x50,0xB9,0x5B,0xB4,0xF9,0xC5 } };
-    template <> inline constexpr guid guid_v<Windows::System::Power::Diagnostics::IForegroundEnergyDiagnosticsStatics>{ 0x23CA0917,0xCD07,0x4609,{ 0xBE,0x15,0x8F,0xE8,0x94,0xC5,0xE4,0x1E } };
+    template <> inline constexpr guid guid_v<Windows::System::Power::Diagnostics::IBackgroundEnergyDiagnosticsStatics>{ 0xD7663702,0xD3A6,0x46E0,{ 0x8F,0x9B,0x50,0xB9,0x5B,0xB4,0xF9,0xC5 } }; // D7663702-D3A6-46E0-8F9B-50B95BB4F9C5
+    template <> inline constexpr guid guid_v<Windows::System::Power::Diagnostics::IForegroundEnergyDiagnosticsStatics>{ 0x23CA0917,0xCD07,0x4609,{ 0xBE,0x15,0x8F,0xE8,0x94,0xC5,0xE4,0x1E } }; // 23CA0917-CD07-4609-BE15-8FE894C5E41E
     template <> struct abi<Windows::System::Power::Diagnostics::IBackgroundEnergyDiagnosticsStatics>
     {
         struct __declspec(novtable) type : inspectable_abi

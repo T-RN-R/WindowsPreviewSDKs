@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -106,15 +106,15 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::IHttpCacheControl> = L"Windows.Web.Http.Filters.IHttpCacheControl";
     template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::IHttpFilter> = L"Windows.Web.Http.Filters.IHttpFilter";
     template <> inline constexpr auto& name_v<Windows::Web::Http::Filters::IHttpServerCustomValidationRequestedEventArgs> = L"Windows.Web.Http.Filters.IHttpServerCustomValidationRequestedEventArgs";
-    template <> inline constexpr guid guid_v<Windows::Web::Http::Filters::IHttpBaseProtocolFilter>{ 0x71C89B09,0xE131,0x4B54,{ 0xA5,0x3C,0xEB,0x43,0xFF,0x37,0xE9,0xBB } };
-    template <> inline constexpr guid guid_v<Windows::Web::Http::Filters::IHttpBaseProtocolFilter2>{ 0x2EC30013,0x9427,0x4900,{ 0xA0,0x17,0xFA,0x7D,0xA3,0xB5,0xC9,0xAE } };
-    template <> inline constexpr guid guid_v<Windows::Web::Http::Filters::IHttpBaseProtocolFilter3>{ 0xD43F4D4C,0xBD42,0x43AE,{ 0x87,0x17,0xAD,0x2C,0x8F,0x4B,0x29,0x37 } };
-    template <> inline constexpr guid guid_v<Windows::Web::Http::Filters::IHttpBaseProtocolFilter4>{ 0x9FE36CCF,0x2983,0x4893,{ 0x94,0x1F,0xEB,0x51,0x8C,0xA8,0xCE,0xF9 } };
-    template <> inline constexpr guid guid_v<Windows::Web::Http::Filters::IHttpBaseProtocolFilter5>{ 0x416E4993,0x31E3,0x4816,{ 0xBF,0x09,0xE0,0x18,0xEE,0x8D,0xC1,0xF5 } };
-    template <> inline constexpr guid guid_v<Windows::Web::Http::Filters::IHttpBaseProtocolFilterStatics>{ 0x6D4DEE0C,0xE908,0x494E,{ 0xB5,0xA3,0x12,0x63,0xC9,0xB8,0x24,0x2A } };
-    template <> inline constexpr guid guid_v<Windows::Web::Http::Filters::IHttpCacheControl>{ 0xC77E1CB4,0x3CEA,0x4EB5,{ 0xAC,0x85,0x04,0xE1,0x86,0xE6,0x3A,0xB7 } };
-    template <> inline constexpr guid guid_v<Windows::Web::Http::Filters::IHttpFilter>{ 0xA4CB6DD5,0x0902,0x439E,{ 0xBF,0xD7,0xE1,0x25,0x52,0xB1,0x65,0xCE } };
-    template <> inline constexpr guid guid_v<Windows::Web::Http::Filters::IHttpServerCustomValidationRequestedEventArgs>{ 0x3165FE32,0xE7DD,0x48B7,{ 0xA3,0x61,0x93,0x9C,0x75,0x0E,0x63,0xCC } };
+    template <> inline constexpr guid guid_v<Windows::Web::Http::Filters::IHttpBaseProtocolFilter>{ 0x71C89B09,0xE131,0x4B54,{ 0xA5,0x3C,0xEB,0x43,0xFF,0x37,0xE9,0xBB } }; // 71C89B09-E131-4B54-A53C-EB43FF37E9BB
+    template <> inline constexpr guid guid_v<Windows::Web::Http::Filters::IHttpBaseProtocolFilter2>{ 0x2EC30013,0x9427,0x4900,{ 0xA0,0x17,0xFA,0x7D,0xA3,0xB5,0xC9,0xAE } }; // 2EC30013-9427-4900-A017-FA7DA3B5C9AE
+    template <> inline constexpr guid guid_v<Windows::Web::Http::Filters::IHttpBaseProtocolFilter3>{ 0xD43F4D4C,0xBD42,0x43AE,{ 0x87,0x17,0xAD,0x2C,0x8F,0x4B,0x29,0x37 } }; // D43F4D4C-BD42-43AE-8717-AD2C8F4B2937
+    template <> inline constexpr guid guid_v<Windows::Web::Http::Filters::IHttpBaseProtocolFilter4>{ 0x9FE36CCF,0x2983,0x4893,{ 0x94,0x1F,0xEB,0x51,0x8C,0xA8,0xCE,0xF9 } }; // 9FE36CCF-2983-4893-941F-EB518CA8CEF9
+    template <> inline constexpr guid guid_v<Windows::Web::Http::Filters::IHttpBaseProtocolFilter5>{ 0x416E4993,0x31E3,0x4816,{ 0xBF,0x09,0xE0,0x18,0xEE,0x8D,0xC1,0xF5 } }; // 416E4993-31E3-4816-BF09-E018EE8DC1F5
+    template <> inline constexpr guid guid_v<Windows::Web::Http::Filters::IHttpBaseProtocolFilterStatics>{ 0x6D4DEE0C,0xE908,0x494E,{ 0xB5,0xA3,0x12,0x63,0xC9,0xB8,0x24,0x2A } }; // 6D4DEE0C-E908-494E-B5A3-1263C9B8242A
+    template <> inline constexpr guid guid_v<Windows::Web::Http::Filters::IHttpCacheControl>{ 0xC77E1CB4,0x3CEA,0x4EB5,{ 0xAC,0x85,0x04,0xE1,0x86,0xE6,0x3A,0xB7 } }; // C77E1CB4-3CEA-4EB5-AC85-04E186E63AB7
+    template <> inline constexpr guid guid_v<Windows::Web::Http::Filters::IHttpFilter>{ 0xA4CB6DD5,0x0902,0x439E,{ 0xBF,0xD7,0xE1,0x25,0x52,0xB1,0x65,0xCE } }; // A4CB6DD5-0902-439E-BFD7-E12552B165CE
+    template <> inline constexpr guid guid_v<Windows::Web::Http::Filters::IHttpServerCustomValidationRequestedEventArgs>{ 0x3165FE32,0xE7DD,0x48B7,{ 0xA3,0x61,0x93,0x9C,0x75,0x0E,0x63,0xCC } }; // 3165FE32-E7DD-48B7-A361-939C750E63CC
     template <> struct default_interface<Windows::Web::Http::Filters::HttpBaseProtocolFilter>{ using type = Windows::Web::Http::Filters::IHttpBaseProtocolFilter; };
     template <> struct default_interface<Windows::Web::Http::Filters::HttpCacheControl>{ using type = Windows::Web::Http::Filters::IHttpCacheControl; };
     template <> struct default_interface<Windows::Web::Http::Filters::HttpServerCustomValidationRequestedEventArgs>{ using type = Windows::Web::Http::Filters::IHttpServerCustomValidationRequestedEventArgs; };

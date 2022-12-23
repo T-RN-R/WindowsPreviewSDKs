@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -176,18 +176,18 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::ConversationalAgent::IConversationalAgentSystemStateChangedEventArgs> = L"Windows.ApplicationModel.ConversationalAgent.IConversationalAgentSystemStateChangedEventArgs";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::ConversationalAgent::IDetectionConfigurationAvailabilityChangedEventArgs> = L"Windows.ApplicationModel.ConversationalAgent.IDetectionConfigurationAvailabilityChangedEventArgs";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::ConversationalAgent::IDetectionConfigurationAvailabilityInfo> = L"Windows.ApplicationModel.ConversationalAgent.IDetectionConfigurationAvailabilityInfo";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ConversationalAgent::IActivationSignalDetectionConfiguration>{ 0x40D8BE16,0x5217,0x581C,{ 0x9A,0xB2,0xCE,0x9B,0x2F,0x2E,0x8E,0x00 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ConversationalAgent::IActivationSignalDetector>{ 0xB5BF345F,0xA4D0,0x5B2B,{ 0x8E,0x65,0xB3,0xC5,0x5E,0xE7,0x56,0xFF } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ConversationalAgent::IConversationalAgentDetectorManager>{ 0xDE94FBB0,0x597A,0x5DF8,{ 0x8C,0xFB,0x9D,0xBB,0x58,0x3B,0xA3,0xFF } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ConversationalAgent::IConversationalAgentDetectorManagerStatics>{ 0x36A8D283,0xFA0E,0x5693,{ 0x84,0x89,0x0F,0xB2,0xF0,0xAB,0x40,0xD3 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ConversationalAgent::IConversationalAgentSession>{ 0xDAAAE09A,0xB7BA,0x57E5,{ 0xAD,0x13,0xDF,0x52,0x0F,0x9B,0x6F,0xA7 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ConversationalAgent::IConversationalAgentSessionInterruptedEventArgs>{ 0x9766591F,0xF63D,0x5D3E,{ 0x9B,0xF2,0xBD,0x07,0x60,0x55,0x26,0x86 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ConversationalAgent::IConversationalAgentSessionStatics>{ 0xA005166E,0xE954,0x576E,{ 0xBE,0x04,0x11,0xB8,0xED,0x10,0xF3,0x7B } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ConversationalAgent::IConversationalAgentSignal>{ 0x20ED25F7,0xB120,0x51F2,{ 0x86,0x03,0x26,0x5D,0x6A,0x47,0xF2,0x32 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ConversationalAgent::IConversationalAgentSignalDetectedEventArgs>{ 0x4D57EB8F,0xF88A,0x599B,{ 0x91,0xD3,0xD6,0x04,0x87,0x67,0x08,0xBC } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ConversationalAgent::IConversationalAgentSystemStateChangedEventArgs>{ 0x1C2C6E3E,0x2785,0x59A7,{ 0x8E,0x71,0x38,0xAD,0xEE,0xF7,0x99,0x28 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ConversationalAgent::IDetectionConfigurationAvailabilityChangedEventArgs>{ 0x5129C9FB,0x4BE8,0x5F14,{ 0xAF,0x2B,0x88,0xD6,0x2B,0x1B,0x44,0x62 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ConversationalAgent::IDetectionConfigurationAvailabilityInfo>{ 0xB5AFFEB0,0x40F0,0x5398,{ 0xB8,0x38,0x91,0x97,0x9C,0x2C,0x62,0x08 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ConversationalAgent::IActivationSignalDetectionConfiguration>{ 0x40D8BE16,0x5217,0x581C,{ 0x9A,0xB2,0xCE,0x9B,0x2F,0x2E,0x8E,0x00 } }; // 40D8BE16-5217-581C-9AB2-CE9B2F2E8E00
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ConversationalAgent::IActivationSignalDetector>{ 0xB5BF345F,0xA4D0,0x5B2B,{ 0x8E,0x65,0xB3,0xC5,0x5E,0xE7,0x56,0xFF } }; // B5BF345F-A4D0-5B2B-8E65-B3C55EE756FF
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ConversationalAgent::IConversationalAgentDetectorManager>{ 0xDE94FBB0,0x597A,0x5DF8,{ 0x8C,0xFB,0x9D,0xBB,0x58,0x3B,0xA3,0xFF } }; // DE94FBB0-597A-5DF8-8CFB-9DBB583BA3FF
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ConversationalAgent::IConversationalAgentDetectorManagerStatics>{ 0x36A8D283,0xFA0E,0x5693,{ 0x84,0x89,0x0F,0xB2,0xF0,0xAB,0x40,0xD3 } }; // 36A8D283-FA0E-5693-8489-0FB2F0AB40D3
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ConversationalAgent::IConversationalAgentSession>{ 0xDAAAE09A,0xB7BA,0x57E5,{ 0xAD,0x13,0xDF,0x52,0x0F,0x9B,0x6F,0xA7 } }; // DAAAE09A-B7BA-57E5-AD13-DF520F9B6FA7
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ConversationalAgent::IConversationalAgentSessionInterruptedEventArgs>{ 0x9766591F,0xF63D,0x5D3E,{ 0x9B,0xF2,0xBD,0x07,0x60,0x55,0x26,0x86 } }; // 9766591F-F63D-5D3E-9BF2-BD0760552686
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ConversationalAgent::IConversationalAgentSessionStatics>{ 0xA005166E,0xE954,0x576E,{ 0xBE,0x04,0x11,0xB8,0xED,0x10,0xF3,0x7B } }; // A005166E-E954-576E-BE04-11B8ED10F37B
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ConversationalAgent::IConversationalAgentSignal>{ 0x20ED25F7,0xB120,0x51F2,{ 0x86,0x03,0x26,0x5D,0x6A,0x47,0xF2,0x32 } }; // 20ED25F7-B120-51F2-8603-265D6A47F232
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ConversationalAgent::IConversationalAgentSignalDetectedEventArgs>{ 0x4D57EB8F,0xF88A,0x599B,{ 0x91,0xD3,0xD6,0x04,0x87,0x67,0x08,0xBC } }; // 4D57EB8F-F88A-599B-91D3-D604876708BC
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ConversationalAgent::IConversationalAgentSystemStateChangedEventArgs>{ 0x1C2C6E3E,0x2785,0x59A7,{ 0x8E,0x71,0x38,0xAD,0xEE,0xF7,0x99,0x28 } }; // 1C2C6E3E-2785-59A7-8E71-38ADEEF79928
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ConversationalAgent::IDetectionConfigurationAvailabilityChangedEventArgs>{ 0x5129C9FB,0x4BE8,0x5F14,{ 0xAF,0x2B,0x88,0xD6,0x2B,0x1B,0x44,0x62 } }; // 5129C9FB-4BE8-5F14-AF2B-88D62B1B4462
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ConversationalAgent::IDetectionConfigurationAvailabilityInfo>{ 0xB5AFFEB0,0x40F0,0x5398,{ 0xB8,0x38,0x91,0x97,0x9C,0x2C,0x62,0x08 } }; // B5AFFEB0-40F0-5398-B838-91979C2C6208
     template <> struct default_interface<Windows::ApplicationModel::ConversationalAgent::ActivationSignalDetectionConfiguration>{ using type = Windows::ApplicationModel::ConversationalAgent::IActivationSignalDetectionConfiguration; };
     template <> struct default_interface<Windows::ApplicationModel::ConversationalAgent::ActivationSignalDetector>{ using type = Windows::ApplicationModel::ConversationalAgent::IActivationSignalDetector; };
     template <> struct default_interface<Windows::ApplicationModel::ConversationalAgent::ConversationalAgentDetectorManager>{ using type = Windows::ApplicationModel::ConversationalAgent::IConversationalAgentDetectorManager; };

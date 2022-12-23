@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -31,9 +31,9 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Globalization::Fonts::ILanguageFont> = L"Windows.Globalization.Fonts.ILanguageFont";
     template <> inline constexpr auto& name_v<Windows::Globalization::Fonts::ILanguageFontGroup> = L"Windows.Globalization.Fonts.ILanguageFontGroup";
     template <> inline constexpr auto& name_v<Windows::Globalization::Fonts::ILanguageFontGroupFactory> = L"Windows.Globalization.Fonts.ILanguageFontGroupFactory";
-    template <> inline constexpr guid guid_v<Windows::Globalization::Fonts::ILanguageFont>{ 0xB12E5C3A,0xB76D,0x459B,{ 0xBE,0xEB,0x90,0x11,0x51,0xCD,0x77,0xD1 } };
-    template <> inline constexpr guid guid_v<Windows::Globalization::Fonts::ILanguageFontGroup>{ 0xF33A7FC3,0x3A5C,0x4AEA,{ 0xB9,0xFF,0xB3,0x9F,0xB2,0x42,0xF7,0xF6 } };
-    template <> inline constexpr guid guid_v<Windows::Globalization::Fonts::ILanguageFontGroupFactory>{ 0xFCAEAC67,0x4E77,0x49C7,{ 0xB8,0x56,0xDD,0xE9,0x34,0xFC,0x73,0x5B } };
+    template <> inline constexpr guid guid_v<Windows::Globalization::Fonts::ILanguageFont>{ 0xB12E5C3A,0xB76D,0x459B,{ 0xBE,0xEB,0x90,0x11,0x51,0xCD,0x77,0xD1 } }; // B12E5C3A-B76D-459B-BEEB-901151CD77D1
+    template <> inline constexpr guid guid_v<Windows::Globalization::Fonts::ILanguageFontGroup>{ 0xF33A7FC3,0x3A5C,0x4AEA,{ 0xB9,0xFF,0xB3,0x9F,0xB2,0x42,0xF7,0xF6 } }; // F33A7FC3-3A5C-4AEA-B9FF-B39FB242F7F6
+    template <> inline constexpr guid guid_v<Windows::Globalization::Fonts::ILanguageFontGroupFactory>{ 0xFCAEAC67,0x4E77,0x49C7,{ 0xB8,0x56,0xDD,0xE9,0x34,0xFC,0x73,0x5B } }; // FCAEAC67-4E77-49C7-B856-DDE934FC735B
     template <> struct default_interface<Windows::Globalization::Fonts::LanguageFont>{ using type = Windows::Globalization::Fonts::ILanguageFont; };
     template <> struct default_interface<Windows::Globalization::Fonts::LanguageFontGroup>{ using type = Windows::Globalization::Fonts::ILanguageFontGroup; };
     template <> struct abi<Windows::Globalization::Fonts::ILanguageFont>

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -167,27 +167,27 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppUpdateOptions> = L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppUpdateOptions";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppUpdateOptions2> = L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppUpdateOptions2";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IGetEntitlementResult> = L"Windows.ApplicationModel.Store.Preview.InstallControl.IGetEntitlementResult";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem>{ 0x49D3DFAB,0x168A,0x4CBF,{ 0xA9,0x3A,0x9E,0x44,0x8C,0x82,0x73,0x7D } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem2>{ 0xD3972AF8,0x40C0,0x4FD7,{ 0xAA,0x6C,0x0A,0xA1,0x3C,0xA6,0x18,0x8C } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem3>{ 0x6F3DC998,0xDD47,0x433C,{ 0x92,0x34,0x56,0x01,0x72,0xD6,0x7A,0x45 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem4>{ 0xC2D1CE12,0x71FF,0x4FC8,{ 0xB5,0x40,0x45,0x3D,0x4B,0x37,0xE1,0xD1 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem5>{ 0x5510E7CC,0x4076,0x4A0B,{ 0x94,0x72,0xC2,0x1D,0x9D,0x38,0x0E,0x55 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager>{ 0x9353E170,0x8441,0x4B45,{ 0xBD,0x72,0x7C,0x2F,0xA9,0x25,0xBE,0xEE } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager2>{ 0x16937851,0xED37,0x480D,{ 0x83,0x14,0x52,0xE2,0x7C,0x03,0xF0,0x4A } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager3>{ 0x95B24B17,0xE96A,0x4D0E,{ 0x84,0xE1,0xC8,0xCB,0x41,0x7A,0x01,0x78 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager4>{ 0x260A2A16,0x5A9E,0x4EBD,{ 0xB9,0x44,0xF2,0xBA,0x75,0xC3,0x11,0x59 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager5>{ 0x3CD7BE4C,0x1BE9,0x4F7F,{ 0xB6,0x75,0xAA,0x1D,0x64,0xA5,0x29,0xB2 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager6>{ 0xC9E7D408,0xF27A,0x4471,{ 0xB2,0xF4,0xE7,0x6E,0xFC,0xBE,0xBC,0xCA } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager7>{ 0xA5EE7B30,0xD5E4,0x49A3,{ 0x98,0x53,0x3D,0xB0,0x32,0x03,0x32,0x1D } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManagerItemEventArgs>{ 0xBC505743,0x4674,0x4DD1,{ 0x95,0x7E,0xC2,0x56,0x82,0x08,0x6A,0x14 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallOptions>{ 0xC9808300,0x1CB8,0x4EB6,{ 0x8C,0x9F,0x6A,0x30,0xC6,0x4A,0x5B,0x51 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallOptions2>{ 0x8A04C0D7,0xC94B,0x425E,{ 0x95,0xB4,0xBF,0x27,0xFA,0xEA,0xEE,0x89 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallStatus>{ 0x936DCCFA,0x2450,0x4126,{ 0x88,0xB1,0x61,0x27,0xA6,0x44,0xDD,0x5C } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallStatus2>{ 0x96E7818A,0x5E92,0x4AA9,{ 0x8E,0xDC,0x58,0xFE,0xD4,0xB8,0x7E,0x00 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallStatus3>{ 0xCB880C56,0x837B,0x4B4C,{ 0x9E,0xBB,0x6D,0x44,0xA0,0xA9,0x63,0x07 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppUpdateOptions>{ 0x26F0B02F,0xC2F3,0x4AEA,{ 0xAF,0x8C,0x63,0x08,0xDD,0x9D,0xB8,0x5F } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppUpdateOptions2>{ 0xF4646E08,0xED26,0x4BF9,{ 0x96,0x79,0x48,0xF6,0x28,0xE5,0x3D,0xF8 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IGetEntitlementResult>{ 0x74FC843F,0x1A9E,0x4609,{ 0x8E,0x4D,0x81,0x90,0x86,0xD0,0x8A,0x3D } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem>{ 0x49D3DFAB,0x168A,0x4CBF,{ 0xA9,0x3A,0x9E,0x44,0x8C,0x82,0x73,0x7D } }; // 49D3DFAB-168A-4CBF-A93A-9E448C82737D
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem2>{ 0xD3972AF8,0x40C0,0x4FD7,{ 0xAA,0x6C,0x0A,0xA1,0x3C,0xA6,0x18,0x8C } }; // D3972AF8-40C0-4FD7-AA6C-0AA13CA6188C
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem3>{ 0x6F3DC998,0xDD47,0x433C,{ 0x92,0x34,0x56,0x01,0x72,0xD6,0x7A,0x45 } }; // 6F3DC998-DD47-433C-9234-560172D67A45
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem4>{ 0xC2D1CE12,0x71FF,0x4FC8,{ 0xB5,0x40,0x45,0x3D,0x4B,0x37,0xE1,0xD1 } }; // C2D1CE12-71FF-4FC8-B540-453D4B37E1D1
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem5>{ 0x5510E7CC,0x4076,0x4A0B,{ 0x94,0x72,0xC2,0x1D,0x9D,0x38,0x0E,0x55 } }; // 5510E7CC-4076-4A0B-9472-C21D9D380E55
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager>{ 0x9353E170,0x8441,0x4B45,{ 0xBD,0x72,0x7C,0x2F,0xA9,0x25,0xBE,0xEE } }; // 9353E170-8441-4B45-BD72-7C2FA925BEEE
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager2>{ 0x16937851,0xED37,0x480D,{ 0x83,0x14,0x52,0xE2,0x7C,0x03,0xF0,0x4A } }; // 16937851-ED37-480D-8314-52E27C03F04A
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager3>{ 0x95B24B17,0xE96A,0x4D0E,{ 0x84,0xE1,0xC8,0xCB,0x41,0x7A,0x01,0x78 } }; // 95B24B17-E96A-4D0E-84E1-C8CB417A0178
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager4>{ 0x260A2A16,0x5A9E,0x4EBD,{ 0xB9,0x44,0xF2,0xBA,0x75,0xC3,0x11,0x59 } }; // 260A2A16-5A9E-4EBD-B944-F2BA75C31159
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager5>{ 0x3CD7BE4C,0x1BE9,0x4F7F,{ 0xB6,0x75,0xAA,0x1D,0x64,0xA5,0x29,0xB2 } }; // 3CD7BE4C-1BE9-4F7F-B675-AA1D64A529B2
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager6>{ 0xC9E7D408,0xF27A,0x4471,{ 0xB2,0xF4,0xE7,0x6E,0xFC,0xBE,0xBC,0xCA } }; // C9E7D408-F27A-4471-B2F4-E76EFCBEBCCA
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager7>{ 0xA5EE7B30,0xD5E4,0x49A3,{ 0x98,0x53,0x3D,0xB0,0x32,0x03,0x32,0x1D } }; // A5EE7B30-D5E4-49A3-9853-3DB03203321D
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManagerItemEventArgs>{ 0xBC505743,0x4674,0x4DD1,{ 0x95,0x7E,0xC2,0x56,0x82,0x08,0x6A,0x14 } }; // BC505743-4674-4DD1-957E-C25682086A14
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallOptions>{ 0xC9808300,0x1CB8,0x4EB6,{ 0x8C,0x9F,0x6A,0x30,0xC6,0x4A,0x5B,0x51 } }; // C9808300-1CB8-4EB6-8C9F-6A30C64A5B51
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallOptions2>{ 0x8A04C0D7,0xC94B,0x425E,{ 0x95,0xB4,0xBF,0x27,0xFA,0xEA,0xEE,0x89 } }; // 8A04C0D7-C94B-425E-95B4-BF27FAEAEE89
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallStatus>{ 0x936DCCFA,0x2450,0x4126,{ 0x88,0xB1,0x61,0x27,0xA6,0x44,0xDD,0x5C } }; // 936DCCFA-2450-4126-88B1-6127A644DD5C
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallStatus2>{ 0x96E7818A,0x5E92,0x4AA9,{ 0x8E,0xDC,0x58,0xFE,0xD4,0xB8,0x7E,0x00 } }; // 96E7818A-5E92-4AA9-8EDC-58FED4B87E00
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallStatus3>{ 0xCB880C56,0x837B,0x4B4C,{ 0x9E,0xBB,0x6D,0x44,0xA0,0xA9,0x63,0x07 } }; // CB880C56-837B-4B4C-9EBB-6D44A0A96307
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppUpdateOptions>{ 0x26F0B02F,0xC2F3,0x4AEA,{ 0xAF,0x8C,0x63,0x08,0xDD,0x9D,0xB8,0x5F } }; // 26F0B02F-C2F3-4AEA-AF8C-6308DD9DB85F
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppUpdateOptions2>{ 0xF4646E08,0xED26,0x4BF9,{ 0x96,0x79,0x48,0xF6,0x28,0xE5,0x3D,0xF8 } }; // F4646E08-ED26-4BF9-9679-48F628E53DF8
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IGetEntitlementResult>{ 0x74FC843F,0x1A9E,0x4609,{ 0x8E,0x4D,0x81,0x90,0x86,0xD0,0x8A,0x3D } }; // 74FC843F-1A9E-4609-8E4D-819086D08A3D
     template <> struct default_interface<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem>{ using type = Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem; };
     template <> struct default_interface<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallManager>{ using type = Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager; };
     template <> struct default_interface<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallManagerItemEventArgs>{ using type = Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManagerItemEventArgs; };

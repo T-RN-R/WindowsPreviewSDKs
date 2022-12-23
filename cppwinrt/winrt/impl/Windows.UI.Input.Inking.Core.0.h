@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -86,14 +86,14 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Core::ICoreWetStrokeUpdateEventArgs> = L"Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateEventArgs";
     template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Core::ICoreWetStrokeUpdateSource> = L"Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSource";
     template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Core::ICoreWetStrokeUpdateSourceStatics> = L"Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSourceStatics";
-    template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::Core::ICoreIncrementalInkStroke>{ 0xFDA015D3,0x9D66,0x4F7D,{ 0xA5,0x7F,0xCC,0x70,0xB9,0xCF,0xAA,0x76 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::Core::ICoreIncrementalInkStrokeFactory>{ 0xD7C59F46,0x8DA8,0x4F70,{ 0x97,0x51,0xE5,0x3B,0xB6,0xDF,0x45,0x96 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::Core::ICoreInkIndependentInputSource>{ 0x39B38DA9,0x7639,0x4499,{ 0xA5,0xB5,0x19,0x1D,0x00,0xE3,0x5B,0x16 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::Core::ICoreInkIndependentInputSourceStatics>{ 0x73E6011B,0x80C0,0x4DFB,{ 0x9B,0x66,0x10,0xBA,0x7F,0x3F,0x9C,0x84 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::Core::ICoreInkPresenterHost>{ 0x396E89E6,0x7D55,0x4617,{ 0x9E,0x58,0x68,0xC7,0x0C,0x91,0x69,0xB9 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::Core::ICoreWetStrokeUpdateEventArgs>{ 0xFB07D14C,0x3380,0x457A,{ 0xA9,0x87,0x99,0x13,0x57,0x89,0x6C,0x1B } };
-    template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::Core::ICoreWetStrokeUpdateSource>{ 0x1F718E22,0xEE52,0x4E00,{ 0x82,0x09,0x4C,0x3E,0x5B,0x21,0xA3,0xCC } };
-    template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::Core::ICoreWetStrokeUpdateSourceStatics>{ 0x3DAD9CBA,0x1D3D,0x46AE,{ 0xAB,0x9D,0x86,0x47,0x48,0x6C,0x6F,0x90 } };
+    template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::Core::ICoreIncrementalInkStroke>{ 0xFDA015D3,0x9D66,0x4F7D,{ 0xA5,0x7F,0xCC,0x70,0xB9,0xCF,0xAA,0x76 } }; // FDA015D3-9D66-4F7D-A57F-CC70B9CFAA76
+    template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::Core::ICoreIncrementalInkStrokeFactory>{ 0xD7C59F46,0x8DA8,0x4F70,{ 0x97,0x51,0xE5,0x3B,0xB6,0xDF,0x45,0x96 } }; // D7C59F46-8DA8-4F70-9751-E53BB6DF4596
+    template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::Core::ICoreInkIndependentInputSource>{ 0x39B38DA9,0x7639,0x4499,{ 0xA5,0xB5,0x19,0x1D,0x00,0xE3,0x5B,0x16 } }; // 39B38DA9-7639-4499-A5B5-191D00E35B16
+    template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::Core::ICoreInkIndependentInputSourceStatics>{ 0x73E6011B,0x80C0,0x4DFB,{ 0x9B,0x66,0x10,0xBA,0x7F,0x3F,0x9C,0x84 } }; // 73E6011B-80C0-4DFB-9B66-10BA7F3F9C84
+    template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::Core::ICoreInkPresenterHost>{ 0x396E89E6,0x7D55,0x4617,{ 0x9E,0x58,0x68,0xC7,0x0C,0x91,0x69,0xB9 } }; // 396E89E6-7D55-4617-9E58-68C70C9169B9
+    template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::Core::ICoreWetStrokeUpdateEventArgs>{ 0xFB07D14C,0x3380,0x457A,{ 0xA9,0x87,0x99,0x13,0x57,0x89,0x6C,0x1B } }; // FB07D14C-3380-457A-A987-991357896C1B
+    template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::Core::ICoreWetStrokeUpdateSource>{ 0x1F718E22,0xEE52,0x4E00,{ 0x82,0x09,0x4C,0x3E,0x5B,0x21,0xA3,0xCC } }; // 1F718E22-EE52-4E00-8209-4C3E5B21A3CC
+    template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::Core::ICoreWetStrokeUpdateSourceStatics>{ 0x3DAD9CBA,0x1D3D,0x46AE,{ 0xAB,0x9D,0x86,0x47,0x48,0x6C,0x6F,0x90 } }; // 3DAD9CBA-1D3D-46AE-AB9D-8647486C6F90
     template <> struct default_interface<Windows::UI::Input::Inking::Core::CoreIncrementalInkStroke>{ using type = Windows::UI::Input::Inking::Core::ICoreIncrementalInkStroke; };
     template <> struct default_interface<Windows::UI::Input::Inking::Core::CoreInkIndependentInputSource>{ using type = Windows::UI::Input::Inking::Core::ICoreInkIndependentInputSource; };
     template <> struct default_interface<Windows::UI::Input::Inking::Core::CoreInkPresenterHost>{ using type = Windows::UI::Input::Inking::Core::ICoreInkPresenterHost; };

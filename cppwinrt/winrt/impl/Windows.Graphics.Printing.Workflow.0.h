@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -272,36 +272,36 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowUIActivatedEventArgs> = L"Windows.Graphics.Printing.Workflow.IPrintWorkflowUIActivatedEventArgs";
     template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowUILauncher> = L"Windows.Graphics.Printing.Workflow.IPrintWorkflowUILauncher";
     template <> inline constexpr auto& name_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowXpsDataAvailableEventArgs> = L"Windows.Graphics.Printing.Workflow.IPrintWorkflowXpsDataAvailableEventArgs";
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowBackgroundSession>{ 0x5B7913BA,0x0C5E,0x528A,{ 0x74,0x58,0x86,0xA4,0x6C,0xBD,0xDC,0x45 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowBackgroundSetupRequestedEventArgs>{ 0x43E97342,0x1750,0x59C9,{ 0x61,0xFB,0x38,0x37,0x48,0xA2,0x03,0x62 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowConfiguration>{ 0xD0AAC4ED,0xFD4B,0x5DF5,{ 0x4B,0xB6,0x8D,0x0D,0x15,0x9E,0xBE,0x3F } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowConfiguration2>{ 0xDE350A50,0xA6D4,0x5BE2,{ 0x8B,0x9A,0x09,0xD3,0xD3,0x9E,0xA7,0x80 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowForegroundSession>{ 0xC79B63D0,0xF8EC,0x4CEB,{ 0x95,0x3A,0xC8,0x87,0x61,0x57,0xDD,0x33 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowForegroundSetupRequestedEventArgs>{ 0xBBE38247,0x9C1B,0x4DD3,{ 0x9B,0x2B,0xC8,0x04,0x68,0xD9,0x41,0xB3 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowJobActivatedEventArgs>{ 0xD4BD5E6D,0x034E,0x5E00,{ 0xA6,0x16,0xF9,0x61,0xA0,0x33,0xDC,0xC8 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowJobBackgroundSession>{ 0x2BF9DAEF,0xBE4C,0x5527,{ 0x81,0xFC,0x5C,0xD8,0x1B,0x46,0xC1,0xD9 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowJobNotificationEventArgs>{ 0x0AE16FBA,0x5398,0x5EBA,{ 0xB4,0x72,0x97,0x86,0x50,0x18,0x6A,0x9A } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowJobStartingEventArgs>{ 0xE3D99BA8,0x31AD,0x5E09,{ 0xB0,0xD7,0x60,0x1B,0x97,0xF1,0x61,0xAD } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowJobTriggerDetails>{ 0xFF296129,0x60E2,0x51DB,{ 0xBA,0x8C,0xE2,0xCC,0xDD,0xB5,0x16,0xB9 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowJobUISession>{ 0x00C8736B,0x7637,0x5687,{ 0xA3,0x02,0x0F,0x66,0x4D,0x2A,0xAC,0x65 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowObjectModelSourceFileContent>{ 0xC36C8A6A,0x8A2A,0x419A,{ 0xB3,0xC3,0x20,0x90,0xE6,0xBF,0xAB,0x2F } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowObjectModelTargetPackage>{ 0x7D96BC74,0x9B54,0x4CA1,{ 0xAD,0x3A,0x97,0x9C,0x3D,0x44,0xDD,0xAC } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowPdlConverter>{ 0x40604B62,0x0AE4,0x51F1,{ 0x81,0x8F,0x73,0x1D,0xC0,0xB0,0x05,0xAB } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowPdlDataAvailableEventArgs>{ 0xD4AD6B50,0x1547,0x5991,{ 0xA0,0xEF,0xE2,0xEE,0x20,0x21,0x15,0x18 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowPdlModificationRequestedEventArgs>{ 0x2C01FEA0,0x9EF1,0x5A96,{ 0xB7,0x6E,0xFE,0x4B,0xB7,0xBC,0xAF,0x13 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowPdlSourceContent>{ 0x92F7FC41,0x32B8,0x56AB,{ 0x84,0x5E,0xB1,0xE6,0x8B,0x3A,0xED,0xD5 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowPdlTargetStream>{ 0xA742DFE5,0x1EE3,0x52A9,{ 0x9F,0x9F,0x2E,0x20,0x43,0x18,0x0F,0xD1 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowPrinterJob>{ 0x12009F94,0x0D14,0x5443,{ 0xBC,0x09,0x25,0x03,0x11,0xCE,0x57,0x0B } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowSourceContent>{ 0x1A28C641,0xCEB1,0x4533,{ 0xBB,0x73,0xFB,0xE6,0x3E,0xEF,0xDB,0x18 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowSpoolStreamContent>{ 0x72E55ECE,0xE406,0x4B74,{ 0x84,0xE1,0x3F,0xF3,0xFD,0xCD,0xAF,0x70 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowStreamTarget>{ 0xB23BBA84,0x8565,0x488B,{ 0x98,0x39,0x1C,0x9E,0x7C,0x7A,0xA9,0x16 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowSubmittedEventArgs>{ 0x3ADD0A41,0x3794,0x5569,{ 0x5C,0x87,0x40,0xE8,0xFF,0x72,0x0F,0x83 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowSubmittedOperation>{ 0x2E4E6216,0x3BE1,0x5F0F,{ 0x5C,0x81,0xA5,0xA2,0xBD,0x4E,0xAB,0x0E } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowTarget>{ 0x29DA276C,0x0A73,0x5AED,{ 0x4F,0x3D,0x97,0x0D,0x32,0x51,0xF0,0x57 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowTriggerDetails>{ 0x5739D868,0x9D86,0x4052,{ 0xB0,0xCB,0xF3,0x10,0xBE,0xCD,0x59,0xBB } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowUIActivatedEventArgs>{ 0xBC8A844D,0x09EB,0x5746,{ 0x72,0xA6,0x8D,0xC8,0xB5,0xED,0xBE,0x9B } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowUILauncher>{ 0x64E9E22F,0x14CC,0x5828,{ 0x96,0xFB,0x39,0x16,0x3F,0xB6,0xC3,0x78 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowXpsDataAvailableEventArgs>{ 0x4D11C331,0x54D1,0x434E,{ 0xBE,0x0E,0x82,0xC5,0xFA,0x58,0xE5,0xB2 } };
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowBackgroundSession>{ 0x5B7913BA,0x0C5E,0x528A,{ 0x74,0x58,0x86,0xA4,0x6C,0xBD,0xDC,0x45 } }; // 5B7913BA-0C5E-528A-7458-86A46CBDDC45
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowBackgroundSetupRequestedEventArgs>{ 0x43E97342,0x1750,0x59C9,{ 0x61,0xFB,0x38,0x37,0x48,0xA2,0x03,0x62 } }; // 43E97342-1750-59C9-61FB-383748A20362
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowConfiguration>{ 0xD0AAC4ED,0xFD4B,0x5DF5,{ 0x4B,0xB6,0x8D,0x0D,0x15,0x9E,0xBE,0x3F } }; // D0AAC4ED-FD4B-5DF5-4BB6-8D0D159EBE3F
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowConfiguration2>{ 0xDE350A50,0xA6D4,0x5BE2,{ 0x8B,0x9A,0x09,0xD3,0xD3,0x9E,0xA7,0x80 } }; // DE350A50-A6D4-5BE2-8B9A-09D3D39EA780
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowForegroundSession>{ 0xC79B63D0,0xF8EC,0x4CEB,{ 0x95,0x3A,0xC8,0x87,0x61,0x57,0xDD,0x33 } }; // C79B63D0-F8EC-4CEB-953A-C8876157DD33
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowForegroundSetupRequestedEventArgs>{ 0xBBE38247,0x9C1B,0x4DD3,{ 0x9B,0x2B,0xC8,0x04,0x68,0xD9,0x41,0xB3 } }; // BBE38247-9C1B-4DD3-9B2B-C80468D941B3
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowJobActivatedEventArgs>{ 0xD4BD5E6D,0x034E,0x5E00,{ 0xA6,0x16,0xF9,0x61,0xA0,0x33,0xDC,0xC8 } }; // D4BD5E6D-034E-5E00-A616-F961A033DCC8
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowJobBackgroundSession>{ 0x2BF9DAEF,0xBE4C,0x5527,{ 0x81,0xFC,0x5C,0xD8,0x1B,0x46,0xC1,0xD9 } }; // 2BF9DAEF-BE4C-5527-81FC-5CD81B46C1D9
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowJobNotificationEventArgs>{ 0x0AE16FBA,0x5398,0x5EBA,{ 0xB4,0x72,0x97,0x86,0x50,0x18,0x6A,0x9A } }; // 0AE16FBA-5398-5EBA-B472-978650186A9A
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowJobStartingEventArgs>{ 0xE3D99BA8,0x31AD,0x5E09,{ 0xB0,0xD7,0x60,0x1B,0x97,0xF1,0x61,0xAD } }; // E3D99BA8-31AD-5E09-B0D7-601B97F161AD
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowJobTriggerDetails>{ 0xFF296129,0x60E2,0x51DB,{ 0xBA,0x8C,0xE2,0xCC,0xDD,0xB5,0x16,0xB9 } }; // FF296129-60E2-51DB-BA8C-E2CCDDB516B9
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowJobUISession>{ 0x00C8736B,0x7637,0x5687,{ 0xA3,0x02,0x0F,0x66,0x4D,0x2A,0xAC,0x65 } }; // 00C8736B-7637-5687-A302-0F664D2AAC65
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowObjectModelSourceFileContent>{ 0xC36C8A6A,0x8A2A,0x419A,{ 0xB3,0xC3,0x20,0x90,0xE6,0xBF,0xAB,0x2F } }; // C36C8A6A-8A2A-419A-B3C3-2090E6BFAB2F
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowObjectModelTargetPackage>{ 0x7D96BC74,0x9B54,0x4CA1,{ 0xAD,0x3A,0x97,0x9C,0x3D,0x44,0xDD,0xAC } }; // 7D96BC74-9B54-4CA1-AD3A-979C3D44DDAC
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowPdlConverter>{ 0x40604B62,0x0AE4,0x51F1,{ 0x81,0x8F,0x73,0x1D,0xC0,0xB0,0x05,0xAB } }; // 40604B62-0AE4-51F1-818F-731DC0B005AB
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowPdlDataAvailableEventArgs>{ 0xD4AD6B50,0x1547,0x5991,{ 0xA0,0xEF,0xE2,0xEE,0x20,0x21,0x15,0x18 } }; // D4AD6B50-1547-5991-A0EF-E2EE20211518
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowPdlModificationRequestedEventArgs>{ 0x2C01FEA0,0x9EF1,0x5A96,{ 0xB7,0x6E,0xFE,0x4B,0xB7,0xBC,0xAF,0x13 } }; // 2C01FEA0-9EF1-5A96-B76E-FE4BB7BCAF13
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowPdlSourceContent>{ 0x92F7FC41,0x32B8,0x56AB,{ 0x84,0x5E,0xB1,0xE6,0x8B,0x3A,0xED,0xD5 } }; // 92F7FC41-32B8-56AB-845E-B1E68B3AEDD5
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowPdlTargetStream>{ 0xA742DFE5,0x1EE3,0x52A9,{ 0x9F,0x9F,0x2E,0x20,0x43,0x18,0x0F,0xD1 } }; // A742DFE5-1EE3-52A9-9F9F-2E2043180FD1
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowPrinterJob>{ 0x12009F94,0x0D14,0x5443,{ 0xBC,0x09,0x25,0x03,0x11,0xCE,0x57,0x0B } }; // 12009F94-0D14-5443-BC09-250311CE570B
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowSourceContent>{ 0x1A28C641,0xCEB1,0x4533,{ 0xBB,0x73,0xFB,0xE6,0x3E,0xEF,0xDB,0x18 } }; // 1A28C641-CEB1-4533-BB73-FBE63EEFDB18
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowSpoolStreamContent>{ 0x72E55ECE,0xE406,0x4B74,{ 0x84,0xE1,0x3F,0xF3,0xFD,0xCD,0xAF,0x70 } }; // 72E55ECE-E406-4B74-84E1-3FF3FDCDAF70
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowStreamTarget>{ 0xB23BBA84,0x8565,0x488B,{ 0x98,0x39,0x1C,0x9E,0x7C,0x7A,0xA9,0x16 } }; // B23BBA84-8565-488B-9839-1C9E7C7AA916
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowSubmittedEventArgs>{ 0x3ADD0A41,0x3794,0x5569,{ 0x5C,0x87,0x40,0xE8,0xFF,0x72,0x0F,0x83 } }; // 3ADD0A41-3794-5569-5C87-40E8FF720F83
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowSubmittedOperation>{ 0x2E4E6216,0x3BE1,0x5F0F,{ 0x5C,0x81,0xA5,0xA2,0xBD,0x4E,0xAB,0x0E } }; // 2E4E6216-3BE1-5F0F-5C81-A5A2BD4EAB0E
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowTarget>{ 0x29DA276C,0x0A73,0x5AED,{ 0x4F,0x3D,0x97,0x0D,0x32,0x51,0xF0,0x57 } }; // 29DA276C-0A73-5AED-4F3D-970D3251F057
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowTriggerDetails>{ 0x5739D868,0x9D86,0x4052,{ 0xB0,0xCB,0xF3,0x10,0xBE,0xCD,0x59,0xBB } }; // 5739D868-9D86-4052-B0CB-F310BECD59BB
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowUIActivatedEventArgs>{ 0xBC8A844D,0x09EB,0x5746,{ 0x72,0xA6,0x8D,0xC8,0xB5,0xED,0xBE,0x9B } }; // BC8A844D-09EB-5746-72A6-8DC8B5EDBE9B
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowUILauncher>{ 0x64E9E22F,0x14CC,0x5828,{ 0x96,0xFB,0x39,0x16,0x3F,0xB6,0xC3,0x78 } }; // 64E9E22F-14CC-5828-96FB-39163FB6C378
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::Workflow::IPrintWorkflowXpsDataAvailableEventArgs>{ 0x4D11C331,0x54D1,0x434E,{ 0xBE,0x0E,0x82,0xC5,0xFA,0x58,0xE5,0xB2 } }; // 4D11C331-54D1-434E-BE0E-82C5FA58E5B2
     template <> struct default_interface<Windows::Graphics::Printing::Workflow::PrintWorkflowBackgroundSession>{ using type = Windows::Graphics::Printing::Workflow::IPrintWorkflowBackgroundSession; };
     template <> struct default_interface<Windows::Graphics::Printing::Workflow::PrintWorkflowBackgroundSetupRequestedEventArgs>{ using type = Windows::Graphics::Printing::Workflow::IPrintWorkflowBackgroundSetupRequestedEventArgs; };
     template <> struct default_interface<Windows::Graphics::Printing::Workflow::PrintWorkflowConfiguration>{ using type = Windows::Graphics::Printing::Workflow::IPrintWorkflowConfiguration; };

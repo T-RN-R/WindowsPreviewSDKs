@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -87,15 +87,15 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::IGameModeUserConfigurationStatics> = L"Windows.Gaming.Preview.GamesEnumeration.IGameModeUserConfigurationStatics";
     template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::GameListChangedEventHandler> = L"Windows.Gaming.Preview.GamesEnumeration.GameListChangedEventHandler";
     template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::GameListRemovedEventHandler> = L"Windows.Gaming.Preview.GamesEnumeration.GameListRemovedEventHandler";
-    template <> inline constexpr guid guid_v<Windows::Gaming::Preview::GamesEnumeration::IGameListEntry>{ 0x735924D3,0x811F,0x4494,{ 0xB6,0x9C,0xC6,0x41,0xA0,0xC6,0x15,0x43 } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::Preview::GamesEnumeration::IGameListEntry2>{ 0xD84A8F8B,0x8749,0x4A25,{ 0x90,0xD3,0xF6,0xC5,0xA4,0x27,0x88,0x6D } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::Preview::GamesEnumeration::IGameListStatics>{ 0x2DDD0F6F,0x9C66,0x4B05,{ 0x94,0x5C,0xD6,0xED,0x78,0x49,0x1B,0x8C } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::Preview::GamesEnumeration::IGameListStatics2>{ 0x395F2098,0xEA1A,0x45AA,{ 0x92,0x68,0xA8,0x39,0x05,0x68,0x6F,0x27 } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::Preview::GamesEnumeration::IGameModeConfiguration>{ 0x78E591AF,0xB142,0x4EF0,{ 0x88,0x30,0x55,0xBC,0x2B,0xE4,0xF5,0xEA } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::Preview::GamesEnumeration::IGameModeUserConfiguration>{ 0x72D34AF4,0x756B,0x470F,{ 0xA0,0xC2,0xBA,0x62,0xA9,0x07,0x95,0xDB } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::Preview::GamesEnumeration::IGameModeUserConfigurationStatics>{ 0x6E50D97C,0x66EA,0x478E,{ 0xA4,0xA1,0xF5,0x7C,0x0E,0x8D,0x00,0xE7 } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::Preview::GamesEnumeration::GameListChangedEventHandler>{ 0x25F6A421,0xD8F5,0x4D91,{ 0xB4,0x0E,0x53,0xD5,0xE8,0x6F,0xDE,0x64 } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::Preview::GamesEnumeration::GameListRemovedEventHandler>{ 0x10C5648F,0x6C8F,0x4712,{ 0x9B,0x38,0x47,0x4B,0xC2,0x2E,0x76,0xD8 } };
+    template <> inline constexpr guid guid_v<Windows::Gaming::Preview::GamesEnumeration::IGameListEntry>{ 0x735924D3,0x811F,0x4494,{ 0xB6,0x9C,0xC6,0x41,0xA0,0xC6,0x15,0x43 } }; // 735924D3-811F-4494-B69C-C641A0C61543
+    template <> inline constexpr guid guid_v<Windows::Gaming::Preview::GamesEnumeration::IGameListEntry2>{ 0xD84A8F8B,0x8749,0x4A25,{ 0x90,0xD3,0xF6,0xC5,0xA4,0x27,0x88,0x6D } }; // D84A8F8B-8749-4A25-90D3-F6C5A427886D
+    template <> inline constexpr guid guid_v<Windows::Gaming::Preview::GamesEnumeration::IGameListStatics>{ 0x2DDD0F6F,0x9C66,0x4B05,{ 0x94,0x5C,0xD6,0xED,0x78,0x49,0x1B,0x8C } }; // 2DDD0F6F-9C66-4B05-945C-D6ED78491B8C
+    template <> inline constexpr guid guid_v<Windows::Gaming::Preview::GamesEnumeration::IGameListStatics2>{ 0x395F2098,0xEA1A,0x45AA,{ 0x92,0x68,0xA8,0x39,0x05,0x68,0x6F,0x27 } }; // 395F2098-EA1A-45AA-9268-A83905686F27
+    template <> inline constexpr guid guid_v<Windows::Gaming::Preview::GamesEnumeration::IGameModeConfiguration>{ 0x78E591AF,0xB142,0x4EF0,{ 0x88,0x30,0x55,0xBC,0x2B,0xE4,0xF5,0xEA } }; // 78E591AF-B142-4EF0-8830-55BC2BE4F5EA
+    template <> inline constexpr guid guid_v<Windows::Gaming::Preview::GamesEnumeration::IGameModeUserConfiguration>{ 0x72D34AF4,0x756B,0x470F,{ 0xA0,0xC2,0xBA,0x62,0xA9,0x07,0x95,0xDB } }; // 72D34AF4-756B-470F-A0C2-BA62A90795DB
+    template <> inline constexpr guid guid_v<Windows::Gaming::Preview::GamesEnumeration::IGameModeUserConfigurationStatics>{ 0x6E50D97C,0x66EA,0x478E,{ 0xA4,0xA1,0xF5,0x7C,0x0E,0x8D,0x00,0xE7 } }; // 6E50D97C-66EA-478E-A4A1-F57C0E8D00E7
+    template <> inline constexpr guid guid_v<Windows::Gaming::Preview::GamesEnumeration::GameListChangedEventHandler>{ 0x25F6A421,0xD8F5,0x4D91,{ 0xB4,0x0E,0x53,0xD5,0xE8,0x6F,0xDE,0x64 } }; // 25F6A421-D8F5-4D91-B40E-53D5E86FDE64
+    template <> inline constexpr guid guid_v<Windows::Gaming::Preview::GamesEnumeration::GameListRemovedEventHandler>{ 0x10C5648F,0x6C8F,0x4712,{ 0x9B,0x38,0x47,0x4B,0xC2,0x2E,0x76,0xD8 } }; // 10C5648F-6C8F-4712-9B38-474BC22E76D8
     template <> struct default_interface<Windows::Gaming::Preview::GamesEnumeration::GameListEntry>{ using type = Windows::Gaming::Preview::GamesEnumeration::IGameListEntry; };
     template <> struct default_interface<Windows::Gaming::Preview::GamesEnumeration::GameModeConfiguration>{ using type = Windows::Gaming::Preview::GamesEnumeration::IGameModeConfiguration; };
     template <> struct default_interface<Windows::Gaming::Preview::GamesEnumeration::GameModeUserConfiguration>{ using type = Windows::Gaming::Preview::GamesEnumeration::IGameModeUserConfiguration; };

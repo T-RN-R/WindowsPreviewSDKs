@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -85,11 +85,11 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::Geofencing::IGeofenceMonitor> = L"Windows.Devices.Geolocation.Geofencing.IGeofenceMonitor";
     template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::Geofencing::IGeofenceMonitorStatics> = L"Windows.Devices.Geolocation.Geofencing.IGeofenceMonitorStatics";
     template <> inline constexpr auto& name_v<Windows::Devices::Geolocation::Geofencing::IGeofenceStateChangeReport> = L"Windows.Devices.Geolocation.Geofencing.IGeofenceStateChangeReport";
-    template <> inline constexpr guid guid_v<Windows::Devices::Geolocation::Geofencing::IGeofence>{ 0x9C090823,0xEDB8,0x47E0,{ 0x82,0x45,0x5B,0xF6,0x1D,0x32,0x1F,0x2D } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Geolocation::Geofencing::IGeofenceFactory>{ 0x841F624B,0x325F,0x4B90,{ 0xBC,0xA7,0x2B,0x80,0x22,0xA9,0x37,0x96 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Geolocation::Geofencing::IGeofenceMonitor>{ 0x4C0F5F78,0x1C1F,0x4621,{ 0xBB,0xBD,0x83,0x3B,0x92,0x24,0x72,0x26 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Geolocation::Geofencing::IGeofenceMonitorStatics>{ 0x2DD32FCF,0x7E75,0x4899,{ 0xAC,0xE3,0x2B,0xD0,0xA6,0x5C,0xCE,0x06 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Geolocation::Geofencing::IGeofenceStateChangeReport>{ 0x9A243C18,0x2464,0x4C89,{ 0xBE,0x05,0xB3,0xFF,0xFF,0x5B,0xAB,0xC5 } };
+    template <> inline constexpr guid guid_v<Windows::Devices::Geolocation::Geofencing::IGeofence>{ 0x9C090823,0xEDB8,0x47E0,{ 0x82,0x45,0x5B,0xF6,0x1D,0x32,0x1F,0x2D } }; // 9C090823-EDB8-47E0-8245-5BF61D321F2D
+    template <> inline constexpr guid guid_v<Windows::Devices::Geolocation::Geofencing::IGeofenceFactory>{ 0x841F624B,0x325F,0x4B90,{ 0xBC,0xA7,0x2B,0x80,0x22,0xA9,0x37,0x96 } }; // 841F624B-325F-4B90-BCA7-2B8022A93796
+    template <> inline constexpr guid guid_v<Windows::Devices::Geolocation::Geofencing::IGeofenceMonitor>{ 0x4C0F5F78,0x1C1F,0x4621,{ 0xBB,0xBD,0x83,0x3B,0x92,0x24,0x72,0x26 } }; // 4C0F5F78-1C1F-4621-BBBD-833B92247226
+    template <> inline constexpr guid guid_v<Windows::Devices::Geolocation::Geofencing::IGeofenceMonitorStatics>{ 0x2DD32FCF,0x7E75,0x4899,{ 0xAC,0xE3,0x2B,0xD0,0xA6,0x5C,0xCE,0x06 } }; // 2DD32FCF-7E75-4899-ACE3-2BD0A65CCE06
+    template <> inline constexpr guid guid_v<Windows::Devices::Geolocation::Geofencing::IGeofenceStateChangeReport>{ 0x9A243C18,0x2464,0x4C89,{ 0xBE,0x05,0xB3,0xFF,0xFF,0x5B,0xAB,0xC5 } }; // 9A243C18-2464-4C89-BE05-B3FFFF5BABC5
     template <> struct default_interface<Windows::Devices::Geolocation::Geofencing::Geofence>{ using type = Windows::Devices::Geolocation::Geofencing::IGeofence; };
     template <> struct default_interface<Windows::Devices::Geolocation::Geofencing::GeofenceMonitor>{ using type = Windows::Devices::Geolocation::Geofencing::IGeofenceMonitor; };
     template <> struct default_interface<Windows::Devices::Geolocation::Geofencing::GeofenceStateChangeReport>{ using type = Windows::Devices::Geolocation::Geofencing::IGeofenceStateChangeReport; };

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_Foundation_Collections_H
 #define WINRT_Windows_Foundation_Collections_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200514.2"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200609.3"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.Foundation.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
@@ -1009,7 +1009,6 @@ namespace winrt::impl
         }
     };
 }
-
 WINRT_EXPORT namespace winrt
 {
     template <typename D, typename T, typename Version = impl::no_collection_version>
@@ -1426,8 +1425,14 @@ WINRT_EXPORT namespace winrt
 
         void Remove(K const& key)
         {
+            auto& container = static_cast<D&>(*this).get_container();
+            auto found = container.find(static_cast<D const&>(*this).wrap_value(key));
+            if (found == container.end())
+            {
+                throw hresult_out_of_bounds();
+            }
             this->increment_version();
-            static_cast<D&>(*this).get_container().erase(static_cast<D const&>(*this).wrap_value(key));
+            container.erase(found);
         }
 
         void Clear() noexcept

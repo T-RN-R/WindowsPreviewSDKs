@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -78,10 +78,10 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Networking::ServiceDiscovery::Dnssd::IDnssdServiceInstance> = L"Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceInstance";
     template <> inline constexpr auto& name_v<Windows::Networking::ServiceDiscovery::Dnssd::IDnssdServiceInstanceFactory> = L"Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceInstanceFactory";
     template <> inline constexpr auto& name_v<Windows::Networking::ServiceDiscovery::Dnssd::IDnssdServiceWatcher> = L"Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceWatcher";
-    template <> inline constexpr guid guid_v<Windows::Networking::ServiceDiscovery::Dnssd::IDnssdRegistrationResult>{ 0x3D786AD2,0xE606,0x5350,{ 0x73,0xEA,0x7E,0x97,0xF0,0x66,0x16,0x2F } };
-    template <> inline constexpr guid guid_v<Windows::Networking::ServiceDiscovery::Dnssd::IDnssdServiceInstance>{ 0xE246DB7E,0x98A5,0x4CA1,{ 0xB9,0xE4,0xC2,0x53,0xD3,0x3C,0x35,0xFF } };
-    template <> inline constexpr guid guid_v<Windows::Networking::ServiceDiscovery::Dnssd::IDnssdServiceInstanceFactory>{ 0x6CB061A1,0xC478,0x4331,{ 0x96,0x84,0x4A,0xF2,0x18,0x6C,0x0A,0x2B } };
-    template <> inline constexpr guid guid_v<Windows::Networking::ServiceDiscovery::Dnssd::IDnssdServiceWatcher>{ 0xCC34D9C1,0xDB7D,0x4B69,{ 0x98,0x3D,0xC6,0xF8,0x3F,0x20,0x56,0x82 } };
+    template <> inline constexpr guid guid_v<Windows::Networking::ServiceDiscovery::Dnssd::IDnssdRegistrationResult>{ 0x3D786AD2,0xE606,0x5350,{ 0x73,0xEA,0x7E,0x97,0xF0,0x66,0x16,0x2F } }; // 3D786AD2-E606-5350-73EA-7E97F066162F
+    template <> inline constexpr guid guid_v<Windows::Networking::ServiceDiscovery::Dnssd::IDnssdServiceInstance>{ 0xE246DB7E,0x98A5,0x4CA1,{ 0xB9,0xE4,0xC2,0x53,0xD3,0x3C,0x35,0xFF } }; // E246DB7E-98A5-4CA1-B9E4-C253D33C35FF
+    template <> inline constexpr guid guid_v<Windows::Networking::ServiceDiscovery::Dnssd::IDnssdServiceInstanceFactory>{ 0x6CB061A1,0xC478,0x4331,{ 0x96,0x84,0x4A,0xF2,0x18,0x6C,0x0A,0x2B } }; // 6CB061A1-C478-4331-9684-4AF2186C0A2B
+    template <> inline constexpr guid guid_v<Windows::Networking::ServiceDiscovery::Dnssd::IDnssdServiceWatcher>{ 0xCC34D9C1,0xDB7D,0x4B69,{ 0x98,0x3D,0xC6,0xF8,0x3F,0x20,0x56,0x82 } }; // CC34D9C1-DB7D-4B69-983D-C6F83F205682
     template <> struct default_interface<Windows::Networking::ServiceDiscovery::Dnssd::DnssdRegistrationResult>{ using type = Windows::Networking::ServiceDiscovery::Dnssd::IDnssdRegistrationResult; };
     template <> struct default_interface<Windows::Networking::ServiceDiscovery::Dnssd::DnssdServiceInstance>{ using type = Windows::Networking::ServiceDiscovery::Dnssd::IDnssdServiceInstance; };
     template <> struct default_interface<Windows::Networking::ServiceDiscovery::Dnssd::DnssdServiceInstanceCollection>{ using type = Windows::Foundation::Collections::IVectorView<Windows::Networking::ServiceDiscovery::Dnssd::DnssdServiceInstance>; };

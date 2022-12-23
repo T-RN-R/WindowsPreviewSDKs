@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -26,7 +26,7 @@ namespace winrt::impl
     template <> struct category<Windows::ApplicationModel::UserActivities::Core::CoreUserActivityManager>{ using type = class_category; };
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserActivities::Core::CoreUserActivityManager> = L"Windows.ApplicationModel.UserActivities.Core.CoreUserActivityManager";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserActivities::Core::ICoreUserActivityManagerStatics> = L"Windows.ApplicationModel.UserActivities.Core.ICoreUserActivityManagerStatics";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::Core::ICoreUserActivityManagerStatics>{ 0xCA3ADB02,0xA4BE,0x4D4D,{ 0xBF,0xA8,0x67,0x95,0xF4,0x26,0x4E,0xFB } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::Core::ICoreUserActivityManagerStatics>{ 0xCA3ADB02,0xA4BE,0x4D4D,{ 0xBF,0xA8,0x67,0x95,0xF4,0x26,0x4E,0xFB } }; // CA3ADB02-A4BE-4D4D-BFA8-6795F4264EFB
     template <> struct abi<Windows::ApplicationModel::UserActivities::Core::ICoreUserActivityManagerStatics>
     {
         struct __declspec(novtable) type : inspectable_abi

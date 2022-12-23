@@ -883,6 +883,7 @@ typedef WSACMSGHDR CMSGHDR, *PCMSGHDR;
 #define AI_DNS_ONLY                 0x00000010  // Restrict queries to unicast DNS only (no LLMNR, netbios, etc.)
 #define AI_FORCE_CLEAR_TEXT         0x00000020  // Force clear text DNS query
 #define AI_BYPASS_DNS_CACHE         0x00000040  // Bypass DNS cache
+#define AI_RETURN_TTL               0x00000080  // Return record TTL
 
 #define AI_ALL                      0x00000100  // Query both IP6 and IP4 with AI_V4MAPPED
 #define AI_ADDRCONFIG               0x00000400  // Resolution only if global address configured
@@ -971,6 +972,7 @@ typedef struct addrinfoexW
 #define ADDRINFOEX_VERSION_2    2
 #define ADDRINFOEX_VERSION_3    3
 #define ADDRINFOEX_VERSION_4    4
+#define ADDRINFOEX_VERSION_5    5
 
 #pragma region Desktop Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
@@ -1046,6 +1048,26 @@ typedef struct addrinfoex4
     int                  ai_interfaceindex;
     HANDLE               ai_resolutionhandle;
 } ADDRINFOEX4, *PADDRINFOEX4, *LPADDRINFOEX4;
+
+typedef struct addrinfoex5
+{
+    int                  ai_flags;       // AI_PASSIVE, AI_CANONNAME, AI_NUMERICHOST
+    int                  ai_family;      // PF_xxx
+    int                  ai_socktype;    // SOCK_xxx
+    int                  ai_protocol;    // 0 or IPPROTO_xxx for IPv4 and IPv6
+    size_t               ai_addrlen;     // Length of ai_addr
+    PWSTR                ai_canonname;   // Canonical name for nodename
+    _Field_size_bytes_(ai_addrlen) struct sockaddr    *ai_addr;        // Binary address
+    _Field_size_(ai_bloblen) void               *ai_blob;
+    size_t               ai_bloblen;
+    GUID                 *ai_provider;
+    struct addrinfoex4   *ai_next;        // Next structure in linked list
+    int                  ai_version;
+    PWSTR                ai_fqdn;
+    int                  ai_interfaceindex;
+    HANDLE               ai_resolutionhandle;
+    unsigned int         ai_ttl;          // Number of seconds for which this DNS record is valid
+} ADDRINFOEX5, *PADDRINFOEX5, *LPADDRINFOEX5;
 
 #endif
 

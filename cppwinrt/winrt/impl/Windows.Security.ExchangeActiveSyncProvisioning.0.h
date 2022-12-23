@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -163,11 +163,11 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::IEasClientSecurityPolicy> = L"Windows.Security.ExchangeActiveSyncProvisioning.IEasClientSecurityPolicy";
     template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::IEasComplianceResults> = L"Windows.Security.ExchangeActiveSyncProvisioning.IEasComplianceResults";
     template <> inline constexpr auto& name_v<Windows::Security::ExchangeActiveSyncProvisioning::IEasComplianceResults2> = L"Windows.Security.ExchangeActiveSyncProvisioning.IEasComplianceResults2";
-    template <> inline constexpr guid guid_v<Windows::Security::ExchangeActiveSyncProvisioning::IEasClientDeviceInformation>{ 0x54DFD981,0x1968,0x4CA3,{ 0xB9,0x58,0xE5,0x95,0xD1,0x65,0x05,0xEB } };
-    template <> inline constexpr guid guid_v<Windows::Security::ExchangeActiveSyncProvisioning::IEasClientDeviceInformation2>{ 0xFFB35923,0xBB26,0x4D6A,{ 0x81,0xBC,0x16,0x5A,0xEE,0x0A,0xD7,0x54 } };
-    template <> inline constexpr guid guid_v<Windows::Security::ExchangeActiveSyncProvisioning::IEasClientSecurityPolicy>{ 0x45B72362,0xDFBA,0x4A9B,{ 0xAC,0xED,0x6F,0xE2,0xAD,0xCB,0x64,0x20 } };
-    template <> inline constexpr guid guid_v<Windows::Security::ExchangeActiveSyncProvisioning::IEasComplianceResults>{ 0x463C299C,0x7F19,0x4C66,{ 0xB4,0x03,0xCB,0x45,0xDD,0x57,0xA2,0xB3 } };
-    template <> inline constexpr guid guid_v<Windows::Security::ExchangeActiveSyncProvisioning::IEasComplianceResults2>{ 0x2FBE60C9,0x1AA8,0x47F5,{ 0x88,0xBB,0xCB,0x3E,0xF0,0xBF,0xFB,0x15 } };
+    template <> inline constexpr guid guid_v<Windows::Security::ExchangeActiveSyncProvisioning::IEasClientDeviceInformation>{ 0x54DFD981,0x1968,0x4CA3,{ 0xB9,0x58,0xE5,0x95,0xD1,0x65,0x05,0xEB } }; // 54DFD981-1968-4CA3-B958-E595D16505EB
+    template <> inline constexpr guid guid_v<Windows::Security::ExchangeActiveSyncProvisioning::IEasClientDeviceInformation2>{ 0xFFB35923,0xBB26,0x4D6A,{ 0x81,0xBC,0x16,0x5A,0xEE,0x0A,0xD7,0x54 } }; // FFB35923-BB26-4D6A-81BC-165AEE0AD754
+    template <> inline constexpr guid guid_v<Windows::Security::ExchangeActiveSyncProvisioning::IEasClientSecurityPolicy>{ 0x45B72362,0xDFBA,0x4A9B,{ 0xAC,0xED,0x6F,0xE2,0xAD,0xCB,0x64,0x20 } }; // 45B72362-DFBA-4A9B-ACED-6FE2ADCB6420
+    template <> inline constexpr guid guid_v<Windows::Security::ExchangeActiveSyncProvisioning::IEasComplianceResults>{ 0x463C299C,0x7F19,0x4C66,{ 0xB4,0x03,0xCB,0x45,0xDD,0x57,0xA2,0xB3 } }; // 463C299C-7F19-4C66-B403-CB45DD57A2B3
+    template <> inline constexpr guid guid_v<Windows::Security::ExchangeActiveSyncProvisioning::IEasComplianceResults2>{ 0x2FBE60C9,0x1AA8,0x47F5,{ 0x88,0xBB,0xCB,0x3E,0xF0,0xBF,0xFB,0x15 } }; // 2FBE60C9-1AA8-47F5-88BB-CB3EF0BFFB15
     template <> struct default_interface<Windows::Security::ExchangeActiveSyncProvisioning::EasClientDeviceInformation>{ using type = Windows::Security::ExchangeActiveSyncProvisioning::IEasClientDeviceInformation; };
     template <> struct default_interface<Windows::Security::ExchangeActiveSyncProvisioning::EasClientSecurityPolicy>{ using type = Windows::Security::ExchangeActiveSyncProvisioning::IEasClientSecurityPolicy; };
     template <> struct default_interface<Windows::Security::ExchangeActiveSyncProvisioning::EasComplianceResults>{ using type = Windows::Security::ExchangeActiveSyncProvisioning::IEasComplianceResults; };

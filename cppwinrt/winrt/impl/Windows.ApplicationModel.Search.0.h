@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -125,24 +125,24 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchSuggestionCollection> = L"Windows.ApplicationModel.Search.ISearchSuggestionCollection";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchSuggestionsRequest> = L"Windows.ApplicationModel.Search.ISearchSuggestionsRequest";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Search::ISearchSuggestionsRequestDeferral> = L"Windows.ApplicationModel.Search.ISearchSuggestionsRequestDeferral";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ILocalContentSuggestionSettings>{ 0xEEAEB062,0x743D,0x456E,{ 0x84,0xA3,0x23,0xF0,0x6F,0x2D,0x15,0xD7 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchPane>{ 0xFDACEC38,0x3700,0x4D73,{ 0x91,0xA1,0x2F,0x99,0x86,0x74,0x23,0x8A } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchPaneQueryChangedEventArgs>{ 0x3C064FE9,0x2351,0x4248,{ 0xA5,0x29,0x71,0x10,0xF4,0x64,0xA7,0x85 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchPaneQueryLinguisticDetails>{ 0x82FB460E,0x0940,0x4B6D,{ 0xB8,0xD0,0x64,0x2B,0x30,0x98,0x9E,0x15 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchPaneQuerySubmittedEventArgs>{ 0x143BA4FC,0xE9C5,0x4736,{ 0x91,0xB2,0xE8,0xEB,0x9C,0xB8,0x83,0x56 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails>{ 0x460C92E5,0x4C32,0x4538,{ 0xA4,0xD4,0xB6,0xB4,0x40,0x0D,0x14,0x0F } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchPaneResultSuggestionChosenEventArgs>{ 0xC8316CC0,0xAED2,0x41E0,{ 0xBC,0xE0,0xC2,0x6C,0xA7,0x4F,0x85,0xEC } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchPaneStatics>{ 0x9572ADF1,0x8F1D,0x481F,{ 0xA1,0x5B,0xC6,0x16,0x55,0xF1,0x6A,0x0E } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchPaneStaticsWithHideThisApplication>{ 0x00732830,0x50F1,0x4D03,{ 0x99,0xAC,0xC6,0x64,0x4C,0x8E,0xD8,0xB5 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchPaneSuggestionsRequest>{ 0x81B10B1C,0xE561,0x4093,{ 0x9B,0x4D,0x2A,0xD4,0x82,0x79,0x4A,0x53 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchPaneSuggestionsRequestDeferral>{ 0xA0D009F7,0x8748,0x4EE2,{ 0xAD,0x44,0xAF,0xA6,0xBE,0x99,0x7C,0x51 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchPaneSuggestionsRequestedEventArgs>{ 0xC89B8A2F,0xAC56,0x4460,{ 0x8D,0x2F,0x80,0x02,0x3B,0xEC,0x4F,0xC5 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchPaneVisibilityChangedEventArgs>{ 0x3C4D3046,0xAC4B,0x49F2,{ 0x97,0xD6,0x02,0x0E,0x61,0x82,0xCB,0x9C } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchQueryLinguisticDetails>{ 0x46A1205B,0x69C9,0x4745,{ 0xB7,0x2F,0xA8,0xA4,0xFC,0x8F,0x24,0xAE } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchQueryLinguisticDetailsFactory>{ 0xCAC6C3B8,0x3C64,0x4DFD,{ 0xAD,0x9F,0x47,0x9E,0x4D,0x40,0x65,0xA4 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchSuggestionCollection>{ 0x323A8A4B,0xFBEA,0x4446,{ 0xAB,0xBC,0x3D,0xA7,0x91,0x5F,0xDD,0x3A } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchSuggestionsRequest>{ 0x4E4E26A7,0x44E5,0x4039,{ 0x90,0x99,0x60,0x00,0xEA,0xD1,0xF0,0xC6 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchSuggestionsRequestDeferral>{ 0xB71598A9,0xC065,0x456D,{ 0xA8,0x45,0x1E,0xCC,0xEC,0x5D,0xC2,0x8B } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ILocalContentSuggestionSettings>{ 0xEEAEB062,0x743D,0x456E,{ 0x84,0xA3,0x23,0xF0,0x6F,0x2D,0x15,0xD7 } }; // EEAEB062-743D-456E-84A3-23F06F2D15D7
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchPane>{ 0xFDACEC38,0x3700,0x4D73,{ 0x91,0xA1,0x2F,0x99,0x86,0x74,0x23,0x8A } }; // FDACEC38-3700-4D73-91A1-2F998674238A
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchPaneQueryChangedEventArgs>{ 0x3C064FE9,0x2351,0x4248,{ 0xA5,0x29,0x71,0x10,0xF4,0x64,0xA7,0x85 } }; // 3C064FE9-2351-4248-A529-7110F464A785
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchPaneQueryLinguisticDetails>{ 0x82FB460E,0x0940,0x4B6D,{ 0xB8,0xD0,0x64,0x2B,0x30,0x98,0x9E,0x15 } }; // 82FB460E-0940-4B6D-B8D0-642B30989E15
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchPaneQuerySubmittedEventArgs>{ 0x143BA4FC,0xE9C5,0x4736,{ 0x91,0xB2,0xE8,0xEB,0x9C,0xB8,0x83,0x56 } }; // 143BA4FC-E9C5-4736-91B2-E8EB9CB88356
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails>{ 0x460C92E5,0x4C32,0x4538,{ 0xA4,0xD4,0xB6,0xB4,0x40,0x0D,0x14,0x0F } }; // 460C92E5-4C32-4538-A4D4-B6B4400D140F
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchPaneResultSuggestionChosenEventArgs>{ 0xC8316CC0,0xAED2,0x41E0,{ 0xBC,0xE0,0xC2,0x6C,0xA7,0x4F,0x85,0xEC } }; // C8316CC0-AED2-41E0-BCE0-C26CA74F85EC
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchPaneStatics>{ 0x9572ADF1,0x8F1D,0x481F,{ 0xA1,0x5B,0xC6,0x16,0x55,0xF1,0x6A,0x0E } }; // 9572ADF1-8F1D-481F-A15B-C61655F16A0E
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchPaneStaticsWithHideThisApplication>{ 0x00732830,0x50F1,0x4D03,{ 0x99,0xAC,0xC6,0x64,0x4C,0x8E,0xD8,0xB5 } }; // 00732830-50F1-4D03-99AC-C6644C8ED8B5
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchPaneSuggestionsRequest>{ 0x81B10B1C,0xE561,0x4093,{ 0x9B,0x4D,0x2A,0xD4,0x82,0x79,0x4A,0x53 } }; // 81B10B1C-E561-4093-9B4D-2AD482794A53
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchPaneSuggestionsRequestDeferral>{ 0xA0D009F7,0x8748,0x4EE2,{ 0xAD,0x44,0xAF,0xA6,0xBE,0x99,0x7C,0x51 } }; // A0D009F7-8748-4EE2-AD44-AFA6BE997C51
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchPaneSuggestionsRequestedEventArgs>{ 0xC89B8A2F,0xAC56,0x4460,{ 0x8D,0x2F,0x80,0x02,0x3B,0xEC,0x4F,0xC5 } }; // C89B8A2F-AC56-4460-8D2F-80023BEC4FC5
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchPaneVisibilityChangedEventArgs>{ 0x3C4D3046,0xAC4B,0x49F2,{ 0x97,0xD6,0x02,0x0E,0x61,0x82,0xCB,0x9C } }; // 3C4D3046-AC4B-49F2-97D6-020E6182CB9C
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchQueryLinguisticDetails>{ 0x46A1205B,0x69C9,0x4745,{ 0xB7,0x2F,0xA8,0xA4,0xFC,0x8F,0x24,0xAE } }; // 46A1205B-69C9-4745-B72F-A8A4FC8F24AE
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchQueryLinguisticDetailsFactory>{ 0xCAC6C3B8,0x3C64,0x4DFD,{ 0xAD,0x9F,0x47,0x9E,0x4D,0x40,0x65,0xA4 } }; // CAC6C3B8-3C64-4DFD-AD9F-479E4D4065A4
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchSuggestionCollection>{ 0x323A8A4B,0xFBEA,0x4446,{ 0xAB,0xBC,0x3D,0xA7,0x91,0x5F,0xDD,0x3A } }; // 323A8A4B-FBEA-4446-ABBC-3DA7915FDD3A
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchSuggestionsRequest>{ 0x4E4E26A7,0x44E5,0x4039,{ 0x90,0x99,0x60,0x00,0xEA,0xD1,0xF0,0xC6 } }; // 4E4E26A7-44E5-4039-9099-6000EAD1F0C6
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Search::ISearchSuggestionsRequestDeferral>{ 0xB71598A9,0xC065,0x456D,{ 0xA8,0x45,0x1E,0xCC,0xEC,0x5D,0xC2,0x8B } }; // B71598A9-C065-456D-A845-1ECCEC5DC28B
     template <> struct default_interface<Windows::ApplicationModel::Search::LocalContentSuggestionSettings>{ using type = Windows::ApplicationModel::Search::ILocalContentSuggestionSettings; };
     template <> struct default_interface<Windows::ApplicationModel::Search::SearchPane>{ using type = Windows::ApplicationModel::Search::ISearchPane; };
     template <> struct default_interface<Windows::ApplicationModel::Search::SearchPaneQueryChangedEventArgs>{ using type = Windows::ApplicationModel::Search::ISearchPaneQueryChangedEventArgs; };

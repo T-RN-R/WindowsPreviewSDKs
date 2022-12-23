@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -57,12 +57,12 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::LockScreen::ILockScreenInfo> = L"Windows.ApplicationModel.LockScreen.ILockScreenInfo";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::LockScreen::ILockScreenUnlockingDeferral> = L"Windows.ApplicationModel.LockScreen.ILockScreenUnlockingDeferral";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::LockScreen::ILockScreenUnlockingEventArgs> = L"Windows.ApplicationModel.LockScreen.ILockScreenUnlockingEventArgs";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::LockScreen::ILockApplicationHost>{ 0x38EE31AD,0xD94F,0x4E7C,{ 0x81,0xFA,0x4F,0x44,0x36,0x50,0x62,0x81 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::LockScreen::ILockApplicationHostStatics>{ 0xF48FAB8E,0x23D7,0x4E63,{ 0x96,0xA1,0x66,0x6F,0xF5,0x2D,0x3B,0x2C } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::LockScreen::ILockScreenBadge>{ 0xE95105D9,0x2BFF,0x4DB0,{ 0x9B,0x4F,0x38,0x24,0x77,0x8B,0x9C,0x9A } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::LockScreen::ILockScreenInfo>{ 0xF59AA65C,0x9711,0x4DC9,{ 0xA6,0x30,0x95,0xB6,0xCB,0x8C,0xDA,0xD0 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::LockScreen::ILockScreenUnlockingDeferral>{ 0x7E7D1AD6,0x5203,0x43E7,{ 0x9B,0xD6,0x7C,0x39,0x47,0xD1,0xE3,0xFE } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::LockScreen::ILockScreenUnlockingEventArgs>{ 0x44E6C007,0x75FB,0x4ABB,{ 0x9F,0x8B,0x82,0x47,0x48,0x90,0x0C,0x71 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::LockScreen::ILockApplicationHost>{ 0x38EE31AD,0xD94F,0x4E7C,{ 0x81,0xFA,0x4F,0x44,0x36,0x50,0x62,0x81 } }; // 38EE31AD-D94F-4E7C-81FA-4F4436506281
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::LockScreen::ILockApplicationHostStatics>{ 0xF48FAB8E,0x23D7,0x4E63,{ 0x96,0xA1,0x66,0x6F,0xF5,0x2D,0x3B,0x2C } }; // F48FAB8E-23D7-4E63-96A1-666FF52D3B2C
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::LockScreen::ILockScreenBadge>{ 0xE95105D9,0x2BFF,0x4DB0,{ 0x9B,0x4F,0x38,0x24,0x77,0x8B,0x9C,0x9A } }; // E95105D9-2BFF-4DB0-9B4F-3824778B9C9A
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::LockScreen::ILockScreenInfo>{ 0xF59AA65C,0x9711,0x4DC9,{ 0xA6,0x30,0x95,0xB6,0xCB,0x8C,0xDA,0xD0 } }; // F59AA65C-9711-4DC9-A630-95B6CB8CDAD0
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::LockScreen::ILockScreenUnlockingDeferral>{ 0x7E7D1AD6,0x5203,0x43E7,{ 0x9B,0xD6,0x7C,0x39,0x47,0xD1,0xE3,0xFE } }; // 7E7D1AD6-5203-43E7-9BD6-7C3947D1E3FE
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::LockScreen::ILockScreenUnlockingEventArgs>{ 0x44E6C007,0x75FB,0x4ABB,{ 0x9F,0x8B,0x82,0x47,0x48,0x90,0x0C,0x71 } }; // 44E6C007-75FB-4ABB-9F8B-824748900C71
     template <> struct default_interface<Windows::ApplicationModel::LockScreen::LockApplicationHost>{ using type = Windows::ApplicationModel::LockScreen::ILockApplicationHost; };
     template <> struct default_interface<Windows::ApplicationModel::LockScreen::LockScreenBadge>{ using type = Windows::ApplicationModel::LockScreen::ILockScreenBadge; };
     template <> struct default_interface<Windows::ApplicationModel::LockScreen::LockScreenInfo>{ using type = Windows::ApplicationModel::LockScreen::ILockScreenInfo; };

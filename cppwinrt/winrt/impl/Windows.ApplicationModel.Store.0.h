@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -150,29 +150,29 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::IPurchaseResults> = L"Windows.ApplicationModel.Store.IPurchaseResults";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::IUnfulfilledConsumable> = L"Windows.ApplicationModel.Store.IUnfulfilledConsumable";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::LicenseChangedEventHandler> = L"Windows.ApplicationModel.Store.LicenseChangedEventHandler";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::ICurrentApp>{ 0xD52DC065,0xDA3F,0x4685,{ 0x99,0x5E,0x9B,0x48,0x2E,0xB5,0xE6,0x03 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::ICurrentApp2Statics>{ 0xDF4E6E2D,0x3171,0x4AD3,{ 0x86,0x14,0x2C,0x61,0x24,0x43,0x73,0xCB } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::ICurrentAppSimulator>{ 0xF17F9DB1,0x74CD,0x4787,{ 0x97,0x87,0x19,0x86,0x6E,0x9A,0x55,0x59 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::ICurrentAppSimulatorStaticsWithFiltering>{ 0x617E70E2,0xF86F,0x4B54,{ 0x96,0x66,0xDD,0xE2,0x85,0x09,0x2C,0x68 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::ICurrentAppSimulatorWithCampaignId>{ 0x84678A43,0xDF00,0x4672,{ 0xA4,0x3F,0xB2,0x5B,0x14,0x41,0xCF,0xCF } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::ICurrentAppSimulatorWithConsumables>{ 0x4E51F0AB,0x20E7,0x4412,{ 0x9B,0x85,0x59,0xBB,0x78,0x38,0x86,0x67 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::ICurrentAppStaticsWithFiltering>{ 0xD36D6542,0x9085,0x438E,{ 0x97,0xBA,0xA2,0x5C,0x97,0x6B,0xE2,0xFD } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::ICurrentAppWithCampaignId>{ 0x312F4CD0,0x36C1,0x44A6,{ 0xB3,0x2B,0x43,0x2D,0x60,0x8E,0x4D,0xD6 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::ICurrentAppWithConsumables>{ 0x844E0071,0x9E4F,0x4F79,{ 0x99,0x5A,0x5F,0x91,0x17,0x2E,0x6C,0xEF } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::ILicenseInformation>{ 0x8EB7DC30,0xF170,0x4ED5,{ 0x8E,0x21,0x15,0x16,0xDA,0x3F,0xD3,0x67 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::IListingInformation>{ 0x588B4ABF,0xBC74,0x4383,{ 0xB7,0x8C,0x99,0x60,0x63,0x23,0xDE,0xCE } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::IListingInformation2>{ 0xC0FD2C1D,0xB30E,0x4384,{ 0x84,0xEA,0x72,0xFE,0xFA,0x82,0x22,0x3E } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::IProductLicense>{ 0x363308C7,0x2BCF,0x4C0E,{ 0x8F,0x2F,0xE8,0x08,0xAA,0xA8,0xF9,0x9D } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::IProductLicenseWithFulfillment>{ 0xFC535C8A,0xF667,0x40F3,{ 0xBA,0x3C,0x04,0x5A,0x63,0xAB,0xB3,0xAC } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::IProductListing>{ 0x45A7D6AD,0xC750,0x4D9C,{ 0x94,0x7C,0xB0,0x0D,0xCB,0xF9,0xE9,0xC2 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::IProductListing2>{ 0xF89E290F,0x73FE,0x494D,{ 0xA9,0x39,0x08,0xA9,0xB2,0x49,0x5A,0xBE } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::IProductListingWithConsumables>{ 0xEB9E9790,0x8F6B,0x481F,{ 0x93,0xA7,0x5C,0x3A,0x63,0x06,0x81,0x49 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::IProductListingWithMetadata>{ 0x124DA567,0x23F8,0x423E,{ 0x95,0x32,0x18,0x99,0x43,0xC4,0x0A,0xCE } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::IProductPurchaseDisplayProperties>{ 0xD70B7420,0xBC92,0x401B,{ 0xA8,0x09,0xC9,0xB2,0xE5,0xDB,0xBD,0xAF } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::IProductPurchaseDisplayPropertiesFactory>{ 0x6F491DF4,0x32D6,0x4B40,{ 0xB4,0x74,0xB8,0x30,0x38,0xA4,0xD9,0xCF } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::IPurchaseResults>{ 0xED50B37E,0x8656,0x4F65,{ 0xB8,0xC8,0xAC,0x7E,0x0C,0xB1,0xA1,0xC2 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::IUnfulfilledConsumable>{ 0x2DF7FBBB,0x1CDD,0x4CB8,{ 0xA0,0x14,0x7B,0x9C,0xF8,0x98,0x69,0x27 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::LicenseChangedEventHandler>{ 0xD4A50255,0x1369,0x4C36,{ 0x83,0x2F,0x6F,0x2D,0x88,0xE3,0x65,0x9B } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::ICurrentApp>{ 0xD52DC065,0xDA3F,0x4685,{ 0x99,0x5E,0x9B,0x48,0x2E,0xB5,0xE6,0x03 } }; // D52DC065-DA3F-4685-995E-9B482EB5E603
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::ICurrentApp2Statics>{ 0xDF4E6E2D,0x3171,0x4AD3,{ 0x86,0x14,0x2C,0x61,0x24,0x43,0x73,0xCB } }; // DF4E6E2D-3171-4AD3-8614-2C61244373CB
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::ICurrentAppSimulator>{ 0xF17F9DB1,0x74CD,0x4787,{ 0x97,0x87,0x19,0x86,0x6E,0x9A,0x55,0x59 } }; // F17F9DB1-74CD-4787-9787-19866E9A5559
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::ICurrentAppSimulatorStaticsWithFiltering>{ 0x617E70E2,0xF86F,0x4B54,{ 0x96,0x66,0xDD,0xE2,0x85,0x09,0x2C,0x68 } }; // 617E70E2-F86F-4B54-9666-DDE285092C68
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::ICurrentAppSimulatorWithCampaignId>{ 0x84678A43,0xDF00,0x4672,{ 0xA4,0x3F,0xB2,0x5B,0x14,0x41,0xCF,0xCF } }; // 84678A43-DF00-4672-A43F-B25B1441CFCF
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::ICurrentAppSimulatorWithConsumables>{ 0x4E51F0AB,0x20E7,0x4412,{ 0x9B,0x85,0x59,0xBB,0x78,0x38,0x86,0x67 } }; // 4E51F0AB-20E7-4412-9B85-59BB78388667
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::ICurrentAppStaticsWithFiltering>{ 0xD36D6542,0x9085,0x438E,{ 0x97,0xBA,0xA2,0x5C,0x97,0x6B,0xE2,0xFD } }; // D36D6542-9085-438E-97BA-A25C976BE2FD
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::ICurrentAppWithCampaignId>{ 0x312F4CD0,0x36C1,0x44A6,{ 0xB3,0x2B,0x43,0x2D,0x60,0x8E,0x4D,0xD6 } }; // 312F4CD0-36C1-44A6-B32B-432D608E4DD6
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::ICurrentAppWithConsumables>{ 0x844E0071,0x9E4F,0x4F79,{ 0x99,0x5A,0x5F,0x91,0x17,0x2E,0x6C,0xEF } }; // 844E0071-9E4F-4F79-995A-5F91172E6CEF
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::ILicenseInformation>{ 0x8EB7DC30,0xF170,0x4ED5,{ 0x8E,0x21,0x15,0x16,0xDA,0x3F,0xD3,0x67 } }; // 8EB7DC30-F170-4ED5-8E21-1516DA3FD367
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::IListingInformation>{ 0x588B4ABF,0xBC74,0x4383,{ 0xB7,0x8C,0x99,0x60,0x63,0x23,0xDE,0xCE } }; // 588B4ABF-BC74-4383-B78C-99606323DECE
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::IListingInformation2>{ 0xC0FD2C1D,0xB30E,0x4384,{ 0x84,0xEA,0x72,0xFE,0xFA,0x82,0x22,0x3E } }; // C0FD2C1D-B30E-4384-84EA-72FEFA82223E
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::IProductLicense>{ 0x363308C7,0x2BCF,0x4C0E,{ 0x8F,0x2F,0xE8,0x08,0xAA,0xA8,0xF9,0x9D } }; // 363308C7-2BCF-4C0E-8F2F-E808AAA8F99D
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::IProductLicenseWithFulfillment>{ 0xFC535C8A,0xF667,0x40F3,{ 0xBA,0x3C,0x04,0x5A,0x63,0xAB,0xB3,0xAC } }; // FC535C8A-F667-40F3-BA3C-045A63ABB3AC
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::IProductListing>{ 0x45A7D6AD,0xC750,0x4D9C,{ 0x94,0x7C,0xB0,0x0D,0xCB,0xF9,0xE9,0xC2 } }; // 45A7D6AD-C750-4D9C-947C-B00DCBF9E9C2
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::IProductListing2>{ 0xF89E290F,0x73FE,0x494D,{ 0xA9,0x39,0x08,0xA9,0xB2,0x49,0x5A,0xBE } }; // F89E290F-73FE-494D-A939-08A9B2495ABE
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::IProductListingWithConsumables>{ 0xEB9E9790,0x8F6B,0x481F,{ 0x93,0xA7,0x5C,0x3A,0x63,0x06,0x81,0x49 } }; // EB9E9790-8F6B-481F-93A7-5C3A63068149
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::IProductListingWithMetadata>{ 0x124DA567,0x23F8,0x423E,{ 0x95,0x32,0x18,0x99,0x43,0xC4,0x0A,0xCE } }; // 124DA567-23F8-423E-9532-189943C40ACE
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::IProductPurchaseDisplayProperties>{ 0xD70B7420,0xBC92,0x401B,{ 0xA8,0x09,0xC9,0xB2,0xE5,0xDB,0xBD,0xAF } }; // D70B7420-BC92-401B-A809-C9B2E5DBBDAF
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::IProductPurchaseDisplayPropertiesFactory>{ 0x6F491DF4,0x32D6,0x4B40,{ 0xB4,0x74,0xB8,0x30,0x38,0xA4,0xD9,0xCF } }; // 6F491DF4-32D6-4B40-B474-B83038A4D9CF
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::IPurchaseResults>{ 0xED50B37E,0x8656,0x4F65,{ 0xB8,0xC8,0xAC,0x7E,0x0C,0xB1,0xA1,0xC2 } }; // ED50B37E-8656-4F65-B8C8-AC7E0CB1A1C2
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::IUnfulfilledConsumable>{ 0x2DF7FBBB,0x1CDD,0x4CB8,{ 0xA0,0x14,0x7B,0x9C,0xF8,0x98,0x69,0x27 } }; // 2DF7FBBB-1CDD-4CB8-A014-7B9CF8986927
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::LicenseChangedEventHandler>{ 0xD4A50255,0x1369,0x4C36,{ 0x83,0x2F,0x6F,0x2D,0x88,0xE3,0x65,0x9B } }; // D4A50255-1369-4C36-832F-6F2D88E3659B
     template <> struct default_interface<Windows::ApplicationModel::Store::LicenseInformation>{ using type = Windows::ApplicationModel::Store::ILicenseInformation; };
     template <> struct default_interface<Windows::ApplicationModel::Store::ListingInformation>{ using type = Windows::ApplicationModel::Store::IListingInformation; };
     template <> struct default_interface<Windows::ApplicationModel::Store::ProductLicense>{ using type = Windows::ApplicationModel::Store::IProductLicense; };

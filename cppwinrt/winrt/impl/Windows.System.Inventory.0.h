@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -27,8 +27,8 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::System::Inventory::InstalledDesktopApp> = L"Windows.System.Inventory.InstalledDesktopApp";
     template <> inline constexpr auto& name_v<Windows::System::Inventory::IInstalledDesktopApp> = L"Windows.System.Inventory.IInstalledDesktopApp";
     template <> inline constexpr auto& name_v<Windows::System::Inventory::IInstalledDesktopAppStatics> = L"Windows.System.Inventory.IInstalledDesktopAppStatics";
-    template <> inline constexpr guid guid_v<Windows::System::Inventory::IInstalledDesktopApp>{ 0x75EAB8ED,0xC0BC,0x5364,{ 0x4C,0x28,0x16,0x6E,0x05,0x45,0x16,0x7A } };
-    template <> inline constexpr guid guid_v<Windows::System::Inventory::IInstalledDesktopAppStatics>{ 0x264CF74E,0x21CD,0x5F9B,{ 0x60,0x56,0x78,0x66,0xAD,0x72,0x48,0x9A } };
+    template <> inline constexpr guid guid_v<Windows::System::Inventory::IInstalledDesktopApp>{ 0x75EAB8ED,0xC0BC,0x5364,{ 0x4C,0x28,0x16,0x6E,0x05,0x45,0x16,0x7A } }; // 75EAB8ED-C0BC-5364-4C28-166E0545167A
+    template <> inline constexpr guid guid_v<Windows::System::Inventory::IInstalledDesktopAppStatics>{ 0x264CF74E,0x21CD,0x5F9B,{ 0x60,0x56,0x78,0x66,0xAD,0x72,0x48,0x9A } }; // 264CF74E-21CD-5F9B-6056-7866AD72489A
     template <> struct default_interface<Windows::System::Inventory::InstalledDesktopApp>{ using type = Windows::System::Inventory::IInstalledDesktopApp; };
     template <> struct abi<Windows::System::Inventory::IInstalledDesktopApp>
     {

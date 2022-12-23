@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -94,16 +94,16 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Devices::Printers::Extensions::IPrintTaskConfigurationSaveRequest> = L"Windows.Devices.Printers.Extensions.IPrintTaskConfigurationSaveRequest";
     template <> inline constexpr auto& name_v<Windows::Devices::Printers::Extensions::IPrintTaskConfigurationSaveRequestedDeferral> = L"Windows.Devices.Printers.Extensions.IPrintTaskConfigurationSaveRequestedDeferral";
     template <> inline constexpr auto& name_v<Windows::Devices::Printers::Extensions::IPrintTaskConfigurationSaveRequestedEventArgs> = L"Windows.Devices.Printers.Extensions.IPrintTaskConfigurationSaveRequestedEventArgs";
-    template <> inline constexpr guid guid_v<Windows::Devices::Printers::Extensions::IPrint3DWorkflow>{ 0xC56F74BD,0x3669,0x4A66,{ 0xAB,0x42,0xC8,0x15,0x19,0x30,0xCD,0x34 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Printers::Extensions::IPrint3DWorkflow2>{ 0xA2A6C54F,0x8AC1,0x4918,{ 0x97,0x41,0xE3,0x4F,0x30,0x04,0x23,0x9E } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Printers::Extensions::IPrint3DWorkflowPrintRequestedEventArgs>{ 0x19F8C858,0x5AC8,0x4B55,{ 0x8A,0x5F,0xE6,0x15,0x67,0xDA,0xFB,0x4D } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Printers::Extensions::IPrint3DWorkflowPrinterChangedEventArgs>{ 0x45226402,0x95FC,0x4847,{ 0x93,0xB3,0x13,0x4D,0xBF,0x5C,0x60,0xF7 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Printers::Extensions::IPrintExtensionContextStatic>{ 0xE70D9FC1,0xFF79,0x4AA4,{ 0x8C,0x9B,0x0C,0x93,0xAE,0xDF,0xDE,0x8A } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Printers::Extensions::IPrintNotificationEventDetails>{ 0xE00E4C8A,0x4828,0x4DA1,{ 0x8B,0xB8,0x86,0x72,0xDF,0x85,0x15,0xE7 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Printers::Extensions::IPrintTaskConfiguration>{ 0xE3C22451,0x3AA4,0x4885,{ 0x92,0x40,0x31,0x1F,0x5F,0x8F,0xBE,0x9D } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Printers::Extensions::IPrintTaskConfigurationSaveRequest>{ 0xEEAF2FCB,0x621E,0x4B62,{ 0xAC,0x77,0xB2,0x81,0xCC,0xE0,0x8D,0x60 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Printers::Extensions::IPrintTaskConfigurationSaveRequestedDeferral>{ 0xE959D568,0xF729,0x44A4,{ 0x87,0x1D,0xBD,0x06,0x28,0x69,0x6A,0x33 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Printers::Extensions::IPrintTaskConfigurationSaveRequestedEventArgs>{ 0xE06C2879,0x0D61,0x4938,{ 0x91,0xD0,0x96,0xA4,0x5B,0xEE,0x84,0x79 } };
+    template <> inline constexpr guid guid_v<Windows::Devices::Printers::Extensions::IPrint3DWorkflow>{ 0xC56F74BD,0x3669,0x4A66,{ 0xAB,0x42,0xC8,0x15,0x19,0x30,0xCD,0x34 } }; // C56F74BD-3669-4A66-AB42-C8151930CD34
+    template <> inline constexpr guid guid_v<Windows::Devices::Printers::Extensions::IPrint3DWorkflow2>{ 0xA2A6C54F,0x8AC1,0x4918,{ 0x97,0x41,0xE3,0x4F,0x30,0x04,0x23,0x9E } }; // A2A6C54F-8AC1-4918-9741-E34F3004239E
+    template <> inline constexpr guid guid_v<Windows::Devices::Printers::Extensions::IPrint3DWorkflowPrintRequestedEventArgs>{ 0x19F8C858,0x5AC8,0x4B55,{ 0x8A,0x5F,0xE6,0x15,0x67,0xDA,0xFB,0x4D } }; // 19F8C858-5AC8-4B55-8A5F-E61567DAFB4D
+    template <> inline constexpr guid guid_v<Windows::Devices::Printers::Extensions::IPrint3DWorkflowPrinterChangedEventArgs>{ 0x45226402,0x95FC,0x4847,{ 0x93,0xB3,0x13,0x4D,0xBF,0x5C,0x60,0xF7 } }; // 45226402-95FC-4847-93B3-134DBF5C60F7
+    template <> inline constexpr guid guid_v<Windows::Devices::Printers::Extensions::IPrintExtensionContextStatic>{ 0xE70D9FC1,0xFF79,0x4AA4,{ 0x8C,0x9B,0x0C,0x93,0xAE,0xDF,0xDE,0x8A } }; // E70D9FC1-FF79-4AA4-8C9B-0C93AEDFDE8A
+    template <> inline constexpr guid guid_v<Windows::Devices::Printers::Extensions::IPrintNotificationEventDetails>{ 0xE00E4C8A,0x4828,0x4DA1,{ 0x8B,0xB8,0x86,0x72,0xDF,0x85,0x15,0xE7 } }; // E00E4C8A-4828-4DA1-8BB8-8672DF8515E7
+    template <> inline constexpr guid guid_v<Windows::Devices::Printers::Extensions::IPrintTaskConfiguration>{ 0xE3C22451,0x3AA4,0x4885,{ 0x92,0x40,0x31,0x1F,0x5F,0x8F,0xBE,0x9D } }; // E3C22451-3AA4-4885-9240-311F5F8FBE9D
+    template <> inline constexpr guid guid_v<Windows::Devices::Printers::Extensions::IPrintTaskConfigurationSaveRequest>{ 0xEEAF2FCB,0x621E,0x4B62,{ 0xAC,0x77,0xB2,0x81,0xCC,0xE0,0x8D,0x60 } }; // EEAF2FCB-621E-4B62-AC77-B281CCE08D60
+    template <> inline constexpr guid guid_v<Windows::Devices::Printers::Extensions::IPrintTaskConfigurationSaveRequestedDeferral>{ 0xE959D568,0xF729,0x44A4,{ 0x87,0x1D,0xBD,0x06,0x28,0x69,0x6A,0x33 } }; // E959D568-F729-44A4-871D-BD0628696A33
+    template <> inline constexpr guid guid_v<Windows::Devices::Printers::Extensions::IPrintTaskConfigurationSaveRequestedEventArgs>{ 0xE06C2879,0x0D61,0x4938,{ 0x91,0xD0,0x96,0xA4,0x5B,0xEE,0x84,0x79 } }; // E06C2879-0D61-4938-91D0-96A45BEE8479
     template <> struct default_interface<Windows::Devices::Printers::Extensions::Print3DWorkflow>{ using type = Windows::Devices::Printers::Extensions::IPrint3DWorkflow; };
     template <> struct default_interface<Windows::Devices::Printers::Extensions::Print3DWorkflowPrintRequestedEventArgs>{ using type = Windows::Devices::Printers::Extensions::IPrint3DWorkflowPrintRequestedEventArgs; };
     template <> struct default_interface<Windows::Devices::Printers::Extensions::Print3DWorkflowPrinterChangedEventArgs>{ using type = Windows::Devices::Printers::Extensions::IPrint3DWorkflowPrinterChangedEventArgs; };

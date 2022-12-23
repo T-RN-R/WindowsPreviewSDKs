@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -95,14 +95,14 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::IPrintTicketValue> = L"Windows.Graphics.Printing.PrintTicket.IPrintTicketValue";
     template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::IWorkflowPrintTicket> = L"Windows.Graphics.Printing.PrintTicket.IWorkflowPrintTicket";
     template <> inline constexpr auto& name_v<Windows::Graphics::Printing::PrintTicket::IWorkflowPrintTicketValidationResult> = L"Windows.Graphics.Printing.PrintTicket.IWorkflowPrintTicketValidationResult";
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::PrintTicket::IPrintTicketCapabilities>{ 0x8C45508B,0xBBDC,0x4256,{ 0xA1,0x42,0x2F,0xD6,0x15,0xEC,0xB4,0x16 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::PrintTicket::IPrintTicketFeature>{ 0xE7607D6A,0x59F5,0x4103,{ 0x88,0x58,0xB9,0x77,0x10,0x96,0x3D,0x39 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::PrintTicket::IPrintTicketOption>{ 0xB086CF90,0xB367,0x4E4B,{ 0xBD,0x48,0x9C,0x78,0xA0,0xBB,0x31,0xCE } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::PrintTicket::IPrintTicketParameterDefinition>{ 0xD6BAB4E4,0x2962,0x4C01,{ 0xB7,0xF3,0x9A,0x92,0x94,0xEB,0x83,0x35 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::PrintTicket::IPrintTicketParameterInitializer>{ 0x5E3335BB,0xA0A5,0x48B1,{ 0x9D,0x5C,0x07,0x11,0x6D,0xDC,0x59,0x7A } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::PrintTicket::IPrintTicketValue>{ 0x66B30A32,0x244D,0x4E22,{ 0xA9,0x8B,0xBB,0x3C,0xF1,0xF2,0xDD,0x91 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::PrintTicket::IWorkflowPrintTicket>{ 0x41D52285,0x35E8,0x448E,{ 0xA8,0xC5,0xE4,0xB6,0xA2,0xCF,0x82,0x6C } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::PrintTicket::IWorkflowPrintTicketValidationResult>{ 0x0AD1F392,0xDA7B,0x4A36,{ 0xBF,0x36,0x6A,0x99,0xA6,0x2E,0x20,0x59 } };
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::PrintTicket::IPrintTicketCapabilities>{ 0x8C45508B,0xBBDC,0x4256,{ 0xA1,0x42,0x2F,0xD6,0x15,0xEC,0xB4,0x16 } }; // 8C45508B-BBDC-4256-A142-2FD615ECB416
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::PrintTicket::IPrintTicketFeature>{ 0xE7607D6A,0x59F5,0x4103,{ 0x88,0x58,0xB9,0x77,0x10,0x96,0x3D,0x39 } }; // E7607D6A-59F5-4103-8858-B97710963D39
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::PrintTicket::IPrintTicketOption>{ 0xB086CF90,0xB367,0x4E4B,{ 0xBD,0x48,0x9C,0x78,0xA0,0xBB,0x31,0xCE } }; // B086CF90-B367-4E4B-BD48-9C78A0BB31CE
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::PrintTicket::IPrintTicketParameterDefinition>{ 0xD6BAB4E4,0x2962,0x4C01,{ 0xB7,0xF3,0x9A,0x92,0x94,0xEB,0x83,0x35 } }; // D6BAB4E4-2962-4C01-B7F3-9A9294EB8335
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::PrintTicket::IPrintTicketParameterInitializer>{ 0x5E3335BB,0xA0A5,0x48B1,{ 0x9D,0x5C,0x07,0x11,0x6D,0xDC,0x59,0x7A } }; // 5E3335BB-A0A5-48B1-9D5C-07116DDC597A
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::PrintTicket::IPrintTicketValue>{ 0x66B30A32,0x244D,0x4E22,{ 0xA9,0x8B,0xBB,0x3C,0xF1,0xF2,0xDD,0x91 } }; // 66B30A32-244D-4E22-A98B-BB3CF1F2DD91
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::PrintTicket::IWorkflowPrintTicket>{ 0x41D52285,0x35E8,0x448E,{ 0xA8,0xC5,0xE4,0xB6,0xA2,0xCF,0x82,0x6C } }; // 41D52285-35E8-448E-A8C5-E4B6A2CF826C
+    template <> inline constexpr guid guid_v<Windows::Graphics::Printing::PrintTicket::IWorkflowPrintTicketValidationResult>{ 0x0AD1F392,0xDA7B,0x4A36,{ 0xBF,0x36,0x6A,0x99,0xA6,0x2E,0x20,0x59 } }; // 0AD1F392-DA7B-4A36-BF36-6A99A62E2059
     template <> struct default_interface<Windows::Graphics::Printing::PrintTicket::PrintTicketCapabilities>{ using type = Windows::Graphics::Printing::PrintTicket::IPrintTicketCapabilities; };
     template <> struct default_interface<Windows::Graphics::Printing::PrintTicket::PrintTicketFeature>{ using type = Windows::Graphics::Printing::PrintTicket::IPrintTicketFeature; };
     template <> struct default_interface<Windows::Graphics::Printing::PrintTicket::PrintTicketOption>{ using type = Windows::Graphics::Printing::PrintTicket::IPrintTicketOption; };

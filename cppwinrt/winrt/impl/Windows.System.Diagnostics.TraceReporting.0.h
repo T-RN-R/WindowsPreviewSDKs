@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -79,9 +79,9 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::System::Diagnostics::TraceReporting::IPlatformDiagnosticActionsStatics> = L"Windows.System.Diagnostics.TraceReporting.IPlatformDiagnosticActionsStatics";
     template <> inline constexpr auto& name_v<Windows::System::Diagnostics::TraceReporting::IPlatformDiagnosticTraceInfo> = L"Windows.System.Diagnostics.TraceReporting.IPlatformDiagnosticTraceInfo";
     template <> inline constexpr auto& name_v<Windows::System::Diagnostics::TraceReporting::IPlatformDiagnosticTraceRuntimeInfo> = L"Windows.System.Diagnostics.TraceReporting.IPlatformDiagnosticTraceRuntimeInfo";
-    template <> inline constexpr guid guid_v<Windows::System::Diagnostics::TraceReporting::IPlatformDiagnosticActionsStatics>{ 0xC1145CFA,0x9292,0x4267,{ 0x89,0x0A,0x9E,0xA3,0xED,0x07,0x23,0x12 } };
-    template <> inline constexpr guid guid_v<Windows::System::Diagnostics::TraceReporting::IPlatformDiagnosticTraceInfo>{ 0xF870ED97,0xD597,0x4BF7,{ 0x88,0xDC,0xCF,0x5C,0x7D,0xC2,0xA1,0xD2 } };
-    template <> inline constexpr guid guid_v<Windows::System::Diagnostics::TraceReporting::IPlatformDiagnosticTraceRuntimeInfo>{ 0x3D4D5E2D,0x01D8,0x4768,{ 0x85,0x54,0x1E,0xB1,0xCA,0x61,0x09,0x86 } };
+    template <> inline constexpr guid guid_v<Windows::System::Diagnostics::TraceReporting::IPlatformDiagnosticActionsStatics>{ 0xC1145CFA,0x9292,0x4267,{ 0x89,0x0A,0x9E,0xA3,0xED,0x07,0x23,0x12 } }; // C1145CFA-9292-4267-890A-9EA3ED072312
+    template <> inline constexpr guid guid_v<Windows::System::Diagnostics::TraceReporting::IPlatformDiagnosticTraceInfo>{ 0xF870ED97,0xD597,0x4BF7,{ 0x88,0xDC,0xCF,0x5C,0x7D,0xC2,0xA1,0xD2 } }; // F870ED97-D597-4BF7-88DC-CF5C7DC2A1D2
+    template <> inline constexpr guid guid_v<Windows::System::Diagnostics::TraceReporting::IPlatformDiagnosticTraceRuntimeInfo>{ 0x3D4D5E2D,0x01D8,0x4768,{ 0x85,0x54,0x1E,0xB1,0xCA,0x61,0x09,0x86 } }; // 3D4D5E2D-01D8-4768-8554-1EB1CA610986
     template <> struct default_interface<Windows::System::Diagnostics::TraceReporting::PlatformDiagnosticTraceInfo>{ using type = Windows::System::Diagnostics::TraceReporting::IPlatformDiagnosticTraceInfo; };
     template <> struct default_interface<Windows::System::Diagnostics::TraceReporting::PlatformDiagnosticTraceRuntimeInfo>{ using type = Windows::System::Diagnostics::TraceReporting::IPlatformDiagnosticTraceRuntimeInfo; };
     template <> struct abi<Windows::System::Diagnostics::TraceReporting::IPlatformDiagnosticActionsStatics>

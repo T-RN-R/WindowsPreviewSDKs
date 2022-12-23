@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -43,8 +43,8 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Media::Playlists::PlaylistFormat> = L"Windows.Media.Playlists.PlaylistFormat";
     template <> inline constexpr auto& name_v<Windows::Media::Playlists::IPlaylist> = L"Windows.Media.Playlists.IPlaylist";
     template <> inline constexpr auto& name_v<Windows::Media::Playlists::IPlaylistStatics> = L"Windows.Media.Playlists.IPlaylistStatics";
-    template <> inline constexpr guid guid_v<Windows::Media::Playlists::IPlaylist>{ 0x803736F5,0xCF44,0x4D97,{ 0x83,0xB3,0x7A,0x08,0x9E,0x9A,0xB6,0x63 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Playlists::IPlaylistStatics>{ 0xC5C331CD,0x81F9,0x4FF3,{ 0x95,0xB9,0x70,0xB6,0xFF,0x04,0x6B,0x68 } };
+    template <> inline constexpr guid guid_v<Windows::Media::Playlists::IPlaylist>{ 0x803736F5,0xCF44,0x4D97,{ 0x83,0xB3,0x7A,0x08,0x9E,0x9A,0xB6,0x63 } }; // 803736F5-CF44-4D97-83B3-7A089E9AB663
+    template <> inline constexpr guid guid_v<Windows::Media::Playlists::IPlaylistStatics>{ 0xC5C331CD,0x81F9,0x4FF3,{ 0x95,0xB9,0x70,0xB6,0xFF,0x04,0x6B,0x68 } }; // C5C331CD-81F9-4FF3-95B9-70B6FF046B68
     template <> struct default_interface<Windows::Media::Playlists::Playlist>{ using type = Windows::Media::Playlists::IPlaylist; };
     template <> struct abi<Windows::Media::Playlists::IPlaylist>
     {

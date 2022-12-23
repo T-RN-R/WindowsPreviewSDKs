@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -242,32 +242,32 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics3> = L"Windows.Security.EnterpriseData.IProtectionPolicyManagerStatics3";
     template <> inline constexpr auto& name_v<Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics4> = L"Windows.Security.EnterpriseData.IProtectionPolicyManagerStatics4";
     template <> inline constexpr auto& name_v<Windows::Security::EnterpriseData::IThreadNetworkContext> = L"Windows.Security.EnterpriseData.IThreadNetworkContext";
-    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IBufferProtectUnprotectResult>{ 0x47995EDC,0x6CEC,0x4E3A,{ 0xB2,0x51,0x9E,0x74,0x85,0xD7,0x9E,0x7A } };
-    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IDataProtectionInfo>{ 0x8420B0C1,0x5E31,0x4405,{ 0x95,0x40,0x3F,0x94,0x3A,0xF0,0xCB,0x26 } };
-    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IDataProtectionManagerStatics>{ 0xB6149B74,0x9144,0x4EE4,{ 0x8A,0x8A,0x30,0xB5,0xF3,0x61,0x43,0x0E } };
-    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IFileProtectionInfo>{ 0x4EE96486,0x147E,0x4DD0,{ 0x8F,0xAF,0x52,0x53,0xED,0x91,0xAD,0x0C } };
-    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IFileProtectionInfo2>{ 0x82123A4C,0x557A,0x498D,{ 0x8E,0x94,0x94,0x4C,0xD5,0x83,0x64,0x32 } };
-    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IFileProtectionManagerStatics>{ 0x5846FC9B,0xE613,0x426B,{ 0xBB,0x38,0x88,0xCB,0xA1,0xDC,0x9A,0xDB } };
-    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IFileProtectionManagerStatics2>{ 0x83D2A745,0x0483,0x41AB,{ 0xB2,0xD5,0xBC,0x7F,0x23,0xD7,0x4E,0xBB } };
-    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IFileProtectionManagerStatics3>{ 0x6918849A,0x624F,0x46D6,{ 0xB2,0x41,0xE9,0xCD,0x5F,0xDF,0x3E,0x3F } };
-    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IFileRevocationManagerStatics>{ 0x256BBC3D,0x1C5D,0x4260,{ 0x8C,0x75,0x91,0x44,0xCF,0xB7,0x8B,0xA9 } };
-    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IFileUnprotectOptions>{ 0x7D1312F1,0x3B0D,0x4DD8,{ 0xA1,0xF8,0x1E,0xC5,0x38,0x22,0xE2,0xF3 } };
-    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IFileUnprotectOptionsFactory>{ 0x51AEB39C,0xDA8C,0x4C3F,{ 0x9B,0xFB,0xCB,0x73,0xA7,0xCC,0xE0,0xDD } };
-    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IProtectedAccessResumedEventArgs>{ 0xAC4DCA59,0x5D80,0x4E95,{ 0x8C,0x5F,0x85,0x39,0x45,0x0E,0xEB,0xE0 } };
-    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IProtectedAccessSuspendingEventArgs>{ 0x75A193E0,0xA344,0x429F,{ 0xB9,0x75,0x04,0xFC,0x1F,0x88,0xC1,0x85 } };
-    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IProtectedContainerExportResult>{ 0x3948EF95,0xF7FB,0x4B42,{ 0xAF,0xB0,0xDF,0x70,0xB4,0x15,0x43,0xC1 } };
-    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IProtectedContainerImportResult>{ 0xCDB780D1,0xE7BB,0x4D1A,{ 0x93,0x39,0x34,0xDC,0x41,0x14,0x9F,0x9B } };
-    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IProtectedContentRevokedEventArgs>{ 0x63686821,0x58B9,0x47EE,{ 0x93,0xD9,0xF0,0xF7,0x41,0xCF,0x43,0xF0 } };
-    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IProtectedFileCreateResult>{ 0x28E3ED6A,0xE9E7,0x4A03,{ 0x9F,0x53,0xBD,0xB1,0x61,0x72,0x69,0x9B } };
-    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IProtectionPolicyAuditInfo>{ 0x425AB7E4,0xFEB7,0x44FC,{ 0xB3,0xBB,0xC3,0xC4,0xD7,0xEC,0xBE,0xBB } };
-    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IProtectionPolicyAuditInfoFactory>{ 0x7ED4180B,0x92E8,0x42D5,{ 0x83,0xD4,0x25,0x44,0x0B,0x42,0x35,0x49 } };
-    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IProtectionPolicyManager>{ 0xD5703E18,0xA08D,0x47E6,{ 0xA2,0x40,0x99,0x34,0xD7,0x16,0x5E,0xB5 } };
-    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IProtectionPolicyManager2>{ 0xABF7527A,0x8435,0x417F,{ 0x99,0xB6,0x51,0xBE,0xAF,0x36,0x58,0x88 } };
-    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics>{ 0xC0BFFC66,0x8C3D,0x4D56,{ 0x88,0x04,0xC6,0x8F,0x0A,0xD3,0x2E,0xC5 } };
-    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics2>{ 0xB68F9A8C,0x39E0,0x4649,{ 0xB2,0xE4,0x07,0x0A,0xB8,0xA5,0x79,0xB3 } };
-    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics3>{ 0x48FF9E8C,0x6A6F,0x4D9F,{ 0xBC,0xED,0x18,0xAB,0x53,0x7A,0xA0,0x15 } };
-    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics4>{ 0x20B794DB,0xCCBD,0x490F,{ 0x8C,0x83,0x49,0xCC,0xB7,0x7A,0xEA,0x6C } };
-    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IThreadNetworkContext>{ 0xFA4EA8E9,0xEF13,0x405A,{ 0xB1,0x2C,0xD7,0x34,0x8C,0x6F,0x41,0xFC } };
+    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IBufferProtectUnprotectResult>{ 0x47995EDC,0x6CEC,0x4E3A,{ 0xB2,0x51,0x9E,0x74,0x85,0xD7,0x9E,0x7A } }; // 47995EDC-6CEC-4E3A-B251-9E7485D79E7A
+    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IDataProtectionInfo>{ 0x8420B0C1,0x5E31,0x4405,{ 0x95,0x40,0x3F,0x94,0x3A,0xF0,0xCB,0x26 } }; // 8420B0C1-5E31-4405-9540-3F943AF0CB26
+    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IDataProtectionManagerStatics>{ 0xB6149B74,0x9144,0x4EE4,{ 0x8A,0x8A,0x30,0xB5,0xF3,0x61,0x43,0x0E } }; // B6149B74-9144-4EE4-8A8A-30B5F361430E
+    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IFileProtectionInfo>{ 0x4EE96486,0x147E,0x4DD0,{ 0x8F,0xAF,0x52,0x53,0xED,0x91,0xAD,0x0C } }; // 4EE96486-147E-4DD0-8FAF-5253ED91AD0C
+    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IFileProtectionInfo2>{ 0x82123A4C,0x557A,0x498D,{ 0x8E,0x94,0x94,0x4C,0xD5,0x83,0x64,0x32 } }; // 82123A4C-557A-498D-8E94-944CD5836432
+    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IFileProtectionManagerStatics>{ 0x5846FC9B,0xE613,0x426B,{ 0xBB,0x38,0x88,0xCB,0xA1,0xDC,0x9A,0xDB } }; // 5846FC9B-E613-426B-BB38-88CBA1DC9ADB
+    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IFileProtectionManagerStatics2>{ 0x83D2A745,0x0483,0x41AB,{ 0xB2,0xD5,0xBC,0x7F,0x23,0xD7,0x4E,0xBB } }; // 83D2A745-0483-41AB-B2D5-BC7F23D74EBB
+    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IFileProtectionManagerStatics3>{ 0x6918849A,0x624F,0x46D6,{ 0xB2,0x41,0xE9,0xCD,0x5F,0xDF,0x3E,0x3F } }; // 6918849A-624F-46D6-B241-E9CD5FDF3E3F
+    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IFileRevocationManagerStatics>{ 0x256BBC3D,0x1C5D,0x4260,{ 0x8C,0x75,0x91,0x44,0xCF,0xB7,0x8B,0xA9 } }; // 256BBC3D-1C5D-4260-8C75-9144CFB78BA9
+    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IFileUnprotectOptions>{ 0x7D1312F1,0x3B0D,0x4DD8,{ 0xA1,0xF8,0x1E,0xC5,0x38,0x22,0xE2,0xF3 } }; // 7D1312F1-3B0D-4DD8-A1F8-1EC53822E2F3
+    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IFileUnprotectOptionsFactory>{ 0x51AEB39C,0xDA8C,0x4C3F,{ 0x9B,0xFB,0xCB,0x73,0xA7,0xCC,0xE0,0xDD } }; // 51AEB39C-DA8C-4C3F-9BFB-CB73A7CCE0DD
+    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IProtectedAccessResumedEventArgs>{ 0xAC4DCA59,0x5D80,0x4E95,{ 0x8C,0x5F,0x85,0x39,0x45,0x0E,0xEB,0xE0 } }; // AC4DCA59-5D80-4E95-8C5F-8539450EEBE0
+    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IProtectedAccessSuspendingEventArgs>{ 0x75A193E0,0xA344,0x429F,{ 0xB9,0x75,0x04,0xFC,0x1F,0x88,0xC1,0x85 } }; // 75A193E0-A344-429F-B975-04FC1F88C185
+    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IProtectedContainerExportResult>{ 0x3948EF95,0xF7FB,0x4B42,{ 0xAF,0xB0,0xDF,0x70,0xB4,0x15,0x43,0xC1 } }; // 3948EF95-F7FB-4B42-AFB0-DF70B41543C1
+    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IProtectedContainerImportResult>{ 0xCDB780D1,0xE7BB,0x4D1A,{ 0x93,0x39,0x34,0xDC,0x41,0x14,0x9F,0x9B } }; // CDB780D1-E7BB-4D1A-9339-34DC41149F9B
+    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IProtectedContentRevokedEventArgs>{ 0x63686821,0x58B9,0x47EE,{ 0x93,0xD9,0xF0,0xF7,0x41,0xCF,0x43,0xF0 } }; // 63686821-58B9-47EE-93D9-F0F741CF43F0
+    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IProtectedFileCreateResult>{ 0x28E3ED6A,0xE9E7,0x4A03,{ 0x9F,0x53,0xBD,0xB1,0x61,0x72,0x69,0x9B } }; // 28E3ED6A-E9E7-4A03-9F53-BDB16172699B
+    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IProtectionPolicyAuditInfo>{ 0x425AB7E4,0xFEB7,0x44FC,{ 0xB3,0xBB,0xC3,0xC4,0xD7,0xEC,0xBE,0xBB } }; // 425AB7E4-FEB7-44FC-B3BB-C3C4D7ECBEBB
+    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IProtectionPolicyAuditInfoFactory>{ 0x7ED4180B,0x92E8,0x42D5,{ 0x83,0xD4,0x25,0x44,0x0B,0x42,0x35,0x49 } }; // 7ED4180B-92E8-42D5-83D4-25440B423549
+    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IProtectionPolicyManager>{ 0xD5703E18,0xA08D,0x47E6,{ 0xA2,0x40,0x99,0x34,0xD7,0x16,0x5E,0xB5 } }; // D5703E18-A08D-47E6-A240-9934D7165EB5
+    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IProtectionPolicyManager2>{ 0xABF7527A,0x8435,0x417F,{ 0x99,0xB6,0x51,0xBE,0xAF,0x36,0x58,0x88 } }; // ABF7527A-8435-417F-99B6-51BEAF365888
+    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics>{ 0xC0BFFC66,0x8C3D,0x4D56,{ 0x88,0x04,0xC6,0x8F,0x0A,0xD3,0x2E,0xC5 } }; // C0BFFC66-8C3D-4D56-8804-C68F0AD32EC5
+    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics2>{ 0xB68F9A8C,0x39E0,0x4649,{ 0xB2,0xE4,0x07,0x0A,0xB8,0xA5,0x79,0xB3 } }; // B68F9A8C-39E0-4649-B2E4-070AB8A579B3
+    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics3>{ 0x48FF9E8C,0x6A6F,0x4D9F,{ 0xBC,0xED,0x18,0xAB,0x53,0x7A,0xA0,0x15 } }; // 48FF9E8C-6A6F-4D9F-BCED-18AB537AA015
+    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IProtectionPolicyManagerStatics4>{ 0x20B794DB,0xCCBD,0x490F,{ 0x8C,0x83,0x49,0xCC,0xB7,0x7A,0xEA,0x6C } }; // 20B794DB-CCBD-490F-8C83-49CCB77AEA6C
+    template <> inline constexpr guid guid_v<Windows::Security::EnterpriseData::IThreadNetworkContext>{ 0xFA4EA8E9,0xEF13,0x405A,{ 0xB1,0x2C,0xD7,0x34,0x8C,0x6F,0x41,0xFC } }; // FA4EA8E9-EF13-405A-B12C-D7348C6F41FC
     template <> struct default_interface<Windows::Security::EnterpriseData::BufferProtectUnprotectResult>{ using type = Windows::Security::EnterpriseData::IBufferProtectUnprotectResult; };
     template <> struct default_interface<Windows::Security::EnterpriseData::DataProtectionInfo>{ using type = Windows::Security::EnterpriseData::IDataProtectionInfo; };
     template <> struct default_interface<Windows::Security::EnterpriseData::FileProtectionInfo>{ using type = Windows::Security::EnterpriseData::IFileProtectionInfo; };

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -16,7 +16,7 @@ namespace winrt::impl
     template <> struct category<Windows::System::Display::DisplayRequest>{ using type = class_category; };
     template <> inline constexpr auto& name_v<Windows::System::Display::DisplayRequest> = L"Windows.System.Display.DisplayRequest";
     template <> inline constexpr auto& name_v<Windows::System::Display::IDisplayRequest> = L"Windows.System.Display.IDisplayRequest";
-    template <> inline constexpr guid guid_v<Windows::System::Display::IDisplayRequest>{ 0xE5732044,0xF49F,0x4B60,{ 0x8D,0xD4,0x5E,0x7E,0x3A,0x63,0x2A,0xC0 } };
+    template <> inline constexpr guid guid_v<Windows::System::Display::IDisplayRequest>{ 0xE5732044,0xF49F,0x4B60,{ 0x8D,0xD4,0x5E,0x7E,0x3A,0x63,0x2A,0xC0 } }; // E5732044-F49F-4B60-8DD4-5E7E3A632AC0
     template <> struct default_interface<Windows::System::Display::DisplayRequest>{ using type = Windows::System::Display::IDisplayRequest; };
     template <> struct abi<Windows::System::Display::IDisplayRequest>
     {

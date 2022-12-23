@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -215,18 +215,18 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskRecurrenceProperties> = L"Windows.ApplicationModel.UserDataTasks.IUserDataTaskRecurrenceProperties";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskRegenerationProperties> = L"Windows.ApplicationModel.UserDataTasks.IUserDataTaskRegenerationProperties";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskStore> = L"Windows.ApplicationModel.UserDataTasks.IUserDataTaskStore";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataTasks::IUserDataTask>{ 0x7C6585D1,0xE0D4,0x4F99,{ 0xAE,0xE2,0xBC,0x2D,0x5D,0xDA,0xDF,0x4C } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskBatch>{ 0x382DA5FE,0x20B5,0x431C,{ 0x8F,0x42,0xA5,0xD2,0x92,0xEC,0x93,0x0C } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskList>{ 0x49412E39,0x7C1D,0x4DF1,{ 0xBE,0xD3,0x31,0x4B,0x7C,0xBF,0x5E,0x4E } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskListLimitedWriteOperations>{ 0x7AA267F2,0x6078,0x4183,{ 0x91,0x9E,0x4F,0x29,0xF1,0x9C,0xFA,0xE9 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskListSyncManager>{ 0x8E591A95,0x1DCF,0x469F,{ 0x93,0xEC,0xBA,0x48,0xBB,0x55,0x3C,0x6B } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskManager>{ 0x8451C914,0xE60B,0x48A9,{ 0x92,0x11,0x7F,0xB8,0xA5,0x6C,0xB8,0x4C } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskManagerStatics>{ 0xB35539F8,0xC502,0x47FC,{ 0xA8,0x1E,0x10,0x08,0x83,0x71,0x9D,0x55 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskQueryOptions>{ 0x959F27ED,0x909A,0x4D30,{ 0x8C,0x1B,0x33,0x1D,0x8F,0xE6,0x67,0xE2 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskReader>{ 0x03E688B1,0x4CCF,0x4500,{ 0x88,0x3B,0xE7,0x62,0x90,0xCF,0xED,0x63 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskRecurrenceProperties>{ 0x73DF80B0,0x27C6,0x40CE,{ 0xB1,0x49,0x9C,0xD4,0x14,0x85,0xA6,0x9E } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskRegenerationProperties>{ 0x92AB0007,0x090E,0x4704,{ 0xBB,0x5C,0x84,0xFC,0x0B,0x0D,0x9C,0x31 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskStore>{ 0xF06A9CB0,0xF1DB,0x45BA,{ 0x8A,0x62,0x08,0x60,0x04,0xC0,0x21,0x3D } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataTasks::IUserDataTask>{ 0x7C6585D1,0xE0D4,0x4F99,{ 0xAE,0xE2,0xBC,0x2D,0x5D,0xDA,0xDF,0x4C } }; // 7C6585D1-E0D4-4F99-AEE2-BC2D5DDADF4C
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskBatch>{ 0x382DA5FE,0x20B5,0x431C,{ 0x8F,0x42,0xA5,0xD2,0x92,0xEC,0x93,0x0C } }; // 382DA5FE-20B5-431C-8F42-A5D292EC930C
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskList>{ 0x49412E39,0x7C1D,0x4DF1,{ 0xBE,0xD3,0x31,0x4B,0x7C,0xBF,0x5E,0x4E } }; // 49412E39-7C1D-4DF1-BED3-314B7CBF5E4E
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskListLimitedWriteOperations>{ 0x7AA267F2,0x6078,0x4183,{ 0x91,0x9E,0x4F,0x29,0xF1,0x9C,0xFA,0xE9 } }; // 7AA267F2-6078-4183-919E-4F29F19CFAE9
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskListSyncManager>{ 0x8E591A95,0x1DCF,0x469F,{ 0x93,0xEC,0xBA,0x48,0xBB,0x55,0x3C,0x6B } }; // 8E591A95-1DCF-469F-93EC-BA48BB553C6B
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskManager>{ 0x8451C914,0xE60B,0x48A9,{ 0x92,0x11,0x7F,0xB8,0xA5,0x6C,0xB8,0x4C } }; // 8451C914-E60B-48A9-9211-7FB8A56CB84C
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskManagerStatics>{ 0xB35539F8,0xC502,0x47FC,{ 0xA8,0x1E,0x10,0x08,0x83,0x71,0x9D,0x55 } }; // B35539F8-C502-47FC-A81E-100883719D55
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskQueryOptions>{ 0x959F27ED,0x909A,0x4D30,{ 0x8C,0x1B,0x33,0x1D,0x8F,0xE6,0x67,0xE2 } }; // 959F27ED-909A-4D30-8C1B-331D8FE667E2
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskReader>{ 0x03E688B1,0x4CCF,0x4500,{ 0x88,0x3B,0xE7,0x62,0x90,0xCF,0xED,0x63 } }; // 03E688B1-4CCF-4500-883B-E76290CFED63
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskRecurrenceProperties>{ 0x73DF80B0,0x27C6,0x40CE,{ 0xB1,0x49,0x9C,0xD4,0x14,0x85,0xA6,0x9E } }; // 73DF80B0-27C6-40CE-B149-9CD41485A69E
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskRegenerationProperties>{ 0x92AB0007,0x090E,0x4704,{ 0xBB,0x5C,0x84,0xFC,0x0B,0x0D,0x9C,0x31 } }; // 92AB0007-090E-4704-BB5C-84FC0B0D9C31
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskStore>{ 0xF06A9CB0,0xF1DB,0x45BA,{ 0x8A,0x62,0x08,0x60,0x04,0xC0,0x21,0x3D } }; // F06A9CB0-F1DB-45BA-8A62-086004C0213D
     template <> struct default_interface<Windows::ApplicationModel::UserDataTasks::UserDataTask>{ using type = Windows::ApplicationModel::UserDataTasks::IUserDataTask; };
     template <> struct default_interface<Windows::ApplicationModel::UserDataTasks::UserDataTaskBatch>{ using type = Windows::ApplicationModel::UserDataTasks::IUserDataTaskBatch; };
     template <> struct default_interface<Windows::ApplicationModel::UserDataTasks::UserDataTaskList>{ using type = Windows::ApplicationModel::UserDataTasks::IUserDataTaskList; };

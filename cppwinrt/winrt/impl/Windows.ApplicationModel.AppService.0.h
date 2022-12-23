@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -164,20 +164,20 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IAppServiceTriggerDetails3> = L"Windows.ApplicationModel.AppService.IAppServiceTriggerDetails3";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IAppServiceTriggerDetails4> = L"Windows.ApplicationModel.AppService.IAppServiceTriggerDetails4";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IStatelessAppServiceResponse> = L"Windows.ApplicationModel.AppService.IStatelessAppServiceResponse";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IAppServiceCatalogStatics>{ 0xEF0D2507,0xD132,0x4C85,{ 0x83,0x95,0x3C,0x31,0xD5,0xA1,0xE9,0x41 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IAppServiceClosedEventArgs>{ 0xDE6016F6,0xCB03,0x4D35,{ 0xAC,0x8D,0xCC,0x63,0x03,0x23,0x97,0x31 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IAppServiceConnection>{ 0x9DD474A2,0x871F,0x4D52,{ 0x89,0xA9,0x9E,0x09,0x05,0x31,0xBD,0x27 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IAppServiceConnection2>{ 0x8BDFCD5F,0x2302,0x4FBD,{ 0x80,0x61,0x52,0x51,0x1C,0x2F,0x8B,0xF9 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IAppServiceConnectionStatics>{ 0xADC56CE9,0xD408,0x5673,{ 0x86,0x37,0x82,0x7A,0x4B,0x27,0x41,0x68 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IAppServiceDeferral>{ 0x7E1B5322,0xEAB0,0x4248,{ 0xAE,0x04,0xFD,0xF9,0x38,0x38,0xE4,0x72 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IAppServiceRequest>{ 0x20E58D9D,0x18DE,0x4B01,{ 0x80,0xBA,0x90,0xA7,0x62,0x04,0xE3,0xC8 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IAppServiceRequestReceivedEventArgs>{ 0x6E122360,0xFF65,0x44AE,{ 0x9E,0x45,0x85,0x7F,0xE4,0x18,0x06,0x81 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IAppServiceResponse>{ 0x8D503CEC,0x9AA3,0x4E68,{ 0x95,0x59,0x9D,0xE6,0x3E,0x37,0x2C,0xE4 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IAppServiceTriggerDetails>{ 0x88A2DCAC,0xAD28,0x41B8,{ 0x80,0xBB,0xBD,0xF1,0xB2,0x16,0x9E,0x19 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IAppServiceTriggerDetails2>{ 0xE83D54B2,0x28CC,0x43F2,{ 0xB4,0x65,0xC0,0x48,0x2E,0x59,0xE2,0xDC } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IAppServiceTriggerDetails3>{ 0xFBD71E21,0x7939,0x4E68,{ 0x9E,0x3C,0x77,0x80,0x14,0x7A,0xAB,0xB6 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IAppServiceTriggerDetails4>{ 0x1185B180,0x8861,0x5E30,{ 0xAB,0x55,0x1C,0xF4,0xD0,0x8B,0xBF,0x6D } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IStatelessAppServiceResponse>{ 0x43754AF7,0xA9EC,0x52FE,{ 0x82,0xE7,0x93,0x9B,0x68,0xDC,0x93,0x88 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IAppServiceCatalogStatics>{ 0xEF0D2507,0xD132,0x4C85,{ 0x83,0x95,0x3C,0x31,0xD5,0xA1,0xE9,0x41 } }; // EF0D2507-D132-4C85-8395-3C31D5A1E941
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IAppServiceClosedEventArgs>{ 0xDE6016F6,0xCB03,0x4D35,{ 0xAC,0x8D,0xCC,0x63,0x03,0x23,0x97,0x31 } }; // DE6016F6-CB03-4D35-AC8D-CC6303239731
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IAppServiceConnection>{ 0x9DD474A2,0x871F,0x4D52,{ 0x89,0xA9,0x9E,0x09,0x05,0x31,0xBD,0x27 } }; // 9DD474A2-871F-4D52-89A9-9E090531BD27
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IAppServiceConnection2>{ 0x8BDFCD5F,0x2302,0x4FBD,{ 0x80,0x61,0x52,0x51,0x1C,0x2F,0x8B,0xF9 } }; // 8BDFCD5F-2302-4FBD-8061-52511C2F8BF9
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IAppServiceConnectionStatics>{ 0xADC56CE9,0xD408,0x5673,{ 0x86,0x37,0x82,0x7A,0x4B,0x27,0x41,0x68 } }; // ADC56CE9-D408-5673-8637-827A4B274168
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IAppServiceDeferral>{ 0x7E1B5322,0xEAB0,0x4248,{ 0xAE,0x04,0xFD,0xF9,0x38,0x38,0xE4,0x72 } }; // 7E1B5322-EAB0-4248-AE04-FDF93838E472
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IAppServiceRequest>{ 0x20E58D9D,0x18DE,0x4B01,{ 0x80,0xBA,0x90,0xA7,0x62,0x04,0xE3,0xC8 } }; // 20E58D9D-18DE-4B01-80BA-90A76204E3C8
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IAppServiceRequestReceivedEventArgs>{ 0x6E122360,0xFF65,0x44AE,{ 0x9E,0x45,0x85,0x7F,0xE4,0x18,0x06,0x81 } }; // 6E122360-FF65-44AE-9E45-857FE4180681
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IAppServiceResponse>{ 0x8D503CEC,0x9AA3,0x4E68,{ 0x95,0x59,0x9D,0xE6,0x3E,0x37,0x2C,0xE4 } }; // 8D503CEC-9AA3-4E68-9559-9DE63E372CE4
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IAppServiceTriggerDetails>{ 0x88A2DCAC,0xAD28,0x41B8,{ 0x80,0xBB,0xBD,0xF1,0xB2,0x16,0x9E,0x19 } }; // 88A2DCAC-AD28-41B8-80BB-BDF1B2169E19
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IAppServiceTriggerDetails2>{ 0xE83D54B2,0x28CC,0x43F2,{ 0xB4,0x65,0xC0,0x48,0x2E,0x59,0xE2,0xDC } }; // E83D54B2-28CC-43F2-B465-C0482E59E2DC
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IAppServiceTriggerDetails3>{ 0xFBD71E21,0x7939,0x4E68,{ 0x9E,0x3C,0x77,0x80,0x14,0x7A,0xAB,0xB6 } }; // FBD71E21-7939-4E68-9E3C-7780147AABB6
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IAppServiceTriggerDetails4>{ 0x1185B180,0x8861,0x5E30,{ 0xAB,0x55,0x1C,0xF4,0xD0,0x8B,0xBF,0x6D } }; // 1185B180-8861-5E30-AB55-1CF4D08BBF6D
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IStatelessAppServiceResponse>{ 0x43754AF7,0xA9EC,0x52FE,{ 0x82,0xE7,0x93,0x9B,0x68,0xDC,0x93,0x88 } }; // 43754AF7-A9EC-52FE-82E7-939B68DC9388
     template <> struct default_interface<Windows::ApplicationModel::AppService::AppServiceClosedEventArgs>{ using type = Windows::ApplicationModel::AppService::IAppServiceClosedEventArgs; };
     template <> struct default_interface<Windows::ApplicationModel::AppService::AppServiceConnection>{ using type = Windows::ApplicationModel::AppService::IAppServiceConnection; };
     template <> struct default_interface<Windows::ApplicationModel::AppService::AppServiceDeferral>{ using type = Windows::ApplicationModel::AppService::IAppServiceDeferral; };

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -25,7 +25,7 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Graphics::RectInt32> = L"Windows.Graphics.RectInt32";
     template <> inline constexpr auto& name_v<Windows::Graphics::SizeInt32> = L"Windows.Graphics.SizeInt32";
     template <> inline constexpr auto& name_v<Windows::Graphics::IGeometrySource2D> = L"Windows.Graphics.IGeometrySource2D";
-    template <> inline constexpr guid guid_v<Windows::Graphics::IGeometrySource2D>{ 0xCAFF7902,0x670C,0x4181,{ 0xA6,0x24,0xDA,0x97,0x72,0x03,0xB8,0x45 } };
+    template <> inline constexpr guid guid_v<Windows::Graphics::IGeometrySource2D>{ 0xCAFF7902,0x670C,0x4181,{ 0xA6,0x24,0xDA,0x97,0x72,0x03,0xB8,0x45 } }; // CAFF7902-670C-4181-A624-DA977203B845
     template <> struct abi<Windows::Graphics::IGeometrySource2D>
     {
         struct __declspec(novtable) type : inspectable_abi

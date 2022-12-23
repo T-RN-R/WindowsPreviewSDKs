@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -161,17 +161,17 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceSessionRequest> = L"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSessionRequest";
     template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceSessionRequestedEventArgs> = L"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSessionRequestedEventArgs";
     template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceStatics> = L"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceStatics";
-    template <> inline constexpr guid guid_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectService>{ 0x50AABBB8,0x5F71,0x45EC,{ 0x84,0xF1,0xA1,0xE4,0xFC,0x78,0x79,0xA3 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceAdvertiser>{ 0xA4AA1EE1,0x9D8F,0x4F4F,{ 0x93,0xEE,0x7D,0xDE,0xA2,0xE3,0x7F,0x46 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceAdvertiserFactory>{ 0x3106AC0D,0xB446,0x4F13,{ 0x9F,0x9A,0x8A,0xE9,0x25,0xFE,0xBA,0x2B } };
-    template <> inline constexpr guid guid_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs>{ 0xDCD9E01E,0x83DF,0x43E5,{ 0x8F,0x43,0xCB,0xE8,0x47,0x9E,0x84,0xEB } };
-    template <> inline constexpr guid guid_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceProvisioningInfo>{ 0x8BDB7CFE,0x97D9,0x45A2,{ 0x8E,0x99,0xDB,0x50,0x91,0x0F,0xB6,0xA6 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceRemotePortAddedEventArgs>{ 0xD4CEBAC1,0x3FD3,0x4F0E,{ 0xB7,0xBD,0x78,0x29,0x06,0xF4,0x44,0x11 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceSession>{ 0x81142163,0xE426,0x47CB,{ 0x86,0x40,0xE1,0xB3,0x58,0x8B,0xF2,0x6F } };
-    template <> inline constexpr guid guid_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceSessionDeferredEventArgs>{ 0x8DFC197F,0x1201,0x4F1F,{ 0xB6,0xF4,0x5D,0xF1,0xB7,0xB9,0xFB,0x2E } };
-    template <> inline constexpr guid guid_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceSessionRequest>{ 0xA0E27C8B,0x50CB,0x4A58,{ 0x9B,0xCF,0xE4,0x72,0xB9,0x9F,0xBA,0x04 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceSessionRequestedEventArgs>{ 0x74BDCC11,0x53D6,0x4999,{ 0xB4,0xF8,0x6C,0x8E,0xCC,0x17,0x71,0xE7 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceStatics>{ 0x7DB40045,0xFD74,0x4688,{ 0xB7,0x25,0x5D,0xCE,0x86,0xAC,0xF2,0x33 } };
+    template <> inline constexpr guid guid_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectService>{ 0x50AABBB8,0x5F71,0x45EC,{ 0x84,0xF1,0xA1,0xE4,0xFC,0x78,0x79,0xA3 } }; // 50AABBB8-5F71-45EC-84F1-A1E4FC7879A3
+    template <> inline constexpr guid guid_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceAdvertiser>{ 0xA4AA1EE1,0x9D8F,0x4F4F,{ 0x93,0xEE,0x7D,0xDE,0xA2,0xE3,0x7F,0x46 } }; // A4AA1EE1-9D8F-4F4F-93EE-7DDEA2E37F46
+    template <> inline constexpr guid guid_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceAdvertiserFactory>{ 0x3106AC0D,0xB446,0x4F13,{ 0x9F,0x9A,0x8A,0xE9,0x25,0xFE,0xBA,0x2B } }; // 3106AC0D-B446-4F13-9F9A-8AE925FEBA2B
+    template <> inline constexpr guid guid_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs>{ 0xDCD9E01E,0x83DF,0x43E5,{ 0x8F,0x43,0xCB,0xE8,0x47,0x9E,0x84,0xEB } }; // DCD9E01E-83DF-43E5-8F43-CBE8479E84EB
+    template <> inline constexpr guid guid_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceProvisioningInfo>{ 0x8BDB7CFE,0x97D9,0x45A2,{ 0x8E,0x99,0xDB,0x50,0x91,0x0F,0xB6,0xA6 } }; // 8BDB7CFE-97D9-45A2-8E99-DB50910FB6A6
+    template <> inline constexpr guid guid_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceRemotePortAddedEventArgs>{ 0xD4CEBAC1,0x3FD3,0x4F0E,{ 0xB7,0xBD,0x78,0x29,0x06,0xF4,0x44,0x11 } }; // D4CEBAC1-3FD3-4F0E-B7BD-782906F44411
+    template <> inline constexpr guid guid_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceSession>{ 0x81142163,0xE426,0x47CB,{ 0x86,0x40,0xE1,0xB3,0x58,0x8B,0xF2,0x6F } }; // 81142163-E426-47CB-8640-E1B3588BF26F
+    template <> inline constexpr guid guid_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceSessionDeferredEventArgs>{ 0x8DFC197F,0x1201,0x4F1F,{ 0xB6,0xF4,0x5D,0xF1,0xB7,0xB9,0xFB,0x2E } }; // 8DFC197F-1201-4F1F-B6F4-5DF1B7B9FB2E
+    template <> inline constexpr guid guid_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceSessionRequest>{ 0xA0E27C8B,0x50CB,0x4A58,{ 0x9B,0xCF,0xE4,0x72,0xB9,0x9F,0xBA,0x04 } }; // A0E27C8B-50CB-4A58-9BCF-E472B99FBA04
+    template <> inline constexpr guid guid_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceSessionRequestedEventArgs>{ 0x74BDCC11,0x53D6,0x4999,{ 0xB4,0xF8,0x6C,0x8E,0xCC,0x17,0x71,0xE7 } }; // 74BDCC11-53D6-4999-B4F8-6C8ECC1771E7
+    template <> inline constexpr guid guid_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceStatics>{ 0x7DB40045,0xFD74,0x4688,{ 0xB7,0x25,0x5D,0xCE,0x86,0xAC,0xF2,0x33 } }; // 7DB40045-FD74-4688-B725-5DCE86ACF233
     template <> struct default_interface<Windows::Devices::WiFiDirect::Services::WiFiDirectService>{ using type = Windows::Devices::WiFiDirect::Services::IWiFiDirectService; };
     template <> struct default_interface<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceAdvertiser>{ using type = Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceAdvertiser; };
     template <> struct default_interface<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceAutoAcceptSessionConnectedEventArgs>{ using type = Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs; };

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -141,18 +141,18 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::IMapVariableDescriptorPreview> = L"Windows.AI.MachineLearning.Preview.IMapVariableDescriptorPreview";
     template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::ISequenceVariableDescriptorPreview> = L"Windows.AI.MachineLearning.Preview.ISequenceVariableDescriptorPreview";
     template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::Preview::ITensorVariableDescriptorPreview> = L"Windows.AI.MachineLearning.Preview.ITensorVariableDescriptorPreview";
-    template <> inline constexpr guid guid_v<Windows::AI::MachineLearning::Preview::IImageVariableDescriptorPreview>{ 0x7AE1FA72,0x029E,0x4DC5,{ 0xA2,0xF8,0x5F,0xB7,0x63,0x15,0x41,0x50 } };
-    template <> inline constexpr guid guid_v<Windows::AI::MachineLearning::Preview::IInferencingOptionsPreview>{ 0x47BC8205,0x4D36,0x47A9,{ 0x8F,0x68,0xFF,0xCB,0x33,0x9D,0xD0,0xFC } };
-    template <> inline constexpr guid guid_v<Windows::AI::MachineLearning::Preview::ILearningModelBindingPreview>{ 0x93C901E8,0x6C78,0x4B4F,{ 0xAE,0xC1,0xA6,0xBB,0x9E,0x69,0x16,0x24 } };
-    template <> inline constexpr guid guid_v<Windows::AI::MachineLearning::Preview::ILearningModelBindingPreviewFactory>{ 0x48B8219F,0x1E51,0x4D77,{ 0xAE,0x50,0x3E,0xC1,0x64,0xAD,0x34,0x80 } };
-    template <> inline constexpr guid guid_v<Windows::AI::MachineLearning::Preview::ILearningModelDescriptionPreview>{ 0xF52C09C6,0x8611,0x40AD,{ 0x8E,0x59,0xDE,0x3F,0xD7,0x03,0x0A,0x40 } };
-    template <> inline constexpr guid guid_v<Windows::AI::MachineLearning::Preview::ILearningModelEvaluationResultPreview>{ 0xDF25EA9F,0x9863,0x4088,{ 0x84,0x98,0x87,0xA1,0xF4,0x68,0x6F,0x92 } };
-    template <> inline constexpr guid guid_v<Windows::AI::MachineLearning::Preview::ILearningModelPreview>{ 0x049C266A,0x93B4,0x478C,{ 0xAE,0xB8,0x70,0x15,0x7B,0xF0,0xFF,0x94 } };
-    template <> inline constexpr guid guid_v<Windows::AI::MachineLearning::Preview::ILearningModelPreviewStatics>{ 0x164BBB60,0x8465,0x4786,{ 0x8B,0x93,0x2C,0x16,0xA8,0x92,0x89,0xD7 } };
-    template <> inline constexpr guid guid_v<Windows::AI::MachineLearning::Preview::ILearningModelVariableDescriptorPreview>{ 0xB13DF682,0xFC30,0x492B,{ 0x8E,0xA0,0xED,0x1F,0x53,0xC0,0xB0,0x38 } };
-    template <> inline constexpr guid guid_v<Windows::AI::MachineLearning::Preview::IMapVariableDescriptorPreview>{ 0x3CB38370,0xC02B,0x4236,{ 0xB3,0xE8,0x6B,0xDC,0xA4,0x9C,0x31,0x29 } };
-    template <> inline constexpr guid guid_v<Windows::AI::MachineLearning::Preview::ISequenceVariableDescriptorPreview>{ 0x9CD8F292,0x98B2,0x4530,{ 0xA1,0xB6,0x2D,0xED,0x5F,0xEC,0xBC,0x26 } };
-    template <> inline constexpr guid guid_v<Windows::AI::MachineLearning::Preview::ITensorVariableDescriptorPreview>{ 0xA80F501A,0x9AAC,0x4233,{ 0x97,0x84,0xAC,0xEA,0xF9,0x25,0x10,0xB5 } };
+    template <> inline constexpr guid guid_v<Windows::AI::MachineLearning::Preview::IImageVariableDescriptorPreview>{ 0x7AE1FA72,0x029E,0x4DC5,{ 0xA2,0xF8,0x5F,0xB7,0x63,0x15,0x41,0x50 } }; // 7AE1FA72-029E-4DC5-A2F8-5FB763154150
+    template <> inline constexpr guid guid_v<Windows::AI::MachineLearning::Preview::IInferencingOptionsPreview>{ 0x47BC8205,0x4D36,0x47A9,{ 0x8F,0x68,0xFF,0xCB,0x33,0x9D,0xD0,0xFC } }; // 47BC8205-4D36-47A9-8F68-FFCB339DD0FC
+    template <> inline constexpr guid guid_v<Windows::AI::MachineLearning::Preview::ILearningModelBindingPreview>{ 0x93C901E8,0x6C78,0x4B4F,{ 0xAE,0xC1,0xA6,0xBB,0x9E,0x69,0x16,0x24 } }; // 93C901E8-6C78-4B4F-AEC1-A6BB9E691624
+    template <> inline constexpr guid guid_v<Windows::AI::MachineLearning::Preview::ILearningModelBindingPreviewFactory>{ 0x48B8219F,0x1E51,0x4D77,{ 0xAE,0x50,0x3E,0xC1,0x64,0xAD,0x34,0x80 } }; // 48B8219F-1E51-4D77-AE50-3EC164AD3480
+    template <> inline constexpr guid guid_v<Windows::AI::MachineLearning::Preview::ILearningModelDescriptionPreview>{ 0xF52C09C6,0x8611,0x40AD,{ 0x8E,0x59,0xDE,0x3F,0xD7,0x03,0x0A,0x40 } }; // F52C09C6-8611-40AD-8E59-DE3FD7030A40
+    template <> inline constexpr guid guid_v<Windows::AI::MachineLearning::Preview::ILearningModelEvaluationResultPreview>{ 0xDF25EA9F,0x9863,0x4088,{ 0x84,0x98,0x87,0xA1,0xF4,0x68,0x6F,0x92 } }; // DF25EA9F-9863-4088-8498-87A1F4686F92
+    template <> inline constexpr guid guid_v<Windows::AI::MachineLearning::Preview::ILearningModelPreview>{ 0x049C266A,0x93B4,0x478C,{ 0xAE,0xB8,0x70,0x15,0x7B,0xF0,0xFF,0x94 } }; // 049C266A-93B4-478C-AEB8-70157BF0FF94
+    template <> inline constexpr guid guid_v<Windows::AI::MachineLearning::Preview::ILearningModelPreviewStatics>{ 0x164BBB60,0x8465,0x4786,{ 0x8B,0x93,0x2C,0x16,0xA8,0x92,0x89,0xD7 } }; // 164BBB60-8465-4786-8B93-2C16A89289D7
+    template <> inline constexpr guid guid_v<Windows::AI::MachineLearning::Preview::ILearningModelVariableDescriptorPreview>{ 0xB13DF682,0xFC30,0x492B,{ 0x8E,0xA0,0xED,0x1F,0x53,0xC0,0xB0,0x38 } }; // B13DF682-FC30-492B-8EA0-ED1F53C0B038
+    template <> inline constexpr guid guid_v<Windows::AI::MachineLearning::Preview::IMapVariableDescriptorPreview>{ 0x3CB38370,0xC02B,0x4236,{ 0xB3,0xE8,0x6B,0xDC,0xA4,0x9C,0x31,0x29 } }; // 3CB38370-C02B-4236-B3E8-6BDCA49C3129
+    template <> inline constexpr guid guid_v<Windows::AI::MachineLearning::Preview::ISequenceVariableDescriptorPreview>{ 0x9CD8F292,0x98B2,0x4530,{ 0xA1,0xB6,0x2D,0xED,0x5F,0xEC,0xBC,0x26 } }; // 9CD8F292-98B2-4530-A1B6-2DED5FECBC26
+    template <> inline constexpr guid guid_v<Windows::AI::MachineLearning::Preview::ITensorVariableDescriptorPreview>{ 0xA80F501A,0x9AAC,0x4233,{ 0x97,0x84,0xAC,0xEA,0xF9,0x25,0x10,0xB5 } }; // A80F501A-9AAC-4233-9784-ACEAF92510B5
     template <> struct default_interface<Windows::AI::MachineLearning::Preview::ImageVariableDescriptorPreview>{ using type = Windows::AI::MachineLearning::Preview::IImageVariableDescriptorPreview; };
     template <> struct default_interface<Windows::AI::MachineLearning::Preview::InferencingOptionsPreview>{ using type = Windows::AI::MachineLearning::Preview::IInferencingOptionsPreview; };
     template <> struct default_interface<Windows::AI::MachineLearning::Preview::LearningModelBindingPreview>{ using type = Windows::AI::MachineLearning::Preview::ILearningModelBindingPreview; };

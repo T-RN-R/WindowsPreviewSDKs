@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -134,23 +134,23 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Core::IWebTokenRequestResult> = L"Windows.Security.Authentication.Web.Core.IWebTokenRequestResult";
     template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Core::IWebTokenResponse> = L"Windows.Security.Authentication.Web.Core.IWebTokenResponse";
     template <> inline constexpr auto& name_v<Windows::Security::Authentication::Web::Core::IWebTokenResponseFactory> = L"Windows.Security.Authentication.Web.Core.IWebTokenResponseFactory";
-    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IFindAllAccountsResult>{ 0xA5812B5D,0xB72E,0x420C,{ 0x86,0xAB,0xAA,0xC0,0xD7,0xB7,0x26,0x1F } };
-    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebAccountEventArgs>{ 0x6FB7037D,0x424E,0x44EC,{ 0x97,0x7C,0xEF,0x24,0x15,0x46,0x2A,0x5A } };
-    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebAccountMonitor>{ 0x7445F5FD,0xAA9D,0x4619,{ 0x8D,0x5D,0xC1,0x38,0xA4,0xED,0xE3,0xE5 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebAccountMonitor2>{ 0xA7ADC1F8,0x24B8,0x4F01,{ 0x9A,0xE5,0x24,0x54,0x5E,0x71,0x23,0x3A } };
-    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebAuthenticationCoreManagerStatics>{ 0x6ACA7C92,0xA581,0x4479,{ 0x9C,0x10,0x75,0x2E,0xFF,0x44,0xFD,0x34 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebAuthenticationCoreManagerStatics2>{ 0xF584184A,0x8B57,0x4820,{ 0xB6,0xA4,0x70,0xA5,0xB6,0xFC,0xF4,0x4A } };
-    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebAuthenticationCoreManagerStatics3>{ 0x2404EEB2,0x8924,0x4D93,{ 0xAB,0x3A,0x99,0x68,0x8B,0x41,0x9D,0x56 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebAuthenticationCoreManagerStatics4>{ 0x54E633FE,0x96E0,0x41E8,{ 0x98,0x32,0x12,0x98,0x89,0x7C,0x2A,0xAF } };
-    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebProviderError>{ 0xDB191BB1,0x50C5,0x4809,{ 0x8D,0xCA,0x09,0xC9,0x94,0x10,0x24,0x5C } };
-    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebProviderErrorFactory>{ 0xE3C40A2D,0x89EF,0x4E37,{ 0x84,0x7F,0xA8,0xB9,0xD5,0xA3,0x29,0x10 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebTokenRequest>{ 0xB77B4D68,0xADCB,0x4673,{ 0xB3,0x64,0x0C,0xF7,0xB3,0x5C,0xAF,0x97 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebTokenRequest2>{ 0xD700C079,0x30C8,0x4397,{ 0x96,0x54,0x96,0x1C,0x3B,0xE8,0xB8,0x55 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebTokenRequest3>{ 0x5A755B51,0x3BB1,0x41A5,{ 0xA6,0x3D,0x90,0xBC,0x32,0xC7,0xDB,0x9A } };
-    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebTokenRequestFactory>{ 0x6CF2141C,0x0FF0,0x4C67,{ 0xB8,0x4F,0x99,0xDD,0xBE,0x4A,0x72,0xC9 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebTokenRequestResult>{ 0xC12A8305,0xD1F8,0x4483,{ 0x8D,0x54,0x38,0xFE,0x29,0x27,0x84,0xFF } };
-    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebTokenResponse>{ 0x67A7C5CA,0x83F6,0x44C6,{ 0xA3,0xB1,0x0E,0xB6,0x9E,0x41,0xFA,0x8A } };
-    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebTokenResponseFactory>{ 0xAB6BF7F8,0x5450,0x4EF6,{ 0x97,0xF7,0x05,0x2B,0x04,0x31,0xC0,0xF0 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IFindAllAccountsResult>{ 0xA5812B5D,0xB72E,0x420C,{ 0x86,0xAB,0xAA,0xC0,0xD7,0xB7,0x26,0x1F } }; // A5812B5D-B72E-420C-86AB-AAC0D7B7261F
+    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebAccountEventArgs>{ 0x6FB7037D,0x424E,0x44EC,{ 0x97,0x7C,0xEF,0x24,0x15,0x46,0x2A,0x5A } }; // 6FB7037D-424E-44EC-977C-EF2415462A5A
+    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebAccountMonitor>{ 0x7445F5FD,0xAA9D,0x4619,{ 0x8D,0x5D,0xC1,0x38,0xA4,0xED,0xE3,0xE5 } }; // 7445F5FD-AA9D-4619-8D5D-C138A4EDE3E5
+    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebAccountMonitor2>{ 0xA7ADC1F8,0x24B8,0x4F01,{ 0x9A,0xE5,0x24,0x54,0x5E,0x71,0x23,0x3A } }; // A7ADC1F8-24B8-4F01-9AE5-24545E71233A
+    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebAuthenticationCoreManagerStatics>{ 0x6ACA7C92,0xA581,0x4479,{ 0x9C,0x10,0x75,0x2E,0xFF,0x44,0xFD,0x34 } }; // 6ACA7C92-A581-4479-9C10-752EFF44FD34
+    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebAuthenticationCoreManagerStatics2>{ 0xF584184A,0x8B57,0x4820,{ 0xB6,0xA4,0x70,0xA5,0xB6,0xFC,0xF4,0x4A } }; // F584184A-8B57-4820-B6A4-70A5B6FCF44A
+    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebAuthenticationCoreManagerStatics3>{ 0x2404EEB2,0x8924,0x4D93,{ 0xAB,0x3A,0x99,0x68,0x8B,0x41,0x9D,0x56 } }; // 2404EEB2-8924-4D93-AB3A-99688B419D56
+    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebAuthenticationCoreManagerStatics4>{ 0x54E633FE,0x96E0,0x41E8,{ 0x98,0x32,0x12,0x98,0x89,0x7C,0x2A,0xAF } }; // 54E633FE-96E0-41E8-9832-1298897C2AAF
+    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebProviderError>{ 0xDB191BB1,0x50C5,0x4809,{ 0x8D,0xCA,0x09,0xC9,0x94,0x10,0x24,0x5C } }; // DB191BB1-50C5-4809-8DCA-09C99410245C
+    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebProviderErrorFactory>{ 0xE3C40A2D,0x89EF,0x4E37,{ 0x84,0x7F,0xA8,0xB9,0xD5,0xA3,0x29,0x10 } }; // E3C40A2D-89EF-4E37-847F-A8B9D5A32910
+    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebTokenRequest>{ 0xB77B4D68,0xADCB,0x4673,{ 0xB3,0x64,0x0C,0xF7,0xB3,0x5C,0xAF,0x97 } }; // B77B4D68-ADCB-4673-B364-0CF7B35CAF97
+    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebTokenRequest2>{ 0xD700C079,0x30C8,0x4397,{ 0x96,0x54,0x96,0x1C,0x3B,0xE8,0xB8,0x55 } }; // D700C079-30C8-4397-9654-961C3BE8B855
+    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebTokenRequest3>{ 0x5A755B51,0x3BB1,0x41A5,{ 0xA6,0x3D,0x90,0xBC,0x32,0xC7,0xDB,0x9A } }; // 5A755B51-3BB1-41A5-A63D-90BC32C7DB9A
+    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebTokenRequestFactory>{ 0x6CF2141C,0x0FF0,0x4C67,{ 0xB8,0x4F,0x99,0xDD,0xBE,0x4A,0x72,0xC9 } }; // 6CF2141C-0FF0-4C67-B84F-99DDBE4A72C9
+    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebTokenRequestResult>{ 0xC12A8305,0xD1F8,0x4483,{ 0x8D,0x54,0x38,0xFE,0x29,0x27,0x84,0xFF } }; // C12A8305-D1F8-4483-8D54-38FE292784FF
+    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebTokenResponse>{ 0x67A7C5CA,0x83F6,0x44C6,{ 0xA3,0xB1,0x0E,0xB6,0x9E,0x41,0xFA,0x8A } }; // 67A7C5CA-83F6-44C6-A3B1-0EB69E41FA8A
+    template <> inline constexpr guid guid_v<Windows::Security::Authentication::Web::Core::IWebTokenResponseFactory>{ 0xAB6BF7F8,0x5450,0x4EF6,{ 0x97,0xF7,0x05,0x2B,0x04,0x31,0xC0,0xF0 } }; // AB6BF7F8-5450-4EF6-97F7-052B0431C0F0
     template <> struct default_interface<Windows::Security::Authentication::Web::Core::FindAllAccountsResult>{ using type = Windows::Security::Authentication::Web::Core::IFindAllAccountsResult; };
     template <> struct default_interface<Windows::Security::Authentication::Web::Core::WebAccountEventArgs>{ using type = Windows::Security::Authentication::Web::Core::IWebAccountEventArgs; };
     template <> struct default_interface<Windows::Security::Authentication::Web::Core::WebAccountMonitor>{ using type = Windows::Security::Authentication::Web::Core::IWebAccountMonitor; };

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -27,8 +27,8 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Devices::Adc::Provider::ProviderAdcChannelMode> = L"Windows.Devices.Adc.Provider.ProviderAdcChannelMode";
     template <> inline constexpr auto& name_v<Windows::Devices::Adc::Provider::IAdcControllerProvider> = L"Windows.Devices.Adc.Provider.IAdcControllerProvider";
     template <> inline constexpr auto& name_v<Windows::Devices::Adc::Provider::IAdcProvider> = L"Windows.Devices.Adc.Provider.IAdcProvider";
-    template <> inline constexpr guid guid_v<Windows::Devices::Adc::Provider::IAdcControllerProvider>{ 0xBE545828,0x816D,0x4DE5,{ 0xA0,0x48,0xAB,0xA0,0x69,0x58,0xAA,0xA8 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Adc::Provider::IAdcProvider>{ 0x28953668,0x9359,0x4C57,{ 0xBC,0x88,0xE2,0x75,0xE8,0x16,0x38,0xC9 } };
+    template <> inline constexpr guid guid_v<Windows::Devices::Adc::Provider::IAdcControllerProvider>{ 0xBE545828,0x816D,0x4DE5,{ 0xA0,0x48,0xAB,0xA0,0x69,0x58,0xAA,0xA8 } }; // BE545828-816D-4DE5-A048-ABA06958AAA8
+    template <> inline constexpr guid guid_v<Windows::Devices::Adc::Provider::IAdcProvider>{ 0x28953668,0x9359,0x4C57,{ 0xBC,0x88,0xE2,0x75,0xE8,0x16,0x38,0xC9 } }; // 28953668-9359-4C57-BC88-E275E81638C9
     template <> struct abi<Windows::Devices::Adc::Provider::IAdcControllerProvider>
     {
         struct __declspec(novtable) type : inspectable_abi

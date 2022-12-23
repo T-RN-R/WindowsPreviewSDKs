@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -36,9 +36,9 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Preview::Holographic::IHolographicApplicationPreviewStatics> = L"Windows.ApplicationModel.Preview.Holographic.IHolographicApplicationPreviewStatics";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Preview::Holographic::IHolographicKeyboardPlacementOverridePreview> = L"Windows.ApplicationModel.Preview.Holographic.IHolographicKeyboardPlacementOverridePreview";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Preview::Holographic::IHolographicKeyboardPlacementOverridePreviewStatics> = L"Windows.ApplicationModel.Preview.Holographic.IHolographicKeyboardPlacementOverridePreviewStatics";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Preview::Holographic::IHolographicApplicationPreviewStatics>{ 0xFE038691,0x2A3A,0x45A9,{ 0xA2,0x08,0x7B,0xED,0x69,0x19,0x19,0xF3 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Preview::Holographic::IHolographicKeyboardPlacementOverridePreview>{ 0xC8A8CE3A,0xDFDE,0x5A14,{ 0x8D,0x5F,0x18,0x2C,0x52,0x6D,0xD9,0xC4 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Preview::Holographic::IHolographicKeyboardPlacementOverridePreviewStatics>{ 0x202E6039,0x1FF6,0x5A06,{ 0xAA,0xC4,0xA5,0xE2,0x4F,0xA3,0xEC,0x4B } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Preview::Holographic::IHolographicApplicationPreviewStatics>{ 0xFE038691,0x2A3A,0x45A9,{ 0xA2,0x08,0x7B,0xED,0x69,0x19,0x19,0xF3 } }; // FE038691-2A3A-45A9-A208-7BED691919F3
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Preview::Holographic::IHolographicKeyboardPlacementOverridePreview>{ 0xC8A8CE3A,0xDFDE,0x5A14,{ 0x8D,0x5F,0x18,0x2C,0x52,0x6D,0xD9,0xC4 } }; // C8A8CE3A-DFDE-5A14-8D5F-182C526DD9C4
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Preview::Holographic::IHolographicKeyboardPlacementOverridePreviewStatics>{ 0x202E6039,0x1FF6,0x5A06,{ 0xAA,0xC4,0xA5,0xE2,0x4F,0xA3,0xEC,0x4B } }; // 202E6039-1FF6-5A06-AAC4-A5E24FA3EC4B
     template <> struct default_interface<Windows::ApplicationModel::Preview::Holographic::HolographicKeyboardPlacementOverridePreview>{ using type = Windows::ApplicationModel::Preview::Holographic::IHolographicKeyboardPlacementOverridePreview; };
     template <> struct abi<Windows::ApplicationModel::Preview::Holographic::IHolographicApplicationPreviewStatics>
     {

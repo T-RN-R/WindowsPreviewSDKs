@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -121,17 +121,17 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataAccounts::IUserDataAccountStore2> = L"Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStore2";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataAccounts::IUserDataAccountStore3> = L"Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStore3";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataAccounts::IUserDataAccountStoreChangedEventArgs> = L"Windows.ApplicationModel.UserDataAccounts.IUserDataAccountStoreChangedEventArgs";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataAccounts::IUserDataAccount>{ 0xB9C4367E,0xB348,0x4910,{ 0xBE,0x94,0x4A,0xD4,0xBB,0xA6,0xDE,0xA7 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataAccounts::IUserDataAccount2>{ 0x078CD89F,0xDE82,0x404B,{ 0x81,0x95,0xC8,0xA3,0xAC,0x19,0x8F,0x60 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataAccounts::IUserDataAccount3>{ 0x01533845,0x6C43,0x4286,{ 0x9D,0x69,0x3E,0x17,0x09,0xA1,0xF2,0x66 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataAccounts::IUserDataAccount4>{ 0xC4315210,0xEAE5,0x4F0A,{ 0xA8,0xB2,0x1C,0xCA,0x11,0x5E,0x00,0x8F } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataAccounts::IUserDataAccountManagerForUser>{ 0x56A6E8DB,0xDB8F,0x41AB,{ 0xA6,0x5F,0x8C,0x59,0x71,0xAA,0xC9,0x82 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataAccounts::IUserDataAccountManagerStatics>{ 0x0D9B89EA,0x1928,0x4A20,{ 0x86,0xD5,0x3C,0x73,0x7F,0x7D,0xC3,0xB0 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataAccounts::IUserDataAccountManagerStatics2>{ 0x6A3DED88,0x316B,0x435E,{ 0xB5,0x34,0xF7,0xD4,0xB4,0xB7,0xDB,0xA6 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataAccounts::IUserDataAccountStore>{ 0x2073B0AD,0x7D0A,0x4E76,{ 0xBF,0x45,0x23,0x68,0xF9,0x78,0xA5,0x9A } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataAccounts::IUserDataAccountStore2>{ 0xB1E0AEF7,0x9560,0x4631,{ 0x8A,0xF0,0x06,0x1D,0x30,0x16,0x14,0x69 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataAccounts::IUserDataAccountStore3>{ 0x8142C094,0xF3C9,0x478B,{ 0xB1,0x17,0x65,0x85,0xBE,0xBB,0x67,0x89 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataAccounts::IUserDataAccountStoreChangedEventArgs>{ 0x84E3E2E5,0x8820,0x4512,{ 0xB1,0xF6,0x2E,0x03,0x5B,0xE1,0x07,0x2C } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataAccounts::IUserDataAccount>{ 0xB9C4367E,0xB348,0x4910,{ 0xBE,0x94,0x4A,0xD4,0xBB,0xA6,0xDE,0xA7 } }; // B9C4367E-B348-4910-BE94-4AD4BBA6DEA7
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataAccounts::IUserDataAccount2>{ 0x078CD89F,0xDE82,0x404B,{ 0x81,0x95,0xC8,0xA3,0xAC,0x19,0x8F,0x60 } }; // 078CD89F-DE82-404B-8195-C8A3AC198F60
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataAccounts::IUserDataAccount3>{ 0x01533845,0x6C43,0x4286,{ 0x9D,0x69,0x3E,0x17,0x09,0xA1,0xF2,0x66 } }; // 01533845-6C43-4286-9D69-3E1709A1F266
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataAccounts::IUserDataAccount4>{ 0xC4315210,0xEAE5,0x4F0A,{ 0xA8,0xB2,0x1C,0xCA,0x11,0x5E,0x00,0x8F } }; // C4315210-EAE5-4F0A-A8B2-1CCA115E008F
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataAccounts::IUserDataAccountManagerForUser>{ 0x56A6E8DB,0xDB8F,0x41AB,{ 0xA6,0x5F,0x8C,0x59,0x71,0xAA,0xC9,0x82 } }; // 56A6E8DB-DB8F-41AB-A65F-8C5971AAC982
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataAccounts::IUserDataAccountManagerStatics>{ 0x0D9B89EA,0x1928,0x4A20,{ 0x86,0xD5,0x3C,0x73,0x7F,0x7D,0xC3,0xB0 } }; // 0D9B89EA-1928-4A20-86D5-3C737F7DC3B0
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataAccounts::IUserDataAccountManagerStatics2>{ 0x6A3DED88,0x316B,0x435E,{ 0xB5,0x34,0xF7,0xD4,0xB4,0xB7,0xDB,0xA6 } }; // 6A3DED88-316B-435E-B534-F7D4B4B7DBA6
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataAccounts::IUserDataAccountStore>{ 0x2073B0AD,0x7D0A,0x4E76,{ 0xBF,0x45,0x23,0x68,0xF9,0x78,0xA5,0x9A } }; // 2073B0AD-7D0A-4E76-BF45-2368F978A59A
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataAccounts::IUserDataAccountStore2>{ 0xB1E0AEF7,0x9560,0x4631,{ 0x8A,0xF0,0x06,0x1D,0x30,0x16,0x14,0x69 } }; // B1E0AEF7-9560-4631-8AF0-061D30161469
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataAccounts::IUserDataAccountStore3>{ 0x8142C094,0xF3C9,0x478B,{ 0xB1,0x17,0x65,0x85,0xBE,0xBB,0x67,0x89 } }; // 8142C094-F3C9-478B-B117-6585BEBB6789
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataAccounts::IUserDataAccountStoreChangedEventArgs>{ 0x84E3E2E5,0x8820,0x4512,{ 0xB1,0xF6,0x2E,0x03,0x5B,0xE1,0x07,0x2C } }; // 84E3E2E5-8820-4512-B1F6-2E035BE1072C
     template <> struct default_interface<Windows::ApplicationModel::UserDataAccounts::UserDataAccount>{ using type = Windows::ApplicationModel::UserDataAccounts::IUserDataAccount; };
     template <> struct default_interface<Windows::ApplicationModel::UserDataAccounts::UserDataAccountManagerForUser>{ using type = Windows::ApplicationModel::UserDataAccounts::IUserDataAccountManagerForUser; };
     template <> struct default_interface<Windows::ApplicationModel::UserDataAccounts::UserDataAccountStore>{ using type = Windows::ApplicationModel::UserDataAccounts::IUserDataAccountStore; };

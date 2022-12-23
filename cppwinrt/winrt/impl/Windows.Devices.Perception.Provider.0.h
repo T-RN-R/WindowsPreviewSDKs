@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -126,25 +126,25 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Devices::Perception::Provider::IPerceptionVideoFrameAllocatorFactory> = L"Windows.Devices.Perception.Provider.IPerceptionVideoFrameAllocatorFactory";
     template <> inline constexpr auto& name_v<Windows::Devices::Perception::Provider::PerceptionStartFaceAuthenticationHandler> = L"Windows.Devices.Perception.Provider.PerceptionStartFaceAuthenticationHandler";
     template <> inline constexpr auto& name_v<Windows::Devices::Perception::Provider::PerceptionStopFaceAuthenticationHandler> = L"Windows.Devices.Perception.Provider.PerceptionStopFaceAuthenticationHandler";
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IKnownPerceptionFrameKindStatics>{ 0x3AE651D6,0x9669,0x4106,{ 0x9F,0xAE,0x48,0x35,0xC1,0xB9,0x61,0x04 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionControlGroup>{ 0x172C4882,0x2FD9,0x4C4E,{ 0xBA,0x34,0xFD,0xF2,0x0A,0x73,0xDD,0xE5 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionControlGroupFactory>{ 0x2F1AF2E0,0xBAF1,0x453B,{ 0xBE,0xD4,0xCD,0x9D,0x46,0x19,0x15,0x4C } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionCorrelation>{ 0xB4131A82,0xDFF5,0x4047,{ 0x8A,0x19,0x3B,0x4D,0x80,0x5F,0x71,0x76 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionCorrelationFactory>{ 0xD4A6C425,0x2884,0x4A8F,{ 0x81,0x34,0x28,0x35,0xD7,0x28,0x6C,0xBF } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionCorrelationGroup>{ 0x752A0906,0x36A7,0x47BB,{ 0x9B,0x79,0x56,0xCC,0x6B,0x74,0x67,0x70 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionCorrelationGroupFactory>{ 0x7DFE2088,0x63DF,0x48ED,{ 0x83,0xB1,0x4A,0xB8,0x29,0x13,0x29,0x95 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionFaceAuthenticationGroup>{ 0xE8019814,0x4A91,0x41B0,{ 0x83,0xA6,0x88,0x1A,0x17,0x75,0x35,0x3E } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionFaceAuthenticationGroupFactory>{ 0xE68A05D4,0xB60C,0x40F4,{ 0xBC,0xB9,0xF2,0x4D,0x46,0x46,0x73,0x20 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionFrame>{ 0x7CFE7825,0x54BB,0x4D9D,{ 0xBE,0xC5,0x8E,0xF6,0x61,0x51,0xD2,0xAC } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionFrameProvider>{ 0x794F7AB9,0xB37D,0x3B33,{ 0xA1,0x0D,0x30,0x62,0x64,0x19,0xCE,0x65 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionFrameProviderInfo>{ 0xCCA959E8,0x797E,0x4E83,{ 0x9B,0x87,0x03,0x6A,0x74,0x14,0x2F,0xC4 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionFrameProviderManager>{ 0xA959CE07,0xEAD3,0x33DF,{ 0x8E,0xC1,0xB9,0x24,0xAB,0xE0,0x19,0xC4 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionFrameProviderManagerServiceStatics>{ 0xAE8386E6,0xCAD9,0x4359,{ 0x8F,0x96,0x8E,0xAE,0x51,0x81,0x05,0x26 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionPropertyChangeRequest>{ 0x3C5AEB51,0x350B,0x4DF8,{ 0x94,0x14,0x59,0xE0,0x98,0x15,0x51,0x0B } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionVideoFrameAllocator>{ 0x4C38A7DA,0xFDD8,0x4ED4,{ 0xA0,0x39,0x2A,0x6F,0x9B,0x23,0x50,0x38 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionVideoFrameAllocatorFactory>{ 0x1A58B0E1,0xE91A,0x481E,{ 0xB8,0x76,0xA8,0x9E,0x2B,0xBC,0x6B,0x33 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::PerceptionStartFaceAuthenticationHandler>{ 0x74816D2A,0x2090,0x4670,{ 0x8C,0x48,0xEF,0x39,0xE7,0xFF,0x7C,0x26 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::PerceptionStopFaceAuthenticationHandler>{ 0x387EE6AA,0x89CD,0x481E,{ 0xAA,0xDE,0xDD,0x92,0xF7,0x0B,0x2A,0xD7 } };
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IKnownPerceptionFrameKindStatics>{ 0x3AE651D6,0x9669,0x4106,{ 0x9F,0xAE,0x48,0x35,0xC1,0xB9,0x61,0x04 } }; // 3AE651D6-9669-4106-9FAE-4835C1B96104
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionControlGroup>{ 0x172C4882,0x2FD9,0x4C4E,{ 0xBA,0x34,0xFD,0xF2,0x0A,0x73,0xDD,0xE5 } }; // 172C4882-2FD9-4C4E-BA34-FDF20A73DDE5
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionControlGroupFactory>{ 0x2F1AF2E0,0xBAF1,0x453B,{ 0xBE,0xD4,0xCD,0x9D,0x46,0x19,0x15,0x4C } }; // 2F1AF2E0-BAF1-453B-BED4-CD9D4619154C
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionCorrelation>{ 0xB4131A82,0xDFF5,0x4047,{ 0x8A,0x19,0x3B,0x4D,0x80,0x5F,0x71,0x76 } }; // B4131A82-DFF5-4047-8A19-3B4D805F7176
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionCorrelationFactory>{ 0xD4A6C425,0x2884,0x4A8F,{ 0x81,0x34,0x28,0x35,0xD7,0x28,0x6C,0xBF } }; // D4A6C425-2884-4A8F-8134-2835D7286CBF
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionCorrelationGroup>{ 0x752A0906,0x36A7,0x47BB,{ 0x9B,0x79,0x56,0xCC,0x6B,0x74,0x67,0x70 } }; // 752A0906-36A7-47BB-9B79-56CC6B746770
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionCorrelationGroupFactory>{ 0x7DFE2088,0x63DF,0x48ED,{ 0x83,0xB1,0x4A,0xB8,0x29,0x13,0x29,0x95 } }; // 7DFE2088-63DF-48ED-83B1-4AB829132995
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionFaceAuthenticationGroup>{ 0xE8019814,0x4A91,0x41B0,{ 0x83,0xA6,0x88,0x1A,0x17,0x75,0x35,0x3E } }; // E8019814-4A91-41B0-83A6-881A1775353E
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionFaceAuthenticationGroupFactory>{ 0xE68A05D4,0xB60C,0x40F4,{ 0xBC,0xB9,0xF2,0x4D,0x46,0x46,0x73,0x20 } }; // E68A05D4-B60C-40F4-BCB9-F24D46467320
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionFrame>{ 0x7CFE7825,0x54BB,0x4D9D,{ 0xBE,0xC5,0x8E,0xF6,0x61,0x51,0xD2,0xAC } }; // 7CFE7825-54BB-4D9D-BEC5-8EF66151D2AC
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionFrameProvider>{ 0x794F7AB9,0xB37D,0x3B33,{ 0xA1,0x0D,0x30,0x62,0x64,0x19,0xCE,0x65 } }; // 794F7AB9-B37D-3B33-A10D-30626419CE65
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionFrameProviderInfo>{ 0xCCA959E8,0x797E,0x4E83,{ 0x9B,0x87,0x03,0x6A,0x74,0x14,0x2F,0xC4 } }; // CCA959E8-797E-4E83-9B87-036A74142FC4
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionFrameProviderManager>{ 0xA959CE07,0xEAD3,0x33DF,{ 0x8E,0xC1,0xB9,0x24,0xAB,0xE0,0x19,0xC4 } }; // A959CE07-EAD3-33DF-8EC1-B924ABE019C4
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionFrameProviderManagerServiceStatics>{ 0xAE8386E6,0xCAD9,0x4359,{ 0x8F,0x96,0x8E,0xAE,0x51,0x81,0x05,0x26 } }; // AE8386E6-CAD9-4359-8F96-8EAE51810526
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionPropertyChangeRequest>{ 0x3C5AEB51,0x350B,0x4DF8,{ 0x94,0x14,0x59,0xE0,0x98,0x15,0x51,0x0B } }; // 3C5AEB51-350B-4DF8-9414-59E09815510B
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionVideoFrameAllocator>{ 0x4C38A7DA,0xFDD8,0x4ED4,{ 0xA0,0x39,0x2A,0x6F,0x9B,0x23,0x50,0x38 } }; // 4C38A7DA-FDD8-4ED4-A039-2A6F9B235038
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::IPerceptionVideoFrameAllocatorFactory>{ 0x1A58B0E1,0xE91A,0x481E,{ 0xB8,0x76,0xA8,0x9E,0x2B,0xBC,0x6B,0x33 } }; // 1A58B0E1-E91A-481E-B876-A89E2BBC6B33
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::PerceptionStartFaceAuthenticationHandler>{ 0x74816D2A,0x2090,0x4670,{ 0x8C,0x48,0xEF,0x39,0xE7,0xFF,0x7C,0x26 } }; // 74816D2A-2090-4670-8C48-EF39E7FF7C26
+    template <> inline constexpr guid guid_v<Windows::Devices::Perception::Provider::PerceptionStopFaceAuthenticationHandler>{ 0x387EE6AA,0x89CD,0x481E,{ 0xAA,0xDE,0xDD,0x92,0xF7,0x0B,0x2A,0xD7 } }; // 387EE6AA-89CD-481E-AADE-DD92F70B2AD7
     template <> struct default_interface<Windows::Devices::Perception::Provider::PerceptionControlGroup>{ using type = Windows::Devices::Perception::Provider::IPerceptionControlGroup; };
     template <> struct default_interface<Windows::Devices::Perception::Provider::PerceptionCorrelation>{ using type = Windows::Devices::Perception::Provider::IPerceptionCorrelation; };
     template <> struct default_interface<Windows::Devices::Perception::Provider::PerceptionCorrelationGroup>{ using type = Windows::Devices::Perception::Provider::IPerceptionCorrelationGroup; };

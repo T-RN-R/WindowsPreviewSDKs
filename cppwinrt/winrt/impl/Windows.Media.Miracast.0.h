@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -228,24 +228,24 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverStreamControl> = L"Windows.Media.Miracast.IMiracastReceiverStreamControl";
     template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastReceiverVideoStreamSettings> = L"Windows.Media.Miracast.IMiracastReceiverVideoStreamSettings";
     template <> inline constexpr auto& name_v<Windows::Media::Miracast::IMiracastTransmitter> = L"Windows.Media.Miracast.IMiracastTransmitter";
-    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiver>{ 0x7A315258,0xE444,0x51B4,{ 0xAF,0xF7,0xB8,0x8D,0xAA,0x12,0x29,0xE0 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverApplySettingsResult>{ 0xD0AA6272,0x09CD,0x58E1,{ 0xA4,0xF2,0x5D,0x51,0x43,0xD3,0x12,0xF9 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverConnection>{ 0x704B2F36,0xD2E5,0x551F,{ 0xA8,0x54,0xF8,0x22,0xB7,0x91,0x7D,0x28 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverConnectionCreatedEventArgs>{ 0x7D8DFA39,0x307A,0x5C0F,{ 0x94,0xBD,0xD0,0xC6,0x9D,0x16,0x99,0x82 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverCursorImageChannel>{ 0xD9AC332D,0x723A,0x5A9D,{ 0xB9,0x0A,0x81,0x15,0x3E,0xFA,0x2A,0x0F } };
-    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverCursorImageChannelSettings>{ 0xCCDBEDFF,0xBD00,0x5B9C,{ 0x8E,0x4C,0x00,0xCA,0xCF,0x86,0xB6,0x34 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverDisconnectedEventArgs>{ 0xD9A15E5E,0x5FEE,0x57E6,{ 0xB4,0xB0,0x04,0x72,0x7D,0xB9,0x32,0x29 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverGameControllerDevice>{ 0x2D7171E8,0xBED4,0x5118,{ 0xA0,0x58,0xE2,0x47,0x7E,0xB5,0x88,0x8D } };
-    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverInputDevices>{ 0xDA35BB02,0x28AA,0x5EE8,{ 0x96,0xF5,0xA4,0x29,0x01,0xC6,0x6F,0x00 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverKeyboardDevice>{ 0xBEB67272,0x06C0,0x54FF,{ 0xAC,0x96,0x21,0x74,0x64,0xFF,0x25,0x01 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverMediaSourceCreatedEventArgs>{ 0x17CF519E,0x1246,0x531D,{ 0x94,0x5A,0x6B,0x15,0x8E,0x39,0xC3,0xAA } };
-    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverSession>{ 0x1D2BCDB4,0xEF8B,0x5209,{ 0xBF,0xC9,0xC3,0x21,0x16,0x50,0x48,0x03 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverSessionStartResult>{ 0xB7C573EE,0x40CA,0x51FF,{ 0x95,0xF2,0xC9,0xDE,0x34,0xF2,0xE9,0x0E } };
-    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverSettings>{ 0x57CD2F24,0xC55A,0x5FBE,{ 0x94,0x64,0xEB,0x05,0x30,0x77,0x05,0xDD } };
-    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverStatus>{ 0xC28A5591,0x23AB,0x519E,{ 0xAD,0x09,0x90,0xBF,0xF6,0xDC,0xC8,0x7E } };
-    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverStreamControl>{ 0x38EA2D8B,0x2769,0x5AD7,{ 0x8A,0x8A,0x25,0x4B,0x9D,0xF7,0xBA,0x82 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverVideoStreamSettings>{ 0x169B5E1B,0x149D,0x52D0,{ 0xB1,0x26,0x6F,0x89,0x74,0x4E,0x4F,0x50 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastTransmitter>{ 0x342D79FD,0x2E64,0x5508,{ 0x8A,0x30,0x83,0x3D,0x1E,0xAC,0x70,0xD0 } };
+    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiver>{ 0x7A315258,0xE444,0x51B4,{ 0xAF,0xF7,0xB8,0x8D,0xAA,0x12,0x29,0xE0 } }; // 7A315258-E444-51B4-AFF7-B88DAA1229E0
+    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverApplySettingsResult>{ 0xD0AA6272,0x09CD,0x58E1,{ 0xA4,0xF2,0x5D,0x51,0x43,0xD3,0x12,0xF9 } }; // D0AA6272-09CD-58E1-A4F2-5D5143D312F9
+    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverConnection>{ 0x704B2F36,0xD2E5,0x551F,{ 0xA8,0x54,0xF8,0x22,0xB7,0x91,0x7D,0x28 } }; // 704B2F36-D2E5-551F-A854-F822B7917D28
+    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverConnectionCreatedEventArgs>{ 0x7D8DFA39,0x307A,0x5C0F,{ 0x94,0xBD,0xD0,0xC6,0x9D,0x16,0x99,0x82 } }; // 7D8DFA39-307A-5C0F-94BD-D0C69D169982
+    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverCursorImageChannel>{ 0xD9AC332D,0x723A,0x5A9D,{ 0xB9,0x0A,0x81,0x15,0x3E,0xFA,0x2A,0x0F } }; // D9AC332D-723A-5A9D-B90A-81153EFA2A0F
+    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverCursorImageChannelSettings>{ 0xCCDBEDFF,0xBD00,0x5B9C,{ 0x8E,0x4C,0x00,0xCA,0xCF,0x86,0xB6,0x34 } }; // CCDBEDFF-BD00-5B9C-8E4C-00CACF86B634
+    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverDisconnectedEventArgs>{ 0xD9A15E5E,0x5FEE,0x57E6,{ 0xB4,0xB0,0x04,0x72,0x7D,0xB9,0x32,0x29 } }; // D9A15E5E-5FEE-57E6-B4B0-04727DB93229
+    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverGameControllerDevice>{ 0x2D7171E8,0xBED4,0x5118,{ 0xA0,0x58,0xE2,0x47,0x7E,0xB5,0x88,0x8D } }; // 2D7171E8-BED4-5118-A058-E2477EB5888D
+    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverInputDevices>{ 0xDA35BB02,0x28AA,0x5EE8,{ 0x96,0xF5,0xA4,0x29,0x01,0xC6,0x6F,0x00 } }; // DA35BB02-28AA-5EE8-96F5-A42901C66F00
+    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverKeyboardDevice>{ 0xBEB67272,0x06C0,0x54FF,{ 0xAC,0x96,0x21,0x74,0x64,0xFF,0x25,0x01 } }; // BEB67272-06C0-54FF-AC96-217464FF2501
+    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverMediaSourceCreatedEventArgs>{ 0x17CF519E,0x1246,0x531D,{ 0x94,0x5A,0x6B,0x15,0x8E,0x39,0xC3,0xAA } }; // 17CF519E-1246-531D-945A-6B158E39C3AA
+    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverSession>{ 0x1D2BCDB4,0xEF8B,0x5209,{ 0xBF,0xC9,0xC3,0x21,0x16,0x50,0x48,0x03 } }; // 1D2BCDB4-EF8B-5209-BFC9-C32116504803
+    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverSessionStartResult>{ 0xB7C573EE,0x40CA,0x51FF,{ 0x95,0xF2,0xC9,0xDE,0x34,0xF2,0xE9,0x0E } }; // B7C573EE-40CA-51FF-95F2-C9DE34F2E90E
+    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverSettings>{ 0x57CD2F24,0xC55A,0x5FBE,{ 0x94,0x64,0xEB,0x05,0x30,0x77,0x05,0xDD } }; // 57CD2F24-C55A-5FBE-9464-EB05307705DD
+    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverStatus>{ 0xC28A5591,0x23AB,0x519E,{ 0xAD,0x09,0x90,0xBF,0xF6,0xDC,0xC8,0x7E } }; // C28A5591-23AB-519E-AD09-90BFF6DCC87E
+    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverStreamControl>{ 0x38EA2D8B,0x2769,0x5AD7,{ 0x8A,0x8A,0x25,0x4B,0x9D,0xF7,0xBA,0x82 } }; // 38EA2D8B-2769-5AD7-8A8A-254B9DF7BA82
+    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastReceiverVideoStreamSettings>{ 0x169B5E1B,0x149D,0x52D0,{ 0xB1,0x26,0x6F,0x89,0x74,0x4E,0x4F,0x50 } }; // 169B5E1B-149D-52D0-B126-6F89744E4F50
+    template <> inline constexpr guid guid_v<Windows::Media::Miracast::IMiracastTransmitter>{ 0x342D79FD,0x2E64,0x5508,{ 0x8A,0x30,0x83,0x3D,0x1E,0xAC,0x70,0xD0 } }; // 342D79FD-2E64-5508-8A30-833D1EAC70D0
     template <> struct default_interface<Windows::Media::Miracast::MiracastReceiver>{ using type = Windows::Media::Miracast::IMiracastReceiver; };
     template <> struct default_interface<Windows::Media::Miracast::MiracastReceiverApplySettingsResult>{ using type = Windows::Media::Miracast::IMiracastReceiverApplySettingsResult; };
     template <> struct default_interface<Windows::Media::Miracast::MiracastReceiverConnection>{ using type = Windows::Media::Miracast::IMiracastReceiverConnection; };

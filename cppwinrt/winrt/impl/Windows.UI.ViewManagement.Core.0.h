@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -113,19 +113,19 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::ViewManagement::Core::ICoreInputViewTransferringXYFocusEventArgs> = L"Windows.UI.ViewManagement.Core.ICoreInputViewTransferringXYFocusEventArgs";
     template <> inline constexpr auto& name_v<Windows::UI::ViewManagement::Core::IUISettingsController> = L"Windows.UI.ViewManagement.Core.IUISettingsController";
     template <> inline constexpr auto& name_v<Windows::UI::ViewManagement::Core::IUISettingsControllerStatics> = L"Windows.UI.ViewManagement.Core.IUISettingsControllerStatics";
-    template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::Core::ICoreInputView>{ 0xC770CD7A,0x7001,0x4C32,{ 0xBF,0x94,0x25,0xC1,0xF5,0x54,0xCB,0xF1 } };
-    template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::Core::ICoreInputView2>{ 0x0ED726C1,0xE09A,0x4AE8,{ 0xAE,0xDF,0xDF,0xA4,0x85,0x7D,0x1A,0x01 } };
-    template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::Core::ICoreInputView3>{ 0xBC941653,0x3AB9,0x4849,{ 0x8F,0x58,0x46,0xE7,0xF0,0x35,0x3C,0xFC } };
-    template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::Core::ICoreInputView4>{ 0x002863D6,0xD9EF,0x57EB,{ 0x8C,0xEF,0x77,0xF6,0xCE,0x1B,0x7E,0xE7 } };
-    template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::Core::ICoreInputViewHidingEventArgs>{ 0xEADA47BD,0xBAC5,0x5336,{ 0x84,0x8D,0x41,0x08,0x35,0x84,0xDA,0xAD } };
-    template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::Core::ICoreInputViewOcclusion>{ 0xCC36CE06,0x3865,0x4177,{ 0xB5,0xF5,0x8B,0x65,0xE0,0xB9,0xCE,0x84 } };
-    template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::Core::ICoreInputViewOcclusionsChangedEventArgs>{ 0xBE1027E8,0xB3EE,0x4DF7,{ 0x95,0x54,0x89,0xCD,0xC6,0x60,0x82,0xC2 } };
-    template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::Core::ICoreInputViewShowingEventArgs>{ 0xCA52261B,0xFB9E,0x5DAF,{ 0xA9,0x8C,0x26,0x2B,0x8B,0x76,0xAF,0x50 } };
-    template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::Core::ICoreInputViewStatics>{ 0x7D9B97CD,0xEDBE,0x49CF,{ 0xA5,0x4F,0x33,0x7D,0xE0,0x52,0x90,0x7F } };
-    template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::Core::ICoreInputViewStatics2>{ 0x7EBC0862,0xD049,0x4E52,{ 0x87,0xB0,0x1E,0x90,0xE9,0x8C,0x49,0xED } };
-    template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::Core::ICoreInputViewTransferringXYFocusEventArgs>{ 0x04DE169F,0xBA02,0x4850,{ 0x8B,0x55,0xD8,0x2D,0x03,0xBA,0x6D,0x7F } };
-    template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::Core::IUISettingsController>{ 0x78A51AC4,0x15C0,0x5A1B,{ 0xA7,0x5B,0xAC,0xBF,0x9C,0xB8,0xBB,0x9E } };
-    template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::Core::IUISettingsControllerStatics>{ 0xEB3C68CC,0xC220,0x578C,{ 0x81,0x19,0x7D,0xB3,0x24,0xED,0x26,0xA6 } };
+    template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::Core::ICoreInputView>{ 0xC770CD7A,0x7001,0x4C32,{ 0xBF,0x94,0x25,0xC1,0xF5,0x54,0xCB,0xF1 } }; // C770CD7A-7001-4C32-BF94-25C1F554CBF1
+    template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::Core::ICoreInputView2>{ 0x0ED726C1,0xE09A,0x4AE8,{ 0xAE,0xDF,0xDF,0xA4,0x85,0x7D,0x1A,0x01 } }; // 0ED726C1-E09A-4AE8-AEDF-DFA4857D1A01
+    template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::Core::ICoreInputView3>{ 0xBC941653,0x3AB9,0x4849,{ 0x8F,0x58,0x46,0xE7,0xF0,0x35,0x3C,0xFC } }; // BC941653-3AB9-4849-8F58-46E7F0353CFC
+    template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::Core::ICoreInputView4>{ 0x002863D6,0xD9EF,0x57EB,{ 0x8C,0xEF,0x77,0xF6,0xCE,0x1B,0x7E,0xE7 } }; // 002863D6-D9EF-57EB-8CEF-77F6CE1B7EE7
+    template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::Core::ICoreInputViewHidingEventArgs>{ 0xEADA47BD,0xBAC5,0x5336,{ 0x84,0x8D,0x41,0x08,0x35,0x84,0xDA,0xAD } }; // EADA47BD-BAC5-5336-848D-41083584DAAD
+    template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::Core::ICoreInputViewOcclusion>{ 0xCC36CE06,0x3865,0x4177,{ 0xB5,0xF5,0x8B,0x65,0xE0,0xB9,0xCE,0x84 } }; // CC36CE06-3865-4177-B5F5-8B65E0B9CE84
+    template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::Core::ICoreInputViewOcclusionsChangedEventArgs>{ 0xBE1027E8,0xB3EE,0x4DF7,{ 0x95,0x54,0x89,0xCD,0xC6,0x60,0x82,0xC2 } }; // BE1027E8-B3EE-4DF7-9554-89CDC66082C2
+    template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::Core::ICoreInputViewShowingEventArgs>{ 0xCA52261B,0xFB9E,0x5DAF,{ 0xA9,0x8C,0x26,0x2B,0x8B,0x76,0xAF,0x50 } }; // CA52261B-FB9E-5DAF-A98C-262B8B76AF50
+    template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::Core::ICoreInputViewStatics>{ 0x7D9B97CD,0xEDBE,0x49CF,{ 0xA5,0x4F,0x33,0x7D,0xE0,0x52,0x90,0x7F } }; // 7D9B97CD-EDBE-49CF-A54F-337DE052907F
+    template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::Core::ICoreInputViewStatics2>{ 0x7EBC0862,0xD049,0x4E52,{ 0x87,0xB0,0x1E,0x90,0xE9,0x8C,0x49,0xED } }; // 7EBC0862-D049-4E52-87B0-1E90E98C49ED
+    template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::Core::ICoreInputViewTransferringXYFocusEventArgs>{ 0x04DE169F,0xBA02,0x4850,{ 0x8B,0x55,0xD8,0x2D,0x03,0xBA,0x6D,0x7F } }; // 04DE169F-BA02-4850-8B55-D82D03BA6D7F
+    template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::Core::IUISettingsController>{ 0x78A51AC4,0x15C0,0x5A1B,{ 0xA7,0x5B,0xAC,0xBF,0x9C,0xB8,0xBB,0x9E } }; // 78A51AC4-15C0-5A1B-A75B-ACBF9CB8BB9E
+    template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::Core::IUISettingsControllerStatics>{ 0xEB3C68CC,0xC220,0x578C,{ 0x81,0x19,0x7D,0xB3,0x24,0xED,0x26,0xA6 } }; // EB3C68CC-C220-578C-8119-7DB324ED26A6
     template <> struct default_interface<Windows::UI::ViewManagement::Core::CoreInputView>{ using type = Windows::UI::ViewManagement::Core::ICoreInputView; };
     template <> struct default_interface<Windows::UI::ViewManagement::Core::CoreInputViewHidingEventArgs>{ using type = Windows::UI::ViewManagement::Core::ICoreInputViewHidingEventArgs; };
     template <> struct default_interface<Windows::UI::ViewManagement::Core::CoreInputViewOcclusion>{ using type = Windows::UI::ViewManagement::Core::ICoreInputViewOcclusion; };

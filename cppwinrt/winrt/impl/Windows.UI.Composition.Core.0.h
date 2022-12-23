@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -26,7 +26,7 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Composition::Core::CompositorController>{ using type = class_category; };
     template <> inline constexpr auto& name_v<Windows::UI::Composition::Core::CompositorController> = L"Windows.UI.Composition.Core.CompositorController";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::Core::ICompositorController> = L"Windows.UI.Composition.Core.ICompositorController";
-    template <> inline constexpr guid guid_v<Windows::UI::Composition::Core::ICompositorController>{ 0x2D75F35A,0x70A7,0x4395,{ 0xBA,0x2D,0xCE,0xF0,0xB1,0x83,0x99,0xF9 } };
+    template <> inline constexpr guid guid_v<Windows::UI::Composition::Core::ICompositorController>{ 0x2D75F35A,0x70A7,0x4395,{ 0xBA,0x2D,0xCE,0xF0,0xB1,0x83,0x99,0xF9 } }; // 2D75F35A-70A7-4395-BA2D-CEF0B18399F9
     template <> struct default_interface<Windows::UI::Composition::Core::CompositorController>{ using type = Windows::UI::Composition::Core::ICompositorController; };
     template <> struct abi<Windows::UI::Composition::Core::ICompositorController>
     {

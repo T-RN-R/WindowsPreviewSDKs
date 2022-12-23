@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -141,25 +141,25 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IFrameIsoSpeedCapabilities> = L"Windows.Media.Devices.Core.IFrameIsoSpeedCapabilities";
     template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IFrameIsoSpeedControl> = L"Windows.Media.Devices.Core.IFrameIsoSpeedControl";
     template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IVariablePhotoSequenceController> = L"Windows.Media.Devices.Core.IVariablePhotoSequenceController";
-    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::ICameraIntrinsics>{ 0x0AA6ED32,0x6589,0x49DA,{ 0xAF,0xDE,0x59,0x42,0x70,0xCA,0x0A,0xAC } };
-    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::ICameraIntrinsics2>{ 0x0CDAA447,0x0798,0x4B4D,{ 0x83,0x9F,0xC5,0xEC,0x41,0x4D,0xB2,0x7A } };
-    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::ICameraIntrinsicsFactory>{ 0xC0DDC486,0x2132,0x4A34,{ 0xA6,0x59,0x9B,0xFE,0x2A,0x05,0x57,0x12 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IDepthCorrelatedCoordinateMapper>{ 0xF95D89FB,0x8AF0,0x4CB0,{ 0x92,0x6D,0x69,0x68,0x66,0xE5,0x04,0x6A } };
-    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IFrameControlCapabilities>{ 0xA8FFAE60,0x4E9E,0x4377,{ 0xA7,0x89,0xE2,0x4C,0x4A,0xE7,0xE5,0x44 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IFrameControlCapabilities2>{ 0xCE9B0464,0x4730,0x440F,{ 0xBD,0x3E,0xEF,0xE8,0xA8,0xF2,0x30,0xA8 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IFrameController>{ 0xC16459D9,0xBAEF,0x4052,{ 0x91,0x77,0x48,0xAF,0xF2,0xAF,0x75,0x22 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IFrameController2>{ 0x00D3BC75,0xD87C,0x485B,{ 0x8A,0x09,0x5C,0x35,0x85,0x68,0xB4,0x27 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IFrameExposureCapabilities>{ 0xBDBE9CE3,0x3985,0x4E72,{ 0x97,0xC2,0x05,0x90,0xD6,0x13,0x07,0xA1 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IFrameExposureCompensationCapabilities>{ 0xB988A823,0x8065,0x41EE,{ 0xB0,0x4F,0x72,0x22,0x65,0x95,0x45,0x00 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IFrameExposureCompensationControl>{ 0xE95896C9,0xF7F9,0x48CA,{ 0x85,0x91,0xA2,0x65,0x31,0xCB,0x15,0x78 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IFrameExposureControl>{ 0xB1605A61,0xFFAF,0x4752,{ 0xB6,0x21,0xF5,0xB6,0xF1,0x17,0xF4,0x32 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IFrameFlashCapabilities>{ 0xBB9341A2,0x5EBE,0x4F62,{ 0x82,0x23,0x0E,0x2B,0x05,0xBF,0xBB,0xD0 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IFrameFlashControl>{ 0x75D5F6C7,0xBD45,0x4FAB,{ 0x93,0x75,0x45,0xAC,0x04,0xB3,0x32,0xC2 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IFrameFocusCapabilities>{ 0x7B25CD58,0x01C0,0x4065,{ 0x9C,0x40,0xC1,0xA7,0x21,0x42,0x5C,0x1A } };
-    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IFrameFocusControl>{ 0x272DF1D0,0xD912,0x4214,{ 0xA6,0x7B,0xE3,0x8A,0x8D,0x48,0xD8,0xC6 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IFrameIsoSpeedCapabilities>{ 0x16BDFF61,0x6DF6,0x4AC9,{ 0xB9,0x2A,0x9F,0x6E,0xCD,0x1A,0xD2,0xFA } };
-    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IFrameIsoSpeedControl>{ 0x1A03EFED,0x786A,0x4C75,{ 0xA5,0x57,0x7A,0xB9,0xA8,0x5F,0x58,0x8C } };
-    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IVariablePhotoSequenceController>{ 0x7FBFF880,0xED8C,0x43FD,{ 0xA7,0xC3,0xB3,0x58,0x09,0xE4,0x22,0x9A } };
+    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::ICameraIntrinsics>{ 0x0AA6ED32,0x6589,0x49DA,{ 0xAF,0xDE,0x59,0x42,0x70,0xCA,0x0A,0xAC } }; // 0AA6ED32-6589-49DA-AFDE-594270CA0AAC
+    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::ICameraIntrinsics2>{ 0x0CDAA447,0x0798,0x4B4D,{ 0x83,0x9F,0xC5,0xEC,0x41,0x4D,0xB2,0x7A } }; // 0CDAA447-0798-4B4D-839F-C5EC414DB27A
+    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::ICameraIntrinsicsFactory>{ 0xC0DDC486,0x2132,0x4A34,{ 0xA6,0x59,0x9B,0xFE,0x2A,0x05,0x57,0x12 } }; // C0DDC486-2132-4A34-A659-9BFE2A055712
+    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IDepthCorrelatedCoordinateMapper>{ 0xF95D89FB,0x8AF0,0x4CB0,{ 0x92,0x6D,0x69,0x68,0x66,0xE5,0x04,0x6A } }; // F95D89FB-8AF0-4CB0-926D-696866E5046A
+    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IFrameControlCapabilities>{ 0xA8FFAE60,0x4E9E,0x4377,{ 0xA7,0x89,0xE2,0x4C,0x4A,0xE7,0xE5,0x44 } }; // A8FFAE60-4E9E-4377-A789-E24C4AE7E544
+    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IFrameControlCapabilities2>{ 0xCE9B0464,0x4730,0x440F,{ 0xBD,0x3E,0xEF,0xE8,0xA8,0xF2,0x30,0xA8 } }; // CE9B0464-4730-440F-BD3E-EFE8A8F230A8
+    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IFrameController>{ 0xC16459D9,0xBAEF,0x4052,{ 0x91,0x77,0x48,0xAF,0xF2,0xAF,0x75,0x22 } }; // C16459D9-BAEF-4052-9177-48AFF2AF7522
+    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IFrameController2>{ 0x00D3BC75,0xD87C,0x485B,{ 0x8A,0x09,0x5C,0x35,0x85,0x68,0xB4,0x27 } }; // 00D3BC75-D87C-485B-8A09-5C358568B427
+    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IFrameExposureCapabilities>{ 0xBDBE9CE3,0x3985,0x4E72,{ 0x97,0xC2,0x05,0x90,0xD6,0x13,0x07,0xA1 } }; // BDBE9CE3-3985-4E72-97C2-0590D61307A1
+    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IFrameExposureCompensationCapabilities>{ 0xB988A823,0x8065,0x41EE,{ 0xB0,0x4F,0x72,0x22,0x65,0x95,0x45,0x00 } }; // B988A823-8065-41EE-B04F-722265954500
+    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IFrameExposureCompensationControl>{ 0xE95896C9,0xF7F9,0x48CA,{ 0x85,0x91,0xA2,0x65,0x31,0xCB,0x15,0x78 } }; // E95896C9-F7F9-48CA-8591-A26531CB1578
+    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IFrameExposureControl>{ 0xB1605A61,0xFFAF,0x4752,{ 0xB6,0x21,0xF5,0xB6,0xF1,0x17,0xF4,0x32 } }; // B1605A61-FFAF-4752-B621-F5B6F117F432
+    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IFrameFlashCapabilities>{ 0xBB9341A2,0x5EBE,0x4F62,{ 0x82,0x23,0x0E,0x2B,0x05,0xBF,0xBB,0xD0 } }; // BB9341A2-5EBE-4F62-8223-0E2B05BFBBD0
+    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IFrameFlashControl>{ 0x75D5F6C7,0xBD45,0x4FAB,{ 0x93,0x75,0x45,0xAC,0x04,0xB3,0x32,0xC2 } }; // 75D5F6C7-BD45-4FAB-9375-45AC04B332C2
+    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IFrameFocusCapabilities>{ 0x7B25CD58,0x01C0,0x4065,{ 0x9C,0x40,0xC1,0xA7,0x21,0x42,0x5C,0x1A } }; // 7B25CD58-01C0-4065-9C40-C1A721425C1A
+    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IFrameFocusControl>{ 0x272DF1D0,0xD912,0x4214,{ 0xA6,0x7B,0xE3,0x8A,0x8D,0x48,0xD8,0xC6 } }; // 272DF1D0-D912-4214-A67B-E38A8D48D8C6
+    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IFrameIsoSpeedCapabilities>{ 0x16BDFF61,0x6DF6,0x4AC9,{ 0xB9,0x2A,0x9F,0x6E,0xCD,0x1A,0xD2,0xFA } }; // 16BDFF61-6DF6-4AC9-B92A-9F6ECD1AD2FA
+    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IFrameIsoSpeedControl>{ 0x1A03EFED,0x786A,0x4C75,{ 0xA5,0x57,0x7A,0xB9,0xA8,0x5F,0x58,0x8C } }; // 1A03EFED-786A-4C75-A557-7AB9A85F588C
+    template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::IVariablePhotoSequenceController>{ 0x7FBFF880,0xED8C,0x43FD,{ 0xA7,0xC3,0xB3,0x58,0x09,0xE4,0x22,0x9A } }; // 7FBFF880-ED8C-43FD-A7C3-B35809E4229A
     template <> struct default_interface<Windows::Media::Devices::Core::CameraIntrinsics>{ using type = Windows::Media::Devices::Core::ICameraIntrinsics; };
     template <> struct default_interface<Windows::Media::Devices::Core::DepthCorrelatedCoordinateMapper>{ using type = Windows::Media::Devices::Core::IDepthCorrelatedCoordinateMapper; };
     template <> struct default_interface<Windows::Media::Devices::Core::FrameControlCapabilities>{ using type = Windows::Media::Devices::Core::IFrameControlCapabilities; };

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -71,9 +71,9 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Devices::Display::IDisplayMonitor> = L"Windows.Devices.Display.IDisplayMonitor";
     template <> inline constexpr auto& name_v<Windows::Devices::Display::IDisplayMonitor2> = L"Windows.Devices.Display.IDisplayMonitor2";
     template <> inline constexpr auto& name_v<Windows::Devices::Display::IDisplayMonitorStatics> = L"Windows.Devices.Display.IDisplayMonitorStatics";
-    template <> inline constexpr guid guid_v<Windows::Devices::Display::IDisplayMonitor>{ 0x1F6B15D4,0x1D01,0x4C51,{ 0x87,0xE2,0x6F,0x95,0x4A,0x77,0x2B,0x59 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Display::IDisplayMonitor2>{ 0x023018E6,0xCB23,0x5830,{ 0x96,0xDF,0xA7,0xBF,0x6E,0x60,0x25,0x77 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Display::IDisplayMonitorStatics>{ 0x6EAE698F,0xA228,0x4C05,{ 0x82,0x1D,0xB6,0x95,0xD6,0x67,0xDE,0x8E } };
+    template <> inline constexpr guid guid_v<Windows::Devices::Display::IDisplayMonitor>{ 0x1F6B15D4,0x1D01,0x4C51,{ 0x87,0xE2,0x6F,0x95,0x4A,0x77,0x2B,0x59 } }; // 1F6B15D4-1D01-4C51-87E2-6F954A772B59
+    template <> inline constexpr guid guid_v<Windows::Devices::Display::IDisplayMonitor2>{ 0x023018E6,0xCB23,0x5830,{ 0x96,0xDF,0xA7,0xBF,0x6E,0x60,0x25,0x77 } }; // 023018E6-CB23-5830-96DF-A7BF6E602577
+    template <> inline constexpr guid guid_v<Windows::Devices::Display::IDisplayMonitorStatics>{ 0x6EAE698F,0xA228,0x4C05,{ 0x82,0x1D,0xB6,0x95,0xD6,0x67,0xDE,0x8E } }; // 6EAE698F-A228-4C05-821D-B695D667DE8E
     template <> struct default_interface<Windows::Devices::Display::DisplayMonitor>{ using type = Windows::Devices::Display::IDisplayMonitor; };
     template <> struct abi<Windows::Devices::Display::IDisplayMonitor>
     {

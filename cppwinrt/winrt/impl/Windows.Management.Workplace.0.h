@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -33,9 +33,9 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Management::Workplace::IMdmAllowPolicyStatics> = L"Windows.Management.Workplace.IMdmAllowPolicyStatics";
     template <> inline constexpr auto& name_v<Windows::Management::Workplace::IMdmPolicyStatics2> = L"Windows.Management.Workplace.IMdmPolicyStatics2";
     template <> inline constexpr auto& name_v<Windows::Management::Workplace::IWorkplaceSettingsStatics> = L"Windows.Management.Workplace.IWorkplaceSettingsStatics";
-    template <> inline constexpr guid guid_v<Windows::Management::Workplace::IMdmAllowPolicyStatics>{ 0xC39709E7,0x741C,0x41F2,{ 0xA4,0xB6,0x31,0x4C,0x31,0x50,0x25,0x86 } };
-    template <> inline constexpr guid guid_v<Windows::Management::Workplace::IMdmPolicyStatics2>{ 0xC99C7526,0x03D4,0x49F9,{ 0xA9,0x93,0x43,0xEF,0xCC,0xD2,0x65,0xC4 } };
-    template <> inline constexpr guid guid_v<Windows::Management::Workplace::IWorkplaceSettingsStatics>{ 0xE4676FFD,0x2D92,0x4C08,{ 0xBA,0xD4,0xF6,0x59,0x0B,0x54,0xA6,0xD3 } };
+    template <> inline constexpr guid guid_v<Windows::Management::Workplace::IMdmAllowPolicyStatics>{ 0xC39709E7,0x741C,0x41F2,{ 0xA4,0xB6,0x31,0x4C,0x31,0x50,0x25,0x86 } }; // C39709E7-741C-41F2-A4B6-314C31502586
+    template <> inline constexpr guid guid_v<Windows::Management::Workplace::IMdmPolicyStatics2>{ 0xC99C7526,0x03D4,0x49F9,{ 0xA9,0x93,0x43,0xEF,0xCC,0xD2,0x65,0xC4 } }; // C99C7526-03D4-49F9-A993-43EFCCD265C4
+    template <> inline constexpr guid guid_v<Windows::Management::Workplace::IWorkplaceSettingsStatics>{ 0xE4676FFD,0x2D92,0x4C08,{ 0xBA,0xD4,0xF6,0x59,0x0B,0x54,0xA6,0xD3 } }; // E4676FFD-2D92-4C08-BAD4-F6590B54A6D3
     template <> struct abi<Windows::Management::Workplace::IMdmAllowPolicyStatics>
     {
         struct __declspec(novtable) type : inspectable_abi

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -95,11 +95,11 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::Background::IPhoneIncomingCallDismissedTriggerDetails> = L"Windows.ApplicationModel.Calls.Background.IPhoneIncomingCallDismissedTriggerDetails";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::Background::IPhoneLineChangedTriggerDetails> = L"Windows.ApplicationModel.Calls.Background.IPhoneLineChangedTriggerDetails";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::Background::IPhoneNewVoicemailMessageTriggerDetails> = L"Windows.ApplicationModel.Calls.Background.IPhoneNewVoicemailMessageTriggerDetails";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Calls::Background::IPhoneCallBlockedTriggerDetails>{ 0xA4A690A2,0xE4C1,0x427F,{ 0x86,0x4E,0xE4,0x70,0x47,0x7D,0xDB,0x67 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Calls::Background::IPhoneCallOriginDataRequestTriggerDetails>{ 0x6E9B5B3F,0xC54B,0x4E82,{ 0x4C,0xC9,0xE3,0x29,0xA4,0x18,0x45,0x92 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Calls::Background::IPhoneIncomingCallDismissedTriggerDetails>{ 0xBAD30276,0x83B6,0x5732,{ 0x9C,0x38,0x0C,0x20,0x65,0x46,0x19,0x6A } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Calls::Background::IPhoneLineChangedTriggerDetails>{ 0xC6D321E7,0xD11D,0x40D8,{ 0xB2,0xB7,0xE4,0x0A,0x01,0xD6,0x62,0x49 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Calls::Background::IPhoneNewVoicemailMessageTriggerDetails>{ 0x13A8C01B,0xB831,0x48D3,{ 0x8B,0xA9,0x8D,0x22,0xA6,0x58,0x0D,0xCF } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Calls::Background::IPhoneCallBlockedTriggerDetails>{ 0xA4A690A2,0xE4C1,0x427F,{ 0x86,0x4E,0xE4,0x70,0x47,0x7D,0xDB,0x67 } }; // A4A690A2-E4C1-427F-864E-E470477DDB67
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Calls::Background::IPhoneCallOriginDataRequestTriggerDetails>{ 0x6E9B5B3F,0xC54B,0x4E82,{ 0x4C,0xC9,0xE3,0x29,0xA4,0x18,0x45,0x92 } }; // 6E9B5B3F-C54B-4E82-4CC9-E329A4184592
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Calls::Background::IPhoneIncomingCallDismissedTriggerDetails>{ 0xBAD30276,0x83B6,0x5732,{ 0x9C,0x38,0x0C,0x20,0x65,0x46,0x19,0x6A } }; // BAD30276-83B6-5732-9C38-0C206546196A
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Calls::Background::IPhoneLineChangedTriggerDetails>{ 0xC6D321E7,0xD11D,0x40D8,{ 0xB2,0xB7,0xE4,0x0A,0x01,0xD6,0x62,0x49 } }; // C6D321E7-D11D-40D8-B2B7-E40A01D66249
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Calls::Background::IPhoneNewVoicemailMessageTriggerDetails>{ 0x13A8C01B,0xB831,0x48D3,{ 0x8B,0xA9,0x8D,0x22,0xA6,0x58,0x0D,0xCF } }; // 13A8C01B-B831-48D3-8BA9-8D22A6580DCF
     template <> struct default_interface<Windows::ApplicationModel::Calls::Background::PhoneCallBlockedTriggerDetails>{ using type = Windows::ApplicationModel::Calls::Background::IPhoneCallBlockedTriggerDetails; };
     template <> struct default_interface<Windows::ApplicationModel::Calls::Background::PhoneCallOriginDataRequestTriggerDetails>{ using type = Windows::ApplicationModel::Calls::Background::IPhoneCallOriginDataRequestTriggerDetails; };
     template <> struct default_interface<Windows::ApplicationModel::Calls::Background::PhoneIncomingCallDismissedTriggerDetails>{ using type = Windows::ApplicationModel::Calls::Background::IPhoneIncomingCallDismissedTriggerDetails; };

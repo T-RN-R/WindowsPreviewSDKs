@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -195,23 +195,23 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Storage::Search::IStorageLibraryContentChangedTriggerDetails> = L"Windows.Storage.Search.IStorageLibraryContentChangedTriggerDetails";
     template <> inline constexpr auto& name_v<Windows::Storage::Search::IStorageQueryResultBase> = L"Windows.Storage.Search.IStorageQueryResultBase";
     template <> inline constexpr auto& name_v<Windows::Storage::Search::IValueAndLanguage> = L"Windows.Storage.Search.IValueAndLanguage";
-    template <> inline constexpr guid guid_v<Windows::Storage::Search::IContentIndexer>{ 0xB1767F8D,0xF698,0x4982,{ 0xB0,0x5F,0x3A,0x6E,0x8C,0xAB,0x01,0xA2 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Search::IContentIndexerQuery>{ 0x70E3B0F8,0x4BFC,0x428A,{ 0x88,0x89,0xCC,0x51,0xDA,0x9A,0x7B,0x9D } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Search::IContentIndexerQueryOperations>{ 0x28823E10,0x4786,0x42F1,{ 0x97,0x30,0x79,0x2B,0x35,0x66,0xB1,0x50 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Search::IContentIndexerStatics>{ 0x8C488375,0xB37E,0x4C60,{ 0x9B,0xA8,0xB7,0x60,0xFD,0xA3,0xE5,0x9D } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Search::IIndexableContent>{ 0xCCF1A05F,0xD4B5,0x483A,{ 0xB0,0x6E,0xE0,0xDB,0x1E,0xC4,0x20,0xE4 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Search::IQueryOptions>{ 0x1E5E46EE,0x0F45,0x4838,{ 0xA8,0xE9,0xD0,0x47,0x9D,0x44,0x6C,0x30 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Search::IQueryOptionsFactory>{ 0x032E1F8C,0xA9C1,0x4E71,{ 0x80,0x11,0x0D,0xEE,0x9D,0x48,0x11,0xA3 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Search::IQueryOptionsWithProviderFilter>{ 0x5B9D1026,0x15C4,0x44DD,{ 0xB8,0x9A,0x47,0xA5,0x9B,0x7D,0x7C,0x4F } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Search::IStorageFileQueryResult>{ 0x52FDA447,0x2BAA,0x412C,{ 0xB2,0x9F,0xD4,0xB1,0x77,0x8E,0xFA,0x1E } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Search::IStorageFileQueryResult2>{ 0x4E5DB9DD,0x7141,0x46C4,{ 0x8B,0xE3,0xE9,0xDC,0x9E,0x27,0x27,0x5C } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Search::IStorageFolderQueryOperations>{ 0xCB43CCC9,0x446B,0x4A4F,{ 0xBE,0x97,0x75,0x77,0x71,0xBE,0x52,0x03 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Search::IStorageFolderQueryResult>{ 0x6654C911,0x7D66,0x46FA,{ 0xAE,0xCF,0xE4,0xA4,0xBA,0xA9,0x3A,0xB8 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Search::IStorageItemQueryResult>{ 0xE8948079,0x9D58,0x47B8,{ 0xB2,0xB2,0x41,0xB0,0x7F,0x47,0x95,0xF9 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Search::IStorageLibraryChangeTrackerTriggerDetails>{ 0x1DC7A369,0xB7A3,0x4DF2,{ 0x9D,0x61,0xEB,0xA8,0x5A,0x03,0x43,0xD2 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Search::IStorageLibraryContentChangedTriggerDetails>{ 0x2A371977,0xABBF,0x4E1D,{ 0x8A,0xA5,0x63,0x85,0xD8,0x88,0x47,0x99 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Search::IStorageQueryResultBase>{ 0xC297D70D,0x7353,0x47AB,{ 0xBA,0x58,0x8C,0x61,0x42,0x5D,0xC5,0x4B } };
-    template <> inline constexpr guid guid_v<Windows::Storage::Search::IValueAndLanguage>{ 0xB9914881,0xA1EE,0x4BC4,{ 0x92,0xA5,0x46,0x69,0x68,0xE3,0x04,0x36 } };
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IContentIndexer>{ 0xB1767F8D,0xF698,0x4982,{ 0xB0,0x5F,0x3A,0x6E,0x8C,0xAB,0x01,0xA2 } }; // B1767F8D-F698-4982-B05F-3A6E8CAB01A2
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IContentIndexerQuery>{ 0x70E3B0F8,0x4BFC,0x428A,{ 0x88,0x89,0xCC,0x51,0xDA,0x9A,0x7B,0x9D } }; // 70E3B0F8-4BFC-428A-8889-CC51DA9A7B9D
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IContentIndexerQueryOperations>{ 0x28823E10,0x4786,0x42F1,{ 0x97,0x30,0x79,0x2B,0x35,0x66,0xB1,0x50 } }; // 28823E10-4786-42F1-9730-792B3566B150
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IContentIndexerStatics>{ 0x8C488375,0xB37E,0x4C60,{ 0x9B,0xA8,0xB7,0x60,0xFD,0xA3,0xE5,0x9D } }; // 8C488375-B37E-4C60-9BA8-B760FDA3E59D
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IIndexableContent>{ 0xCCF1A05F,0xD4B5,0x483A,{ 0xB0,0x6E,0xE0,0xDB,0x1E,0xC4,0x20,0xE4 } }; // CCF1A05F-D4B5-483A-B06E-E0DB1EC420E4
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IQueryOptions>{ 0x1E5E46EE,0x0F45,0x4838,{ 0xA8,0xE9,0xD0,0x47,0x9D,0x44,0x6C,0x30 } }; // 1E5E46EE-0F45-4838-A8E9-D0479D446C30
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IQueryOptionsFactory>{ 0x032E1F8C,0xA9C1,0x4E71,{ 0x80,0x11,0x0D,0xEE,0x9D,0x48,0x11,0xA3 } }; // 032E1F8C-A9C1-4E71-8011-0DEE9D4811A3
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IQueryOptionsWithProviderFilter>{ 0x5B9D1026,0x15C4,0x44DD,{ 0xB8,0x9A,0x47,0xA5,0x9B,0x7D,0x7C,0x4F } }; // 5B9D1026-15C4-44DD-B89A-47A59B7D7C4F
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IStorageFileQueryResult>{ 0x52FDA447,0x2BAA,0x412C,{ 0xB2,0x9F,0xD4,0xB1,0x77,0x8E,0xFA,0x1E } }; // 52FDA447-2BAA-412C-B29F-D4B1778EFA1E
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IStorageFileQueryResult2>{ 0x4E5DB9DD,0x7141,0x46C4,{ 0x8B,0xE3,0xE9,0xDC,0x9E,0x27,0x27,0x5C } }; // 4E5DB9DD-7141-46C4-8BE3-E9DC9E27275C
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IStorageFolderQueryOperations>{ 0xCB43CCC9,0x446B,0x4A4F,{ 0xBE,0x97,0x75,0x77,0x71,0xBE,0x52,0x03 } }; // CB43CCC9-446B-4A4F-BE97-757771BE5203
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IStorageFolderQueryResult>{ 0x6654C911,0x7D66,0x46FA,{ 0xAE,0xCF,0xE4,0xA4,0xBA,0xA9,0x3A,0xB8 } }; // 6654C911-7D66-46FA-AECF-E4A4BAA93AB8
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IStorageItemQueryResult>{ 0xE8948079,0x9D58,0x47B8,{ 0xB2,0xB2,0x41,0xB0,0x7F,0x47,0x95,0xF9 } }; // E8948079-9D58-47B8-B2B2-41B07F4795F9
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IStorageLibraryChangeTrackerTriggerDetails>{ 0x1DC7A369,0xB7A3,0x4DF2,{ 0x9D,0x61,0xEB,0xA8,0x5A,0x03,0x43,0xD2 } }; // 1DC7A369-B7A3-4DF2-9D61-EBA85A0343D2
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IStorageLibraryContentChangedTriggerDetails>{ 0x2A371977,0xABBF,0x4E1D,{ 0x8A,0xA5,0x63,0x85,0xD8,0x88,0x47,0x99 } }; // 2A371977-ABBF-4E1D-8AA5-6385D8884799
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IStorageQueryResultBase>{ 0xC297D70D,0x7353,0x47AB,{ 0xBA,0x58,0x8C,0x61,0x42,0x5D,0xC5,0x4B } }; // C297D70D-7353-47AB-BA58-8C61425DC54B
+    template <> inline constexpr guid guid_v<Windows::Storage::Search::IValueAndLanguage>{ 0xB9914881,0xA1EE,0x4BC4,{ 0x92,0xA5,0x46,0x69,0x68,0xE3,0x04,0x36 } }; // B9914881-A1EE-4BC4-92A5-466968E30436
     template <> struct default_interface<Windows::Storage::Search::ContentIndexer>{ using type = Windows::Storage::Search::IContentIndexer; };
     template <> struct default_interface<Windows::Storage::Search::ContentIndexerQuery>{ using type = Windows::Storage::Search::IContentIndexerQuery; };
     template <> struct default_interface<Windows::Storage::Search::IndexableContent>{ using type = Windows::Storage::Search::IIndexableContent; };

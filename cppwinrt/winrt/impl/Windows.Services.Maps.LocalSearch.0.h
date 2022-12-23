@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -91,14 +91,14 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::ILocalLocationHoursOfOperationItem> = L"Windows.Services.Maps.LocalSearch.ILocalLocationHoursOfOperationItem";
     template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::ILocalLocationRatingInfo> = L"Windows.Services.Maps.LocalSearch.ILocalLocationRatingInfo";
     template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::IPlaceInfoHelperStatics> = L"Windows.Services.Maps.LocalSearch.IPlaceInfoHelperStatics";
-    template <> inline constexpr guid guid_v<Windows::Services::Maps::LocalSearch::ILocalCategoriesStatics>{ 0xF49399F5,0x8261,0x4321,{ 0x99,0x74,0xEF,0x92,0xD4,0x9A,0x8D,0xCA } };
-    template <> inline constexpr guid guid_v<Windows::Services::Maps::LocalSearch::ILocalLocation>{ 0xBB0FE9AB,0x4502,0x4F2C,{ 0x94,0xA9,0x0D,0x60,0xDE,0x0E,0x21,0x63 } };
-    template <> inline constexpr guid guid_v<Windows::Services::Maps::LocalSearch::ILocalLocation2>{ 0x6E9E307C,0xECB5,0x4FFC,{ 0xBB,0x8C,0xBA,0x50,0xBA,0x8C,0x2D,0xC6 } };
-    template <> inline constexpr guid guid_v<Windows::Services::Maps::LocalSearch::ILocalLocationFinderResult>{ 0xD09B6CC6,0xF338,0x4191,{ 0x9F,0xD8,0x54,0x40,0xB9,0xA6,0x8F,0x52 } };
-    template <> inline constexpr guid guid_v<Windows::Services::Maps::LocalSearch::ILocalLocationFinderStatics>{ 0xD2EF7344,0xA0DE,0x48CA,{ 0x81,0xA8,0x07,0xC7,0xDC,0xFD,0x37,0xAB } };
-    template <> inline constexpr guid guid_v<Windows::Services::Maps::LocalSearch::ILocalLocationHoursOfOperationItem>{ 0x23548C72,0xA1C7,0x43F1,{ 0xA4,0xF0,0x10,0x91,0xC3,0x9E,0xC6,0x40 } };
-    template <> inline constexpr guid guid_v<Windows::Services::Maps::LocalSearch::ILocalLocationRatingInfo>{ 0xCB1DAB56,0x3354,0x4311,{ 0x8B,0xC0,0xA2,0xD4,0xD5,0xEB,0x80,0x6E } };
-    template <> inline constexpr guid guid_v<Windows::Services::Maps::LocalSearch::IPlaceInfoHelperStatics>{ 0xDD1CA9A7,0xA9C6,0x491B,{ 0xBC,0x09,0xE8,0x0F,0xCE,0xA4,0x8E,0xE6 } };
+    template <> inline constexpr guid guid_v<Windows::Services::Maps::LocalSearch::ILocalCategoriesStatics>{ 0xF49399F5,0x8261,0x4321,{ 0x99,0x74,0xEF,0x92,0xD4,0x9A,0x8D,0xCA } }; // F49399F5-8261-4321-9974-EF92D49A8DCA
+    template <> inline constexpr guid guid_v<Windows::Services::Maps::LocalSearch::ILocalLocation>{ 0xBB0FE9AB,0x4502,0x4F2C,{ 0x94,0xA9,0x0D,0x60,0xDE,0x0E,0x21,0x63 } }; // BB0FE9AB-4502-4F2C-94A9-0D60DE0E2163
+    template <> inline constexpr guid guid_v<Windows::Services::Maps::LocalSearch::ILocalLocation2>{ 0x6E9E307C,0xECB5,0x4FFC,{ 0xBB,0x8C,0xBA,0x50,0xBA,0x8C,0x2D,0xC6 } }; // 6E9E307C-ECB5-4FFC-BB8C-BA50BA8C2DC6
+    template <> inline constexpr guid guid_v<Windows::Services::Maps::LocalSearch::ILocalLocationFinderResult>{ 0xD09B6CC6,0xF338,0x4191,{ 0x9F,0xD8,0x54,0x40,0xB9,0xA6,0x8F,0x52 } }; // D09B6CC6-F338-4191-9FD8-5440B9A68F52
+    template <> inline constexpr guid guid_v<Windows::Services::Maps::LocalSearch::ILocalLocationFinderStatics>{ 0xD2EF7344,0xA0DE,0x48CA,{ 0x81,0xA8,0x07,0xC7,0xDC,0xFD,0x37,0xAB } }; // D2EF7344-A0DE-48CA-81A8-07C7DCFD37AB
+    template <> inline constexpr guid guid_v<Windows::Services::Maps::LocalSearch::ILocalLocationHoursOfOperationItem>{ 0x23548C72,0xA1C7,0x43F1,{ 0xA4,0xF0,0x10,0x91,0xC3,0x9E,0xC6,0x40 } }; // 23548C72-A1C7-43F1-A4F0-1091C39EC640
+    template <> inline constexpr guid guid_v<Windows::Services::Maps::LocalSearch::ILocalLocationRatingInfo>{ 0xCB1DAB56,0x3354,0x4311,{ 0x8B,0xC0,0xA2,0xD4,0xD5,0xEB,0x80,0x6E } }; // CB1DAB56-3354-4311-8BC0-A2D4D5EB806E
+    template <> inline constexpr guid guid_v<Windows::Services::Maps::LocalSearch::IPlaceInfoHelperStatics>{ 0xDD1CA9A7,0xA9C6,0x491B,{ 0xBC,0x09,0xE8,0x0F,0xCE,0xA4,0x8E,0xE6 } }; // DD1CA9A7-A9C6-491B-BC09-E80FCEA48EE6
     template <> struct default_interface<Windows::Services::Maps::LocalSearch::LocalLocation>{ using type = Windows::Services::Maps::LocalSearch::ILocalLocation; };
     template <> struct default_interface<Windows::Services::Maps::LocalSearch::LocalLocationFinderResult>{ using type = Windows::Services::Maps::LocalSearch::ILocalLocationFinderResult; };
     template <> struct default_interface<Windows::Services::Maps::LocalSearch::LocalLocationHoursOfOperationItem>{ using type = Windows::Services::Maps::LocalSearch::ILocalLocationHoursOfOperationItem; };

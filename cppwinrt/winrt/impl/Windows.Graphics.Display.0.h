@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -190,25 +190,25 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Graphics::Display::IDisplayInformationStatics> = L"Windows.Graphics.Display.IDisplayInformationStatics";
     template <> inline constexpr auto& name_v<Windows::Graphics::Display::IDisplayPropertiesStatics> = L"Windows.Graphics.Display.IDisplayPropertiesStatics";
     template <> inline constexpr auto& name_v<Windows::Graphics::Display::DisplayPropertiesEventHandler> = L"Windows.Graphics.Display.DisplayPropertiesEventHandler";
-    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IAdvancedColorInfo>{ 0x8797DCFB,0xB229,0x4081,{ 0xAE,0x9A,0x2C,0xC8,0x5E,0x34,0xAD,0x6A } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IBrightnessOverride>{ 0x96C9621A,0xC143,0x4392,{ 0xBE,0xDD,0x4A,0x7E,0x95,0x74,0xC8,0xFD } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IBrightnessOverrideSettings>{ 0xD112AB2A,0x7604,0x4DBA,{ 0xBC,0xF8,0x4B,0x6F,0x49,0x50,0x2C,0xB0 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IBrightnessOverrideSettingsStatics>{ 0xD487DC90,0x6F74,0x440B,{ 0xB3,0x83,0x5F,0xE9,0x6C,0xF0,0x0B,0x0F } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IBrightnessOverrideStatics>{ 0x03A7B9ED,0xE1F1,0x4A68,{ 0xA1,0x1F,0x94,0x6A,0xD8,0xCE,0x53,0x93 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IColorOverrideSettings>{ 0xFBEFA134,0x4A81,0x4C4D,{ 0xA5,0xB6,0x7D,0x1B,0x5C,0x4B,0xD0,0x0B } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IColorOverrideSettingsStatics>{ 0xB068E05F,0xC41F,0x4AC9,{ 0xAF,0xAB,0x82,0x7A,0xB6,0x24,0x8F,0x9A } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IDisplayEnhancementOverride>{ 0x429594CF,0xD97A,0x4B02,{ 0xA4,0x28,0x5C,0x42,0x92,0xF7,0xF5,0x22 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IDisplayEnhancementOverrideCapabilities>{ 0x457060DE,0xEE5A,0x47B7,{ 0x99,0x18,0x1E,0x51,0xE8,0x12,0xCC,0xC8 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IDisplayEnhancementOverrideCapabilitiesChangedEventArgs>{ 0xDB61E664,0x15FA,0x49DA,{ 0x8B,0x77,0x07,0xDB,0xD2,0xAF,0x58,0x5D } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IDisplayEnhancementOverrideStatics>{ 0xCF5B7EC1,0x9791,0x4453,{ 0xB0,0x13,0x29,0xB6,0xF7,0x78,0xE5,0x19 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IDisplayInformation>{ 0xBED112AE,0xADC3,0x4DC9,{ 0xAE,0x65,0x85,0x1F,0x4D,0x7D,0x47,0x99 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IDisplayInformation2>{ 0x4DCD0021,0xFAD1,0x4B8E,{ 0x8E,0xDF,0x77,0x58,0x87,0xB8,0xBF,0x19 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IDisplayInformation3>{ 0xDB15011D,0x0F09,0x4466,{ 0x8F,0xF3,0x11,0xDE,0x9A,0x3C,0x92,0x9A } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IDisplayInformation4>{ 0xC972CE2F,0x1242,0x46BE,{ 0xB5,0x36,0xE1,0xAA,0xFE,0x9E,0x7A,0xCF } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IDisplayInformation5>{ 0x3A5442DC,0x2CDE,0x4A8D,{ 0x80,0xD1,0x21,0xDC,0x5A,0xDC,0xC1,0xAA } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IDisplayInformationStatics>{ 0xC6A02A6C,0xD452,0x44DC,{ 0xBA,0x07,0x96,0xF3,0xC6,0xAD,0xF9,0xD1 } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IDisplayPropertiesStatics>{ 0x6937ED8D,0x30EA,0x4DED,{ 0x82,0x71,0x45,0x53,0xFF,0x02,0xF6,0x8A } };
-    template <> inline constexpr guid guid_v<Windows::Graphics::Display::DisplayPropertiesEventHandler>{ 0xDBDD8B01,0xF1A1,0x46D1,{ 0x9E,0xE3,0x54,0x3B,0xCC,0x99,0x59,0x80 } };
+    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IAdvancedColorInfo>{ 0x8797DCFB,0xB229,0x4081,{ 0xAE,0x9A,0x2C,0xC8,0x5E,0x34,0xAD,0x6A } }; // 8797DCFB-B229-4081-AE9A-2CC85E34AD6A
+    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IBrightnessOverride>{ 0x96C9621A,0xC143,0x4392,{ 0xBE,0xDD,0x4A,0x7E,0x95,0x74,0xC8,0xFD } }; // 96C9621A-C143-4392-BEDD-4A7E9574C8FD
+    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IBrightnessOverrideSettings>{ 0xD112AB2A,0x7604,0x4DBA,{ 0xBC,0xF8,0x4B,0x6F,0x49,0x50,0x2C,0xB0 } }; // D112AB2A-7604-4DBA-BCF8-4B6F49502CB0
+    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IBrightnessOverrideSettingsStatics>{ 0xD487DC90,0x6F74,0x440B,{ 0xB3,0x83,0x5F,0xE9,0x6C,0xF0,0x0B,0x0F } }; // D487DC90-6F74-440B-B383-5FE96CF00B0F
+    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IBrightnessOverrideStatics>{ 0x03A7B9ED,0xE1F1,0x4A68,{ 0xA1,0x1F,0x94,0x6A,0xD8,0xCE,0x53,0x93 } }; // 03A7B9ED-E1F1-4A68-A11F-946AD8CE5393
+    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IColorOverrideSettings>{ 0xFBEFA134,0x4A81,0x4C4D,{ 0xA5,0xB6,0x7D,0x1B,0x5C,0x4B,0xD0,0x0B } }; // FBEFA134-4A81-4C4D-A5B6-7D1B5C4BD00B
+    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IColorOverrideSettingsStatics>{ 0xB068E05F,0xC41F,0x4AC9,{ 0xAF,0xAB,0x82,0x7A,0xB6,0x24,0x8F,0x9A } }; // B068E05F-C41F-4AC9-AFAB-827AB6248F9A
+    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IDisplayEnhancementOverride>{ 0x429594CF,0xD97A,0x4B02,{ 0xA4,0x28,0x5C,0x42,0x92,0xF7,0xF5,0x22 } }; // 429594CF-D97A-4B02-A428-5C4292F7F522
+    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IDisplayEnhancementOverrideCapabilities>{ 0x457060DE,0xEE5A,0x47B7,{ 0x99,0x18,0x1E,0x51,0xE8,0x12,0xCC,0xC8 } }; // 457060DE-EE5A-47B7-9918-1E51E812CCC8
+    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IDisplayEnhancementOverrideCapabilitiesChangedEventArgs>{ 0xDB61E664,0x15FA,0x49DA,{ 0x8B,0x77,0x07,0xDB,0xD2,0xAF,0x58,0x5D } }; // DB61E664-15FA-49DA-8B77-07DBD2AF585D
+    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IDisplayEnhancementOverrideStatics>{ 0xCF5B7EC1,0x9791,0x4453,{ 0xB0,0x13,0x29,0xB6,0xF7,0x78,0xE5,0x19 } }; // CF5B7EC1-9791-4453-B013-29B6F778E519
+    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IDisplayInformation>{ 0xBED112AE,0xADC3,0x4DC9,{ 0xAE,0x65,0x85,0x1F,0x4D,0x7D,0x47,0x99 } }; // BED112AE-ADC3-4DC9-AE65-851F4D7D4799
+    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IDisplayInformation2>{ 0x4DCD0021,0xFAD1,0x4B8E,{ 0x8E,0xDF,0x77,0x58,0x87,0xB8,0xBF,0x19 } }; // 4DCD0021-FAD1-4B8E-8EDF-775887B8BF19
+    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IDisplayInformation3>{ 0xDB15011D,0x0F09,0x4466,{ 0x8F,0xF3,0x11,0xDE,0x9A,0x3C,0x92,0x9A } }; // DB15011D-0F09-4466-8FF3-11DE9A3C929A
+    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IDisplayInformation4>{ 0xC972CE2F,0x1242,0x46BE,{ 0xB5,0x36,0xE1,0xAA,0xFE,0x9E,0x7A,0xCF } }; // C972CE2F-1242-46BE-B536-E1AAFE9E7ACF
+    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IDisplayInformation5>{ 0x3A5442DC,0x2CDE,0x4A8D,{ 0x80,0xD1,0x21,0xDC,0x5A,0xDC,0xC1,0xAA } }; // 3A5442DC-2CDE-4A8D-80D1-21DC5ADCC1AA
+    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IDisplayInformationStatics>{ 0xC6A02A6C,0xD452,0x44DC,{ 0xBA,0x07,0x96,0xF3,0xC6,0xAD,0xF9,0xD1 } }; // C6A02A6C-D452-44DC-BA07-96F3C6ADF9D1
+    template <> inline constexpr guid guid_v<Windows::Graphics::Display::IDisplayPropertiesStatics>{ 0x6937ED8D,0x30EA,0x4DED,{ 0x82,0x71,0x45,0x53,0xFF,0x02,0xF6,0x8A } }; // 6937ED8D-30EA-4DED-8271-4553FF02F68A
+    template <> inline constexpr guid guid_v<Windows::Graphics::Display::DisplayPropertiesEventHandler>{ 0xDBDD8B01,0xF1A1,0x46D1,{ 0x9E,0xE3,0x54,0x3B,0xCC,0x99,0x59,0x80 } }; // DBDD8B01-F1A1-46D1-9EE3-543BCC995980
     template <> struct default_interface<Windows::Graphics::Display::AdvancedColorInfo>{ using type = Windows::Graphics::Display::IAdvancedColorInfo; };
     template <> struct default_interface<Windows::Graphics::Display::BrightnessOverride>{ using type = Windows::Graphics::Display::IBrightnessOverride; };
     template <> struct default_interface<Windows::Graphics::Display::BrightnessOverrideSettings>{ using type = Windows::Graphics::Display::IBrightnessOverrideSettings; };

@@ -5136,6 +5136,7 @@ typedef enum _NDIS_RECEIVE_FILTER_TEST
 // Flags used in NDIS_RECEIVE_FILTER_FIELD_PARAMETERS.Flags field
 //
 #define NDIS_RECEIVE_FILTER_FIELD_MAC_HEADER_VLAN_UNTAGGED_OR_ZERO  0x00000001
+#define NDIS_RECEIVE_FILTER_RESERVED                                0x000000FE
 
 //
 // NDIS_RECEIVE_FILTER_FIELD_PARAMETERS is used in
@@ -10465,8 +10466,8 @@ typedef struct _NDIS_GFT_FLOW_ENTRY_ID_ARRAY
 //
 // Flags used in NDIS_GFT_OFFLOAD_PARAMETERS
 //
-#define NDIS_GFT_OFFLOAD_PARAMETERS_ENABLE_OFFLOAD      0x00000001
-
+#define NDIS_GFT_OFFLOAD_PARAMETERS_ENABLE_OFFLOAD              0x00000001
+#define NDIS_GFT_OFFLOAD_PARAMETERS_CUSTOM_PROVIDER_RESERVED    0xFF000000
 
 //
 // NDIS_GFT_OFFLOAD_PARAMETERS is used in OID_GFT_GLOBAL_PARAMETERS
@@ -10619,6 +10620,7 @@ typedef struct _NDIS_GFT_OFFLOAD_CAPABILITIES
 #define NDIS_GFT_VPORT_VXLAN_SETTINGS_CHANGED               0x02000000
 #define NDIS_GFT_VPORT_DSCP_FLAGS_CHANGED                   0x04000000
 #define NDIS_GFT_VPORT_PARAMS_CHANGE_MASK                   0xFFF00000
+#define NDIS_GFT_VPORT_PARAMS_CUSTOM_PROVIDER_RESERVED      0x000FF000
 
 #define NDIS_GFT_VPORT_MAX_DSCP_MASK_COUNTER_OBJECTS        64
 #define NDIS_GFT_VPORT_MAX_PRIORITY_MASK_COUNTER_OBJECTS    8
@@ -10666,10 +10668,14 @@ typedef struct _NDIS_GFT_VPORT_PARAMETERS
     _In_ USHORT                             VxLanSrcPortBase;
     _In_ USHORT                             VxLanSrcPortRange;
     _In_ ULONG                              DscpFlags;
+    union {
+        _In_ PVOID                          CustomProviderReservedPointer;
+        _In_ ULONG64                        CustomProviderReservedValue;
+    };
 } NDIS_GFT_VPORT_PARAMETERS, *PNDIS_GFT_VPORT_PARAMETERS;
 
 #define NDIS_SIZEOF_GFT_VPORT_PARAMETERS_REVISION_1     \
-    RTL_SIZEOF_THROUGH_FIELD(NDIS_GFT_VPORT_PARAMETERS, DscpFlags)
+    RTL_SIZEOF_THROUGH_FIELD(NDIS_GFT_VPORT_PARAMETERS, CustomProviderReservedValue)
 
 //
 // QOS Offload Scheduler Queue data structures

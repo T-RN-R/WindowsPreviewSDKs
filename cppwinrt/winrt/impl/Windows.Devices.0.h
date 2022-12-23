@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -48,10 +48,10 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Devices::ILowLevelDevicesAggregateProviderFactory> = L"Windows.Devices.ILowLevelDevicesAggregateProviderFactory";
     template <> inline constexpr auto& name_v<Windows::Devices::ILowLevelDevicesController> = L"Windows.Devices.ILowLevelDevicesController";
     template <> inline constexpr auto& name_v<Windows::Devices::ILowLevelDevicesControllerStatics> = L"Windows.Devices.ILowLevelDevicesControllerStatics";
-    template <> inline constexpr guid guid_v<Windows::Devices::ILowLevelDevicesAggregateProvider>{ 0xA73E561C,0xAAC1,0x4EC7,{ 0xA8,0x52,0x47,0x9F,0x70,0x60,0xD0,0x1F } };
-    template <> inline constexpr guid guid_v<Windows::Devices::ILowLevelDevicesAggregateProviderFactory>{ 0x9AC4AAF6,0x3473,0x465E,{ 0x96,0xD5,0x36,0x28,0x1A,0x2C,0x57,0xAF } };
-    template <> inline constexpr guid guid_v<Windows::Devices::ILowLevelDevicesController>{ 0x2EC23DD4,0x179B,0x45DE,{ 0x9B,0x39,0x3A,0xE0,0x25,0x27,0xDE,0x52 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::ILowLevelDevicesControllerStatics>{ 0x093E926A,0xFCCB,0x4394,{ 0xA6,0x97,0x19,0xDE,0x63,0x7C,0x2D,0xB3 } };
+    template <> inline constexpr guid guid_v<Windows::Devices::ILowLevelDevicesAggregateProvider>{ 0xA73E561C,0xAAC1,0x4EC7,{ 0xA8,0x52,0x47,0x9F,0x70,0x60,0xD0,0x1F } }; // A73E561C-AAC1-4EC7-A852-479F7060D01F
+    template <> inline constexpr guid guid_v<Windows::Devices::ILowLevelDevicesAggregateProviderFactory>{ 0x9AC4AAF6,0x3473,0x465E,{ 0x96,0xD5,0x36,0x28,0x1A,0x2C,0x57,0xAF } }; // 9AC4AAF6-3473-465E-96D5-36281A2C57AF
+    template <> inline constexpr guid guid_v<Windows::Devices::ILowLevelDevicesController>{ 0x2EC23DD4,0x179B,0x45DE,{ 0x9B,0x39,0x3A,0xE0,0x25,0x27,0xDE,0x52 } }; // 2EC23DD4-179B-45DE-9B39-3AE02527DE52
+    template <> inline constexpr guid guid_v<Windows::Devices::ILowLevelDevicesControllerStatics>{ 0x093E926A,0xFCCB,0x4394,{ 0xA6,0x97,0x19,0xDE,0x63,0x7C,0x2D,0xB3 } }; // 093E926A-FCCB-4394-A697-19DE637C2DB3
     template <> struct default_interface<Windows::Devices::LowLevelDevicesAggregateProvider>{ using type = Windows::Devices::ILowLevelDevicesAggregateProvider; };
     template <> struct default_interface<Windows::Devices::LowLevelDevicesController>{ using type = Windows::Devices::ILowLevelDevicesController; };
     template <> struct abi<Windows::Devices::ILowLevelDevicesAggregateProvider>

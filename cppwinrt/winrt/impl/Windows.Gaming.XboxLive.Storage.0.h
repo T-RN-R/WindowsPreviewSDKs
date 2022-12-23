@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -118,18 +118,18 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::IGameSaveProvider> = L"Windows.Gaming.XboxLive.Storage.IGameSaveProvider";
     template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::IGameSaveProviderGetResult> = L"Windows.Gaming.XboxLive.Storage.IGameSaveProviderGetResult";
     template <> inline constexpr auto& name_v<Windows::Gaming::XboxLive::Storage::IGameSaveProviderStatics> = L"Windows.Gaming.XboxLive.Storage.IGameSaveProviderStatics";
-    template <> inline constexpr guid guid_v<Windows::Gaming::XboxLive::Storage::IGameSaveBlobGetResult>{ 0x917281E0,0x7201,0x4953,{ 0xAA,0x2C,0x40,0x08,0xF0,0x3A,0xEF,0x45 } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::XboxLive::Storage::IGameSaveBlobInfo>{ 0xADD38034,0xBAF0,0x4645,{ 0xB6,0xD0,0x46,0xED,0xAF,0xFB,0x3C,0x2B } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::XboxLive::Storage::IGameSaveBlobInfoGetResult>{ 0xC7578582,0x3697,0x42BF,{ 0x98,0x9C,0x66,0x5D,0x92,0x3B,0x52,0x31 } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::XboxLive::Storage::IGameSaveBlobInfoQuery>{ 0x9FDD74B2,0xEEEE,0x447B,{ 0xA9,0xD2,0x7F,0x96,0xC0,0xF8,0x32,0x08 } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::XboxLive::Storage::IGameSaveContainer>{ 0xC3C08F89,0x563F,0x4ECD,{ 0x9C,0x6F,0x33,0xFD,0x0E,0x32,0x3D,0x10 } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::XboxLive::Storage::IGameSaveContainerInfo>{ 0xB7E27300,0x155D,0x4BB4,{ 0xB2,0xBA,0x93,0x03,0x06,0xF3,0x91,0xB5 } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::XboxLive::Storage::IGameSaveContainerInfoGetResult>{ 0xFFC50D74,0xC581,0x4F9D,{ 0x9E,0x39,0x30,0xA1,0x0C,0x1E,0x4C,0x50 } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::XboxLive::Storage::IGameSaveContainerInfoQuery>{ 0x3C94E863,0x6F80,0x4327,{ 0x93,0x27,0xFF,0xC1,0x1A,0xFD,0x42,0xB3 } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::XboxLive::Storage::IGameSaveOperationResult>{ 0xCF0F1A05,0x24A0,0x4582,{ 0x9A,0x55,0xB1,0xBB,0xBB,0x93,0x88,0xD8 } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::XboxLive::Storage::IGameSaveProvider>{ 0x90A60394,0x80FE,0x4211,{ 0x97,0xF8,0xA5,0xDE,0x14,0xDD,0x95,0xD2 } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::XboxLive::Storage::IGameSaveProviderGetResult>{ 0x3AB90816,0xD393,0x4D65,{ 0xAC,0x16,0x41,0xC3,0xE6,0x7A,0xB9,0x45 } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::XboxLive::Storage::IGameSaveProviderStatics>{ 0xD01D3ED0,0x7B03,0x449D,{ 0x8C,0xBD,0x34,0x02,0x84,0x2A,0x10,0x48 } };
+    template <> inline constexpr guid guid_v<Windows::Gaming::XboxLive::Storage::IGameSaveBlobGetResult>{ 0x917281E0,0x7201,0x4953,{ 0xAA,0x2C,0x40,0x08,0xF0,0x3A,0xEF,0x45 } }; // 917281E0-7201-4953-AA2C-4008F03AEF45
+    template <> inline constexpr guid guid_v<Windows::Gaming::XboxLive::Storage::IGameSaveBlobInfo>{ 0xADD38034,0xBAF0,0x4645,{ 0xB6,0xD0,0x46,0xED,0xAF,0xFB,0x3C,0x2B } }; // ADD38034-BAF0-4645-B6D0-46EDAFFB3C2B
+    template <> inline constexpr guid guid_v<Windows::Gaming::XboxLive::Storage::IGameSaveBlobInfoGetResult>{ 0xC7578582,0x3697,0x42BF,{ 0x98,0x9C,0x66,0x5D,0x92,0x3B,0x52,0x31 } }; // C7578582-3697-42BF-989C-665D923B5231
+    template <> inline constexpr guid guid_v<Windows::Gaming::XboxLive::Storage::IGameSaveBlobInfoQuery>{ 0x9FDD74B2,0xEEEE,0x447B,{ 0xA9,0xD2,0x7F,0x96,0xC0,0xF8,0x32,0x08 } }; // 9FDD74B2-EEEE-447B-A9D2-7F96C0F83208
+    template <> inline constexpr guid guid_v<Windows::Gaming::XboxLive::Storage::IGameSaveContainer>{ 0xC3C08F89,0x563F,0x4ECD,{ 0x9C,0x6F,0x33,0xFD,0x0E,0x32,0x3D,0x10 } }; // C3C08F89-563F-4ECD-9C6F-33FD0E323D10
+    template <> inline constexpr guid guid_v<Windows::Gaming::XboxLive::Storage::IGameSaveContainerInfo>{ 0xB7E27300,0x155D,0x4BB4,{ 0xB2,0xBA,0x93,0x03,0x06,0xF3,0x91,0xB5 } }; // B7E27300-155D-4BB4-B2BA-930306F391B5
+    template <> inline constexpr guid guid_v<Windows::Gaming::XboxLive::Storage::IGameSaveContainerInfoGetResult>{ 0xFFC50D74,0xC581,0x4F9D,{ 0x9E,0x39,0x30,0xA1,0x0C,0x1E,0x4C,0x50 } }; // FFC50D74-C581-4F9D-9E39-30A10C1E4C50
+    template <> inline constexpr guid guid_v<Windows::Gaming::XboxLive::Storage::IGameSaveContainerInfoQuery>{ 0x3C94E863,0x6F80,0x4327,{ 0x93,0x27,0xFF,0xC1,0x1A,0xFD,0x42,0xB3 } }; // 3C94E863-6F80-4327-9327-FFC11AFD42B3
+    template <> inline constexpr guid guid_v<Windows::Gaming::XboxLive::Storage::IGameSaveOperationResult>{ 0xCF0F1A05,0x24A0,0x4582,{ 0x9A,0x55,0xB1,0xBB,0xBB,0x93,0x88,0xD8 } }; // CF0F1A05-24A0-4582-9A55-B1BBBB9388D8
+    template <> inline constexpr guid guid_v<Windows::Gaming::XboxLive::Storage::IGameSaveProvider>{ 0x90A60394,0x80FE,0x4211,{ 0x97,0xF8,0xA5,0xDE,0x14,0xDD,0x95,0xD2 } }; // 90A60394-80FE-4211-97F8-A5DE14DD95D2
+    template <> inline constexpr guid guid_v<Windows::Gaming::XboxLive::Storage::IGameSaveProviderGetResult>{ 0x3AB90816,0xD393,0x4D65,{ 0xAC,0x16,0x41,0xC3,0xE6,0x7A,0xB9,0x45 } }; // 3AB90816-D393-4D65-AC16-41C3E67AB945
+    template <> inline constexpr guid guid_v<Windows::Gaming::XboxLive::Storage::IGameSaveProviderStatics>{ 0xD01D3ED0,0x7B03,0x449D,{ 0x8C,0xBD,0x34,0x02,0x84,0x2A,0x10,0x48 } }; // D01D3ED0-7B03-449D-8CBD-3402842A1048
     template <> struct default_interface<Windows::Gaming::XboxLive::Storage::GameSaveBlobGetResult>{ using type = Windows::Gaming::XboxLive::Storage::IGameSaveBlobGetResult; };
     template <> struct default_interface<Windows::Gaming::XboxLive::Storage::GameSaveBlobInfo>{ using type = Windows::Gaming::XboxLive::Storage::IGameSaveBlobInfo; };
     template <> struct default_interface<Windows::Gaming::XboxLive::Storage::GameSaveBlobInfoGetResult>{ using type = Windows::Gaming::XboxLive::Storage::IGameSaveBlobInfoGetResult; };

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -74,12 +74,12 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::System::Diagnostics::DevicePortal::IDevicePortalConnectionStatics> = L"Windows.System.Diagnostics.DevicePortal.IDevicePortalConnectionStatics";
     template <> inline constexpr auto& name_v<Windows::System::Diagnostics::DevicePortal::IDevicePortalWebSocketConnection> = L"Windows.System.Diagnostics.DevicePortal.IDevicePortalWebSocketConnection";
     template <> inline constexpr auto& name_v<Windows::System::Diagnostics::DevicePortal::IDevicePortalWebSocketConnectionRequestReceivedEventArgs> = L"Windows.System.Diagnostics.DevicePortal.IDevicePortalWebSocketConnectionRequestReceivedEventArgs";
-    template <> inline constexpr guid guid_v<Windows::System::Diagnostics::DevicePortal::IDevicePortalConnection>{ 0x0F447F51,0x1198,0x4DA1,{ 0x8D,0x54,0xBD,0xEF,0x39,0x3E,0x09,0xB6 } };
-    template <> inline constexpr guid guid_v<Windows::System::Diagnostics::DevicePortal::IDevicePortalConnectionClosedEventArgs>{ 0xFCF70E38,0x7032,0x428C,{ 0x9F,0x50,0x94,0x5C,0x15,0xA9,0xF0,0xCB } };
-    template <> inline constexpr guid guid_v<Windows::System::Diagnostics::DevicePortal::IDevicePortalConnectionRequestReceivedEventArgs>{ 0x64DAE045,0x6FDA,0x4459,{ 0x9E,0xBD,0xEC,0xCE,0x22,0xE3,0x85,0x59 } };
-    template <> inline constexpr guid guid_v<Windows::System::Diagnostics::DevicePortal::IDevicePortalConnectionStatics>{ 0x4BBE31E7,0xE9B9,0x4645,{ 0x8F,0xED,0xA5,0x3E,0xEA,0x0E,0xDB,0xD6 } };
-    template <> inline constexpr guid guid_v<Windows::System::Diagnostics::DevicePortal::IDevicePortalWebSocketConnection>{ 0x67657920,0xD65A,0x42F0,{ 0xAE,0xF4,0x78,0x78,0x08,0x09,0x8B,0x7B } };
-    template <> inline constexpr guid guid_v<Windows::System::Diagnostics::DevicePortal::IDevicePortalWebSocketConnectionRequestReceivedEventArgs>{ 0x79FDCABA,0x175C,0x4739,{ 0x9F,0x74,0xDD,0xA7,0x97,0xC3,0x5B,0x3F } };
+    template <> inline constexpr guid guid_v<Windows::System::Diagnostics::DevicePortal::IDevicePortalConnection>{ 0x0F447F51,0x1198,0x4DA1,{ 0x8D,0x54,0xBD,0xEF,0x39,0x3E,0x09,0xB6 } }; // 0F447F51-1198-4DA1-8D54-BDEF393E09B6
+    template <> inline constexpr guid guid_v<Windows::System::Diagnostics::DevicePortal::IDevicePortalConnectionClosedEventArgs>{ 0xFCF70E38,0x7032,0x428C,{ 0x9F,0x50,0x94,0x5C,0x15,0xA9,0xF0,0xCB } }; // FCF70E38-7032-428C-9F50-945C15A9F0CB
+    template <> inline constexpr guid guid_v<Windows::System::Diagnostics::DevicePortal::IDevicePortalConnectionRequestReceivedEventArgs>{ 0x64DAE045,0x6FDA,0x4459,{ 0x9E,0xBD,0xEC,0xCE,0x22,0xE3,0x85,0x59 } }; // 64DAE045-6FDA-4459-9EBD-ECCE22E38559
+    template <> inline constexpr guid guid_v<Windows::System::Diagnostics::DevicePortal::IDevicePortalConnectionStatics>{ 0x4BBE31E7,0xE9B9,0x4645,{ 0x8F,0xED,0xA5,0x3E,0xEA,0x0E,0xDB,0xD6 } }; // 4BBE31E7-E9B9-4645-8FED-A53EEA0EDBD6
+    template <> inline constexpr guid guid_v<Windows::System::Diagnostics::DevicePortal::IDevicePortalWebSocketConnection>{ 0x67657920,0xD65A,0x42F0,{ 0xAE,0xF4,0x78,0x78,0x08,0x09,0x8B,0x7B } }; // 67657920-D65A-42F0-AEF4-787808098B7B
+    template <> inline constexpr guid guid_v<Windows::System::Diagnostics::DevicePortal::IDevicePortalWebSocketConnectionRequestReceivedEventArgs>{ 0x79FDCABA,0x175C,0x4739,{ 0x9F,0x74,0xDD,0xA7,0x97,0xC3,0x5B,0x3F } }; // 79FDCABA-175C-4739-9F74-DDA797C35B3F
     template <> struct default_interface<Windows::System::Diagnostics::DevicePortal::DevicePortalConnection>{ using type = Windows::System::Diagnostics::DevicePortal::IDevicePortalConnection; };
     template <> struct default_interface<Windows::System::Diagnostics::DevicePortal::DevicePortalConnectionClosedEventArgs>{ using type = Windows::System::Diagnostics::DevicePortal::IDevicePortalConnectionClosedEventArgs; };
     template <> struct default_interface<Windows::System::Diagnostics::DevicePortal::DevicePortalConnectionRequestReceivedEventArgs>{ using type = Windows::System::Diagnostics::DevicePortal::IDevicePortalConnectionRequestReceivedEventArgs; };

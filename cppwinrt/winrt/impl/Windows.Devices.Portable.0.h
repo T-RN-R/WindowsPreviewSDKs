@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -38,8 +38,8 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Devices::Portable::ServiceDeviceType> = L"Windows.Devices.Portable.ServiceDeviceType";
     template <> inline constexpr auto& name_v<Windows::Devices::Portable::IServiceDeviceStatics> = L"Windows.Devices.Portable.IServiceDeviceStatics";
     template <> inline constexpr auto& name_v<Windows::Devices::Portable::IStorageDeviceStatics> = L"Windows.Devices.Portable.IStorageDeviceStatics";
-    template <> inline constexpr guid guid_v<Windows::Devices::Portable::IServiceDeviceStatics>{ 0xA88214E1,0x59C7,0x4A20,{ 0xAB,0xA6,0x9F,0x67,0x07,0x93,0x72,0x30 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Portable::IStorageDeviceStatics>{ 0x5ECE44EE,0x1B23,0x4DD2,{ 0x86,0x52,0xBC,0x16,0x4F,0x00,0x31,0x28 } };
+    template <> inline constexpr guid guid_v<Windows::Devices::Portable::IServiceDeviceStatics>{ 0xA88214E1,0x59C7,0x4A20,{ 0xAB,0xA6,0x9F,0x67,0x07,0x93,0x72,0x30 } }; // A88214E1-59C7-4A20-ABA6-9F6707937230
+    template <> inline constexpr guid guid_v<Windows::Devices::Portable::IStorageDeviceStatics>{ 0x5ECE44EE,0x1B23,0x4DD2,{ 0x86,0x52,0xBC,0x16,0x4F,0x00,0x31,0x28 } }; // 5ECE44EE-1B23-4DD2-8652-BC164F003128
     template <> struct abi<Windows::Devices::Portable::IServiceDeviceStatics>
     {
         struct __declspec(novtable) type : inspectable_abi

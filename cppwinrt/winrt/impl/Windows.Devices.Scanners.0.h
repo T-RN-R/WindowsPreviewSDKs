@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -115,13 +115,13 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Devices::Scanners::IImageScannerScanResult> = L"Windows.Devices.Scanners.IImageScannerScanResult";
     template <> inline constexpr auto& name_v<Windows::Devices::Scanners::IImageScannerSourceConfiguration> = L"Windows.Devices.Scanners.IImageScannerSourceConfiguration";
     template <> inline constexpr auto& name_v<Windows::Devices::Scanners::IImageScannerStatics> = L"Windows.Devices.Scanners.IImageScannerStatics";
-    template <> inline constexpr guid guid_v<Windows::Devices::Scanners::IImageScanner>{ 0x53A88F78,0x5298,0x48A0,{ 0x8D,0xA3,0x80,0x87,0x51,0x96,0x65,0xE0 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Scanners::IImageScannerFeederConfiguration>{ 0x74BDACEE,0xFA97,0x4C17,{ 0x82,0x80,0x40,0xE3,0x9C,0x6D,0xCC,0x67 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Scanners::IImageScannerFormatConfiguration>{ 0xAE275D11,0xDADF,0x4010,{ 0xBF,0x10,0xCC,0xA5,0xC8,0x3D,0xCB,0xB0 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Scanners::IImageScannerPreviewResult>{ 0x08B7FE8E,0x8891,0x441D,{ 0xBE,0x9C,0x17,0x6F,0xA1,0x09,0xC8,0xBB } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Scanners::IImageScannerScanResult>{ 0xC91624CD,0x9037,0x4E48,{ 0x84,0xC1,0xAC,0x09,0x75,0x07,0x6B,0xC5 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Scanners::IImageScannerSourceConfiguration>{ 0xBFB50055,0x0B44,0x4C82,{ 0x9E,0x89,0x20,0x5F,0x9C,0x23,0x4E,0x59 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Scanners::IImageScannerStatics>{ 0xBC57E70E,0xD804,0x4477,{ 0x9F,0xB5,0xB9,0x11,0xB5,0x47,0x38,0x97 } };
+    template <> inline constexpr guid guid_v<Windows::Devices::Scanners::IImageScanner>{ 0x53A88F78,0x5298,0x48A0,{ 0x8D,0xA3,0x80,0x87,0x51,0x96,0x65,0xE0 } }; // 53A88F78-5298-48A0-8DA3-8087519665E0
+    template <> inline constexpr guid guid_v<Windows::Devices::Scanners::IImageScannerFeederConfiguration>{ 0x74BDACEE,0xFA97,0x4C17,{ 0x82,0x80,0x40,0xE3,0x9C,0x6D,0xCC,0x67 } }; // 74BDACEE-FA97-4C17-8280-40E39C6DCC67
+    template <> inline constexpr guid guid_v<Windows::Devices::Scanners::IImageScannerFormatConfiguration>{ 0xAE275D11,0xDADF,0x4010,{ 0xBF,0x10,0xCC,0xA5,0xC8,0x3D,0xCB,0xB0 } }; // AE275D11-DADF-4010-BF10-CCA5C83DCBB0
+    template <> inline constexpr guid guid_v<Windows::Devices::Scanners::IImageScannerPreviewResult>{ 0x08B7FE8E,0x8891,0x441D,{ 0xBE,0x9C,0x17,0x6F,0xA1,0x09,0xC8,0xBB } }; // 08B7FE8E-8891-441D-BE9C-176FA109C8BB
+    template <> inline constexpr guid guid_v<Windows::Devices::Scanners::IImageScannerScanResult>{ 0xC91624CD,0x9037,0x4E48,{ 0x84,0xC1,0xAC,0x09,0x75,0x07,0x6B,0xC5 } }; // C91624CD-9037-4E48-84C1-AC0975076BC5
+    template <> inline constexpr guid guid_v<Windows::Devices::Scanners::IImageScannerSourceConfiguration>{ 0xBFB50055,0x0B44,0x4C82,{ 0x9E,0x89,0x20,0x5F,0x9C,0x23,0x4E,0x59 } }; // BFB50055-0B44-4C82-9E89-205F9C234E59
+    template <> inline constexpr guid guid_v<Windows::Devices::Scanners::IImageScannerStatics>{ 0xBC57E70E,0xD804,0x4477,{ 0x9F,0xB5,0xB9,0x11,0xB5,0x47,0x38,0x97 } }; // BC57E70E-D804-4477-9FB5-B911B5473897
     template <> struct default_interface<Windows::Devices::Scanners::ImageScanner>{ using type = Windows::Devices::Scanners::IImageScanner; };
     template <> struct default_interface<Windows::Devices::Scanners::ImageScannerAutoConfiguration>{ using type = Windows::Devices::Scanners::IImageScannerFormatConfiguration; };
     template <> struct default_interface<Windows::Devices::Scanners::ImageScannerFeederConfiguration>{ using type = Windows::Devices::Scanners::IImageScannerFormatConfiguration; };

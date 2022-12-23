@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -207,24 +207,24 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Management::Deployment::IPackageVolume2> = L"Windows.Management.Deployment.IPackageVolume2";
     template <> inline constexpr auto& name_v<Windows::Management::Deployment::IRegisterPackageOptions> = L"Windows.Management.Deployment.IRegisterPackageOptions";
     template <> inline constexpr auto& name_v<Windows::Management::Deployment::IStagePackageOptions> = L"Windows.Management.Deployment.IStagePackageOptions";
-    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IAddPackageOptions>{ 0x05CEE018,0xF68F,0x422B,{ 0x95,0xA4,0x66,0x67,0x9E,0xC7,0x7F,0xC0 } };
-    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IDeploymentResult>{ 0x2563B9AE,0xB77D,0x4C1F,{ 0x8A,0x7B,0x20,0xE6,0xAD,0x51,0x5E,0xF3 } };
-    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IDeploymentResult2>{ 0xFC0E715C,0x5A01,0x4BD7,{ 0xBC,0xF1,0x38,0x1C,0x8C,0x82,0xE0,0x4A } };
-    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IPackageManager>{ 0x9A7D4B65,0x5E8F,0x4FC7,{ 0xA2,0xE5,0x7F,0x69,0x25,0xCB,0x8B,0x53 } };
-    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IPackageManager2>{ 0xF7AAD08D,0x0840,0x46F2,{ 0xB5,0xD8,0xCA,0xD4,0x76,0x93,0xA0,0x95 } };
-    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IPackageManager3>{ 0xDAAD9948,0x36F1,0x41A7,{ 0x91,0x88,0xBC,0x26,0x3E,0x0D,0xCB,0x72 } };
-    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IPackageManager4>{ 0x3C719963,0xBAB6,0x46BF,{ 0x8F,0xF7,0xDA,0x47,0x19,0x23,0x0A,0xE6 } };
-    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IPackageManager5>{ 0x711F3117,0x1AFD,0x4313,{ 0x97,0x8C,0x9B,0xB6,0xE1,0xB8,0x64,0xA7 } };
-    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IPackageManager6>{ 0x0847E909,0x53CD,0x4E4F,{ 0x83,0x2E,0x57,0xD1,0x80,0xF6,0xE4,0x47 } };
-    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IPackageManager7>{ 0xF28654F4,0x2BA7,0x4B80,{ 0x88,0xD6,0xBE,0x15,0xF9,0xA2,0x3F,0xBA } };
-    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IPackageManager8>{ 0xB8575330,0x1298,0x4EE2,{ 0x80,0xEE,0x7F,0x65,0x9C,0x5D,0x27,0x82 } };
-    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IPackageManager9>{ 0x1AA79035,0xCC71,0x4B2E,{ 0x80,0xA6,0xC7,0x04,0x1D,0x85,0x79,0xA7 } };
-    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IPackageManagerDebugSettings>{ 0x1A611683,0xA988,0x4FCF,{ 0x8F,0x0F,0xCE,0x17,0x58,0x98,0xE8,0xEB } };
-    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IPackageUserInformation>{ 0xF6383423,0xFA09,0x4CBC,{ 0x90,0x55,0x15,0xCA,0x27,0x5E,0x2E,0x7E } };
-    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IPackageVolume>{ 0xCF2672C3,0x1A40,0x4450,{ 0x97,0x39,0x2A,0xCE,0x2E,0x89,0x88,0x53 } };
-    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IPackageVolume2>{ 0x46ABCF2E,0x9DD4,0x47A2,{ 0xAB,0x8C,0xC6,0x40,0x83,0x49,0xBC,0xD8 } };
-    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IRegisterPackageOptions>{ 0x677112A7,0x50D4,0x496C,{ 0x84,0x15,0x06,0x02,0xB4,0xC6,0xD3,0xBF } };
-    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IStagePackageOptions>{ 0x0B110C9C,0xB95D,0x4C56,{ 0xBD,0x36,0x6D,0x65,0x68,0x00,0xD0,0x6B } };
+    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IAddPackageOptions>{ 0x05CEE018,0xF68F,0x422B,{ 0x95,0xA4,0x66,0x67,0x9E,0xC7,0x7F,0xC0 } }; // 05CEE018-F68F-422B-95A4-66679EC77FC0
+    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IDeploymentResult>{ 0x2563B9AE,0xB77D,0x4C1F,{ 0x8A,0x7B,0x20,0xE6,0xAD,0x51,0x5E,0xF3 } }; // 2563B9AE-B77D-4C1F-8A7B-20E6AD515EF3
+    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IDeploymentResult2>{ 0xFC0E715C,0x5A01,0x4BD7,{ 0xBC,0xF1,0x38,0x1C,0x8C,0x82,0xE0,0x4A } }; // FC0E715C-5A01-4BD7-BCF1-381C8C82E04A
+    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IPackageManager>{ 0x9A7D4B65,0x5E8F,0x4FC7,{ 0xA2,0xE5,0x7F,0x69,0x25,0xCB,0x8B,0x53 } }; // 9A7D4B65-5E8F-4FC7-A2E5-7F6925CB8B53
+    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IPackageManager2>{ 0xF7AAD08D,0x0840,0x46F2,{ 0xB5,0xD8,0xCA,0xD4,0x76,0x93,0xA0,0x95 } }; // F7AAD08D-0840-46F2-B5D8-CAD47693A095
+    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IPackageManager3>{ 0xDAAD9948,0x36F1,0x41A7,{ 0x91,0x88,0xBC,0x26,0x3E,0x0D,0xCB,0x72 } }; // DAAD9948-36F1-41A7-9188-BC263E0DCB72
+    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IPackageManager4>{ 0x3C719963,0xBAB6,0x46BF,{ 0x8F,0xF7,0xDA,0x47,0x19,0x23,0x0A,0xE6 } }; // 3C719963-BAB6-46BF-8FF7-DA4719230AE6
+    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IPackageManager5>{ 0x711F3117,0x1AFD,0x4313,{ 0x97,0x8C,0x9B,0xB6,0xE1,0xB8,0x64,0xA7 } }; // 711F3117-1AFD-4313-978C-9BB6E1B864A7
+    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IPackageManager6>{ 0x0847E909,0x53CD,0x4E4F,{ 0x83,0x2E,0x57,0xD1,0x80,0xF6,0xE4,0x47 } }; // 0847E909-53CD-4E4F-832E-57D180F6E447
+    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IPackageManager7>{ 0xF28654F4,0x2BA7,0x4B80,{ 0x88,0xD6,0xBE,0x15,0xF9,0xA2,0x3F,0xBA } }; // F28654F4-2BA7-4B80-88D6-BE15F9A23FBA
+    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IPackageManager8>{ 0xB8575330,0x1298,0x4EE2,{ 0x80,0xEE,0x7F,0x65,0x9C,0x5D,0x27,0x82 } }; // B8575330-1298-4EE2-80EE-7F659C5D2782
+    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IPackageManager9>{ 0x1AA79035,0xCC71,0x4B2E,{ 0x80,0xA6,0xC7,0x04,0x1D,0x85,0x79,0xA7 } }; // 1AA79035-CC71-4B2E-80A6-C7041D8579A7
+    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IPackageManagerDebugSettings>{ 0x1A611683,0xA988,0x4FCF,{ 0x8F,0x0F,0xCE,0x17,0x58,0x98,0xE8,0xEB } }; // 1A611683-A988-4FCF-8F0F-CE175898E8EB
+    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IPackageUserInformation>{ 0xF6383423,0xFA09,0x4CBC,{ 0x90,0x55,0x15,0xCA,0x27,0x5E,0x2E,0x7E } }; // F6383423-FA09-4CBC-9055-15CA275E2E7E
+    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IPackageVolume>{ 0xCF2672C3,0x1A40,0x4450,{ 0x97,0x39,0x2A,0xCE,0x2E,0x89,0x88,0x53 } }; // CF2672C3-1A40-4450-9739-2ACE2E898853
+    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IPackageVolume2>{ 0x46ABCF2E,0x9DD4,0x47A2,{ 0xAB,0x8C,0xC6,0x40,0x83,0x49,0xBC,0xD8 } }; // 46ABCF2E-9DD4-47A2-AB8C-C6408349BCD8
+    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IRegisterPackageOptions>{ 0x677112A7,0x50D4,0x496C,{ 0x84,0x15,0x06,0x02,0xB4,0xC6,0xD3,0xBF } }; // 677112A7-50D4-496C-8415-0602B4C6D3BF
+    template <> inline constexpr guid guid_v<Windows::Management::Deployment::IStagePackageOptions>{ 0x0B110C9C,0xB95D,0x4C56,{ 0xBD,0x36,0x6D,0x65,0x68,0x00,0xD0,0x6B } }; // 0B110C9C-B95D-4C56-BD36-6D656800D06B
     template <> struct default_interface<Windows::Management::Deployment::AddPackageOptions>{ using type = Windows::Management::Deployment::IAddPackageOptions; };
     template <> struct default_interface<Windows::Management::Deployment::DeploymentResult>{ using type = Windows::Management::Deployment::IDeploymentResult; };
     template <> struct default_interface<Windows::Management::Deployment::PackageManager>{ using type = Windows::Management::Deployment::IPackageManager; };

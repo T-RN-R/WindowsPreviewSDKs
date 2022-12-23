@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -307,49 +307,49 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::IUserCertificateEnrollmentManager> = L"Windows.Security.Cryptography.Certificates.IUserCertificateEnrollmentManager";
     template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::IUserCertificateEnrollmentManager2> = L"Windows.Security.Cryptography.Certificates.IUserCertificateEnrollmentManager2";
     template <> inline constexpr auto& name_v<Windows::Security::Cryptography::Certificates::IUserCertificateStore> = L"Windows.Security.Cryptography.Certificates.IUserCertificateStore";
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificate>{ 0x333F740C,0x04D8,0x43B3,{ 0xB2,0x78,0x8C,0x5F,0xCC,0x9B,0xE5,0xA0 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificate2>{ 0x17B8374C,0x8A25,0x4D96,{ 0xA4,0x92,0x8F,0xC2,0x9A,0xC4,0xFD,0xA6 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificate3>{ 0xBE51A966,0xAE5F,0x4652,{ 0xAC,0xE7,0xC6,0xD7,0xE7,0x72,0x4C,0xF3 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateChain>{ 0x20BF5385,0x3691,0x4501,{ 0xA6,0x2C,0xFD,0x97,0x27,0x8B,0x31,0xEE } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics>{ 0x8846EF3F,0xA986,0x48FB,{ 0x9F,0xD7,0x9A,0xEC,0x06,0x93,0x5B,0xF1 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics2>{ 0xDC5B1C33,0x6429,0x4014,{ 0x99,0x9C,0x5D,0x97,0x35,0x80,0x2D,0x1D } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics3>{ 0xFDEC82BE,0x617C,0x425A,{ 0xB7,0x2D,0x39,0x8B,0x26,0xAC,0x72,0x64 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateExtension>{ 0x84CF0656,0xA9E6,0x454D,{ 0x8E,0x45,0x2E,0xA7,0xC4,0xBC,0xD5,0x3B } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateFactory>{ 0x17B4221C,0x4BAF,0x44A2,{ 0x96,0x08,0x04,0xFB,0x62,0xB1,0x69,0x42 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateKeyUsages>{ 0x6AC6206F,0xE1CF,0x486A,{ 0xB4,0x85,0xA6,0x9C,0x83,0xE4,0x6F,0xD1 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateQuery>{ 0x5B082A31,0xA728,0x4916,{ 0xB5,0xEE,0xFF,0xCB,0x8A,0xCF,0x24,0x17 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateQuery2>{ 0x935A0AF7,0x0BD9,0x4F75,{ 0xB8,0xC2,0xE2,0x7A,0x7F,0x74,0xEE,0xCD } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateRequestProperties>{ 0x487E84F6,0x94E2,0x4DCE,{ 0x88,0x33,0x1A,0x70,0x0A,0x37,0xA2,0x9A } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateRequestProperties2>{ 0x3DA0C954,0xD73F,0x4FF3,{ 0xA0,0xA6,0x06,0x77,0xC0,0xAD,0xA0,0x5B } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateRequestProperties3>{ 0xE687F616,0x734D,0x46B1,{ 0x9D,0x4C,0x6E,0xDF,0xDB,0xFC,0x84,0x5B } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateRequestProperties4>{ 0x4E429AD2,0x1C61,0x4FEA,{ 0xB8,0xFE,0x13,0x5F,0xB1,0x9C,0xDC,0xE4 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateStore>{ 0xB0BFF720,0x344E,0x4331,{ 0xAF,0x14,0xA7,0xF7,0xA7,0xEB,0xC9,0x3A } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateStore2>{ 0xC7E68E4A,0x417D,0x4D1A,{ 0xBA,0xBD,0x15,0x68,0x7E,0x54,0x99,0x74 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateStoresStatics>{ 0xFBECC739,0xC6FE,0x4DE7,{ 0x99,0xCF,0x74,0xC3,0xE5,0x96,0xE0,0x32 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateStoresStatics2>{ 0xFA900B79,0xA0D4,0x4B8C,{ 0xBC,0x55,0xC0,0xA3,0x7E,0xB1,0x41,0xED } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IChainBuildingParameters>{ 0x422BA922,0x7C8D,0x47B7,{ 0xB5,0x9B,0xB1,0x27,0x03,0x73,0x3A,0xC3 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IChainValidationParameters>{ 0xC4743B4A,0x7EB0,0x4B56,{ 0xA0,0x40,0xB9,0xC8,0xE6,0x55,0xDD,0xF3 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICmsAttachedSignature>{ 0x61899D9D,0x3757,0x4ECB,{ 0xBD,0xDC,0x0C,0xA3,0x57,0xD7,0xA9,0x36 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICmsAttachedSignatureFactory>{ 0xD0C8FC15,0xF757,0x4C64,{ 0xA3,0x62,0x52,0xCC,0x1C,0x77,0xCF,0xFB } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICmsAttachedSignatureStatics>{ 0x87989C8E,0xB0AD,0x498D,{ 0xA7,0xF5,0x78,0xB5,0x9B,0xCE,0x4B,0x36 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICmsDetachedSignature>{ 0x0F1EF154,0xF65E,0x4536,{ 0x83,0x39,0x59,0x44,0x08,0x1D,0xB2,0xCA } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICmsDetachedSignatureFactory>{ 0xC4AB3503,0xAE7F,0x4387,{ 0xAD,0x19,0x00,0xF1,0x50,0xE4,0x8E,0xBB } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICmsDetachedSignatureStatics>{ 0x3D114CFD,0xBF9B,0x4682,{ 0x9B,0xE6,0x91,0xF5,0x7C,0x05,0x38,0x08 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICmsSignerInfo>{ 0x50D020DB,0x1D2F,0x4C1A,{ 0xB5,0xC5,0xD0,0x18,0x8F,0xF9,0x1F,0x47 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICmsTimestampInfo>{ 0x2F5F00F2,0x2C18,0x4F88,{ 0x84,0x35,0xC5,0x34,0x08,0x60,0x76,0xF5 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IKeyAlgorithmNamesStatics>{ 0x479065D7,0x7AC7,0x4581,{ 0x8C,0x3B,0xD0,0x70,0x27,0x14,0x04,0x48 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IKeyAlgorithmNamesStatics2>{ 0xC99B5686,0xE1FD,0x4A4A,{ 0x89,0x3D,0xA2,0x6F,0x33,0xDD,0x8B,0xB4 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IKeyAttestationHelperStatics>{ 0x1648E246,0xF644,0x4326,{ 0x88,0xBE,0x3A,0xF1,0x02,0xD3,0x0E,0x0C } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IKeyAttestationHelperStatics2>{ 0x9C590B2C,0xA6C6,0x4A5E,{ 0x9E,0x64,0xE8,0x5D,0x52,0x79,0xDF,0x97 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IKeyStorageProviderNamesStatics>{ 0xAF186AE0,0x5529,0x4602,{ 0xBD,0x94,0x0A,0xAB,0x91,0x95,0x7B,0x5C } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IKeyStorageProviderNamesStatics2>{ 0x262D743D,0x9C2E,0x41CC,{ 0x88,0x12,0xC4,0xD9,0x71,0xDD,0x7C,0x60 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IPfxImportParameters>{ 0x680D3511,0x9A08,0x47C8,{ 0x86,0x4A,0x2E,0xDD,0x4D,0x8E,0xB4,0x6C } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IStandardCertificateStoreNamesStatics>{ 0x0C154ADB,0xA496,0x41F8,{ 0x8F,0xE5,0x9E,0x96,0xF3,0x6E,0xFB,0xF8 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ISubjectAlternativeNameInfo>{ 0x582859F1,0x569D,0x4C20,{ 0xBE,0x7B,0x4E,0x1C,0x9A,0x0B,0xC5,0x2B } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ISubjectAlternativeNameInfo2>{ 0x437A78C6,0x1C51,0x41EA,{ 0xB3,0x4A,0x3D,0x65,0x43,0x98,0xA3,0x70 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IUserCertificateEnrollmentManager>{ 0x96313718,0x22E1,0x4819,{ 0xB2,0x0B,0xAB,0x46,0xA6,0xEC,0xA0,0x6E } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IUserCertificateEnrollmentManager2>{ 0x0DAD9CB1,0x65DE,0x492A,{ 0xB8,0x6D,0xFC,0x5C,0x48,0x2C,0x37,0x47 } };
-    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IUserCertificateStore>{ 0xC9FB1D83,0x789F,0x4B4E,{ 0x91,0x80,0x04,0x5A,0x75,0x7A,0xAC,0x6D } };
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificate>{ 0x333F740C,0x04D8,0x43B3,{ 0xB2,0x78,0x8C,0x5F,0xCC,0x9B,0xE5,0xA0 } }; // 333F740C-04D8-43B3-B278-8C5FCC9BE5A0
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificate2>{ 0x17B8374C,0x8A25,0x4D96,{ 0xA4,0x92,0x8F,0xC2,0x9A,0xC4,0xFD,0xA6 } }; // 17B8374C-8A25-4D96-A492-8FC29AC4FDA6
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificate3>{ 0xBE51A966,0xAE5F,0x4652,{ 0xAC,0xE7,0xC6,0xD7,0xE7,0x72,0x4C,0xF3 } }; // BE51A966-AE5F-4652-ACE7-C6D7E7724CF3
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateChain>{ 0x20BF5385,0x3691,0x4501,{ 0xA6,0x2C,0xFD,0x97,0x27,0x8B,0x31,0xEE } }; // 20BF5385-3691-4501-A62C-FD97278B31EE
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics>{ 0x8846EF3F,0xA986,0x48FB,{ 0x9F,0xD7,0x9A,0xEC,0x06,0x93,0x5B,0xF1 } }; // 8846EF3F-A986-48FB-9FD7-9AEC06935BF1
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics2>{ 0xDC5B1C33,0x6429,0x4014,{ 0x99,0x9C,0x5D,0x97,0x35,0x80,0x2D,0x1D } }; // DC5B1C33-6429-4014-999C-5D9735802D1D
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateEnrollmentManagerStatics3>{ 0xFDEC82BE,0x617C,0x425A,{ 0xB7,0x2D,0x39,0x8B,0x26,0xAC,0x72,0x64 } }; // FDEC82BE-617C-425A-B72D-398B26AC7264
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateExtension>{ 0x84CF0656,0xA9E6,0x454D,{ 0x8E,0x45,0x2E,0xA7,0xC4,0xBC,0xD5,0x3B } }; // 84CF0656-A9E6-454D-8E45-2EA7C4BCD53B
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateFactory>{ 0x17B4221C,0x4BAF,0x44A2,{ 0x96,0x08,0x04,0xFB,0x62,0xB1,0x69,0x42 } }; // 17B4221C-4BAF-44A2-9608-04FB62B16942
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateKeyUsages>{ 0x6AC6206F,0xE1CF,0x486A,{ 0xB4,0x85,0xA6,0x9C,0x83,0xE4,0x6F,0xD1 } }; // 6AC6206F-E1CF-486A-B485-A69C83E46FD1
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateQuery>{ 0x5B082A31,0xA728,0x4916,{ 0xB5,0xEE,0xFF,0xCB,0x8A,0xCF,0x24,0x17 } }; // 5B082A31-A728-4916-B5EE-FFCB8ACF2417
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateQuery2>{ 0x935A0AF7,0x0BD9,0x4F75,{ 0xB8,0xC2,0xE2,0x7A,0x7F,0x74,0xEE,0xCD } }; // 935A0AF7-0BD9-4F75-B8C2-E27A7F74EECD
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateRequestProperties>{ 0x487E84F6,0x94E2,0x4DCE,{ 0x88,0x33,0x1A,0x70,0x0A,0x37,0xA2,0x9A } }; // 487E84F6-94E2-4DCE-8833-1A700A37A29A
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateRequestProperties2>{ 0x3DA0C954,0xD73F,0x4FF3,{ 0xA0,0xA6,0x06,0x77,0xC0,0xAD,0xA0,0x5B } }; // 3DA0C954-D73F-4FF3-A0A6-0677C0ADA05B
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateRequestProperties3>{ 0xE687F616,0x734D,0x46B1,{ 0x9D,0x4C,0x6E,0xDF,0xDB,0xFC,0x84,0x5B } }; // E687F616-734D-46B1-9D4C-6EDFDBFC845B
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateRequestProperties4>{ 0x4E429AD2,0x1C61,0x4FEA,{ 0xB8,0xFE,0x13,0x5F,0xB1,0x9C,0xDC,0xE4 } }; // 4E429AD2-1C61-4FEA-B8FE-135FB19CDCE4
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateStore>{ 0xB0BFF720,0x344E,0x4331,{ 0xAF,0x14,0xA7,0xF7,0xA7,0xEB,0xC9,0x3A } }; // B0BFF720-344E-4331-AF14-A7F7A7EBC93A
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateStore2>{ 0xC7E68E4A,0x417D,0x4D1A,{ 0xBA,0xBD,0x15,0x68,0x7E,0x54,0x99,0x74 } }; // C7E68E4A-417D-4D1A-BABD-15687E549974
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateStoresStatics>{ 0xFBECC739,0xC6FE,0x4DE7,{ 0x99,0xCF,0x74,0xC3,0xE5,0x96,0xE0,0x32 } }; // FBECC739-C6FE-4DE7-99CF-74C3E596E032
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICertificateStoresStatics2>{ 0xFA900B79,0xA0D4,0x4B8C,{ 0xBC,0x55,0xC0,0xA3,0x7E,0xB1,0x41,0xED } }; // FA900B79-A0D4-4B8C-BC55-C0A37EB141ED
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IChainBuildingParameters>{ 0x422BA922,0x7C8D,0x47B7,{ 0xB5,0x9B,0xB1,0x27,0x03,0x73,0x3A,0xC3 } }; // 422BA922-7C8D-47B7-B59B-B12703733AC3
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IChainValidationParameters>{ 0xC4743B4A,0x7EB0,0x4B56,{ 0xA0,0x40,0xB9,0xC8,0xE6,0x55,0xDD,0xF3 } }; // C4743B4A-7EB0-4B56-A040-B9C8E655DDF3
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICmsAttachedSignature>{ 0x61899D9D,0x3757,0x4ECB,{ 0xBD,0xDC,0x0C,0xA3,0x57,0xD7,0xA9,0x36 } }; // 61899D9D-3757-4ECB-BDDC-0CA357D7A936
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICmsAttachedSignatureFactory>{ 0xD0C8FC15,0xF757,0x4C64,{ 0xA3,0x62,0x52,0xCC,0x1C,0x77,0xCF,0xFB } }; // D0C8FC15-F757-4C64-A362-52CC1C77CFFB
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICmsAttachedSignatureStatics>{ 0x87989C8E,0xB0AD,0x498D,{ 0xA7,0xF5,0x78,0xB5,0x9B,0xCE,0x4B,0x36 } }; // 87989C8E-B0AD-498D-A7F5-78B59BCE4B36
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICmsDetachedSignature>{ 0x0F1EF154,0xF65E,0x4536,{ 0x83,0x39,0x59,0x44,0x08,0x1D,0xB2,0xCA } }; // 0F1EF154-F65E-4536-8339-5944081DB2CA
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICmsDetachedSignatureFactory>{ 0xC4AB3503,0xAE7F,0x4387,{ 0xAD,0x19,0x00,0xF1,0x50,0xE4,0x8E,0xBB } }; // C4AB3503-AE7F-4387-AD19-00F150E48EBB
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICmsDetachedSignatureStatics>{ 0x3D114CFD,0xBF9B,0x4682,{ 0x9B,0xE6,0x91,0xF5,0x7C,0x05,0x38,0x08 } }; // 3D114CFD-BF9B-4682-9BE6-91F57C053808
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICmsSignerInfo>{ 0x50D020DB,0x1D2F,0x4C1A,{ 0xB5,0xC5,0xD0,0x18,0x8F,0xF9,0x1F,0x47 } }; // 50D020DB-1D2F-4C1A-B5C5-D0188FF91F47
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ICmsTimestampInfo>{ 0x2F5F00F2,0x2C18,0x4F88,{ 0x84,0x35,0xC5,0x34,0x08,0x60,0x76,0xF5 } }; // 2F5F00F2-2C18-4F88-8435-C534086076F5
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IKeyAlgorithmNamesStatics>{ 0x479065D7,0x7AC7,0x4581,{ 0x8C,0x3B,0xD0,0x70,0x27,0x14,0x04,0x48 } }; // 479065D7-7AC7-4581-8C3B-D07027140448
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IKeyAlgorithmNamesStatics2>{ 0xC99B5686,0xE1FD,0x4A4A,{ 0x89,0x3D,0xA2,0x6F,0x33,0xDD,0x8B,0xB4 } }; // C99B5686-E1FD-4A4A-893D-A26F33DD8BB4
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IKeyAttestationHelperStatics>{ 0x1648E246,0xF644,0x4326,{ 0x88,0xBE,0x3A,0xF1,0x02,0xD3,0x0E,0x0C } }; // 1648E246-F644-4326-88BE-3AF102D30E0C
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IKeyAttestationHelperStatics2>{ 0x9C590B2C,0xA6C6,0x4A5E,{ 0x9E,0x64,0xE8,0x5D,0x52,0x79,0xDF,0x97 } }; // 9C590B2C-A6C6-4A5E-9E64-E85D5279DF97
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IKeyStorageProviderNamesStatics>{ 0xAF186AE0,0x5529,0x4602,{ 0xBD,0x94,0x0A,0xAB,0x91,0x95,0x7B,0x5C } }; // AF186AE0-5529-4602-BD94-0AAB91957B5C
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IKeyStorageProviderNamesStatics2>{ 0x262D743D,0x9C2E,0x41CC,{ 0x88,0x12,0xC4,0xD9,0x71,0xDD,0x7C,0x60 } }; // 262D743D-9C2E-41CC-8812-C4D971DD7C60
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IPfxImportParameters>{ 0x680D3511,0x9A08,0x47C8,{ 0x86,0x4A,0x2E,0xDD,0x4D,0x8E,0xB4,0x6C } }; // 680D3511-9A08-47C8-864A-2EDD4D8EB46C
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IStandardCertificateStoreNamesStatics>{ 0x0C154ADB,0xA496,0x41F8,{ 0x8F,0xE5,0x9E,0x96,0xF3,0x6E,0xFB,0xF8 } }; // 0C154ADB-A496-41F8-8FE5-9E96F36EFBF8
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ISubjectAlternativeNameInfo>{ 0x582859F1,0x569D,0x4C20,{ 0xBE,0x7B,0x4E,0x1C,0x9A,0x0B,0xC5,0x2B } }; // 582859F1-569D-4C20-BE7B-4E1C9A0BC52B
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::ISubjectAlternativeNameInfo2>{ 0x437A78C6,0x1C51,0x41EA,{ 0xB3,0x4A,0x3D,0x65,0x43,0x98,0xA3,0x70 } }; // 437A78C6-1C51-41EA-B34A-3D654398A370
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IUserCertificateEnrollmentManager>{ 0x96313718,0x22E1,0x4819,{ 0xB2,0x0B,0xAB,0x46,0xA6,0xEC,0xA0,0x6E } }; // 96313718-22E1-4819-B20B-AB46A6ECA06E
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IUserCertificateEnrollmentManager2>{ 0x0DAD9CB1,0x65DE,0x492A,{ 0xB8,0x6D,0xFC,0x5C,0x48,0x2C,0x37,0x47 } }; // 0DAD9CB1-65DE-492A-B86D-FC5C482C3747
+    template <> inline constexpr guid guid_v<Windows::Security::Cryptography::Certificates::IUserCertificateStore>{ 0xC9FB1D83,0x789F,0x4B4E,{ 0x91,0x80,0x04,0x5A,0x75,0x7A,0xAC,0x6D } }; // C9FB1D83-789F-4B4E-9180-045A757AAC6D
     template <> struct default_interface<Windows::Security::Cryptography::Certificates::Certificate>{ using type = Windows::Security::Cryptography::Certificates::ICertificate; };
     template <> struct default_interface<Windows::Security::Cryptography::Certificates::CertificateChain>{ using type = Windows::Security::Cryptography::Certificates::ICertificateChain; };
     template <> struct default_interface<Windows::Security::Cryptography::Certificates::CertificateExtension>{ using type = Windows::Security::Cryptography::Certificates::ICertificateExtension; };

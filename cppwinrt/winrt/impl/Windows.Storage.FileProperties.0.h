@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -149,15 +149,15 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::IStorageItemExtraProperties> = L"Windows.Storage.FileProperties.IStorageItemExtraProperties";
     template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::IThumbnailProperties> = L"Windows.Storage.FileProperties.IThumbnailProperties";
     template <> inline constexpr auto& name_v<Windows::Storage::FileProperties::IVideoProperties> = L"Windows.Storage.FileProperties.IVideoProperties";
-    template <> inline constexpr guid guid_v<Windows::Storage::FileProperties::IBasicProperties>{ 0xD05D55DB,0x785E,0x4A66,{ 0xBE,0x02,0x9B,0xEE,0xC5,0x8A,0xEA,0x81 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::FileProperties::IDocumentProperties>{ 0x7EAB19BC,0x1821,0x4923,{ 0xB4,0xA9,0x0A,0xEA,0x40,0x4D,0x00,0x70 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::FileProperties::IGeotagHelperStatics>{ 0x41493244,0x2524,0x4655,{ 0x86,0xA6,0xED,0x16,0xF5,0xFC,0x71,0x6B } };
-    template <> inline constexpr guid guid_v<Windows::Storage::FileProperties::IImageProperties>{ 0x523C9424,0xFCFF,0x4275,{ 0xAF,0xEE,0xEC,0xDB,0x9A,0xB4,0x79,0x73 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::FileProperties::IMusicProperties>{ 0xBC8AAB62,0x66EC,0x419A,{ 0xBC,0x5D,0xCA,0x65,0xA4,0xCB,0x46,0xDA } };
-    template <> inline constexpr guid guid_v<Windows::Storage::FileProperties::IStorageItemContentProperties>{ 0x05294BAD,0xBC38,0x48BF,{ 0x85,0xD7,0x77,0x0E,0x0E,0x2A,0xE0,0xBA } };
-    template <> inline constexpr guid guid_v<Windows::Storage::FileProperties::IStorageItemExtraProperties>{ 0xC54361B2,0x54CD,0x432B,{ 0xBD,0xBC,0x4B,0x19,0xC4,0xB4,0x70,0xD7 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::FileProperties::IThumbnailProperties>{ 0x693DD42F,0xDBE7,0x49B5,{ 0xB3,0xB3,0x28,0x93,0xAC,0x5D,0x34,0x23 } };
-    template <> inline constexpr guid guid_v<Windows::Storage::FileProperties::IVideoProperties>{ 0x719AE507,0x68DE,0x4DB8,{ 0x97,0xDE,0x49,0x99,0x8C,0x05,0x9F,0x2F } };
+    template <> inline constexpr guid guid_v<Windows::Storage::FileProperties::IBasicProperties>{ 0xD05D55DB,0x785E,0x4A66,{ 0xBE,0x02,0x9B,0xEE,0xC5,0x8A,0xEA,0x81 } }; // D05D55DB-785E-4A66-BE02-9BEEC58AEA81
+    template <> inline constexpr guid guid_v<Windows::Storage::FileProperties::IDocumentProperties>{ 0x7EAB19BC,0x1821,0x4923,{ 0xB4,0xA9,0x0A,0xEA,0x40,0x4D,0x00,0x70 } }; // 7EAB19BC-1821-4923-B4A9-0AEA404D0070
+    template <> inline constexpr guid guid_v<Windows::Storage::FileProperties::IGeotagHelperStatics>{ 0x41493244,0x2524,0x4655,{ 0x86,0xA6,0xED,0x16,0xF5,0xFC,0x71,0x6B } }; // 41493244-2524-4655-86A6-ED16F5FC716B
+    template <> inline constexpr guid guid_v<Windows::Storage::FileProperties::IImageProperties>{ 0x523C9424,0xFCFF,0x4275,{ 0xAF,0xEE,0xEC,0xDB,0x9A,0xB4,0x79,0x73 } }; // 523C9424-FCFF-4275-AFEE-ECDB9AB47973
+    template <> inline constexpr guid guid_v<Windows::Storage::FileProperties::IMusicProperties>{ 0xBC8AAB62,0x66EC,0x419A,{ 0xBC,0x5D,0xCA,0x65,0xA4,0xCB,0x46,0xDA } }; // BC8AAB62-66EC-419A-BC5D-CA65A4CB46DA
+    template <> inline constexpr guid guid_v<Windows::Storage::FileProperties::IStorageItemContentProperties>{ 0x05294BAD,0xBC38,0x48BF,{ 0x85,0xD7,0x77,0x0E,0x0E,0x2A,0xE0,0xBA } }; // 05294BAD-BC38-48BF-85D7-770E0E2AE0BA
+    template <> inline constexpr guid guid_v<Windows::Storage::FileProperties::IStorageItemExtraProperties>{ 0xC54361B2,0x54CD,0x432B,{ 0xBD,0xBC,0x4B,0x19,0xC4,0xB4,0x70,0xD7 } }; // C54361B2-54CD-432B-BDBC-4B19C4B470D7
+    template <> inline constexpr guid guid_v<Windows::Storage::FileProperties::IThumbnailProperties>{ 0x693DD42F,0xDBE7,0x49B5,{ 0xB3,0xB3,0x28,0x93,0xAC,0x5D,0x34,0x23 } }; // 693DD42F-DBE7-49B5-B3B3-2893AC5D3423
+    template <> inline constexpr guid guid_v<Windows::Storage::FileProperties::IVideoProperties>{ 0x719AE507,0x68DE,0x4DB8,{ 0x97,0xDE,0x49,0x99,0x8C,0x05,0x9F,0x2F } }; // 719AE507-68DE-4DB8-97DE-49998C059F2F
     template <> struct default_interface<Windows::Storage::FileProperties::BasicProperties>{ using type = Windows::Storage::FileProperties::IBasicProperties; };
     template <> struct default_interface<Windows::Storage::FileProperties::DocumentProperties>{ using type = Windows::Storage::FileProperties::IDocumentProperties; };
     template <> struct default_interface<Windows::Storage::FileProperties::ImageProperties>{ using type = Windows::Storage::FileProperties::IImageProperties; };

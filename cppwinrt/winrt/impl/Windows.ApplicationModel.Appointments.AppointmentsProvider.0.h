@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -45,11 +45,11 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentsProvider::IAppointmentsProviderLaunchActionVerbsStatics2> = L"Windows.ApplicationModel.Appointments.AppointmentsProvider.IAppointmentsProviderLaunchActionVerbsStatics2";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentsProvider::IRemoveAppointmentOperation> = L"Windows.ApplicationModel.Appointments.AppointmentsProvider.IRemoveAppointmentOperation";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentsProvider::IReplaceAppointmentOperation> = L"Windows.ApplicationModel.Appointments.AppointmentsProvider.IReplaceAppointmentOperation";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::AppointmentsProvider::IAddAppointmentOperation>{ 0xEC4A9AF3,0x620D,0x4C69,{ 0xAD,0xD7,0x97,0x94,0xE9,0x18,0x08,0x1F } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::AppointmentsProvider::IAppointmentsProviderLaunchActionVerbsStatics>{ 0x36DBBA28,0x9E2E,0x49C6,{ 0x8E,0xF7,0x3A,0xB7,0xA5,0xDC,0xC8,0xB8 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::AppointmentsProvider::IAppointmentsProviderLaunchActionVerbsStatics2>{ 0xEF9049A4,0xAF21,0x473C,{ 0x88,0xDC,0x76,0xCD,0x89,0xF6,0x0C,0xA5 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::AppointmentsProvider::IRemoveAppointmentOperation>{ 0x08B66ABA,0xFE33,0x46CD,{ 0xA5,0x0C,0xA8,0xFF,0xB3,0x26,0x05,0x37 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::AppointmentsProvider::IReplaceAppointmentOperation>{ 0xF4903D9B,0x9E61,0x4DE2,{ 0xA7,0x32,0x26,0x87,0xC0,0x7D,0x1D,0xE8 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::AppointmentsProvider::IAddAppointmentOperation>{ 0xEC4A9AF3,0x620D,0x4C69,{ 0xAD,0xD7,0x97,0x94,0xE9,0x18,0x08,0x1F } }; // EC4A9AF3-620D-4C69-ADD7-9794E918081F
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::AppointmentsProvider::IAppointmentsProviderLaunchActionVerbsStatics>{ 0x36DBBA28,0x9E2E,0x49C6,{ 0x8E,0xF7,0x3A,0xB7,0xA5,0xDC,0xC8,0xB8 } }; // 36DBBA28-9E2E-49C6-8EF7-3AB7A5DCC8B8
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::AppointmentsProvider::IAppointmentsProviderLaunchActionVerbsStatics2>{ 0xEF9049A4,0xAF21,0x473C,{ 0x88,0xDC,0x76,0xCD,0x89,0xF6,0x0C,0xA5 } }; // EF9049A4-AF21-473C-88DC-76CD89F60CA5
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::AppointmentsProvider::IRemoveAppointmentOperation>{ 0x08B66ABA,0xFE33,0x46CD,{ 0xA5,0x0C,0xA8,0xFF,0xB3,0x26,0x05,0x37 } }; // 08B66ABA-FE33-46CD-A50C-A8FFB3260537
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::AppointmentsProvider::IReplaceAppointmentOperation>{ 0xF4903D9B,0x9E61,0x4DE2,{ 0xA7,0x32,0x26,0x87,0xC0,0x7D,0x1D,0xE8 } }; // F4903D9B-9E61-4DE2-A732-2687C07D1DE8
     template <> struct default_interface<Windows::ApplicationModel::Appointments::AppointmentsProvider::AddAppointmentOperation>{ using type = Windows::ApplicationModel::Appointments::AppointmentsProvider::IAddAppointmentOperation; };
     template <> struct default_interface<Windows::ApplicationModel::Appointments::AppointmentsProvider::RemoveAppointmentOperation>{ using type = Windows::ApplicationModel::Appointments::AppointmentsProvider::IRemoveAppointmentOperation; };
     template <> struct default_interface<Windows::ApplicationModel::Appointments::AppointmentsProvider::ReplaceAppointmentOperation>{ using type = Windows::ApplicationModel::Appointments::AppointmentsProvider::IReplaceAppointmentOperation; };

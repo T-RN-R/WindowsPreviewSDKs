@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -27,8 +27,8 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Preview::InkWorkspace::InkWorkspaceHostedAppManager> = L"Windows.ApplicationModel.Preview.InkWorkspace.InkWorkspaceHostedAppManager";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Preview::InkWorkspace::IInkWorkspaceHostedAppManager> = L"Windows.ApplicationModel.Preview.InkWorkspace.IInkWorkspaceHostedAppManager";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::Preview::InkWorkspace::IInkWorkspaceHostedAppManagerStatics> = L"Windows.ApplicationModel.Preview.InkWorkspace.IInkWorkspaceHostedAppManagerStatics";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Preview::InkWorkspace::IInkWorkspaceHostedAppManager>{ 0xFE0A7990,0x5E59,0x4BB7,{ 0x8A,0x63,0x7D,0x21,0x8C,0xD9,0x63,0x00 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Preview::InkWorkspace::IInkWorkspaceHostedAppManagerStatics>{ 0xCBFD8CC5,0xA162,0x4BC4,{ 0x84,0xEE,0xE8,0x71,0x6D,0x52,0x33,0xC5 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Preview::InkWorkspace::IInkWorkspaceHostedAppManager>{ 0xFE0A7990,0x5E59,0x4BB7,{ 0x8A,0x63,0x7D,0x21,0x8C,0xD9,0x63,0x00 } }; // FE0A7990-5E59-4BB7-8A63-7D218CD96300
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::Preview::InkWorkspace::IInkWorkspaceHostedAppManagerStatics>{ 0xCBFD8CC5,0xA162,0x4BC4,{ 0x84,0xEE,0xE8,0x71,0x6D,0x52,0x33,0xC5 } }; // CBFD8CC5-A162-4BC4-84EE-E8716D5233C5
     template <> struct default_interface<Windows::ApplicationModel::Preview::InkWorkspace::InkWorkspaceHostedAppManager>{ using type = Windows::ApplicationModel::Preview::InkWorkspace::IInkWorkspaceHostedAppManager; };
     template <> struct abi<Windows::ApplicationModel::Preview::InkWorkspace::IInkWorkspaceHostedAppManager>
     {

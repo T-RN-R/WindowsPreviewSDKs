@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -43,7 +43,7 @@ WINRT_EXPORT namespace winrt::Windows::Storage
         static auto GetDefault();
     };
     struct __declspec(empty_bases) ApplicationData : Windows::Storage::IApplicationData,
-        impl::require<ApplicationData, Windows::Storage::IApplicationData2, Windows::Storage::IApplicationData3>
+        impl::require<ApplicationData, Windows::Storage::IApplicationData2, Windows::Storage::IApplicationData3, Windows::Foundation::IClosable>
     {
         ApplicationData(std::nullptr_t) noexcept {}
         ApplicationData(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Storage::IApplicationData(ptr, take_ownership_from_abi) {}
@@ -56,7 +56,8 @@ WINRT_EXPORT namespace winrt::Windows::Storage
         ApplicationDataCompositeValue(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::Collections::IPropertySet(ptr, take_ownership_from_abi) {}
         ApplicationDataCompositeValue();
     };
-    struct __declspec(empty_bases) ApplicationDataContainer : Windows::Storage::IApplicationDataContainer
+    struct __declspec(empty_bases) ApplicationDataContainer : Windows::Storage::IApplicationDataContainer,
+        impl::require<ApplicationDataContainer, Windows::Foundation::IClosable>
     {
         ApplicationDataContainer(std::nullptr_t) noexcept {}
         ApplicationDataContainer(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Storage::IApplicationDataContainer(ptr, take_ownership_from_abi) {}

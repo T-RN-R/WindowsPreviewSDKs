@@ -1793,6 +1793,7 @@ enum CLCTL_CODES
         CLCTL_STORAGE_RENAME_SHARED_VOLUME_GUID	= ( ( ( 0x2 << 0 )  | ( ( 0 + 2934 )  << 2 )  )  | ( 0 << 22 )  ) ,
         CLCTL_ENUM_AFFINITY_RULE_NAMES	= ( ( ( 0x1 << 0 )  | ( ( 0 + 2935 )  << 2 )  )  | ( 0 << 22 )  ) ,
         CLCTL_GET_NODES_IN_FD	= ( ( ( 0x1 << 0 )  | ( ( 0 + 2936 )  << 2 )  )  | ( 0 << 22 )  ) ,
+        CLCTL_FORCE_DB_FLUSH	= ( ( ( 0x2 << 0 )  | ( ( 0 + 2937 )  << 2 )  )  | ( 0x1 << 22 )  ) ,
         CLCTL_DELETE	= ( ( ( ( 0x2 << 0 )  | ( 1 << 20 )  )  | ( ( 0 + 1 )  << 2 )  )  | ( 0x1 << 22 )  ) ,
         CLCTL_INSTALL_NODE	= ( ( ( ( 0x2 << 0 )  | ( 1 << 20 )  )  | ( ( 0 + 2 )  << 2 )  )  | ( 0x1 << 22 )  ) ,
         CLCTL_EVICT_NODE	= ( ( ( ( 0x2 << 0 )  | ( 1 << 20 )  )  | ( ( 0 + 3 )  << 2 )  )  | ( 0x1 << 22 )  ) ,
@@ -2152,7 +2153,8 @@ enum CLUSCTL_CLUSTER_CODES
         CLUSCTL_CLUSTER_STORAGE_RENAME_SHARED_VOLUME_GUID	= ( ( CLUS_OBJECT_CLUSTER << 24 )  | CLCTL_STORAGE_RENAME_SHARED_VOLUME_GUID ) ,
         CLUSCTL_CLUSTER_RELOAD_AUTOLOGGER_CONFIG	= ( ( CLUS_OBJECT_CLUSTER << 24 )  | CLCTL_RELOAD_AUTOLOGGER_CONFIG ) ,
         CLUSCTL_CLUSTER_ENUM_AFFINITY_RULE_NAMES	= ( ( CLUS_OBJECT_CLUSTER << 24 )  | CLCTL_ENUM_AFFINITY_RULE_NAMES ) ,
-        CLUSCTL_CLUSTER_GET_NODES_IN_FD	= ( ( CLUS_OBJECT_CLUSTER << 24 )  | CLCTL_GET_NODES_IN_FD ) 
+        CLUSCTL_CLUSTER_GET_NODES_IN_FD	= ( ( CLUS_OBJECT_CLUSTER << 24 )  | CLCTL_GET_NODES_IN_FD ) ,
+        CLUSCTL_CLUSTER_FORCE_FLUSH_DB	= ( ( CLUS_OBJECT_CLUSTER << 24 )  | CLCTL_FORCE_DB_FLUSH ) 
     } 	CLUSCTL_CLUSTER_CODES;
 
 typedef 

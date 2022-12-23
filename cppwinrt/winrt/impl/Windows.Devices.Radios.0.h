@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -57,8 +57,8 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Devices::Radios::RadioState> = L"Windows.Devices.Radios.RadioState";
     template <> inline constexpr auto& name_v<Windows::Devices::Radios::IRadio> = L"Windows.Devices.Radios.IRadio";
     template <> inline constexpr auto& name_v<Windows::Devices::Radios::IRadioStatics> = L"Windows.Devices.Radios.IRadioStatics";
-    template <> inline constexpr guid guid_v<Windows::Devices::Radios::IRadio>{ 0x252118DF,0xB33E,0x416A,{ 0x87,0x5F,0x1C,0xF3,0x8A,0xE2,0xD8,0x3E } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Radios::IRadioStatics>{ 0x5FB6A12E,0x67CB,0x46AE,{ 0xAA,0xE9,0x65,0x91,0x9F,0x86,0xEF,0xF4 } };
+    template <> inline constexpr guid guid_v<Windows::Devices::Radios::IRadio>{ 0x252118DF,0xB33E,0x416A,{ 0x87,0x5F,0x1C,0xF3,0x8A,0xE2,0xD8,0x3E } }; // 252118DF-B33E-416A-875F-1CF38AE2D83E
+    template <> inline constexpr guid guid_v<Windows::Devices::Radios::IRadioStatics>{ 0x5FB6A12E,0x67CB,0x46AE,{ 0xAA,0xE9,0x65,0x91,0x9F,0x86,0xEF,0xF4 } }; // 5FB6A12E-67CB-46AE-AAE9-65919F86EFF4
     template <> struct default_interface<Windows::Devices::Radios::Radio>{ using type = Windows::Devices::Radios::IRadio; };
     template <> struct abi<Windows::Devices::Radios::IRadio>
     {

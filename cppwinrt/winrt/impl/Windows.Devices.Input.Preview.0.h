@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -102,17 +102,17 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Devices::Input::Preview::IGazeInputSourcePreviewStatics> = L"Windows.Devices.Input.Preview.IGazeInputSourcePreviewStatics";
     template <> inline constexpr auto& name_v<Windows::Devices::Input::Preview::IGazeMovedPreviewEventArgs> = L"Windows.Devices.Input.Preview.IGazeMovedPreviewEventArgs";
     template <> inline constexpr auto& name_v<Windows::Devices::Input::Preview::IGazePointPreview> = L"Windows.Devices.Input.Preview.IGazePointPreview";
-    template <> inline constexpr guid guid_v<Windows::Devices::Input::Preview::IGazeDevicePreview>{ 0xE79E7EE9,0xB389,0x11E7,{ 0xB2,0x01,0xC8,0xD3,0xFF,0xB7,0x57,0x21 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Input::Preview::IGazeDeviceWatcherAddedPreviewEventArgs>{ 0xE79E7EED,0xB389,0x11E7,{ 0xB2,0x01,0xC8,0xD3,0xFF,0xB7,0x57,0x21 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Input::Preview::IGazeDeviceWatcherPreview>{ 0xE79E7EE7,0xB389,0x11E7,{ 0xB2,0x01,0xC8,0xD3,0xFF,0xB7,0x57,0x21 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Input::Preview::IGazeDeviceWatcherRemovedPreviewEventArgs>{ 0xF2631F08,0x0E3F,0x431F,{ 0xA6,0x06,0x50,0xB3,0x5A,0xF9,0x4A,0x1C } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Input::Preview::IGazeDeviceWatcherUpdatedPreviewEventArgs>{ 0x7FE830EF,0x7F08,0x4737,{ 0x88,0xE1,0x4A,0x83,0xAE,0x4E,0x48,0x85 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Input::Preview::IGazeEnteredPreviewEventArgs>{ 0x2567BF43,0x1225,0x489F,{ 0x9D,0xD1,0xDA,0xA7,0xC5,0x0F,0xBF,0x4B } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Input::Preview::IGazeExitedPreviewEventArgs>{ 0x5D0AF07E,0x7D83,0x40EF,{ 0x9F,0x0A,0xFB,0xC1,0xBB,0xDC,0xC5,0xAC } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Input::Preview::IGazeInputSourcePreview>{ 0xE79E7EE8,0xB389,0x11E7,{ 0xB2,0x01,0xC8,0xD3,0xFF,0xB7,0x57,0x21 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Input::Preview::IGazeInputSourcePreviewStatics>{ 0xE79E7EE6,0xB389,0x11E7,{ 0xB2,0x01,0xC8,0xD3,0xFF,0xB7,0x57,0x21 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Input::Preview::IGazeMovedPreviewEventArgs>{ 0xE79E7EEB,0xB389,0x11E7,{ 0xB2,0x01,0xC8,0xD3,0xFF,0xB7,0x57,0x21 } };
-    template <> inline constexpr guid guid_v<Windows::Devices::Input::Preview::IGazePointPreview>{ 0xE79E7EEA,0xB389,0x11E7,{ 0xB2,0x01,0xC8,0xD3,0xFF,0xB7,0x57,0x21 } };
+    template <> inline constexpr guid guid_v<Windows::Devices::Input::Preview::IGazeDevicePreview>{ 0xE79E7EE9,0xB389,0x11E7,{ 0xB2,0x01,0xC8,0xD3,0xFF,0xB7,0x57,0x21 } }; // E79E7EE9-B389-11E7-B201-C8D3FFB75721
+    template <> inline constexpr guid guid_v<Windows::Devices::Input::Preview::IGazeDeviceWatcherAddedPreviewEventArgs>{ 0xE79E7EED,0xB389,0x11E7,{ 0xB2,0x01,0xC8,0xD3,0xFF,0xB7,0x57,0x21 } }; // E79E7EED-B389-11E7-B201-C8D3FFB75721
+    template <> inline constexpr guid guid_v<Windows::Devices::Input::Preview::IGazeDeviceWatcherPreview>{ 0xE79E7EE7,0xB389,0x11E7,{ 0xB2,0x01,0xC8,0xD3,0xFF,0xB7,0x57,0x21 } }; // E79E7EE7-B389-11E7-B201-C8D3FFB75721
+    template <> inline constexpr guid guid_v<Windows::Devices::Input::Preview::IGazeDeviceWatcherRemovedPreviewEventArgs>{ 0xF2631F08,0x0E3F,0x431F,{ 0xA6,0x06,0x50,0xB3,0x5A,0xF9,0x4A,0x1C } }; // F2631F08-0E3F-431F-A606-50B35AF94A1C
+    template <> inline constexpr guid guid_v<Windows::Devices::Input::Preview::IGazeDeviceWatcherUpdatedPreviewEventArgs>{ 0x7FE830EF,0x7F08,0x4737,{ 0x88,0xE1,0x4A,0x83,0xAE,0x4E,0x48,0x85 } }; // 7FE830EF-7F08-4737-88E1-4A83AE4E4885
+    template <> inline constexpr guid guid_v<Windows::Devices::Input::Preview::IGazeEnteredPreviewEventArgs>{ 0x2567BF43,0x1225,0x489F,{ 0x9D,0xD1,0xDA,0xA7,0xC5,0x0F,0xBF,0x4B } }; // 2567BF43-1225-489F-9DD1-DAA7C50FBF4B
+    template <> inline constexpr guid guid_v<Windows::Devices::Input::Preview::IGazeExitedPreviewEventArgs>{ 0x5D0AF07E,0x7D83,0x40EF,{ 0x9F,0x0A,0xFB,0xC1,0xBB,0xDC,0xC5,0xAC } }; // 5D0AF07E-7D83-40EF-9F0A-FBC1BBDCC5AC
+    template <> inline constexpr guid guid_v<Windows::Devices::Input::Preview::IGazeInputSourcePreview>{ 0xE79E7EE8,0xB389,0x11E7,{ 0xB2,0x01,0xC8,0xD3,0xFF,0xB7,0x57,0x21 } }; // E79E7EE8-B389-11E7-B201-C8D3FFB75721
+    template <> inline constexpr guid guid_v<Windows::Devices::Input::Preview::IGazeInputSourcePreviewStatics>{ 0xE79E7EE6,0xB389,0x11E7,{ 0xB2,0x01,0xC8,0xD3,0xFF,0xB7,0x57,0x21 } }; // E79E7EE6-B389-11E7-B201-C8D3FFB75721
+    template <> inline constexpr guid guid_v<Windows::Devices::Input::Preview::IGazeMovedPreviewEventArgs>{ 0xE79E7EEB,0xB389,0x11E7,{ 0xB2,0x01,0xC8,0xD3,0xFF,0xB7,0x57,0x21 } }; // E79E7EEB-B389-11E7-B201-C8D3FFB75721
+    template <> inline constexpr guid guid_v<Windows::Devices::Input::Preview::IGazePointPreview>{ 0xE79E7EEA,0xB389,0x11E7,{ 0xB2,0x01,0xC8,0xD3,0xFF,0xB7,0x57,0x21 } }; // E79E7EEA-B389-11E7-B201-C8D3FFB75721
     template <> struct default_interface<Windows::Devices::Input::Preview::GazeDevicePreview>{ using type = Windows::Devices::Input::Preview::IGazeDevicePreview; };
     template <> struct default_interface<Windows::Devices::Input::Preview::GazeDeviceWatcherAddedPreviewEventArgs>{ using type = Windows::Devices::Input::Preview::IGazeDeviceWatcherAddedPreviewEventArgs; };
     template <> struct default_interface<Windows::Devices::Input::Preview::GazeDeviceWatcherPreview>{ using type = Windows::Devices::Input::Preview::IGazeDeviceWatcherPreview; };

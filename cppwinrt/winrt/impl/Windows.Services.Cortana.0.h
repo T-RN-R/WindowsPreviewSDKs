@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -89,13 +89,13 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Services::Cortana::ICortanaPermissionsManagerStatics> = L"Windows.Services.Cortana.ICortanaPermissionsManagerStatics";
     template <> inline constexpr auto& name_v<Windows::Services::Cortana::ICortanaSettings> = L"Windows.Services.Cortana.ICortanaSettings";
     template <> inline constexpr auto& name_v<Windows::Services::Cortana::ICortanaSettingsStatics> = L"Windows.Services.Cortana.ICortanaSettingsStatics";
-    template <> inline constexpr guid guid_v<Windows::Services::Cortana::ICortanaActionableInsights>{ 0x951EC6B1,0xFC83,0x586D,{ 0x8B,0x84,0x24,0x52,0xC8,0x98,0x16,0x25 } };
-    template <> inline constexpr guid guid_v<Windows::Services::Cortana::ICortanaActionableInsightsOptions>{ 0xAAC2BBCF,0x9782,0x5420,{ 0xB8,0x1E,0x7A,0xE5,0x6A,0xF3,0x18,0x15 } };
-    template <> inline constexpr guid guid_v<Windows::Services::Cortana::ICortanaActionableInsightsStatics>{ 0xB5DED412,0x9D2F,0x5CB5,{ 0x9B,0x05,0x35,0x6A,0x0B,0x83,0x6C,0x10 } };
-    template <> inline constexpr guid guid_v<Windows::Services::Cortana::ICortanaPermissionsManager>{ 0x191330E0,0x8695,0x438A,{ 0x95,0x45,0x3D,0xA4,0xE8,0x22,0xDD,0xB4 } };
-    template <> inline constexpr guid guid_v<Windows::Services::Cortana::ICortanaPermissionsManagerStatics>{ 0x76B1E67A,0xB045,0x4414,{ 0x9D,0x6D,0x2A,0xD3,0xA5,0xFE,0x3A,0x7E } };
-    template <> inline constexpr guid guid_v<Windows::Services::Cortana::ICortanaSettings>{ 0x54D571A7,0x8062,0x40F4,{ 0xAB,0xE7,0xDE,0xDF,0xD6,0x97,0xB0,0x19 } };
-    template <> inline constexpr guid guid_v<Windows::Services::Cortana::ICortanaSettingsStatics>{ 0x8B2CCD7E,0x2EC0,0x446D,{ 0x92,0x85,0x33,0xF0,0x7C,0xE8,0xAC,0x04 } };
+    template <> inline constexpr guid guid_v<Windows::Services::Cortana::ICortanaActionableInsights>{ 0x951EC6B1,0xFC83,0x586D,{ 0x8B,0x84,0x24,0x52,0xC8,0x98,0x16,0x25 } }; // 951EC6B1-FC83-586D-8B84-2452C8981625
+    template <> inline constexpr guid guid_v<Windows::Services::Cortana::ICortanaActionableInsightsOptions>{ 0xAAC2BBCF,0x9782,0x5420,{ 0xB8,0x1E,0x7A,0xE5,0x6A,0xF3,0x18,0x15 } }; // AAC2BBCF-9782-5420-B81E-7AE56AF31815
+    template <> inline constexpr guid guid_v<Windows::Services::Cortana::ICortanaActionableInsightsStatics>{ 0xB5DED412,0x9D2F,0x5CB5,{ 0x9B,0x05,0x35,0x6A,0x0B,0x83,0x6C,0x10 } }; // B5DED412-9D2F-5CB5-9B05-356A0B836C10
+    template <> inline constexpr guid guid_v<Windows::Services::Cortana::ICortanaPermissionsManager>{ 0x191330E0,0x8695,0x438A,{ 0x95,0x45,0x3D,0xA4,0xE8,0x22,0xDD,0xB4 } }; // 191330E0-8695-438A-9545-3DA4E822DDB4
+    template <> inline constexpr guid guid_v<Windows::Services::Cortana::ICortanaPermissionsManagerStatics>{ 0x76B1E67A,0xB045,0x4414,{ 0x9D,0x6D,0x2A,0xD3,0xA5,0xFE,0x3A,0x7E } }; // 76B1E67A-B045-4414-9D6D-2AD3A5FE3A7E
+    template <> inline constexpr guid guid_v<Windows::Services::Cortana::ICortanaSettings>{ 0x54D571A7,0x8062,0x40F4,{ 0xAB,0xE7,0xDE,0xDF,0xD6,0x97,0xB0,0x19 } }; // 54D571A7-8062-40F4-ABE7-DEDFD697B019
+    template <> inline constexpr guid guid_v<Windows::Services::Cortana::ICortanaSettingsStatics>{ 0x8B2CCD7E,0x2EC0,0x446D,{ 0x92,0x85,0x33,0xF0,0x7C,0xE8,0xAC,0x04 } }; // 8B2CCD7E-2EC0-446D-9285-33F07CE8AC04
     template <> struct default_interface<Windows::Services::Cortana::CortanaActionableInsights>{ using type = Windows::Services::Cortana::ICortanaActionableInsights; };
     template <> struct default_interface<Windows::Services::Cortana::CortanaActionableInsightsOptions>{ using type = Windows::Services::Cortana::ICortanaActionableInsightsOptions; };
     template <> struct default_interface<Windows::Services::Cortana::CortanaPermissionsManager>{ using type = Windows::Services::Cortana::ICortanaPermissionsManager; };

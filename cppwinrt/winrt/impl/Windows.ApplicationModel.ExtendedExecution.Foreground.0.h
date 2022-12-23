@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -51,8 +51,8 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::ExtendedExecution::Foreground::ExtendedExecutionForegroundRevokedReason> = L"Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundRevokedReason";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::ExtendedExecution::Foreground::IExtendedExecutionForegroundRevokedEventArgs> = L"Windows.ApplicationModel.ExtendedExecution.Foreground.IExtendedExecutionForegroundRevokedEventArgs";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::ExtendedExecution::Foreground::IExtendedExecutionForegroundSession> = L"Windows.ApplicationModel.ExtendedExecution.Foreground.IExtendedExecutionForegroundSession";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ExtendedExecution::Foreground::IExtendedExecutionForegroundRevokedEventArgs>{ 0xB07CD940,0x9557,0xAEA4,{ 0x2C,0x99,0xBD,0xD5,0x6D,0x9B,0xE4,0x61 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ExtendedExecution::Foreground::IExtendedExecutionForegroundSession>{ 0xFBF440E1,0x9D10,0x4201,{ 0xB0,0x1E,0xC8,0x32,0x75,0x29,0x6F,0x2E } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ExtendedExecution::Foreground::IExtendedExecutionForegroundRevokedEventArgs>{ 0xB07CD940,0x9557,0xAEA4,{ 0x2C,0x99,0xBD,0xD5,0x6D,0x9B,0xE4,0x61 } }; // B07CD940-9557-AEA4-2C99-BDD56D9BE461
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::ExtendedExecution::Foreground::IExtendedExecutionForegroundSession>{ 0xFBF440E1,0x9D10,0x4201,{ 0xB0,0x1E,0xC8,0x32,0x75,0x29,0x6F,0x2E } }; // FBF440E1-9D10-4201-B01E-C83275296F2E
     template <> struct default_interface<Windows::ApplicationModel::ExtendedExecution::Foreground::ExtendedExecutionForegroundRevokedEventArgs>{ using type = Windows::ApplicationModel::ExtendedExecution::Foreground::IExtendedExecutionForegroundRevokedEventArgs; };
     template <> struct default_interface<Windows::ApplicationModel::ExtendedExecution::Foreground::ExtendedExecutionForegroundSession>{ using type = Windows::ApplicationModel::ExtendedExecution::Foreground::IExtendedExecutionForegroundSession; };
     template <> struct abi<Windows::ApplicationModel::ExtendedExecution::Foreground::IExtendedExecutionForegroundRevokedEventArgs>

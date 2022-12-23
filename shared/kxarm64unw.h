@@ -27,6 +27,7 @@
 ;   PROLOG_PUSH_TRAP_FRAME
 ;   PROLOG_PUSH_MACHINE_FRAME
 ;   PROLOG_PUSH_CONTEXT
+;   PROLOG_SIGN_RETURN_ADDRESS
 ;
 ;   EPILOG_STACK_FREE <amount>
 ;   EPILOG_RECOVER_SP <offset>
@@ -34,6 +35,7 @@
 ;   EPILOG_RESTORE_REG_PAIR
 ;   EPILOG_NOP <operation>
 ;   EPILOG_RESTORE_NEXT_PAIR <operation>
+;   EPILOG_AUTHENTICATE_RETURN_ADDRESS
 ;   EPILOG_RETURN
 ;
 
@@ -631,6 +633,22 @@ __ComputedCodes SETS "0xEA"
 
 
         ;
+        ; Macro for signing the return address in the prolog
+        ;
+
+        MACRO
+        PROLOG_SIGN_RETURN_ADDRESS
+
+__ComputedCodes SETS "0xFC"
+
+        __EmitRunningLabelAndOpcode pacibsp
+        __DeclarePrologEnd
+        __AppendPrologCodes
+
+        MEND
+
+
+        ;
         ; Macro for restoring the stack pointer.
         ;
 
@@ -750,6 +768,22 @@ __ComputedCodes SETS "0xE6"
 
         __DeclareEpilogStart
         __EmitRunningLabelAndOpcode $O1,$O2,$O3,$O4
+        __AppendEpilogCodes
+
+        MEND
+
+
+        ;
+        ; Macro for authenticating the return address in the epilog
+        ;
+
+        MACRO
+        EPILOG_AUTHENTICATE_RETURN_ADDRESS
+
+__ComputedCodes SETS "0xFC"
+
+        __DeclareEpilogStart
+        __EmitRunningLabelAndOpcode autibsp
         __AppendEpilogCodes
 
         MEND

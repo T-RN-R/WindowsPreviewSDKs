@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -144,28 +144,28 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserActivities::IUserActivityStatics> = L"Windows.ApplicationModel.UserActivities.IUserActivityStatics";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserActivities::IUserActivityVisualElements> = L"Windows.ApplicationModel.UserActivities.IUserActivityVisualElements";
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserActivities::IUserActivityVisualElements2> = L"Windows.ApplicationModel.UserActivities.IUserActivityVisualElements2";
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivity>{ 0xFC103E9E,0x2CAB,0x4D36,{ 0xAE,0xA2,0xB4,0xBB,0x55,0x6C,0xEF,0x0F } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivity2>{ 0x9DC40C62,0x08C4,0x47AC,{ 0xAA,0x9C,0x2B,0xB2,0x22,0x1C,0x55,0xFD } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivity3>{ 0xE7697744,0xE1A2,0x5147,{ 0x8E,0x06,0x55,0xF1,0xEE,0xEF,0x27,0x1C } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityAttribution>{ 0x34A5C8B5,0x86DD,0x4AEC,{ 0xA4,0x91,0x6A,0x4F,0xAE,0xA5,0xD2,0x2E } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityAttributionFactory>{ 0xE62BD252,0xC566,0x4F42,{ 0x99,0x74,0x91,0x6C,0x4D,0x76,0x37,0x7E } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityChannel>{ 0xBAC0F8B8,0xA0E4,0x483B,{ 0xB9,0x48,0x9C,0xBA,0xBD,0x06,0x07,0x0C } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityChannel2>{ 0x1698E35B,0xEB7E,0x4EA0,{ 0xBF,0x17,0xA4,0x59,0xE8,0xBE,0x70,0x6C } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityChannelStatics>{ 0xC8C005AB,0x198D,0x4D80,{ 0xAB,0xB2,0xC9,0x77,0x5E,0xC4,0xA7,0x29 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityChannelStatics2>{ 0x8E87DE30,0xAA4F,0x4624,{ 0x9A,0xD0,0xD4,0x0F,0x3B,0xA0,0x31,0x7C } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityChannelStatics3>{ 0x53BC4DDB,0xBBDF,0x5984,{ 0x80,0x2A,0x53,0x05,0x87,0x4E,0x20,0x5C } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityContentInfo>{ 0xB399E5AD,0x137F,0x409D,{ 0x82,0x2D,0xE1,0xAF,0x27,0xCE,0x08,0xDC } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityContentInfoStatics>{ 0x9988C34B,0x0386,0x4BC9,{ 0x96,0x8A,0x82,0x00,0xB0,0x04,0x14,0x4F } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityFactory>{ 0x7C385758,0x361D,0x4A67,{ 0x8A,0x3B,0x34,0xCA,0x29,0x78,0xF9,0xA3 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityRequest>{ 0xA0EF6355,0xCF35,0x4FF0,{ 0x88,0x33,0x50,0xCB,0x4B,0x72,0xE0,0x6D } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityRequestManager>{ 0x0C30BE4E,0x903D,0x48D6,{ 0x82,0xD4,0x40,0x43,0xED,0x57,0x79,0x1B } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityRequestManagerStatics>{ 0xC0392DF1,0x224A,0x432C,{ 0x81,0xE5,0x0C,0x76,0xB4,0xC4,0xCE,0xFA } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityRequestedEventArgs>{ 0xA4CC7A4C,0x8229,0x4CFD,{ 0xA3,0xBC,0xC6,0x1D,0x31,0x85,0x75,0xA4 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivitySession>{ 0xAE434D78,0x24FA,0x44A3,{ 0xAD,0x48,0x6E,0xDA,0x61,0xAA,0x19,0x24 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivitySessionHistoryItem>{ 0xE8D59BD3,0x3E5D,0x49FD,{ 0x98,0xD7,0x6D,0xA9,0x75,0x21,0xE2,0x55 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityStatics>{ 0x8C8FD333,0x0E09,0x47F6,{ 0x9A,0xC7,0x95,0xCF,0x5C,0x39,0x36,0x7B } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityVisualElements>{ 0x94757513,0x262F,0x49EF,{ 0xBB,0xBF,0x9B,0x75,0xD2,0xE8,0x52,0x50 } };
-    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityVisualElements2>{ 0xCAAE7FC7,0x3EEF,0x4359,{ 0x82,0x5C,0x9D,0x51,0xB9,0x22,0x0D,0xE3 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivity>{ 0xFC103E9E,0x2CAB,0x4D36,{ 0xAE,0xA2,0xB4,0xBB,0x55,0x6C,0xEF,0x0F } }; // FC103E9E-2CAB-4D36-AEA2-B4BB556CEF0F
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivity2>{ 0x9DC40C62,0x08C4,0x47AC,{ 0xAA,0x9C,0x2B,0xB2,0x22,0x1C,0x55,0xFD } }; // 9DC40C62-08C4-47AC-AA9C-2BB2221C55FD
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivity3>{ 0xE7697744,0xE1A2,0x5147,{ 0x8E,0x06,0x55,0xF1,0xEE,0xEF,0x27,0x1C } }; // E7697744-E1A2-5147-8E06-55F1EEEF271C
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityAttribution>{ 0x34A5C8B5,0x86DD,0x4AEC,{ 0xA4,0x91,0x6A,0x4F,0xAE,0xA5,0xD2,0x2E } }; // 34A5C8B5-86DD-4AEC-A491-6A4FAEA5D22E
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityAttributionFactory>{ 0xE62BD252,0xC566,0x4F42,{ 0x99,0x74,0x91,0x6C,0x4D,0x76,0x37,0x7E } }; // E62BD252-C566-4F42-9974-916C4D76377E
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityChannel>{ 0xBAC0F8B8,0xA0E4,0x483B,{ 0xB9,0x48,0x9C,0xBA,0xBD,0x06,0x07,0x0C } }; // BAC0F8B8-A0E4-483B-B948-9CBABD06070C
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityChannel2>{ 0x1698E35B,0xEB7E,0x4EA0,{ 0xBF,0x17,0xA4,0x59,0xE8,0xBE,0x70,0x6C } }; // 1698E35B-EB7E-4EA0-BF17-A459E8BE706C
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityChannelStatics>{ 0xC8C005AB,0x198D,0x4D80,{ 0xAB,0xB2,0xC9,0x77,0x5E,0xC4,0xA7,0x29 } }; // C8C005AB-198D-4D80-ABB2-C9775EC4A729
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityChannelStatics2>{ 0x8E87DE30,0xAA4F,0x4624,{ 0x9A,0xD0,0xD4,0x0F,0x3B,0xA0,0x31,0x7C } }; // 8E87DE30-AA4F-4624-9AD0-D40F3BA0317C
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityChannelStatics3>{ 0x53BC4DDB,0xBBDF,0x5984,{ 0x80,0x2A,0x53,0x05,0x87,0x4E,0x20,0x5C } }; // 53BC4DDB-BBDF-5984-802A-5305874E205C
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityContentInfo>{ 0xB399E5AD,0x137F,0x409D,{ 0x82,0x2D,0xE1,0xAF,0x27,0xCE,0x08,0xDC } }; // B399E5AD-137F-409D-822D-E1AF27CE08DC
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityContentInfoStatics>{ 0x9988C34B,0x0386,0x4BC9,{ 0x96,0x8A,0x82,0x00,0xB0,0x04,0x14,0x4F } }; // 9988C34B-0386-4BC9-968A-8200B004144F
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityFactory>{ 0x7C385758,0x361D,0x4A67,{ 0x8A,0x3B,0x34,0xCA,0x29,0x78,0xF9,0xA3 } }; // 7C385758-361D-4A67-8A3B-34CA2978F9A3
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityRequest>{ 0xA0EF6355,0xCF35,0x4FF0,{ 0x88,0x33,0x50,0xCB,0x4B,0x72,0xE0,0x6D } }; // A0EF6355-CF35-4FF0-8833-50CB4B72E06D
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityRequestManager>{ 0x0C30BE4E,0x903D,0x48D6,{ 0x82,0xD4,0x40,0x43,0xED,0x57,0x79,0x1B } }; // 0C30BE4E-903D-48D6-82D4-4043ED57791B
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityRequestManagerStatics>{ 0xC0392DF1,0x224A,0x432C,{ 0x81,0xE5,0x0C,0x76,0xB4,0xC4,0xCE,0xFA } }; // C0392DF1-224A-432C-81E5-0C76B4C4CEFA
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityRequestedEventArgs>{ 0xA4CC7A4C,0x8229,0x4CFD,{ 0xA3,0xBC,0xC6,0x1D,0x31,0x85,0x75,0xA4 } }; // A4CC7A4C-8229-4CFD-A3BC-C61D318575A4
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivitySession>{ 0xAE434D78,0x24FA,0x44A3,{ 0xAD,0x48,0x6E,0xDA,0x61,0xAA,0x19,0x24 } }; // AE434D78-24FA-44A3-AD48-6EDA61AA1924
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivitySessionHistoryItem>{ 0xE8D59BD3,0x3E5D,0x49FD,{ 0x98,0xD7,0x6D,0xA9,0x75,0x21,0xE2,0x55 } }; // E8D59BD3-3E5D-49FD-98D7-6DA97521E255
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityStatics>{ 0x8C8FD333,0x0E09,0x47F6,{ 0x9A,0xC7,0x95,0xCF,0x5C,0x39,0x36,0x7B } }; // 8C8FD333-0E09-47F6-9AC7-95CF5C39367B
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityVisualElements>{ 0x94757513,0x262F,0x49EF,{ 0xBB,0xBF,0x9B,0x75,0xD2,0xE8,0x52,0x50 } }; // 94757513-262F-49EF-BBBF-9B75D2E85250
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::IUserActivityVisualElements2>{ 0xCAAE7FC7,0x3EEF,0x4359,{ 0x82,0x5C,0x9D,0x51,0xB9,0x22,0x0D,0xE3 } }; // CAAE7FC7-3EEF-4359-825C-9D51B9220DE3
     template <> struct default_interface<Windows::ApplicationModel::UserActivities::UserActivity>{ using type = Windows::ApplicationModel::UserActivities::IUserActivity; };
     template <> struct default_interface<Windows::ApplicationModel::UserActivities::UserActivityAttribution>{ using type = Windows::ApplicationModel::UserActivities::IUserActivityAttribution; };
     template <> struct default_interface<Windows::ApplicationModel::UserActivities::UserActivityChannel>{ using type = Windows::ApplicationModel::UserActivities::IUserActivityChannel; };

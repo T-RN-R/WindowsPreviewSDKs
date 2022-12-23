@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -178,21 +178,21 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentSubscriptionOptions> = L"Windows.Services.TargetedContent.ITargetedContentSubscriptionOptions";
     template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentSubscriptionStatics> = L"Windows.Services.TargetedContent.ITargetedContentSubscriptionStatics";
     template <> inline constexpr auto& name_v<Windows::Services::TargetedContent::ITargetedContentValue> = L"Windows.Services.TargetedContent.ITargetedContentValue";
-    template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentAction>{ 0xD75B691E,0x6CD6,0x4CA0,{ 0x9D,0x8F,0x47,0x28,0xB0,0xB7,0xE6,0xB6 } };
-    template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentAvailabilityChangedEventArgs>{ 0xE0F59D26,0x5927,0x4450,{ 0x96,0x5C,0x1C,0xEB,0x7B,0xEC,0xDE,0x65 } };
-    template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentChangedEventArgs>{ 0x99D488C9,0x587E,0x4586,{ 0x8E,0xF7,0xB5,0x4C,0xA9,0x45,0x3A,0x16 } };
-    template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentCollection>{ 0x2D4B66C5,0xF163,0x44BA,{ 0x9F,0x6E,0xE1,0xA4,0xC2,0xBB,0x55,0x9D } };
-    template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentContainer>{ 0xBC2494C9,0x8837,0x47C2,{ 0x85,0x0F,0xD7,0x9D,0x64,0x59,0x59,0x26 } };
-    template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentContainerStatics>{ 0x5B47E7FB,0x2140,0x4C1F,{ 0xA7,0x36,0xC5,0x95,0x83,0xF2,0x27,0xD8 } };
-    template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentImage>{ 0xA7A585D9,0x779F,0x4B1E,{ 0xBB,0xB1,0x8E,0xAF,0x53,0xFB,0xEA,0xB2 } };
-    template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentItem>{ 0x38168DC4,0x276C,0x4C32,{ 0x96,0xBA,0x56,0x5C,0x6E,0x40,0x6E,0x74 } };
-    template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentItemState>{ 0x73935454,0x4C65,0x4B47,{ 0xA4,0x41,0x47,0x2D,0xE5,0x3C,0x79,0xB6 } };
-    template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentObject>{ 0x041D7969,0x2212,0x42D1,{ 0x9D,0xFA,0x88,0xA8,0xE3,0x03,0x3A,0xA3 } };
-    template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentStateChangedEventArgs>{ 0x9A1CEF3D,0x8073,0x4416,{ 0x8D,0xF2,0x54,0x68,0x35,0xA6,0x41,0x4F } };
-    template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentSubscription>{ 0x882C2C49,0xC652,0x4C7A,{ 0xAC,0xAD,0x1F,0x7F,0xA2,0x98,0x6C,0x73 } };
-    template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentSubscriptionOptions>{ 0x61EE6AD0,0x2C83,0x421B,{ 0x84,0x67,0x41,0x3E,0xAF,0x1A,0xEB,0x97 } };
-    template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentSubscriptionStatics>{ 0xFADDFE80,0x360D,0x4916,{ 0xB5,0x3C,0x7E,0xA2,0x70,0x90,0xD0,0x2A } };
-    template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentValue>{ 0xAAFDE4B3,0x4215,0x4BF8,{ 0x86,0x7F,0x43,0xF0,0x48,0x65,0xF9,0xBF } };
+    template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentAction>{ 0xD75B691E,0x6CD6,0x4CA0,{ 0x9D,0x8F,0x47,0x28,0xB0,0xB7,0xE6,0xB6 } }; // D75B691E-6CD6-4CA0-9D8F-4728B0B7E6B6
+    template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentAvailabilityChangedEventArgs>{ 0xE0F59D26,0x5927,0x4450,{ 0x96,0x5C,0x1C,0xEB,0x7B,0xEC,0xDE,0x65 } }; // E0F59D26-5927-4450-965C-1CEB7BECDE65
+    template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentChangedEventArgs>{ 0x99D488C9,0x587E,0x4586,{ 0x8E,0xF7,0xB5,0x4C,0xA9,0x45,0x3A,0x16 } }; // 99D488C9-587E-4586-8EF7-B54CA9453A16
+    template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentCollection>{ 0x2D4B66C5,0xF163,0x44BA,{ 0x9F,0x6E,0xE1,0xA4,0xC2,0xBB,0x55,0x9D } }; // 2D4B66C5-F163-44BA-9F6E-E1A4C2BB559D
+    template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentContainer>{ 0xBC2494C9,0x8837,0x47C2,{ 0x85,0x0F,0xD7,0x9D,0x64,0x59,0x59,0x26 } }; // BC2494C9-8837-47C2-850F-D79D64595926
+    template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentContainerStatics>{ 0x5B47E7FB,0x2140,0x4C1F,{ 0xA7,0x36,0xC5,0x95,0x83,0xF2,0x27,0xD8 } }; // 5B47E7FB-2140-4C1F-A736-C59583F227D8
+    template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentImage>{ 0xA7A585D9,0x779F,0x4B1E,{ 0xBB,0xB1,0x8E,0xAF,0x53,0xFB,0xEA,0xB2 } }; // A7A585D9-779F-4B1E-BBB1-8EAF53FBEAB2
+    template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentItem>{ 0x38168DC4,0x276C,0x4C32,{ 0x96,0xBA,0x56,0x5C,0x6E,0x40,0x6E,0x74 } }; // 38168DC4-276C-4C32-96BA-565C6E406E74
+    template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentItemState>{ 0x73935454,0x4C65,0x4B47,{ 0xA4,0x41,0x47,0x2D,0xE5,0x3C,0x79,0xB6 } }; // 73935454-4C65-4B47-A441-472DE53C79B6
+    template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentObject>{ 0x041D7969,0x2212,0x42D1,{ 0x9D,0xFA,0x88,0xA8,0xE3,0x03,0x3A,0xA3 } }; // 041D7969-2212-42D1-9DFA-88A8E3033AA3
+    template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentStateChangedEventArgs>{ 0x9A1CEF3D,0x8073,0x4416,{ 0x8D,0xF2,0x54,0x68,0x35,0xA6,0x41,0x4F } }; // 9A1CEF3D-8073-4416-8DF2-546835A6414F
+    template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentSubscription>{ 0x882C2C49,0xC652,0x4C7A,{ 0xAC,0xAD,0x1F,0x7F,0xA2,0x98,0x6C,0x73 } }; // 882C2C49-C652-4C7A-ACAD-1F7FA2986C73
+    template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentSubscriptionOptions>{ 0x61EE6AD0,0x2C83,0x421B,{ 0x84,0x67,0x41,0x3E,0xAF,0x1A,0xEB,0x97 } }; // 61EE6AD0-2C83-421B-8467-413EAF1AEB97
+    template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentSubscriptionStatics>{ 0xFADDFE80,0x360D,0x4916,{ 0xB5,0x3C,0x7E,0xA2,0x70,0x90,0xD0,0x2A } }; // FADDFE80-360D-4916-B53C-7EA27090D02A
+    template <> inline constexpr guid guid_v<Windows::Services::TargetedContent::ITargetedContentValue>{ 0xAAFDE4B3,0x4215,0x4BF8,{ 0x86,0x7F,0x43,0xF0,0x48,0x65,0xF9,0xBF } }; // AAFDE4B3-4215-4BF8-867F-43F04865F9BF
     template <> struct default_interface<Windows::Services::TargetedContent::TargetedContentAction>{ using type = Windows::Services::TargetedContent::ITargetedContentAction; };
     template <> struct default_interface<Windows::Services::TargetedContent::TargetedContentAvailabilityChangedEventArgs>{ using type = Windows::Services::TargetedContent::ITargetedContentAvailabilityChangedEventArgs; };
     template <> struct default_interface<Windows::Services::TargetedContent::TargetedContentChangedEventArgs>{ using type = Windows::Services::TargetedContent::ITargetedContentChangedEventArgs; };

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -111,14 +111,14 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Media::Casting::ICastingDeviceSelectedEventArgs> = L"Windows.Media.Casting.ICastingDeviceSelectedEventArgs";
     template <> inline constexpr auto& name_v<Windows::Media::Casting::ICastingDeviceStatics> = L"Windows.Media.Casting.ICastingDeviceStatics";
     template <> inline constexpr auto& name_v<Windows::Media::Casting::ICastingSource> = L"Windows.Media.Casting.ICastingSource";
-    template <> inline constexpr guid guid_v<Windows::Media::Casting::ICastingConnection>{ 0xCD951653,0xC2F1,0x4498,{ 0x8B,0x78,0x5F,0xB4,0xCD,0x36,0x40,0xDD } };
-    template <> inline constexpr guid guid_v<Windows::Media::Casting::ICastingConnectionErrorOccurredEventArgs>{ 0xA7FB3C69,0x8719,0x4F00,{ 0x81,0xFB,0x96,0x18,0x63,0xC7,0x9A,0x32 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Casting::ICastingDevice>{ 0xDE721C83,0x4A43,0x4AD1,{ 0xA6,0xD2,0x24,0x92,0xA7,0x96,0xC3,0xF2 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Casting::ICastingDevicePicker>{ 0xDCD39924,0x0591,0x49BE,{ 0xAA,0xCB,0x4B,0x82,0xEE,0x75,0x6A,0x95 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Casting::ICastingDevicePickerFilter>{ 0xBE8C619C,0xB563,0x4354,{ 0xAE,0x33,0x9F,0xDA,0xAD,0x8C,0x62,0x91 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Casting::ICastingDeviceSelectedEventArgs>{ 0xDC439E86,0xDD57,0x4D0D,{ 0x94,0x00,0xAF,0x45,0xE4,0xFB,0x36,0x63 } };
-    template <> inline constexpr guid guid_v<Windows::Media::Casting::ICastingDeviceStatics>{ 0xE7D958D7,0x4D13,0x4237,{ 0xA3,0x65,0x4C,0x4F,0x6A,0x4C,0xFD,0x2F } };
-    template <> inline constexpr guid guid_v<Windows::Media::Casting::ICastingSource>{ 0xF429EA72,0x3467,0x47E6,{ 0xA0,0x27,0x52,0x29,0x23,0xE9,0xD7,0x27 } };
+    template <> inline constexpr guid guid_v<Windows::Media::Casting::ICastingConnection>{ 0xCD951653,0xC2F1,0x4498,{ 0x8B,0x78,0x5F,0xB4,0xCD,0x36,0x40,0xDD } }; // CD951653-C2F1-4498-8B78-5FB4CD3640DD
+    template <> inline constexpr guid guid_v<Windows::Media::Casting::ICastingConnectionErrorOccurredEventArgs>{ 0xA7FB3C69,0x8719,0x4F00,{ 0x81,0xFB,0x96,0x18,0x63,0xC7,0x9A,0x32 } }; // A7FB3C69-8719-4F00-81FB-961863C79A32
+    template <> inline constexpr guid guid_v<Windows::Media::Casting::ICastingDevice>{ 0xDE721C83,0x4A43,0x4AD1,{ 0xA6,0xD2,0x24,0x92,0xA7,0x96,0xC3,0xF2 } }; // DE721C83-4A43-4AD1-A6D2-2492A796C3F2
+    template <> inline constexpr guid guid_v<Windows::Media::Casting::ICastingDevicePicker>{ 0xDCD39924,0x0591,0x49BE,{ 0xAA,0xCB,0x4B,0x82,0xEE,0x75,0x6A,0x95 } }; // DCD39924-0591-49BE-AACB-4B82EE756A95
+    template <> inline constexpr guid guid_v<Windows::Media::Casting::ICastingDevicePickerFilter>{ 0xBE8C619C,0xB563,0x4354,{ 0xAE,0x33,0x9F,0xDA,0xAD,0x8C,0x62,0x91 } }; // BE8C619C-B563-4354-AE33-9FDAAD8C6291
+    template <> inline constexpr guid guid_v<Windows::Media::Casting::ICastingDeviceSelectedEventArgs>{ 0xDC439E86,0xDD57,0x4D0D,{ 0x94,0x00,0xAF,0x45,0xE4,0xFB,0x36,0x63 } }; // DC439E86-DD57-4D0D-9400-AF45E4FB3663
+    template <> inline constexpr guid guid_v<Windows::Media::Casting::ICastingDeviceStatics>{ 0xE7D958D7,0x4D13,0x4237,{ 0xA3,0x65,0x4C,0x4F,0x6A,0x4C,0xFD,0x2F } }; // E7D958D7-4D13-4237-A365-4C4F6A4CFD2F
+    template <> inline constexpr guid guid_v<Windows::Media::Casting::ICastingSource>{ 0xF429EA72,0x3467,0x47E6,{ 0xA0,0x27,0x52,0x29,0x23,0xE9,0xD7,0x27 } }; // F429EA72-3467-47E6-A027-522923E9D727
     template <> struct default_interface<Windows::Media::Casting::CastingConnection>{ using type = Windows::Media::Casting::ICastingConnection; };
     template <> struct default_interface<Windows::Media::Casting::CastingConnectionErrorOccurredEventArgs>{ using type = Windows::Media::Casting::ICastingConnectionErrorOccurredEventArgs; };
     template <> struct default_interface<Windows::Media::Casting::CastingDevice>{ using type = Windows::Media::Casting::ICastingDevice; };

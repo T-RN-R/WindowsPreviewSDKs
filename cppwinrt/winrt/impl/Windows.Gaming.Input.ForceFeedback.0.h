@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200514.2
+// C++/WinRT v2.0.200609.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -101,14 +101,14 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::IPeriodicForceEffect> = L"Windows.Gaming.Input.ForceFeedback.IPeriodicForceEffect";
     template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::IPeriodicForceEffectFactory> = L"Windows.Gaming.Input.ForceFeedback.IPeriodicForceEffectFactory";
     template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::IRampForceEffect> = L"Windows.Gaming.Input.ForceFeedback.IRampForceEffect";
-    template <> inline constexpr guid guid_v<Windows::Gaming::Input::ForceFeedback::IConditionForceEffect>{ 0x32D1EA68,0x3695,0x4E69,{ 0x85,0xC0,0xCD,0x19,0x44,0x18,0x91,0x40 } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::Input::ForceFeedback::IConditionForceEffectFactory>{ 0x91A99264,0x1810,0x4EB6,{ 0xA7,0x73,0xBF,0xD3,0xB8,0xCD,0xDB,0xAB } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::Input::ForceFeedback::IConstantForceEffect>{ 0x9BFA0140,0xF3C7,0x415C,{ 0xB0,0x68,0x0F,0x06,0x87,0x34,0xBC,0xE0 } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::Input::ForceFeedback::IForceFeedbackEffect>{ 0xA17FBA0C,0x2AE4,0x48C2,{ 0x80,0x63,0xEA,0xBD,0x07,0x77,0xCB,0x89 } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::Input::ForceFeedback::IForceFeedbackMotor>{ 0x8D3D417C,0xA5EA,0x4516,{ 0x80,0x26,0x2B,0x00,0xF7,0x4E,0xF6,0xE5 } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::Input::ForceFeedback::IPeriodicForceEffect>{ 0x5C5138D7,0xFC75,0x4D52,{ 0x9A,0x0A,0xEF,0xE4,0xCA,0xB5,0xFE,0x64 } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::Input::ForceFeedback::IPeriodicForceEffectFactory>{ 0x6F62EB1A,0x9851,0x477B,{ 0xB3,0x18,0x35,0xEC,0xAA,0x15,0x07,0x0F } };
-    template <> inline constexpr guid guid_v<Windows::Gaming::Input::ForceFeedback::IRampForceEffect>{ 0xF1F81259,0x1CA6,0x4080,{ 0xB5,0x6D,0xB4,0x3F,0x33,0x54,0xD0,0x52 } };
+    template <> inline constexpr guid guid_v<Windows::Gaming::Input::ForceFeedback::IConditionForceEffect>{ 0x32D1EA68,0x3695,0x4E69,{ 0x85,0xC0,0xCD,0x19,0x44,0x18,0x91,0x40 } }; // 32D1EA68-3695-4E69-85C0-CD1944189140
+    template <> inline constexpr guid guid_v<Windows::Gaming::Input::ForceFeedback::IConditionForceEffectFactory>{ 0x91A99264,0x1810,0x4EB6,{ 0xA7,0x73,0xBF,0xD3,0xB8,0xCD,0xDB,0xAB } }; // 91A99264-1810-4EB6-A773-BFD3B8CDDBAB
+    template <> inline constexpr guid guid_v<Windows::Gaming::Input::ForceFeedback::IConstantForceEffect>{ 0x9BFA0140,0xF3C7,0x415C,{ 0xB0,0x68,0x0F,0x06,0x87,0x34,0xBC,0xE0 } }; // 9BFA0140-F3C7-415C-B068-0F068734BCE0
+    template <> inline constexpr guid guid_v<Windows::Gaming::Input::ForceFeedback::IForceFeedbackEffect>{ 0xA17FBA0C,0x2AE4,0x48C2,{ 0x80,0x63,0xEA,0xBD,0x07,0x77,0xCB,0x89 } }; // A17FBA0C-2AE4-48C2-8063-EABD0777CB89
+    template <> inline constexpr guid guid_v<Windows::Gaming::Input::ForceFeedback::IForceFeedbackMotor>{ 0x8D3D417C,0xA5EA,0x4516,{ 0x80,0x26,0x2B,0x00,0xF7,0x4E,0xF6,0xE5 } }; // 8D3D417C-A5EA-4516-8026-2B00F74EF6E5
+    template <> inline constexpr guid guid_v<Windows::Gaming::Input::ForceFeedback::IPeriodicForceEffect>{ 0x5C5138D7,0xFC75,0x4D52,{ 0x9A,0x0A,0xEF,0xE4,0xCA,0xB5,0xFE,0x64 } }; // 5C5138D7-FC75-4D52-9A0A-EFE4CAB5FE64
+    template <> inline constexpr guid guid_v<Windows::Gaming::Input::ForceFeedback::IPeriodicForceEffectFactory>{ 0x6F62EB1A,0x9851,0x477B,{ 0xB3,0x18,0x35,0xEC,0xAA,0x15,0x07,0x0F } }; // 6F62EB1A-9851-477B-B318-35ECAA15070F
+    template <> inline constexpr guid guid_v<Windows::Gaming::Input::ForceFeedback::IRampForceEffect>{ 0xF1F81259,0x1CA6,0x4080,{ 0xB5,0x6D,0xB4,0x3F,0x33,0x54,0xD0,0x52 } }; // F1F81259-1CA6-4080-B56D-B43F3354D052
     template <> struct default_interface<Windows::Gaming::Input::ForceFeedback::ConditionForceEffect>{ using type = Windows::Gaming::Input::ForceFeedback::IForceFeedbackEffect; };
     template <> struct default_interface<Windows::Gaming::Input::ForceFeedback::ConstantForceEffect>{ using type = Windows::Gaming::Input::ForceFeedback::IForceFeedbackEffect; };
     template <> struct default_interface<Windows::Gaming::Input::ForceFeedback::ForceFeedbackMotor>{ using type = Windows::Gaming::Input::ForceFeedback::IForceFeedbackMotor; };
