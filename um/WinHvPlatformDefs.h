@@ -29,11 +29,12 @@ Abstract:
 typedef enum WHV_CAPABILITY_CODE
 {
     // Capabilities of the API implementation
-    WHvCapabilityCodeHypervisorPresent      = 0x00000000,
-    WHvCapabilityCodeFeatures               = 0x00000001,
-    WHvCapabilityCodeExtendedVmExits        = 0x00000002,
-    WHvCapabilityCodeExceptionExitBitmap    = 0x00000003,
-    WHvCapabilityCodeX64MsrExitBitmap       = 0x00000004,
+    WHvCapabilityCodeHypervisorPresent                = 0x00000000,
+    WHvCapabilityCodeFeatures                         = 0x00000001,
+    WHvCapabilityCodeExtendedVmExits                  = 0x00000002,
+    WHvCapabilityCodeExceptionExitBitmap              = 0x00000003,
+    WHvCapabilityCodeX64MsrExitBitmap                 = 0x00000004,
+    WHvCapabilityCodeGpaRangePrefetchFlags            = 0x00000005,
 
     // Capabilities of the system's processor
     WHvCapabilityCodeProcessorVendor         = 0x00001000,
@@ -59,7 +60,8 @@ typedef union WHV_CAPABILITY_FEATURES
         UINT64 SpeculationControl : 1;
         UINT64 ApicRemoteRead : 1;
         UINT64 IdleSuspend : 1;
-        UINT64 Reserved : 57;
+        UINT64 CpuSchedulerProperties : 1;
+        UINT64 Reserved : 56;
     };
 
     UINT64 AsUINT64;
@@ -229,7 +231,7 @@ C_ASSERT(sizeof(WHV_PROCESSOR_FEATURES_BANKS) == sizeof(UINT64) * (WHV_PROCESSOR
 // Return values for WHvCapabilityCodeProcessorXsaveFeatures and input buffer
 // for WHvPartitionPropertyCodeProcessorXsaveFeatures
 //
-typedef union _WHV_PROCESSOR_XSAVE_FEATURES
+typedef union WHV_PROCESSOR_XSAVE_FEATURES
 {
     struct
     {
@@ -289,6 +291,30 @@ typedef union WHV_X64_MSR_EXIT_BITMAP
 C_ASSERT(sizeof(WHV_X64_MSR_EXIT_BITMAP) == sizeof(UINT64));
 
 //
+// Structure describing a memory range entry
+//
+typedef struct WHV_MEMORY_RANGE_ENTRY {
+    UINT64 Address;
+    UINT64 SizeInBytes;
+} WHV_MEMORY_RANGE_ENTRY, *PWHV_MEMORY_RANGE_ENTRY;
+
+//
+// Flags used by WHvAdviseGpaRangeCodePrefetch
+//
+typedef union WHV_ADVISE_GPA_RANGE_PREFETCH_FLAGS
+{
+    UINT32 AsUINT32;
+    struct
+    {
+        UINT32 PrefetchAvoidWriteFaults:1;
+        UINT32 PrefetchAvoidHardFaults:1;
+        UINT32 Reserved:30;
+    };
+} WHV_ADVISE_GPA_RANGE_PREFETCH_FLAGS;
+
+C_ASSERT(sizeof(WHV_ADVISE_GPA_RANGE_PREFETCH_FLAGS) == sizeof(UINT32));
+
+//
 // WHvGetCapability output buffer
 //
 typedef union WHV_CAPABILITY
@@ -305,6 +331,7 @@ typedef union WHV_CAPABILITY
     UINT64 ProcessorClockFrequency;
     UINT64 InterruptClockFrequency;
     WHV_PROCESSOR_FEATURES_BANKS ProcessorFeaturesBanks;
+    WHV_ADVISE_GPA_RANGE_PREFETCH_FLAGS GpaRangePrefetchFlags;
 } WHV_CAPABILITY;
 
 //
@@ -322,6 +349,10 @@ typedef enum WHV_PARTITION_PROPERTY_CODE
     WHvPartitionPropertyCodeNestedVirtualization    = 0x00000004,
     WHvPartitionPropertyCodeX64MsrExitBitmap        = 0x00000005,
     WHvPartitionPropertyCodePrimaryNumaNode         = 0x00000006,
+    WHvPartitionPropertyCodeCpuReserve              = 0x00000007,
+    WHvPartitionPropertyCodeCpuCap                  = 0x00000008,
+    WHvPartitionPropertyCodeCpuWeight               = 0x00000009,
+    WHvPartitionPropertyCodeCpuGroupId              = 0x0000000a,
 
     WHvPartitionPropertyCodeProcessorFeatures       = 0x00001001,
     WHvPartitionPropertyCodeProcessorClFlushSize    = 0x00001002,
@@ -406,6 +437,10 @@ typedef union WHV_PARTITION_PROPERTY
     WHV_PROCESSOR_FEATURES_BANKS ProcessorFeaturesBanks;
     UINT64 ReferenceTime;
     USHORT PrimaryNumaNode;
+    UINT32 CpuReserve;
+    UINT32 CpuCap;
+    UINT32 CpuWeight;
+    UINT64 CpuGroupId;
 } WHV_PARTITION_PROPERTY;
 
 //
@@ -423,11 +458,12 @@ typedef UINT64 WHV_GUEST_VIRTUAL_ADDRESS;
 //
 typedef enum WHV_MAP_GPA_RANGE_FLAGS
 {
-    WHvMapGpaRangeFlagNone              = 0x00000000,
-    WHvMapGpaRangeFlagRead              = 0x00000001,
-    WHvMapGpaRangeFlagWrite             = 0x00000002,
-    WHvMapGpaRangeFlagExecute           = 0x00000004,
-    WHvMapGpaRangeFlagTrackDirtyPages   = 0x00000008,
+    WHvMapGpaRangeFlagNone             = 0x00000000,
+    WHvMapGpaRangeFlagRead             = 0x00000001,
+    WHvMapGpaRangeFlagWrite            = 0x00000002,
+    WHvMapGpaRangeFlagExecute          = 0x00000004,
+    WHvMapGpaRangeFlagTrackDirtyPages  = 0x00000008,
+
 } WHV_MAP_GPA_RANGE_FLAGS;
 
 DEFINE_ENUM_FLAG_OPERATORS(WHV_MAP_GPA_RANGE_FLAGS);
@@ -477,6 +513,14 @@ typedef struct WHV_TRANSLATE_GVA_RESULT
     WHV_TRANSLATE_GVA_RESULT_CODE ResultCode;
     UINT32 Reserved;
 } WHV_TRANSLATE_GVA_RESULT;
+
+//
+// WHvAdviseGpaRange buffer
+//
+typedef union WHV_ADVISE_GPA_RANGE
+{
+    WHV_ADVISE_GPA_RANGE_PREFETCH_FLAGS PrefetchFlags;
+} WHV_ADVISE_GPA_RANGE;
 
 //
 // Virtual Processor Register Definitions
@@ -1224,7 +1268,7 @@ typedef struct WHV_X64_APIC_SMI_CONTEXT
 
 #define WHV_HYPERCALL_CONTEXT_MAX_XMM_REGISTERS 6
 
-typedef struct _WHV_HYPERCALL_CONTEXT
+typedef struct WHV_HYPERCALL_CONTEXT
 {
     UINT64 Rax;
     UINT64 Rbx;
@@ -1399,6 +1443,13 @@ typedef struct WHV_PROCESSOR_APIC_COUNTERS
     UINT64 SentIpiCount;
     UINT64 SelfIpiCount;
 } WHV_PROCESSOR_APIC_COUNTERS;
+
+// WHvAdviseGpaRange types
+typedef enum WHV_ADVISE_GPA_RANGE_CODE
+{
+    WHvAdviseGpaRangeCodePrefetch         = 0x00000001
+} WHV_ADVISE_GPA_RANGE_CODE;
+
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1200)
 #pragma warning(pop)

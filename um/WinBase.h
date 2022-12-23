@@ -5779,6 +5779,43 @@ typedef struct COPYFILE2_EXTENDED_PARAMETERS {
   PVOID                         pvCallbackContext;
 } COPYFILE2_EXTENDED_PARAMETERS;
 
+#if (NTDDI_VERSION >= NTDDI_WIN10_FE)
+
+// maximum allowed delay between {read, write} cycles, in ms
+// (constrains COPYFILE2_EXTENDED_PARAMETERS_V2 interIoDelayMS field).
+#define COPYFILE2_MAX_INTER_IO_DELAY_MS             60000
+
+// minimum allowed requested i/o size, in bytes
+// (constrains COPYFILE2_EXTENDED_PARAMETERS_V2 ioDesiredSize field).
+#define COPYFILE2_IO_CYCLE_SIZE_MIN                 4096
+
+// maximum allowed requested i/o size, in bytes (1GB)
+// (constrains COPYFILE2_EXTENDED_PARAMETERS_V2 ioDesiredSize field).
+#define COPYFILE2_IO_CYCLE_SIZE_MAX                 0x40000000
+
+typedef struct COPYFILE2_EXTENDED_PARAMETERS_V2 {
+
+  DWORD                         dwSize;
+  DWORD                         dwCopyFlags;
+  BOOL                          *pfCancel;
+  PCOPYFILE2_PROGRESS_ROUTINE   pProgressRoutine;
+  PVOID                         pvCallbackContext;
+
+  // delay between each {read, write} cycle, in ms
+  ULONG                         interIoDelayMS;
+
+  // size of the i/o for each {read, write} cycle, in bytes
+  // (may be reduced, if insufficient memory is available)
+  // if zero: use a suitable default.
+  ULONG                         ioDesiredSize;
+
+  // reserved for future use; must be set to zero
+  PVOID                         reserved[8];
+
+} COPYFILE2_EXTENDED_PARAMETERS_V2;
+
+#endif // (NTDDI_VERSION >= NTDDI_WIN10_FE)
+
 WINBASEAPI
 HRESULT
 WINAPI

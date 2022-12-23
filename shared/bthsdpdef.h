@@ -90,12 +90,12 @@ union SdpQueryUuidUnion {
 
 #ifdef MIDL_PASS 
     [case(SDP_ST_UUID32)] 
-#endif _NTDDK_
+#endif // _NTDDK_
        ULONG uuid32;
 
 #ifdef MIDL_PASS 
     [case(SDP_ST_UUID16)]
-#endif _NTDDK_
+#endif // _NTDDK_
         USHORT uuid16;
 } SdpQueryUuidUnion;
 

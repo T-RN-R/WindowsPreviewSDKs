@@ -166,7 +166,7 @@ __inline void FreeRecipDesc(_Inout_updates_opt_(nRecipDesc) MapiRecipDesc* pReci
         {
             delete[] pRecipDesc[i].lpszName;
             delete[] pRecipDesc[i].lpszAddress;
-            delete[] pRecipDesc[i].lpEntryID;
+            delete[] static_cast<BYTE*>(pRecipDesc[i].lpEntryID);
 
             pRecipDesc[i].ulReserved = 0;
             pRecipDesc[i].ulRecipClass = 0;

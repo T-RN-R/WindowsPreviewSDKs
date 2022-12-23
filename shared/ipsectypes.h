@@ -332,7 +332,7 @@ typedef struct IPSEC_TUNNEL_ENDPOINTS2_
     /* [size_is] */ IPSEC_TUNNEL_ENDPOINT0 *remoteAddresses;
     } 	IPSEC_TUNNEL_ENDPOINTS2;
 
-#endif (NTDDI_VERSION >= NTDDI_WIN8)
+#endif // (NTDDI_VERSION >= NTDDI_WIN8)
 #if (NTDDI_VERSION >= NTDDI_WIN7)
 typedef struct IPSEC_TUNNEL_ENDPOINTS1_
     {

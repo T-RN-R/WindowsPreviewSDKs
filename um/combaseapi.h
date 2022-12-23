@@ -352,7 +352,7 @@ extern "C++"
     template<typename T> _Post_equal_to_(pp) _Post_satisfies_(return == pp) void** IID_PPV_ARGS_Helper(T** pp)
     {
 #pragma prefast(suppress: 6269, "Tool issue with unused static_cast")
-        static_cast<IUnknown*>(*pp);    // make sure everyone derives from IUnknown
+        (void)static_cast<IUnknown*>(*pp);    // make sure everyone derives from IUnknown
         return reinterpret_cast<void**>(pp);
     }
 }

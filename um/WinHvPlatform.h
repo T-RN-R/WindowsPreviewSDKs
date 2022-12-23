@@ -303,6 +303,17 @@ WHvUnregisterPartitionDoorbellEvent(
     _In_ const WHV_DOORBELL_MATCH_DATA* MatchData
     );
 
+HRESULT
+WINAPI
+WHvAdviseGpaRange(
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_reads_(GpaRangesCount) const WHV_MEMORY_RANGE_ENTRY* GpaRanges,
+    _In_ UINT32 GpaRangesCount,
+    _In_ WHV_ADVISE_GPA_RANGE_CODE Advice,
+    _In_reads_bytes_(AdviceBufferSizeInBytes) const VOID* AdviceBuffer,
+    _In_ UINT32 AdviceBufferSizeInBytes
+    );
+
 #ifdef __cplusplus
 }
 #endif
@@ -312,8 +323,8 @@ WHvUnregisterPartitionDoorbellEvent(
 
 #endif // _WINHVAPI_H_
 
-#ifndef ext_ms_win_hyperv_hvplatform_l1_1_3_query_routines
-#define ext_ms_win_hyperv_hvplatform_l1_1_3_query_routines
+#ifndef ext_ms_win_hyperv_hvplatform_l1_1_4_query_routines
+#define ext_ms_win_hyperv_hvplatform_l1_1_4_query_routines
 
 //
 //Private Extension API Query Routines
@@ -502,6 +513,12 @@ IsWHvRegisterPartitionDoorbellEventPresent(
 BOOLEAN
 __stdcall
 IsWHvUnregisterPartitionDoorbellEventPresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvAdviseGpaRangePresent(
     VOID
     );
 

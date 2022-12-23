@@ -919,5 +919,5 @@ typedef struct tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1
 }
 #endif
 
-#endif _WBCL_H
+#endif // _WBCL_H
 

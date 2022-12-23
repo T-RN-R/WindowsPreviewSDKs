@@ -438,7 +438,6 @@ typedef enum
     CLUS_GROUP_START_ALLOWED = 2
 } CLUS_GROUP_START_SETTING;
 
-
 typedef enum
 {
     CLUS_AFFINITY_RULE_NONE = 0,
@@ -450,6 +449,9 @@ typedef enum
     CLUS_AFFINITY_RULE_MIN = CLUS_AFFINITY_RULE_NONE,
     CLUS_AFFINITY_RULE_MAX = CLUS_AFFINITY_RULE_DIFFERENT_NODE,
 } CLUS_AFFINITY_RULE_TYPE;
+
+#define CLUS_GRP_MOVE_ALLOWED 0
+#define CLUS_GRP_MOVE_LOCKED  1
 
 #endif // CLUSAPI_VERSION_WINTHRESHOLD
 
@@ -4969,10 +4971,10 @@ typedef enum CLUSCTL_CLUSTER_CODES {
         CLUSCTL_CLUSTER_CODE( CLCTL_ENUM_AFFINITY_RULE_NAMES ),
 
     CLUSCTL_CLUSTER_GET_NODES_IN_FD =
-	    CLUSCTL_CLUSTER_CODE( CLCTL_GET_NODES_IN_FD ), 
+            CLUSCTL_CLUSTER_CODE( CLCTL_GET_NODES_IN_FD ), 
 
-	CLUSCTL_CLUSTER_FORCE_FLUSH_DB = 
-		CLUSCTL_CLUSTER_CODE( CLCTL_FORCE_DB_FLUSH ),
+        CLUSCTL_CLUSTER_FORCE_FLUSH_DB = 
+            CLUSCTL_CLUSTER_CODE( CLCTL_FORCE_DB_FLUSH ),
 
 } CLUSCTL_CLUSTER_CODES;
 
@@ -7252,7 +7254,7 @@ typedef DWORD
 #define CLUSREG_NAME_GRP_FAULT_DOMAIN                      L"FaultDomain"
 #define CLUSREG_NAME_GRP_UPDATE_DOMAIN                     L"UpdateDomain"
 #define CLUSREG_NAME_GRP_PLACEMENT_OPTIONS                 L"PlacementOptions"
-
+#define CLUSREG_NAME_GRP_LOCK_MOVE                         L"LockedFromMoving"
 
 //
 // Resource common property names
@@ -7733,6 +7735,7 @@ typedef struct _SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP
     WCHAR       Description[MAX_PATH];                   /**< A text description of the group*/
     WCHAR       LogPath[MAX_PATH];                       /**< Full path of the log container*/
     ULONGLONG   MaxLogSizeInBytes;                       /**< The maximum size of the log file in Bytes*/
+    USHORT      LogType;                                 /**< Whether the log is file based CLFS log (1) or RAW SR log (2)*/
     DWORD       ReplicationMode;                         /**< Whether the replication is performed synchronously(1) or asynchronously(2)*/
     DWORD       MinimumPartnersInSync;                   /**< Minimum number of synchronous Replication Partners to be actively in sync before allowing data access by applications on the primary Replica*/
     BOOLEAN     EnableWriteConsistency;                  /**< Set true to enable write consistency*/
