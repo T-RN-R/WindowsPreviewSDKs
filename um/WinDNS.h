@@ -329,6 +329,9 @@ typedef struct _DNS_HEADER
 {
     WORD    Xid;
 
+#ifdef MIDL_PASS
+    WORD    Flags;
+#else
     BYTE    RecursionDesired : 1;
     BYTE    Truncation : 1;
     BYTE    Authoritative : 1;
@@ -340,6 +343,7 @@ typedef struct _DNS_HEADER
     BYTE    AuthenticatedData : 1;
     BYTE    Reserved : 1;
     BYTE    RecursionAvailable : 1;
+#endif
 
     WORD    QuestionCount;
     WORD    AnswerCount;
