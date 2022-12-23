@@ -386,6 +386,7 @@ WINRT_EXPORT namespace winrt::Windows::Media::Capture
         VideoRecord = 1,
         Audio = 2,
         Photo = 3,
+        Metadata = 4,
     };
     enum class PhotoCaptureSource : int32_t
     {

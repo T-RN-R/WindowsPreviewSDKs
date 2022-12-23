@@ -441,6 +441,9 @@ EXTERN_C const IID IID_ICoreWindowAdapterInterop;
     ICoreWindowAdapterInterop : public IInspectable
     {
     public:
+        virtual /* [propget] */ HRESULT STDMETHODCALLTYPE get_AppActivationClientAdapter( 
+            /* [retval][out] */ __RPC__deref_out_opt IUnknown **value) = 0;
+        
         virtual /* [propget] */ HRESULT STDMETHODCALLTYPE get_ApplicationViewClientAdapter( 
             /* [retval][out] */ __RPC__deref_out_opt IUnknown **value) = 0;
         
@@ -498,6 +501,11 @@ EXTERN_C const IID IID_ICoreWindowAdapterInterop;
         HRESULT ( STDMETHODCALLTYPE *GetTrustLevel )( 
             __RPC__in ICoreWindowAdapterInterop * This,
             /* [out] */ __RPC__out TrustLevel *trustLevel);
+        
+        DECLSPEC_XFGVIRT(ICoreWindowAdapterInterop, get_AppActivationClientAdapter)
+        /* [propget] */ HRESULT ( STDMETHODCALLTYPE *get_AppActivationClientAdapter )( 
+            __RPC__in ICoreWindowAdapterInterop * This,
+            /* [retval][out] */ __RPC__deref_out_opt IUnknown **value);
         
         DECLSPEC_XFGVIRT(ICoreWindowAdapterInterop, get_ApplicationViewClientAdapter)
         /* [propget] */ HRESULT ( STDMETHODCALLTYPE *get_ApplicationViewClientAdapter )( 
@@ -561,6 +569,9 @@ EXTERN_C const IID IID_ICoreWindowAdapterInterop;
 #define ICoreWindowAdapterInterop_GetTrustLevel(This,trustLevel)	\
     ( (This)->lpVtbl -> GetTrustLevel(This,trustLevel) ) 
 
+
+#define ICoreWindowAdapterInterop_get_AppActivationClientAdapter(This,value)	\
+    ( (This)->lpVtbl -> get_AppActivationClientAdapter(This,value) ) 
 
 #define ICoreWindowAdapterInterop_get_ApplicationViewClientAdapter(This,value)	\
     ( (This)->lpVtbl -> get_ApplicationViewClientAdapter(This,value) ) 

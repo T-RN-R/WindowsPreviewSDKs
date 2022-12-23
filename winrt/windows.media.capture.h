@@ -7565,6 +7565,9 @@ namespace ABI {
                     MediaStreamType_VideoRecord = 1,
                     MediaStreamType_Audio = 2,
                     MediaStreamType_Photo = 3,
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+                    MediaStreamType_Metadata = 4,
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
                 };
             } /* Capture */
         } /* Media */
@@ -22773,6 +22776,9 @@ enum __x_ABI_CWindows_CMedia_CCapture_CMediaStreamType
     MediaStreamType_VideoRecord = 1,
     MediaStreamType_Audio = 2,
     MediaStreamType_Photo = 3,
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+    MediaStreamType_Metadata = 4,
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 };
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 
