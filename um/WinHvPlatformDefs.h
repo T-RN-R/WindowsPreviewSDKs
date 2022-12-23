@@ -58,7 +58,8 @@ typedef union WHV_CAPABILITY_FEATURES
         UINT64 DirtyPageTracking : 1;
         UINT64 SpeculationControl : 1;
         UINT64 ApicRemoteRead : 1;
-        UINT64 Reserved : 58;
+        UINT64 IdleSuspend : 1;
+        UINT64 Reserved : 57;
     };
 
     UINT64 AsUINT64;
@@ -78,9 +79,10 @@ typedef union WHV_EXTENDED_VM_EXITS
         UINT64 X64MsrExit                 : 1; // WHvRunVpExitX64ReasonMSRAccess supported
         UINT64 ExceptionExit              : 1; // WHvRunVpExitReasonException supported
         UINT64 X64RdtscExit               : 1; // WHvRunVpExitReasonX64Rdtsc supported
-        UINT64 X64ApicSmiExit             : 1; // WHvRunVpExitReasonX64ApicSmi supported
+        UINT64 X64ApicSmiExitTrap         : 1; // WHvRunVpExitReasonX64ApicSmiTrap supported
         UINT64 HypercallExit              : 1; // WHvRunVpExitReasonHypercall supported
-        UINT64 Reserved                   : 58;
+        UINT64 X64ApicInitSipiExitTrap    : 1; // WHvRunVpExitReasonX64ApicInitSipiTrap supported
+        UINT64 Reserved                   : 57;
     };
 
     UINT64 AsUINT64;
@@ -269,7 +271,9 @@ typedef union WHV_X64_MSR_EXIT_BITMAP
         UINT64 TscMsrWrite:1;
         UINT64 TscMsrRead:1;
         UINT64 ApicBaseMsrWrite:1;
-        UINT64 Reserved:60;
+        UINT64 MiscEnableMsrRead:1;
+        UINT64 McUpdatePatchLevelMsrRead:1;
+        UINT64 Reserved:58;
     };
 
 } WHV_X64_MSR_EXIT_BITMAP;
@@ -320,6 +324,7 @@ typedef enum WHV_PARTITION_PROPERTY_CODE
     WHvPartitionPropertyCodeInterruptClockFrequency = 0x00001008,
     WHvPartitionPropertyCodeApicRemoteReadSupport   = 0x00001009,
     WHvPartitionPropertyCodeProcessorFeaturesBanks  = 0x0000100A,
+    WHvPartitionPropertyCodeReferenceTime           = 0x0000100B,
 
     WHvPartitionPropertyCodeProcessorCount          = 0x00001fff
 } WHV_PARTITION_PROPERTY_CODE;
@@ -390,6 +395,7 @@ typedef union WHV_PARTITION_PROPERTY
     UINT64 InterruptClockFrequency;
     BOOL ApicRemoteRead;
     WHV_PROCESSOR_FEATURES_BANKS ProcessorFeaturesBanks;
+    UINT64 ReferenceTime;
 } WHV_PARTITION_PROPERTY;
 
 //
@@ -915,8 +921,9 @@ typedef enum WHV_RUN_VP_EXIT_REASON
     WHvRunVpExitReasonX64Cpuid               = 0x00001001,
     WHvRunVpExitReasonException              = 0x00001002,
     WHvRunVpExitReasonX64Rdtsc               = 0x00001003,
-    WHvRunVpExitReasonX64ApicSmi             = 0x00001004,
+    WHvRunVpExitReasonX64ApicSmiTrap         = 0x00001004,
     WHvRunVpExitReasonHypercall              = 0x00001005,
+    WHvRunVpExitReasonX64ApicInitSipiTrap    = 0x00001006,
 
     // Exits caused by the host
     WHvRunVpExitReasonCanceled               = 0x00002001,
@@ -1184,12 +1191,13 @@ typedef struct WHV_X64_RDTSC_CONTEXT
 {
     UINT64 TscAux;
     UINT64 VirtualOffset;
-    UINT64 Reserved[2];
+    UINT64 Tsc;
+    UINT64 ReferenceTime;
     WHV_X64_RDTSC_INFO RdtscInfo;
 } WHV_X64_RDTSC_CONTEXT;
 
 //
-// Context data for an exit caused by an APIC SMI (WHvRunVpExitReasonX64ApicSmi)
+// Context data for an exit caused by an APIC SMI (WHvRunVpExitReasonX64ApicSmiTrap)
 //
 typedef struct WHV_X64_APIC_SMI_CONTEXT
 {
@@ -1216,6 +1224,14 @@ typedef struct _WHV_HYPERCALL_CONTEXT
     UINT64 Reserved1[2];
 } WHV_HYPERCALL_CONTEXT, *PWHV_HYPERCALL_CONTEXT;
 
+//
+// Context data for an exit caused by an APIC INIT SIPI (WHvRunVpExitReasonX64ApicInitSipiTrap)
+//
+typedef struct WHV_X64_APIC_INIT_SIPI_CONTEXT
+{
+    UINT64 ApicIcr;
+} WHV_X64_APIC_INIT_SIPI_CONTEXT;
+
 // WHvRunVirtualProcessor output buffer
 typedef struct WHV_RUN_VP_EXIT_CONTEXT
 {
@@ -1237,6 +1253,7 @@ typedef struct WHV_RUN_VP_EXIT_CONTEXT
         WHV_X64_RDTSC_CONTEXT ReadTsc;
         WHV_X64_APIC_SMI_CONTEXT ApicSmi;
         WHV_HYPERCALL_CONTEXT Hypercall;
+        WHV_X64_APIC_INIT_SIPI_CONTEXT ApicInitSipi;
     };
 } WHV_RUN_VP_EXIT_CONTEXT;
 

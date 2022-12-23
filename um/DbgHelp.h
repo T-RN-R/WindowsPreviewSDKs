@@ -1517,6 +1517,7 @@ typedef struct _SOURCEFILEW {
 #define CBA_CHECK_ENGOPT_DISALLOW_NETWORK_PATHS 0x70000000
 #define CBA_CHECK_ARM_MACHINE_THUMB_TYPE_OVERRIDE 0x80000000
 #define CBA_XML_LOG                             0x90000000
+#define CBA_MAP_JIT_SYMBOL                      0xA0000000
 
 
 typedef struct _IMAGEHLP_CBA_READ_MEMORY {
@@ -1614,6 +1615,12 @@ typedef struct _IMAGEHLP_DUPLICATE_SYMBOL {
     DWORD            SelectedSymbol;         // symbol selected (-1 to start)
 } IMAGEHLP_DUPLICATE_SYMBOL, *PIMAGEHLP_DUPLICATE_SYMBOL;
 #endif
+
+typedef struct _IMAGEHLP_JIT_SYMBOL_MAP {
+    DWORD            SizeOfStruct;           // set to sizeof(IMAGEHLP_JIT_SYMBOL_MAP)
+    DWORD64          Address;                // address to map to JIT association with an image
+    DWORD64          BaseOfImage;            // base load address (0 == unmapped)
+} IMAGEHLP_JIT_SYMBOLMAP, *PIMAGEHLP_JIT_SYMBOLMAP;
 
 // If dbghelp ever needs to display graphical UI, it will use this as the parent window.
 

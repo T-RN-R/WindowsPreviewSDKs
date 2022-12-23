@@ -368,7 +368,7 @@
 #define DpDpcData 0x38
 #define DpcObjectLength 0x40
 
-#define KI_DPC_ALL_FLAGS 0x3f
+#define KI_DPC_ALL_FLAGS 0xbf
 #define KI_DPC_ANY_DPC_ACTIVE 0x10001
 
 //
@@ -455,7 +455,7 @@
 #define PrUserTime 0x388
 #define PrInstrumentationCallback 0x390
 #define KernelProcessObjectLength 0x3f0
-#define ExecutiveProcessObjectLength 0xb80
+#define ExecutiveProcessObjectLength 0xc00
 #define Win32BatchFlushCallout 0x7
 
 //
@@ -827,7 +827,7 @@
 #define PcGroupSetMember 0x10e0
 #define PcFeatureBits 0x1214
 #define PcVirtualApicAssist 0x2098
-#define PcTrappedSecurityDomain 0x14a0
+#define PcTrappedSecurityDomain 0x14b0
 #define TlThread 0x0
 #define TlCpuNumber 0x8
 #define TlTrapType 0x9
@@ -857,12 +857,12 @@
 #define PcDeferredReadyListHead 0x1388
 #define PcInterruptCount 0x1880
 #define PcSystemCalls 0x13b8
-#define PcDpcRoutineActive 0x148a
+#define PcDpcRoutineActive 0x149a
 #define PcDeferredReadyListHead 0x1388
 #define PcSkipTick 0x1898
 #define PcStartCycles 0x18c8
-#define PcSpBase 0x1470
-#define ProcessorControlRegisterLength 0x1d0c0
+#define PcSpBase 0x1480
+#define ProcessorControlRegisterLength 0x1d240
 
 //
 // Defines for user shared data
@@ -907,7 +907,7 @@
 #define PbPacketBarrier 0xa00
 #define PbDeferredReadyListHead 0xa08
 #define PbLookasideIrpFloat 0xa58
-#define PbRequestMailbox 0x8700
+#define PbRequestMailbox 0x8880
 #define PbMailbox 0xa80
 #define PbDpcGate 0xb80
 #define PbWaitListHead 0xc00
@@ -926,17 +926,17 @@
 #define PbDpcList 0xa98
 #define PbDpcLock 0xaa8
 #define PbDpcCount 0xab4
-#define PbDpcStack 0xae8
-#define PbSpBase 0xaf0
-#define PbMaximumDpcQueueDepth 0xaf8
-#define PbDpcRequestRate 0xafc
-#define PbMinimumDpcRate 0xb00
-#define PbDpcRoutineActive 0xb0a
-#define PbDpcRequestSummary 0xb0c
-#define PbNormalDpcState 0xb0c
-#define PbDpcLastCount 0xb04
-#define PbQuantumEnd 0xb09
-#define PbIdleSchedule 0xb0b
+#define PbDpcStack 0xaf8
+#define PbSpBase 0xb00
+#define PbMaximumDpcQueueDepth 0xb08
+#define PbDpcRequestRate 0xb0c
+#define PbMinimumDpcRate 0xb10
+#define PbDpcRoutineActive 0xb1a
+#define PbDpcRequestSummary 0xb1c
+#define PbNormalDpcState 0xb1c
+#define PbDpcLastCount 0xb14
+#define PbQuantumEnd 0xb19
+#define PbIdleSchedule 0xb1b
 #define PbDispatcherReadyListHead 0xd00
 #define PbInterruptCount 0xf00
 #define PbKernelTime 0xf04
@@ -957,7 +957,7 @@
 #define PbCopyReadNoWait 0xa4c
 #define PbCopyReadWait 0xa50
 #define PbCopyReadNoWaitMiss 0xa54
-#define PbAlignmentFixupCount 0x1458
+#define PbAlignmentFixupCount 0x1460
 #define PbExceptionDispatchCount 0xf34
 #define PbProcessorVendorString 0x890
 #define PbFeatureBits 0x894
@@ -1475,7 +1475,7 @@
 #define KI_EXCEPTION_INVALID_OP 0x10000002
 #define KI_EXCEPTION_ACCESS_VIOLATION 0x10000004
 #define KI_EXCEPTION_HARDWARE_ERROR 0x10000005
-#define KI_DPC_INTERRUPT_FLAGS 0x2f
+#define KI_DPC_INTERRUPT_FLAGS 0xaf
 #define STATUS_UNSUCCESSFUL 0xc0000001
 #define SKCALL_MAXPARAMETERS 0xc
 

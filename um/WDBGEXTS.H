@@ -1260,6 +1260,7 @@ typedef struct _KDDEBUGGER_DATA64 {
     // pad to a quad boundary
     //
     USHORT  PaeEnabled:1;
+    USHORT  KiBugCheckRecoveryActive:1; // Windows 10 Manganese Addition
 
     //
     // Address of the kernel callout routine.

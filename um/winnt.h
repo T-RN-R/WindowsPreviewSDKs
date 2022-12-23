@@ -40,13 +40,9 @@ extern "C" {
 // helpful since this will be done intentionally (not all components opt-in).
 //
 
-#if (_MSC_VER >= 1915)
-#pragma warning(disable:4845)   // __declspec(no_init_all) used but d1initall not set
-#endif
-
 #ifndef DECLSPEC_NOINITALL
-#if (_MSC_VER >= 1915) && !defined(MIDL_PASS)
-#define DECLSPEC_NOINITALL __declspec(no_init_all)
+#if (_MSC_VER >= 1915) && !defined(MIDL_PASS) && !defined(SORTPP_PASS) && !defined(RC_INVOKED)
+#define DECLSPEC_NOINITALL __pragma(warning(push)) __pragma(warning(disable:4845)) __declspec(no_init_all) __pragma(warning(pop))
 #else
 #define DECLSPEC_NOINITALL
 #endif
@@ -2676,6 +2672,8 @@ typedef struct _XSTATE_CONTEXT {
 } XSTATE_CONTEXT, *PXSTATE_CONTEXT;
 
 //
+
+//
 // Scope table structure definition.
 //
 
@@ -2689,10 +2687,13 @@ typedef struct _SCOPE_TABLE_AMD64 {
     } ScopeRecord[1];
 } SCOPE_TABLE_AMD64, *PSCOPE_TABLE_AMD64;
 
-// begin_ntoshvp
+//
+//
 
-#ifdef _AMD64_
+#if defined(_AMD64_)
 
+//
+//
 
 #if defined(_M_AMD64) && !defined(RC_INVOKED) && !defined(MIDL_PASS)
 
@@ -3055,7 +3056,7 @@ InterlockedAdd (
     return InterlockedExchangeAdd(Addend, Value) + Value;
 }
 
-#endif
+#endif // !defined(_X86AMD64_)
 
 LONG
 InterlockedCompareExchange (
@@ -3099,7 +3100,7 @@ _InlineInterlockedAdd64 (
     return InterlockedExchangeAdd64(Addend, Value) + Value;
 }
 
-#endif
+#endif // !defined(_X86AMD64_)
 
 LONG64
 InterlockedCompareExchange64 (
@@ -3248,7 +3249,8 @@ InterlockedXor16(
 
 #endif
 
-// end_ntoshvp
+//
+//
 
 //
 // Define extended CPUID intrinsic.
@@ -3265,7 +3267,8 @@ __cpuidex (
 
 #pragma intrinsic(__cpuidex)
 
-// begin_ntoshvp
+//
+//
 
 //
 // Define function to flush a cache line.
@@ -3280,8 +3283,8 @@ _mm_clflush (
 
 #pragma intrinsic(_mm_clflush)
 
-// begin_sdfwdm
-// begin_wudfpwdm
+//
+//
 
 VOID
 _ReadWriteBarrier (
@@ -3296,24 +3299,24 @@ _ReadWriteBarrier (
 
 #define FastFence __faststorefence
 
-// end_wudfpwdm
-// end_sdfwdm
+//
+//
 
 #define LoadFence _mm_lfence
 #define MemoryFence _mm_mfence
 #define StoreFence _mm_sfence
 #define SpeculationFence LoadFence
 
-// begin_sdfwdm
-// begin_wudfpwdm
+//
+//
 
 VOID
 __faststorefence (
     VOID
     );
 
-// end_wudfpwdm
-// end_sdfwdm
+//
+//
 
 VOID
 _mm_lfence (
@@ -3355,13 +3358,13 @@ _m_prefetchw (
 #define _MM_HINT_T2     3
 #define _MM_HINT_NTA    0
 
-// begin_sdfwdm
-// begin_wudfpwdm
+//
+//
 
 #pragma intrinsic(__faststorefence)
 
-// end_wudfpwdm
-// end_sdfwdm
+//
+//
 
 #pragma intrinsic(_mm_pause)
 #pragma intrinsic(_mm_prefetch)
@@ -3797,6 +3800,8 @@ __addgsqword (
 
 #endif // !defined(_MANAGED)
 
+//
+//
 
 #ifdef __cplusplus
 }
@@ -3804,7 +3809,9 @@ __addgsqword (
 
 #endif // defined(_M_AMD64) && !defined(RC_INVOKED) && !defined(MIDL_PASS)
 
-// end_ntoshvp
+//
+//
+
 //
 // The following values specify the type of access in the first parameter
 // of the exception record whan the exception code specifies an access
@@ -3815,7 +3822,6 @@ __addgsqword (
 #define EXCEPTION_WRITE_FAULT 1         // exception caused by a write
 #define EXCEPTION_EXECUTE_FAULT 8       // exception caused by an instruction fetch
 
-// begin_wx86
 //
 // The following flags control the contents of the CONTEXT structure.
 //
@@ -3823,8 +3829,6 @@ __addgsqword (
 #if !defined(RC_INVOKED)
 
 #define CONTEXT_AMD64   0x00100000L
-
-// end_wx86
 
 #define CONTEXT_CONTROL         (CONTEXT_AMD64 | 0x00000001L)
 #define CONTEXT_INTEGER         (CONTEXT_AMD64 | 0x00000002L)
@@ -3852,8 +3856,6 @@ __addgsqword (
 #define CONTEXT_EXCEPTION_REQUEST   0x40000000L
 #define CONTEXT_EXCEPTION_REPORTING 0x80000000L
 
-// begin_wx86
-
 #endif // !defined(RC_INVOKED)
 
 //
@@ -3863,14 +3865,13 @@ __addgsqword (
 #define INITIAL_MXCSR 0x1f80            // initial MXCSR value
 #define INITIAL_FPCSR 0x027f            // initial FPCSR value
 
-// end_ntddk
-// begin_wdm begin_ntosp
-// begin_ntoshvp
+//
+//
 
 typedef XSAVE_FORMAT XMM_SAVE_AREA32, *PXMM_SAVE_AREA32;
 
-// end_wdm end_ntosp
-// begin_ntddk
+//
+//
 
 //
 // Context Frame
@@ -4023,7 +4024,9 @@ typedef struct DECLSPEC_ALIGN(16) DECLSPEC_NOINITALL _CONTEXT {
     DWORD64 LastExceptionFromRip;
 } CONTEXT, *PCONTEXT;
 
-// end_ntoshvp
+//
+//
+
 //
 // Select platform-specific definitions
 //
@@ -4132,7 +4135,6 @@ VOID
     PVOID EstablisherFrame
     );
 
-
 //
 // Nonvolatile context pointer record.
 //
@@ -4184,8 +4186,12 @@ typedef struct _KNONVOLATILE_CONTEXT_POINTERS {
 
 } KNONVOLATILE_CONTEXT_POINTERS, *PKNONVOLATILE_CONTEXT_POINTERS;
 
-#endif // _AMD64_
+//
+//
 
+#endif // defined(_AMD64_)
+
+//
 //
 // Scope table structure definition.
 //
@@ -5181,6 +5187,8 @@ typedef struct _KNONVOLATILE_CONTEXT_POINTERS {
 #endif // _ARM_
 
 //
+
+//
 // Scope table structure definition.
 //
 
@@ -5195,11 +5203,13 @@ typedef struct _SCOPE_TABLE_ARM64 {
     } ScopeRecord[1];
 } SCOPE_TABLE_ARM64, *PSCOPE_TABLE_ARM64;
 
-// begin_ntddk begin_wdm begin_nthal begin_ntminiport begin_wx86
+//
+//
 
 #if defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
 
-// end_ntddk end_wdm end_nthal end_ntminiport end_wx86
+//
+//
 
 #if !defined(_M_CEE_PURE)
 #if !defined(RC_INVOKED) && !defined(MIDL_PASS)
@@ -5621,9 +5631,13 @@ YieldProcessor (
 #pragma intrinsic(__iso_volatile_store32)
 #pragma intrinsic(__iso_volatile_store64)
 
-// end_wdm end_ntndis end_ntosp end_ntminiport end_ntoshvp
+//
+//
+
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
-// begin_wdm begin_ntndis begin_ntosp begin_ntminiport begin_ntoshvp
+
+//
+//
 
 FORCEINLINE
 CHAR
@@ -5849,9 +5863,13 @@ WriteNoFence64 (
     return;
 }
 
-// end_wdm end_ntndis end_ntosp end_ntminiport end_ntoshvp
+//
+//
+
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
-// begin_wdm begin_ntndis begin_ntosp begin_ntminiport begin_ntoshvp
+
+//
+//
 
 //
 // Define coprocessor access intrinsics.  Coprocessor 15 contains
@@ -5988,6 +6006,9 @@ YieldProcessor (
 #endif // defined(_M_CEE_PURE)
 
 //
+//
+
+//
 // The following values specify the type of access in the first parameter
 // of the exception record whan the exception code specifies an access
 // violation.
@@ -5997,8 +6018,6 @@ YieldProcessor (
 #define EXCEPTION_WRITE_FAULT 1         // exception caused by a write
 #define EXCEPTION_EXECUTE_FAULT 8       // exception caused by an instruction fetch
 
-// begin_wx86
-
 //
 // Define initial Cpsr/Fpscr value
 //
@@ -6006,8 +6025,13 @@ YieldProcessor (
 #define INITIAL_CPSR 0x10
 #define INITIAL_FPSCR 0
 
-// end_wx86
-// begin_wx86
+//
+//
+
+#endif // defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
+
+//
+//
 
 //
 // The following flags control the contents of the CONTEXT structure.
@@ -6016,8 +6040,6 @@ YieldProcessor (
 #if !defined(RC_INVOKED)
 
 #define CONTEXT_ARM64   0x00400000L
-
-// end_wx86
 
 #define CONTEXT_ARM64_CONTROL (CONTEXT_ARM64 | 0x1L)
 #define CONTEXT_ARM64_INTEGER (CONTEXT_ARM64 | 0x2L)
@@ -6064,11 +6086,10 @@ YieldProcessor (
 
 #endif // defined(_ARM64_) || defined(_CHPE_X86_ARM64_) || defined(_X86_)
 
-// begin_wx86
-
 #endif // !defined(RC_INVOKED)
 
-// begin_ntoshvp
+//
+//
 
 //
 // Specify the number of breakpoints and watchpoints that the OS
@@ -6223,12 +6244,20 @@ typedef ARM64_NT_CONTEXT CONTEXT, *PCONTEXT;
 
 #endif // defined(_ARM64_)
 
-// end_ntoshvp
-// end_wx86
+//
+//
 
 //
 // Select platform-specific definitions
 //
+
+#if defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
+
+typedef SCOPE_TABLE_ARM64 SCOPE_TABLE, *PSCOPE_TABLE;
+
+#endif //  defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
+
+typedef struct _IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY ARM64_RUNTIME_FUNCTION, *PARM64_RUNTIME_FUNCTION;
 
 #if defined(_ARM64_)
 
@@ -6236,29 +6265,55 @@ typedef struct _IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY RUNTIME_FUNCTION, *PRUNTIME_F
 
 #endif // defined(_ARM64_)
 
-typedef struct _IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY ARM64_RUNTIME_FUNCTION, *PARM64_RUNTIME_FUNCTION;
-typedef SCOPE_TABLE_ARM64 SCOPE_TABLE, *PSCOPE_TABLE;
-
 //
 // Define unwind information flags.
 //
 
-#define UNW_FLAG_NHANDLER               0x0             /* any handler */
-#define UNW_FLAG_EHANDLER               0x1             /* filter handler */
-#define UNW_FLAG_UHANDLER               0x2             /* unwind handler */
+#define UNW_FLAG_NHANDLER       0x0             /* any handler */
+#define UNW_FLAG_EHANDLER       0x1             /* filter handler */
+#define UNW_FLAG_UHANDLER       0x2             /* unwind handler */
 
 //
-// Define unwind history table structure.
+// Define unwind history table structures.
 //
 
-#define UNWIND_HISTORY_TABLE_SIZE 12
+#define UNWIND_HISTORY_TABLE_SIZE_ARM64 12
 
-typedef struct _UNWIND_HISTORY_TABLE_ENTRY {
+#if defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
+
+#define UNWIND_HISTORY_TABLE_SIZE UNWIND_HISTORY_TABLE_SIZE_ARM64
+
+#endif // defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
+
+
+#if defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
+
+#pragma push_macro("_UNWIND_HISTORY_TABLE_ENTRY_ARM64")
+#undef _UNWIND_HISTORY_TABLE_ENTRY_ARM64
+#define _UNWIND_HISTORY_TABLE_ENTRY_ARM64 _UNWIND_HISTORY_TABLE_ENTRY
+
+#pragma push_macro("_UNWIND_HISTORY_TABLE_ARM64")
+#undef _UNWIND_HISTORY_TABLE_ARM64
+#define _UNWIND_HISTORY_TABLE_ARM64 _UNWIND_HISTORY_TABLE
+
+#pragma push_macro("_DISPATCHER_CONTEXT_ARM64")
+#undef _DISPATCHER_CONTEXT_ARM64
+#define _DISPATCHER_CONTEXT_ARM64 _DISPATCHER_CONTEXT
+
+#endif // defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
+
+typedef struct _UNWIND_HISTORY_TABLE_ENTRY_ARM64 {
     DWORD64 ImageBase;
     PARM64_RUNTIME_FUNCTION FunctionEntry;
-} UNWIND_HISTORY_TABLE_ENTRY, *PUNWIND_HISTORY_TABLE_ENTRY;
+} UNWIND_HISTORY_TABLE_ENTRY_ARM64, *PUNWIND_HISTORY_TABLE_ENTRY_ARM64;
 
-typedef struct _UNWIND_HISTORY_TABLE {
+#if defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
+
+typedef UNWIND_HISTORY_TABLE_ENTRY_ARM64 UNWIND_HISTORY_TABLE_ENTRY, *PUNWIND_HISTORY_TABLE_ENTRY;
+
+#endif // defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
+
+typedef struct _UNWIND_HISTORY_TABLE_ARM64 {
     DWORD Count;
     BYTE  LocalHint;
     BYTE  GlobalHint;
@@ -6266,14 +6321,12 @@ typedef struct _UNWIND_HISTORY_TABLE {
     BYTE  Once;
     DWORD64 LowAddress;
     DWORD64 HighAddress;
-    UNWIND_HISTORY_TABLE_ENTRY Entry[UNWIND_HISTORY_TABLE_SIZE];
-} UNWIND_HISTORY_TABLE, *PUNWIND_HISTORY_TABLE;
+    struct _UNWIND_HISTORY_TABLE_ENTRY_ARM64 Entry[UNWIND_HISTORY_TABLE_SIZE_ARM64];
+} UNWIND_HISTORY_TABLE_ARM64, *PUNWIND_HISTORY_TABLE_ARM64;
 
 #if defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
 
-#pragma push_macro("_DISPATCHER_CONTEXT_ARM64")
-#undef _DISPATCHER_CONTEXT_ARM64
-#define _DISPATCHER_CONTEXT_ARM64 _DISPATCHER_CONTEXT
+typedef UNWIND_HISTORY_TABLE_ARM64 UNWIND_HISTORY_TABLE, *PUNWIND_HISTORY_TABLE;
 
 #endif // defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
 
@@ -6290,7 +6343,7 @@ typedef struct _DISPATCHER_CONTEXT_ARM64 {
     PARM64_NT_CONTEXT ContextRecord;
     PEXCEPTION_ROUTINE LanguageHandler;
     PVOID HandlerData;
-    PUNWIND_HISTORY_TABLE HistoryTable;
+    struct _UNWIND_HISTORY_TABLE_ARM64 *HistoryTable;
     DWORD ScopeIndex;
     BOOLEAN ControlPcIsUnwound;
     PBYTE  NonVolatileRegisters;
@@ -6298,12 +6351,23 @@ typedef struct _DISPATCHER_CONTEXT_ARM64 {
 
 #if defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
 
-#undef _DISPATCHER_CONTEXT_ARM64
-#pragma pop_macro("_DISPATCHER_CONTEXT_ARM64")
-
 typedef DISPATCHER_CONTEXT_ARM64 DISPATCHER_CONTEXT, *PDISPATCHER_CONTEXT;
 
 #endif // defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
+
+#if defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
+
+#undef _UNWIND_HISTORY_TABLE_ENTRY_ARM64
+#pragma pop_macro("_UNWIND_HISTORY_TABLE_ENTRY_ARM64")
+
+#undef _UNWIND_HISTORY_TABLE_ARM64
+#pragma pop_macro("_UNWIND_HISTORY_TABLE_ARM64")
+
+#undef _DISPATCHER_CONTEXT_ARM64
+#pragma pop_macro("_DISPATCHER_CONTEXT_ARM64")
+
+#endif // defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
+
 
 #if defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
 
@@ -6360,13 +6424,6 @@ typedef OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK *POUT_OF_PROCESS_FUNCTION_TABLE_C
 
 #endif // defined(_ARM64_)
 
-
-// begin_ntoshvp
-
-#endif // defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
-
-// end_ntoshvp
-
 //
 // Nonvolatile context pointer record.
 //
@@ -6403,6 +6460,7 @@ typedef KNONVOLATILE_CONTEXT_POINTERS_ARM64 KNONVOLATILE_CONTEXT_POINTERS, *PKNO
 
 #endif // defined(_ARM64_)
 
+//
 // begin_wudfwdm
 
 #ifdef __cplusplus
@@ -12495,6 +12553,7 @@ typedef enum _LOGICAL_PROCESSOR_RELATIONSHIP {
     RelationCache,
     RelationProcessorPackage,
     RelationGroup,
+    RelationProcessorDie,
     RelationAll = 0xffff
 } LOGICAL_PROCESSOR_RELATIONSHIP;
 
@@ -12718,6 +12777,7 @@ typedef struct _SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
 #define PF_AVX_INSTRUCTIONS_AVAILABLE               39   
 #define PF_AVX2_INSTRUCTIONS_AVAILABLE              40   
 #define PF_AVX512F_INSTRUCTIONS_AVAILABLE           41   
+#define PF_ERMS_AVAILABLE                           42   
 
 //
 // Known extended CPU state feature BITs
@@ -13534,6 +13594,7 @@ typedef struct _REPARSE_GUID_DATA_BUFFER {
 #define IO_REPARSE_TAG_AF_UNIX                  (0x80000023L)       
 #define IO_REPARSE_TAG_WCI_LINK                 (0xA0000027L)       
 #define IO_REPARSE_TAG_WCI_LINK_1               (0xA0001027L)       
+#define IO_REPARSE_TAG_DATALESS_CIM             (0xA0000028L)       
 
 #if (_WIN32_WINNT >= _WIN32_WINNT_WIN8)
 

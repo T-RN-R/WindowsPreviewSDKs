@@ -492,7 +492,7 @@ typedef struct DISK_SPACE_INFORMATION {
 
     //
     //  The Caller*AllocationUnits are limited by Quota setting.
-    //  CallerAvailableAllocationUnits is the unavailable space for the
+    //  CallerPoolUnavailableAllocationUnits is the unavailable space for the
     //  volume due to insufficient free pool space (PoolAvailableAllocationUnits).
     //  Be aware AllocationUnits are mesured in clusters, see comments at the beginning.
     //
