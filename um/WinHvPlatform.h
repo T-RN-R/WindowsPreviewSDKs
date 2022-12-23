@@ -340,9 +340,7 @@ HRESULT
 WINAPI
 WHvSignalSynicEvent(
     _In_ WHV_PARTITION_HANDLE Partition,
-    _In_ UINT32 VpIndex,
-    _In_ UINT8 SintIndex,
-    _In_ UINT16 FlagNumber,
+    _In_ WHV_SYNIC_EVENT_PARAMETERS SynicEvent,
     _Out_opt_ BOOL* NewlySignaled
     );
 
@@ -390,20 +388,21 @@ WHvCreateVpciDevice(
     _In_ HANDLE VpciResource,
     _In_ WHV_CREATE_VPCI_DEVICE_FLAGS Flags,
     _In_opt_ PWHV_PCI_DEVICE_NOTIFICATION_CALLBACK NotificationCallback,
-    _In_opt_ VOID* NotificationCallbackContext,
-    _Out_ WHV_VPCI_DEVICE_HANDLE* VpciDevice
+    _In_opt_ VOID* NotificationCallbackContext
     );
 
 HRESULT
 WINAPI
 WHvDeleteVpciDevice(
-    _In_ WHV_VPCI_DEVICE_HANDLE VpciDevice
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ UINT64 LogicalDeviceId
     );
 
 HRESULT
 WINAPI
 WHvGetVpciDeviceProperty(
-    _In_ WHV_VPCI_DEVICE_HANDLE VpciDevice,
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ UINT64 LogicalDeviceId,
     _In_ WHV_VPCI_DEVICE_PROPERTY_CODE PropertyCode,
     _Out_writes_bytes_to_(PropertyBufferSizeInBytes, *WrittenSizeInBytes) VOID* PropertyBuffer,
     _In_ UINT32 PropertyBufferSizeInBytes,
@@ -413,7 +412,8 @@ WHvGetVpciDeviceProperty(
 HRESULT
 WINAPI
 WHvMapVpciDeviceMmioRanges(
-    _In_ WHV_VPCI_DEVICE_HANDLE VpciDevice,
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ UINT64 LogicalDeviceId,
     _Out_ UINT32* MappingCount,
     _Outptr_result_buffer_(*MappingCount) WHV_VPCI_MMIO_MAPPING** Mappings
     );
@@ -421,20 +421,23 @@ WHvMapVpciDeviceMmioRanges(
 HRESULT
 WINAPI
 WHvUnmapVpciDeviceMmioRanges(
-    _In_ WHV_VPCI_DEVICE_HANDLE VpciDevice
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ UINT64 LogicalDeviceId
     );
 
 HRESULT
 WINAPI
 WHvSetVpciDevicePowerState(
-    _In_ WHV_VPCI_DEVICE_HANDLE VpciDevice,
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ UINT64 LogicalDeviceId,
     _In_ DEVICE_POWER_STATE PowerState
     );
 
 HRESULT
 WINAPI
 WHvReadVpciDeviceRegister(
-    _In_ WHV_VPCI_DEVICE_HANDLE VpciDevice,
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ UINT64 LogicalDeviceId,
     _In_ const WHV_VPCI_DEVICE_REGISTER* Register,
     _Out_writes_bytes_(Register->SizeInBytes) VOID* Data
     );
@@ -442,7 +445,8 @@ WHvReadVpciDeviceRegister(
 HRESULT
 WINAPI
 WHvWriteVpciDeviceRegister(
-    _In_ WHV_VPCI_DEVICE_HANDLE VpciDevice,
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ UINT64 LogicalDeviceId,
     _In_ const WHV_VPCI_DEVICE_REGISTER* Register,
     _In_reads_bytes_(Register->SizeInBytes) const VOID* Data
     );
@@ -450,7 +454,8 @@ WHvWriteVpciDeviceRegister(
 HRESULT
 WINAPI
 WHvMapVpciDeviceInterrupt(
-    _In_ WHV_VPCI_DEVICE_HANDLE VpciDevice,
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ UINT64 LogicalDeviceId,
     _In_ UINT32 Index,
     _In_ UINT32 MultiMessageNumber,
     _In_ const WHV_VPCI_INTERRUPT_TARGET* Target,
@@ -461,14 +466,26 @@ WHvMapVpciDeviceInterrupt(
 HRESULT
 WINAPI
 WHvUnmapVpciDeviceInterrupt(
-    _In_ WHV_VPCI_DEVICE_HANDLE VpciDevice,
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ UINT64 LogicalDeviceId,
     _In_ UINT32 Index
     );
 
 HRESULT
 WINAPI
-WHvDeliverVpciDeviceInterrupt(
-    _In_ WHV_VPCI_DEVICE_HANDLE VpciDevice,
+WHvRetargetVpciDeviceInterrupt(
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ UINT64 LogicalDeviceId,
+    _In_ UINT64 MsiAddress,
+    _In_ UINT32 MsiData,
+    _In_ const WHV_VPCI_INTERRUPT_TARGET* Target
+    );
+
+HRESULT
+WINAPI
+WHvRequestVpciDeviceInterrupt(
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ UINT64 LogicalDeviceId,
     _In_ UINT64 MsiAddress,
     _In_ UINT32 MsiData
     );
@@ -476,12 +493,41 @@ WHvDeliverVpciDeviceInterrupt(
 HRESULT
 WINAPI
 WHvGetVpciDeviceInterruptTarget(
-    _In_ WHV_VPCI_DEVICE_HANDLE VpciDevice,
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ UINT64 LogicalDeviceId,
     _In_ UINT32 Index,
     _In_ UINT32 MultiMessageNumber,
     _In_ UINT32 TargetSizeInBytes,
     _Out_writes_bytes_to_(TargetSizeInBytes, *BytesWritten) WHV_VPCI_INTERRUPT_TARGET* Target,
     _Out_opt_ UINT32* BytesWritten
+    );
+
+//
+// Trigger
+//
+
+HRESULT
+WINAPI
+WHvCreateTrigger(
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ const WHV_TRIGGER_PARAMETERS* Parameters,
+    _Out_ WHV_TRIGGER_HANDLE* TriggerHandle,
+    _Out_ HANDLE* EventHandle
+    );
+
+HRESULT
+WINAPI
+WHvUpdateTriggerParameters(
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ const WHV_TRIGGER_PARAMETERS* Parameters,
+    _In_ WHV_TRIGGER_HANDLE TriggerHandle
+    );
+
+HRESULT
+WINAPI
+WHvDeleteTrigger(
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ WHV_TRIGGER_HANDLE TriggerHandle
     );
 
 #ifdef __cplusplus
@@ -790,13 +836,37 @@ IsWHvUnmapVpciDeviceInterruptPresent(
 
 BOOLEAN
 __stdcall
-IsWHvDeliverVpciDeviceInterruptPresent(
+IsWHvRetargetVpciDeviceInterruptPresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvRequestVpciDeviceInterruptPresent(
     VOID
     );
 
 BOOLEAN
 __stdcall
 IsWHvGetVpciDeviceInterruptTargetPresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvCreateTriggerPresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvUpdateTriggerParametersPresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvDeleteTriggerPresent(
     VOID
     );
 

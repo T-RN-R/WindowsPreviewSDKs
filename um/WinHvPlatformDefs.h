@@ -91,8 +91,9 @@ typedef union WHV_EXTENDED_VM_EXITS
         UINT64 X64ApicWriteLint0ExitTrap  : 1; // WHvRunVpExitReasonX64ApicWriteTrap supported
         UINT64 X64ApicWriteLint1ExitTrap  : 1; // WHvRunVpExitReasonX64ApicWriteTrap supported
         UINT64 X64ApicWriteSvrExitTrap    : 1; // WHvRunVpExitReasonX64ApicWriteTrap supported
-        UINT64 UnknownSynicConnection     : 1; // WHvRunVpExitReasonHypercall supported for unknown synic connection
-        UINT64 Reserved                   : 53;
+        UINT64 UnknownSynicConnection     : 1; // WHvRunVpExitReasonHypercall supported for unknown synic connection to HvSignalEvent
+        UINT64 RetargetUnknownVpciDevice  : 1; // WHvRUnVpExitReasonHypercall supported for unknown device to HvRetargetDeviceInterrupt
+        UINT64 Reserved                   : 52;
     };
 
     UINT64 AsUINT64;
@@ -360,11 +361,17 @@ typedef union _WHV_SYNTHETIC_PROCESSOR_FEATURES
         // HvCallQueryNumaDistance is supported.
         UINT64 QueryNumaDistance:1;
 
+        // HvCallSignalEvent is supported. Corresponds to privilege.
+        UINT64 SignalEvents:1;
+
+        // HvCallRetargetDeviceInterrupt is supported.
+        UINT64 RetargetDeviceInterrupt:1;
+
         UINT64 Reserved:33;
     };
 
     UINT64 AsUINT64;
-} WHV_SYNTHETIC_PROCESSOR_FEATURES, *PWHV_SYNTHETIC_PROCESSOR_FEATURES;
+} WHV_SYNTHETIC_PROCESSOR_FEATURES;
 
 C_ASSERT(sizeof(WHV_SYNTHETIC_PROCESSOR_FEATURES) == sizeof(UINT64));
 
@@ -500,7 +507,7 @@ C_ASSERT(sizeof(WHV_X64_MSR_EXIT_BITMAP) == sizeof(UINT64));
 typedef struct WHV_MEMORY_RANGE_ENTRY {
     UINT64 Address;
     UINT64 SizeInBytes;
-} WHV_MEMORY_RANGE_ENTRY, *PWHV_MEMORY_RANGE_ENTRY;
+} WHV_MEMORY_RANGE_ENTRY;
 
 //
 // Flags used by WHvAdviseGpaRangeCodePrefetch
@@ -717,7 +724,7 @@ typedef enum _WHV_CACHE_TYPE {
 #endif
 
     WHvCacheTypeWriteBack        = 6
-} WHV_CACHE_TYPE, *PWHV_CACHE_TYPE;
+} WHV_CACHE_TYPE;
 
 //
 // Control flags used by WHvReadGpaRange and WHvWriteGpaRange
@@ -733,7 +740,7 @@ typedef union _WHV_ACCESS_GPA_CONTROLS
         WHV_CACHE_TYPE CacheType;
         UINT32 Reserved;
     };
-} WHV_ACCESS_GPA_CONTROLS, *PWHV_ACCESS_GPA_CONTROLS;
+} WHV_ACCESS_GPA_CONTROLS;
 
 //
 // Maxmium data size used by WHvReadGpaRange and WHvWriteGpaRange
@@ -1708,6 +1715,20 @@ typedef enum WHV_VIRTUAL_PROCESSOR_STATE_TYPE
 } WHV_VIRTUAL_PROCESSOR_STATE_TYPE;
 
 //
+// Synic definitions
+//
+
+typedef struct _WHV_SYNIC_EVENT_PARAMETERS
+{
+    UINT32 VpIndex;
+    UINT8 TargetSint;
+    UINT8 Reserved;
+    UINT16 FlagNumber;
+} WHV_SYNIC_EVENT_PARAMETERS;
+
+C_ASSERT(sizeof(WHV_SYNIC_EVENT_PARAMETERS) == 8);
+
+//
 // Virtual PCI type definitions.
 //
 
@@ -1732,8 +1753,6 @@ typedef struct WHV_SRIOV_RESOURCE_DESCRIPTOR
 } WHV_SRIOV_RESOURCE_DESCRIPTOR;
 
 C_ASSERT(sizeof(WHV_SRIOV_RESOURCE_DESCRIPTOR) == 412);
-
-typedef VOID* WHV_VPCI_DEVICE_HANDLE;
 
 typedef enum WHV_VPCI_DEVICE_NOTIFICATION_TYPE
 {
@@ -1857,6 +1876,39 @@ typedef struct WHV_VPCI_INTERRUPT_TARGET
 } WHV_VPCI_INTERRUPT_TARGET;
 
 C_ASSERT(sizeof(WHV_VPCI_INTERRUPT_TARGET) == 12);
+
+//
+// Triggers
+//
+
+typedef enum _WHV_TRIGGER_TYPE
+{
+    WHvTriggerTypeInterrupt = 0,
+    WHvTriggerTypeSynicEvent = 1,
+    WHvTriggerTypeDeviceInterrupt = 2,
+} WHV_TRIGGER_TYPE;
+
+typedef struct _WHV_TRIGGER_PARAMETERS
+{
+    WHV_TRIGGER_TYPE TriggerType;
+    UINT32 Reserved;
+    union
+    {
+        WHV_INTERRUPT_CONTROL Interrupt;
+        WHV_SYNIC_EVENT_PARAMETERS SynicEvent;
+        struct
+        {
+            UINT64 LogicalDeviceId;
+            UINT64 MsiAddress;
+            UINT32 MsiData;
+            UINT32 Reserved;
+        } DeviceInterrupt;
+    };
+} WHV_TRIGGER_PARAMETERS;
+
+C_ASSERT(sizeof(WHV_TRIGGER_PARAMETERS) == 32);
+
+typedef PVOID WHV_TRIGGER_HANDLE;
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1200)
 #pragma warning(pop)

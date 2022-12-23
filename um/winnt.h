@@ -2686,6 +2686,19 @@ typedef struct _XSTATE_CONTEXT {
 
 } XSTATE_CONTEXT, *PXSTATE_CONTEXT;
 
+typedef struct _KERNEL_CET_CONTEXT {
+    DWORD64 Ssp;
+    DWORD64 Rip;
+    WORD   SegCs;
+    WORD   Fill[3];
+} KERNEL_CET_CONTEXT, *PKERNEL_CET_CONTEXT;
+
+#if !defined(__midl) && !defined(MIDL_PASS)
+
+C_ASSERT(sizeof(KERNEL_CET_CONTEXT) == (3 * sizeof(DWORD64)));
+
+#endif
+
 //
 
 //
@@ -4079,6 +4092,7 @@ __addgsqword (
                                  CONTEXT_DEBUG_REGISTERS)
 
 #define CONTEXT_XSTATE          (CONTEXT_AMD64 | 0x00000040L)
+#define CONTEXT_KERNEL_CET      (CONTEXT_AMD64 | 0x00000080L)
 
 #if defined(XBOX_SYSTEMOS)
 
@@ -12782,7 +12796,9 @@ typedef struct _PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {
             DWORD EnableControlFlowGuard : 1;
             DWORD EnableExportSuppression : 1;
             DWORD StrictMode : 1;
-            DWORD ReservedFlags : 29;
+            DWORD EnableXfg : 1;
+            DWORD EnableXfgAuditMode : 1;
+            DWORD ReservedFlags : 27;
         } DUMMYSTRUCTNAME;
     } DUMMYUNIONNAME;
 } PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY, *PPROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY;
@@ -13523,6 +13539,7 @@ typedef enum _LOGICAL_PROCESSOR_RELATIONSHIP {
     RelationProcessorPackage,
     RelationGroup,
     RelationProcessorDie,
+    RelationNumaNodeEx,
     RelationAll = 0xffff
 } LOGICAL_PROCESSOR_RELATIONSHIP;
 
@@ -13570,8 +13587,13 @@ typedef struct _PROCESSOR_RELATIONSHIP {
 
 typedef struct _NUMA_NODE_RELATIONSHIP {
     DWORD NodeNumber;
-    BYTE  Reserved[20];
-    GROUP_AFFINITY GroupMask;
+    BYTE  Reserved[18];
+    WORD   GroupCount;
+    union {
+        GROUP_AFFINITY GroupMask;
+        _Field_size_(GroupCount)
+        GROUP_AFFINITY GroupMasks[ANYSIZE_ARRAY];
+    } DUMMYUNIONNAME;
 } NUMA_NODE_RELATIONSHIP, *PNUMA_NODE_RELATIONSHIP;
 
 typedef struct _CACHE_RELATIONSHIP {
@@ -14701,7 +14723,7 @@ typedef struct _SCRUB_DATA_INPUT {
     // Reserved
     //
 
-    DWORD Reserved[25];
+    DWORD Reserved[41];
 
     //
     // Opaque data returned from the previous call to restart the
@@ -14709,7 +14731,7 @@ typedef struct _SCRUB_DATA_INPUT {
     // at Flags field.  This offset needs to match that of SCRUB_DATA_OUTPUT.
     //
 
-    BYTE  ResumeContext[976];
+    BYTE  ResumeContext[1040];
 
 } SCRUB_DATA_INPUT, *PSCRUB_DATA_INPUT;
 
@@ -14859,7 +14881,7 @@ typedef struct _SCRUB_DATA_OUTPUT {
     ULONGLONG NumberOfMetadataBytesProcessed;
 
     //
-    // Number of bytes of data processed
+    // Number of bytes of data to be processed
     //
 
     ULONGLONG NumberOfDataBytesProcessed;
@@ -14876,6 +14898,66 @@ typedef struct _SCRUB_DATA_OUTPUT {
 
     ULONGLONG TotalNumberOfDataBytesInUse;
 
+#else
+
+    ULONGLONG Reserved2[4];
+
+#endif
+
+#if (_WIN32_WINNT >= _WIN32_WINNT_WIN10_FE)
+
+    //
+    //  Number of bytes skipped due to hole, ghost, and reserved
+    //
+
+    ULONGLONG DataBytesSkippedDueToNoAllocation;
+
+    //
+    //  Number of bytes skipped due allocation that haven't been written to
+    //
+
+    ULONGLONG DataBytesSkippedDueToInvalidRun;
+
+    //
+    //  Number of bytes skipped due to Integrity stream
+    //
+
+    ULONGLONG DataBytesSkippedDueToIntegrityStream;
+
+    //
+    //  Number of bytes skipped due to region not dirty (DRT mode only)
+    //
+
+    ULONGLONG DataBytesSkippedDueToRegionBeingClean;
+
+    //
+    //  Number of bytes skipped due to lock conflict
+    //
+
+    ULONGLONG DataBytesSkippedDueToLockConflict;
+
+    //
+    //  Number of bytes skipped due to stream marked as don't scrub
+    //
+
+    ULONGLONG DataBytesSkippedDueToNoScrubDataFlag;
+
+    //
+    //  Number of bytes skipped due to non Integrity stream marked as don't scrub
+    //
+
+    ULONGLONG DataBytesSkippedDueToNoScrubNonIntegrityStreamFlag;
+
+    //
+    //  Number of bytes actually scrubbed
+    //
+
+    ULONGLONG DataBytesScrubbed;
+
+#else
+
+    ULONGLONG Reserved3[8];
+
 #endif
 
     //
@@ -14891,7 +14973,7 @@ typedef struct _SCRUB_DATA_OUTPUT {
     // is set.  It has to be last in the structure.
     //
 
-    BYTE  ResumeContext[976];
+    BYTE  ResumeContext[1040];
 
 } SCRUB_DATA_OUTPUT, *PSCRUB_DATA_OUTPUT;
 
@@ -21285,6 +21367,7 @@ typedef struct _RTL_BARRIER {
 #define FAST_FAIL_GUARD_ICALL_CHECK_FAILURE_XFG     64
 #define FAST_FAIL_CAST_GUARD                        65         // Known to compiler, must retain value 65
 #define FAST_FAIL_HOST_VISIBILITY_CHANGE            66
+#define FAST_FAIL_KERNEL_CET_SHADOW_STACK_ASSIST    67
 #define FAST_FAIL_INVALID_FAST_FAIL_CODE            0xFFFFFFFF
 
 #if _MSC_VER >= 1610

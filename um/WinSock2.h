@@ -4143,46 +4143,73 @@ typedef struct SOCK_NOTIFY_REGISTRATION {
     SOCKET socket;
     PVOID completionKey;
     UINT16 eventFilter;
-    UINT8 operationFlags;
+    UINT8 operation;
     UINT8 triggerFlags;
     DWORD registrationResult;
 } SOCK_NOTIFY_REGISTRATION;
 
-// Socket notification registration events. Supplied during registration
+//
+// Socket notification registration events. Supplied during registration.
+// Indicates that a notification should be issued for the event if its
+// condition holds.
+//
 #define SOCK_NOTIFY_REGISTER_EVENT_NONE     0x00
-#define SOCK_NOTIFY_REGISTER_EVENT_IN       0x01    // A notification should be issued when input is available from the socket without blocking.
-#define SOCK_NOTIFY_REGISTER_EVENT_OUT      0x02    // A notification should be issued when output can be provided to the socket without blocking.
-#define SOCK_NOTIFY_REGISTER_EVENT_HANGUP   0x04    // A notification should be issued when the socket connection has been terminated.
+#define SOCK_NOTIFY_REGISTER_EVENT_IN       0x01 // Input is available from the socket without blocking.
+#define SOCK_NOTIFY_REGISTER_EVENT_OUT      0x02 // Output can be provided to the socket without blocking.
+#define SOCK_NOTIFY_REGISTER_EVENT_HANGUP   0x04 // The socket connection has been terminated.
 
-#define SOCK_NOTIFY_REGISTER_EVENTS_ALL  \
+#define SOCK_NOTIFY_REGISTER_EVENTS_ALL \
     (SOCK_NOTIFY_REGISTER_EVENT_IN | SOCK_NOTIFY_REGISTER_EVENT_OUT | SOCK_NOTIFY_REGISTER_EVENT_HANGUP)
 
-// Socket notification events, the events possible when a notification is received.
-#define SOCK_NOTIFY_EVENT_NONE              SOCK_NOTIFY_REGISTER_EVENT_NONE
-#define SOCK_NOTIFY_EVENT_IN                SOCK_NOTIFY_REGISTER_EVENT_IN        // Input is available from the socket without blocking.
-#define SOCK_NOTIFY_EVENT_OUT               SOCK_NOTIFY_REGISTER_EVENT_OUT       // Output can be provided to the socket without blocking.
-#define SOCK_NOTIFY_EVENT_HANGUP            SOCK_NOTIFY_REGISTER_EVENT_HANGUP    // The socket connection has been terminated.
-#define SOCK_NOTIFY_EVENT_ERR               0x40    // The socket is in an error state. May occur regardless of registration.
-#define SOCK_NOTIFY_EVENT_REMOVE            0x80    // The notification has been deregistered. No more notifications will be provided.
+//
+// Socket notification events. These are the events possible when a notification
+// is received.
+//
+// The SOCK_NOTIFY_EVENT_ERR and SOCK_NOTIFY_EVENT_REMOVE events
+// may be indicated regardless of registration.
+//
+// If a SOCK_NOTIFY_EVENT_REMOVE event is indicated, no more notifications will
+// be provided.
+//
+#define SOCK_NOTIFY_EVENT_IN        SOCK_NOTIFY_REGISTER_EVENT_IN     // Input is available from the socket without blocking.
+#define SOCK_NOTIFY_EVENT_OUT       SOCK_NOTIFY_REGISTER_EVENT_OUT    // Output can be provided to the socket without blocking.
+#define SOCK_NOTIFY_EVENT_HANGUP    SOCK_NOTIFY_REGISTER_EVENT_HANGUP // The socket connection has been terminated.
+#define SOCK_NOTIFY_EVENT_ERR       0x40                              // The socket is in an error state.
+#define SOCK_NOTIFY_EVENT_REMOVE    0x80                              // The notification has been deregistered.
 
-#define SOCK_NOTIFY_EVENTS_ALL          \
+#define SOCK_NOTIFY_EVENTS_ALL \
     (SOCK_NOTIFY_REGISTER_EVENTS_ALL | SOCK_NOTIFY_EVENT_ERR | SOCK_NOTIFY_EVENT_REMOVE)
 
-#define SOCK_NOTIFY_OP_NONE                 0x00
-#define SOCK_NOTIFY_OP_ENABLE               0x01    // Enables the registration. Not compatible with disable. One of enable or disable must be supplied.
-#define SOCK_NOTIFY_OP_DISABLE              0x02    // Disables the registration, but the underlying structures are not destroyed. Not compatible with enable. One of enable or disable must be supplied.
-#define SOCK_NOTIFY_OP_REMOVE               0x04    // Removes the registration. A SOCK_NOTIFY_REMOVE notification will be delivered when this completes successfully. Supercedes any other specified operations.
+//
+// Socket notification registration operations. One operation must be supplied at
+// a time.
+//
+// A SOCK_NOTIFY_OP_DISABLE operation will not destroy the underlying structures.
+//
+// A SOCK_NOTIFY_OP_REMOVE operation will cause a SOCK_NOTIFY_REMOVE notification
+// to be delivered when the operation completes successfully.
+//
+#define SOCK_NOTIFY_OP_NONE         0x00
+#define SOCK_NOTIFY_OP_ENABLE       0x01 // Enables the registration.
+#define SOCK_NOTIFY_OP_DISABLE      0x02 // Disables the registration.
+#define SOCK_NOTIFY_OP_REMOVE       0x04 // Removes the registration.
 
-#define SOCK_NOTIFY_OP_ALL              \
-    (SOCK_NOTIFY_OP_ENABLE | SOCK_NOTIFY_OP_DISABLE | SOCK_NOTIFY_OP_REMOVE)
+//
+// Socket notification trigger behaviors.
+//
+// When operation is SOCK_NOTIFY_OP_ENABLE:
+//    - One of SOCK_NOTIFY_TRIGGER_PERSISTENT or SOCK_NOTIFY_TRIGGER_ONESHOT must be supplied
+//    - One of SOCK_NOTIFY_TRIGGER_LEVEL or SOCK_NOTIFY_TRIGGER_EDGE must be supplied
+//
+// SOCK_NOTIFY_TRIGGER_PERSISTENT is not compatible with SOCK_NOTIFY_TRIGGER_ONESHOT.
+// SOCK_NOTIFY_TRIGGER_LEVEL is not compatible with SOCK_NOTIFY_TRIGGER_EDGE.
+//
+#define SOCK_NOTIFY_TRIGGER_ONESHOT    0x01 // The registration will be disabled (not removed) upon delivery of the next notification.
+#define SOCK_NOTIFY_TRIGGER_PERSISTENT 0x02 // The registration will remain active until it is explicitly disabled or removed.
+#define SOCK_NOTIFY_TRIGGER_LEVEL      0x04 // The registration is for level-triggered notifications.
+#define SOCK_NOTIFY_TRIGGER_EDGE       0x08 // The registration is for edge-triggered notifications.
 
-#define SOCK_NOTIFY_TRIGGER_NONE            0x00
-#define SOCK_NOTIFY_TRIGGER_ONESHOT         0x01    // The registration will be disabled upon delivery of the next notification. Note: it will not be removed, merely disabled.
-#define SOCK_NOTIFY_TRIGGER_PERSISTENT      0x02    // The registration will remain active until it is explicitly disabled or removed.
-#define SOCK_NOTIFY_TRIGGER_LEVEL           0x04    // The registration is for level-triggered notifications. Not compatible with edge-triggered. One of edge- or level-triggered must be supplied.
-#define SOCK_NOTIFY_TRIGGER_EDGE            0x08    // The registration is for edge-triggered notifications. Not compatible with level-triggered. One of edge- or level-triggered must be supplied.
-
- #define SOCK_NOTIFY_TRIGGER_ALL        \
+#define SOCK_NOTIFY_TRIGGER_ALL \
     (SOCK_NOTIFY_TRIGGER_ONESHOT | SOCK_NOTIFY_TRIGGER_PERSISTENT | SOCK_NOTIFY_TRIGGER_LEVEL | SOCK_NOTIFY_TRIGGER_EDGE)
 
 #if (NTDDI_VERSION >= NTDDI_WIN10_MN)

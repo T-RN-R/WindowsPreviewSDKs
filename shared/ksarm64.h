@@ -493,8 +493,8 @@
 // Thread Object Structure Offset Definitions
 //
 
-#define EtCid 0x498
-#define EtPicoContext 0x600
+#define EtCid 0x4e8
+#define EtPicoContext 0x650
 
 #define ThType 0x0
 #define ThSize 0x2
@@ -561,8 +561,8 @@
 #define ThWin32Thread 0x1c0
 #define ThStackBase 0x38
 #define ThLegoData 0x2f0
-#define KernelThreadObjectLength 0x450
-#define ExecutiveThreadObjectLength 0x8c0
+#define KernelThreadObjectLength 0x4a0
+#define ExecutiveThreadObjectLength 0x910
 
 
 //

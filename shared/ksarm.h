@@ -494,8 +494,8 @@
 // Thread Object Structure Offset Definitions
 //
 
-#define EtCid 0x2a4
-#define EtPicoContext 0x374
+#define EtCid 0x2cc
+#define EtPicoContext 0x39c
 
 #define ThType 0x0
 #define ThSize 0x2
@@ -562,8 +562,8 @@
 #define ThWin32Thread 0x11c
 #define ThStackBase 0x28
 #define ThLegoData 0x1b8
-#define KernelThreadObjectLength 0x278
-#define ExecutiveThreadObjectLength 0x508
+#define KernelThreadObjectLength 0x2a0
+#define ExecutiveThreadObjectLength 0x530
 
 #define KF_VFP_32REG 0x10
 
@@ -976,8 +976,8 @@
 #define PbPanicMiniStack 0xfd0
 #define PbCycleCounterHigh 0x970
 #define ThNpxState 0x85
-#define ThUserRoBase 0x378
-#define ThUserRwBase 0x37c
+#define ThUserRoBase 0x3a0
+#define ThUserRwBase 0x3a4
 
 //
 // KTHREAD state

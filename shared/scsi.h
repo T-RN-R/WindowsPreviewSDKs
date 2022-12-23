@@ -3594,7 +3594,7 @@ typedef struct {
     UCHAR ScopeSpecificAddress[4];
     UCHAR ActivatePersistThroughPowerLoss : 1;
     UCHAR Reserved1 : 1;
-    UCHAR AllPargetPorts : 1;
+    UCHAR AllTargetPorts : 1;
     UCHAR SpecifyInitiatorPorts : 1;
     UCHAR Reserved2 : 4;
     UCHAR Reserved3;
