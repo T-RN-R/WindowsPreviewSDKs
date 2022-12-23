@@ -706,21 +706,6 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CUI_CCore_CICoreWindowWithContext_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Core {
-                interface ICoreWindowWithWindowReference;
-            } /* Core */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference ABI::Windows::UI::Core::ICoreWindowWithWindowReference
-
-#endif // ____x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CUI_CCore_CIIdleDispatchedHandlerArgs_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CCore_CIIdleDispatchedHandlerArgs_FWD_DEFINED__
 namespace ABI {
@@ -2224,27 +2209,6 @@ namespace ABI {
 #define __x_ABI_CWindows_CUI_CIUIContext ABI::Windows::UI::IUIContext
 
 #endif // ____x_ABI_CWindows_CUI_CIUIContext_FWD_DEFINED__
-
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            class WindowReference;
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-#ifndef ____x_ABI_CWindows_CUI_CIWindowReference_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CIWindowReference_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            interface IWindowReference;
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CUI_CIWindowReference ABI::Windows::UI::IWindowReference
-
-#endif // ____x_ABI_CWindows_CUI_CIWindowReference_FWD_DEFINED__
 
 namespace ABI {
     namespace Windows {
@@ -4644,42 +4608,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CCore_CICoreWindowWithContext;
 
 /*
  *
- * Interface Windows.UI.Core.ICoreWindowWithWindowReference
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
- *
- * Interface is a part of the implementation of type Windows.UI.Core.CoreWindow
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
-#if !defined(____x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Core_ICoreWindowWithWindowReference[] = L"Windows.UI.Core.ICoreWindowWithWindowReference";
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace Core {
-                MIDL_INTERFACE("66422eba-c088-4c94-bd8b-5eda8fdeb273")
-                ICoreWindowWithWindowReference : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE get_WindowReference(
-                        ABI::Windows::UI::IWindowReference** value
-                        ) = 0;
-                };
-
-                extern MIDL_CONST_ID IID& IID_ICoreWindowWithWindowReference = _uuidof(ICoreWindowWithWindowReference);
-            } /* Core */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference;
-#endif /* !defined(____x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
-
-/*
- *
  * Interface Windows.UI.Core.IIdleDispatchedHandlerArgs
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
@@ -5428,7 +5356,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *    Windows.UI.Core.ICoreWindow4
  *    Windows.UI.Core.ICoreWindow5
  *    Windows.UI.Core.ICoreWindowWithContext
- *    Windows.UI.Core.ICoreWindowWithWindowReference
  *
  * Class Marshaling Behavior:  Standard - Class marshals using the standard marshaler
  *
@@ -5447,8 +5374,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.UI.Core.CoreWindowDialogsContract in version 1.0
  *
  * RuntimeClass can be activated.
- *   Type can be activated via RoActivateInstance starting with version 1.0 of the Windows.UI.Core.CoreWindowDialogsContract API contract
  *   Type can be activated via the Windows.UI.Core.ICoreWindowDialogFactory interface starting with version 1.0 of the Windows.UI.Core.CoreWindowDialogsContract API contract
+ *   Type can be activated via RoActivateInstance starting with version 1.0 of the Windows.UI.Core.CoreWindowDialogsContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.UI.Core.ICoreWindowDialog ** Default Interface **
@@ -5964,12 +5891,6 @@ typedef interface __x_ABI_CWindows_CUI_CCore_CICoreWindowStatic __x_ABI_CWindows
 typedef interface __x_ABI_CWindows_CUI_CCore_CICoreWindowWithContext __x_ABI_CWindows_CUI_CCore_CICoreWindowWithContext;
 
 #endif // ____x_ABI_CWindows_CUI_CCore_CICoreWindowWithContext_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference __x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference;
-
-#endif // ____x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CCore_CIIdleDispatchedHandlerArgs_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CCore_CIIdleDispatchedHandlerArgs_FWD_DEFINED__
@@ -8219,12 +8140,6 @@ typedef interface __x_ABI_CWindows_CUI_CPopups_CIUICommandInvokedHandler __x_ABI
 typedef interface __x_ABI_CWindows_CUI_CIUIContext __x_ABI_CWindows_CUI_CIUIContext;
 
 #endif // ____x_ABI_CWindows_CUI_CIUIContext_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CUI_CIWindowReference_FWD_DEFINED__
-#define ____x_ABI_CWindows_CUI_CIWindowReference_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CUI_CIWindowReference __x_ABI_CWindows_CUI_CIWindowReference;
-
-#endif // ____x_ABI_CWindows_CUI_CIWindowReference_FWD_DEFINED__
 
 typedef enum __x_ABI_CWindows_CUI_CCore_CAppViewBackButtonVisibility __x_ABI_CWindows_CUI_CCore_CAppViewBackButtonVisibility;
 
@@ -11924,75 +11839,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CCore_CICoreWindowWithContext;
 
 /*
  *
- * Interface Windows.UI.Core.ICoreWindowWithWindowReference
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
- *
- * Interface is a part of the implementation of type Windows.UI.Core.CoreWindow
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
-#if !defined(____x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Core_ICoreWindowWithWindowReference[] = L"Windows.UI.Core.ICoreWindowWithWindowReference";
-typedef struct __x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReferenceVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_WindowReference)(__x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference* This,
-        __x_ABI_CWindows_CUI_CIWindowReference** value);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReferenceVtbl;
-
-interface __x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference
-{
-    CONST_VTBL struct __x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReferenceVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference_get_WindowReference(This, value) \
-    ((This)->lpVtbl->get_WindowReference(This, value))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference;
-#endif /* !defined(____x_ABI_CWindows_CUI_CCore_CICoreWindowWithWindowReference_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
-
-/*
- *
  * Interface Windows.UI.Core.IIdleDispatchedHandlerArgs
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
@@ -13190,7 +13036,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *    Windows.UI.Core.ICoreWindow4
  *    Windows.UI.Core.ICoreWindow5
  *    Windows.UI.Core.ICoreWindowWithContext
- *    Windows.UI.Core.ICoreWindowWithWindowReference
  *
  * Class Marshaling Behavior:  Standard - Class marshals using the standard marshaler
  *
@@ -13209,8 +13054,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.UI.Core.CoreWindowDialogsContract in version 1.0
  *
  * RuntimeClass can be activated.
- *   Type can be activated via RoActivateInstance starting with version 1.0 of the Windows.UI.Core.CoreWindowDialogsContract API contract
  *   Type can be activated via the Windows.UI.Core.ICoreWindowDialogFactory interface starting with version 1.0 of the Windows.UI.Core.CoreWindowDialogsContract API contract
+ *   Type can be activated via RoActivateInstance starting with version 1.0 of the Windows.UI.Core.CoreWindowDialogsContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.UI.Core.ICoreWindowDialog ** Default Interface **

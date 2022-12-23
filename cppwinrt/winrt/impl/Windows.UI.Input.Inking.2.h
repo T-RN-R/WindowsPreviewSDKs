@@ -9,24 +9,6 @@
 #include "winrt/impl/Windows.UI.Input.Inking.1.h"
 WINRT_EXPORT namespace winrt::Windows::UI::Input::Inking
 {
-    struct __declspec(empty_bases) DelegatedInkBallpointRenderParameters : Windows::UI::Input::Inking::IDelegatedInkBallpointRenderParameters
-    {
-        DelegatedInkBallpointRenderParameters(std::nullptr_t) noexcept {}
-        DelegatedInkBallpointRenderParameters(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Input::Inking::IDelegatedInkBallpointRenderParameters(ptr, take_ownership_from_abi) {}
-        DelegatedInkBallpointRenderParameters();
-    };
-    struct __declspec(empty_bases) DelegatedInkTrail : Windows::UI::Input::Inking::IDelegatedInkTrail
-    {
-        DelegatedInkTrail(std::nullptr_t) noexcept {}
-        DelegatedInkTrail(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Input::Inking::IDelegatedInkTrail(ptr, take_ownership_from_abi) {}
-        DelegatedInkTrail();
-    };
-    struct __declspec(empty_bases) DelegatedInkTrailPoint : Windows::UI::Input::Inking::IDelegatedInkTrailPoint
-    {
-        DelegatedInkTrailPoint(std::nullptr_t) noexcept {}
-        DelegatedInkTrailPoint(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Input::Inking::IDelegatedInkTrailPoint(ptr, take_ownership_from_abi) {}
-        DelegatedInkTrailPoint();
-    };
     struct __declspec(empty_bases) InkDrawingAttributes : Windows::UI::Input::Inking::IInkDrawingAttributes,
         impl::require<InkDrawingAttributes, Windows::UI::Input::Inking::IInkDrawingAttributes2, Windows::UI::Input::Inking::IInkDrawingAttributes3, Windows::UI::Input::Inking::IInkDrawingAttributes4, Windows::UI::Input::Inking::IInkDrawingAttributes5>
     {

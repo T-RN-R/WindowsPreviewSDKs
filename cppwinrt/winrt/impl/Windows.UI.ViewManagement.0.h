@@ -53,7 +53,6 @@ WINRT_EXPORT namespace winrt::Windows::UI::ViewManagement
     {
         Default = 0,
         CompactOverlay = 1,
-        Spanning = 2,
     };
     enum class ApplicationViewOrientation : int32_t
     {
@@ -162,7 +161,6 @@ WINRT_EXPORT namespace winrt::Windows::UI::ViewManagement
     struct IApplicationViewInteropStatics;
     struct IApplicationViewScaling;
     struct IApplicationViewScalingStatics;
-    struct IApplicationViewSpanningRects;
     struct IApplicationViewStatics;
     struct IApplicationViewStatics2;
     struct IApplicationViewStatics3;
@@ -234,7 +232,6 @@ namespace winrt::impl
     template <> struct category<Windows::UI::ViewManagement::IApplicationViewInteropStatics>{ using type = interface_category; };
     template <> struct category<Windows::UI::ViewManagement::IApplicationViewScaling>{ using type = interface_category; };
     template <> struct category<Windows::UI::ViewManagement::IApplicationViewScalingStatics>{ using type = interface_category; };
-    template <> struct category<Windows::UI::ViewManagement::IApplicationViewSpanningRects>{ using type = interface_category; };
     template <> struct category<Windows::UI::ViewManagement::IApplicationViewStatics>{ using type = interface_category; };
     template <> struct category<Windows::UI::ViewManagement::IApplicationViewStatics2>{ using type = interface_category; };
     template <> struct category<Windows::UI::ViewManagement::IApplicationViewStatics3>{ using type = interface_category; };
@@ -346,7 +343,6 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::ViewManagement::IApplicationViewInteropStatics> = L"Windows.UI.ViewManagement.IApplicationViewInteropStatics";
     template <> inline constexpr auto& name_v<Windows::UI::ViewManagement::IApplicationViewScaling> = L"Windows.UI.ViewManagement.IApplicationViewScaling";
     template <> inline constexpr auto& name_v<Windows::UI::ViewManagement::IApplicationViewScalingStatics> = L"Windows.UI.ViewManagement.IApplicationViewScalingStatics";
-    template <> inline constexpr auto& name_v<Windows::UI::ViewManagement::IApplicationViewSpanningRects> = L"Windows.UI.ViewManagement.IApplicationViewSpanningRects";
     template <> inline constexpr auto& name_v<Windows::UI::ViewManagement::IApplicationViewStatics> = L"Windows.UI.ViewManagement.IApplicationViewStatics";
     template <> inline constexpr auto& name_v<Windows::UI::ViewManagement::IApplicationViewStatics2> = L"Windows.UI.ViewManagement.IApplicationViewStatics2";
     template <> inline constexpr auto& name_v<Windows::UI::ViewManagement::IApplicationViewStatics3> = L"Windows.UI.ViewManagement.IApplicationViewStatics3";
@@ -396,7 +392,6 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::IApplicationViewInteropStatics>{ 0xC446FB5D,0x4793,0x4896,{ 0xA8,0xE2,0xBE,0x57,0xA8,0xBB,0x0F,0x50 } };
     template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::IApplicationViewScaling>{ 0x1D0DDC23,0x23F3,0x4B2D,{ 0x84,0xFE,0x74,0xBF,0x37,0xB4,0x8B,0x66 } };
     template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::IApplicationViewScalingStatics>{ 0xB08FECF0,0xB946,0x45C8,{ 0xA5,0xE3,0x71,0xF5,0xAA,0x78,0xF8,0x61 } };
-    template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::IApplicationViewSpanningRects>{ 0x645737E4,0xA882,0x4E16,{ 0xB2,0x89,0xFD,0x86,0x05,0x60,0x10,0x6A } };
     template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::IApplicationViewStatics>{ 0x010A6306,0xC433,0x44E5,{ 0xA9,0xF2,0xBD,0x84,0xD4,0x03,0x0A,0x95 } };
     template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::IApplicationViewStatics2>{ 0xAF338AE5,0xCF64,0x423C,{ 0x85,0xE5,0xF3,0xE7,0x24,0x48,0xFB,0x23 } };
     template <> inline constexpr guid guid_v<Windows::UI::ViewManagement::IApplicationViewStatics3>{ 0xA28D7594,0x8C41,0x4E13,{ 0x97,0x19,0x51,0x64,0x79,0x6F,0xE4,0xC7 } };
@@ -581,13 +576,6 @@ namespace winrt::impl
         {
             virtual int32_t __stdcall get_DisableLayoutScaling(bool*) noexcept = 0;
             virtual int32_t __stdcall TrySetDisableLayoutScaling(bool, bool*) noexcept = 0;
-        };
-    };
-    template <> struct abi<Windows::UI::ViewManagement::IApplicationViewSpanningRects>
-    {
-        struct __declspec(novtable) type : inspectable_abi
-        {
-            virtual int32_t __stdcall GetSpanningRects(void**) noexcept = 0;
         };
     };
     template <> struct abi<Windows::UI::ViewManagement::IApplicationViewStatics>
@@ -1098,15 +1086,6 @@ namespace winrt::impl
     template <> struct consume<Windows::UI::ViewManagement::IApplicationViewScalingStatics>
     {
         template <typename D> using type = consume_Windows_UI_ViewManagement_IApplicationViewScalingStatics<D>;
-    };
-    template <typename D>
-    struct consume_Windows_UI_ViewManagement_IApplicationViewSpanningRects
-    {
-        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Foundation::Rect>) GetSpanningRects() const;
-    };
-    template <> struct consume<Windows::UI::ViewManagement::IApplicationViewSpanningRects>
-    {
-        template <typename D> using type = consume_Windows_UI_ViewManagement_IApplicationViewSpanningRects<D>;
     };
     template <typename D>
     struct consume_Windows_UI_ViewManagement_IApplicationViewStatics

@@ -25,8 +25,6 @@ namespace Windows
     {
         typedef struct Color Color;
 
-        typedef struct WindowReferenceId WindowReferenceId;
-
         interface IColorHelper;
 
         interface IColorHelperStatics;
@@ -41,10 +39,6 @@ namespace Windows
 
         interface IUIContext;
 
-        interface IWindowReference;
-
-        interface IWindowReferenceStatics;
-
         runtimeclass ColorHelper;
 
         runtimeclass Colors;
@@ -52,8 +46,6 @@ namespace Windows
         runtimeclass UIContentRoot;
 
         runtimeclass UIContext;
-
-        runtimeclass WindowReference;
     }
 }
 
@@ -66,13 +58,7 @@ namespace Windows
         {
             interface Windows.Foundation.Collections.IIterable<Windows.UI.Color>;
 
-            interface Windows.Foundation.Collections.IIterable<Windows.UI.WindowReference*>;
-
             interface Windows.Foundation.Collections.IIterator<Windows.UI.Color>;
-
-            interface Windows.Foundation.Collections.IIterator<Windows.UI.WindowReference*>;
-
-            interface Windows.Foundation.Collections.IVectorView<Windows.UI.WindowReference*>;
 
             interface Windows.Foundation.IReference<Windows.UI.Color>;
         }
@@ -91,12 +77,6 @@ namespace Windows
             BYTE R;
             BYTE G;
             BYTE B;
-        };
-
-        [contract(Windows.Foundation.UniversalApiContract, 11.0)]
-        struct WindowReferenceId
-        {
-            UINT64 Value;
         };
 
         [contract(Windows.Foundation.UniversalApiContract, 1.0)]
@@ -292,24 +272,6 @@ namespace Windows
         {
         }
 
-        [contract(Windows.Foundation.UniversalApiContract, 11.0)]
-        [exclusiveto(Windows.UI.WindowReference)]
-        [uuid(F0ACEF4B-05E5-4232-B866-BB23FDE8374D)]
-        interface IWindowReference : IInspectable
-        {
-            [propget] HRESULT Id([out] [retval] Windows.UI.WindowReferenceId* value);
-        }
-
-        [contract(Windows.Foundation.UniversalApiContract, 11.0)]
-        [exclusiveto(Windows.UI.WindowReference)]
-        [uuid(86A62C7B-576F-4202-A549-4909F1E07F0E)]
-        interface IWindowReferenceStatics : IInspectable
-        {
-            HRESULT FindAllTopLevelWindows([out] [retval] Windows.Foundation.Collections.IVectorView<Windows.UI.WindowReference*>** result);
-            HRESULT GetForWindow([in] UINT64 hwnd, [out] [retval] Windows.UI.WindowReference** result);
-            HRESULT GetWindowReference([in] Windows.UI.WindowReferenceId id, [out] [retval] Windows.UI.WindowReference** result);
-        }
-
         [contract(Windows.Foundation.UniversalApiContract, 1.0)]
         [marshaling_behavior(agile)]
         [static(Windows.UI.IColorHelperStatics, Windows.Foundation.UniversalApiContract, 1.0)]
@@ -343,15 +305,6 @@ namespace Windows
         runtimeclass UIContext
         {
             [default] interface Windows.UI.IUIContext;
-        }
-
-        [contract(Windows.Foundation.UniversalApiContract, 11.0)]
-        [marshaling_behavior(agile)]
-        [static(Windows.UI.IWindowReferenceStatics, Windows.Foundation.UniversalApiContract, 11.0)]
-        [threading(both)]
-        runtimeclass WindowReference
-        {
-            [default] interface Windows.UI.IWindowReference;
         }
     }
 }
