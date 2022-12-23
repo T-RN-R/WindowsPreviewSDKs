@@ -18,8 +18,6 @@ Revision History:
 
 --*/
 
-
-
 #ifndef _PSAPI_H_
 #define _PSAPI_H_
 
@@ -34,7 +32,6 @@ extern "C" {
 
 #pragma region Desktop Family or OneCore Family or Games Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
-
 
 #if _MSC_VER >= 1200
 #pragma warning(push)
@@ -139,7 +136,6 @@ EnumProcesses(
     _Out_ LPDWORD lpcbNeeded
     );
 
-
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
@@ -155,7 +151,6 @@ EnumProcessModules(
     _Out_ LPDWORD lpcbNeeded
     );
 
-
 BOOL
 WINAPI
 EnumProcessModulesEx(
@@ -165,7 +160,6 @@ EnumProcessModulesEx(
     _Out_ LPDWORD lpcbNeeded,
     _In_ DWORD dwFilterFlag
     );
-
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
@@ -196,7 +190,6 @@ GetModuleBaseNameW(
 #else
 #define GetModuleBaseName  GetModuleBaseNameA
 #endif // !UNICODE
-
 
 _Success_(return != 0)
 _Ret_range_(1, nSize)
@@ -328,7 +321,6 @@ EnumDeviceDrivers (
     _Out_ LPDWORD lpcbNeeded
     );
 
-
 DWORD
 WINAPI
 GetDeviceDriverBaseNameA (
@@ -350,7 +342,6 @@ GetDeviceDriverBaseNameW (
 #else
 #define GetDeviceDriverBaseName  GetDeviceDriverBaseNameA
 #endif // !UNICODE
-
 
 DWORD
 WINAPI
@@ -614,7 +605,6 @@ GetProcessImageFileNameW (
 #if _MSC_VER >= 1200
 #pragma warning(pop)
 #endif
-
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion

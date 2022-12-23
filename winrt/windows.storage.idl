@@ -1344,7 +1344,7 @@ namespace Windows
             [default] interface Windows.Storage.IApplicationData;
             [contract(Windows.Foundation.UniversalApiContract, 1.0)] interface Windows.Storage.IApplicationData2;
             [contract(Windows.Foundation.UniversalApiContract, 1.0)] interface Windows.Storage.IApplicationData3;
-            [contract(Windows.Foundation.UniversalApiContract, 1.0)] interface Windows.Foundation.IClosable;
+            [contract(Windows.Foundation.UniversalApiContract, 12.0)] interface Windows.Foundation.IClosable;
         }
 
         [activatable(Windows.Foundation.UniversalApiContract, 1.0)]
@@ -1364,7 +1364,7 @@ namespace Windows
         runtimeclass ApplicationDataContainer
         {
             [default] interface Windows.Storage.IApplicationDataContainer;
-            [contract(Windows.Foundation.UniversalApiContract, 1.0)] interface Windows.Foundation.IClosable;
+            [contract(Windows.Foundation.UniversalApiContract, 12.0)] interface Windows.Foundation.IClosable;
         }
 
         [contract(Windows.Foundation.UniversalApiContract, 1.0)]

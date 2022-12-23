@@ -24,8 +24,6 @@
 //
 //
 
-
-
 #if defined(_MSC_VER)
 #if _MSC_VER > 1000
 #pragma once
@@ -62,7 +60,6 @@ OOBEComplete(
     _Out_ PBOOL isOOBEComplete
     );
 
-
 _Check_return_
 _Success_(return != FALSE)
 BOOL
@@ -73,7 +70,6 @@ RegisterWaitUntilOOBECompleted(
     _Out_ PVOID* WaitHandle
     );
 
-
 _Check_return_
 _Success_(return != FALSE)
 BOOL
@@ -81,7 +77,6 @@ WINAPI
 UnregisterWaitUntilOOBECompleted(
     _In_ PVOID WaitHandle
     );
-
 
 #endif // (NTDDI_VERSION >= NTDDI_WINBLUE)
 

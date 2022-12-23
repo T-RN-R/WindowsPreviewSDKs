@@ -16,8 +16,6 @@
 //
 ////
 
-
-
 #if defined(_MSC_VER)
 #if _MSC_VER > 1000
 #pragma once
@@ -90,7 +88,6 @@ GetCurrentPackageId(
     _Out_writes_bytes_opt_(*bufferLength) BYTE* buffer
     );
 
-
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
 LONG
@@ -99,7 +96,6 @@ GetCurrentPackageFullName(
     _Inout_ UINT32* packageFullNameLength,
     _Out_writes_opt_(*packageFullNameLength) PWSTR packageFullName
     );
-
 
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
@@ -110,7 +106,6 @@ GetCurrentPackageFamilyName(
     _Out_writes_opt_(*packageFamilyNameLength) PWSTR packageFamilyName
     );
 
-
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
 LONG
@@ -119,7 +114,6 @@ GetCurrentPackagePath(
     _Inout_ UINT32* pathLength,
     _Out_writes_opt_(*pathLength) PWSTR path
     );
-
 
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
@@ -131,7 +125,6 @@ GetPackageId(
     _Out_writes_bytes_opt_(*bufferLength) BYTE* buffer
     );
 
-
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
 LONG
@@ -141,7 +134,6 @@ GetPackageFullName(
     _Inout_ UINT32* packageFullNameLength,
     _Out_writes_opt_(*packageFullNameLength) PWSTR packageFullName
     );
-
 
 //TODO:8645770 Change 0x0101 to 0x0102 once THRESHOLD constants are available
 WINBASEAPI
@@ -155,7 +147,6 @@ GetPackageFullNameFromToken(
     _Out_writes_opt_(*packageFullNameLength) PWSTR packageFullName
     );
 
-
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
 LONG
@@ -165,7 +156,6 @@ GetPackageFamilyName(
     _Inout_ UINT32* packageFamilyNameLength,
     _Out_writes_opt_(*packageFamilyNameLength) PWSTR packageFamilyName
     );
-
 
 //TODO:8645770 Change 0x0101 to 0x0102 once THRESHOLD constants are available
 WINBASEAPI
@@ -179,7 +169,6 @@ GetPackageFamilyNameFromToken(
     _Out_writes_opt_(*packageFamilyNameLength) PWSTR packageFamilyName
     );
 
-
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
 LONG
@@ -191,7 +180,6 @@ GetPackagePath(
     _Out_writes_opt_(*pathLength) PWSTR path
     );
 
-
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
 LONG
@@ -202,7 +190,6 @@ GetPackagePathByFullName(
     _Out_writes_opt_(*pathLength) PWSTR path
     );
 
-
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
 LONG
@@ -212,7 +199,6 @@ GetStagedPackagePathByFullName(
     _Inout_ UINT32* pathLength,
     _Out_writes_opt_(*pathLength) PWSTR path
     );
-
 
 #if NTDDI_VERSION >= NTDDI_WIN10_19H1
 typedef enum PackagePathType
@@ -239,7 +225,6 @@ GetPackagePathByFullName2(
     _Out_writes_opt_(*pathLength) PWSTR path
     );
 
-
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
 LONG
@@ -250,7 +235,6 @@ GetStagedPackagePathByFullName2(
     _Inout_ UINT32* pathLength,
     _Out_writes_opt_(*pathLength) PWSTR path
     );
-
 
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
@@ -263,7 +247,6 @@ GetCurrentPackageInfo2(
     _Out_writes_bytes_opt_(*bufferLength) BYTE* buffer,
     _Out_opt_ UINT32* count
     );
-
 
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
@@ -290,7 +273,6 @@ GetCurrentApplicationUserModelId(
     _Out_writes_opt_(*applicationUserModelIdLength) PWSTR applicationUserModelId
     );
 
-
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
 LONG
@@ -300,7 +282,6 @@ GetApplicationUserModelId(
     _Inout_ UINT32* applicationUserModelIdLength,
     _Out_writes_opt_(*applicationUserModelIdLength) PWSTR applicationUserModelId
     );
-
 
 //TODO:8645770 Change 0x0101 to 0x0102 once THRESHOLD constants are available
 WINBASEAPI
@@ -313,7 +294,6 @@ GetApplicationUserModelIdFromToken(
     _Inout_ UINT32* applicationUserModelIdLength,
     _Out_writes_opt_(*applicationUserModelIdLength) PWSTR applicationUserModelId
     );
-
 
 /* ---------------------------------------------------------------- */
 
@@ -329,7 +309,6 @@ VerifyPackageFullName(
     _In_ PCWSTR packageFullName
     );
 
-
 WINBASEAPI
 _Check_return_
 _Success_(return == ERROR_SUCCESS)
@@ -338,7 +317,6 @@ WINAPI
 VerifyPackageFamilyName(
     _In_ PCWSTR packageFamilyName
     );
-
 
 WINBASEAPI
 _Check_return_
@@ -349,7 +327,6 @@ VerifyPackageId(
     _In_ const PACKAGE_ID* packageId
     );
 
-
 WINBASEAPI
 _Check_return_
 _Success_(return == ERROR_SUCCESS)
@@ -359,7 +336,6 @@ VerifyApplicationUserModelId(
     _In_ PCWSTR applicationUserModelId
     );
 
-
 WINBASEAPI
 _Check_return_
 _Success_(return == ERROR_SUCCESS)
@@ -368,7 +344,6 @@ WINAPI
 VerifyPackageRelativeApplicationId(
     _In_ PCWSTR packageRelativeApplicationId
     );
-
 
 /* ---------------------------------------------------------------- */
 
@@ -386,7 +361,6 @@ PackageIdFromFullName(
     _Out_writes_bytes_opt_(*bufferLength) BYTE* buffer
     );
 
-
 WINBASEAPI
 _Check_return_
 _Success_(return == ERROR_SUCCESS)
@@ -397,7 +371,6 @@ PackageFullNameFromId(
     _Inout_ UINT32* packageFullNameLength,
     _Out_writes_opt_(*packageFullNameLength) PWSTR packageFullName
     );
-
 
 WINBASEAPI
 _Check_return_
@@ -410,7 +383,6 @@ PackageFamilyNameFromId(
     _Out_writes_opt_(*packageFamilyNameLength) PWSTR packageFamilyName
     );
 
-
 WINBASEAPI
 _Check_return_
 _Success_(return == ERROR_SUCCESS)
@@ -421,7 +393,6 @@ PackageFamilyNameFromFullName(
     _Inout_ UINT32* packageFamilyNameLength,
     _Out_writes_opt_(*packageFamilyNameLength) PWSTR packageFamilyName
     );
-
 
 WINBASEAPI
 _Check_return_
@@ -436,7 +407,6 @@ PackageNameAndPublisherIdFromFamilyName(
     _Out_writes_opt_(*packagePublisherIdLength) PWSTR packagePublisherId
     );
 
-
 WINBASEAPI
 _Check_return_
 _Success_(return == ERROR_SUCCESS)
@@ -448,7 +418,6 @@ FormatApplicationUserModelId(
     _Inout_ UINT32* applicationUserModelIdLength,
     _Out_writes_opt_(*applicationUserModelIdLength) PWSTR applicationUserModelId
     );
-
 
 WINBASEAPI
 _Check_return_
@@ -462,7 +431,6 @@ ParseApplicationUserModelId(
     _Inout_ UINT32* packageRelativeApplicationIdLength,
     _Out_writes_opt_(*packageRelativeApplicationIdLength) PWSTR packageRelativeApplicationId
     );
-
 
 /* ---------------------------------------------------------------- */
 
@@ -483,7 +451,6 @@ GetPackagesByPackageFamily(
     _Out_writes_opt_(*bufferLength) WCHAR* buffer
     );
 
-
 /* Any combination of PACKAGE_FILTER_* */WINBASEAPI
 _Check_return_
 _Success_(return == ERROR_SUCCESS)
@@ -500,7 +467,6 @@ FindPackagesByPackageFamily(
     _Out_writes_opt_(*bufferLength) WCHAR* buffer,
     _Out_writes_opt_(*count) UINT32* packageProperties
     );
-
 
 typedef enum PackageOrigin
 {
@@ -522,7 +488,6 @@ GetStagedPackageOrigin(
     _In_ PCWSTR packageFullName,
     _Out_ PackageOrigin* origin
     );
-
 
 /* ---------------------------------------------------------------- */
 
@@ -589,7 +554,6 @@ GetCurrentPackageInfo(
     _Out_opt_ UINT32* count
     );
 
-
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
 LONG
@@ -599,7 +563,6 @@ OpenPackageInfoByFullName(
     _Reserved_ const UINT32 reserved,
     _Out_ PACKAGE_INFO_REFERENCE* packageInfoReference
     );
-
 
 //TODO:8645770 Change 0x0101 to 0x0102 once THRESHOLD constants are available
 WINBASEAPI
@@ -614,7 +577,6 @@ OpenPackageInfoByFullNameForUser(
     _Out_ PACKAGE_INFO_REFERENCE* packageInfoReference
     );
 
-
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
 LONG
@@ -622,7 +584,6 @@ WINAPI
 ClosePackageInfo(
     _In_ PACKAGE_INFO_REFERENCE packageInfoReference
     );
-
 
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
@@ -636,7 +597,6 @@ GetPackageInfo(
     _Out_opt_ UINT32* count
     );
 
-
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
 LONG
@@ -647,7 +607,6 @@ GetPackageApplicationIds(
     _Out_writes_bytes_opt_(*bufferLength) BYTE* buffer,
     _Out_opt_ UINT32* count
     );
-
 
 #if NTDDI_VERSION >= NTDDI_WIN10_19H1
 WINBASEAPI
@@ -674,7 +633,6 @@ CheckIsMSIXPackage(
     _Out_ BOOL* isMSIXPackage
     );
 
-
 /* ---------------------------------------------------------------- */
 
 // Appmodel Policy
@@ -695,7 +653,6 @@ AppPolicyGetLifecycleManagement(
     _Out_ AppPolicyLifecycleManagement* policy
     );
 
-
 typedef enum AppPolicyWindowingModel
 {
     AppPolicyWindowingModel_None = 0,
@@ -714,7 +671,6 @@ AppPolicyGetWindowingModel(
     _Out_ AppPolicyWindowingModel* policy
     );
 
-
 typedef enum AppPolicyMediaFoundationCodecLoading
 {
     AppPolicyMediaFoundationCodecLoading_All = 0,
@@ -730,7 +686,6 @@ AppPolicyGetMediaFoundationCodecLoading(
     _In_ HANDLE processToken,
     _Out_ AppPolicyMediaFoundationCodecLoading* policy
     );
-
 
 typedef enum AppPolicyClrCompat
 {
@@ -750,7 +705,6 @@ AppPolicyGetClrCompat(
     _Out_ AppPolicyClrCompat* policy
     );
 
-
 typedef enum AppPolicyThreadInitializationType
 {
     AppPolicyThreadInitializationType_None = 0,
@@ -766,7 +720,6 @@ AppPolicyGetThreadInitializationType(
     _In_ HANDLE processToken,
     _Out_ AppPolicyThreadInitializationType* policy
     );
-
 
 typedef enum AppPolicyShowDeveloperDiagnostic
 {
@@ -784,7 +737,6 @@ AppPolicyGetShowDeveloperDiagnostic(
     _Out_ AppPolicyShowDeveloperDiagnostic* policy
     );
 
-
 typedef enum AppPolicyProcessTerminationMethod
 {
     AppPolicyProcessTerminationMethod_ExitProcess = 0,
@@ -801,7 +753,6 @@ AppPolicyGetProcessTerminationMethod(
     _Out_ AppPolicyProcessTerminationMethod* policy
     );
 
-
 typedef enum AppPolicyCreateFileAccess
 {
     AppPolicyCreateFileAccess_Full = 0,
@@ -817,7 +768,6 @@ AppPolicyGetCreateFileAccess(
     _In_ HANDLE processToken,
     _Out_ AppPolicyCreateFileAccess* policy
     );
-
 
 /* ---------------------------------------------------------------- */
 

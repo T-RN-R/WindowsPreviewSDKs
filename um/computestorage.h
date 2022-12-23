@@ -6,8 +6,6 @@
   \brief API set contract for ext-ms-win-hyperv-computestorage-l1
 **/
 
-
-
 #pragma once
 
 #ifndef _HYPERV_COMPUTESTORAGE_H_
@@ -38,7 +36,6 @@ HcsImportLayer(
     _In_ PCWSTR layerData
     );
 
-
 // Exports a container layer.
 HRESULT
 WINAPI
@@ -48,7 +45,6 @@ HcsExportLayer(
     _In_ PCWSTR layerData,
     _In_ PCWSTR options
     );
-
 
 // Exports a legacy container writable layer.
 HRESULT
@@ -60,14 +56,12 @@ HcsExportLegacyWritableLayer(
     _In_ PCWSTR layerData
     );
 
-
 // Deletes a container layer.
 HRESULT
 WINAPI
 HcsDestroyLayer(
     _In_ PCWSTR layerPath
     );
-
 
 // Sets up a layer that contains a base OS for a container.
 HRESULT
@@ -78,7 +72,6 @@ HcsSetupBaseOSLayer(
     _In_ PCWSTR options
     );
 
-
 // Initializes a writable layer for a container.
 HRESULT
 WINAPI
@@ -87,7 +80,6 @@ HcsInitializeWritableLayer(
     _In_ PCWSTR layerData,
     _In_opt_ PCWSTR options
     );
-
 
 // Initializes a writable layer for a container using the legacy hive folder format.
 HRESULT
@@ -99,7 +91,6 @@ HcsInitializeLegacyWritableLayer(
     _In_opt_ PCWSTR options
     );
 
-
 // Sets up the layer storage filter on a writable container layer.
 HRESULT
 WINAPI
@@ -108,14 +99,12 @@ HcsAttachLayerStorageFilter(
     _In_ PCWSTR layerData
     );
 
-
 // Detaches the layer storage filter from a writable container layer.
 HRESULT
 WINAPI
 HcsDetachLayerStorageFilter(
     _In_ PCWSTR layerPath
     );
-
 
 // Formats a virtual disk for the use as a writable container layer.
 HRESULT
@@ -124,7 +113,6 @@ HcsFormatWritableLayerVhd(
     _In_ HANDLE vhdHandle
     );
 
-
 // Returns the volume path for a virtual disk of a writable container layer.
 HRESULT
 WINAPI
@@ -132,7 +120,6 @@ HcsGetLayerVhdMountPath(
     _In_ HANDLE vhdHandle,
     _Outptr_ PWSTR* mountPath
     );
-
 
 #ifdef __cplusplus
 }
@@ -143,11 +130,8 @@ HcsGetLayerVhdMountPath(
 
 #endif // _HYPERV_COMPUTESTORAGE_H_
 
-
 #ifndef ext_ms_win_hyperv_computestorage_l1_1_0_query_routines
 #define ext_ms_win_hyperv_computestorage_l1_1_0_query_routines
-
-
 
 //
 //Private Extension API Query Routines

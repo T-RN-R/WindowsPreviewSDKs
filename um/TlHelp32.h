@@ -10,8 +10,6 @@
 *                                                                             *
 \*****************************************************************************/
 
-
-
 #ifndef _INC_TOOLHELP32
 #define _INC_TOOLHELP32
 
@@ -22,7 +20,6 @@
 
 #pragma region Desktop Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
-
 
 #ifdef __cplusplus
 extern "C" {            /* Assume C declarations for C++ */
@@ -139,7 +136,6 @@ Toolhelp32ReadProcessMemory(
     SIZE_T cbRead,
     SIZE_T* lpNumberOfBytesRead
     );
-
 
 /***** Process walking *************************************************/
 
@@ -272,7 +268,6 @@ Module32NextW(
     LPMODULEENTRY32W lpme
     );
 
-
 typedef struct tagMODULEENTRY32
 {
     DWORD   dwSize;
@@ -316,11 +311,9 @@ Module32Next(
 #define LPMODULEENTRY32 LPMODULEENTRY32W
 #endif  // !UNICODE
 
-
 #ifdef __cplusplus
 }
 #endif
-
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 #pragma endregion

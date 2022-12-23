@@ -7,8 +7,6 @@
 *                                                                               *
 ********************************************************************************/
 
-
-
 #ifdef _MSC_VER
 #pragma once
 #endif // _MSC_VER
@@ -37,14 +35,12 @@ AllocConsole(
     VOID
     );
 
-
 WINBASEAPI
 BOOL
 WINAPI
 FreeConsole(
     VOID
     );
-
 
 #if (_WIN32_WINNT >= 0x0500)
 
@@ -54,7 +50,6 @@ WINAPI
 AttachConsole(
     _In_ DWORD dwProcessId
     );
-
 
 #define ATTACH_PARENT_PROCESS ((DWORD)-1)
 
@@ -67,14 +62,12 @@ GetConsoleCP(
     VOID
     );
 
-
 WINBASEAPI
 UINT
 WINAPI
 GetConsoleOutputCP(
     VOID
     );
-
 
 //
 // Input Mode flags:
@@ -109,7 +102,6 @@ GetConsoleMode(
     _Out_ LPDWORD lpMode
     );
 
-
 WINBASEAPI
 BOOL
 WINAPI
@@ -118,7 +110,6 @@ SetConsoleMode(
     _In_ DWORD dwMode
     );
 
-
 WINBASEAPI
 BOOL
 WINAPI
@@ -126,7 +117,6 @@ GetNumberOfConsoleInputEvents(
     _In_ HANDLE hConsoleInput,
     _Out_ LPDWORD lpNumberOfEvents
     );
-
 
 WINBASEAPI
 _Success_(return != FALSE)
@@ -157,8 +147,6 @@ ReadConsoleInputW(
 #endif // !UNICODE
 
 // end_consoleapi_h
-
-
 
 #ifndef UNICODE
 #define PeekConsoleInput  PeekConsoleInputA
@@ -287,8 +275,6 @@ SetConsoleCtrlHandler(
     _In_ BOOL Add
     );
 
-
-
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
 
@@ -311,7 +297,6 @@ CreatePseudoConsole(
     _Out_ HPCON* phPC
     );
 
-
 WINBASEAPI
 HRESULT
 WINAPI
@@ -320,14 +305,12 @@ ResizePseudoConsole(
     _In_ COORD size
     );
 
-
 WINBASEAPI
 VOID
 WINAPI
 ClosePseudoConsole(
     _In_ HPCON hPC
     );
-
 
 #endif
 

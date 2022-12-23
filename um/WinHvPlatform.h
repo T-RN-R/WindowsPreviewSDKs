@@ -12,8 +12,6 @@ Abstract:
 
 --*/
 
-
-
 #ifndef _WINHVAPI_H_
 #define _WINHVAPI_H_
 
@@ -48,13 +46,11 @@ WHvGetCapability(
     _Out_opt_ UINT32* WrittenSizeInBytes
     );
 
-
 HRESULT
 WINAPI
 WHvCreatePartition(
     _Out_ WHV_PARTITION_HANDLE* Partition
     );
-
 
 HRESULT
 WINAPI
@@ -62,13 +58,11 @@ WHvSetupPartition(
     _In_ WHV_PARTITION_HANDLE Partition
     );
 
-
 HRESULT
 WINAPI
 WHvDeletePartition(
     _In_ WHV_PARTITION_HANDLE Partition
     );
-
 
 HRESULT
 WINAPI
@@ -80,7 +74,6 @@ WHvGetPartitionProperty(
     _Out_opt_ UINT32* WrittenSizeInBytes
     );
 
-
 HRESULT
 WINAPI
 WHvSetPartitionProperty(
@@ -90,20 +83,17 @@ WHvSetPartitionProperty(
     _In_ UINT32 PropertyBufferSizeInBytes
     );
 
-
 HRESULT
 WINAPI
 WHvSuspendPartitionTime(
     _In_ WHV_PARTITION_HANDLE Partition
     );
 
-
 HRESULT
 WINAPI
 WHvResumePartitionTime(
     _In_ WHV_PARTITION_HANDLE Partition
     );
-
 
 //
 // Memory Management
@@ -119,7 +109,6 @@ WHvMapGpaRange(
     _In_ WHV_MAP_GPA_RANGE_FLAGS Flags
     );
 
-
 HRESULT
 WINAPI
 WHvUnmapGpaRange(
@@ -127,7 +116,6 @@ WHvUnmapGpaRange(
     _In_ WHV_GUEST_PHYSICAL_ADDRESS GuestAddress,
     _In_ UINT64 SizeInBytes
     );
-
 
 HRESULT
 WINAPI
@@ -139,7 +127,6 @@ WHvTranslateGva(
     _Out_ WHV_TRANSLATE_GVA_RESULT* TranslationResult,
     _Out_ WHV_GUEST_PHYSICAL_ADDRESS* Gpa
     );
-
 
 //
 // Virtual Processors
@@ -153,14 +140,12 @@ WHvCreateVirtualProcessor(
     _In_ UINT32 Flags
     );
 
-
 HRESULT
 WINAPI
 WHvDeleteVirtualProcessor(
     _In_ WHV_PARTITION_HANDLE Partition,
     _In_ UINT32 VpIndex
     );
-
 
 HRESULT
 WINAPI
@@ -171,7 +156,6 @@ WHvRunVirtualProcessor(
     _In_ UINT32 ExitContextSizeInBytes
     );
 
-
 HRESULT
 WINAPI
 WHvCancelRunVirtualProcessor(
@@ -179,7 +163,6 @@ WHvCancelRunVirtualProcessor(
     _In_ UINT32 VpIndex,
     _In_ UINT32 Flags
     );
-
 
 HRESULT
 WINAPI
@@ -191,7 +174,6 @@ WHvGetVirtualProcessorRegisters(
     _Out_writes_(RegisterCount) WHV_REGISTER_VALUE* RegisterValues
     );
 
-
 HRESULT
 WINAPI
 WHvSetVirtualProcessorRegisters(
@@ -201,7 +183,6 @@ WHvSetVirtualProcessorRegisters(
     _In_ UINT32 RegisterCount,
     _In_reads_(RegisterCount) const WHV_REGISTER_VALUE* RegisterValues
     );
-
 
 #if defined(NTDDI_VERSION) && (NTDDI_VERSION >= NTDDI_WIN10_VB)
 #pragma deprecated("WHvGetVirtualProcessorInterruptControllerState is deprecated; use WHvGetVirtualProcessorInterruptControllerState2")
@@ -216,7 +197,6 @@ WHvGetVirtualProcessorInterruptControllerState(
     _Out_opt_ UINT32* WrittenSize
     );
 
-
 #if defined(NTDDI_VERSION) && (NTDDI_VERSION >= NTDDI_WIN10_VB)
 #pragma deprecated("WHvSetVirtualProcessorInterruptControllerState is deprecated; use WHvSetVirtualProcessorInterruptControllerState2")
 #endif
@@ -229,7 +209,6 @@ WHvSetVirtualProcessorInterruptControllerState(
     _In_ UINT32 StateSize
     );
 
-
 HRESULT
 WINAPI
 WHvRequestInterrupt(
@@ -237,7 +216,6 @@ WHvRequestInterrupt(
     _In_ const WHV_INTERRUPT_CONTROL* Interrupt,
     _In_ UINT32 InterruptControlSize
     );
-
 
 HRESULT
 WINAPI
@@ -249,7 +227,6 @@ WHvGetVirtualProcessorXsaveState(
     _Out_ UINT32* BytesWritten
     );
 
-
 HRESULT
 WINAPI
 WHvSetVirtualProcessorXsaveState(
@@ -258,7 +235,6 @@ WHvSetVirtualProcessorXsaveState(
     _In_reads_bytes_(BufferSizeInBytes) const VOID* Buffer,
     _In_ UINT32 BufferSizeInBytes
     );
-
 
 HRESULT
 WINAPI
@@ -270,7 +246,6 @@ WHvQueryGpaRangeDirtyBitmap(
     _In_ UINT32 BitmapSizeInBytes
     );
 
-
 HRESULT
 WINAPI
 WHvGetPartitionCounters(
@@ -280,7 +255,6 @@ WHvGetPartitionCounters(
     _In_ UINT32 BufferSizeInBytes,
     _Out_opt_ UINT32* BytesWritten
     );
-
 
 HRESULT
 WINAPI
@@ -293,7 +267,6 @@ WHvGetVirtualProcessorCounters(
     _Out_opt_ UINT32* BytesWritten
     );
 
-
 HRESULT
 WINAPI
 WHvGetVirtualProcessorInterruptControllerState2(
@@ -304,7 +277,6 @@ WHvGetVirtualProcessorInterruptControllerState2(
     _Out_opt_ UINT32* WrittenSize
     );
 
-
 HRESULT
 WINAPI
 WHvSetVirtualProcessorInterruptControllerState2(
@@ -314,7 +286,6 @@ WHvSetVirtualProcessorInterruptControllerState2(
     _In_ UINT32 StateSize
     );
 
-
 HRESULT
 WINAPI
 WHvRegisterPartitionDoorbellEvent(
@@ -323,14 +294,12 @@ WHvRegisterPartitionDoorbellEvent(
     _In_ HANDLE EventHandle
     );
 
-
 HRESULT
 WINAPI
 WHvUnregisterPartitionDoorbellEvent(
     _In_ WHV_PARTITION_HANDLE Partition,
     _In_ const WHV_DOORBELL_MATCH_DATA* MatchData
     );
-
 
 #ifdef __cplusplus
 }
@@ -341,14 +310,8 @@ WHvUnregisterPartitionDoorbellEvent(
 
 #endif // _WINHVAPI_H_
 
-
-
-
-
 #ifndef ext_ms_win_hyperv_hvplatform_l1_1_3_query_routines
 #define ext_ms_win_hyperv_hvplatform_l1_1_3_query_routines
-
-
 
 //
 //Private Extension API Query Routines
@@ -462,9 +425,7 @@ IsWHvSetVirtualProcessorRegistersPresent(
 
 #if defined(NTDDI_VERSION) && (NTDDI_VERSION >= NTDDI_WIN10_VB)
 
-
 #endif
-
 
 BOOLEAN
 __stdcall
@@ -474,9 +435,7 @@ IsWHvGetVirtualProcessorInterruptControllerStatePresent(
 
 #if defined(NTDDI_VERSION) && (NTDDI_VERSION >= NTDDI_WIN10_VB)
 
-
 #endif
-
 
 BOOLEAN
 __stdcall

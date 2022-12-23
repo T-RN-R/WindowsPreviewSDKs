@@ -6,8 +6,6 @@
 *                                                                               *
 ********************************************************************************/
 
-
-
 #ifdef _MSC_VER
 #pragma once
 #endif // _MSC_VER
@@ -41,7 +39,6 @@ GetNumberOfConsoleMouseButtons(
     _Out_ LPDWORD lpNumberOfMouseButtons
     );
 
-
 #if (_WIN32_WINNT >= 0x0500)
 
 WINBASEAPI
@@ -52,7 +49,6 @@ GetConsoleFontSize(
     _In_ DWORD nFont
     );
 
-
 WINBASEAPI
 BOOL
 WINAPI
@@ -61,7 +57,6 @@ GetCurrentConsoleFont(
     _In_ BOOL bMaximumWindow,
     _Out_ PCONSOLE_FONT_INFO lpConsoleCurrentFont
     );
-
 
 #ifndef NOGDI
 
@@ -83,7 +78,6 @@ GetCurrentConsoleFontEx(
     _Out_ PCONSOLE_FONT_INFOEX lpConsoleCurrentFontEx
     );
 
-
 WINBASEAPI
 BOOL
 WINAPI
@@ -92,7 +86,6 @@ SetCurrentConsoleFontEx(
     _In_ BOOL bMaximumWindow,
     _In_ PCONSOLE_FONT_INFOEX lpConsoleCurrentFontEx
     );
-
 
 #endif
 
@@ -119,7 +112,6 @@ GetConsoleSelectionInfo(
     _Out_ PCONSOLE_SELECTION_INFO lpConsoleSelectionInfo
     );
 
-
 //
 // History flags
 //
@@ -140,14 +132,12 @@ GetConsoleHistoryInfo(
     _Out_ PCONSOLE_HISTORY_INFO lpConsoleHistoryInfo
     );
 
-
 WINBASEAPI
 BOOL
 WINAPI
 SetConsoleHistoryInfo(
     _In_ PCONSOLE_HISTORY_INFO lpConsoleHistoryInfo
     );
-
 
 #define CONSOLE_FULLSCREEN 1            // fullscreen console
 #define CONSOLE_FULLSCREEN_HARDWARE 2   // console owns the hardware
@@ -158,7 +148,6 @@ APIENTRY
 GetConsoleDisplayMode(
     _Out_ LPDWORD lpModeFlags
     );
-
 
 #define CONSOLE_FULLSCREEN_MODE 1
 #define CONSOLE_WINDOWED_MODE 2
@@ -172,14 +161,12 @@ SetConsoleDisplayMode(
     _Out_opt_ PCOORD lpNewScreenBufferDimensions
     );
 
-    
 WINBASEAPI
 HWND
 APIENTRY
 GetConsoleWindow(
     VOID
     );
-
 
 #endif /* _WIN32_WINNT >= 0x0500 */
 
@@ -419,12 +406,11 @@ GetConsoleProcessList(
     _In_ DWORD dwProcessCount
     );
 
-
 #endif /* _WIN32_WINNT >= 0x0501 */
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
-    
+
 #ifdef __cplusplus
 }
 #endif

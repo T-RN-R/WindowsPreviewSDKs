@@ -6,8 +6,6 @@
 *                                                                                *
 *********************************************************************************/
 
-
-
 #ifndef _FILEAPIFROMAPP_H_
 #define _FILEAPIFROMAPP_H_
 
@@ -20,7 +18,6 @@
 #include <minwindef.h>
 #include <minwinbase.h>
 #include <fileapi.h>
-
 
 #ifdef __cplusplus
 extern "C" {
@@ -43,7 +40,6 @@ noexcept
 #endif
 ;
 
-
 WINSTORAGEAPI
 BOOL
 WINAPI
@@ -55,7 +51,6 @@ CreateDirectoryFromAppW(
 noexcept
 #endif
 ;
-
 
 WINSTORAGEAPI
 HANDLE
@@ -74,7 +69,6 @@ noexcept
 #endif
 ;
 
-
 WINSTORAGEAPI
 HANDLE
 WINAPI
@@ -90,7 +84,6 @@ noexcept
 #endif
 ;
 
-
 WINSTORAGEAPI
 BOOL
 WINAPI
@@ -101,7 +94,6 @@ DeleteFileFromAppW(
 noexcept
 #endif
 ;
-
 
 WINSTORAGEAPI
 HANDLE
@@ -119,7 +111,6 @@ noexcept
 #endif
 ;
 
-
 WINSTORAGEAPI
 BOOL
 WINAPI
@@ -133,7 +124,6 @@ noexcept
 #endif
 ;
 
-
 WINSTORAGEAPI
 BOOL
 WINAPI
@@ -146,7 +136,6 @@ noexcept
 #endif
 ;
 
-
 WINSTORAGEAPI
 BOOL
 WINAPI
@@ -157,7 +146,6 @@ RemoveDirectoryFromAppW(
 noexcept
 #endif
 ;
-
 
 WINSTORAGEAPI
 BOOL
@@ -175,7 +163,6 @@ noexcept
 #endif
 ;
 
-
 WINSTORAGEAPI
 BOOL
 WINAPI
@@ -187,7 +174,6 @@ SetFileAttributesFromAppW(
 noexcept
 #endif
 ;
-
 
 #endif // Version check
 #endif/* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */

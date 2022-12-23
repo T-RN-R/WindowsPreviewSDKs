@@ -6,15 +6,12 @@
 *                                                                               *
 ********************************************************************************/
 
-
-
 #ifdef _MSC_VER
 #pragma once
 #endif // _MSC_VER
 
 #ifndef _COMM_H_
 #define _COMM_H_
-
 
 #include <apiset.h>
 #include <apisetcconv.h>
@@ -36,7 +33,6 @@ ClearCommBreak(
     _In_ HANDLE hFile
     );
 
-
 WINBASEAPI
 BOOL
 WINAPI
@@ -45,7 +41,6 @@ ClearCommError(
     _Out_opt_ LPDWORD lpErrors,
     _Out_opt_ LPCOMSTAT lpStat
     );
-
 
 WINBASEAPI
 BOOL
@@ -56,7 +51,6 @@ SetupComm(
     _In_ DWORD dwOutQueue
     );
 
-
 WINBASEAPI
 BOOL
 WINAPI
@@ -64,7 +58,6 @@ EscapeCommFunction(
     _In_ HANDLE hFile,
     _In_ DWORD dwFunc
     );
-
 
 WINBASEAPI
 _Success_(return != FALSE)
@@ -76,7 +69,6 @@ GetCommConfig(
     _Inout_ LPDWORD lpdwSize
     );
 
-
 WINBASEAPI
 BOOL
 WINAPI
@@ -84,7 +76,6 @@ GetCommMask(
     _In_ HANDLE hFile,
     _Out_ LPDWORD lpEvtMask
     );
-
 
 WINBASEAPI
 BOOL
@@ -94,7 +85,6 @@ GetCommModemStatus(
     _Out_ LPDWORD lpModemStat
     );
 
-
 WINBASEAPI
 BOOL
 WINAPI
@@ -102,7 +92,6 @@ GetCommProperties(
     _In_ HANDLE hFile,
     _Inout_ LPCOMMPROP lpCommProp
     );
-
 
 WINBASEAPI
 BOOL
@@ -112,7 +101,6 @@ GetCommState(
     _Out_ LPDCB lpDCB
     );
 
-
 WINBASEAPI
 BOOL
 WINAPI
@@ -120,7 +108,6 @@ GetCommTimeouts(
     _In_ HANDLE hFile,
     _Out_ LPCOMMTIMEOUTS lpCommTimeouts
     );
-
 
 WINBASEAPI
 BOOL
@@ -130,14 +117,12 @@ PurgeComm(
     _In_ DWORD dwFlags
     );
 
-
 WINBASEAPI
 BOOL
 WINAPI
 SetCommBreak(
     _In_ HANDLE hFile
     );
-
 
 WINBASEAPI
 BOOL
@@ -148,7 +133,6 @@ SetCommConfig(
     _In_ DWORD dwSize
     );
 
-
 WINBASEAPI
 BOOL
 WINAPI
@@ -156,7 +140,6 @@ SetCommMask(
     _In_ HANDLE hFile,
     _In_ DWORD dwEvtMask
     );
-
 
 WINBASEAPI
 BOOL
@@ -166,7 +149,6 @@ SetCommState(
     _In_ LPDCB lpDCB
     );
 
-
 WINBASEAPI
 BOOL
 WINAPI
@@ -175,7 +157,6 @@ SetCommTimeouts(
     _In_ LPCOMMTIMEOUTS lpCommTimeouts
     );
 
-
 WINBASEAPI
 BOOL
 WINAPI
@@ -183,7 +164,6 @@ TransmitCommChar(
     _In_ HANDLE hFile,
     _In_ char cChar
     );
-
 
 WINBASEAPI
 BOOL
@@ -194,7 +174,6 @@ WaitCommEvent(
     _Inout_opt_ LPOVERLAPPED lpOverlapped
     );
 
-
 WINBASEAPI
 HANDLE
 WINAPI
@@ -204,7 +183,6 @@ OpenCommPort(
     _In_ DWORD dwFlagsAndAttributes
     );
 
-
 WINBASEAPI
 ULONG
 WINAPI
@@ -213,7 +191,6 @@ GetCommPorts(
     _In_ ULONG uPortNumbersCount,
     _Out_ PULONG puPortNumbersFound
     );
-
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_APP)
 #pragma endregion

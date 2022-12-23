@@ -6,8 +6,6 @@
 *                                                                               *
 ********************************************************************************/
 
-
-
 #pragma once
 
 #ifndef _NETISO_H_
@@ -33,7 +31,7 @@ extern "C" {
 typedef enum NETISO_FLAG
 {
     NETISO_FLAG_FORCE_COMPUTE_BINARIES = 0x1,
-    NETISO_FLAG_MAX = 0x2 
+    NETISO_FLAG_MAX = 0x2
 } NETISO_FLAG;
 
 typedef enum _INET_FIREWALL_AC_CREATION_TYPE
@@ -111,7 +109,6 @@ NetworkIsolationSetupAppContainerBinaries(
     _In_ DWORD binariesCount
     );
 
-
 DWORD
 WINAPI
 NetworkIsolationRegisterForAppContainerChanges(
@@ -121,13 +118,11 @@ NetworkIsolationRegisterForAppContainerChanges(
     _Out_ HANDLE* registrationObject
     );
 
-
 DWORD
 WINAPI
 NetworkIsolationUnregisterForAppContainerChanges(
     _In_ HANDLE registrationObject
     );
-
 
 //APISET
 //DLOAD_RET(ERROR_NOT_SUPPORTED)
@@ -143,7 +138,6 @@ NetworkIsolationFreeAppContainers(
     _In_ PINET_FIREWALL_APP_CONTAINER pPublicAppCs
     );
 
-
 DWORD
 WINAPI
 NetworkIsolationEnumAppContainers(
@@ -152,7 +146,6 @@ NetworkIsolationEnumAppContainers(
     _Outptr_result_buffer_(*pdwNumPublicAppCs) PINET_FIREWALL_APP_CONTAINER* ppPublicAppCs
     );
 
-
 DWORD
 WINAPI
 NetworkIsolationGetAppContainerConfig(
@@ -160,14 +153,12 @@ NetworkIsolationGetAppContainerConfig(
     _Outptr_result_buffer_(*pdwNumPublicAppCs) PSID_AND_ATTRIBUTES* appContainerSids
     );
 
-
 DWORD
 WINAPI
 NetworkIsolationSetAppContainerConfig(
     _In_ DWORD dwNumPublicAppCs,
     _In_reads_(dwNumPublicAppCs) PSID_AND_ATTRIBUTES appContainerSids
     );
-
 
 #ifndef __NET_ISOLATION_DIAG_TYPES__
 #define __NET_ISOLATION_DIAG_TYPES__
@@ -186,14 +177,12 @@ NetworkIsolationDiagnoseConnectFailure(
     __in LPCWSTR wszServerName
     );
 
-
 DWORD
 WINAPI
 NetworkIsolationDiagnoseConnectFailureAndGetInfo(
     _In_ LPCWSTR wszServerName,
     _Out_ NETISO_ERROR_TYPE* netIsoError
     );
-
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_PKG_MPSSVC)
 #pragma endregion

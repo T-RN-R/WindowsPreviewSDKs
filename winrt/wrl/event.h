@@ -59,6 +59,8 @@ struct DelegateTraits<NoCheck>
 
 #ifndef BUILD_WINDOWS
 extern __declspec(selectany) const DelegateCheckMode DefaultDelegateCheckMode = NoCheck;
+#else
+template<typename> extern const DelegateCheckMode DefaultDelegateCheckModeTrait;
 #endif
 
 // Enum to specify the behavior when firing event delegates
@@ -354,7 +356,11 @@ class DelegateArgTraits<HRESULT (STDMETHODCALLTYPE TDelegateInterface::*)(TArgs.
     };
 
 public:
+#ifndef BUILD_WINDOWS
     template<typename TDelegateInterface, typename TImplements, DelegateCheckMode checkMode = DefaultDelegateCheckMode, typename TLambda>
+#else
+    template<typename TDelegateInterface, typename TImplements, DelegateCheckMode checkMode = DefaultDelegateCheckModeTrait<TDelegateInterface>, typename TLambda>
+#endif
     static ComPtr<TImplements> Callback(TLambda&& callback) throw()
     {
         static_assert(__is_base_of(IUnknown, TDelegateInterface) && !__is_base_of(IInspectable, TDelegateInterface), "Delegates objects must be 'IUnknown' base and not 'IInspectable'");
@@ -378,7 +384,11 @@ class DelegateArgTraits<HRESULT (STDMETHODCALLTYPE TDelegateInterface::*)(TArgs.
     };
 
 public:
+#ifndef BUILD_WINDOWS
     template<typename TDelegateInterface, typename TImplements, DelegateCheckMode checkMode = DefaultDelegateCheckMode, typename TLambda>
+#else
+    template<typename TDelegateInterface, typename TImplements, DelegateCheckMode checkMode = DefaultDelegateCheckModeTrait<TDelegateInterface>, typename TLambda>
+#endif
     static ComPtr<TImplements> Callback(TLambda&& callback) throw()
     {
         static_assert(__is_base_of(IUnknown, TDelegateInterface) && !__is_base_of(IInspectable, TDelegateInterface), "Delegates objects must be 'IUnknown' base and not 'IInspectable'");

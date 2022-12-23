@@ -1,12 +1,10 @@
 /********************************************************************************
 *                                                                               *
-* mmiscapi2.h -- ApiSet Contract for api-ms-win-mm-misc-l2-1-0                  *  
+* mmiscapi2.h -- ApiSet Contract for api-ms-win-mm-misc-l2-1-0                  *
 *                                                                               *
 * Copyright (c) Microsoft Corporation. All rights reserved.                     *
 *                                                                               *
 ********************************************************************************/
-
-
 
 #ifdef _MSC_VER
 #pragma once
@@ -17,7 +15,6 @@
 
 #include <apiset.h>
 #include <apisetcconv.h>
-
 
 #include <mmsyscom.h> // mm common definitions
 
@@ -47,7 +44,6 @@ typedef TIMECALLBACK FAR *LPTIMECALLBACK;
                                         /* destroy it. */
 #endif // WINVER >= 0x0501
 
-
 WINMMAPI
 MMRESULT
 WINAPI
@@ -66,7 +62,6 @@ timeKillEvent(
     _In_ UINT uTimerID
     );
 
-
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
 #pragma endregion
 
@@ -75,5 +70,4 @@ timeKillEvent(
 #endif
 
 #endif // _MMISCAPI2_H_
-
 

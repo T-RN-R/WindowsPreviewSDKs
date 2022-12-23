@@ -1,12 +1,10 @@
 /********************************************************************************
 *                                                                               *
-* powerbase.h -- ApiSet Contract for api-ms-win-power-base-l1-1-0               *  
+* powerbase.h -- ApiSet Contract for api-ms-win-power-base-l1-1-0               *
 *                                                                               *
 * Copyright (c) Microsoft Corporation. All rights reserved.                     *
 *                                                                               *
 ********************************************************************************/
-
-
 
 #ifdef _MSC_VER
 #if (_MSC_VER > 1000)
@@ -56,7 +54,6 @@ CallNtPowerInformation(
     _In_ ULONG OutputBufferLength
     );
 
-
 #ifdef _OVERRIDE_NTSTATUS_
 #undef NTSTATUS
 #endif
@@ -66,7 +63,6 @@ WINAPI
 GetPwrCapabilities(
     _Out_ PSYSTEM_POWER_CAPABILITIES lpspc
     );
-
 
 #if (NTDDI_VERSION >= NTDDI_WIN8)
 POWER_PLATFORM_ROLE

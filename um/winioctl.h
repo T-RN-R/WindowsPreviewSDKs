@@ -10595,7 +10595,6 @@ typedef struct {
 } NTFS_EXTENDED_VOLUME_DATA, *PNTFS_EXTENDED_VOLUME_DATA;
 #endif /* _WIN32_WINNT >= _WIN32_WINNT_NT4 */
 
-
 #if (_WIN32_WINNT >= _WIN32_WINNT_WIN8)
 
 //
@@ -10631,7 +10630,6 @@ typedef struct {
 } REFS_VOLUME_DATA_BUFFER, *PREFS_VOLUME_DATA_BUFFER;
 
 #endif /* _WIN32_WINNT >= _WIN32_WINNT_WIN8 */
-
 
 #if (_WIN32_WINNT >= _WIN32_WINNT_NT4)
 //
@@ -10781,7 +10779,6 @@ typedef struct {
 
 } MOVE_FILE_RECORD_DATA, *PMOVE_FILE_RECORD_DATA;
 
-
 #if defined(_WIN64)
 //
 //  32/64 Bit thunking support structure
@@ -10885,7 +10882,6 @@ typedef struct {
     WORD   MaxMajorVersion;
 
 } READ_FILE_USN_DATA, *PREAD_FILE_USN_DATA;
-
 
 //
 //==================== FSCTL_READ_USN_JOURNAL ======================
@@ -11109,7 +11105,6 @@ typedef struct {
 
 } USN_JOURNAL_DATA_V2, *PUSN_JOURNAL_DATA_V2;
 
-
 #if (NTDDI_VERSION >= NTDDI_WIN8)
 typedef USN_JOURNAL_DATA_V1 USN_JOURNAL_DATA, *PUSN_JOURNAL_DATA;
 #else
@@ -11221,7 +11216,6 @@ typedef struct _MARK_HANDLE_INFO32 {
                                      USN_SOURCE_REPLICATION_MANAGEMENT |        \
                                      USN_SOURCE_CLIENT_REPLICATION_MANAGEMENT)
 
-
 //
 //  Flags for the HandleInfo field above
 //
@@ -11324,7 +11318,6 @@ typedef struct _MARK_HANDLE_INFO32 {
 #define MARK_HANDLE_ENABLE_CPU_CACHE                    (0x10000000)
 
 #endif /*NTDDI_VERSION >= NTDDI_WIN10_RS4 */
-
 
 //
 //==================== FSCTL_SECURITY_ID_CHECK ======================
@@ -11792,9 +11785,7 @@ typedef struct _FILE_SET_SPARSE_BUFFER {
     BOOLEAN SetSparse;
 } FILE_SET_SPARSE_BUFFER, *PFILE_SET_SPARSE_BUFFER;
 
-
 #endif /* _WIN32_WINNT >= _WIN32_WINNT_WIN2K */
-
 
 //
 //==================== FSCTL_SET_ZERO_DATA ======================
@@ -12270,7 +12261,6 @@ typedef struct _FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
 #define FILE_INITIATE_REPAIR_HINT1_INDEX_ENTRY_MISMATCH                                 (0x0000010000000000)
 #define FILE_INITIATE_REPAIR_HINT1_INVALID_ORPHAN_RECOVERY_NAME                         (0x0000020000000000)
 #define FILE_INITIATE_REPAIR_HINT1_MULTIPLE_FILE_NAME_ATTRIBUTES                        (0x0000040000000000)
-
 
 //
 //  We need to expose CLSN definition???????????????
@@ -12910,7 +12900,6 @@ typedef struct _TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
     WCHAR FileName[1];
 } TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY, *PTXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY;
 
-
 typedef struct _TXFS_LIST_TRANSACTION_LOCKED_FILES {
 
     //
@@ -12985,7 +12974,6 @@ typedef struct _TXFS_LIST_TRANSACTIONS {
 
     DWORDLONG BufferSizeRequired;
 } TXFS_LIST_TRANSACTIONS, *PTXFS_LIST_TRANSACTIONS;
-
 
 //
 //==================== FSCTL_TXFS_READ_BACKUP_INFORMATION ======================
@@ -13208,7 +13196,6 @@ typedef struct _TXFS_TRANSACTION_ACTIVE_INFO {
 
 #endif /* _WIN32_WINNT >= _WIN32_WINNT_VISTA */
 
-
 #if (_WIN32_WINNT >= _WIN32_WINNT_WIN7)
 
 //
@@ -13356,8 +13343,6 @@ typedef struct _FILE_FS_PERSISTENT_VOLUME_INFORMATION {
 #define PERSISTENT_VOLUME_STATE_DAX_FORMATTED                       (0x00001000)
 
 #endif // #if (NTDDI_VERSION >= NTDDI_WIN10_MN)
-
-
 
 //
 //==================== FSCTL_QUERY_FILE_SYSTEM_RECOGNITION ====================
@@ -13512,7 +13497,6 @@ typedef struct _STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY {
 #pragma warning(disable:4200) // zero length array
 #endif
 
-
 typedef struct _STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE {
     DWORD   ResponseLevel;
     DWORD   NumberEntries;
@@ -13541,7 +13525,6 @@ typedef struct _STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE {
 #define SD_GLOBAL_CHANGE_TYPE_MACHINE_SID   1
 #define SD_GLOBAL_CHANGE_TYPE_QUERY_STATS   (1 << 16)
 #define SD_GLOBAL_CHANGE_TYPE_ENUM_SDS      (2 << 16)
-
 
 //
 //  Operation specific structures for SD_GLOBAL_CHANGE_TYPE_MACHINE_SID
@@ -14096,7 +14079,6 @@ typedef struct _CSV_QUERY_FILE_REVISION_FILE_ID_128 {
 
 } CSV_QUERY_FILE_REVISION_FILE_ID_128, *PCSV_QUERY_FILE_REVISION_FILE_ID_128;
 
-
 //
 // Output for the CsvControlQueryMdsPath
 // This control returns the path that is used by CSV to
@@ -14187,7 +14169,6 @@ typedef struct _CSV_QUERY_MDS_PATH_V2 {
 
 } CSV_QUERY_MDS_PATH_V2, *PCSV_QUERY_MDS_PATH_V2;
 
-
 //
 //====================== FSCTL_CSV_QUERY_VETO_FILE_DIRECT_IO =========================
 //
@@ -14206,7 +14187,6 @@ typedef struct _CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {
 
 #endif /* _WIN32_WINNT >= _WIN32_WINNT_WIN7 */
 
-
 #if (_WIN32_WINNT >= _WIN32_WINNT_WIN10_RS5)
 //
 // Storage Reserve common definitions
@@ -14223,7 +14203,6 @@ typedef enum _STORAGE_RESERVE_ID {
 
 } STORAGE_RESERVE_ID, *PSTORAGE_RESERVE_ID;
 #endif /* (_WIN32_WINNT >= _WIN32_WINNT_WIN10_RS5) */
-
 
 #if (_WIN32_WINNT >= _WIN32_WINNT_WIN8)
 
@@ -14827,7 +14806,6 @@ typedef struct _STREAM_LAYOUT_ENTRY {
 //
 #define STREAM_EXTENT_ENTRY_ALL_EXTENTS                                 (0x00000002)
 
-
 typedef struct _STREAM_EXTENT_ENTRY {
 
     //
@@ -14891,7 +14869,6 @@ typedef struct _FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX {
 } FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX, *PFSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX;
 #endif // #if (_WIN32_WINNT >= _WIN32_WINNT_WINTHRESHOLD)
 
-
 //
 //======================== FSCTL_OFFLOAD_READ ==============================
 //
@@ -14916,7 +14893,6 @@ typedef struct _FSCTL_OFFLOAD_READ_OUTPUT {
 
 #define OFFLOAD_READ_FLAG_ALL_ZERO_BEYOND_CURRENT_RANGE       (1)
 
-
 //
 //======================== FSCTL_OFFLOAD_WRITE =============================
 //
@@ -14937,7 +14913,6 @@ typedef struct _FSCTL_OFFLOAD_WRITE_OUTPUT {
     DWORD Flags;
     DWORDLONG LengthWritten;
 } FSCTL_OFFLOAD_WRITE_OUTPUT, *PFSCTL_OFFLOAD_WRITE_OUTPUT;
-
 
 //
 //======================== FSCTL_SET_PURGE_FAILURE_MODE ===========================
@@ -15065,7 +15040,6 @@ typedef struct _WRITE_USN_REASON_INPUT {
 //No Flags currently defined
 
 
-
 #endif /*_WIN32_WINNT >= _WIN32_WINNT_WIN8 */
 
 #if (_WIN32_WINNT >= _WIN32_WINNT_WINBLUE)
@@ -15096,7 +15070,6 @@ typedef struct _WRITE_USN_REASON_INPUT {
 #define FILE_STORAGE_TIER_FLAG_READ_CACHE         (0x00400000)
 #define FILE_STORAGE_TIER_FLAG_PARITY             (0x00800000)
 #define FILE_STORAGE_TIER_FLAG_SMR                (0x01000000)
-
 
 typedef enum _FILE_STORAGE_TIER_MEDIA_TYPE {
 
@@ -15179,7 +15152,6 @@ typedef struct _FILE_STORAGE_TIER {
 //
 
 typedef _Struct_size_bytes_(Size) struct _FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
-
 
     //
     // Size of this structure serves
@@ -15588,7 +15560,7 @@ typedef struct _REFS_SMR_VOLUME_INFO_OUTPUT {
     //  Fields added in V1
     //
 
-    DWORD CurrentGcBandFillPercentage;  
+    DWORD CurrentGcBandFillPercentage;
 
     DWORDLONG Unused[6];
 
@@ -15785,7 +15757,6 @@ typedef struct _QUERY_BAD_RANGES_OUTPUT {
     QUERY_BAD_RANGES_OUTPUT_RANGE BadRanges[1];
 
 } QUERY_BAD_RANGES_OUTPUT, *PQUERY_BAD_RANGES_OUTPUT;
-
 
 //
 //========= FSCTL_SET_DAX_ALLOC_ALIGNMENT_HINT =========
@@ -16045,7 +16016,6 @@ typedef struct _CONTAINER_VOLUME_STATE {
 } CONTAINER_VOLUME_STATE, *PCONTAINER_VOLUME_STATE;
 
 #define CONTAINER_VOLUME_STATE_HOSTING_CONTAINER    (0x00000001)
-
 
 typedef struct _CONTAINER_ROOT_INFO_INPUT {
     DWORD Flags;

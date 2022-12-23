@@ -1,12 +1,10 @@
 /********************************************************************************
 *                                                                               *
-* datetimeapi.h -- ApiSet Contract for api-ms-win-core-datetime-l1              *  
+* datetimeapi.h -- ApiSet Contract for api-ms-win-core-datetime-l1              *
 *                                                                               *
 * Copyright (c) Microsoft Corporation. All rights reserved.                     *
 *                                                                               *
 ********************************************************************************/
-
-
 
 #ifdef _MSC_VER
 #pragma once
@@ -107,7 +105,6 @@ GetTimeFormatEx(
     _In_ int cchTime
     );
 
-
 WINBASEAPI
 int
 WINAPI
@@ -120,7 +117,6 @@ GetDateFormatEx(
     _In_ int cchDate,
     _In_opt_ LPCWSTR lpCalendar
     );
-
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
@@ -142,7 +138,6 @@ GetDurationFormatEx(
     _Out_writes_opt_(cchDuration) LPWSTR lpDurationStr,
     _In_ int cchDuration
     );
-
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion

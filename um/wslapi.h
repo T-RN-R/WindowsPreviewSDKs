@@ -6,8 +6,6 @@
 *                                                                               *
 ********************************************************************************/
 
-
-
 #ifdef _MSC_VER
 #pragma once
 #endif // _MSC_VER
@@ -38,7 +36,6 @@ WslIsDistributionRegistered(
     _In_ PCWSTR distributionName
     );
 
-
 /* Registers a new distribution given the information provided. */
 HRESULT
 WslRegisterDistribution(
@@ -46,13 +43,11 @@ WslRegisterDistribution(
     _In_ PCWSTR tarGzFilename
     );
 
-
 /* Unregisters the specified distribution */
 HRESULT
 WslUnregisterDistribution(
     _In_ PCWSTR distributionName
     );
-
 
 /* Flags specifying WSL behavior */
 typedef enum
@@ -75,7 +70,6 @@ WslConfigureDistribution(
     _In_ WSL_DISTRIBUTION_FLAGS wslDistributionFlags
     );
 
-
 /* Get the given distribution's configuration info */
 HRESULT
 WslGetDistributionConfiguration(
@@ -87,7 +81,6 @@ WslGetDistributionConfiguration(
     _Out_ ULONG* defaultEnvironmentVariableCount
     );
 
-
 HRESULT
 WslLaunchInteractive(
     _In_ PCWSTR distributionName,
@@ -95,7 +88,6 @@ WslLaunchInteractive(
     _In_ BOOL useCurrentWorkingDirectory,
     _Out_ DWORD* exitCode
     );
-
 
 HRESULT
 WslLaunch(
@@ -107,7 +99,6 @@ WslLaunch(
     _In_ HANDLE stdErr,
     _Out_ HANDLE* process
     );
-
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SERVER) */
 #pragma endregion

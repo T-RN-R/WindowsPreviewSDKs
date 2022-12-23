@@ -6,8 +6,6 @@
 *                                                                                   *
 ************************************************************************************/
 
-
-
 #ifdef _MSC_VER
 #pragma once
 #endif // _MSC_VER
@@ -55,12 +53,10 @@ GetRegistryValueWithFallbackW(
     __out_opt LPDWORD pcbDataOut
     );
 
-
 #endif // (_WIN32_WINNT >= _WIN32_WINNT_WIN10)
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
-
 
 #ifdef __cplusplus
 }

@@ -1,12 +1,10 @@
 /********************************************************************************
 *                                                                               *
-* mmiscapi.h -- ApiSet Contract for api-ms-win-mm-misc-l1-1                     *  
+* mmiscapi.h -- ApiSet Contract for api-ms-win-mm-misc-l1-1                     *
 *                                                                               *
 * Copyright (c) Microsoft Corporation. All rights reserved.                     *
 *                                                                               *
 ********************************************************************************/
-
-
 
 #ifdef _MSC_VER
 #pragma once
@@ -18,7 +16,6 @@
 #include <apiset.h>
 #include <apisetcconv.h>
 
-
 #include <mmsyscom.h> // mm common definitions
 
 #ifdef __cplusplus
@@ -29,7 +26,6 @@ extern "C" {
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
 
 #ifndef MMNODRV
-
 
 /****************************************************************************
 
@@ -175,7 +171,7 @@ LRESULT   WINAPI DrvDefDriverProc(DWORD dwDriverIdentifier, HDRVR hdrvr, UINT uM
 #define DRV_MCI_LAST           (DRV_RESERVED + 0xFFF)
 
 /***************************************************************************
-   
+
                       Driver Helper function moved from mmddk.h
 
 ***************************************************************************/
@@ -190,7 +186,6 @@ DriverCallback(
     DWORD_PTR dwParam1,
     DWORD_PTR dwParam2
     );
-
 
 /****************************************************************************
 
@@ -229,9 +224,7 @@ mmDrvInstall(
     UINT wFlags
     );
 
-
 #endif  /* ifndef MMNODRV */
-
 
 #ifndef MMNOMMIO
 /****************************************************************************
@@ -269,7 +262,6 @@ DECLARE_HANDLE(HMMIO);                  /* a handle to an open file */
 typedef LRESULT (CALLBACK MMIOPROC)(LPSTR lpmmioinfo, UINT uMsg,
             LPARAM lParam1, LPARAM lParam2);
 typedef MMIOPROC FAR *LPMMIOPROC;
-
 
 /* general MMIO information data structure */
 typedef struct _MMIOINFO
@@ -351,8 +343,6 @@ typedef const MMCKINFO *LPCMMCKINFO;
 #define MMIO_FINDLIST           0x0040  /* mmioDescend: find a RIFF chunk */
 #define MMIO_CREATERIFF         0x0020  /* mmioCreateChunk: make a LIST chunk */
 #define MMIO_CREATELIST         0x0040  /* mmioCreateChunk: make a RIFF chunk */
-
-
 
 /* message numbers for MMIOPROC I/O procedure functions */
 #define MMIOM_READ      MMIO_READ       /* read */
@@ -611,7 +601,6 @@ mmioCreateChunk(
     _In_ UINT fuCreate
     );
 
-
 #endif  /* ifndef MMNOMMIO */
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
@@ -622,5 +611,4 @@ mmioCreateChunk(
 #endif
 
 #endif // _MMISCAPI_H_
-
 
