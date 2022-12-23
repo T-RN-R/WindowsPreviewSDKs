@@ -122,13 +122,11 @@ namespace Windows
 
                 typedef enum PenTipShape PenTipShape;
 
-                typedef struct DelegatedInkTrailRenderParams DelegatedInkTrailRenderParams;
+                interface IDelegatedInkBallpointRenderParameters;
 
                 interface IDelegatedInkTrail;
 
-                interface IDelegatedInkTrailPoints;
-
-                interface IDelegatedInkTrailReferenceSurface;
+                interface IDelegatedInkTrailPoint;
 
                 interface IInkDrawingAttributes;
 
@@ -220,9 +218,11 @@ namespace Windows
 
                 interface IPenAndInkSettingsStatics;
 
+                runtimeclass DelegatedInkBallpointRenderParameters;
+
                 runtimeclass DelegatedInkTrail;
 
-                runtimeclass DelegatedInkTrailPoints;
+                runtimeclass DelegatedInkTrailPoint;
 
                 runtimeclass InkDrawingAttributes;
 
@@ -285,7 +285,7 @@ namespace Windows
             {
                 declare
                 {
-                    interface Windows.Foundation.Collections.IIterable<Windows.UI.Input.Inking.DelegatedInkTrailPoints*>;
+                    interface Windows.Foundation.Collections.IIterable<Windows.UI.Input.Inking.DelegatedInkTrailPoint*>;
 
                     interface Windows.Foundation.Collections.IIterable<Windows.UI.Input.Inking.InkPoint*>;
 
@@ -297,7 +297,7 @@ namespace Windows
 
                     interface Windows.Foundation.Collections.IIterable<Windows.UI.Input.Inking.InkStrokeRenderingSegment*>;
 
-                    interface Windows.Foundation.Collections.IIterator<Windows.UI.Input.Inking.DelegatedInkTrailPoints*>;
+                    interface Windows.Foundation.Collections.IIterator<Windows.UI.Input.Inking.DelegatedInkTrailPoint*>;
 
                     interface Windows.Foundation.Collections.IIterator<Windows.UI.Input.Inking.InkPoint*>;
 
@@ -309,8 +309,6 @@ namespace Windows
 
                     interface Windows.Foundation.Collections.IIterator<Windows.UI.Input.Inking.InkStrokeRenderingSegment*>;
 
-                    interface Windows.Foundation.Collections.IVectorView<Windows.UI.Input.Inking.DelegatedInkTrailPoints*>;
-
                     interface Windows.Foundation.Collections.IVectorView<Windows.UI.Input.Inking.InkPoint*>;
 
                     interface Windows.Foundation.Collections.IVectorView<Windows.UI.Input.Inking.InkRecognitionResult*>;
@@ -320,8 +318,6 @@ namespace Windows
                     interface Windows.Foundation.Collections.IVectorView<Windows.UI.Input.Inking.InkStroke*>;
 
                     interface Windows.Foundation.Collections.IVectorView<Windows.UI.Input.Inking.InkStrokeRenderingSegment*>;
-
-                    interface Windows.Foundation.Collections.IVector<Windows.UI.Input.Inking.DelegatedInkTrailPoints*>;
 
                     interface Windows.Foundation.Collections.IVector<Windows.UI.Input.Inking.InkPoint*>;
 
@@ -437,41 +433,39 @@ namespace Windows
                 };
 
                 [contract(Windows.Foundation.UniversalApiContract, 11.0)]
-                struct DelegatedInkTrailRenderParams
+                [exclusiveto(Windows.UI.Input.Inking.DelegatedInkBallpointRenderParameters)]
+                [uuid(C7DB8BC7-224A-48F8-BE43-08332141FBC5)]
+                interface IDelegatedInkBallpointRenderParameters : IInspectable
                 {
-                    Windows.Foundation.Numerics.Matrix3x2 transform;
-                    Windows.UI.Color color;
-                    Windows.Foundation.Rect clipRect;
-                };
+                    [propget] HRESULT Transform([out] [retval] Windows.Foundation.Numerics.Matrix3x2* value);
+                    [propput] HRESULT Transform([in] Windows.Foundation.Numerics.Matrix3x2 value);
+                    [propget] HRESULT Color([out] [retval] Windows.UI.Color* value);
+                    [propput] HRESULT Color([in] Windows.UI.Color value);
+                    [propget] HRESULT ClipRect([out] [retval] Windows.Foundation.Rect* value);
+                    [propput] HRESULT ClipRect([in] Windows.Foundation.Rect value);
+                }
 
                 [contract(Windows.Foundation.UniversalApiContract, 11.0)]
                 [exclusiveto(Windows.UI.Input.Inking.DelegatedInkTrail)]
                 [uuid(2FD347FD-F42B-41F0-96F9-0016CD4184DA)]
                 interface IDelegatedInkTrail : IInspectable
                 {
-                    HRESULT AddTipPoints([in] Windows.Foundation.Collections.IVector<Windows.UI.Input.Inking.DelegatedInkTrailPoints*>* inkPoints, [in] Windows.Foundation.Collections.IVector<Windows.UI.Input.Inking.DelegatedInkTrailPoints*>* predictedInkPoints, [in] boolean isNewStroke);
-                    HRESULT SetRenderedBallpointInkForSwapchainPresentCount([in] UINT32 presentCount, [in] Windows.UI.Input.Inking.InkPoint* lastRenderedInkPoint, [in] Windows.UI.Input.Inking.DelegatedInkTrailRenderParams renderedInkParams);
+                    HRESULT StartNewTrail([in] Windows.UI.Input.Inking.DelegatedInkBallpointRenderParameters* renderParameters);
+                    HRESULT AddTrailPoints([in] Windows.Foundation.Collections.IIterable<Windows.UI.Input.Inking.DelegatedInkTrailPoint*>* inkPoints);
+                    HRESULT AddTrailPointsWithCustomPrediction([in] Windows.Foundation.Collections.IIterable<Windows.UI.Input.Inking.DelegatedInkTrailPoint*>* inkPoints, [in] Windows.Foundation.Collections.IIterable<Windows.UI.Input.Inking.DelegatedInkTrailPoint*>* predictedInkPoints);
                 }
 
                 [contract(Windows.Foundation.UniversalApiContract, 11.0)]
-                [exclusiveto(Windows.UI.Input.Inking.DelegatedInkTrailPoints)]
+                [exclusiveto(Windows.UI.Input.Inking.DelegatedInkTrailPoint)]
                 [uuid(DFF7C61B-1B3E-4270-8810-92D6C4A6B103)]
-                interface IDelegatedInkTrailPoints : IInspectable
+                interface IDelegatedInkTrailPoint : IInspectable
                 {
-                    [propget] HRESULT frameId([out] [retval] UINT32* value);
-                    [propput] HRESULT frameId([in] UINT32 value);
-                    [propget] HRESULT pointerId([out] [retval] UINT32* value);
-                    [propput] HRESULT pointerId([in] UINT32 value);
-                    [propget] HRESULT inkPoint([out] [retval] Windows.UI.Input.Inking.InkPoint** value);
-                    [propput] HRESULT inkPoint([in] Windows.UI.Input.Inking.InkPoint* value);
-                }
-
-                [contract(Windows.Foundation.UniversalApiContract, 11.0)]
-                [exclusiveto(Windows.UI.Input.Inking.DelegatedInkTrail)]
-                [uuid(89BFF594-D807-568F-AE80-508763BDB3F9)]
-                interface IDelegatedInkTrailReferenceSurface : IInspectable
-                {
-                    HRESULT SetReferenceSurface([in] IInspectable* surface, [in] IInspectable* dcompDevice);
+                    [propget] HRESULT FrameId([out] [retval] UINT32* value);
+                    [propput] HRESULT FrameId([in] UINT32 value);
+                    [propget] HRESULT PointerId([out] [retval] UINT32* value);
+                    [propput] HRESULT PointerId([in] UINT32 value);
+                    [propget] HRESULT InkPoint([out] [retval] Windows.UI.Input.Inking.InkPoint** value);
+                    [propput] HRESULT InkPoint([in] Windows.UI.Input.Inking.InkPoint* value);
                 }
 
                 [contract(Windows.Foundation.UniversalApiContract, 1.0)]
@@ -990,9 +984,17 @@ namespace Windows
                 [contract(Windows.Foundation.UniversalApiContract, 11.0)]
                 [marshaling_behavior(agile)]
                 [threading(both)]
+                runtimeclass DelegatedInkBallpointRenderParameters
+                {
+                    [default] interface Windows.UI.Input.Inking.IDelegatedInkBallpointRenderParameters;
+                }
+
+                [activatable(Windows.Foundation.UniversalApiContract, 11.0)]
+                [contract(Windows.Foundation.UniversalApiContract, 11.0)]
+                [marshaling_behavior(agile)]
+                [threading(both)]
                 runtimeclass DelegatedInkTrail
                 {
-                    interface Windows.UI.Input.Inking.IDelegatedInkTrailReferenceSurface;
                     [default] interface Windows.UI.Input.Inking.IDelegatedInkTrail;
                 }
 
@@ -1000,9 +1002,9 @@ namespace Windows
                 [contract(Windows.Foundation.UniversalApiContract, 11.0)]
                 [marshaling_behavior(agile)]
                 [threading(both)]
-                runtimeclass DelegatedInkTrailPoints
+                runtimeclass DelegatedInkTrailPoint
                 {
-                    [default] interface Windows.UI.Input.Inking.IDelegatedInkTrailPoints;
+                    [default] interface Windows.UI.Input.Inking.IDelegatedInkTrailPoint;
                 }
 
                 [activatable(Windows.Foundation.UniversalApiContract, 1.0)]

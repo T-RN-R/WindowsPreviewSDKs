@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200303.2
+// C++/WinRT v2.0.200316.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -42,7 +42,7 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel
         AppDisplayInfo(void* ptr, take_ownership_from_abi_t) noexcept : Windows::ApplicationModel::IAppDisplayInfo(ptr, take_ownership_from_abi) {}
     };
     struct __declspec(empty_bases) AppInfo : Windows::ApplicationModel::IAppInfo,
-        impl::require<AppInfo, Windows::ApplicationModel::IAppInfo2, Windows::ApplicationModel::IAppInfo3>
+        impl::require<AppInfo, Windows::ApplicationModel::IAppInfo2, Windows::ApplicationModel::IAppInfo3, Windows::ApplicationModel::IAppInfo4>
     {
         AppInfo(std::nullptr_t) noexcept {}
         AppInfo(void* ptr, take_ownership_from_abi_t) noexcept : Windows::ApplicationModel::IAppInfo(ptr, take_ownership_from_abi) {}

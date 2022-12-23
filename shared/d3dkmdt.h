@@ -2324,6 +2324,26 @@ typedef BYTE DXGK_DISPLAY_DESCRIPTOR_TYPE;
 
 #endif // (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_2)
 
+#if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_5)
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Capabilities, preferences and other information reported by display only capable adapters.
+
+typedef struct _D3DKMT_DISPLAY_CAPS
+{
+    union
+    {
+        struct
+        {
+            UINT64 PreferPhysicallyContiguous : 1;
+            UINT64 Reserved : 63;
+        };
+        UINT64 Value;
+    };
+} D3DKMT_DISPLAY_CAPS;
+
+#endif // (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_5)
+
 #pragma pack( pop )
 
 #endif // (NTDDI_VERSION >= NTDDI_LONGHORN) || defined(D3DKMDT_SPECIAL_MULTIPLATFORM_TOOL)

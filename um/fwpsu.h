@@ -2037,13 +2037,10 @@ typedef enum {
     IpDiscardAllocationFailure,
 
     //
-    // IPSNPI discard reasons.
+    // Discard reasons common to all paths.
     //
     IpDiscardIpsnpiClientDrop,
 
-    //
-    // Discard reasons common to all paths.
-    //
     IpDiscardUnsupportedOffload,
     IpDiscardRoutingFailure,
     IpDiscardAncillaryDataFailure,
@@ -2063,6 +2060,14 @@ typedef enum {
     IpDiscardIpsnpiUnsupportedInterfaceType,
     IpDiscardIpsnpiInvalidLsoInfo,
     IpDiscardIpsnpiInvalidUsoInfo,
+
+    IpDiscardInternalError,
+    IpDiscardAdministrativelyConfigured,
+    IpDiscardBadOption,
+    IpDiscardLoopbackDisallowed,
+    IpDiscardSmallerScope,
+    IpDiscardQueueFull,
+    IpDiscardInterfaceDisabled,
 
     IpDiscardMax
 } IP_DISCARD_REASON, *PIP_DISCARD_REASON;

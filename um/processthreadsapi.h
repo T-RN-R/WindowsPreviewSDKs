@@ -102,6 +102,26 @@ QueueUserAPC(
 
 #endif /* _WIN32_WINNT >= 0x0400 || _WIN32_WINDOWS > 0x0400 */
 
+#if (NTDDI_VERSION >= NTDDI_WIN10_MN)
+
+typedef enum _QUEUE_USER_APC_FLAGS {
+    QUEUE_USER_APC_FLAGS_NONE             = 0x0,
+    QUEUE_USER_APC_FLAGS_SPECIAL_USER_APC = 0x1,
+} QUEUE_USER_APC_FLAGS;
+
+WINBASEAPI
+BOOL
+WINAPI
+QueueUserAPC2(
+    _In_ PAPCFUNC ApcRoutine,
+    _In_ HANDLE Thread,
+    _In_ ULONG_PTR Data,
+    _In_ QUEUE_USER_APC_FLAGS Flags
+    );
+
+
+#endif /* NTDDI_VERSION >= NTDDI_WIN10_MN */
+
 WINBASEAPI
 BOOL
 WINAPI

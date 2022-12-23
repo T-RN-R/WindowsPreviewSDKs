@@ -3296,6 +3296,51 @@
 #define ERROR_UNEXPECTED_NTCACHEMANAGER_ERROR 443L
 
 //
+// MessageId: ERROR_LINUX_SUBSYSTEM_UPDATE_REQUIRED
+//
+// MessageText:
+//
+// WSL 2 requires an update to its kernel component. For information please visit https://aka.ms/wsl2kernel
+//
+#define ERROR_LINUX_SUBSYSTEM_UPDATE_REQUIRED 444L
+
+//
+// MessageId: ERROR_DLP_POLICY_WARNS_AGAINST_OPERATION
+//
+// MessageText:
+//
+// This action is blocked, but you can choose to allow it. Please refer to the data loss prevention notification for further information.
+//
+#define ERROR_DLP_POLICY_WARNS_AGAINST_OPERATION 445L
+
+//
+// MessageId: ERROR_DLP_POLICY_DENIES_OPERATION
+//
+// MessageText:
+//
+// This action is blocked. Please refer to the data loss prevention notification for further information.
+//
+#define ERROR_DLP_POLICY_DENIES_OPERATION 446L
+
+//
+// MessageId: ERROR_SECURITY_DENIES_OPERATION
+//
+// MessageText:
+//
+// Access is denied because the file contains potentially unwanted software or content the security administrator decided to block.
+//
+#define ERROR_SECURITY_DENIES_OPERATION  447L
+
+//
+// MessageId: ERROR_UNTRUSTED_MOUNT_POINT
+//
+// MessageText:
+//
+// The path cannot be traversed because it contains an untrusted mount point.
+//
+#define ERROR_UNTRUSTED_MOUNT_POINT      448L
+
+//
 // **** Available SYSTEM error codes ****
 //
 
@@ -12457,6 +12502,51 @@
 //
 #define ERROR_APPEXEC_UNKNOWN_USER       3067L
 
+//
+// MessageId: ERROR_APPEXEC_APP_COMPAT_BLOCK
+//
+// MessageText:
+//
+// The application is blocked by app compat policy.
+//
+#define ERROR_APPEXEC_APP_COMPAT_BLOCK   3068L
+
+//
+// MessageId: ERROR_APPEXEC_CALLER_WAIT_TIMEOUT
+//
+// MessageText:
+//
+// The caller specified wait timed out before the operation completed.
+//
+#define ERROR_APPEXEC_CALLER_WAIT_TIMEOUT 3069L
+
+//
+// MessageId: ERROR_APPEXEC_CALLER_WAIT_TIMEOUT_TERMINATION
+//
+// MessageText:
+//
+// The caller specified wait timed out before the operation completed because a host termination is in queued.
+//
+#define ERROR_APPEXEC_CALLER_WAIT_TIMEOUT_TERMINATION 3070L
+
+//
+// MessageId: ERROR_APPEXEC_CALLER_WAIT_TIMEOUT_LICENSING
+//
+// MessageText:
+//
+// The caller specified wait timed out before the operation completed because a licensing operation is being performed.
+//
+#define ERROR_APPEXEC_CALLER_WAIT_TIMEOUT_LICENSING 3071L
+
+//
+// MessageId: ERROR_APPEXEC_CALLER_WAIT_TIMEOUT_RESOURCES
+//
+// MessageText:
+//
+// The caller specified wait timed out before the operation completed because resources are being acquired.
+//
+#define ERROR_APPEXEC_CALLER_WAIT_TIMEOUT_RESOURCES 3072L
+
 
 ///////////////////////////////////////////////////
 //                                               //
@@ -12526,6 +12616,42 @@
 // Enabling driver verification is not supported for a driver with  NMI callback(s) registered.
 //
 #define ERROR_VRF_VOLATILE_NMI_REGISTERED 3086L
+
+//
+// MessageId: ERROR_DIF_VOLATILE_SECTION_NOT_LOCKED
+//
+// MessageText:
+//
+// Verification cannot start because an attempt to lock code or data section failed.
+//
+#define ERROR_DIF_VOLATILE_SECTION_NOT_LOCKED 3192L
+
+//
+// MessageId: ERROR_DIF_VOLATILE_DRIVER_HOTPATCHED
+//
+// MessageText:
+//
+// DIF volatile verification is not supported for hotpatched driver.
+//
+#define ERROR_DIF_VOLATILE_DRIVER_HOTPATCHED 3193L
+
+//
+// MessageId: ERROR_DIF_VOLATILE_INVALID_RULE_CLASS
+//
+// MessageText:
+//
+// The passed rule classes are invalid.
+//
+#define ERROR_DIF_VOLATILE_INVALID_RULE_CLASS 3194L
+
+//
+// MessageId: ERROR_DIF_VOLATILE_DRIVER_IS_NOT_RUNNING
+//
+// MessageText:
+//
+// DIF volatile verification only supports on loaded drivers.
+//
+#define ERROR_DIF_VOLATILE_DRIVER_IS_NOT_RUNNING 3195L
 
 //
 // MessageId: ERROR_DIF_VOLATILE_PLUGIN_IS_NOT_RUNNING
@@ -13911,6 +14037,24 @@
 // System Integrity policy has been violated.  Potentially unwanted application.
 //
 #define ERROR_SYSTEM_INTEGRITY_REPUTATION_PUA 4557L
+
+//
+// MessageId: ERROR_SYSTEM_INTEGRITY_REPUTATION_DANGEROUS_EXT
+//
+// MessageText:
+//
+// System Integrity policy has been violated.  Dangerous file extension from the web.
+//
+#define ERROR_SYSTEM_INTEGRITY_REPUTATION_DANGEROUS_EXT 4558L
+
+//
+// MessageId: ERROR_SYSTEM_INTEGRITY_REPUTATION_OFFLINE
+//
+// MessageText:
+//
+// System Integrity policy has been violated.  Unable to contact reputation service for unknown file.
+//
+#define ERROR_SYSTEM_INTEGRITY_REPUTATION_OFFLINE 4559L
 
 
 ///////////////////////////////////////////////////
@@ -21771,6 +21915,15 @@
 // The link value specified was not found, but a link value with that key was found.
 //
 #define ERROR_DS_VALUE_KEY_NOT_UNIQUE    8650L
+
+//
+// MessageId: ERROR_WEAK_WHFBKEY_BLOCKED
+//
+// MessageText:
+//
+// The Security Account Manager blocked the use of a weak Windows Hello for Business key.
+//
+#define ERROR_WEAK_WHFBKEY_BLOCKED       8651L
 
 
 ///////////////////////////////////////////////////
@@ -41601,6 +41754,15 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 #define ERROR_FLT_REGISTRATION_BUSY      _HRESULT_TYPEDEF_(0x801F0023L)
 
 //
+// MessageId: ERROR_FLT_WCOS_NOT_SUPPORTED
+//
+// MessageText:
+//
+// The filter is not allowed to attach because it has not declared compability with WCOS.
+//
+#define ERROR_FLT_WCOS_NOT_SUPPORTED     _HRESULT_TYPEDEF_(0x801F0024L)
+
+//
 // ===============================
 // Facility Graphics Error Messages
 // ===============================
@@ -49179,6 +49341,15 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 // BitLocker recovery key backup endpoint is busy and cannot perform requested operation. Please retry after sometime.
 //
 #define FVE_E_AAD_ENDPOINT_BUSY          _HRESULT_TYPEDEF_(0x803100E1L)
+
+//
+// MessageId: FVE_E_INVALID_NBP_CERT
+//
+// MessageText:
+//
+// An invalid certificate has been found in the Network Boot Protector certificate store.
+//
+#define FVE_E_INVALID_NBP_CERT           _HRESULT_TYPEDEF_(0x803100E2L)
 
 //
 // =======================================================

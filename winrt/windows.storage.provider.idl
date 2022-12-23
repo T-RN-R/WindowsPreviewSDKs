@@ -106,8 +106,6 @@ namespace Windows
 
             interface IStorageProviderErrorFactory;
 
-            interface IStorageProviderErrorLegacy;
-
             interface IStorageProviderFileTypeInfo;
 
             interface IStorageProviderFileTypeInfoFactory;
@@ -494,24 +492,6 @@ namespace Windows
                 HRESULT CreateInstance([in] HSTRING id, [in] HSTRING title, [in] HSTRING message, [out] [retval] Windows.Storage.Provider.StorageProviderError** value);
             }
 
-            [contract(Windows.Storage.Provider.CloudFilesContract, 5.0)]
-            [exclusiveto(Windows.Storage.Provider.StorageProviderError)]
-            [uuid(CA2B162C-ECCA-5B32-BA94-0DB191DE12CC)]
-            interface IStorageProviderErrorLegacy : IInspectable
-            {
-                [propget] HRESULT Id_Legacy([out] [retval] HSTRING* value);
-                [propget] HRESULT Title_Legacy([out] [retval] HSTRING* value);
-                [propget] HRESULT Message_Legacy([out] [retval] HSTRING* value);
-                [propget] HRESULT FilePath_Legacy([out] [retval] HSTRING* value);
-                [propput] HRESULT FilePath_Legacy([in] HSTRING value);
-                [propget] HRESULT Button1([out] [retval] Windows.Storage.Provider.StorageProviderErrorCommand** value);
-                [propput] HRESULT Button1([in] Windows.Storage.Provider.StorageProviderErrorCommand* value);
-                [propget] HRESULT Button2([out] [retval] Windows.Storage.Provider.StorageProviderErrorCommand** value);
-                [propput] HRESULT Button2([in] Windows.Storage.Provider.StorageProviderErrorCommand* value);
-                [propget] HRESULT Hyperlink1([out] [retval] Windows.Storage.Provider.StorageProviderErrorCommand** value);
-                [propput] HRESULT Hyperlink1([in] Windows.Storage.Provider.StorageProviderErrorCommand* value);
-            }
-
             [contract(Windows.Storage.Provider.CloudFilesContract, 4.0)]
             [exclusiveto(Windows.Storage.Provider.StorageProviderFileTypeInfo)]
             [uuid(1955B9C1-0184-5A88-87DF-4544F464365D)]
@@ -756,7 +736,6 @@ namespace Windows
             [threading(both)]
             runtimeclass StorageProviderError
             {
-                interface Windows.Storage.Provider.IStorageProviderErrorLegacy;
                 [default] interface Windows.Storage.Provider.IStorageProviderError;
             }
 

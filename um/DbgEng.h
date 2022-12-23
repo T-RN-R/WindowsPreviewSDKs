@@ -1805,6 +1805,8 @@ DECLARE_INTERFACE_(IDebugBreakpoint3, IUnknown)
 #define DEBUG_PROC_DESC_NO_SESSION_ID   0x00000010
 // Dont retrieve the process's user name.
 #define DEBUG_PROC_DESC_NO_USER_NAME    0x00000020
+// Retrieve the process's package family name.
+#define DEBUG_PROC_DESC_WITH_PACKAGEFAMILY 0x00000040
 
 //
 // Attach flags.
@@ -18718,6 +18720,23 @@ typedef struct _DEBUG_MODULE_PARAMETERS
 // GetSourceFileInformation method with the 'Which' parameter
 // set to DEBUG_SRCFILE_SYMBOL_CHECKSUMINFO
 #define DEBUG_FIND_SOURCE_WITH_CHECKSUM 0x00000010
+// This option is similar to DEBUG_FIND_SOURCE_WITH_CHECKSUM.
+// The only difference is that DEBUG_SRCFILE_SYMBOL_CHECKSUMINFO will check
+// for a checksum but won't enforce it i.e. if a file is found it may or may not
+// match the requested checksum.
+// DEBUG_FIND_SOURCE_WITH_CHECKSUM_STRICT eliminates this ambiguity i.e.
+// if the file is found for sure it matches the checksum.
+// Please note that line endings of the file may change when downloading
+// a source file from various source code repositories. This means that the downloaded file
+// would have a checksum which depends on file content and the updated line endings.
+// The engine will try to match the checksum of the file to the requested checksum.
+// If they don't match, the engine will calculate an alternative checksum
+// of the file with modified line endings and will try to match it to the requested checksum.
+// In summary: DEBUG_FIND_SOURCE_WITH_CHECKSUM_STRICT will return a file if its checksum matches
+// to the requested checksum, or if the file's checksum calculated based on updated line endings
+// matches the requested checksum.
+#define DEBUG_FIND_SOURCE_WITH_CHECKSUM_STRICT 0x00000020
+
 
 // A special value marking an offset that should not
 // be treated as a valid offset.  This is only used

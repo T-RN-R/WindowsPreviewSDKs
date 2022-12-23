@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200303.2
+// C++/WinRT v2.0.200316.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -38,8 +38,7 @@ WINRT_EXPORT namespace winrt::Windows::Storage::Provider
         FileUpdateRequestedEventArgs(std::nullptr_t) noexcept {}
         FileUpdateRequestedEventArgs(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Storage::Provider::IFileUpdateRequestedEventArgs(ptr, take_ownership_from_abi) {}
     };
-    struct __declspec(empty_bases) StorageProviderError : Windows::Storage::Provider::IStorageProviderError,
-        impl::require<StorageProviderError, Windows::Storage::Provider::IStorageProviderErrorLegacy>
+    struct __declspec(empty_bases) StorageProviderError : Windows::Storage::Provider::IStorageProviderError
     {
         StorageProviderError(std::nullptr_t) noexcept {}
         StorageProviderError(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Storage::Provider::IStorageProviderError(ptr, take_ownership_from_abi) {}

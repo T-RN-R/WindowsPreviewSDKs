@@ -1047,6 +1047,25 @@ typedef struct _PROFILE_SOURCE_INFO {
     WCHAR Description[ANYSIZE_ARRAY];
 } PROFILE_SOURCE_INFO, *PPROFILE_SOURCE_INFO;
 
+typedef enum _ETW_PMC_COUNTER_OWNER_TYPE {
+    EtwPmcOwnerFree,
+    EtwPmcOwnerUntagged,
+    EtwPmcOwnerTagged,
+    EtwPmcOwnerTaggedWithSource
+} ETW_PMC_COUNTER_OWNER_TYPE;
+
+typedef struct _ETW_PMC_COUNTER_OWNER {
+    ETW_PMC_COUNTER_OWNER_TYPE OwnerType;
+    ULONG ProfileSource;
+    ULONG OwnerTag;
+} ETW_PMC_COUNTER_OWNER, *PETW_PMC_COUNTER_OWNER;
+
+typedef struct _ETW_PMC_COUNTER_OWNERSHIP_STATUS {
+    ULONG ProcessorNumber;
+    ULONG NumberOfCounters;
+    ETW_PMC_COUNTER_OWNER CounterOwners[ANYSIZE_ARRAY];
+} ETW_PMC_COUNTER_OWNERSHIP_STATUS, *PETW_PMC_COUNTER_OWNERSHIP_STATUS;
+
 //
 // An EVENT_TRACE consists of a fixed header (EVENT_TRACE_HEADER) and
 // optionally a variable portion pointed to by MofData. The datablock
@@ -1887,7 +1906,7 @@ typedef enum _TRACE_QUERY_INFO_CLASS {
     //
     // TraceMaxPmcCounterQuery:
     // - TraceQueryInformation
-    //      Queries the maximum number of PMC counters supported on this platform
+    //      Queries the maximum number of PMC counters supported on this platform.
     //
     //      Output Format: ULONG
     //
@@ -1906,12 +1925,32 @@ typedef enum _TRACE_QUERY_INFO_CLASS {
 
     //
     // TraceStackCachingInfo:
-    // - TraceSetInformation.
-    //      Turns on stack caching
+    // - TraceSetInformation
+    //      Turns on stack caching.
     //
     //      Input Format: TRACE_STACK_CACHING_INFO
     //
     TraceStackCachingInfo = 24,
+
+    //
+    // TracePmcCounterOwners:
+    // - TraceQueryInformation
+    //      Queries ownership information for active PMC counters.
+    //      Expects NULL SessionHandle.
+    //
+    //      Input Format: ETW_PMC_COUNTER_OWNERSHIP_STATUS with ProcessorNumber set to an 
+    //                    appropriate processor index. The input buffer must be of size at least
+    //                    RTL_SIZEOF_THROUGH_FIELD(ETW_PMC_COUNTER_OWNERSHIP_STATUS, NumberOfCounters) + 
+    //                    (sizeof(ETW_PMC_COUNTER_OWNER) * EtwMaxPmcCounters), where EtwMaxPmcCounters 
+    //                    is the result of a TraceQueryInformation(TraceMaxPmcCounterQuery, ...) operation.
+    //
+    //      Output Format: ETW_PMC_COUNTER_OWNERSHIP_STATUS with CounterOwners filled out. NumberOfCounters is
+    //                     set to the number of items in the CounterOwners array.
+    //                     If a counter owner's OwnershipType is EtwPmcOwnerTagged, then OwnerTag contains
+    //                     a tag provided by the counter owner.
+    //               
+    TracePmcCounterOwners = 25,
+
     MaxTraceSetInfoClass
 } TRACE_QUERY_INFO_CLASS, TRACE_INFO_CLASS;
 

@@ -1,42 +1,31 @@
-// C++/WinRT v2.0.200303.2
+// C++/WinRT v2.0.200316.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
 #ifndef WINRT_Windows_UI_Input_Inking_2_H
 #define WINRT_Windows_UI_Input_Inking_2_H
-#include "winrt/impl/Windows.Foundation.2.h"
-#include "winrt/impl/Windows.Foundation.Numerics.2.h"
-#include "winrt/impl/Windows.UI.2.h"
+#include "winrt/impl/Windows.Foundation.1.h"
 #include "winrt/impl/Windows.UI.Input.Inking.1.h"
 WINRT_EXPORT namespace winrt::Windows::UI::Input::Inking
 {
-    struct DelegatedInkTrailRenderParams
+    struct __declspec(empty_bases) DelegatedInkBallpointRenderParameters : Windows::UI::Input::Inking::IDelegatedInkBallpointRenderParameters
     {
-        Windows::Foundation::Numerics::float3x2 transform;
-        Windows::UI::Color color;
-        Windows::Foundation::Rect clipRect;
+        DelegatedInkBallpointRenderParameters(std::nullptr_t) noexcept {}
+        DelegatedInkBallpointRenderParameters(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Input::Inking::IDelegatedInkBallpointRenderParameters(ptr, take_ownership_from_abi) {}
+        DelegatedInkBallpointRenderParameters();
     };
-    inline bool operator==(DelegatedInkTrailRenderParams const& left, DelegatedInkTrailRenderParams const& right) noexcept
-    {
-        return left.transform == right.transform && left.color == right.color && left.clipRect == right.clipRect;
-    }
-    inline bool operator!=(DelegatedInkTrailRenderParams const& left, DelegatedInkTrailRenderParams const& right) noexcept
-    {
-        return !(left == right);
-    }
-    struct __declspec(empty_bases) DelegatedInkTrail : Windows::UI::Input::Inking::IDelegatedInkTrail,
-        impl::require<DelegatedInkTrail, Windows::UI::Input::Inking::IDelegatedInkTrailReferenceSurface>
+    struct __declspec(empty_bases) DelegatedInkTrail : Windows::UI::Input::Inking::IDelegatedInkTrail
     {
         DelegatedInkTrail(std::nullptr_t) noexcept {}
         DelegatedInkTrail(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Input::Inking::IDelegatedInkTrail(ptr, take_ownership_from_abi) {}
         DelegatedInkTrail();
     };
-    struct __declspec(empty_bases) DelegatedInkTrailPoints : Windows::UI::Input::Inking::IDelegatedInkTrailPoints
+    struct __declspec(empty_bases) DelegatedInkTrailPoint : Windows::UI::Input::Inking::IDelegatedInkTrailPoint
     {
-        DelegatedInkTrailPoints(std::nullptr_t) noexcept {}
-        DelegatedInkTrailPoints(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Input::Inking::IDelegatedInkTrailPoints(ptr, take_ownership_from_abi) {}
-        DelegatedInkTrailPoints();
+        DelegatedInkTrailPoint(std::nullptr_t) noexcept {}
+        DelegatedInkTrailPoint(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Input::Inking::IDelegatedInkTrailPoint(ptr, take_ownership_from_abi) {}
+        DelegatedInkTrailPoint();
     };
     struct __declspec(empty_bases) InkDrawingAttributes : Windows::UI::Input::Inking::IInkDrawingAttributes,
         impl::require<InkDrawingAttributes, Windows::UI::Input::Inking::IInkDrawingAttributes2, Windows::UI::Input::Inking::IInkDrawingAttributes3, Windows::UI::Input::Inking::IInkDrawingAttributes4, Windows::UI::Input::Inking::IInkDrawingAttributes5>

@@ -1133,7 +1133,8 @@ typedef enum __WRAPPED__ _STORAGE_PROPERTY_ID {
     StorageDeviceUnsafeShutdownCount,
     StorageDeviceEnduranceProperty,
     StorageDeviceLedStateProperty,
-    StorageDeviceSelfEncryptionProperty = 64
+    StorageDeviceSelfEncryptionProperty = 64,
+    StorageFruIdProperty
 } STORAGE_PROPERTY_ID, *PSTORAGE_PROPERTY_ID;
 
 //
@@ -2238,6 +2239,7 @@ typedef enum _STORAGE_PROTOCOL_UFS_DATA_TYPE {
     UfsDataTypeQueryAttribute,          // Retrieved by command - QUERY UPIU
     UfsDataTypeQueryFlag,               // Retrieved by command - QUERY UPIU
     UfsDataTypeQueryDmeAttribute,       // Retrieved by command - QUERY UPIU
+    UfsDataTypeQueryDmePeerAttribute,   // Retrieved by command - QUERY UPIU
     UfsDataTypeMax,
 } STORAGE_PROTOCOL_UFS_DATA_TYPE, *PSTORAGE_PROTOCOL_UFS_DATA_TYPE;
 
@@ -3070,6 +3072,33 @@ typedef struct _STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
     BOOLEAN SupportsSelfEncryption;
 
 } STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY, *PSTORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY;
+
+//
+// Output buffer for StorageFruIdProperty.
+//
+typedef struct _STORAGE_FRU_ID_DESCRIPTOR {
+
+    //
+    // Sizeof(STORAGE_FRU_ID_DESCRIPTOR)
+    //
+
+    DWORD Version;
+
+    //
+    // Total size of the data.
+    // Should be >= sizeof(STORAGE_FRU_ID_DESCRIPTOR)
+    //
+
+    DWORD Size;
+
+    //
+    // The identifier is a variable length array of bytes.
+    //
+
+    DWORD IdentifierSize;
+    BYTE  Identifier[ANYSIZE_ARRAY];
+
+} STORAGE_FRU_ID_DESCRIPTOR, *PSTORAGE_FRU_ID_DESCRIPTOR;
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -10359,7 +10388,7 @@ typedef enum _CHANGER_DEVICE_PROBLEM_TYPE {
 #endif
 
 #if (_WIN32_WINNT >= _WIN32_WINNT_WIN10_TH2)
-#define FSCTL_QUERY_DIRECT_ACCESS_EXTENTS        CTL_CODE(FILE_DEVICE_FILE_SYSTEM, 230, METHOD_NEITHER, FILE_ANY_ACCESS)
+#define FSCTL_QUERY_DIRECT_ACCESS_EXTENTS        CTL_CODE(FILE_DEVICE_FILE_SYSTEM, 230, METHOD_NEITHER, FILE_ANY_ACCESS) // QUERY_DIRECT_ACCESS_EXTENTS
 #define FSCTL_NOTIFY_STORAGE_SPACE_ALLOCATION    CTL_CODE(FILE_DEVICE_FILE_SYSTEM, 231, METHOD_BUFFERED, FILE_ANY_ACCESS)
 #define FSCTL_SSDI_STORAGE_REQUEST               CTL_CODE(FILE_DEVICE_FILE_SYSTEM, 232, METHOD_BUFFERED, FILE_ANY_ACCESS)
 #endif

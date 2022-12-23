@@ -82,7 +82,10 @@ typedef union WHV_EXTENDED_VM_EXITS
         UINT64 X64ApicSmiExitTrap         : 1; // WHvRunVpExitReasonX64ApicSmiTrap supported
         UINT64 HypercallExit              : 1; // WHvRunVpExitReasonHypercall supported
         UINT64 X64ApicInitSipiExitTrap    : 1; // WHvRunVpExitReasonX64ApicInitSipiTrap supported
-        UINT64 Reserved                   : 57;
+        UINT64 X64ApicWriteLint0ExitTrap  : 1; // WHvRunVpExitReasonX64ApicWriteTrap supported
+        UINT64 X64ApicWriteLint1ExitTrap  : 1; // WHvRunVpExitReasonX64ApicWriteTrap supported
+        UINT64 X64ApicWriteSvrExitTrap    : 1; // WHvRunVpExitReasonX64ApicWriteTrap supported
+        UINT64 Reserved                   : 54;
     };
 
     UINT64 AsUINT64;
@@ -193,7 +196,8 @@ typedef union WHV_PROCESSOR_FEATURES1
         UINT64 NestedVirtSupport : 1;
         UINT64 PsfdSupport: 1;
         UINT64 Reserved3 : 2;
-        UINT64 Reserved4 : 54;
+        UINT64 VmxExceptionInjectSupport : 1;
+        UINT64 Reserved4 : 53;
     };
 
     UINT64 AsUINT64;
@@ -929,6 +933,7 @@ typedef enum WHV_RUN_VP_EXIT_REASON
     WHvRunVpExitReasonX64ApicSmiTrap         = 0x00001004,
     WHvRunVpExitReasonHypercall              = 0x00001005,
     WHvRunVpExitReasonX64ApicInitSipiTrap    = 0x00001006,
+    WHvRunVpExitReasonX64ApicWriteTrap       = 0x00001007,
 
     // Exits caused by the host
     WHvRunVpExitReasonCanceled               = 0x00002001,
@@ -1237,6 +1242,27 @@ typedef struct WHV_X64_APIC_INIT_SIPI_CONTEXT
     UINT64 ApicIcr;
 } WHV_X64_APIC_INIT_SIPI_CONTEXT;
 
+
+//
+// Types of APIC write exits (WHvRunVpExitReasonX64ApicWriteTrap)
+//
+typedef enum WHV_X64_APIC_WRITE_TYPE
+{
+    WHvX64ApicWriteTypeSvr   = 0xF0,
+    WHvX64ApicWriteTypeLint0 = 0x350,
+    WHvX64ApicWriteTypeLint1 = 0x360
+} WHV_X64_APIC_WRITE_TYPE;
+
+//
+// Context data for an exit caused by an APIC write (WHvRunVpExitReasonX64ApicWriteTrap)
+//
+typedef struct WHV_X64_APIC_WRITE_CONTEXT
+{
+    WHV_X64_APIC_WRITE_TYPE Type;
+    UINT32 Reserved;
+    UINT64 WriteValue;
+} WHV_X64_APIC_WRITE_CONTEXT;
+
 // WHvRunVirtualProcessor output buffer
 typedef struct WHV_RUN_VP_EXIT_CONTEXT
 {
@@ -1259,6 +1285,7 @@ typedef struct WHV_RUN_VP_EXIT_CONTEXT
         WHV_X64_APIC_SMI_CONTEXT ApicSmi;
         WHV_HYPERCALL_CONTEXT Hypercall;
         WHV_X64_APIC_INIT_SIPI_CONTEXT ApicInitSipi;
+        WHV_X64_APIC_WRITE_CONTEXT ApicWrite;
     };
 } WHV_RUN_VP_EXIT_CONTEXT;
 

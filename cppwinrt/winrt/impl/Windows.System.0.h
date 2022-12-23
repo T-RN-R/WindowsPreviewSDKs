@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200303.2
+// C++/WinRT v2.0.200316.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -238,10 +238,12 @@ WINRT_EXPORT namespace winrt::Windows::System
         CapitalLock = 20,
         Kana = 21,
         Hangul = 21,
+        ImeOn = 22,
         Junja = 23,
         Final = 24,
         Hanja = 25,
         Kanji = 25,
+        ImeOff = 26,
         Escape = 27,
         Convert = 28,
         NonConvert = 29,

@@ -2283,6 +2283,7 @@ typedef enum _HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE
     ExParamTypeHttp2SettingsLimits,
     ExParamTypeHttpPerformance,
     ExParamTypeTlsRestrictions,
+    ExParamTypeErrorHeaders,
     ExParamTypeMax
 } HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE, *PHTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE;
 
@@ -2344,6 +2345,13 @@ typedef struct _HTTP_TLS_RESTRICTIONS_PARAM
     PVOID TlsRestrictions;
 } HTTP_TLS_RESTRICTIONS_PARAM, *PHTTP_TLS_RESTRICTIONS_PARAM;
 
+typedef struct _HTTP_ERROR_HEADERS_PARAM
+{
+    USHORT StatusCode;
+    USHORT HeaderCount;
+    PHTTP_UNKNOWN_HEADER Headers;
+} HTTP_ERROR_HEADERS_PARAM, *PHTTP_ERROR_HEADERS_PARAM;
+
 //
 // This defines the exteded params for the ssl config record.
 //
@@ -2372,6 +2380,7 @@ typedef struct _HTTP_SERVICE_CONFIG_SSL_PARAM_EX
         HTTP2_SETTINGS_LIMITS_PARAM Http2SettingsLimitsParam;
         HTTP_PERFORMANCE_PARAM HttpPerformanceParam;
         HTTP_TLS_RESTRICTIONS_PARAM HttpTlsRestrictionsParam;
+        HTTP_ERROR_HEADERS_PARAM HttpErrorHeadersParam;
     };
 } HTTP_SERVICE_CONFIG_SSL_PARAM_EX, *PHTTP_SERVICE_CONFIG_SSL_PARAM_EX;
 
@@ -2763,6 +2772,18 @@ typedef struct _HTTP_QUIC_API_TIMINGS
     HTTP_QUIC_STREAM_API_TIMINGS StreamTimings;
 
 } HTTP_QUIC_API_TIMINGS, *PHTTP_QUIC_API_TIMINGS;
+
+
+typedef enum _HTTP_FEATURE_ID
+{
+    HttpFeatureUnknown = 0,
+    HttpFeatureResponseTrailers = 1,
+    HttpFeatureApiTimings = 2,
+
+
+    HttpFeaturemax = 0xFFFFFFFF,
+
+} HTTP_FEATURE_ID, *PHTTP_FEATURE_ID;
 
 
 //
@@ -3209,6 +3230,12 @@ WINAPI
 HttpWaitForDemandStart(
     IN HANDLE RequestQueueHandle,
     IN LPOVERLAPPED Overlapped OPTIONAL
+    );
+
+BOOL
+WINAPI
+HttpIsFeatureSupported(
+    _In_ HTTP_FEATURE_ID FeatureId
     );
 
 

@@ -2090,6 +2090,7 @@ typedef enum _KMTQUERYADAPTERINFOTYPE
 #endif // DXGKDDI_INTERFACE_VERSION_WDDM2_7
 #if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_8)
      KMTQAITYPE_HYBRID_DLIST_DLL_SUPPORT = 73,
+     KMTQAITYPE_DISPLAY_CAPS             = 74,
 #endif // DXGKDDI_INTERFACE_VERSION_WDDM2_8
 // If a new enum will be used by DXGI or D3D11 software driver code, update the test content in the area. 
 // Search for KMTQAITYPE_PARAVIRTUALIZATION_RENDER in directx\dxg\dxgi\unittests for references.

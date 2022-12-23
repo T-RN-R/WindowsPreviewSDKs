@@ -483,9 +483,9 @@ PfBucketShift equ 00030H
 PfBuffer equ 00038H
 PfSegment equ 00040H
 PfAffinity equ 00048H
-PfSource equ 000F0H
-PfStarted equ 000F2H
-ProfileObjectLength equ 000F8H
+PfSource equ 000F8H
+PfStarted equ 000FAH
+ProfileObjectLength equ 00100H
 
 ;
 ;  Queue Object Structure Offset Definitions
@@ -671,7 +671,7 @@ UmsSchedulerThreadYield equ 00002H
 PeBeingDebugged equ 00002H
 PeProcessParameters equ 00020H
 PeKernelCallbackTable equ 00058H
-ProcessEnvironmentBlockLength equ 007C8H
+ProcessEnvironmentBlockLength equ 007D0H
 
 ;
 ;  Process Parameters Block Structure Offset Definitions
@@ -1895,6 +1895,7 @@ XHF_NOEXECUTE equ 0100000H
 
 MrcFlags equ 00000H
 MrcPhysicalAddress equ 00008H
+MrcRecord equ 00008H
 MceRecoveryContextLength equ 00010H
 
 ;
@@ -1905,6 +1906,7 @@ KMRC_ALTERNATE_CONTEXT equ 00001H
 KMRC_WORK_ITEM equ 00002H
 KMRC_OFFLINE_PAGE equ 00004H
 KMRC_TERMINATE_PROCESS equ 00008H
+KMRC_KERNEL_CONSUMER equ 00010H
 
 ;
 ;  KTHREAD

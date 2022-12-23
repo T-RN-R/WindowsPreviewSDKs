@@ -978,7 +978,8 @@ typedef enum __WRAPPED__ _STORAGE_PROPERTY_ID {
     StorageDeviceUnsafeShutdownCount,
     StorageDeviceEnduranceProperty,
     StorageDeviceLedStateProperty,
-    StorageDeviceSelfEncryptionProperty = 64
+    StorageDeviceSelfEncryptionProperty = 64,
+    StorageFruIdProperty
 } STORAGE_PROPERTY_ID, *PSTORAGE_PROPERTY_ID;
 
 //
@@ -2085,6 +2086,7 @@ typedef enum _STORAGE_PROTOCOL_UFS_DATA_TYPE {
     UfsDataTypeQueryAttribute,          // Retrieved by command - QUERY UPIU
     UfsDataTypeQueryFlag,               // Retrieved by command - QUERY UPIU
     UfsDataTypeQueryDmeAttribute,       // Retrieved by command - QUERY UPIU
+    UfsDataTypeQueryDmePeerAttribute,   // Retrieved by command - QUERY UPIU
     UfsDataTypeMax,
 } STORAGE_PROTOCOL_UFS_DATA_TYPE, *PSTORAGE_PROTOCOL_UFS_DATA_TYPE;
 
@@ -2917,6 +2919,33 @@ typedef struct _STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
     BOOLEAN SupportsSelfEncryption;
 
 } STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY, *PSTORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY;
+
+//
+// Output buffer for StorageFruIdProperty.
+//
+typedef struct _STORAGE_FRU_ID_DESCRIPTOR {
+
+    //
+    // Sizeof(STORAGE_FRU_ID_DESCRIPTOR)
+    //
+
+    ULONG Version;
+
+    //
+    // Total size of the data.
+    // Should be >= sizeof(STORAGE_FRU_ID_DESCRIPTOR)
+    //
+
+    ULONG Size;
+
+    //
+    // The identifier is a variable length array of bytes.
+    //
+
+    ULONG IdentifierSize;
+    UCHAR Identifier[ANYSIZE_ARRAY];
+
+} STORAGE_FRU_ID_DESCRIPTOR, *PSTORAGE_FRU_ID_DESCRIPTOR;
 
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -91,6 +91,8 @@ namespace Windows
     {
         namespace Capture
         {
+            typedef enum GraphicsCaptureAccessStatus GraphicsCaptureAccessStatus;
+
             interface IDirect3D11CaptureFrame;
 
             interface IDirect3D11CaptureFramePool;
@@ -135,6 +137,8 @@ namespace Windows
         {
             declare
             {
+                interface Windows.Foundation.IAsyncOperation<Windows.Graphics.Capture.GraphicsCaptureAccessStatus>;
+
                 interface Windows.Foundation.IAsyncOperation<Windows.Graphics.Capture.GraphicsCaptureItem*>;
 
                 interface Windows.Foundation.TypedEventHandler<Windows.Graphics.Capture.Direct3D11CaptureFramePool*, IInspectable*>;
@@ -152,6 +156,14 @@ namespace Windows
     {
         namespace Capture
         {
+            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
+            enum GraphicsCaptureAccessStatus
+            {
+                Unspecified = 0,
+                Allowed     = 1,
+                Denied      = 2
+            };
+
             [contract(Windows.Foundation.UniversalApiContract, 6.0)]
             [exclusiveto(Windows.Graphics.Capture.Direct3D11CaptureFrame)]
             [uuid(FA50C623-38DA-4B32-ACF3-FA9734AD800E)]
@@ -212,10 +224,11 @@ namespace Windows
 
             [contract(Windows.Foundation.UniversalApiContract, 11.0)]
             [exclusiveto(Windows.Graphics.Capture.GraphicsCaptureItem)]
-            [uuid(9828EB26-E8ED-5A2F-A237-8D7D7BA85776)]
+            [uuid(4E9AD975-AF28-5B42-A034-F3EF012404B9)]
             interface IGraphicsCaptureItemStatics2 : IInspectable
             {
                 HRESULT CreateFromWindowReference([in] Windows.UI.WindowReference* windowReference, [out] [retval] Windows.Graphics.Capture.GraphicsCaptureItem** result);
+                HRESULT RequestProgrammaticCaptureAccessAsync([out] [retval] Windows.Foundation.IAsyncOperation<Windows.Graphics.Capture.GraphicsCaptureAccessStatus>** operation);
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 6.0)]

@@ -289,6 +289,70 @@ namespace ABI {
     namespace Windows {
         namespace Graphics {
             namespace Capture {
+                typedef enum GraphicsCaptureAccessStatus : int GraphicsCaptureAccessStatus;
+            } /* Capture */
+        } /* Graphics */
+    } /* Windows */
+} /* ABI */
+
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+#ifndef DEF___FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus_USE
+#define DEF___FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus_USE
+#if !defined(RO_NO_TEMPLATE_NAME)
+namespace ABI { namespace Windows { namespace Foundation {
+template <>
+struct __declspec(uuid("65a80047-6b08-5e5f-81fe-131fe42bf2eb"))
+IAsyncOperation<enum ABI::Windows::Graphics::Capture::GraphicsCaptureAccessStatus> : IAsyncOperation_impl<enum ABI::Windows::Graphics::Capture::GraphicsCaptureAccessStatus>
+{
+    static const wchar_t* z_get_rc_name_impl()
+    {
+        return L"Windows.Foundation.IAsyncOperation`1<Windows.Graphics.Capture.GraphicsCaptureAccessStatus>";
+    }
+};
+// Define a typedef for the parameterized interface specialization's mangled name.
+// This allows code which uses the mangled name for the parameterized interface to access the
+// correct parameterized interface specialization.
+typedef IAsyncOperation<enum ABI::Windows::Graphics::Capture::GraphicsCaptureAccessStatus> __FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus_t;
+#define __FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus ABI::Windows::Foundation::__FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus_t
+/* Foundation */ } /* Windows */ } /* ABI */ }
+
+#endif // !defined(RO_NO_TEMPLATE_NAME)
+#endif /* DEF___FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus_USE */
+
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+#ifndef DEF___FIAsyncOperationCompletedHandler_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus_USE
+#define DEF___FIAsyncOperationCompletedHandler_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus_USE
+#if !defined(RO_NO_TEMPLATE_NAME)
+namespace ABI { namespace Windows { namespace Foundation {
+template <>
+struct __declspec(uuid("fdb4a878-18b8-5c66-bf7e-d0f90e59c536"))
+IAsyncOperationCompletedHandler<enum ABI::Windows::Graphics::Capture::GraphicsCaptureAccessStatus> : IAsyncOperationCompletedHandler_impl<enum ABI::Windows::Graphics::Capture::GraphicsCaptureAccessStatus>
+{
+    static const wchar_t* z_get_rc_name_impl()
+    {
+        return L"Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.Graphics.Capture.GraphicsCaptureAccessStatus>";
+    }
+};
+// Define a typedef for the parameterized interface specialization's mangled name.
+// This allows code which uses the mangled name for the parameterized interface to access the
+// correct parameterized interface specialization.
+typedef IAsyncOperationCompletedHandler<enum ABI::Windows::Graphics::Capture::GraphicsCaptureAccessStatus> __FIAsyncOperationCompletedHandler_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus_t;
+#define __FIAsyncOperationCompletedHandler_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus ABI::Windows::Foundation::__FIAsyncOperationCompletedHandler_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus_t
+/* Foundation */ } /* Windows */ } /* ABI */ }
+
+#endif // !defined(RO_NO_TEMPLATE_NAME)
+#endif /* DEF___FIAsyncOperationCompletedHandler_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus_USE */
+
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+namespace ABI {
+    namespace Windows {
+        namespace Graphics {
+            namespace Capture {
                 class GraphicsCaptureItem;
             } /* Capture */
         } /* Graphics */
@@ -575,6 +639,30 @@ namespace ABI {
 
 /*
  *
+ * Struct Windows.Graphics.Capture.GraphicsCaptureAccessStatus
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+namespace ABI {
+    namespace Windows {
+        namespace Graphics {
+            namespace Capture {
+                enum GraphicsCaptureAccessStatus : int
+                {
+                    GraphicsCaptureAccessStatus_Unspecified = 0,
+                    GraphicsCaptureAccessStatus_Allowed = 1,
+                    GraphicsCaptureAccessStatus_Denied = 2,
+                };
+            } /* Capture */
+        } /* Graphics */
+    } /* Windows */
+} /* ABI */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
  * Interface Windows.Graphics.Capture.IDirect3D11CaptureFrame
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 6.0
@@ -851,13 +939,16 @@ namespace ABI {
     namespace Windows {
         namespace Graphics {
             namespace Capture {
-                MIDL_INTERFACE("9828eb26-e8ed-5a2f-a237-8d7d7ba85776")
+                MIDL_INTERFACE("4e9ad975-af28-5b42-a034-f3ef012404b9")
                 IGraphicsCaptureItemStatics2 : public IInspectable
                 {
                 public:
                     virtual HRESULT STDMETHODCALLTYPE CreateFromWindowReference(
                         ABI::Windows::UI::IWindowReference* windowReference,
                         ABI::Windows::Graphics::Capture::IGraphicsCaptureItem** result
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE RequestProgrammaticCaptureAccessAsync(
+                        __FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus** operation
                         ) = 0;
                 };
 
@@ -1043,8 +1134,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 6.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Graphics.Capture.IDirect3D11CaptureFramePoolStatics2 interface starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Graphics.Capture.IDirect3D11CaptureFramePoolStatics interface starting with version 6.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Graphics.Capture.IDirect3D11CaptureFramePoolStatics2 interface starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Graphics.Capture.IDirect3D11CaptureFramePool ** Default Interface **
@@ -1208,6 +1299,133 @@ typedef interface __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureSessionSt
 // Parameterized interface forward declarations (C)
 
 // Collection interface definitions
+
+typedef enum __x_ABI_CWindows_CGraphics_CCapture_CGraphicsCaptureAccessStatus __x_ABI_CWindows_CGraphics_CCapture_CGraphicsCaptureAccessStatus;
+
+typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus __FIAsyncOperationCompletedHandler_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus;
+
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus_INTERFACE_DEFINED__)
+#define ____FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus_INTERFACE_DEFINED__
+
+typedef interface __FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus __FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus;
+
+//  Declare the parameterized interface IID.
+EXTERN_C const IID IID___FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus;
+
+typedef struct __FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatusVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* put_Completed)(__FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus* This,
+        __FIAsyncOperationCompletedHandler_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus* handler);
+    HRESULT (STDMETHODCALLTYPE* get_Completed)(__FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus* This,
+        __FIAsyncOperationCompletedHandler_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus** result);
+    HRESULT (STDMETHODCALLTYPE* GetResults)(__FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus* This,
+        enum __x_ABI_CWindows_CGraphics_CCapture_CGraphicsCaptureAccessStatus* result);
+
+    END_INTERFACE
+} __FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatusVtbl;
+
+interface __FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus
+{
+    CONST_VTBL struct __FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatusVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus_put_Completed(This, handler) \
+    ((This)->lpVtbl->put_Completed(This, handler))
+
+#define __FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus_get_Completed(This, result) \
+    ((This)->lpVtbl->get_Completed(This, result))
+
+#define __FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus_GetResults(This, result) \
+    ((This)->lpVtbl->GetResults(This, result))
+
+#endif /* COBJMACROS */
+
+#endif // ____FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus_INTERFACE_DEFINED__
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____FIAsyncOperationCompletedHandler_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus_INTERFACE_DEFINED__)
+#define ____FIAsyncOperationCompletedHandler_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus_INTERFACE_DEFINED__
+
+typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus __FIAsyncOperationCompletedHandler_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus;
+
+//  Declare the parameterized interface IID.
+EXTERN_C const IID IID___FIAsyncOperationCompletedHandler_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus;
+
+typedef struct __FIAsyncOperationCompletedHandler_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatusVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIAsyncOperationCompletedHandler_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__FIAsyncOperationCompletedHandler_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__FIAsyncOperationCompletedHandler_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus* This);
+    HRESULT (STDMETHODCALLTYPE* Invoke)(__FIAsyncOperationCompletedHandler_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus* This,
+        __FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus* asyncInfo,
+        AsyncStatus asyncStatus);
+
+    END_INTERFACE
+} __FIAsyncOperationCompletedHandler_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatusVtbl;
+
+interface __FIAsyncOperationCompletedHandler_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus
+{
+    CONST_VTBL struct __FIAsyncOperationCompletedHandler_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatusVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __FIAsyncOperationCompletedHandler_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __FIAsyncOperationCompletedHandler_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __FIAsyncOperationCompletedHandler_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __FIAsyncOperationCompletedHandler_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus_Invoke(This, asyncInfo, asyncStatus) \
+    ((This)->lpVtbl->Invoke(This, asyncInfo, asyncStatus))
+
+#endif /* COBJMACROS */
+
+#endif // ____FIAsyncOperationCompletedHandler_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus_INTERFACE_DEFINED__
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CGraphics__CCapture__CGraphicsCaptureItem __FIAsyncOperationCompletedHandler_1_Windows__CGraphics__CCapture__CGraphicsCaptureItem;
 
@@ -1473,6 +1691,22 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CIVisual __x_ABI_CWindows_CU
 typedef interface __x_ABI_CWindows_CUI_CIWindowReference __x_ABI_CWindows_CUI_CIWindowReference;
 
 #endif // ____x_ABI_CWindows_CUI_CIWindowReference_FWD_DEFINED__
+
+/*
+ *
+ * Struct Windows.Graphics.Capture.GraphicsCaptureAccessStatus
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+enum __x_ABI_CWindows_CGraphics_CCapture_CGraphicsCaptureAccessStatus
+{
+    GraphicsCaptureAccessStatus_Unspecified = 0,
+    GraphicsCaptureAccessStatus_Allowed = 1,
+    GraphicsCaptureAccessStatus_Denied = 2,
+};
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 /*
  *
@@ -1985,6 +2219,8 @@ typedef struct __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItemStatics2
     HRESULT (STDMETHODCALLTYPE* CreateFromWindowReference)(__x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItemStatics2* This,
         __x_ABI_CWindows_CUI_CIWindowReference* windowReference,
         __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItem** result);
+    HRESULT (STDMETHODCALLTYPE* RequestProgrammaticCaptureAccessAsync)(__x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItemStatics2* This,
+        __FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus** operation);
 
     END_INTERFACE
 } __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItemStatics2Vtbl;
@@ -2016,6 +2252,9 @@ interface __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItemStatics2
 
 #define __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItemStatics2_CreateFromWindowReference(This, windowReference, result) \
     ((This)->lpVtbl->CreateFromWindowReference(This, windowReference, result))
+
+#define __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItemStatics2_RequestProgrammaticCaptureAccessAsync(This, operation) \
+    ((This)->lpVtbl->RequestProgrammaticCaptureAccessAsync(This, operation))
 
 #endif /* COBJMACROS */
 
@@ -2330,8 +2569,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 6.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Graphics.Capture.IDirect3D11CaptureFramePoolStatics2 interface starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Graphics.Capture.IDirect3D11CaptureFramePoolStatics interface starting with version 6.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Graphics.Capture.IDirect3D11CaptureFramePoolStatics2 interface starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Graphics.Capture.IDirect3D11CaptureFramePool ** Default Interface **

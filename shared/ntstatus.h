@@ -5980,6 +5980,15 @@ Notes:
 #define STATUS_CONTROL_STACK_VIOLATION   ((NTSTATUS)0xC00001B2L)    //winnt
 
 //
+// MessageId: STATUS_WEAK_WHFBKEY_BLOCKED
+//
+// MessageText:
+//
+// The Security Account Manager blocked the use of a weak Windows Hello for Business key.
+//
+#define STATUS_WEAK_WHFBKEY_BLOCKED      ((NTSTATUS)0xC00001B3L)
+
+//
 //  Available range of NTSTATUS codes
 //
 //
@@ -10214,6 +10223,15 @@ Notes:
 //
 #define STATUS_UNSUPPORTED_PAGING_MODE   ((NTSTATUS)0xC00004BBL)
 
+//
+// MessageId: STATUS_UNTRUSTED_MOUNT_POINT
+//
+// MessageText:
+//
+// The path cannot be traversed because it contains an untrusted mount point.
+//
+#define STATUS_UNTRUSTED_MOUNT_POINT     ((NTSTATUS)0xC00004BCL)
+
 
 //     **** New SYSTEM error codes can be inserted here ****
 
@@ -11211,6 +11229,42 @@ Notes:
 // Enabling driver verification is not supported for a driver with  NMI callback(s) registered.
 //
 #define STATUS_VRF_VOLATILE_NMI_REGISTERED ((NTSTATUS)0xC0000C0EL)
+
+//
+// MessageId: STATUS_DIF_VOLATILE_SECTION_NOT_LOCKED
+//
+// MessageText:
+//
+// Verification cannot start because an attempt to lock code or data section failed.
+//
+#define STATUS_DIF_VOLATILE_SECTION_NOT_LOCKED ((NTSTATUS)0xC0000C78L)
+
+//
+// MessageId: STATUS_DIF_VOLATILE_DRIVER_HOTPATCHED
+//
+// MessageText:
+//
+// DIF volatile verification is not supported for hotpatched driver.
+//
+#define STATUS_DIF_VOLATILE_DRIVER_HOTPATCHED ((NTSTATUS)0xC0000C79L)
+
+//
+// MessageId: STATUS_DIF_VOLATILE_INVALID_RULE_CLASS
+//
+// MessageText:
+//
+// The passed rule classes are invalid.
+//
+#define STATUS_DIF_VOLATILE_INVALID_RULE_CLASS ((NTSTATUS)0xC0000C7AL)
+
+//
+// MessageId: STATUS_DIF_VOLATILE_DRIVER_IS_NOT_RUNNING
+//
+// MessageText:
+//
+// DIF volatile only supports on loaded drivers.
+//
+#define STATUS_DIF_VOLATILE_DRIVER_IS_NOT_RUNNING ((NTSTATUS)0xC0000C7BL)
 
 //
 // MessageId: STATUS_DIF_VOLATILE_PLUGIN_IS_NOT_RUNNING
@@ -14324,6 +14378,15 @@ Notes:
 // The filesystem database resource is in use. Registration cannot complete at this time.
 //
 #define STATUS_FLT_REGISTRATION_BUSY     ((NTSTATUS)0xC01C0023L)
+
+//
+// MessageId: STATUS_FLT_WCOS_NOT_SUPPORTED
+//
+// MessageText:
+//
+// The filter is not allowed to attach because it has not declared compability with WCOS.
+//
+#define STATUS_FLT_WCOS_NOT_SUPPORTED    ((NTSTATUS)0xC01C0024L)
 
 
 //
@@ -24691,6 +24754,24 @@ Notes:
 #define STATUS_SYSTEM_INTEGRITY_REPUTATION_PUA ((NTSTATUS)0xC0E90008L)
 
 //
+// MessageId: STATUS_SYSTEM_INTEGRITY_REPUTATION_DANGEROUS_EXT
+//
+// MessageText:
+//
+// System Integrity policy has been violated.  Dangerous file extension from the web.
+//
+#define STATUS_SYSTEM_INTEGRITY_REPUTATION_DANGEROUS_EXT ((NTSTATUS)0xC0E90009L)
+
+//
+// MessageId: STATUS_SYSTEM_INTEGRITY_REPUTATION_OFFLINE
+//
+// MessageText:
+//
+// System Integrity policy has been violated.  Unable to contact reputation service for unknown file.
+//
+#define STATUS_SYSTEM_INTEGRITY_REPUTATION_OFFLINE ((NTSTATUS)0xC0E9000AL)
+
+//
 // Clip modern app and windows licensing error messages.
 //
 //
@@ -25436,6 +25517,51 @@ Notes:
 // The operation was not completed because the specified user was not known to the service.
 //
 #define STATUS_APPEXEC_UNKNOWN_USER      ((NTSTATUS)0xC0EC0007L)
+
+//
+// MessageId: STATUS_APPEXEC_APP_COMPAT_BLOCK
+//
+// MessageText:
+//
+// The application is blocked by app compat policy.
+//
+#define STATUS_APPEXEC_APP_COMPAT_BLOCK  ((NTSTATUS)0xC0EC0008L)
+
+//
+// MessageId: STATUS_APPEXEC_CALLER_WAIT_TIMEOUT
+//
+// MessageText:
+//
+// The caller specified wait timed out before the operation completed.
+//
+#define STATUS_APPEXEC_CALLER_WAIT_TIMEOUT ((NTSTATUS)0xC0EC0009L)
+
+//
+// MessageId: STATUS_APPEXEC_CALLER_WAIT_TIMEOUT_TERMINATION
+//
+// MessageText:
+//
+// The caller specified wait timed out before the operation completed because a host termination is in queued.
+//
+#define STATUS_APPEXEC_CALLER_WAIT_TIMEOUT_TERMINATION ((NTSTATUS)0xC0EC000AL)
+
+//
+// MessageId: STATUS_APPEXEC_CALLER_WAIT_TIMEOUT_LICENSING
+//
+// MessageText:
+//
+// The caller specified wait timed out before the operation completed because a licensing operation is being performed.
+//
+#define STATUS_APPEXEC_CALLER_WAIT_TIMEOUT_LICENSING ((NTSTATUS)0xC0EC000BL)
+
+//
+// MessageId: STATUS_APPEXEC_CALLER_WAIT_TIMEOUT_RESOURCES
+//
+// MessageText:
+//
+// The caller specified wait timed out before the operation completed because resources are being acquired.
+//
+#define STATUS_APPEXEC_CALLER_WAIT_TIMEOUT_RESOURCES ((NTSTATUS)0xC0EC000CL)
 
 
 //

@@ -2641,7 +2641,7 @@ namespace ABI {
                         GUID receiverId,
                         ABI::Windows::Security::Isolation::IHostMessageReceivedCallback* hostMessageReceivedCallback
                         ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE UnregisteHostMessageReceiver(
+                    virtual HRESULT STDMETHODCALLTYPE UnregisterHostMessageReceiver(
                         GUID receiverId
                         ) = 0;
                 };
@@ -2946,8 +2946,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics interface starting with version 1.0 of the Windows.Security.Isolation.IsolatedWindowsEnvironmentContract API contract
  *   Static Methods exist on the Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics2 interface starting with version 2.0 of the Windows.Security.Isolation.IsolatedWindowsEnvironmentContract API contract
+ *   Static Methods exist on the Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics interface starting with version 1.0 of the Windows.Security.Isolation.IsolatedWindowsEnvironmentContract API contract
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
@@ -6763,7 +6763,7 @@ typedef struct __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessen
     HRESULT (STDMETHODCALLTYPE* RegisterHostMessageReceiver)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2* This,
         GUID receiverId,
         __x_ABI_CWindows_CSecurity_CIsolation_CIHostMessageReceivedCallback* hostMessageReceivedCallback);
-    HRESULT (STDMETHODCALLTYPE* UnregisteHostMessageReceiver)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2* This,
+    HRESULT (STDMETHODCALLTYPE* UnregisterHostMessageReceiver)(__x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2* This,
         GUID receiverId);
 
     END_INTERFACE
@@ -6797,8 +6797,8 @@ interface __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerSt
 #define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_RegisterHostMessageReceiver(This, receiverId, hostMessageReceivedCallback) \
     ((This)->lpVtbl->RegisterHostMessageReceiver(This, receiverId, hostMessageReceivedCallback))
 
-#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_UnregisteHostMessageReceiver(This, receiverId) \
-    ((This)->lpVtbl->UnregisteHostMessageReceiver(This, receiverId))
+#define __x_ABI_CWindows_CSecurity_CIsolation_CIIsolatedWindowsHostMessengerStatics2_UnregisterHostMessageReceiver(This, receiverId) \
+    ((This)->lpVtbl->UnregisterHostMessageReceiver(This, receiverId))
 
 #endif /* COBJMACROS */
 
@@ -7096,8 +7096,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Security.Isolation.IsolatedWindowsEnvironmentContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics interface starting with version 1.0 of the Windows.Security.Isolation.IsolatedWindowsEnvironmentContract API contract
  *   Static Methods exist on the Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics2 interface starting with version 2.0 of the Windows.Security.Isolation.IsolatedWindowsEnvironmentContract API contract
+ *   Static Methods exist on the Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics interface starting with version 1.0 of the Windows.Security.Isolation.IsolatedWindowsEnvironmentContract API contract
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *

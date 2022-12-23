@@ -1769,12 +1769,11 @@ namespace ABI {
             namespace WindowManagement {
                 enum VisibilityDetails : int
                 {
-                    VisibilityDetails_Unknown = 0,
-                    VisibilityDetails_Visible = 1,
-                    VisibilityDetails_HiddenBySystem = 2,
-                    VisibilityDetails_HiddenByApp = 3,
-                    VisibilityDetails_MinimizedBySystem = 4,
-                    VisibilityDetails_MinimizedByApp = 5,
+                    VisibilityDetails_Visible = 0,
+                    VisibilityDetails_HiddenBySystem = 1,
+                    VisibilityDetails_HiddenByApp = 2,
+                    VisibilityDetails_MinimizedBySystem = 3,
+                    VisibilityDetails_MinimizedByApp = 4,
                 };
             } /* WindowManagement */
         } /* UI */
@@ -2848,7 +2847,7 @@ namespace ABI {
     namespace Windows {
         namespace UI {
             namespace WindowManagement {
-                MIDL_INTERFACE("91439554-ffee-5dee-b10e-f665242dd5a2")
+                MIDL_INTERFACE("4592a8e5-e729-5263-b4a4-22a0e18188ea")
                 IWindowInformation : public IInspectable
                 {
                 public:
@@ -2857,6 +2856,9 @@ namespace ABI {
                         ) = 0;
                     virtual HRESULT STDMETHODCALLTYPE get_Visibility(
                         ABI::Windows::UI::WindowManagement::WindowVisibilityState* value
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE get_AppUserModelId(
+                        HSTRING* value
                         ) = 0;
                 };
 
@@ -5695,12 +5697,11 @@ enum __x_ABI_CWindows_CUI_CWindowManagement_CAppWindowTitleBarVisibility
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 enum __x_ABI_CWindows_CUI_CWindowManagement_CVisibilityDetails
 {
-    VisibilityDetails_Unknown = 0,
-    VisibilityDetails_Visible = 1,
-    VisibilityDetails_HiddenBySystem = 2,
-    VisibilityDetails_HiddenByApp = 3,
-    VisibilityDetails_MinimizedBySystem = 4,
-    VisibilityDetails_MinimizedByApp = 5,
+    VisibilityDetails_Visible = 0,
+    VisibilityDetails_HiddenBySystem = 1,
+    VisibilityDetails_HiddenByApp = 2,
+    VisibilityDetails_MinimizedBySystem = 3,
+    VisibilityDetails_MinimizedByApp = 4,
 };
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
@@ -7623,6 +7624,8 @@ typedef struct __x_ABI_CWindows_CUI_CWindowManagement_CIWindowInformationVtbl
         HSTRING* value);
     HRESULT (STDMETHODCALLTYPE* get_Visibility)(__x_ABI_CWindows_CUI_CWindowManagement_CIWindowInformation* This,
         enum __x_ABI_CWindows_CUI_CWindowManagement_CWindowVisibilityState* value);
+    HRESULT (STDMETHODCALLTYPE* get_AppUserModelId)(__x_ABI_CWindows_CUI_CWindowManagement_CIWindowInformation* This,
+        HSTRING* value);
 
     END_INTERFACE
 } __x_ABI_CWindows_CUI_CWindowManagement_CIWindowInformationVtbl;
@@ -7657,6 +7660,9 @@ interface __x_ABI_CWindows_CUI_CWindowManagement_CIWindowInformation
 
 #define __x_ABI_CWindows_CUI_CWindowManagement_CIWindowInformation_get_Visibility(This, value) \
     ((This)->lpVtbl->get_Visibility(This, value))
+
+#define __x_ABI_CWindows_CUI_CWindowManagement_CIWindowInformation_get_AppUserModelId(This, value) \
+    ((This)->lpVtbl->get_AppUserModelId(This, value))
 
 #endif /* COBJMACROS */
 

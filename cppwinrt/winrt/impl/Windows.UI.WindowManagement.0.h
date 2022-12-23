@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200303.2
+// C++/WinRT v2.0.200316.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -69,12 +69,11 @@ WINRT_EXPORT namespace winrt::Windows::UI::WindowManagement
     };
     enum class VisibilityDetails : int32_t
     {
-        Unknown = 0,
-        Visible = 1,
-        HiddenBySystem = 2,
-        HiddenByApp = 3,
-        MinimizedBySystem = 4,
-        MinimizedByApp = 5,
+        Visible = 0,
+        HiddenBySystem = 1,
+        HiddenByApp = 2,
+        MinimizedBySystem = 3,
+        MinimizedByApp = 4,
     };
     enum class WindowVisibilityState : int32_t
     {
@@ -272,7 +271,7 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IDisplayRegion>{ 0xDB50C3A2,0x4094,0x5F47,{ 0x8C,0xB1,0xEA,0x01,0xDD,0xAF,0xAA,0x94 } };
     template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IFullScreenPresentationConfiguration>{ 0x43D3DCD8,0xD2A8,0x503D,{ 0xA6,0x26,0x15,0x53,0x3D,0x6D,0x5F,0x62 } };
     template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::ISpanningPresentationConfiguration>{ 0x7751D2BC,0xB99B,0x58D0,{ 0xB1,0x54,0xEF,0xFB,0xE1,0x7F,0x54,0xC3 } };
-    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IWindowInformation>{ 0x91439554,0xFFEE,0x5DEE,{ 0xB1,0x0E,0xF6,0x65,0x24,0x2D,0xD5,0xA2 } };
+    template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IWindowInformation>{ 0x4592A8E5,0xE729,0x5263,{ 0xB4,0xA4,0x22,0xA0,0xE1,0x81,0x88,0xEA } };
     template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IWindowInformationStatics>{ 0x458D3935,0x7563,0x5313,{ 0x98,0xBC,0xE4,0x12,0x32,0x98,0xF1,0x75 } };
     template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IWindowingEnvironment>{ 0x264363C0,0x2A49,0x5417,{ 0xB3,0xAE,0x48,0xA7,0x1C,0x63,0xA3,0xBD } };
     template <> inline constexpr guid guid_v<Windows::UI::WindowManagement::IWindowingEnvironmentAddedEventArgs>{ 0xFF2A5B7F,0xF183,0x5C66,{ 0x99,0xB2,0x42,0x90,0x82,0x06,0x92,0x99 } };
@@ -531,6 +530,7 @@ namespace winrt::impl
         {
             virtual int32_t __stdcall get_DisplayName(void**) noexcept = 0;
             virtual int32_t __stdcall get_Visibility(int32_t*) noexcept = 0;
+            virtual int32_t __stdcall get_AppUserModelId(void**) noexcept = 0;
         };
     };
     template <> struct abi<Windows::UI::WindowManagement::IWindowInformationStatics>
@@ -860,6 +860,7 @@ namespace winrt::impl
     {
         [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
         [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::WindowManagement::WindowVisibilityState) Visibility() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AppUserModelId() const;
     };
     template <> struct consume<Windows::UI::WindowManagement::IWindowInformation>
     {

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200303.2
+// C++/WinRT v2.0.200316.3
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_UI_Text_Core_H
 #define WINRT_Windows_UI_Text_Core_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200303.2"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200316.3"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.UI.Text.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
@@ -459,12 +459,6 @@ namespace winrt::impl
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Text::Core::ICoreTextServicesManagerStatics)->GetForCurrentView(&value));
         return Windows::UI::Text::Core::CoreTextServicesManager{ value, take_ownership_from_abi };
-    }
-    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Text::Core::TextCompositionKind) consume_Windows_UI_Text_Core_ICoreTextServicesManagerStatics2<D>::TextCompositionKind() const
-    {
-        Windows::UI::Text::Core::TextCompositionKind value{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Text::Core::ICoreTextServicesManagerStatics2)->get_TextCompositionKind(reinterpret_cast<int32_t*>(&value)));
-        return value;
     }
     template <typename D> WINRT_IMPL_AUTO(char16_t) consume_Windows_UI_Text_Core_ICoreTextServicesStatics<D>::HiddenCharacter() const
     {
@@ -1196,19 +1190,6 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, Windows::UI::Text::Core::ICoreTextServicesManagerStatics2> : produce_base<D, Windows::UI::Text::Core::ICoreTextServicesManagerStatics2>
-    {
-        int32_t __stdcall get_TextCompositionKind(int32_t* value) noexcept final try
-        {
-            typename D::abi_guard guard(this->shim());
-            *value = detach_from<Windows::UI::Text::Core::TextCompositionKind>(this->shim().TextCompositionKind());
-            return 0;
-        }
-        catch (...) { return to_hresult(); }
-    };
-#endif
-#ifndef WINRT_LEAN_AND_MEAN
-    template <typename D>
     struct produce<D, Windows::UI::Text::Core::ICoreTextServicesStatics> : produce_base<D, Windows::UI::Text::Core::ICoreTextServicesStatics>
     {
         int32_t __stdcall get_HiddenCharacter(char16_t* value) noexcept final try
@@ -1356,10 +1337,6 @@ WINRT_EXPORT namespace winrt::Windows::UI::Text::Core
     {
         return impl::call_factory_cast<Windows::UI::Text::Core::CoreTextServicesManager(*)(ICoreTextServicesManagerStatics const&), CoreTextServicesManager, ICoreTextServicesManagerStatics>([](ICoreTextServicesManagerStatics const& f) { return f.GetForCurrentView(); });
     }
-    inline auto CoreTextServicesManager::TextCompositionKind()
-    {
-        return impl::call_factory_cast<Windows::UI::Text::Core::TextCompositionKind(*)(ICoreTextServicesManagerStatics2 const&), CoreTextServicesManager, ICoreTextServicesManagerStatics2>([](ICoreTextServicesManagerStatics2 const& f) { return f.TextCompositionKind(); });
-    }
 }
 namespace std
 {
@@ -1379,7 +1356,6 @@ namespace std
     template<> struct hash<winrt::Windows::UI::Text::Core::ICoreTextSelectionUpdatingEventArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Text::Core::ICoreTextServicesManager> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Text::Core::ICoreTextServicesManagerStatics> : winrt::impl::hash_base {};
-    template<> struct hash<winrt::Windows::UI::Text::Core::ICoreTextServicesManagerStatics2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Text::Core::ICoreTextServicesStatics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Text::Core::ICoreTextTextRequest> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Text::Core::ICoreTextTextRequestedEventArgs> : winrt::impl::hash_base {};
