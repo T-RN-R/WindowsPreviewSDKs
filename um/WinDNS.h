@@ -1531,7 +1531,6 @@ typedef enum _DNS_SVCB_PARAM_TYPE
     DnsSvcbParamEch            = 5,
     DnsSvcbParamIpv6Hint       = 6,
     DnsSvcbParamDohPath        = 7,
-    DnsSvcbParamDohPathQuad9   = 65380,
     DnsSvcbParamDohPathOpenDns = 65432,
 } DNS_SVCB_PARAM_TYPE;
 
