@@ -86,7 +86,7 @@ TLG_HAVE_EVENT_SET_INFORMATION macro.
 #pragma warning(disable:4626)      // assignment operator deleted
 #pragma warning(disable:4995 4996) // strlen/wcslen marked as deprecated
 #pragma warning(disable:25033)     // Nonconst psz parameter
-#if defined(_M_ARM) || defined(_M_ARM64)
+#if defined(_M_ARM) || defined(_M_ARM64) || defined(_M_ARM64EC)
 #pragma warning(disable:4714) // __forceinline not inlined
 #endif
 
@@ -360,13 +360,13 @@ TraceLoggingInt32 or TraceLoggingString.
 #define _tlgArgPackedField(ctype, pValue,   cbValue,  inType, outType, ...) /* for user-marshalled data and metadata. */ \
           (_tlgPackedField,ctype, pValue,   cbValue,  inType, _tlgExpandType(outType), _tlgNDT(pValue, __VA_ARGS__))
 #define _tlgArgPackedMeta(        name,               inType, outType, ...) /* for user-marshalled metadata. */ \
-          (_tlgPackedMeta,                            inType, _tlgExpandType(outType), _tlgNDT(, name, __VA_ARGS__))
+          (_tlgPackedMeta,                            inType, _tlgExpandType(outType), _tlgDT(name, __VA_ARGS__))
 #define _tlgArgPackedData( ctype, pValue,   cbValue, dataDescType         ) /* for user-marshalled data. */ \
           (_tlgPackedData, ctype, pValue,   cbValue, _tlgExpandType(dataDescType))
 #define _tlgArgCustom(     ctype, pValue,   cbValue,  protocol,bSchema,cbSchema,...) /* for user-serialized data and schema. */ \
           (_tlgCustom,     ctype, pValue,   cbValue,  protocol,bSchema,cbSchema,_tlgNDT(pValue, __VA_ARGS__))
 #define _tlgArgStruct(     fieldCount, name,          inType,          ...) /* for struct and array of struct. */ \
-          (_tlgStruct,     fieldCount,                inType,                   _tlgNDT(, name, __VA_ARGS__))
+          (_tlgStruct,     fieldCount,                inType,                   _tlgDT(name, __VA_ARGS__))
 #define _tlgArgChannel(    eventChannel)                                    /* for TraceLoggingChannel. */ \
           (_tlgChannel,    eventChannel)
 #define _tlgArgLevel(      eventLevel)                                      /* for TraceLoggingLevel. */ \
@@ -1364,7 +1364,7 @@ Examples:
 #define TraceLoggingUnicodeString(pValue, ...)  _tlgArgBuffer(struct _UNICODE_STRING, pValue, TlgInCOUNTEDSTRING,     (), __VA_ARGS__)
 
 /*
-Wrapper macro for raw binary data.
+Wrapper macros for raw binary data.
 Usage: TraceLoggingBinary(pValue, cbValue, "name", "description", tags).
 Usage: TraceLoggingBinaryEx(pValue, cbValue, TlgOutTYPE, "name", "description", tags).
 
@@ -1402,7 +1402,7 @@ Examples:
 #define TraceLoggingBinaryEx(pValue, cbValue, outType, ...)  _tlgArgBinary(void, pValue, cbValue, TlgInBINARY, (outType), __VA_ARGS__)
 
 /*
-Wrapper macros for event fields with PSOCKADDR, PSOCKADDR_IN, etc. values.
+Wrapper macro for event fields with PSOCKADDR, PSOCKADDR_IN, etc. values.
 Usage: TraceLoggingSocketAddress(pValue, cbValue, "name", "description", tags).
 
 Note that the amount of data needed for a SOCKADDR field varies depending on
@@ -1434,6 +1434,66 @@ Examples:
 - TraceLoggingSocketAddress(pSock, sizeof(*pSock), "name", "desc", 0x4) // field name = "name", description = "desc", tags = 0x4.
 */
 #define TraceLoggingSocketAddress(pValue, cbValue, ...) _tlgArgBinary(void, pValue, cbValue, TlgInBINARY, (TlgOutSOCKETADDRESS), __VA_ARGS__)
+
+/*
+Wrapper macro for event fields with IPv4 address values.
+Usage: TraceLoggingIPv4Address(value, "name", "description", tags).
+
+The name, description, and tags parameters are optional.
+
+The value parameter must be a UINT32-encoded IPv4 address
+(e.g. pSock->sin_addr.s_addr).
+
+If provided, the name parameter must be a string literal (not a variable) and
+must not contain any '\0' characters. If the name is not provided, the value
+parameter is used to automatically generate a name.
+
+If provided, the description parameter must be a string literal, and will be
+included in the debug symbols (PDB file). The description will not be
+available at runtime.
+
+If provided, the tags parameter must be an integer value. The low 28 bits of
+the value will be included in the field's metadata. The semantics of the tags
+are defined by the event consumer. During event processing, this tag can be
+retrieved from the EVENT_PROPERTY_INFO Tags field.
+
+Examples:
+- TraceLoggingIPv4Address(sin_addr.s_addr)                      // field name = "sin_addr.s_addr", description = unset,  tags = 0.
+- TraceLoggingIPv4Address(sin_addr.s_addr, "name")              // field name = "name", description = unset,  tags = 0.
+- TraceLoggingIPv4Address(sin_addr.s_addr, "name", "desc")      // field name = "name", description = "desc", tags = 0.
+- TraceLoggingIPv4Address(sin_addr.s_addr, "name", "desc", 0x4) // field name = "name", description = "desc", tags = 0x4.
+*/
+#define TraceLoggingIPv4Address(value, ...) _tlgArgScalarVal(UINT32, value, TlgInUINT32, (TlgOutIPV4),  __VA_ARGS__)
+
+/*
+Wrapper macro for event fields with IPv6 address values.
+Usage: TraceLoggingIPv6Address(pValue, "name", "description", tags).
+
+The name, description, and tags parameters are optional.
+
+The pValue parameter must not be NULL and must point at a 16-byte buffer
+(e.g. &pSock->sin6_addr).
+
+If provided, the name parameter must be a string literal (not a variable) and
+must not contain any '\0' characters. If the name is not provided, the pValue
+parameter is used to automatically generate a name.
+
+If provided, the description parameter must be a string literal, and will be
+included in the debug symbols (PDB file). The description will not be
+available at runtime.
+
+If provided, the tags parameter must be an integer value. The low 28 bits of
+the value will be included in the field's metadata. The semantics of the tags
+are defined by the event consumer. During event processing, this tag can be
+retrieved from the EVENT_PROPERTY_INFO Tags field.
+
+Examples:
+- TraceLoggingIPv6Address(&pSock->sin6_addr)                      // field name = "&pSock->sin6_addr", description = unset,  tags = 0.
+- TraceLoggingIPv6Address(&pSock->sin6_addr, "name")              // field name = "name", description = unset,  tags = 0.
+- TraceLoggingIPv6Address(&pSock->sin6_addr, "name", "desc")      // field name = "name", description = "desc", tags = 0.
+- TraceLoggingIPv6Address(&pSock->sin6_addr, "name", "desc", 0x4) // field name = "name", description = "desc", tags = 0x4.
+*/
+#define TraceLoggingIPv6Address(pValue, ...) _tlgArgBinary(void, pValue, 16u, TlgInBINARY, (TlgOutIPV6), __VA_ARGS__)
 
 #ifdef SID_DEFINED
 /*
@@ -2797,7 +2857,7 @@ TraceLoggingSetInformation(
     static UNICODE_STRING strEtwSetInformation = {
         sizeof(L"EtwSetInformation") - 2,
         sizeof(L"EtwSetInformation") - 2,
-        L"EtwSetInformation"
+        (PWCH)L"EtwSetInformation"
     };
     PFEtwSetInformation pfEtwSetInformation;
     TLG_PAGED_CODE();
@@ -2930,7 +2990,7 @@ _tlgWriteCommon(
         int cbMetadata;
         int volatile volatileVar;
         cbMetadata = (int)((LPCCH)&_TraceLoggingMetadataEnd - (LPCCH)&_TraceLoggingMetadata);
-#if defined(_M_ARM) || defined(_M_ARM64)
+#if defined(_M_ARM) || defined(_M_ARM64) || defined(_M_ARM64EC)
         __iso_volatile_store32(&volatileVar, cbMetadata);
 #else
 #pragma warning(suppress: 28931) // Unused assignment
@@ -3927,7 +3987,7 @@ _tlgExpandType((typeVal))  --> (typeVal), 1
 #define _tlgExpandType(typeParam)         _tlgExpandType_impA(_tlg_NARGS typeParam, typeParam)
 
 /*
-_tlgNDT: Extracts Name/Description/Tags from varargs of wrapper macro.
+_tlgNDT: Extracts Name/Description/Tags from varargs of wrapper macro with optional name.
 _tlgNDT(value, __VA_ARGS__) --> "fieldName", L"description", tags, hasTags
 */
 #define _tlgNDT_imp0(value, ...)               #value,      ,     , 0
@@ -3937,6 +3997,17 @@ _tlgNDT(value, __VA_ARGS__) --> "fieldName", L"description", tags, hasTags
 #define _tlgNDT_impB(macro, args)              macro args
 #define _tlgNDT_impA(n, args)                  _tlgNDT_impB(_tlg_PASTE2(_tlgNDT_imp, n), args)
 #define _tlgNDT(value, ...)                    _tlgNDT_impA(_tlg_NARGS(__VA_ARGS__), (value, __VA_ARGS__))
+
+/*
+_tlgDT: Extracts Name/Description/Tags from varargs of wrapper macro with required name.
+_tlgDT(name, __VA_ARGS__) --> "fieldName", L"description", tags, hasTags
+*/
+#define _tlgDT_imp0(name, ...)                 name,        ,     , 0
+#define _tlgDT_imp1(name, desc)                name, L##desc,     , 0
+#define _tlgDT_imp2(name, desc, tags)          name, L##desc, tags, 1
+#define _tlgDT_impB(macro, args)               macro args
+#define _tlgDT_impA(n, args)                   _tlgDT_impB(_tlg_PASTE2(_tlgDT_imp, n), args)
+#define _tlgDT(name, ...)                      _tlgDT_impA(_tlg_NARGS(__VA_ARGS__), (name, __VA_ARGS__))
 
 /*
 _tlgApplyArgs and _tlgApplyArgsN: Macro dispatchers.

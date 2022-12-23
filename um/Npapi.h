@@ -273,7 +273,7 @@ typedef DWORD (APIENTRY *PF_NPCloseEnum) (
 
 #if (_WIN32_WINNT >= _WIN32_WINNT_WIN10)  
 
-#define WNNC_CF_MAXIMUM (WNNC_CF_DEFAULT | CONNECT_UPDATE_PROFILE | CONNECT_DEFERRED | CONNECT_COMMANDLINE | CONNECT_CMD_SAVECRED | CONNECT_CRED_RESET | CONNECT_REQUIRE_INTEGRITY | CONNECT_REQUIRE_PRIVACY | CONNECT_WRITE_THROUGH_SEMANTICS | CONNECT_COMPRESS_NETWORK_TRAFFIC | CONNECT_GLOBAL_MAPPING)
+#define WNNC_CF_MAXIMUM (WNNC_CF_DEFAULT | CONNECT_UPDATE_PROFILE | CONNECT_DEFERRED | CONNECT_COMMANDLINE | CONNECT_CMD_SAVECRED | CONNECT_CRED_RESET | CONNECT_REQUIRE_INTEGRITY | CONNECT_REQUIRE_PRIVACY | CONNECT_WRITE_THROUGH_SEMANTICS | CONNECT_GLOBAL_MAPPING)
 
 #else
 
@@ -315,7 +315,9 @@ NPGetPersistentUseOptionsForConnection (
     _In_    LPWSTR  lpRemotePath,
     _In_reads_bytes_opt_(cbReadUseOptions) LPBYTE lpReadUseOptions,
     _In_ DWORD cbReadUseOptions,
-    _Out_writes_bytes_(*lpSizeWriteUseOptions) LPBYTE lpWriteUseOptions,
+    _When_(return == 0, _Out_writes_bytes_to_( *lpSizeWriteUseOptions, *lpSizeWriteUseOptions ) )
+    _When_(return != 0, _Out_writes_bytes_to_( *lpSizeWriteUseOptions,  0) )
+        LPBYTE lpWriteUseOptions,
     _Inout_ LPDWORD lpSizeWriteUseOptions
     );
 
@@ -323,7 +325,9 @@ typedef DWORD (APIENTRY *PF_NPGetPersistentUseOptionsForConnection) (
     _In_    LPWSTR  lpRemotePath,
     _In_reads_bytes_(cbReadUseOptions) LPBYTE lpReadUseOptions,
     _In_ DWORD cbReadUseOptions,
-    _Out_writes_bytes_(*lpSizeWriteUseOptions) LPBYTE lpWriteUseOptions,
+    _When_(return == 0, _Out_writes_bytes_to_( *lpSizeWriteUseOptions, *lpSizeWriteUseOptions ) )
+    _When_(return != 0, _Out_writes_bytes_to_( *lpSizeWriteUseOptions,  0) )
+        LPBYTE lpWriteUseOptions,
     _Inout_ LPDWORD lpSizeWriteUseOptions
     );
 

@@ -124,7 +124,7 @@
 #endif // defined(WINDOWS_APPLICATIONMODEL_SEARCH_SEARCHCONTRACT_VERSION)
 
 #if !defined(WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION)
-#define WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION 0x10000
+#define WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION 0x20000
 #endif // defined(WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION)
 
 #if !defined(WINDOWS_DEVICES_PRINTERS_EXTENSIONS_EXTENSIONSCONTRACT_VERSION)
@@ -136,11 +136,11 @@
 #endif // defined(WINDOWS_FOUNDATION_FOUNDATIONCONTRACT_VERSION)
 
 #if !defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
-#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xc0000
+#define WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION 0xf0000
 #endif // defined(WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION)
 
 #if !defined(WINDOWS_STORAGE_PROVIDER_CLOUDFILESCONTRACT_VERSION)
-#define WINDOWS_STORAGE_PROVIDER_CLOUDFILESCONTRACT_VERSION 0x60000
+#define WINDOWS_STORAGE_PROVIDER_CLOUDFILESCONTRACT_VERSION 0x70000
 #endif // defined(WINDOWS_STORAGE_PROVIDER_CLOUDFILESCONTRACT_VERSION)
 
 #if !defined(WINDOWS_SYSTEM_SYSTEMMANAGEMENTCONTRACT_VERSION)
@@ -815,6 +815,21 @@ namespace ABI {
 #define __x_ABI_CWindows_CApplicationModel_CActivation_CILockScreenCallActivatedEventArgs ABI::Windows::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs
 
 #endif // ____x_ABI_CWindows_CApplicationModel_CActivation_CILockScreenCallActivatedEventArgs_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace ApplicationModel {
+            namespace Activation {
+                interface IPhoneCallActivatedEventArgs;
+            } /* Activation */
+        } /* ApplicationModel */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs ABI::Windows::ApplicationModel::Activation::IPhoneCallActivatedEventArgs
+
+#endif // ____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CApplicationModel_CActivation_CIPickerReturnedActivatedEventArgs_FWD_DEFINED__
 #define ____x_ABI_CWindows_CApplicationModel_CActivation_CIPickerReturnedActivatedEventArgs_FWD_DEFINED__
@@ -2418,6 +2433,18 @@ namespace ABI {
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
                     ActivationKind_BarcodeScannerProvider = 1022,
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
+                    ActivationKind_PrintSupportJobUI = 1023,
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
+                    ActivationKind_PrintSupportSettingsUI = 1024,
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
+                    ActivationKind_PhoneCallActivation = 1025,
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
+                    ActivationKind_VpnForeground = 1026,
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
                 };
             } /* Activation */
         } /* ApplicationModel */
@@ -4098,6 +4125,43 @@ EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CActivation_CILockScre
 
 /*
  *
+ * Interface Windows.ApplicationModel.Activation.IPhoneCallActivatedEventArgs
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 13.0
+ *
+ * Any object which implements this interface must also implement the following interfaces:
+ *     Windows.ApplicationModel.Activation.IActivatedEventArgs
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
+#if !defined(____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_ApplicationModel_Activation_IPhoneCallActivatedEventArgs[] = L"Windows.ApplicationModel.Activation.IPhoneCallActivatedEventArgs";
+namespace ABI {
+    namespace Windows {
+        namespace ApplicationModel {
+            namespace Activation {
+                MIDL_INTERFACE("54615221-a3c1-4ced-b62f-8c60523619ad")
+                IPhoneCallActivatedEventArgs : public IInspectable
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE get_LineId(
+                        GUID* value
+                        ) = 0;
+                };
+
+                extern MIDL_CONST_ID IID& IID_IPhoneCallActivatedEventArgs = _uuidof(IPhoneCallActivatedEventArgs);
+            } /* Activation */
+        } /* ApplicationModel */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs;
+#endif /* !defined(____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
+
+/*
+ *
  * Interface Windows.ApplicationModel.Activation.IPickerReturnedActivatedEventArgs
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
@@ -4792,15 +4856,27 @@ namespace ABI {
         namespace ApplicationModel {
             namespace Activation {
                 MIDL_INTERFACE("fcfc027b-1a1a-4d22-923f-ae6f45fa52d9")
+#if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
+                DEPRECATED("IWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.")
+#endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
                 IWalletActionActivatedEventArgs : public IInspectable
                 {
                 public:
+#if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
+                    DEPRECATED("IWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.")
+#endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
                     virtual HRESULT STDMETHODCALLTYPE get_ItemId(
                         HSTRING* value
                         ) = 0;
+#if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
+                    DEPRECATED("IWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.")
+#endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
                     virtual HRESULT STDMETHODCALLTYPE get_ActionKind(
                         ABI::Windows::ApplicationModel::Wallet::WalletActionKind* value
                         ) = 0;
+#if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
+                    DEPRECATED("IWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.")
+#endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
                     virtual HRESULT STDMETHODCALLTYPE get_ActionId(
                         HSTRING* value
                         ) = 0;
@@ -5570,6 +5646,27 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
+ * Class Windows.ApplicationModel.Activation.PhoneCallActivatedEventArgs
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 13.0
+ *
+ * Class implements the following interfaces:
+ *    Windows.ApplicationModel.Activation.IPhoneCallActivatedEventArgs ** Default Interface **
+ *    Windows.ApplicationModel.Activation.IActivatedEventArgs
+ *    Windows.ApplicationModel.Activation.IActivatedEventArgsWithUser
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
+#ifndef RUNTIMECLASS_Windows_ApplicationModel_Activation_PhoneCallActivatedEventArgs_DEFINED
+#define RUNTIMECLASS_Windows_ApplicationModel_Activation_PhoneCallActivatedEventArgs_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_ApplicationModel_Activation_PhoneCallActivatedEventArgs[] = L"Windows.ApplicationModel.Activation.PhoneCallActivatedEventArgs";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
+
+/*
+ *
  * Class Windows.ApplicationModel.Activation.PickerReturnedActivatedEventArgs
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
@@ -5881,6 +5978,9 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 #if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x10000
 #ifndef RUNTIMECLASS_Windows_ApplicationModel_Activation_WalletActionActivatedEventArgs_DEFINED
 #define RUNTIMECLASS_Windows_ApplicationModel_Activation_WalletActionActivatedEventArgs_DEFINED
+#if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
+DEPRECATED("WalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.")
+#endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_ApplicationModel_Activation_WalletActionActivatedEventArgs[] = L"Windows.ApplicationModel.Activation.WalletActionActivatedEventArgs";
 #endif
 #endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x10000
@@ -6180,6 +6280,12 @@ typedef interface __x_ABI_CWindows_CApplicationModel_CActivation_CILockScreenAct
 typedef interface __x_ABI_CWindows_CApplicationModel_CActivation_CILockScreenCallActivatedEventArgs __x_ABI_CWindows_CApplicationModel_CActivation_CILockScreenCallActivatedEventArgs;
 
 #endif // ____x_ABI_CWindows_CApplicationModel_CActivation_CILockScreenCallActivatedEventArgs_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_FWD_DEFINED__
+#define ____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs;
+
+#endif // ____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CApplicationModel_CActivation_CIPickerReturnedActivatedEventArgs_FWD_DEFINED__
 #define ____x_ABI_CWindows_CApplicationModel_CActivation_CIPickerReturnedActivatedEventArgs_FWD_DEFINED__
@@ -7430,6 +7536,18 @@ enum __x_ABI_CWindows_CApplicationModel_CActivation_CActivationKind
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
     ActivationKind_BarcodeScannerProvider = 1022,
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
+    ActivationKind_PrintSupportJobUI = 1023,
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
+    ActivationKind_PrintSupportSettingsUI = 1024,
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
+    ActivationKind_PhoneCallActivation = 1025,
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
+    ActivationKind_VpnForeground = 1026,
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
 };
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 
@@ -10544,6 +10662,76 @@ EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CActivation_CILockScre
 
 /*
  *
+ * Interface Windows.ApplicationModel.Activation.IPhoneCallActivatedEventArgs
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 13.0
+ *
+ * Any object which implements this interface must also implement the following interfaces:
+ *     Windows.ApplicationModel.Activation.IActivatedEventArgs
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
+#if !defined(____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_ApplicationModel_Activation_IPhoneCallActivatedEventArgs[] = L"Windows.ApplicationModel.Activation.IPhoneCallActivatedEventArgs";
+typedef struct __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgsVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* get_LineId)(__x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs* This,
+        GUID* value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgsVtbl;
+
+interface __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs
+{
+    CONST_VTBL struct __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_get_LineId(This, value) \
+    ((This)->lpVtbl->get_LineId(This, value))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs;
+#endif /* !defined(____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
+
+/*
+ *
  * Interface Windows.ApplicationModel.Activation.IPickerReturnedActivatedEventArgs
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
@@ -11837,7 +12025,11 @@ EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CActivation_CIVoiceCom
 #if !defined(____x_ABI_CWindows_CApplicationModel_CActivation_CIWalletActionActivatedEventArgs_INTERFACE_DEFINED__)
 #define ____x_ABI_CWindows_CApplicationModel_CActivation_CIWalletActionActivatedEventArgs_INTERFACE_DEFINED__
 extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_ApplicationModel_Activation_IWalletActionActivatedEventArgs[] = L"Windows.ApplicationModel.Activation.IWalletActionActivatedEventArgs";
-typedef struct __x_ABI_CWindows_CApplicationModel_CActivation_CIWalletActionActivatedEventArgsVtbl
+typedef struct
+#if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
+DEPRECATED("IWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.")
+#endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
+__x_ABI_CWindows_CApplicationModel_CActivation_CIWalletActionActivatedEventArgsVtbl
 {
     BEGIN_INTERFACE
 
@@ -11853,10 +12045,19 @@ typedef struct __x_ABI_CWindows_CApplicationModel_CActivation_CIWalletActionActi
         HSTRING* className);
     HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CApplicationModel_CActivation_CIWalletActionActivatedEventArgs* This,
         TrustLevel* trustLevel);
+#if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
+    DEPRECATED("IWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.")
+#endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
     HRESULT (STDMETHODCALLTYPE* get_ItemId)(__x_ABI_CWindows_CApplicationModel_CActivation_CIWalletActionActivatedEventArgs* This,
         HSTRING* value);
+#if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
+    DEPRECATED("IWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.")
+#endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
     HRESULT (STDMETHODCALLTYPE* get_ActionKind)(__x_ABI_CWindows_CApplicationModel_CActivation_CIWalletActionActivatedEventArgs* This,
         enum __x_ABI_CWindows_CApplicationModel_CWallet_CWalletActionKind* value);
+#if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
+    DEPRECATED("IWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.")
+#endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
     HRESULT (STDMETHODCALLTYPE* get_ActionId)(__x_ABI_CWindows_CApplicationModel_CActivation_CIWalletActionActivatedEventArgs* This,
         HSTRING* value);
 
@@ -11888,12 +12089,21 @@ interface __x_ABI_CWindows_CApplicationModel_CActivation_CIWalletActionActivated
 #define __x_ABI_CWindows_CApplicationModel_CActivation_CIWalletActionActivatedEventArgs_GetTrustLevel(This, trustLevel) \
     ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
 
+#if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
+    DEPRECATED("IWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.")
+#endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
 #define __x_ABI_CWindows_CApplicationModel_CActivation_CIWalletActionActivatedEventArgs_get_ItemId(This, value) \
     ((This)->lpVtbl->get_ItemId(This, value))
 
+#if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
+    DEPRECATED("IWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.")
+#endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
 #define __x_ABI_CWindows_CApplicationModel_CActivation_CIWalletActionActivatedEventArgs_get_ActionKind(This, value) \
     ((This)->lpVtbl->get_ActionKind(This, value))
 
+#if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
+    DEPRECATED("IWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.")
+#endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
 #define __x_ABI_CWindows_CApplicationModel_CActivation_CIWalletActionActivatedEventArgs_get_ActionId(This, value) \
     ((This)->lpVtbl->get_ActionId(This, value))
 
@@ -12723,6 +12933,27 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
+ * Class Windows.ApplicationModel.Activation.PhoneCallActivatedEventArgs
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 13.0
+ *
+ * Class implements the following interfaces:
+ *    Windows.ApplicationModel.Activation.IPhoneCallActivatedEventArgs ** Default Interface **
+ *    Windows.ApplicationModel.Activation.IActivatedEventArgs
+ *    Windows.ApplicationModel.Activation.IActivatedEventArgsWithUser
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
+#ifndef RUNTIMECLASS_Windows_ApplicationModel_Activation_PhoneCallActivatedEventArgs_DEFINED
+#define RUNTIMECLASS_Windows_ApplicationModel_Activation_PhoneCallActivatedEventArgs_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_ApplicationModel_Activation_PhoneCallActivatedEventArgs[] = L"Windows.ApplicationModel.Activation.PhoneCallActivatedEventArgs";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xd0000
+
+/*
+ *
  * Class Windows.ApplicationModel.Activation.PickerReturnedActivatedEventArgs
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
@@ -13034,6 +13265,9 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 #if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x10000
 #ifndef RUNTIMECLASS_Windows_ApplicationModel_Activation_WalletActionActivatedEventArgs_DEFINED
 #define RUNTIMECLASS_Windows_ApplicationModel_Activation_WalletActionActivatedEventArgs_DEFINED
+#if WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
+DEPRECATED("WalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.")
+#endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x20000
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_ApplicationModel_Activation_WalletActionActivatedEventArgs[] = L"Windows.ApplicationModel.Activation.WalletActionActivatedEventArgs";
 #endif
 #endif // WINDOWS_APPLICATIONMODEL_WALLET_WALLETCONTRACT_VERSION >= 0x10000

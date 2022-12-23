@@ -1104,6 +1104,54 @@ AllocateUserPhysicalPages2(
     _In_ ULONG ExtendedParameterCount
     );
 
+typedef enum WIN32_MEMORY_PARTITION_INFORMATION_CLASS {
+    MemoryPartitionInfo,
+    MemoryPartitionDedicatedMemoryInfo
+} WIN32_MEMORY_PARTITION_INFORMATION_CLASS;
+
+typedef struct DECLSPEC_ALIGN(8) WIN32_MEMORY_PARTITION_INFORMATION {
+    ULONG Flags;
+    ULONG NumaNode;             // -1 indicates sum all nodes in the partition
+    ULONG Channel;              // -1 indicates sum all channels in node
+    ULONG NumberOfNumaNodes;            // 0 unless all nodes specified above
+    ULONG64 ResidentAvailablePages;     // 0 unless all nodes specified above
+    ULONG64 CommittedPages;             // 0 unless all nodes specified above
+    ULONG64 CommitLimit;                // 0 unless all nodes specified above
+    ULONG64 PeakCommitment;             // 0 unless all nodes specified above
+    ULONG64 TotalNumberOfPages;
+    ULONG64 AvailablePages;
+    ULONG64 ZeroPages;
+    ULONG64 FreePages;
+    ULONG64 StandbyPages;
+    ULONG64 Reserved[16];
+    ULONG64 MaximumCommitLimit;         // 0 unless all nodes specified above
+    ULONG64 Reserved2;
+
+    ULONG PartitionId;
+
+} WIN32_MEMORY_PARTITION_INFORMATION;
+
+WINBASEAPI
+HANDLE
+WINAPI
+OpenDedicatedMemoryPartition(
+    _In_ HANDLE Partition,
+    _In_ ULONG64 DedicatedMemoryTypeId,
+    _In_ ACCESS_MASK DesiredAccess,
+    _In_ BOOL InheritHandle
+    );
+
+WINBASEAPI
+_Success_(return != FALSE)
+BOOL
+WINAPI
+QueryPartitionInformation(
+    _In_ HANDLE Partition,
+    _In_ WIN32_MEMORY_PARTITION_INFORMATION_CLASS PartitionInformationClass,
+    _Inout_updates_bytes_(PartitionInformationLength) PVOID PartitionInformation,
+    _In_ ULONG PartitionInformationLength
+    );
+
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion
 

@@ -3,7 +3,7 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0624 */
+ /* File created by MIDL compiler version 8.01.0627 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
@@ -38,7 +38,7 @@
 #endif
 
 #ifndef DECLSPEC_XFGVIRT
-#if _CONTROL_FLOW_GUARD_XFG
+#if defined(_CONTROL_FLOW_GUARD_XFG)
 #define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
 #else
 #define DECLSPEC_XFGVIRT(base, func)
@@ -366,7 +366,9 @@ typedef struct Mpeg2TableSampleHdr
 // {752845F1-758F-4c83-A043-4270C593308E}
 DEFINE_GUID(CLSID_Mpeg2TableFilter,
 0x752845f1, 0x758f, 0x4c83, 0xa0, 0x43, 0x42, 0x70, 0xc5, 0x93, 0x30, 0x8e);
+#ifdef __cplusplus
 class DECLSPEC_UUID("DBAF6C1B-B6A4-4898-AE65-204F0D9509A1") Mpeg2DataLib;
+#endif
 
 
 extern RPC_IF_HANDLE __MIDL_itf_mpeg2data_0000_0001_v0_0_c_ifspec;

@@ -68,7 +68,6 @@
   <xs:element name="Host">
     <xs:complexType>
       <xs:attribute name="Name" type="t:ST_DomainNameWithStarSubDomain" use="required"/>
-      <xs:attribute ref="uap11:Path" use="optional"/>
     </xs:complexType>
   </xs:element>
 

@@ -316,6 +316,8 @@ namespace Windows
 
             interface ICompositionObjectStatics;
 
+            interface ICompositionObjectWithAnimationController;
+
             interface ICompositionPath;
 
             interface ICompositionPathFactory;
@@ -355,6 +357,8 @@ namespace Windows
             interface ICompositionShapeFactory;
 
             interface ICompositionSpriteShape;
+
+            interface ICompositionSupportsSystemBackdrop;
 
             interface ICompositionSurface;
 
@@ -397,6 +401,10 @@ namespace Windows
             interface ICompositor7;
 
             interface ICompositorStatics;
+
+            interface ICompositorWithAnimationController;
+
+            interface ICompositorWithBlurredWallpaperBackdropBrush;
 
             interface ICompositorWithProjectedShadow;
 
@@ -1743,6 +1751,15 @@ namespace Windows
                 HRESULT StartAnimationGroupWithIAnimationObject([in] Windows.UI.Composition.IAnimationObject* target, [in] Windows.UI.Composition.ICompositionAnimationBase* animation);
             }
 
+            [contract(Windows.Foundation.UniversalApiContract, 14.0)]
+            [exclusiveto(Windows.UI.Composition.CompositionObject)]
+            [experimental]
+            [uuid(9CE15258-074F-44C9-8903-284394E28D67)]
+            interface ICompositionObjectWithAnimationController : IInspectable
+            {
+                [overload("StartAnimation")] HRESULT StartAnimationWithController([in] HSTRING propertyName, [in] Windows.UI.Composition.CompositionAnimation* animation, [in] Windows.UI.Composition.AnimationController* animationController);
+            }
+
             [contract(Windows.Foundation.UniversalApiContract, 6.0)]
             [exclusiveto(Windows.UI.Composition.CompositionPath)]
             [uuid(66DA1D5F-2E10-4F22-8A06-0A8151919E60)]
@@ -1988,6 +2005,14 @@ namespace Windows
                 [propput] HRESULT StrokeStartCap([in] Windows.UI.Composition.CompositionStrokeCap value);
                 [propget] HRESULT StrokeThickness([out] [retval] FLOAT* value);
                 [propput] HRESULT StrokeThickness([in] FLOAT value);
+            }
+
+            [contract(Windows.Foundation.UniversalApiContract, 13.0)]
+            [uuid(397DAFE4-B6C2-5BB9-951D-F5707DE8B7BC)]
+            interface ICompositionSupportsSystemBackdrop : IInspectable
+            {
+                [propget] HRESULT SystemBackdrop([out] [retval] Windows.UI.Composition.CompositionBrush** value);
+                [propput] HRESULT SystemBackdrop([in] Windows.UI.Composition.CompositionBrush* value);
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 2.0)]
@@ -2255,6 +2280,23 @@ namespace Windows
             {
                 [propget] HRESULT MaxGlobalPlaybackRate([out] [retval] FLOAT* value);
                 [propget] HRESULT MinGlobalPlaybackRate([out] [retval] FLOAT* value);
+            }
+
+            [contract(Windows.Foundation.UniversalApiContract, 14.0)]
+            [exclusiveto(Windows.UI.Composition.Compositor)]
+            [experimental]
+            [uuid(9E487B57-621E-4780-9F06-03AE0ABA5D59)]
+            interface ICompositorWithAnimationController : IInspectable
+            {
+                HRESULT CreateAnimationController([out] [retval] Windows.UI.Composition.AnimationController** result);
+            }
+
+            [contract(Windows.Foundation.UniversalApiContract, 13.0)]
+            [exclusiveto(Windows.UI.Composition.Compositor)]
+            [uuid(0D8FB190-F122-5B8D-9FDD-543B0D8EB7F3)]
+            interface ICompositorWithBlurredWallpaperBackdropBrush : IInspectable
+            {
+                HRESULT TryCreateBlurredWallpaperBackdropBrush([out] [retval] Windows.UI.Composition.CompositionBackdropBrush** result);
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 8.0)]
@@ -3327,6 +3369,7 @@ namespace Windows
                 [contract(Windows.Foundation.UniversalApiContract, 3.0)] interface Windows.UI.Composition.ICompositionObject2;
                 [contract(Windows.Foundation.UniversalApiContract, 5.0)] interface Windows.UI.Composition.ICompositionObject3;
                 [contract(Windows.Foundation.UniversalApiContract, 6.0)] interface Windows.UI.Composition.ICompositionObject4;
+                [contract(Windows.Foundation.UniversalApiContract, 14.0)] [experimental] interface Windows.UI.Composition.ICompositionObjectWithAnimationController;
                 interface Windows.Foundation.IClosable;
                 [contract(Windows.Foundation.UniversalApiContract, 7.0)] interface Windows.UI.Composition.IAnimationObject;
             }
@@ -3548,6 +3591,8 @@ namespace Windows
                 [contract(Windows.Foundation.UniversalApiContract, 8.0)] interface Windows.UI.Composition.ICompositorWithRadialGradient;
                 [contract(Windows.Foundation.UniversalApiContract, 8.0)] interface Windows.UI.Composition.ICompositorWithVisualSurface;
                 [contract(Windows.Foundation.UniversalApiContract, 12.0)] interface Windows.UI.Composition.ICompositor7;
+                [contract(Windows.Foundation.UniversalApiContract, 13.0)] interface Windows.UI.Composition.ICompositorWithBlurredWallpaperBackdropBrush;
+                [contract(Windows.Foundation.UniversalApiContract, 14.0)] [experimental] interface Windows.UI.Composition.ICompositorWithAnimationController;
                 interface Windows.Foundation.IClosable;
             }
 

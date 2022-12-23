@@ -67,6 +67,13 @@ KAPC_RECORD_FLAGS_CHECK_ALERT equ 00001H
 
 
 ;
+;  Apc Callback Data Structure Offset Definitions
+;
+
+AcdContextRecord equ 00008H
+KAPC_CALLBACK_DATA_LENGTH equ 00020H
+
+;
 ;  Bug Check Code Definitions
 ;
 
@@ -467,7 +474,7 @@ PrUserTime equ 00380H
 PrInstrumentationCallback equ 003D8H
 PrMitigationFlags2 equ 009D4H
 KernelProcessObjectLength equ 00438H
-ExecutiveProcessObjectLength equ 00B40H
+ExecutiveProcessObjectLength equ 00B80H
 Win32BatchFlushCallout equ 00007H
 
 ;
@@ -484,9 +491,9 @@ PfBucketShift equ 00030H
 PfBuffer equ 00038H
 PfSegment equ 00040H
 PfAffinity equ 00048H
-PfSource equ 00158H
-PfStarted equ 0015AH
-ProfileObjectLength equ 00160H
+PfSource equ 00260H
+PfStarted equ 00262H
+ProfileObjectLength equ 00268H
 
 ;
 ;  Queue Object Structure Offset Definitions
@@ -799,6 +806,14 @@ XSTATE_MASK_IPT equ 00100H
 XSTATE_MASK_LARGE_FEATURES equ 040000H
 
 ;
+;  KERNEL_CET_CONTEXT structure offset definitions
+;
+
+KccSsp equ 00000H
+KccRip equ 00008H
+KccSegCs equ 00010H
+
+;
 ;  Extended context structure offset definitions
 ;
 
@@ -808,6 +823,8 @@ CxxLegacyOffset equ 00008H
 CxxLegacyLength equ 0000CH
 CxxXStateOffset equ 00010H
 CxxXStateLength equ 00014H
+CxxKernelCetOffset equ 00018H
+CxxKernelCetLength equ 0001CH
 
 ;
 ;  KAFFINITY_EX offsets
@@ -816,11 +833,17 @@ CxxXStateLength equ 00014H
 AfCount equ 00000H
 AfBitmap equ 00008H
 CFlushSize equ 000E8H
-PbEntropyCount equ 089A0H
-PbEntropyBuffer equ 089A4H
+PbEntropyCount equ 089E0H
+PbEntropyBuffer equ 089E4H
 KENTROPY_TIMING_INTERRUPTS_PER_BUFFER equ 00400H
 KENTROPY_TIMING_BUFFER_MASK equ 007FFH
 KENTROPY_TIMING_ANALYSIS equ 00000H
+
+;
+;  Priority state definitions
+;
+
+KPRIORITY_STATE_PRIORITY_BITMASK equ 0007FH
 
 ;
 ;  Register Argument Home Address Offset Definitions
@@ -913,18 +936,20 @@ PcCpuType equ 001C0H
 PcCpuID equ 001C1H
 PcCpuStep equ 001C2H
 PcCpuVendor equ 0020DH
-PcVirtualApicAssist equ 08848H
-PcFeatureBits equ 08AE0H
+PcVirtualApicAssist equ 08888H
+PcFeatureBits equ 08B20H
 PcNmiActive equ 08026H
 PcMceActive equ 08027H
-PcSfCode equ 08DA8H
-PcSfVa equ 08DB0H
+PcCombinedNmiMceActive equ 08026H
+PcSfCode equ 08DE8H
+PcSfVa equ 08DF0H
+PcSfPa equ 08DF8H
 PcKernelDirectoryTableBase equ 0A000H
-PcExceptionStack equ 083A8H
-PcExceptionStackActive equ 083A6H
+PcExceptionStack equ 083E8H
+PcExceptionStackActive equ 083E6H
 PcDpcRequestSummary equ 0353CH
-PcTransitionShadowStack equ 097A0H
-PcKernelShadowStackInitial equ 097A8H
+PcTransitionShadowStack equ 09820H
+PcKernelShadowStackInitial equ 09828H
 ;
 ;
 CPU_AMD equ 00001H
@@ -1027,6 +1052,7 @@ PbIdleHalt equ 00007H
 PbCurrentThread equ 00008H
 PbNextThread equ 00010H
 PbIdleThread equ 00018H
+PbSmtIsolationThread equ 08880H
 PbNestingLevel equ 00020H
 PbNumber equ 00024H
 PbRspBase equ 00028H
@@ -1038,7 +1064,7 @@ KI_SPINLOCK_ORDER_PRCB_LOCK equ 00080H
 PbGroup equ 000D0H
 PbGroupIndex equ 000D1H
 PbProcessorState equ 00100H
-PbContext equ 08980H
+PbContext equ 089C0H
 PbCpuType equ 00040H
 PbCpuID equ 00041H
 PbCpuStep equ 00042H
@@ -1047,8 +1073,8 @@ PbMinorVersion equ 00088H
 PbMajorVersion equ 0008AH
 PbBuildType equ 0008CH
 PbCpuVendor equ 0008DH
-PbCoresPerPhysicalProcessor equ 0008EH
-PbLogicalProcessorsPerCore equ 0008FH
+PbCoresPerPhysicalProcessor equ 000A0H
+PbLogicalProcessorsPerCore equ 000A4H
 PbApicMask equ 000DCH
 PbCFlushSize equ 000E8H
 PbAcpiReserved equ 000E0H
@@ -1073,12 +1099,12 @@ PbContextSwitches equ 02D3CH
 PbTargetCount equ 02D84H
 PbIpiFrozen equ 02D88H
 PbRequestMailbox equ 0BEC0H
-PbMailbox equ 09540H
+PbMailbox equ 095C0H
 PbDpcList equ 03340H
 PbDpcLock equ 03350H
 PbDpcCount equ 0335CH
 PbDpcStack equ 033A0H
-PbIsrStack equ 08998H
+PbIsrStack equ 089D8H
 PbMaximumDpcQueueDepth equ 033A8H
 PbDpcRequestRate equ 033ACH
 PbMinimumDpcRate equ 033B0H
@@ -1098,24 +1124,26 @@ PbDpcTime equ 0814CH
 PbInterruptTime equ 08150H
 PbAdjustDpcThreshold equ 08154H
 PbStartCycles equ 08180H
-PbPageColor equ 08210H
-PbNodeColor equ 08214H
-PbNodeShiftedColor equ 08218H
-PbSecondaryColorMask equ 0821CH
-PbCycleTime equ 08238H
+PbPageColor equ 08250H
+PbNodeColor equ 08254H
+PbNodeShiftedColor equ 08258H
+PbSecondaryColorMask equ 0825CH
+PbCycleTime equ 08278H
+PbCpuCycleScalingFactor equ 081B8H
+PPM_FRACTION_SHIFT equ 00010H
 PbFastReadNoWait equ 02D44H
 PbFastReadWait equ 02D48H
 PbFastReadNotPossible equ 02D4CH
 PbCopyReadNoWait equ 02D50H
 PbCopyReadWait equ 02D54H
 PbCopyReadNoWaitMiss equ 02D58H
-PbAlignmentFixupCount equ 08678H
+PbAlignmentFixupCount equ 086B8H
 PbExceptionDispatchCount equ 08170H
-PbVendorString equ 08950H
+PbVendorString equ 08990H
 ProcessorBlockLength equ 0BF00H
 PbShadowFlags equ 09E98H
 PbTrappedSecurityDomain equ 000F0H
-PbKernelShadowStackInitial equ 09628H
+PbKernelShadowStackInitial equ 096A8H
 
 ;
 ;  Time Fields (TIME_FIELDS) Structure Offset Definitions
@@ -1263,6 +1291,7 @@ MSR_XD_ENABLE_MASK equ 0FFFFFFFBH
 ;
 
 IA32_CET_SH_STK_EN equ 00001H
+IA32_CET_WR_SHSTK_EN equ 00002H
 
 ;
 ;  Flags within MSR_DEGUG_CTL
@@ -1352,7 +1381,7 @@ KI_EXCEPTION_INTEGER_DIVIDE_BY_ZERO equ 010000003H
 KI_EXCEPTION_ACCESS_VIOLATION equ 010000004H
 KI_EXCEPTION_SECURE_FAULT equ 010000006H
 KI_EXCEPTION_SEGMENT_NOT_PRESENT equ 010000007H
-KI_EXCEPTION_XFD_ERROR equ 010000008H
+KI_EXCEPTION_XFD_ERROR equ 010000010H
 TARGET_FREEZE equ 00005H
 KI_DPC_INTERRUPT_FLAGS equ 000AFH
 KI_DPC_THREAD_ACTIVE equ 010000H
@@ -1637,6 +1666,14 @@ MfSegSs equ 00020H
 MachineFrameLength equ 00028H
 
 ;
+;  Shadow Stack Machine Frame Offset Definitions
+;
+
+SmSsp equ 00000H
+SmRip equ 00008H
+SmSegCs equ 00010H
+
+;
 ;  DPC Stack Frame Defintions
 ;
 
@@ -1656,6 +1693,7 @@ CONTEXT_SEGMENTS equ 0100004H
 CONTEXT_FLOATING_POINT equ 0100008H
 CONTEXT_DEBUG_REGISTERS equ 0100010H
 CONTEXT_XSTATE equ 0100040H
+CONTEXT_KERNEL_CET equ 0100080H
 
 CxP1Home equ 00000H
 CxP2Home equ 00008H
@@ -1741,7 +1779,14 @@ DEBUG_ACTIVE_SET_CONTEXT_STATE_LOCK equ 08000000H
 ;  Continue Argument Structure Definitions
 ;
 
+KCONTINUE_INVALID equ 00004H
 KCONTINUE_ARGUMENT_LENGTH equ 00020H
+
+;
+;  SK Shadow Stack Assist Operation Definitions
+;
+
+SkShadowStackAssistDebugTrapCopyFrame equ 00002H
 
 ;
 ;  Dispatcher Context Structure Offset Definitions
@@ -1890,6 +1935,7 @@ EpDebugPort equ 00578H
 EpWoW64Process equ 00580H
 EpFlags3 equ 0087CH
 PS_PROCESS_FLAGS3_SECURITY_DOMAIN_CHANGED_V equ 00015H
+PS_PROCESS_MITIGATION_FLAGS2_CET_RELATED equ 0C0F6C000H
 ;
 ;
 

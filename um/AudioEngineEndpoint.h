@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0624 */
+ /* File created by MIDL compiler version 8.01.0627 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 500
+#define __REQUIRED_RPCNDR_H_VERSION__ 501
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -38,7 +38,7 @@
 #endif
 
 #ifndef DECLSPEC_XFGVIRT
-#if _CONTROL_FLOW_GUARD_XFG
+#if defined(_CONTROL_FLOW_GUARD_XFG)
 #define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
 #else
 #define DECLSPEC_XFGVIRT(base, func)
@@ -1546,6 +1546,7 @@ DEFINE_GUIDSTRUCT("9F2F7B66-65AC-4FA6-8AE4-123C78B89313", DEVINTERFACE_AUDIOENDP
 DEFINE_PROPERTYKEY(DEVPKEY_AudioEndpointPlugin_FactoryCLSID,   0x12d83bd7, 0xcf12, 0x46be, 0x85, 0x40, 0x81, 0x27, 0x10, 0xd3, 0x2, 0x1c, 1); 
 DEFINE_PROPERTYKEY(DEVPKEY_AudioEndpointPlugin_DataFlow,       0x12d83bd7, 0xcf12, 0x46be, 0x85, 0x40, 0x81, 0x27, 0x10, 0xd3, 0x2, 0x1c, 2); 
 DEFINE_PROPERTYKEY(DEVPKEY_AudioEndpointPlugin_PnPInterface,   0x12d83bd7, 0xcf12, 0x46be, 0x85, 0x40, 0x81, 0x27, 0x10, 0xd3, 0x2, 0x1c, 3); 
+DEFINE_PROPERTYKEY(DEVPKEY_AudioEndpointPlugin2_FactoryCLSID,   0x12d83bd7, 0xcf12, 0x46be, 0x85, 0x40, 0x81, 0x27, 0x10, 0xd3, 0x2, 0x1c, 4); 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 #pragma endregion
 

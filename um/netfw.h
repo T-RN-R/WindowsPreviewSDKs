@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0624 */
+ /* File created by MIDL compiler version 8.01.0627 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 500
+#define __REQUIRED_RPCNDR_H_VERSION__ 501
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -38,7 +38,7 @@
 #endif
 
 #ifndef DECLSPEC_XFGVIRT
-#if _CONTROL_FLOW_GUARD_XFG
+#if defined(_CONTROL_FLOW_GUARD_XFG)
 #define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
 #else
 #define DECLSPEC_XFGVIRT(base, func)
@@ -560,6 +560,83 @@ NetworkIsolationGetEnterpriseIdClose(
     _In_ BOOL   bWaitForOperation
     );
 
+#if (NTDDI_VERSION >= NTDDI_WIN10_CO) 
+#ifndef __FW_DYNAMIC_KEYWORDS_TYPES__
+#define __FW_DYNAMIC_KEYWORDS_TYPES__
+typedef enum _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE
+{
+    FW_DYNAMIC_KEYWORD_ORIGIN_INVALID,
+    FW_DYNAMIC_KEYWORD_ORIGIN_LOCAL,
+    FW_DYNAMIC_KEYWORD_ORIGIN_MDM,
+} FW_DYNAMIC_KEYWORD_ORIGIN_TYPE;
+
+typedef struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS0
+{
+    GUID id;
+    PCWSTR keyword;
+    DWORD flags;
+    PCWSTR addresses;
+} FW_DYNAMIC_KEYWORD_ADDRESS0, *PFW_DYNAMIC_KEYWORD_ADDRESS0;
+
+typedef struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0
+{
+    struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 dynamicKeywordAddress;
+    struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0* next;
+    WORD schemaVersion;
+    FW_DYNAMIC_KEYWORD_ORIGIN_TYPE originType;
+} FW_DYNAMIC_KEYWORD_ADDRESS_DATA0, *PFW_DYNAMIC_KEYWORD_ADDRESS_DATA0;
+
+typedef enum _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS
+{
+    FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS_AUTO_RESOLVE = 0x0001
+} FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS;
+DEFINE_ENUM_FLAG_OPERATORS(FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS);
+
+typedef enum _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS
+{
+    FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_AUTO_RESOLVE = 0x0001,
+    FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_NON_AUTO_RESOLVE = 0x0002,
+    FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_ALL = (FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_AUTO_RESOLVE | FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_NON_AUTO_RESOLVE)
+} FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS;
+DEFINE_ENUM_FLAG_OPERATORS(FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS);
+
+#endif //__FW_DYNAMIC_KEYWORDS_TYPES__
+
+typedef DWORD
+(WINAPI* PFN_FWADDDYNAMICKEYWORDADDRESS0) (
+    _In_ const PFW_DYNAMIC_KEYWORD_ADDRESS0 dynamicKeywordAddress
+);
+
+typedef DWORD
+(WINAPI* PFN_FWDELETEDYNAMICKEYWORDADDRESS0) (
+    _In_ GUID dynamicKeywordAddressId
+);
+
+typedef DWORD
+(WINAPI *PFN_FWENUMDYNAMICKEYWORDADDRESSESBYTYPE0) (
+    _In_  DWORD                              flags,
+    _Out_ PFW_DYNAMIC_KEYWORD_ADDRESS_DATA0* dynamicKeywordAddressData
+);
+
+typedef DWORD
+(WINAPI *PFN_FWENUMDYNAMICKEYWORDADDRESSBYID0) (
+    _In_  GUID                               dynamicKeywordAddressId,
+    _Out_ PFW_DYNAMIC_KEYWORD_ADDRESS_DATA0* dynamicKeywordAddressData
+);
+
+typedef DWORD
+(WINAPI* PFN_FWFREEDYNAMICKEYWORDADDRESSDATA0) (
+    _In_ PFW_DYNAMIC_KEYWORD_ADDRESS_DATA0 dynamicKeywordAddressData
+);
+
+typedef DWORD
+(WINAPI* PFN_FWUPDATEDYNAMICKEYWORDADDRESS0) (
+    _In_ GUID     dynamicKeywordAddressId,
+    _In_ PCWSTR   updatedAddresses,
+    _In_ BOOL     append
+);
+
+#endif // (NTDDI_VERSION >= NTDDI_WIN10_CO) 
 
 
 extern RPC_IF_HANDLE __MIDL_itf_netfw_0000_0000_v0_0_c_ifspec;

@@ -60,6 +60,12 @@ WHvSetupPartition(
 
 HRESULT
 WINAPI
+WHvResetPartition(
+    _In_ WHV_PARTITION_HANDLE Partition
+    );
+
+HRESULT
+WINAPI
 WHvDeletePartition(
     _In_ WHV_PARTITION_HANDLE Partition
     );
@@ -103,6 +109,17 @@ HRESULT
 WINAPI
 WHvMapGpaRange(
     _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ VOID* SourceAddress,
+    _In_ WHV_GUEST_PHYSICAL_ADDRESS GuestAddress,
+    _In_ UINT64 SizeInBytes,
+    _In_ WHV_MAP_GPA_RANGE_FLAGS Flags
+    );
+
+HRESULT
+WINAPI
+WHvMapGpaRange2(
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ HANDLE Process,
     _In_ VOID* SourceAddress,
     _In_ WHV_GUEST_PHYSICAL_ADDRESS GuestAddress,
     _In_ UINT64 SizeInBytes,
@@ -228,6 +245,10 @@ WHvRequestInterrupt(
     _In_ UINT32 InterruptControlSize
     );
 
+#if defined(NTDDI_VERSION) && (NTDDI_VERSION >= NTDDI_WIN10_FE)
+#pragma deprecated("WHvGetVirtualProcessorXsaveState is deprecated; use WHvGetVirtualProcessorState")
+#endif
+
 HRESULT
 WINAPI
 WHvGetVirtualProcessorXsaveState(
@@ -237,6 +258,10 @@ WHvGetVirtualProcessorXsaveState(
     _In_ UINT32 BufferSizeInBytes,
     _Out_ UINT32* BytesWritten
     );
+
+#if defined(NTDDI_VERSION) && (NTDDI_VERSION >= NTDDI_WIN10_FE)
+#pragma deprecated("WHvSetVirtualProcessorXsaveState is deprecated; use WHvSetVirtualProcessorState")
+#endif
 
 HRESULT
 WINAPI
@@ -278,6 +303,10 @@ WHvGetVirtualProcessorCounters(
     _Out_opt_ UINT32* BytesWritten
     );
 
+#if defined(NTDDI_VERSION) && (NTDDI_VERSION >= NTDDI_WIN10_FE)
+#pragma deprecated("WHvGetVirtualProcessorInterruptControllerState2 is deprecated; use WHvGetVirtualProcessorState")
+#endif
+
 HRESULT
 WINAPI
 WHvGetVirtualProcessorInterruptControllerState2(
@@ -287,6 +316,10 @@ WHvGetVirtualProcessorInterruptControllerState2(
     _In_ UINT32 StateSize,
     _Out_opt_ UINT32* WrittenSize
     );
+
+#if defined(NTDDI_VERSION) && (NTDDI_VERSION >= NTDDI_WIN10_FE)
+#pragma deprecated("WHvSetVirtualProcessorInterruptControllerState2 is deprecated; use WHvSetVirtualProcessorState")
+#endif
 
 HRESULT
 WINAPI
@@ -393,8 +426,7 @@ WHvAllocateVpciResource(
     _In_ WHV_ALLOCATE_VPCI_RESOURCE_FLAGS Flags,
     _In_reads_opt_(ResourceDescriptorSizeInBytes) const VOID* ResourceDescriptor,
     _In_ UINT32 ResourceDescriptorSizeInBytes,
-    _Out_ HANDLE* VpciResource,
-    _Outptr_opt_result_maybenull_ LPCWSTR* ResourcePath
+    _Out_ HANDLE* VpciResource
     );
 
 HRESULT
@@ -404,8 +436,7 @@ WHvCreateVpciDevice(
     _In_ UINT64 LogicalDeviceId,
     _In_ HANDLE VpciResource,
     _In_ WHV_CREATE_VPCI_DEVICE_FLAGS Flags,
-    _In_opt_ PWHV_PCI_DEVICE_NOTIFICATION_CALLBACK NotificationCallback,
-    _In_opt_ VOID* NotificationCallbackContext
+    _In_opt_ HANDLE NotificationEventHandle
     );
 
 HRESULT
@@ -424,6 +455,15 @@ WHvGetVpciDeviceProperty(
     _Out_writes_bytes_to_(PropertyBufferSizeInBytes, *WrittenSizeInBytes) VOID* PropertyBuffer,
     _In_ UINT32 PropertyBufferSizeInBytes,
     _Out_opt_ UINT32* WrittenSizeInBytes
+    );
+
+HRESULT
+WINAPI
+WHvGetVpciDeviceNotification(
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ UINT64 LogicalDeviceId,
+    _Out_writes_bytes_(NotificationSizeInBytes) WHV_VPCI_DEVICE_NOTIFICATION* Notification,
+    _In_ UINT32 NotificationSizeInBytes
     );
 
 HRESULT
@@ -474,7 +514,7 @@ WHvMapVpciDeviceInterrupt(
     _In_ WHV_PARTITION_HANDLE Partition,
     _In_ UINT64 LogicalDeviceId,
     _In_ UINT32 Index,
-    _In_ UINT32 MultiMessageNumber,
+    _In_ UINT32 MessageCount,
     _In_ const WHV_VPCI_INTERRUPT_TARGET* Target,
     _Out_ UINT64* MsiAddress,
     _Out_ UINT32* MsiData
@@ -582,8 +622,53 @@ WHvPostVirtualProcessorSynicMessage(
     _In_ WHV_PARTITION_HANDLE Partition,
     _In_ UINT32 VpIndex,
     _In_ UINT32 SintIndex,
-    _In_reads_(MessageSize) const VOID* Message,
-    _In_ UINT32 MessageSize
+    _In_reads_bytes_(MessageSizeInBytes) const VOID* Message,
+    _In_ UINT32 MessageSizeInBytes
+    );
+
+HRESULT
+WINAPI
+WHvGetVirtualProcessorCpuidOutput(
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ UINT32 VpIndex,
+    _In_ UINT32 Eax,
+    _In_ UINT32 Ecx,
+    _Out_ WHV_CPUID_OUTPUT* CpuidOutput
+    );
+
+HRESULT
+WINAPI
+WHvGetInterruptTargetVpSet(
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ UINT64 Destination,
+    _In_ WHV_INTERRUPT_DESTINATION_MODE DestinationMode,
+    _Out_writes_to_(VpCount, *TargetVpCount) UINT32* TargetVps,
+    _In_ UINT32 VpCount,
+    _Out_ UINT32* TargetVpCount
+    );
+
+HRESULT
+WINAPI
+WHvStartPartitionMigration(
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _Out_ HANDLE* MigrationHandle
+    );
+
+HRESULT
+WHvCancelPartitionMigration(
+    _In_ WHV_PARTITION_HANDLE Partition
+    );
+
+HRESULT
+WHvCompletePartitionMigration(
+    _In_ WHV_PARTITION_HANDLE Partition
+    );
+
+HRESULT
+WINAPI
+WHvAcceptPartitionMigration(
+    _In_ HANDLE MigrationHandle,
+    _Out_ WHV_PARTITION_HANDLE* Partition
     );
 
 #ifdef __cplusplus
@@ -595,8 +680,8 @@ WHvPostVirtualProcessorSynicMessage(
 
 #endif // _WINHVAPI_H_
 
-#ifndef ext_ms_win_hyperv_hvplatform_l1_1_4_query_routines
-#define ext_ms_win_hyperv_hvplatform_l1_1_4_query_routines
+#ifndef ext_ms_win_hyperv_hvplatform_l1_1_5_query_routines
+#define ext_ms_win_hyperv_hvplatform_l1_1_5_query_routines
 
 //
 //Private Extension API Query Routines
@@ -621,6 +706,12 @@ IsWHvCreatePartitionPresent(
 BOOLEAN
 __stdcall
 IsWHvSetupPartitionPresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvResetPartitionPresent(
     VOID
     );
 
@@ -657,6 +748,12 @@ IsWHvResumePartitionTimePresent(
 BOOLEAN
 __stdcall
 IsWHvMapGpaRangePresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvMapGpaRange2Present(
     VOID
     );
 
@@ -740,11 +837,19 @@ IsWHvRequestInterruptPresent(
     VOID
     );
 
+#if defined(NTDDI_VERSION) && (NTDDI_VERSION >= NTDDI_WIN10_FE)
+
+#endif
+
 BOOLEAN
 __stdcall
 IsWHvGetVirtualProcessorXsaveStatePresent(
     VOID
     );
+
+#if defined(NTDDI_VERSION) && (NTDDI_VERSION >= NTDDI_WIN10_FE)
+
+#endif
 
 BOOLEAN
 __stdcall
@@ -770,11 +875,19 @@ IsWHvGetVirtualProcessorCountersPresent(
     VOID
     );
 
+#if defined(NTDDI_VERSION) && (NTDDI_VERSION >= NTDDI_WIN10_FE)
+
+#endif
+
 BOOLEAN
 __stdcall
 IsWHvGetVirtualProcessorInterruptControllerState2Present(
     VOID
     );
+
+#if defined(NTDDI_VERSION) && (NTDDI_VERSION >= NTDDI_WIN10_FE)
+
+#endif
 
 BOOLEAN
 __stdcall
@@ -859,6 +972,12 @@ IsWHvDeleteVpciDevicePresent(
 BOOLEAN
 __stdcall
 IsWHvGetVpciDevicePropertyPresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvGetVpciDeviceNotificationPresent(
     VOID
     );
 
@@ -961,6 +1080,42 @@ IsWHvDeleteNotificationPortPresent(
 BOOLEAN
 __stdcall
 IsWHvPostVirtualProcessorSynicMessagePresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvGetVirtualProcessorCpuidOutputPresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvGetInterruptTargetVpSetPresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvStartPartitionMigrationPresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvCancelPartitionMigrationPresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvCompletePartitionMigrationPresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvAcceptPartitionMigrationPresent(
     VOID
     );
 

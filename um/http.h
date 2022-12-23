@@ -163,6 +163,13 @@ typedef enum _HTTP_SERVER_PROPERTY
     HttpServerProtectionLevelProperty = 11,
 
 
+    //
+    // Used for manipulating Url Group to Delegate Request Queue association.
+    //
+
+    HttpServerDelegationProperty = 16,
+
+
 } HTTP_SERVER_PROPERTY, *PHTTP_SERVER_PROPERTY;
 
 
@@ -554,41 +561,43 @@ typedef struct _HTTP_REQUEST_TOKEN_BINDING_INFO
 // logging.
 //
 
-#define HTTP_LOG_FIELD_DATE                  0x00000001
-#define HTTP_LOG_FIELD_TIME                  0x00000002
-#define HTTP_LOG_FIELD_CLIENT_IP             0x00000004
-#define HTTP_LOG_FIELD_USER_NAME             0x00000008
-#define HTTP_LOG_FIELD_SITE_NAME             0x00000010
-#define HTTP_LOG_FIELD_COMPUTER_NAME         0x00000020
-#define HTTP_LOG_FIELD_SERVER_IP             0x00000040
-#define HTTP_LOG_FIELD_METHOD                0x00000080
-#define HTTP_LOG_FIELD_URI_STEM              0x00000100
-#define HTTP_LOG_FIELD_URI_QUERY             0x00000200
-#define HTTP_LOG_FIELD_STATUS                0x00000400
-#define HTTP_LOG_FIELD_WIN32_STATUS          0x00000800
-#define HTTP_LOG_FIELD_BYTES_SENT            0x00001000
-#define HTTP_LOG_FIELD_BYTES_RECV            0x00002000
-#define HTTP_LOG_FIELD_TIME_TAKEN            0x00004000
-#define HTTP_LOG_FIELD_SERVER_PORT           0x00008000
-#define HTTP_LOG_FIELD_USER_AGENT            0x00010000
-#define HTTP_LOG_FIELD_COOKIE                0x00020000
-#define HTTP_LOG_FIELD_REFERER               0x00040000
-#define HTTP_LOG_FIELD_VERSION               0x00080000
-#define HTTP_LOG_FIELD_HOST                  0x00100000
-#define HTTP_LOG_FIELD_SUB_STATUS            0x00200000
-#define HTTP_LOG_FIELD_STREAM_ID             0x08000000
-#define HTTP_LOG_FIELD_STREAM_ID_EX          0x10000000
-#define HTTP_LOG_FIELD_TRANSPORT_TYPE        0x20000000
+#define HTTP_LOG_FIELD_DATE                 0x00000001
+#define HTTP_LOG_FIELD_TIME                 0x00000002
+#define HTTP_LOG_FIELD_CLIENT_IP            0x00000004
+#define HTTP_LOG_FIELD_USER_NAME            0x00000008
+#define HTTP_LOG_FIELD_SITE_NAME            0x00000010
+#define HTTP_LOG_FIELD_COMPUTER_NAME        0x00000020
+#define HTTP_LOG_FIELD_SERVER_IP            0x00000040
+#define HTTP_LOG_FIELD_METHOD               0x00000080
+#define HTTP_LOG_FIELD_URI_STEM             0x00000100
+#define HTTP_LOG_FIELD_URI_QUERY            0x00000200
+#define HTTP_LOG_FIELD_STATUS               0x00000400
+#define HTTP_LOG_FIELD_WIN32_STATUS         0x00000800
+#define HTTP_LOG_FIELD_BYTES_SENT           0x00001000
+#define HTTP_LOG_FIELD_BYTES_RECV           0x00002000
+#define HTTP_LOG_FIELD_TIME_TAKEN           0x00004000
+#define HTTP_LOG_FIELD_SERVER_PORT          0x00008000
+#define HTTP_LOG_FIELD_USER_AGENT           0x00010000
+#define HTTP_LOG_FIELD_COOKIE               0x00020000
+#define HTTP_LOG_FIELD_REFERER              0x00040000
+#define HTTP_LOG_FIELD_VERSION              0x00080000
+#define HTTP_LOG_FIELD_HOST                 0x00100000
+#define HTTP_LOG_FIELD_SUB_STATUS           0x00200000
+#define HTTP_LOG_FIELD_STREAM_ID            0x08000000
+#define HTTP_LOG_FIELD_STREAM_ID_EX         0x10000000
+#define HTTP_LOG_FIELD_TRANSPORT_TYPE       0x20000000
 
 //
 // Fields that are used only for error logging.
 //
 
-#define HTTP_LOG_FIELD_CLIENT_PORT           0x00400000
-#define HTTP_LOG_FIELD_URI                   0x00800000
-#define HTTP_LOG_FIELD_SITE_ID               0x01000000
-#define HTTP_LOG_FIELD_REASON                0x02000000
-#define HTTP_LOG_FIELD_QUEUE_NAME            0x04000000
+#define HTTP_LOG_FIELD_CLIENT_PORT          0x00400000
+#define HTTP_LOG_FIELD_URI                  0x00800000
+#define HTTP_LOG_FIELD_SITE_ID              0x01000000
+#define HTTP_LOG_FIELD_REASON               0x02000000
+#define HTTP_LOG_FIELD_QUEUE_NAME           0x04000000
+#define HTTP_LOG_FIELD_CORRELATION_ID       0x40000000
+#define HTTP_LOG_FIELD_FAULT_CODE           0x80000000
 
 //
 // Defines the logging type.
@@ -815,6 +824,7 @@ typedef struct _HTTP_PROTECTION_LEVEL_INFO
 
 #define HTTP_CREATE_REQUEST_QUEUE_FLAG_OPEN_EXISTING       (0x00000001)
 #define HTTP_CREATE_REQUEST_QUEUE_FLAG_CONTROLLER          (0x00000002)
+#define HTTP_CREATE_REQUEST_QUEUE_FLAG_DELEGATION          (0x00000008)
 
 #endif // _WIN32_WINNT >= 0x0600
 
@@ -948,6 +958,10 @@ typedef struct _HTTP_BYTE_RANGE
 //
 // The type for HTTP protocol version numbers.
 //
+
+#ifdef HTTP_VERSION
+#undef HTTP_VERSION
+#endif
 
 typedef struct _HTTP_VERSION
 {
@@ -1906,11 +1920,13 @@ typedef HTTP_REQUEST * PHTTP_REQUEST;
 // to include the local ip while flushing kernel cache entries build for this
 // request if any.
 // HTTP_REQUEST_FLAG_HTTP2 - Indicates the request was received over HTTP/2.
+// HTTP_REQUEST_FLAG_HTTP3 - Indicates the request was received over HTTP/3.
 //
 
 #define HTTP_REQUEST_FLAG_MORE_ENTITY_BODY_EXISTS   0x00000001
 #define HTTP_REQUEST_FLAG_IP_ROUTED                 0x00000002
 #define HTTP_REQUEST_FLAG_HTTP2                     0x00000004
+#define HTTP_REQUEST_FLAG_HTTP3                     0x00000008
 
 
 //
@@ -2303,6 +2319,7 @@ typedef enum _HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE
     ExParamTypeHttpPerformance,
     ExParamTypeTlsRestrictions,
     ExParamTypeErrorHeaders,
+    ExParamTypeTlsSessionTicketKeys,
     ExParamTypeMax
 } HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE, *PHTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE;
 
@@ -2344,11 +2361,8 @@ typedef enum _HTTP_PERFORMANCE_PARAM_TYPE
 typedef struct _HTTP_PERFORMANCE_PARAM
 {
     HTTP_PERFORMANCE_PARAM_TYPE Type;
-
     ULONG BufferSize;
-
     PVOID Buffer;
-
 } HTTP_PERFORMANCE_PARAM, *PHTTP_PERFORMANCE_PARAM;
 
 typedef struct _HTTP_TLS_RESTRICTIONS_PARAM
@@ -2364,8 +2378,14 @@ typedef struct _HTTP_ERROR_HEADERS_PARAM
     PHTTP_UNKNOWN_HEADER Headers;
 } HTTP_ERROR_HEADERS_PARAM, *PHTTP_ERROR_HEADERS_PARAM;
 
+typedef struct _HTTP_TLS_SESSION_TICKET_KEYS_PARAM
+{
+    ULONG SessionTicketKeyCount;
+    PVOID SessionTicketKeys;
+} HTTP_TLS_SESSION_TICKET_KEYS_PARAM, *PHTTP_TLS_SESSION_TICKET_KEYS_PARAM;
+
 //
-// This defines the exteded params for the ssl config record.
+// This defines the extended params for the ssl config record.
 //
 
 typedef struct _HTTP_SERVICE_CONFIG_SSL_PARAM_EX
@@ -2393,6 +2413,7 @@ typedef struct _HTTP_SERVICE_CONFIG_SSL_PARAM_EX
         HTTP_PERFORMANCE_PARAM HttpPerformanceParam;
         HTTP_TLS_RESTRICTIONS_PARAM HttpTlsRestrictionsParam;
         HTTP_ERROR_HEADERS_PARAM HttpErrorHeadersParam;
+        HTTP_TLS_SESSION_TICKET_KEYS_PARAM HttpTlsSessionTicketKeysParam;
     };
 } HTTP_SERVICE_CONFIG_SSL_PARAM_EX, *PHTTP_SERVICE_CONFIG_SSL_PARAM_EX;
 
@@ -2400,23 +2421,25 @@ typedef struct _HTTP_SERVICE_CONFIG_SSL_PARAM_EX
 // The SSL config flags.
 //
 
-#define HTTP_SERVICE_CONFIG_SSL_FLAG_USE_DS_MAPPER         0x00000001
-#define HTTP_SERVICE_CONFIG_SSL_FLAG_NEGOTIATE_CLIENT_CERT 0x00000002
+#define HTTP_SERVICE_CONFIG_SSL_FLAG_USE_DS_MAPPER              0x00000001
+#define HTTP_SERVICE_CONFIG_SSL_FLAG_NEGOTIATE_CLIENT_CERT      0x00000002
 #if _WIN32_WINNT < 0x0600
-#define HTTP_SERVICE_CONFIG_SSL_FLAG_NO_RAW_FILTER         0x00000004
+#define HTTP_SERVICE_CONFIG_SSL_FLAG_NO_RAW_FILTER              0x00000004
 #endif // _WIN32_WINNT < 0x0600
-#define HTTP_SERVICE_CONFIG_SSL_FLAG_REJECT                0x00000008
+#define HTTP_SERVICE_CONFIG_SSL_FLAG_REJECT                     0x00000008
 
-#define HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_HTTP2         0x00000010
-#define HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_QUIC          0x00000020
-#define HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_TLS13         0x00000040
+#define HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_HTTP2              0x00000010
+#define HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_QUIC               0x00000020
+#define HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_TLS13              0x00000040
 
-#define HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_OCSP_STAPLING 0x00000080
-#define HTTP_SERVICE_CONFIG_SSL_FLAG_ENABLE_TOKEN_BINDING  0x00000100
-#define HTTP_SERVICE_CONFIG_SSL_FLAG_LOG_EXTENDED_EVENTS   0x00000200
-#define HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_LEGACY_TLS    0x00000400
-#define HTTP_SERVICE_CONFIG_SSL_FLAG_ENABLE_SESSION_TICKET 0x00000800
-#define HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_TLS12         0x00001000
+#define HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_OCSP_STAPLING      0x00000080
+#define HTTP_SERVICE_CONFIG_SSL_FLAG_ENABLE_TOKEN_BINDING       0x00000100
+#define HTTP_SERVICE_CONFIG_SSL_FLAG_LOG_EXTENDED_EVENTS        0x00000200
+#define HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_LEGACY_TLS         0x00000400
+#define HTTP_SERVICE_CONFIG_SSL_FLAG_ENABLE_SESSION_TICKET      0x00000800
+#define HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_TLS12              0x00001000
+#define HTTP_SERVICE_CONFIG_SSL_FLAG_ENABLE_CLIENT_CORRELATION  0x00002000
+#define HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_SESSION_ID         0x00004000
 
 
 //
@@ -2785,6 +2808,23 @@ typedef struct _HTTP_QUIC_API_TIMINGS
 
 } HTTP_QUIC_API_TIMINGS, *PHTTP_QUIC_API_TIMINGS;
 
+typedef struct _HTTP_QUIC_STREAM_REQUEST_STATS
+{
+    ULONGLONG StreamWaitStart;
+    ULONGLONG StreamWaitEnd;
+
+    ULONGLONG RequestHeadersCompressionStart;
+    ULONGLONG RequestHeadersCompressionEnd;
+
+    ULONGLONG ResponseHeadersDecompressionStart;
+    ULONGLONG ResponseHeadersDecompressionEnd;
+
+    ULONGLONG RequestHeadersCompressedSize;
+    ULONGLONG ResponseHeadersCompressedSize;
+
+} HTTP_QUIC_STREAM_REQUEST_STATS, *PHTTP_QUIC_STREAM_REQUEST_STATS;
+
+#define HTTP_QUIC_KEEPALIVE_TIMEOUT_DISABLED ((ULONG)-1)
 
 typedef enum _HTTP_FEATURE_ID
 {
@@ -2792,6 +2832,8 @@ typedef enum _HTTP_FEATURE_ID
     HttpFeatureResponseTrailers = 1,
     HttpFeatureApiTimings       = 2,
     HttpFeatureDelegateEx       = 3,
+    HttpFeatureHttp3            = 4,
+    HttpFeatureLast             = 5,
 
 
     HttpFeaturemax              = 0xFFFFFFFF,

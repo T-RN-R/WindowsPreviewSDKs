@@ -329,6 +329,8 @@ namespace Windows
 
             interface IBackgroundExecutionManagerStatics2;
 
+            interface IBackgroundExecutionManagerStatics3;
+
             interface IBackgroundTask;
 
             interface IBackgroundTaskBuilder;
@@ -626,6 +628,10 @@ namespace Windows
             runtimeclass ToastNotificationHistoryChangedTrigger;
 
             runtimeclass UserNotificationChangedTrigger;
+
+            runtimeclass WiFiOnDemandHotspotConnectTrigger;
+
+            runtimeclass WiFiOnDemandHotspotUpdateMetadataTrigger;
         }
     }
 }
@@ -988,6 +994,16 @@ namespace Windows
                 [overload("RequestAccessKindAsync")] HRESULT RequestAccessKindAsync([in] Windows.ApplicationModel.Background.BackgroundAccessRequestKind requestedAccess, [in] HSTRING reason, [out] [retval] Windows.Foundation.IAsyncOperation<boolean>** operation);
             }
 
+            [contract(Windows.Foundation.UniversalApiContract, 13.0)]
+            [exclusiveto(Windows.ApplicationModel.Background.BackgroundExecutionManager)]
+            [uuid(98A5D3F6-5A25-5B6C-9192-D77A43DFEDC4)]
+            interface IBackgroundExecutionManagerStatics3 : IInspectable
+            {
+                HRESULT RequestAccessKindForModernStandbyAsync([in] Windows.ApplicationModel.Background.BackgroundAccessRequestKind requestedAccess, [in] HSTRING reason, [out] [retval] Windows.Foundation.IAsyncOperation<boolean>** operation);
+                [overload("GetAccessStatusForModernStandby")] HRESULT GetAccessStatusForModernStandby([out] [retval] Windows.ApplicationModel.Background.BackgroundAccessStatus* result);
+                [overload("GetAccessStatusForModernStandby")] HRESULT GetAccessStatusForModernStandbyForApplication([in] HSTRING applicationId, [out] [retval] Windows.ApplicationModel.Background.BackgroundAccessStatus* result);
+            }
+
             [contract(Windows.Foundation.UniversalApiContract, 1.0)]
             [uuid(7D13D534-FD12-43CE-8C22-EA1FF13C06DF)]
             interface IBackgroundTask : IInspectable
@@ -1013,8 +1029,6 @@ namespace Windows
             [exclusiveto(Windows.ApplicationModel.Background.BackgroundTaskBuilder)]
             [uuid(6AE7CFB1-104F-406D-8DB6-844A570F42BB)]
             interface IBackgroundTaskBuilder2 : IInspectable
-                requires
-                    Windows.ApplicationModel.Background.IBackgroundTaskBuilder
             {
                 [propput] HRESULT CancelOnConditionLoss([in] boolean value);
                 [propget] HRESULT CancelOnConditionLoss([out] [retval] boolean* value);
@@ -1024,8 +1038,6 @@ namespace Windows
             [exclusiveto(Windows.ApplicationModel.Background.BackgroundTaskBuilder)]
             [uuid(28C74F4A-8BA9-4C09-A24F-19683E2C924C)]
             interface IBackgroundTaskBuilder3 : IInspectable
-                requires
-                    Windows.ApplicationModel.Background.IBackgroundTaskBuilder
             {
                 [propput] HRESULT IsNetworkRequested([in] boolean value);
                 [propget] HRESULT IsNetworkRequested([out] [retval] boolean* value);
@@ -1035,8 +1047,6 @@ namespace Windows
             [exclusiveto(Windows.ApplicationModel.Background.BackgroundTaskBuilder)]
             [uuid(4755E522-CBA2-4E35-BD16-A6DA7F1C19AA)]
             interface IBackgroundTaskBuilder4 : IInspectable
-                requires
-                    Windows.ApplicationModel.Background.IBackgroundTaskBuilder
             {
                 [propget] HRESULT TaskGroup([out] [retval] Windows.ApplicationModel.Background.BackgroundTaskRegistrationGroup** value);
                 [propput] HRESULT TaskGroup([in] Windows.ApplicationModel.Background.BackgroundTaskRegistrationGroup* value);
@@ -1850,6 +1860,7 @@ namespace Windows
             [contract(Windows.Foundation.UniversalApiContract, 1.0)]
             [static(Windows.ApplicationModel.Background.IBackgroundExecutionManagerStatics, Windows.Foundation.UniversalApiContract, 1.0)]
             [static(Windows.ApplicationModel.Background.IBackgroundExecutionManagerStatics2, Windows.Foundation.UniversalApiContract, 6.0)]
+            [static(Windows.ApplicationModel.Background.IBackgroundExecutionManagerStatics3, Windows.Foundation.UniversalApiContract, 13.0)]
             runtimeclass BackgroundExecutionManager
             {
             }
@@ -2411,6 +2422,24 @@ namespace Windows
             [marshaling_behavior(agile)]
             [threading(mta)]
             runtimeclass UserNotificationChangedTrigger
+            {
+                [default] interface Windows.ApplicationModel.Background.IBackgroundTrigger;
+            }
+
+            [activatable(Windows.Foundation.UniversalApiContract, 15.0)]
+            [contract(Windows.Foundation.UniversalApiContract, 15.0)]
+            [marshaling_behavior(agile)]
+            [threading(both)]
+            runtimeclass WiFiOnDemandHotspotConnectTrigger
+            {
+                [default] interface Windows.ApplicationModel.Background.IBackgroundTrigger;
+            }
+
+            [activatable(Windows.Foundation.UniversalApiContract, 15.0)]
+            [contract(Windows.Foundation.UniversalApiContract, 15.0)]
+            [marshaling_behavior(agile)]
+            [threading(both)]
+            runtimeclass WiFiOnDemandHotspotUpdateMetadataTrigger
             {
                 [default] interface Windows.ApplicationModel.Background.IBackgroundTrigger;
             }

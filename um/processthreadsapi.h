@@ -102,9 +102,22 @@ QueueUserAPC(
 #if (NTDDI_VERSION >= NTDDI_WIN10_MN)
 
 typedef enum _QUEUE_USER_APC_FLAGS {
-    QUEUE_USER_APC_FLAGS_NONE             = 0x0,
-    QUEUE_USER_APC_FLAGS_SPECIAL_USER_APC = 0x1,
+    QUEUE_USER_APC_FLAGS_NONE               = 0x00000000,
+    QUEUE_USER_APC_FLAGS_SPECIAL_USER_APC   = 0x00000001,
+
+    //
+    // Used for requesting additional callback data.
+    //
+
+    QUEUE_USER_APC_CALLBACK_DATA_CONTEXT    = 0x00010000,
 } QUEUE_USER_APC_FLAGS;
+
+typedef struct _APC_CALLBACK_DATA {
+    ULONG_PTR Parameter;
+    PCONTEXT ContextRecord;
+    ULONG_PTR Reserved0;
+    ULONG_PTR Reserved1;
+} APC_CALLBACK_DATA, *PAPC_CALLBACK_DATA;
 
 WINBASEAPI
 BOOL
@@ -1134,15 +1147,16 @@ SetThreadIdealProcessor(
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 
 typedef enum _PROCESS_INFORMATION_CLASS {
-    ProcessMemoryPriority,
-    ProcessMemoryExhaustionInfo,
-    ProcessAppMemoryInfo,
-    ProcessInPrivateInfo,
-    ProcessPowerThrottling,
-    ProcessReservedValue1,           // Used to be for ProcessActivityThrottlePolicyInfo
-    ProcessTelemetryCoverageInfo,
-    ProcessProtectionLevelInfo,
-    ProcessLeapSecondInfo,
+    ProcessMemoryPriority,          // MEMORY_PRIORITY_INFORMATION
+    ProcessMemoryExhaustionInfo,    // PROCESS_MEMORY_EXHAUSTION_INFO
+    ProcessAppMemoryInfo,           // APP_MEMORY_INFORMATION
+    ProcessInPrivateInfo,           // BOOLEAN
+    ProcessPowerThrottling,         // PROCESS_POWER_THROTTLING_STATE
+    ProcessReservedValue1,          // Used to be for ProcessActivityThrottlePolicyInfo
+    ProcessTelemetryCoverageInfo,   // TELEMETRY_COVERAGE_POINT
+    ProcessProtectionLevelInfo,     // PROCESS_PROTECTION_LEVEL_INFORMATION
+    ProcessLeapSecondInfo,          // PROCESS_LEAP_SECOND_INFO
+    ProcessMachineTypeInfo,         // PROCESS_MACHINE_INFORMATION
     ProcessInformationClassMax
 } PROCESS_INFORMATION_CLASS;
 
@@ -1152,6 +1166,22 @@ typedef struct _APP_MEMORY_INFORMATION {
     ULONG64 PeakPrivateCommitUsage;
     ULONG64 TotalCommitUsage;
 } APP_MEMORY_INFORMATION, *PAPP_MEMORY_INFORMATION;
+
+typedef enum _MACHINE_ATTRIBUTES {
+    UserEnabled         = 0x00000001,
+    KernelEnabled       = 0x00000002,
+    Wow64Container      = 0x00000004
+} MACHINE_ATTRIBUTES;
+
+#if !defined(MIDL_PASS)
+DEFINE_ENUM_FLAG_OPERATORS(MACHINE_ATTRIBUTES);
+#endif
+
+typedef struct _PROCESS_MACHINE_INFORMATION {
+    USHORT ProcessMachine;
+    USHORT Res0;
+    MACHINE_ATTRIBUTES MachineAttributes;
+} PROCESS_MACHINE_INFORMATION;
 
 //
 // Constants and structures needed to enable the fail fast on commit failure
@@ -1178,8 +1208,10 @@ typedef struct _PROCESS_MEMORY_EXHAUSTION_INFO {
 #define PROCESS_POWER_THROTTLING_CURRENT_VERSION 1
 
 #define PROCESS_POWER_THROTTLING_EXECUTION_SPEED 0x1
+#define PROCESS_POWER_THROTTLING_IGNORE_TIMER_RESOLUTION 0x4
 
-#define PROCESS_POWER_THROTTLING_VALID_FLAGS (PROCESS_POWER_THROTTLING_EXECUTION_SPEED)
+#define PROCESS_POWER_THROTTLING_VALID_FLAGS ((PROCESS_POWER_THROTTLING_EXECUTION_SPEED | \
+                                               PROCESS_POWER_THROTTLING_IGNORE_TIMER_RESOLUTION))
 
 typedef struct _PROCESS_POWER_THROTTLING_STATE {
     ULONG Version;
@@ -1275,7 +1307,7 @@ SetThreadSelectedCpuSets(
     _In_ ULONG CpuSetIdCount
     );
 
-#endif // (_WIN32_WINNT >= WIN32_WINNT_WIN10)
+#endif // (_WIN32_WINNT >= _WIN32_WINNT_WIN10)
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion
@@ -1358,8 +1390,23 @@ SetThreadSelectedCpuSetMasks(
     _In_ USHORT CpuSetMaskCount
     );
 
-#endif // (_WIN32_WINNT >= WIN32_WINNT_WIN10_FE)
+#endif // (_WIN32_WINNT >= _WIN32_WINNT_WIN10_FE)
 
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
+#pragma endregion
+
+#pragma region Application Family or OneCore Family
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
+#if (_WIN32_WINNT >= _WIN32_WINNT_WIN10)
+
+HRESULT
+WINAPI
+GetMachineTypeAttributes(
+    _In_ USHORT Machine,
+    _Out_ MACHINE_ATTRIBUTES* MachineTypeAttributes
+    );
+
+#endif // (_WIN32_WINNT >= _WIN32_WINNT_WIN10)
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion
 

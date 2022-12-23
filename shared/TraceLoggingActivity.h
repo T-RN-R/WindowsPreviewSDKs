@@ -224,16 +224,15 @@ The START and STOP events always use the activity's keyword and level.
             "Do not use TraceLoggingLevel in TraceLoggingWriteStart. The Level for START events is " \
             "specified in the activity type, e.g. TraceLoggingActivity<Provider,Keyword,Level>."); \
         _tlgActivityRef(activity).zInternalStart(); \
-        TraceLoggingWriteActivity( \
-            _tlgActivityRef(activity).Provider(), \
+        _tlgActivityWriteStartStop(_tlg_IS_EMPTY(__VA_ARGS__), ( \
+            activity, \
             (name), \
             _tlgActivityRef(activity).Id(), \
             _tlgActivityRef(activity).zInternalRelatedId(), \
-            TraceLoggingOpcode(1 /* WINEVENT_OPCODE_START */), \
-            TraceLoggingKeyword(_tlgActivity_Keyword), \
-            TraceLoggingLevel(_tlgActivity_Level), \
-            TraceLoggingDescription("~^" _tlg_LSTRINGIZE(activity) L"^~"), \
-            __VA_ARGS__); \
+            1 /* WINEVENT_OPCODE_START */, \
+            _tlgActivity_Keyword, \
+            _tlgActivity_Level, \
+            __VA_ARGS__)); \
     } while(0) \
     __pragma(warning(pop)) \
 
@@ -268,16 +267,15 @@ event will be logged from the destructor.
             "Do not use TraceLoggingLevel in TraceLoggingWriteStop. The Level for STOP events is " \
             "specified in the activity type, e.g. TraceLoggingActivity<Provider,Keyword,Level>."); \
         _tlgActivityRef(activity).zInternalStop(); \
-        TraceLoggingWriteActivity( \
-            _tlgActivityRef(activity).Provider(), \
+        _tlgActivityWriteStartStop(_tlg_IS_EMPTY(__VA_ARGS__), ( \
+            activity, \
             (name), \
             _tlgActivityRef(activity).Id(), \
             NULL, \
-            TraceLoggingOpcode(2 /* WINEVENT_OPCODE_STOP */),\
-            TraceLoggingKeyword(_tlgActivity_Keyword),\
-            TraceLoggingLevel(_tlgActivity_Level),\
-            TraceLoggingDescription("~^" _tlg_LSTRINGIZE(activity) L"^~"),\
-            __VA_ARGS__); \
+            2 /* WINEVENT_OPCODE_STOP */,\
+            _tlgActivity_Keyword,\
+            _tlgActivity_Level,\
+            __VA_ARGS__)); \
     } while(0) \
     __pragma(warning(pop)) \
 
@@ -393,6 +391,36 @@ parameter more than once.
 #endif
 
 /*
+Private implementation macros. For internal use only.
+Avoid extra comma when invoking TraceLoggingWriteActivity.
+*/
+#define _tlgActivityWriteStartStop(is_empty, args) \
+    _tlg_PASTE2(_tlgActivityWriteStartStop_imp, is_empty) args
+#define _tlgActivityWriteStartStop_imp0(activity, eventName, pActivityId, pRelatedId, opcode, keyword, level, ...) \
+    TraceLoggingWriteActivity( \
+        _tlgActivityRef(activity).Provider(), \
+        eventName, \
+        pActivityId, \
+        pRelatedId, \
+        TraceLoggingOpcode(opcode), \
+        TraceLoggingKeyword(keyword), \
+        TraceLoggingLevel(level), \
+        TraceLoggingDescription("~^" _tlg_LSTRINGIZE(activity) L"^~") \
+        , __VA_ARGS__ \
+        )
+#define _tlgActivityWriteStartStop_imp1(activity, eventName, pActivityId, pRelatedId, opcode, keyword, level, ...) \
+    TraceLoggingWriteActivity( \
+        _tlgActivityRef(activity).Provider(), \
+        eventName, \
+        pActivityId, \
+        pRelatedId, \
+        TraceLoggingOpcode(opcode), \
+        TraceLoggingKeyword(keyword), \
+        TraceLoggingLevel(level), \
+        TraceLoggingDescription("~^" _tlg_LSTRINGIZE(activity) L"^~") \
+        )
+
+/*
 Private implementation function. For internal use only.
 Separate function to minimize code bloat by consolidating the auto-stop events.
 */
@@ -452,19 +480,19 @@ class _TlgActivityBase
 
     void Reset()
     {
-        m_State = Created;
+        m_State = TlgStateCreated;
         m_HasRelatedId = false;
     }
 
-    enum State
+    enum TlgState
     {
-        Created,
-        Started,
-        Stopped,
-        Destroyed
+        TlgStateCreated,
+        TlgStateStarted,
+        TlgStateStopped,
+        TlgStateDestroyed
     };
 
-    State m_State;
+    TlgState m_State;
     bool m_HasRelatedId;
     GUID m_Id;
     GUID m_CapturedRelatedId;
@@ -473,7 +501,7 @@ protected:
 
     ~_TlgActivityBase()
     {
-        if (m_State == Started)
+        if (m_State == TlgStateStarted)
         {
             zInternalStop();
             _tlgWriteActivityAutoStop<keyword, level>(
@@ -481,7 +509,7 @@ protected:
                 &m_Id);
         }
 
-        m_State = Destroyed;
+        m_State = TlgStateDestroyed;
     }
 
     _TlgActivityBase()
@@ -499,7 +527,7 @@ protected:
 
     _TlgActivityBase& operator=(_TlgActivityBase&& rhs)
     {
-        _tlg_ASSERT(m_State == Created, "Move-assign to newly created activities only");
+        _tlg_ASSERT(m_State == TlgStateCreated, "Move-assign to newly created activities only");
         m_State = rhs.m_State;
         m_HasRelatedId = rhs.m_HasRelatedId;
         m_Id = rhs.m_Id;
@@ -516,7 +544,7 @@ protected:
     */
     void SetRelatedId(const GUID& relatedActivityId)
     {
-        _tlg_ASSERT(m_State == Created, "_TlgActivityBase::SetRelatedId called from invalid state.");
+        _tlg_ASSERT(m_State == TlgStateCreated, "_TlgActivityBase::SetRelatedId called from invalid state.");
         _tlg_ASSERT(!m_HasRelatedId, "_TlgActivityBase::RelatedActivity was already set.");
         m_CapturedRelatedId = relatedActivityId;
         m_HasRelatedId = true;
@@ -540,7 +568,7 @@ protected:
     */
     void PushThreadActivityId()
     {
-        _tlg_ASSERT(m_State == Created, "_TlgActivityBase::PushThreadActivityId called from invalid state.");
+        _tlg_ASSERT(m_State == TlgStateCreated, "_TlgActivityBase::PushThreadActivityId called from invalid state.");
         _tlg_ASSERT(!m_HasRelatedId, "_TlgActivityBase::RelatedActivity was already set.");
         m_CapturedRelatedId = m_Id;
         ::EventActivityIdControl(EVENT_ACTIVITY_CTRL_GET_SET_ID, &m_CapturedRelatedId);
@@ -553,7 +581,7 @@ protected:
     */
     void PopThreadActivityId()
     {
-        _tlg_ASSERT(m_State == Started, "_TlgActivityBase::PopThreadActivityId called from invalid state.");
+        _tlg_ASSERT(m_State == TlgStateStarted, "_TlgActivityBase::PopThreadActivityId called from invalid state.");
         if (m_HasRelatedId)
         {
             ::EventActivityIdControl(EVENT_ACTIVITY_CTRL_GET_SET_ID, &m_CapturedRelatedId);
@@ -621,8 +649,8 @@ public:
     */
     _Ret_ const GUID* Id() const
     {
-        _tlg_ASSERT(m_State >= Started, "TraceLoggingActivity::Id() called from invalid state");
-        _tlg_ASSERT(m_State != Destroyed, "TraceLoggingActivity::Id() called after destruction");
+        _tlg_ASSERT(m_State >= TlgStateStarted, "TraceLoggingActivity::Id() called from invalid state");
+        _tlg_ASSERT(m_State != TlgStateDestroyed, "TraceLoggingActivity::Id() called after destruction");
         return &m_Id;
     }
 
@@ -631,7 +659,7 @@ public:
     */
     bool IsStarted() const
     {
-        return m_State == Started;
+        return m_State == TlgStateStarted;
     }
 
     /*
@@ -642,7 +670,7 @@ public:
     */
     _Ret_opt_ const GUID* zInternalRelatedId() const
     {
-        _tlg_ASSERT(m_State == Started, "TraceLoggingWriteStart race condition");
+        _tlg_ASSERT(m_State == TlgStateStarted, "TraceLoggingWriteStart race condition");
         return GetRelatedId();
     }
 
@@ -652,7 +680,7 @@ public:
     */
     void zInternalStart()
     {
-        _tlg_ASSERT(m_State == Created, "TraceLoggingWriteStart called from invalid state.");
+        _tlg_ASSERT(m_State == TlgStateCreated, "TraceLoggingWriteStart called from invalid state.");
 
         DerivedTy* pDerived = static_cast<DerivedTy*>(this);
         if (TraceLoggingProviderEnabled(pDerived->Provider(), level, keyword))
@@ -666,7 +694,7 @@ public:
             ZeroMemory(&m_Id, sizeof(m_Id));
         }
 
-        m_State = Started;
+        m_State = TlgStateStarted;
     }
 
     /*
@@ -675,12 +703,12 @@ public:
     */
     void zInternalStop()
     {
-        _tlg_ASSERT(m_State == Started, "TraceLoggingWriteStop called from invalid state");
+        _tlg_ASSERT(m_State == TlgStateStarted, "TraceLoggingWriteStop called from invalid state");
 
         DerivedTy* pDerived = static_cast<DerivedTy*>(this);
         pDerived->OnStopped();
 
-        m_State = Stopped;
+        m_State = TlgStateStopped;
     }
 
 private:

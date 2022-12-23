@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0624 */
+ /* File created by MIDL compiler version 8.01.0627 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 500
+#define __REQUIRED_RPCNDR_H_VERSION__ 501
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -38,7 +38,7 @@
 #endif
 
 #ifndef DECLSPEC_XFGVIRT
-#if _CONTROL_FLOW_GUARD_XFG
+#if defined(_CONTROL_FLOW_GUARD_XFG)
 #define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
 #else
 #define DECLSPEC_XFGVIRT(base, func)
@@ -453,6 +453,9 @@ EXTERN_C const IID IID_ICoreWindowAdapterInterop;
         virtual /* [propget] */ HRESULT STDMETHODCALLTYPE get_HoloViewClientAdapter( 
             /* [retval][out] */ __RPC__deref_out_opt IUnknown **value) = 0;
         
+        virtual /* [propget] */ HRESULT STDMETHODCALLTYPE get_PositionerClientAdapter( 
+            /* [retval][out] */ __RPC__deref_out_opt IUnknown **value) = 0;
+        
         virtual /* [propget] */ HRESULT STDMETHODCALLTYPE get_SystemNavigationClientAdapter( 
             /* [retval][out] */ __RPC__deref_out_opt IUnknown **value) = 0;
         
@@ -522,6 +525,11 @@ EXTERN_C const IID IID_ICoreWindowAdapterInterop;
             __RPC__in ICoreWindowAdapterInterop * This,
             /* [retval][out] */ __RPC__deref_out_opt IUnknown **value);
         
+        DECLSPEC_XFGVIRT(ICoreWindowAdapterInterop, get_PositionerClientAdapter)
+        /* [propget] */ HRESULT ( STDMETHODCALLTYPE *get_PositionerClientAdapter )( 
+            __RPC__in ICoreWindowAdapterInterop * This,
+            /* [retval][out] */ __RPC__deref_out_opt IUnknown **value);
+        
         DECLSPEC_XFGVIRT(ICoreWindowAdapterInterop, get_SystemNavigationClientAdapter)
         /* [propget] */ HRESULT ( STDMETHODCALLTYPE *get_SystemNavigationClientAdapter )( 
             __RPC__in ICoreWindowAdapterInterop * This,
@@ -581,6 +589,9 @@ EXTERN_C const IID IID_ICoreWindowAdapterInterop;
 
 #define ICoreWindowAdapterInterop_get_HoloViewClientAdapter(This,value)	\
     ( (This)->lpVtbl -> get_HoloViewClientAdapter(This,value) ) 
+
+#define ICoreWindowAdapterInterop_get_PositionerClientAdapter(This,value)	\
+    ( (This)->lpVtbl -> get_PositionerClientAdapter(This,value) ) 
 
 #define ICoreWindowAdapterInterop_get_SystemNavigationClientAdapter(This,value)	\
     ( (This)->lpVtbl -> get_SystemNavigationClientAdapter(This,value) ) 

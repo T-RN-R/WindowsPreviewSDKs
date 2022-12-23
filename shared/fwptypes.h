@@ -3,14 +3,14 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0624 */
+ /* File created by MIDL compiler version 8.01.0627 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
 
 /* verify that the <rpcndr.h> version is high enough to compile this file*/
 #ifndef __REQUIRED_RPCNDR_H_VERSION__
-#define __REQUIRED_RPCNDR_H_VERSION__ 500
+#define __REQUIRED_RPCNDR_H_VERSION__ 501
 #endif
 
 /* verify that the <rpcsal.h> version is high enough to compile this file*/
@@ -34,7 +34,7 @@
 #endif
 
 #ifndef DECLSPEC_XFGVIRT
-#if _CONTROL_FLOW_GUARD_XFG
+#if defined(_CONTROL_FLOW_GUARD_XFG)
 #define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
 #else
 #define DECLSPEC_XFGVIRT(base, func)
@@ -260,6 +260,15 @@ typedef struct FWP_CONDITION_VALUE0_
     } 	FWP_CONDITION_VALUE0;
 
 typedef /* [v1_enum] */ 
+enum FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE_
+    {
+        FWP_NETWORK_CONNECTION_POLICY_SOURCE_ADDRESS	= 0,
+        FWP_NETWORK_CONNECTION_POLICY_NEXT_HOP_INTERFACE	= ( FWP_NETWORK_CONNECTION_POLICY_SOURCE_ADDRESS + 1 ) ,
+        FWP_NETWORK_CONNECTION_POLICY_NEXT_HOP	= ( FWP_NETWORK_CONNECTION_POLICY_NEXT_HOP_INTERFACE + 1 ) ,
+        FWP_NETWORK_CONNECTION_POLICY_MAX	= ( FWP_NETWORK_CONNECTION_POLICY_NEXT_HOP + 1 ) 
+    } 	FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE;
+
+typedef /* [v1_enum] */ 
 enum FWP_CLASSIFY_OPTION_TYPE_
     {
         FWP_CLASSIFY_OPTION_MULTICAST_STATE	= 0,
@@ -389,6 +398,9 @@ enum FWP_FILTER_ENUM_TYPE_
 #define FWP_CALLOUT_FLAG_ALLOW_USO                   (0x00000100)
 #if (NTDDI_VERSION >= NTDDI_WIN10_VB)
 #define FWP_CALLOUT_FLAG_ALLOW_URO                   (0x00000200)
+#if (NTDDI_VERSION >= NTDDI_WIN10_CO)
+#define FWP_CALLOUT_FLAG_RESERVED2                   (0x00000400)
+#endif // (NTDDI_VERSION >= NTDDI_WIN10_CO)
 #endif // (NTDDI_VERSION >= NTDDI_WIN10_VB)
 #endif // (NTDDI_VERSION >= NTDDI_WIN10_19H1)
 #endif // (NTDDI_VERSION >= NTDDI_WIN8)

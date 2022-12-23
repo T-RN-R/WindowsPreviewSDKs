@@ -3,7 +3,7 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0624 */
+ /* File created by MIDL compiler version 8.01.0627 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 #pragma warning( disable: 4049 )  /* more than 64k source lines */
@@ -35,7 +35,7 @@
 #endif
 
 #ifndef DECLSPEC_XFGVIRT
-#if _CONTROL_FLOW_GUARD_XFG
+#if defined(_CONTROL_FLOW_GUARD_XFG)
 #define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
 #else
 #define DECLSPEC_XFGVIRT(base, func)
@@ -209,21 +209,21 @@ typedef DWORD MilMatrix3x2D;
 
 #endif
 #ifndef MILTYPES_DEFINED
-struct MilRectD
+typedef struct MilRectD
 {
     DOUBLE left;
     DOUBLE top;
     DOUBLE right;
     DOUBLE bottom;
-};
+} MilRectD;
 
-struct MilPoint2D
+typedef struct MilPoint2D
 {
     DOUBLE X;
     DOUBLE Y;
-};
+} MilPoint2D;
 
-struct MilMatrix3x2D
+typedef struct MilMatrix3x2D
 {
     DOUBLE S_11;
     DOUBLE S_12;
@@ -231,7 +231,7 @@ struct MilMatrix3x2D
     DOUBLE S_22;
     DOUBLE DX;
     DOUBLE DY;
-};
+} MilMatrix3x2D;
 #endif // MILTYPES_DEFINED
 
 typedef MilPoint2D MIL_2DPOINTD;

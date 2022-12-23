@@ -191,6 +191,10 @@ namespace Windows
 
         typedef enum ShutdownKind ShutdownKind;
 
+        typedef enum UserAgeConsentGroup UserAgeConsentGroup;
+
+        typedef enum UserAgeConsentResult UserAgeConsentResult;
+
         typedef enum UserAuthenticationStatus UserAuthenticationStatus;
 
         typedef enum UserPictureSize UserPictureSize;
@@ -253,13 +257,17 @@ namespace Windows
 
         interface IAppUriHandlerHostFactory;
 
-        interface IAppUriHandlerHostStatics;
-
         interface IAppUriHandlerRegistration;
+
+        interface IAppUriHandlerRegistration2;
 
         interface IAppUriHandlerRegistrationManager;
 
+        interface IAppUriHandlerRegistrationManager2;
+
         interface IAppUriHandlerRegistrationManagerStatics;
+
+        interface IAppUriHandlerRegistrationManagerStatics2;
 
         interface IDateTimeSettingsStatics;
 
@@ -280,6 +288,8 @@ namespace Windows
         interface IFolderLauncherOptions;
 
         interface IKnownUserPropertiesStatics;
+
+        interface IKnownUserPropertiesStatics2;
 
         interface ILaunchUriResult;
 
@@ -336,6 +346,8 @@ namespace Windows
         interface ITimeZoneSettingsStatics2;
 
         interface IUser;
+
+        interface IUser2;
 
         interface IUserAuthenticationStatusChangeDeferral;
 
@@ -534,6 +546,8 @@ namespace Windows
 
             interface Windows.Foundation.IAsyncOperation<Windows.System.User*>;
 
+            interface Windows.Foundation.IAsyncOperation<Windows.System.UserAgeConsentResult>;
+
             interface Windows.Foundation.TypedEventHandler<Windows.Gaming.Input.IGameController*, Windows.System.UserChangedEventArgs*>;
 
             interface Windows.Foundation.TypedEventHandler<Windows.System.AppDiagnosticInfoWatcher*, IInspectable*>;
@@ -721,6 +735,24 @@ namespace Windows
         {
             Shutdown = 0,
             Restart  = 1
+        };
+
+        [contract(Windows.Foundation.UniversalApiContract, 14.0)]
+        enum UserAgeConsentGroup
+        {
+            Child = 0,
+            Minor = 1,
+            Adult = 2
+        };
+
+        [contract(Windows.Foundation.UniversalApiContract, 14.0)]
+        enum UserAgeConsentResult
+        {
+            NotEnforced = 0,
+            Included    = 1,
+            NotIncluded = 2,
+            Unknown     = 3,
+            Ambiguous   = 4
         };
 
         [contract(Windows.Foundation.UniversalApiContract, 1.0)]
@@ -1220,14 +1252,13 @@ namespace Windows
             [propput] HRESULT Name([in] HSTRING value);
         }
 
-        [contract(Windows.Foundation.UniversalApiContract, 12.0)]
+        [contract(Windows.Foundation.UniversalApiContract, 13.0)]
         [exclusiveto(Windows.System.AppUriHandlerHost)]
-        [uuid(680E6023-F820-57E9-8B4D-7D21998B9118)]
+        [uuid(3A0BEE95-29E4-51BF-8095-A3C068E3C72A)]
         interface IAppUriHandlerHost2 : IInspectable
         {
-            [propget] HRESULT Uri([out] [retval] Windows.Foundation.Uri** value);
-            [propput] HRESULT Uri([in] Windows.Foundation.Uri* value);
-            [propget] HRESULT Path([out] [retval] HSTRING* value);
+            [propget] HRESULT IsEnabled([out] [retval] boolean* value);
+            [propput] HRESULT IsEnabled([in] boolean value);
         }
 
         [contract(Windows.Foundation.UniversalApiContract, 7.0)]
@@ -1236,14 +1267,6 @@ namespace Windows
         interface IAppUriHandlerHostFactory : IInspectable
         {
             HRESULT CreateInstance([in] HSTRING name, [out] [retval] Windows.System.AppUriHandlerHost** value);
-        }
-
-        [contract(Windows.Foundation.UniversalApiContract, 12.0)]
-        [exclusiveto(Windows.System.AppUriHandlerHost)]
-        [uuid(47BA50D4-0B97-5712-8F2A-DB5AE8F1E846)]
-        interface IAppUriHandlerHostStatics : IInspectable
-        {
-            HRESULT CreateFromUri([in] Windows.Foundation.Uri* uri, [out] [retval] Windows.System.AppUriHandlerHost** result);
         }
 
         [contract(Windows.Foundation.UniversalApiContract, 7.0)]
@@ -1257,6 +1280,16 @@ namespace Windows
             HRESULT SetAppAddedHostsAsync([in] Windows.Foundation.Collections.IIterable<Windows.System.AppUriHandlerHost*>* hosts, [out] [retval] Windows.Foundation.IAsyncAction** operation);
         }
 
+        [contract(Windows.Foundation.UniversalApiContract, 13.0)]
+        [exclusiveto(Windows.System.AppUriHandlerRegistration)]
+        [uuid(D54DAC97-CB39-5F1F-883E-01853730BD6D)]
+        interface IAppUriHandlerRegistration2 : IInspectable
+        {
+            HRESULT GetAllHosts([out] [retval] Windows.Foundation.Collections.IVector<Windows.System.AppUriHandlerHost*>** result);
+            HRESULT UpdateHosts([in] Windows.Foundation.Collections.IIterable<Windows.System.AppUriHandlerHost*>* hosts);
+            [propget] HRESULT PackageFamilyName([out] [retval] HSTRING* value);
+        }
+
         [contract(Windows.Foundation.UniversalApiContract, 7.0)]
         [exclusiveto(Windows.System.AppUriHandlerRegistrationManager)]
         [uuid(E62C9A52-AC94-5750-AC1B-6CFB6F250263)]
@@ -1266,6 +1299,14 @@ namespace Windows
             HRESULT TryGetRegistration([in] HSTRING name, [out] [retval] Windows.System.AppUriHandlerRegistration** result);
         }
 
+        [contract(Windows.Foundation.UniversalApiContract, 13.0)]
+        [exclusiveto(Windows.System.AppUriHandlerRegistrationManager)]
+        [uuid(BDDFCAF1-B51A-5E69-AEFD-7088D9F2B123)]
+        interface IAppUriHandlerRegistrationManager2 : IInspectable
+        {
+            [propget] HRESULT PackageFamilyName([out] [retval] HSTRING* value);
+        }
+
         [contract(Windows.Foundation.UniversalApiContract, 7.0)]
         [exclusiveto(Windows.System.AppUriHandlerRegistrationManager)]
         [uuid(D5CEDD9F-5729-5B76-A1D4-0285F295C124)]
@@ -1273,6 +1314,15 @@ namespace Windows
         {
             HRESULT GetDefault([out] [retval] Windows.System.AppUriHandlerRegistrationManager** result);
             HRESULT GetForUser([in] Windows.System.User* user, [out] [retval] Windows.System.AppUriHandlerRegistrationManager** result);
+        }
+
+        [contract(Windows.Foundation.UniversalApiContract, 13.0)]
+        [exclusiveto(Windows.System.AppUriHandlerRegistrationManager)]
+        [uuid(14F78379-6890-5080-90A7-98824A7F079E)]
+        interface IAppUriHandlerRegistrationManagerStatics2 : IInspectable
+        {
+            HRESULT GetForPackage([in] HSTRING packageFamilyName, [out] [retval] Windows.System.AppUriHandlerRegistrationManager** result);
+            HRESULT GetForPackageForUser([in] HSTRING packageFamilyName, [in] Windows.System.User* user, [out] [retval] Windows.System.AppUriHandlerRegistrationManager** result);
         }
 
         [contract(Windows.System.SystemManagementContract, 4.0)]
@@ -1376,6 +1426,14 @@ namespace Windows
             [propget] HRESULT PrincipalName([out] [retval] HSTRING* value);
             [propget] HRESULT DomainName([out] [retval] HSTRING* value);
             [propget] HRESULT SessionInitiationProtocolUri([out] [retval] HSTRING* value);
+        }
+
+        [contract(Windows.Foundation.UniversalApiContract, 14.0)]
+        [exclusiveto(Windows.System.KnownUserProperties)]
+        [uuid(5B450782-F620-577E-B1B3-DD56644D79B1)]
+        interface IKnownUserPropertiesStatics2 : IInspectable
+        {
+            [propget] HRESULT AgeEnforcementRegion([out] [retval] HSTRING* value);
         }
 
         [contract(Windows.Foundation.UniversalApiContract, 1.0)]
@@ -1683,6 +1741,14 @@ namespace Windows
             HRESULT GetPictureAsync([in] Windows.System.UserPictureSize desiredSize, [out] [retval] Windows.Foundation.IAsyncOperation<Windows.Storage.Streams.IRandomAccessStreamReference*>** operation);
         }
 
+        [contract(Windows.Foundation.UniversalApiContract, 14.0)]
+        [exclusiveto(Windows.System.User)]
+        [uuid(98BA5628-A6E3-518E-89D9-D3B2B1991A10)]
+        interface IUser2 : IInspectable
+        {
+            HRESULT CheckUserAgeConsentGroupAsync([in] Windows.System.UserAgeConsentGroup consentGroup, [out] [retval] Windows.Foundation.IAsyncOperation<Windows.System.UserAgeConsentResult>** operation);
+        }
+
         [contract(Windows.Foundation.UniversalApiContract, 1.0)]
         [exclusiveto(Windows.System.UserAuthenticationStatusChangeDeferral)]
         [uuid(88B59568-BB30-42FB-A270-E9902E40EFA7)]
@@ -1922,12 +1988,11 @@ namespace Windows
         [activatable(Windows.System.IAppUriHandlerHostFactory, Windows.Foundation.UniversalApiContract, 7.0)]
         [contract(Windows.Foundation.UniversalApiContract, 7.0)]
         [marshaling_behavior(agile)]
-        [static(Windows.System.IAppUriHandlerHostStatics, Windows.Foundation.UniversalApiContract, 12.0)]
         [threading(both)]
         runtimeclass AppUriHandlerHost
         {
             [default] interface Windows.System.IAppUriHandlerHost;
-            [contract(Windows.Foundation.UniversalApiContract, 12.0)] interface Windows.System.IAppUriHandlerHost2;
+            [contract(Windows.Foundation.UniversalApiContract, 13.0)] interface Windows.System.IAppUriHandlerHost2;
         }
 
         [contract(Windows.Foundation.UniversalApiContract, 7.0)]
@@ -1935,15 +2000,18 @@ namespace Windows
         runtimeclass AppUriHandlerRegistration
         {
             [default] interface Windows.System.IAppUriHandlerRegistration;
+            [contract(Windows.Foundation.UniversalApiContract, 13.0)] interface Windows.System.IAppUriHandlerRegistration2;
         }
 
         [contract(Windows.Foundation.UniversalApiContract, 7.0)]
         [marshaling_behavior(agile)]
         [static(Windows.System.IAppUriHandlerRegistrationManagerStatics, Windows.Foundation.UniversalApiContract, 7.0)]
+        [static(Windows.System.IAppUriHandlerRegistrationManagerStatics2, Windows.Foundation.UniversalApiContract, 13.0)]
         [threading(both)]
         runtimeclass AppUriHandlerRegistrationManager
         {
             [default] interface Windows.System.IAppUriHandlerRegistrationManager;
+            [contract(Windows.Foundation.UniversalApiContract, 13.0)] interface Windows.System.IAppUriHandlerRegistrationManager2;
         }
 
         [contract(Windows.System.SystemManagementContract, 4.0)]
@@ -2000,6 +2068,7 @@ namespace Windows
         [contract(Windows.Foundation.UniversalApiContract, 1.0)]
         [marshaling_behavior(agile)]
         [static(Windows.System.IKnownUserPropertiesStatics, Windows.Foundation.UniversalApiContract, 1.0)]
+        [static(Windows.System.IKnownUserPropertiesStatics2, Windows.Foundation.UniversalApiContract, 14.0)]
         [threading(both)]
         runtimeclass KnownUserProperties
         {
@@ -2133,6 +2202,7 @@ namespace Windows
         runtimeclass User
         {
             [default] interface Windows.System.IUser;
+            [contract(Windows.Foundation.UniversalApiContract, 14.0)] interface Windows.System.IUser2;
         }
 
         [contract(Windows.Foundation.UniversalApiContract, 1.0)]
