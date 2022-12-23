@@ -5261,11 +5261,13 @@ typedef struct _SCOPE_TABLE_ARM64 {
 #define BitTestAndSet64 _bittestandset64
 #define BitTestAndReset64 _bittestandreset64
 #define InterlockedBitTestAndSet64 _interlockedbittestandset64
-#define InterlockedBitTestAndSet64Acquire _interlockedbittestandset64
-#define InterlockedBitTestAndSet64Release _interlockedbittestandset64
+#define InterlockedBitTestAndSet64Acquire _interlockedbittestandset64_acq
+#define InterlockedBitTestAndSet64Release _interlockedbittestandset64_rel
+#define InterlockedBitTestAndSet64NoFence _interlockedbittestandset64_nf
 #define InterlockedBitTestAndReset64 _interlockedbittestandreset64
-#define InterlockedBitTestAndReset64Acquire _interlockedbittestandreset64
-#define InterlockedBitTestAndReset64Release _interlockedbittestandreset64
+#define InterlockedBitTestAndReset64Acquire _interlockedbittestandreset64_acq
+#define InterlockedBitTestAndReset64Release _interlockedbittestandreset64_rel
+#define InterlockedBitTestAndReset64NoFence _interlockedbittestandreset64_nf
 
 #pragma intrinsic(_bittest)
 #pragma intrinsic(_bittestandcomplement)
@@ -5274,9 +5276,11 @@ typedef struct _SCOPE_TABLE_ARM64 {
 #pragma intrinsic(_interlockedbittestandset)
 #pragma intrinsic(_interlockedbittestandset_acq)
 #pragma intrinsic(_interlockedbittestandset_rel)
+#pragma intrinsic(_interlockedbittestandset_nf)
 #pragma intrinsic(_interlockedbittestandreset)
 #pragma intrinsic(_interlockedbittestandreset_acq)
 #pragma intrinsic(_interlockedbittestandreset_rel)
+#pragma intrinsic(_interlockedbittestandreset_nf)
 
 #pragma intrinsic(_bittest64)
 #pragma intrinsic(_bittestandcomplement64)
@@ -5286,9 +5290,11 @@ typedef struct _SCOPE_TABLE_ARM64 {
 #pragma intrinsic(_interlockedbittestandset64)
 #pragma intrinsic(_interlockedbittestandset64_acq)
 #pragma intrinsic(_interlockedbittestandset64_rel)
+#pragma intrinsic(_interlockedbittestandset64_nf)
 #pragma intrinsic(_interlockedbittestandreset64)
 #pragma intrinsic(_interlockedbittestandreset64_acq)
 #pragma intrinsic(_interlockedbittestandreset64_rel)
+#pragma intrinsic(_interlockedbittestandreset64_nf)
 
 //
 // Define bit scan functions

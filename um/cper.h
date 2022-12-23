@@ -233,7 +233,8 @@ typedef union _WHEA_ERROR_RECORD_HEADER_FLAGS {
         ULONG DeviceDriver:1;
         ULONG CriticalEvent:1;
         ULONG PersistPfn:1;
-        ULONG Reserved:26;
+        ULONG SectionsTruncated:1;
+        ULONG Reserved:25;
     } DUMMYSTRUCTNAME;
     ULONG AsULONG;
 } WHEA_ERROR_RECORD_HEADER_FLAGS, *PWHEA_ERROR_RECORD_HEADER_FLAGS;

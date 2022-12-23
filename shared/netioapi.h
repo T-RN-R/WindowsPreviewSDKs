@@ -3213,27 +3213,42 @@ typedef struct _DNS_SETTINGS2
 
 typedef struct _DNS_DOH_SERVER_SETTINGS
 {
+#ifdef MIDL_PASS
+    [unique, string] PWSTR Template;
+#else
     PWSTR Template;
+#endif
     ULONG64 Flags;
 } DNS_DOH_SERVER_SETTINGS;
 
+typedef enum _DNS_SERVER_PROPERTY_TYPE
+{
+    DnsServerNoProperty = 0,
+    DnsServerDohProperty,
+} DNS_SERVER_PROPERTY_TYPE;
+
+#ifdef MIDL_PASS
+typedef [switch_type(DNS_SERVER_PROPERTY_TYPE)] union _DNS_SERVER_PROPERTY_TYPES
+{
+    [case(DnsServerDohProperty)] [unique] DNS_DOH_SERVER_SETTINGS *DohSettings;
+} DNS_SERVER_PROPERTY_TYPES;
+#else
 typedef union _DNS_SERVER_PROPERTY_TYPES
 {
     DNS_DOH_SERVER_SETTINGS *DohSettings;
 } DNS_SERVER_PROPERTY_TYPES;
-
-typedef enum _DNS_SERVER_PROPERTY_TYPE
-{
-    DnsServerInvalidProperty = 0,
-    DnsServerDohProperty,
-} DNS_SERVER_PROPERTY_TYPE;
+#endif
 
 typedef struct _DNS_SERVER_PROPERTY
 {
     ULONG Version;
     ULONG ServerIndex;
     DNS_SERVER_PROPERTY_TYPE Type;
+#ifdef MIDL_PASS
+    [switch_is(Type)] DNS_SERVER_PROPERTY_TYPES Property;
+#else
     DNS_SERVER_PROPERTY_TYPES Property;
+#endif
 } DNS_SERVER_PROPERTY;
 
 typedef struct _DNS_INTERFACE_SETTINGS

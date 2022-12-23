@@ -119,6 +119,12 @@ DEFINE_GUID(GUID_DEVINTERFACE_IPPUSB_PRINT, 0xf2f40381, 0xf46d, 0x4e51, 0xbc, 0x
                                                    METHOD_BUFFERED,  \
                                                    FILE_ANY_ACCESS)
 
+#define IOCTL_USBPRINT_CYCLE_PORT            CTL_CODE(FILE_DEVICE_UNKNOWN,  \
+                                                   USBPRINT_IOCTL_INDEX+24,\
+                                                   METHOD_BUFFERED,  \
+                                                   FILE_ANY_ACCESS)
+
+
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 #pragma endregion
 
