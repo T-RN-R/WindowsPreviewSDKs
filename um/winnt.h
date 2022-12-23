@@ -13738,6 +13738,7 @@ typedef struct _SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
 #define PF_ERMS_AVAILABLE                           42   
 #define PF_ARM_V82_DP_INSTRUCTIONS_AVAILABLE        43   
 #define PF_ARM_V83_JSCVT_INSTRUCTIONS_AVAILABLE     44   
+#define PF_ARM_V83_LRCPC_INSTRUCTIONS_AVAILABLE     45   
 //
 
 //
@@ -21705,6 +21706,29 @@ memcpy_inline (
 #define RtlCopyMemory(Destination,Source,Length) memcpy((Destination),(Source),(Length))
 #define RtlFillMemory(Destination,Length,Fill) memset((Destination),(Fill),(Length))
 #define RtlZeroMemory(Destination,Length) memset((Destination),0,(Length))
+
+//
+// RtlCopyDeviceMemory is guaranteed to not cause alignment faults on memory
+// types that require memory accesses to be naturally aligned. On ARM32/ARM64 this
+// function will not generate alignment faults on nGnRnE memory (device memory).
+// On AMD64/X86 it is identical to RtlCopyMemory since unaligned accesses are always
+// allowed.
+//
+// RtlCopyDeviceMemory is NOT guaranteed to do backwards copies. It is only
+// guaranteed to make forwards copies (i.e. memcpy semantics only).
+//
+// RtlCopyDeviceMemory makes no guarantees about not double fetching memory,
+// or about only using register accesses of specific sizes, etc. It is not intended
+// to be universally usable on things like MMIO ranges etc. which may trigger
+// device activity on every memory access or which may require specific register
+// width accesses.
+//
+
+#if defined(_M_ARM) || defined(_M_ARM64)
+#define RtlCopyDeviceMemory(Destination,Source,Length) _memcpy_strict_align((Destination),(Source),(Length))
+#else
+#define RtlCopyDeviceMemory(Destination,Source,Length) RtlCopyMemory((Destination),(Source),(Length))
+#endif
 
 #if !defined(MIDL_PASS)
 

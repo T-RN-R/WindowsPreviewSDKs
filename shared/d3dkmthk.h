@@ -2464,7 +2464,8 @@ typedef union _D3DKMT_ENUMADAPTERS_FILTER
     {
         ULONGLONG IncludeComputeOnly            : 1;
         ULONGLONG IncludeDisplayOnly            : 1;
-        ULONGLONG Reserved                      : 62;
+        ULONGLONG IncludeVirtualGpuOnly         : 1;
+        ULONGLONG Reserved                      : 61;
     };
     D3DKMT_ALIGN64 ULONGLONG Value;
 } D3DKMT_ENUMADAPTERS_FILTER;
@@ -4031,6 +4032,8 @@ typedef struct _D3DKMT_PRESENT_STATS_DWM2
     UINT                         CustomPresentDuration;
     UINT                         VirtualSyncRefreshCount;
     D3DKMT_ALIGN64 LARGE_INTEGER VirtualSyncQPCTime;
+    D3DKMT_ALIGN64 LARGE_INTEGER VSyncDurationQPCTime;
+    UINT                         VSyncMultiplier;
 } D3DKMT_PRESENT_STATS_DWM2;
 
 
