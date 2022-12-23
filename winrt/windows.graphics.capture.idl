@@ -91,6 +91,8 @@ namespace Windows
     {
         namespace Capture
         {
+            typedef enum GraphicsCaptureAccessKind GraphicsCaptureAccessKind;
+
             typedef enum GraphicsCaptureAccessStatus GraphicsCaptureAccessStatus;
 
             interface IDirect3D11CaptureFrame;
@@ -100,6 +102,8 @@ namespace Windows
             interface IDirect3D11CaptureFramePoolStatics;
 
             interface IDirect3D11CaptureFramePoolStatics2;
+
+            interface IGraphicsCaptureAccessStatics;
 
             interface IGraphicsCaptureItem;
 
@@ -118,6 +122,8 @@ namespace Windows
             runtimeclass Direct3D11CaptureFrame;
 
             runtimeclass Direct3D11CaptureFramePool;
+
+            runtimeclass GraphicsCaptureAccess;
 
             runtimeclass GraphicsCaptureItem;
 
@@ -157,11 +163,20 @@ namespace Windows
         namespace Capture
         {
             [contract(Windows.Foundation.UniversalApiContract, 11.0)]
+            enum GraphicsCaptureAccessKind
+            {
+                Programmatic = 0,
+                Borderless   = 1
+            };
+
+            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
             enum GraphicsCaptureAccessStatus
             {
-                Unspecified = 0,
-                Allowed     = 1,
-                Denied      = 2
+                DeniedBySystem     = 0,
+                NotDeclaredByApp   = 1,
+                DeniedByUser       = 2,
+                UserPromptRequired = 3,
+                Allowed            = 4
             };
 
             [contract(Windows.Foundation.UniversalApiContract, 6.0)]
@@ -203,6 +218,14 @@ namespace Windows
                 HRESULT CreateFreeThreaded([in] Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice* device, [in] Windows.Graphics.DirectX.DirectXPixelFormat pixelFormat, [in] INT32 numberOfBuffers, [in] Windows.Graphics.SizeInt32 size, [out] [retval] Windows.Graphics.Capture.Direct3D11CaptureFramePool** result);
             }
 
+            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
+            [exclusiveto(Windows.Graphics.Capture.GraphicsCaptureAccess)]
+            [uuid(3A72225E-434F-5EE1-9E23-42BFAA371AE5)]
+            interface IGraphicsCaptureAccessStatics : IInspectable
+            {
+                HRESULT RequestAccessAsync([in] Windows.Graphics.Capture.GraphicsCaptureAccessKind request, [out] [retval] Windows.Foundation.IAsyncOperation<Windows.Graphics.Capture.GraphicsCaptureAccessStatus>** operation);
+            }
+
             [contract(Windows.Foundation.UniversalApiContract, 6.0)]
             [exclusiveto(Windows.Graphics.Capture.GraphicsCaptureItem)]
             [uuid(79C3F95B-31F7-4EC2-A464-632EF5D30760)]
@@ -224,11 +247,10 @@ namespace Windows
 
             [contract(Windows.Foundation.UniversalApiContract, 11.0)]
             [exclusiveto(Windows.Graphics.Capture.GraphicsCaptureItem)]
-            [uuid(4E9AD975-AF28-5B42-A034-F3EF012404B9)]
+            [uuid(9828EB26-E8ED-5A2F-A237-8D7D7BA85776)]
             interface IGraphicsCaptureItemStatics2 : IInspectable
             {
                 HRESULT CreateFromWindowReference([in] Windows.UI.WindowReference* windowReference, [out] [retval] Windows.Graphics.Capture.GraphicsCaptureItem** result);
-                HRESULT RequestProgrammaticCaptureAccessAsync([out] [retval] Windows.Foundation.IAsyncOperation<Windows.Graphics.Capture.GraphicsCaptureAccessStatus>** operation);
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 6.0)]
@@ -281,6 +303,14 @@ namespace Windows
             {
                 [default] interface Windows.Graphics.Capture.IDirect3D11CaptureFramePool;
                 interface Windows.Foundation.IClosable;
+            }
+
+            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
+            [marshaling_behavior(agile)]
+            [static(Windows.Graphics.Capture.IGraphicsCaptureAccessStatics, Windows.Foundation.UniversalApiContract, 11.0)]
+            [threading(both)]
+            runtimeclass GraphicsCaptureAccess
+            {
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 6.0)]

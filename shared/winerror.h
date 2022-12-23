@@ -3340,6 +3340,16 @@
 //
 #define ERROR_UNTRUSTED_MOUNT_POINT      448L
 
+// Data Loss Prevention error code to suppress showing UX/error message. Still adding error text for consistency.
+//
+// MessageId: ERROR_DLP_POLICY_SILENTLY_FAIL
+//
+// MessageText:
+//
+// This action is blocked. Please refer to the data loss prevention notification for further information.
+//
+#define ERROR_DLP_POLICY_SILENTLY_FAIL   449L
+
 //
 // **** Available SYSTEM error codes ****
 //
@@ -41273,6 +41283,379 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 // COM+ partitions are currently disabled.
 //
 #define COMADMIN_E_PARTITIONS_DISABLED   _HRESULT_TYPEDEF_(0x80110824L)
+
+//
+// FACILITY_WINDOWS_CE
+// The following are MDM Registration and Enrollment errors
+// 
+//
+// MessageId: MENROLL_E_DEVICE_MESSAGE_FORMAT_ERROR
+//
+// MessageText:
+//
+// Invalid Schema, Message Format Error from server.
+//
+#define MENROLL_E_DEVICE_MESSAGE_FORMAT_ERROR _HRESULT_TYPEDEF_(0x80180001L)
+
+//
+// MessageId: MENROLL_E_DEVICE_AUTHENTICATION_ERROR
+//
+// MessageText:
+//
+// Server failed to authenticate the user.
+//
+#define MENROLL_E_DEVICE_AUTHENTICATION_ERROR _HRESULT_TYPEDEF_(0x80180002L)
+
+//
+// MessageId: MENROLL_E_DEVICE_AUTHORIZATION_ERROR
+//
+// MessageText:
+//
+// The user is not authorized to enroll.
+//
+#define MENROLL_E_DEVICE_AUTHORIZATION_ERROR _HRESULT_TYPEDEF_(0x80180003L)
+
+//
+// MessageId: MENROLL_E_DEVICE_CERTIFICATEREQUEST_ERROR
+//
+// MessageText:
+//
+// The user has no permission for the certificate template or the certificate authority is unreachable.
+//
+#define MENROLL_E_DEVICE_CERTIFICATEREQUEST_ERROR _HRESULT_TYPEDEF_(0x80180004L)
+
+//
+// MessageId: MENROLL_E_DEVICE_CONFIGMGRSERVER_ERROR
+//
+// MessageText:
+//
+// The MDM server encountered an error.
+//
+#define MENROLL_E_DEVICE_CONFIGMGRSERVER_ERROR _HRESULT_TYPEDEF_(0x80180005L)
+
+//
+// MessageId: MENROLL_E_DEVICE_INTERNALSERVICE_ERROR
+//
+// MessageText:
+//
+// There was an unhandled exception on the server.
+//
+#define MENROLL_E_DEVICE_INTERNALSERVICE_ERROR _HRESULT_TYPEDEF_(0x80180006L)
+
+//
+// MessageId: MENROLL_E_DEVICE_INVALIDSECURITY_ERROR
+//
+// MessageText:
+//
+// The server was not able to validate the user credentials.
+//
+#define MENROLL_E_DEVICE_INVALIDSECURITY_ERROR _HRESULT_TYPEDEF_(0x80180007L)
+
+//
+// MessageId: MENROLL_E_DEVICE_UNKNOWN_ERROR
+//
+// MessageText:
+//
+// Unknown server error.
+//
+#define MENROLL_E_DEVICE_UNKNOWN_ERROR   _HRESULT_TYPEDEF_(0x80180008L)
+
+//
+// MessageId: MENROLL_E_ENROLLMENT_IN_PROGRESS
+//
+// MessageText:
+//
+// Another enrollment operation is currently underway.
+//
+#define MENROLL_E_ENROLLMENT_IN_PROGRESS _HRESULT_TYPEDEF_(0x80180009L)
+
+//
+// MessageId: MENROLL_E_DEVICE_ALREADY_ENROLLED
+//
+// MessageText:
+//
+// The device is already enrolled.
+//
+#define MENROLL_E_DEVICE_ALREADY_ENROLLED _HRESULT_TYPEDEF_(0x8018000AL)
+
+//
+// MessageId: MENROLL_E_DISCOVERY_SEC_CERT_DATE_INVALID
+//
+// MessageText:
+//
+// During discovery the security certificate date was invalid.
+//
+#define MENROLL_E_DISCOVERY_SEC_CERT_DATE_INVALID _HRESULT_TYPEDEF_(0x8018000DL)
+
+//
+// MessageId: MENROLL_E_PASSWORD_NEEDED
+//
+// MessageText:
+//
+// A password is needed, but was not supplied.
+//
+#define MENROLL_E_PASSWORD_NEEDED        _HRESULT_TYPEDEF_(0x8018000EL)
+
+//
+// MessageId: MENROLL_E_WAB_ERROR
+//
+// MessageText:
+//
+// An error occurred during WAB enrollment.
+//
+#define MENROLL_E_WAB_ERROR              _HRESULT_TYPEDEF_(0x8018000FL)
+
+//
+// MessageId: MENROLL_E_CONNECTIVITY
+//
+// MessageText:
+//
+// A network error occurred, such as DNS or a network timeout.
+//
+#define MENROLL_E_CONNECTIVITY           _HRESULT_TYPEDEF_(0x80180010L)
+
+//
+// MessageId: MENROLL_S_ENROLLMENT_SUSPENDED
+//
+// MessageText:
+//
+// Enrollment was suspended.
+//
+#define MENROLL_S_ENROLLMENT_SUSPENDED   _HRESULT_TYPEDEF_(0x00180011L)
+
+//
+// MessageId: MENROLL_E_INVALIDSSLCERT
+//
+// MessageText:
+//
+// The SSL cert was not valid.
+//
+#define MENROLL_E_INVALIDSSLCERT         _HRESULT_TYPEDEF_(0x80180012L)
+
+//
+// MessageId: MENROLL_E_DEVICEAPREACHED
+//
+// MessageText:
+//
+// The account has too many devices enrolled. Delete or unenroll old ones to fix this error.
+//
+#define MENROLL_E_DEVICEAPREACHED        _HRESULT_TYPEDEF_(0x80180013L)
+
+//
+// MessageId: MENROLL_E_DEVICENOTSUPPORTED
+//
+// MessageText:
+//
+// A specific platform or version is not supported.
+//
+#define MENROLL_E_DEVICENOTSUPPORTED     _HRESULT_TYPEDEF_(0x80180014L)
+
+//
+// MessageId: MENROLL_E_NOT_SUPPORTED
+//
+// MessageText:
+//
+// Mobile device management is generally not supported for this device.
+//
+#define MENROLL_E_NOT_SUPPORTED          _HRESULT_TYPEDEF_(0x80180015L)
+
+//
+// MessageId: MENROLL_E_NOTELIGIBLETORENEW
+//
+// MessageText:
+//
+// The device is attempting to renew, but the server rejected the request. Check renew schedule on the device.
+//
+#define MENROLL_E_NOTELIGIBLETORENEW     _HRESULT_TYPEDEF_(0x80180016L)
+
+//
+// MessageId: MENROLL_E_INMAINTENANCE
+//
+// MessageText:
+//
+// Account is in maintenance; retry later.
+//
+#define MENROLL_E_INMAINTENANCE          _HRESULT_TYPEDEF_(0x80180017L)
+
+//
+// MessageId: MENROLL_E_USER_LICENSE
+//
+// MessageText:
+//
+// The license of the user is in bad state blocking enrollment.
+//
+#define MENROLL_E_USER_LICENSE           _HRESULT_TYPEDEF_(0x80180018L)
+
+//
+// MessageId: MENROLL_E_ENROLLMENTDATAINVALID
+//
+// MessageText:
+//
+// The server rejected the Enrollment Data.
+//
+#define MENROLL_E_ENROLLMENTDATAINVALID  _HRESULT_TYPEDEF_(0x80180019L)
+
+//
+// MessageId: MENROLL_E_INSECUREREDIRECT
+//
+// MessageText:
+//
+// The server requested HTTP rather than HTTPS but it was not accepted.
+//
+#define MENROLL_E_INSECUREREDIRECT       _HRESULT_TYPEDEF_(0x8018001AL)
+
+//
+// MessageId: MENROLL_E_PLATFORM_WRONG_STATE
+//
+// MessageText:
+//
+// An invalid operation was attempted, such as trying to enroll the same device twice or unenroll an unknown device.
+//
+#define MENROLL_E_PLATFORM_WRONG_STATE   _HRESULT_TYPEDEF_(0x8018001BL)
+
+//
+// MessageId: MENROLL_E_PLATFORM_LICENSE_ERROR
+//
+// MessageText:
+//
+// The version of Windows installed on the client does not support this enrollment type.
+//
+#define MENROLL_E_PLATFORM_LICENSE_ERROR _HRESULT_TYPEDEF_(0x8018001CL)
+
+//
+// MessageId: MENROLL_E_PLATFORM_UNKNOWN_ERROR
+//
+// MessageText:
+//
+// An error occurred on the client.
+//
+#define MENROLL_E_PLATFORM_UNKNOWN_ERROR _HRESULT_TYPEDEF_(0x8018001DL)
+
+//
+// MessageId: MENROLL_E_PROV_CSP_CERTSTORE
+//
+// MessageText:
+//
+// Provisioning failed in the certificate store CSP.
+//
+#define MENROLL_E_PROV_CSP_CERTSTORE     _HRESULT_TYPEDEF_(0x8018001EL)
+
+//
+// MessageId: MENROLL_E_PROV_CSP_W7
+//
+// MessageText:
+//
+// Provisioning failed in a W7/DMAcc CSP.
+//
+#define MENROLL_E_PROV_CSP_W7            _HRESULT_TYPEDEF_(0x8018001FL)
+
+//
+// MessageId: MENROLL_E_PROV_CSP_DMCLIENT
+//
+// MessageText:
+//
+// Provisioning failed in the DM client CSP.
+//
+#define MENROLL_E_PROV_CSP_DMCLIENT      _HRESULT_TYPEDEF_(0x80180020L)
+
+//
+// MessageId: MENROLL_E_PROV_CSP_PFW
+//
+// MessageText:
+//
+// Provisioning failed in the Passport for Work CSP.
+//
+#define MENROLL_E_PROV_CSP_PFW           _HRESULT_TYPEDEF_(0x80180021L)
+
+//
+// MessageId: MENROLL_E_PROV_CSP_MISC
+//
+// MessageText:
+//
+// Provisioning failed in an unspecified CSP.
+//
+#define MENROLL_E_PROV_CSP_MISC          _HRESULT_TYPEDEF_(0x80180022L)
+
+//
+// MessageId: MENROLL_E_PROV_UNKNOWN
+//
+// MessageText:
+//
+// Provisioning failed, but a specific CSP is not indicated.
+//
+#define MENROLL_E_PROV_UNKNOWN           _HRESULT_TYPEDEF_(0x80180023L)
+
+//
+// MessageId: MENROLL_E_PROV_SSLCERTNOTFOUND
+//
+// MessageText:
+//
+// When attempting to bind the public cert/private key, the public cert was not found either: when attempting to bind the public cert/private key, or when looking into provisioning payload.
+//
+#define MENROLL_E_PROV_SSLCERTNOTFOUND   _HRESULT_TYPEDEF_(0x80180024L)
+
+//
+// MessageId: MENROLL_E_PROV_CSP_APPMGMT
+//
+// MessageText:
+//
+// Provisioning failed in the EnterpriseAppManagement CSP.
+//
+#define MENROLL_E_PROV_CSP_APPMGMT       _HRESULT_TYPEDEF_(0x80180025L)
+
+//
+// MessageId: MENROLL_E_DEVICE_MANAGEMENT_BLOCKED
+//
+// MessageText:
+//
+// Mobile Device Management (MDM) was blocked, possibly by Group Policy or the SetManagedExternally function.
+//
+#define MENROLL_E_DEVICE_MANAGEMENT_BLOCKED _HRESULT_TYPEDEF_(0x80180026L)
+
+//
+// MessageId: MENROLL_E_CERTPOLICY_PRIVATEKEYCREATION_FAILED
+//
+// MessageText:
+//
+// Failed to create the private key.
+//
+#define MENROLL_E_CERTPOLICY_PRIVATEKEYCREATION_FAILED _HRESULT_TYPEDEF_(0x80180027L)
+
+//
+// MessageId: MENROLL_E_CERTAUTH_FAILED_TO_FIND_CERT
+//
+// MessageText:
+//
+// Certificate Authentication was requested, but failed to find a certificate to use.
+//
+#define MENROLL_E_CERTAUTH_FAILED_TO_FIND_CERT _HRESULT_TYPEDEF_(0x80180028L)
+
+//
+// MessageId: MENROLL_E_EMPTY_MESSAGE
+//
+// MessageText:
+//
+// The server responded with HTTP 200, but the message was empty.
+//
+#define MENROLL_E_EMPTY_MESSAGE          _HRESULT_TYPEDEF_(0x80180029L)
+
+//
+// MessageId: MENROLL_E_USER_CANCELLED
+//
+// MessageText:
+//
+// The user canceled the operation.
+//
+#define MENROLL_E_USER_CANCELLED         _HRESULT_TYPEDEF_(0x80180030L)
+
+//
+// MessageId: MENROLL_E_MDM_NOT_CONFIGURED
+//
+// MessageText:
+//
+// Mobile Device Management (MDM) is not configured.
+//
+#define MENROLL_E_MDM_NOT_CONFIGURED     _HRESULT_TYPEDEF_(0x80180031L)
 
 //
 // FACILITY_WER

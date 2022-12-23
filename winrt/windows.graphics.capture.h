@@ -177,6 +177,21 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CGraphics_CCapture_CIDirect3D11CaptureFramePoolStatics2_FWD_DEFINED__
 
+#ifndef ____x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace Graphics {
+            namespace Capture {
+                interface IGraphicsCaptureAccessStatics;
+            } /* Capture */
+        } /* Graphics */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics ABI::Windows::Graphics::Capture::IGraphicsCaptureAccessStatics
+
+#endif // ____x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItem_FWD_DEFINED__
 #define ____x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItem_FWD_DEFINED__
 namespace ABI {
@@ -621,6 +636,16 @@ namespace ABI {
     namespace Windows {
         namespace Graphics {
             namespace Capture {
+                typedef enum GraphicsCaptureAccessKind : int GraphicsCaptureAccessKind;
+            } /* Capture */
+        } /* Graphics */
+    } /* Windows */
+} /* ABI */
+
+namespace ABI {
+    namespace Windows {
+        namespace Graphics {
+            namespace Capture {
                 class Direct3D11CaptureFrame;
             } /* Capture */
         } /* Graphics */
@@ -639,6 +664,29 @@ namespace ABI {
 
 /*
  *
+ * Struct Windows.Graphics.Capture.GraphicsCaptureAccessKind
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+namespace ABI {
+    namespace Windows {
+        namespace Graphics {
+            namespace Capture {
+                enum GraphicsCaptureAccessKind : int
+                {
+                    GraphicsCaptureAccessKind_Programmatic = 0,
+                    GraphicsCaptureAccessKind_Borderless = 1,
+                };
+            } /* Capture */
+        } /* Graphics */
+    } /* Windows */
+} /* ABI */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
  * Struct Windows.Graphics.Capture.GraphicsCaptureAccessStatus
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
@@ -651,9 +699,11 @@ namespace ABI {
             namespace Capture {
                 enum GraphicsCaptureAccessStatus : int
                 {
-                    GraphicsCaptureAccessStatus_Unspecified = 0,
-                    GraphicsCaptureAccessStatus_Allowed = 1,
-                    GraphicsCaptureAccessStatus_Denied = 2,
+                    GraphicsCaptureAccessStatus_DeniedBySystem = 0,
+                    GraphicsCaptureAccessStatus_NotDeclaredByApp = 1,
+                    GraphicsCaptureAccessStatus_DeniedByUser = 2,
+                    GraphicsCaptureAccessStatus_UserPromptRequired = 3,
+                    GraphicsCaptureAccessStatus_Allowed = 4,
                 };
             } /* Capture */
         } /* Graphics */
@@ -841,6 +891,43 @@ EXTERN_C const IID IID___x_ABI_CWindows_CGraphics_CCapture_CIDirect3D11CaptureFr
 
 /*
  *
+ * Interface Windows.Graphics.Capture.IGraphicsCaptureAccessStatics
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Interface is a part of the implementation of type Windows.Graphics.Capture.GraphicsCaptureAccess
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Graphics_Capture_IGraphicsCaptureAccessStatics[] = L"Windows.Graphics.Capture.IGraphicsCaptureAccessStatics";
+namespace ABI {
+    namespace Windows {
+        namespace Graphics {
+            namespace Capture {
+                MIDL_INTERFACE("3a72225e-434f-5ee1-9e23-42bfaa371ae5")
+                IGraphicsCaptureAccessStatics : public IInspectable
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE RequestAccessAsync(
+                        ABI::Windows::Graphics::Capture::GraphicsCaptureAccessKind request,
+                        __FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus** operation
+                        ) = 0;
+                };
+
+                extern MIDL_CONST_ID IID& IID_IGraphicsCaptureAccessStatics = _uuidof(IGraphicsCaptureAccessStatics);
+            } /* Capture */
+        } /* Graphics */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics;
+#endif /* !defined(____x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
  * Interface Windows.Graphics.Capture.IGraphicsCaptureItem
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 6.0
@@ -939,16 +1026,13 @@ namespace ABI {
     namespace Windows {
         namespace Graphics {
             namespace Capture {
-                MIDL_INTERFACE("4e9ad975-af28-5b42-a034-f3ef012404b9")
+                MIDL_INTERFACE("9828eb26-e8ed-5a2f-a237-8d7d7ba85776")
                 IGraphicsCaptureItemStatics2 : public IInspectable
                 {
                 public:
                     virtual HRESULT STDMETHODCALLTYPE CreateFromWindowReference(
                         ABI::Windows::UI::IWindowReference* windowReference,
                         ABI::Windows::Graphics::Capture::IGraphicsCaptureItem** result
-                        ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE RequestProgrammaticCaptureAccessAsync(
-                        __FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus** operation
                         ) = 0;
                 };
 
@@ -1134,8 +1218,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 6.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Graphics.Capture.IDirect3D11CaptureFramePoolStatics interface starting with version 6.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Graphics.Capture.IDirect3D11CaptureFramePoolStatics2 interface starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Graphics.Capture.IDirect3D11CaptureFramePoolStatics interface starting with version 6.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Graphics.Capture.IDirect3D11CaptureFramePool ** Default Interface **
@@ -1155,13 +1239,34 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
+ * Class Windows.Graphics.Capture.GraphicsCaptureAccess
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * RuntimeClass contains static methods.
+ *   Static Methods exist on the Windows.Graphics.Capture.IGraphicsCaptureAccessStatics interface starting with version 11.0 of the Windows.Foundation.UniversalApiContract API contract
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#ifndef RUNTIMECLASS_Windows_Graphics_Capture_GraphicsCaptureAccess_DEFINED
+#define RUNTIMECLASS_Windows_Graphics_Capture_GraphicsCaptureAccess_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Graphics_Capture_GraphicsCaptureAccess[] = L"Windows.Graphics.Capture.GraphicsCaptureAccess";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
  * Class Windows.Graphics.Capture.GraphicsCaptureItem
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 6.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Graphics.Capture.IGraphicsCaptureItemStatics interface starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Graphics.Capture.IGraphicsCaptureItemStatics2 interface starting with version 11.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Graphics.Capture.IGraphicsCaptureItemStatics interface starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Graphics.Capture.IGraphicsCaptureItem ** Default Interface **
@@ -1253,6 +1358,12 @@ typedef interface __x_ABI_CWindows_CGraphics_CCapture_CIDirect3D11CaptureFramePo
 typedef interface __x_ABI_CWindows_CGraphics_CCapture_CIDirect3D11CaptureFramePoolStatics2 __x_ABI_CWindows_CGraphics_CCapture_CIDirect3D11CaptureFramePoolStatics2;
 
 #endif // ____x_ABI_CWindows_CGraphics_CCapture_CIDirect3D11CaptureFramePoolStatics2_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics;
+
+#endif // ____x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItem_FWD_DEFINED__
 #define ____x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItem_FWD_DEFINED__
@@ -1692,6 +1803,23 @@ typedef interface __x_ABI_CWindows_CUI_CIWindowReference __x_ABI_CWindows_CUI_CI
 
 #endif // ____x_ABI_CWindows_CUI_CIWindowReference_FWD_DEFINED__
 
+typedef enum __x_ABI_CWindows_CGraphics_CCapture_CGraphicsCaptureAccessKind __x_ABI_CWindows_CGraphics_CCapture_CGraphicsCaptureAccessKind;
+
+/*
+ *
+ * Struct Windows.Graphics.Capture.GraphicsCaptureAccessKind
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+enum __x_ABI_CWindows_CGraphics_CCapture_CGraphicsCaptureAccessKind
+{
+    GraphicsCaptureAccessKind_Programmatic = 0,
+    GraphicsCaptureAccessKind_Borderless = 1,
+};
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
 /*
  *
  * Struct Windows.Graphics.Capture.GraphicsCaptureAccessStatus
@@ -1702,9 +1830,11 @@ typedef interface __x_ABI_CWindows_CUI_CIWindowReference __x_ABI_CWindows_CUI_CI
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 enum __x_ABI_CWindows_CGraphics_CCapture_CGraphicsCaptureAccessStatus
 {
-    GraphicsCaptureAccessStatus_Unspecified = 0,
-    GraphicsCaptureAccessStatus_Allowed = 1,
-    GraphicsCaptureAccessStatus_Denied = 2,
+    GraphicsCaptureAccessStatus_DeniedBySystem = 0,
+    GraphicsCaptureAccessStatus_NotDeclaredByApp = 1,
+    GraphicsCaptureAccessStatus_DeniedByUser = 2,
+    GraphicsCaptureAccessStatus_UserPromptRequired = 3,
+    GraphicsCaptureAccessStatus_Allowed = 4,
 };
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
@@ -2034,6 +2164,76 @@ EXTERN_C const IID IID___x_ABI_CWindows_CGraphics_CCapture_CIDirect3D11CaptureFr
 
 /*
  *
+ * Interface Windows.Graphics.Capture.IGraphicsCaptureAccessStatics
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Interface is a part of the implementation of type Windows.Graphics.Capture.GraphicsCaptureAccess
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Graphics_Capture_IGraphicsCaptureAccessStatics[] = L"Windows.Graphics.Capture.IGraphicsCaptureAccessStatics";
+typedef struct __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStaticsVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* RequestAccessAsync)(__x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics* This,
+        enum __x_ABI_CWindows_CGraphics_CCapture_CGraphicsCaptureAccessKind request,
+        __FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus** operation);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStaticsVtbl;
+
+interface __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics
+{
+    CONST_VTBL struct __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStaticsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics_RequestAccessAsync(This, request, operation) \
+    ((This)->lpVtbl->RequestAccessAsync(This, request, operation))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics;
+#endif /* !defined(____x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureAccessStatics_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
  * Interface Windows.Graphics.Capture.IGraphicsCaptureItem
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 6.0
@@ -2219,8 +2419,6 @@ typedef struct __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItemStatics2
     HRESULT (STDMETHODCALLTYPE* CreateFromWindowReference)(__x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItemStatics2* This,
         __x_ABI_CWindows_CUI_CIWindowReference* windowReference,
         __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItem** result);
-    HRESULT (STDMETHODCALLTYPE* RequestProgrammaticCaptureAccessAsync)(__x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItemStatics2* This,
-        __FIAsyncOperation_1_Windows__CGraphics__CCapture__CGraphicsCaptureAccessStatus** operation);
 
     END_INTERFACE
 } __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItemStatics2Vtbl;
@@ -2252,9 +2450,6 @@ interface __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItemStatics2
 
 #define __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItemStatics2_CreateFromWindowReference(This, windowReference, result) \
     ((This)->lpVtbl->CreateFromWindowReference(This, windowReference, result))
-
-#define __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItemStatics2_RequestProgrammaticCaptureAccessAsync(This, operation) \
-    ((This)->lpVtbl->RequestProgrammaticCaptureAccessAsync(This, operation))
 
 #endif /* COBJMACROS */
 
@@ -2569,8 +2764,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 6.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Graphics.Capture.IDirect3D11CaptureFramePoolStatics interface starting with version 6.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Graphics.Capture.IDirect3D11CaptureFramePoolStatics2 interface starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Graphics.Capture.IDirect3D11CaptureFramePoolStatics interface starting with version 6.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Graphics.Capture.IDirect3D11CaptureFramePool ** Default Interface **
@@ -2590,13 +2785,34 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
+ * Class Windows.Graphics.Capture.GraphicsCaptureAccess
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * RuntimeClass contains static methods.
+ *   Static Methods exist on the Windows.Graphics.Capture.IGraphicsCaptureAccessStatics interface starting with version 11.0 of the Windows.Foundation.UniversalApiContract API contract
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#ifndef RUNTIMECLASS_Windows_Graphics_Capture_GraphicsCaptureAccess_DEFINED
+#define RUNTIMECLASS_Windows_Graphics_Capture_GraphicsCaptureAccess_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_Graphics_Capture_GraphicsCaptureAccess[] = L"Windows.Graphics.Capture.GraphicsCaptureAccess";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
  * Class Windows.Graphics.Capture.GraphicsCaptureItem
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 6.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Graphics.Capture.IGraphicsCaptureItemStatics interface starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Graphics.Capture.IGraphicsCaptureItemStatics2 interface starting with version 11.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Graphics.Capture.IGraphicsCaptureItemStatics interface starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Graphics.Capture.IGraphicsCaptureItem ** Default Interface **

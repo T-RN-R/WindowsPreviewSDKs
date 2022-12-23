@@ -15926,11 +15926,11 @@ SetProcessRestrictionExemption(
 
 #if (NTDDI_VERSION >= NTDDI_WIN10_MN)
 
-WINUSERAPI 
-BOOL 
-WINAPI 
-EnlightenWindowForContentRects( 
-    HWND hwnd); 
+WINUSERAPI
+BOOL
+WINAPI
+EnlightenWindowForContentRects(
+    HWND hwnd);
 
 WINUSERAPI
 BOOL

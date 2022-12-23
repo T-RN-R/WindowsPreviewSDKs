@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200316.3
+// C++/WinRT v2.0.200303.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -12,7 +12,6 @@
 #include <charconv>
 #include <chrono>
 #include <cstddef>
-#include <iterator>
 #include <map>
 #include <memory>
 #include <optional>
@@ -345,7 +344,6 @@ namespace winrt::impl
     constexpr hresult error_out_of_bounds{ static_cast<hresult>(0x8000000B) }; // E_BOUNDS
     constexpr hresult error_no_interface{ static_cast<hresult>(0x80004002) }; // E_NOINTERFACE
     constexpr hresult error_class_not_available{ static_cast<hresult>(0x80040111) }; // CLASS_E_CLASSNOTAVAILABLE
-    constexpr hresult error_class_not_registered{ static_cast<hresult>(0x80040154) }; // REGDB_E_CLASSNOTREG
     constexpr hresult error_changed_state{ static_cast<hresult>(0x8000000C) }; // E_CHANGED_STATE
     constexpr hresult error_illegal_method_call{ static_cast<hresult>(0x8000000E) }; // E_ILLEGAL_METHOD_CALL
     constexpr hresult error_illegal_state_change{ static_cast<hresult>(0x8000000D) }; // E_ILLEGAL_STATE_CHANGE
@@ -438,8 +436,6 @@ extern "C"
 
 #ifdef _M_HYBRID
 #define WINRT_IMPL_LINK(function, count) __pragma(comment(linker, "/alternatename:#WINRT_IMPL_" #function "@" #count "=#" #function "@" #count))
-#elif _M_ARM64EC
-#define WINRT_IMPL_LINK(function, count) __pragma(comment(linker, "/alternatename:#WINRT_IMPL_" #function "=#" #function))
 #elif _M_IX86
 #define WINRT_IMPL_LINK(function, count) __pragma(comment(linker, "/alternatename:_WINRT_IMPL_" #function "@" #count "=_" #function "@" #count))
 #else
@@ -449,6 +445,7 @@ extern "C"
 WINRT_IMPL_LINK(LoadLibraryW, 4)
 WINRT_IMPL_LINK(FreeLibrary, 4)
 WINRT_IMPL_LINK(GetProcAddress, 8)
+
 WINRT_IMPL_LINK(SetErrorInfo, 8)
 WINRT_IMPL_LINK(GetErrorInfo, 8)
 WINRT_IMPL_LINK(CoInitializeEx, 8)
@@ -4574,13 +4571,6 @@ WINRT_EXPORT namespace winrt
         hresult_class_not_available(take_ownership_from_abi_t) noexcept : hresult_error(impl::error_class_not_available, take_ownership_from_abi) {}
     };
 
-    struct hresult_class_not_registered : hresult_error
-    {
-        hresult_class_not_registered() noexcept : hresult_error(impl::error_class_not_registered) {}
-        hresult_class_not_registered(param::hstring const& message) noexcept : hresult_error(impl::error_class_not_registered, message) {}
-        hresult_class_not_registered(take_ownership_from_abi_t) noexcept : hresult_error(impl::error_class_not_registered, take_ownership_from_abi) {}
-    };
-
     struct hresult_changed_state : hresult_error
     {
         hresult_changed_state() noexcept : hresult_error(impl::error_changed_state) {}
@@ -4656,11 +4646,6 @@ WINRT_EXPORT namespace winrt
         if (result == impl::error_class_not_available)
         {
             throw hresult_class_not_available(take_ownership_from_abi);
-        }
-
-        if (result == impl::error_class_not_registered)
-        {
-            throw hresult_class_not_registered(take_ownership_from_abi);
         }
 
         if (result == impl::error_changed_state)
@@ -5681,9 +5666,6 @@ namespace winrt::impl
             return 0;
         }
 
-        com_ptr<IErrorInfo> error_info;
-        WINRT_IMPL_GetErrorInfo(0, error_info.put_void());
-
         std::wstring path{ static_cast<hstring const&>(name) };
         std::size_t count{};
 
@@ -5726,8 +5708,7 @@ namespace winrt::impl
             }
         }
 
-        WINRT_IMPL_SetErrorInfo(0, error_info.get());
-        return hr;
+        return error_class_not_available;
     }
 }
 
@@ -8696,7 +8677,7 @@ decltype(winrt::impl::natvis::get_val) & WINRT_get_val = winrt::impl::natvis::ge
 
 #endif
 
-#define CPPWINRT_VERSION "2.0.200316.3"
+#define CPPWINRT_VERSION "2.0.200303.2"
 
 // WINRT_version is used by Microsoft to analyze C++/WinRT library adoption and inform future product decisions.
 extern "C"

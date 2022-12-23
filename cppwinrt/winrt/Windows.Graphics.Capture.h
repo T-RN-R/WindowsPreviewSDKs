@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200316.3
+// C++/WinRT v2.0.200303.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_Graphics_Capture_H
 #define WINRT_Windows_Graphics_Capture_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200316.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200303.2"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.Graphics.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Graphics.2.h"
@@ -84,6 +84,12 @@ namespace winrt::impl
         check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Capture::IDirect3D11CaptureFramePoolStatics2)->CreateFreeThreaded(*(void**)(&device), static_cast<int32_t>(pixelFormat), numberOfBuffers, impl::bind_in(size), &result));
         return Windows::Graphics::Capture::Direct3D11CaptureFramePool{ result, take_ownership_from_abi };
     }
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Graphics::Capture::GraphicsCaptureAccessStatus>) consume_Windows_Graphics_Capture_IGraphicsCaptureAccessStatics<D>::RequestAccessAsync(Windows::Graphics::Capture::GraphicsCaptureAccessKind const& request) const
+    {
+        void* operation{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Capture::IGraphicsCaptureAccessStatics)->RequestAccessAsync(static_cast<int32_t>(request), &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Graphics::Capture::GraphicsCaptureAccessStatus>{ operation, take_ownership_from_abi };
+    }
     template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Graphics_Capture_IGraphicsCaptureItem<D>::DisplayName() const
     {
         void* value{};
@@ -121,12 +127,6 @@ namespace winrt::impl
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Capture::IGraphicsCaptureItemStatics2)->CreateFromWindowReference(*(void**)(&windowReference), &result));
         return Windows::Graphics::Capture::GraphicsCaptureItem{ result, take_ownership_from_abi };
-    }
-    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Graphics::Capture::GraphicsCaptureAccessStatus>) consume_Windows_Graphics_Capture_IGraphicsCaptureItemStatics2<D>::RequestProgrammaticCaptureAccessAsync() const
-    {
-        void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Capture::IGraphicsCaptureItemStatics2)->RequestProgrammaticCaptureAccessAsync(&operation));
-        return Windows::Foundation::IAsyncOperation<Windows::Graphics::Capture::GraphicsCaptureAccessStatus>{ operation, take_ownership_from_abi };
     }
     template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Graphics::Capture::GraphicsCaptureItem>) consume_Windows_Graphics_Capture_IGraphicsCapturePicker<D>::PickSingleItemAsync() const
     {
@@ -265,6 +265,20 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
+    struct produce<D, Windows::Graphics::Capture::IGraphicsCaptureAccessStatics> : produce_base<D, Windows::Graphics::Capture::IGraphicsCaptureAccessStatics>
+    {
+        int32_t __stdcall RequestAccessAsync(int32_t request, void** operation) noexcept final try
+        {
+            clear_abi(operation);
+            typename D::abi_guard guard(this->shim());
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Graphics::Capture::GraphicsCaptureAccessStatus>>(this->shim().RequestAccessAsync(*reinterpret_cast<Windows::Graphics::Capture::GraphicsCaptureAccessKind const*>(&request)));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
     struct produce<D, Windows::Graphics::Capture::IGraphicsCaptureItem> : produce_base<D, Windows::Graphics::Capture::IGraphicsCaptureItem>
     {
         int32_t __stdcall get_DisplayName(void** value) noexcept final try
@@ -322,14 +336,6 @@ namespace winrt::impl
             clear_abi(result);
             typename D::abi_guard guard(this->shim());
             *result = detach_from<Windows::Graphics::Capture::GraphicsCaptureItem>(this->shim().CreateFromWindowReference(*reinterpret_cast<Windows::UI::WindowReference const*>(&windowReference)));
-            return 0;
-        }
-        catch (...) { return to_hresult(); }
-        int32_t __stdcall RequestProgrammaticCaptureAccessAsync(void** operation) noexcept final try
-        {
-            clear_abi(operation);
-            typename D::abi_guard guard(this->shim());
-            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Graphics::Capture::GraphicsCaptureAccessStatus>>(this->shim().RequestProgrammaticCaptureAccessAsync());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -406,6 +412,10 @@ WINRT_EXPORT namespace winrt::Windows::Graphics::Capture
     {
         return impl::call_factory<Direct3D11CaptureFramePool, IDirect3D11CaptureFramePoolStatics2>([&](IDirect3D11CaptureFramePoolStatics2 const& f) { return f.CreateFreeThreaded(device, pixelFormat, numberOfBuffers, size); });
     }
+    inline auto GraphicsCaptureAccess::RequestAccessAsync(Windows::Graphics::Capture::GraphicsCaptureAccessKind const& request)
+    {
+        return impl::call_factory<GraphicsCaptureAccess, IGraphicsCaptureAccessStatics>([&](IGraphicsCaptureAccessStatics const& f) { return f.RequestAccessAsync(request); });
+    }
     inline auto GraphicsCaptureItem::CreateFromVisual(Windows::UI::Composition::Visual const& visual)
     {
         return impl::call_factory<GraphicsCaptureItem, IGraphicsCaptureItemStatics>([&](IGraphicsCaptureItemStatics const& f) { return f.CreateFromVisual(visual); });
@@ -413,10 +423,6 @@ WINRT_EXPORT namespace winrt::Windows::Graphics::Capture
     inline auto GraphicsCaptureItem::CreateFromWindowReference(Windows::UI::WindowReference const& windowReference)
     {
         return impl::call_factory<GraphicsCaptureItem, IGraphicsCaptureItemStatics2>([&](IGraphicsCaptureItemStatics2 const& f) { return f.CreateFromWindowReference(windowReference); });
-    }
-    inline auto GraphicsCaptureItem::RequestProgrammaticCaptureAccessAsync()
-    {
-        return impl::call_factory_cast<Windows::Foundation::IAsyncOperation<Windows::Graphics::Capture::GraphicsCaptureAccessStatus>(*)(IGraphicsCaptureItemStatics2 const&), GraphicsCaptureItem, IGraphicsCaptureItemStatics2>([](IGraphicsCaptureItemStatics2 const& f) { return f.RequestProgrammaticCaptureAccessAsync(); });
     }
     inline GraphicsCapturePicker::GraphicsCapturePicker() :
         GraphicsCapturePicker(impl::call_factory_cast<GraphicsCapturePicker(*)(Windows::Foundation::IActivationFactory const&), GraphicsCapturePicker>([](Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<GraphicsCapturePicker>(); }))
@@ -434,6 +440,7 @@ namespace std
     template<> struct hash<winrt::Windows::Graphics::Capture::IDirect3D11CaptureFramePool> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Graphics::Capture::IDirect3D11CaptureFramePoolStatics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Graphics::Capture::IDirect3D11CaptureFramePoolStatics2> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Graphics::Capture::IGraphicsCaptureAccessStatics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Graphics::Capture::IGraphicsCaptureItem> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Graphics::Capture::IGraphicsCaptureItemStatics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Graphics::Capture::IGraphicsCaptureItemStatics2> : winrt::impl::hash_base {};
@@ -443,6 +450,7 @@ namespace std
     template<> struct hash<winrt::Windows::Graphics::Capture::IGraphicsCaptureSessionStatics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Graphics::Capture::Direct3D11CaptureFrame> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Graphics::Capture::Direct3D11CaptureFramePool> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Graphics::Capture::GraphicsCaptureAccess> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Graphics::Capture::GraphicsCaptureItem> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Graphics::Capture::GraphicsCapturePicker> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Graphics::Capture::GraphicsCaptureSession> : winrt::impl::hash_base {};
