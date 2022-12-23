@@ -25351,6 +25351,24 @@ Notes:
 #define STATUS_SPACES_PD_INVALID_DATA    ((NTSTATUS)0xC0E70024L)
 
 //
+// MessageId: STATUS_SPACES_FLUSH_METADATA
+//
+// MessageText:
+//
+// The cache metadata needs to be written and flushed.
+//
+#define STATUS_SPACES_FLUSH_METADATA     ((NTSTATUS)0xC0E70025L)
+
+//
+// MessageId: STATUS_SPACES_CACHE_FULL
+//
+// MessageText:
+//
+// The cache is full.
+//
+#define STATUS_SPACES_CACHE_FULL         ((NTSTATUS)0xC0E70026L)
+
+//
 // Volsnap status codes (volsnap.sys)
 //
 //

@@ -997,8 +997,8 @@ EXTERN_C const IID IID_IMMDeviceActivator;
 /* IMMDeviceActivator is reserved for system use */
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 #pragma endregion
-#pragma region Application Family
-#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
+#pragma region Application or Games Family
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)
 
 
 
@@ -1203,7 +1203,7 @@ STDAPI ActivateAudioInterfaceAsync(
     );
 // The AUDIOCLIENT_ACTIVATION_PARAMS structure can be used when creating an IAudioClient.
 // It is defined in AudioClientActivationParams.h
-#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 #pragma region Desktop Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)

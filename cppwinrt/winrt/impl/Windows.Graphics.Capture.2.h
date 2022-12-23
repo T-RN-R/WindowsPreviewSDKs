@@ -38,8 +38,8 @@ WINRT_EXPORT namespace winrt::Windows::Graphics::Capture
         GraphicsCaptureItem(std::nullptr_t) noexcept {}
         GraphicsCaptureItem(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Graphics::Capture::IGraphicsCaptureItem(ptr, take_ownership_from_abi) {}
         static auto CreateFromVisual(Windows::UI::Composition::Visual const& visual);
-        static auto CreateFromWindowId(Windows::UI::WindowId const& windowId);
-        static auto CreateFromDisplayId(Windows::Graphics::DisplayId const& displayId);
+        static auto TryCreateFromWindowId(Windows::UI::WindowId const& windowId);
+        static auto TryCreateFromDisplayId(Windows::Graphics::DisplayId const& displayId);
     };
     struct __declspec(empty_bases) GraphicsCapturePicker : Windows::Graphics::Capture::IGraphicsCapturePicker
     {

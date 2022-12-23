@@ -76,8 +76,8 @@ extern "C"{
 /* [local] */ 
 
 #include <winapifamily.h>
-#pragma region Application Family
-#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
+#pragma region Application and Games Family
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)
 typedef 
 enum SpatialAudioHrtfDirectivityType
     {
@@ -515,7 +515,7 @@ EXTERN_C const IID IID_ISpatialAudioObjectRenderStreamForHrtf;
 /* interface __MIDL_itf_spatialaudiohrtf_0000_0002 */
 /* [local] */ 
 
-#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */
 
 
 extern RPC_IF_HANDLE __MIDL_itf_spatialaudiohrtf_0000_0002_v0_0_c_ifspec;

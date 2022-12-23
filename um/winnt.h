@@ -13793,6 +13793,7 @@ typedef struct _SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
 // 8    IPT                                 Supervisor
 //
 // 11   CET_U                               Supervisor
+// 12   CET_S                               Supervisor (Cannot be used by NT! Only defined for SK intercept purposes!)
 //
 // 17   TILE_CONFIG
 // 18   TILE_DATA                           XFD, Large
@@ -13813,6 +13814,7 @@ typedef struct _SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
 #define XSTATE_AVX512_ZMM                   (7)
 #define XSTATE_IPT                          (8)
 #define XSTATE_CET_U                        (11)
+#define XSTATE_CET_S                        (12)
 #define XSTATE_AMX_TILE_CONFIG              (17)
 #define XSTATE_AMX_TILE_DATA                (18)
 #define XSTATE_LWP                          (62)
@@ -13838,6 +13840,7 @@ typedef struct _SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
 
 #define XSTATE_MASK_IPT                     (1ui64 << (XSTATE_IPT))
 #define XSTATE_MASK_CET_U                   (1ui64 << (XSTATE_CET_U))
+#define XSTATE_MASK_CET_S                   (1ui64 << (XSTATE_CET_S))
 #define XSTATE_MASK_AMX_TILE_CONFIG         (1ui64 << (XSTATE_AMX_TILE_CONFIG))
 #define XSTATE_MASK_AMX_TILE_DATA           (1ui64 << (XSTATE_AMX_TILE_DATA))
 #define XSTATE_MASK_LWP                     (1ui64 << (XSTATE_LWP))
