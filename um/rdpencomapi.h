@@ -3,7 +3,7 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0623 */
+ /* File created by MIDL compiler version 8.01.0624 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
@@ -187,13 +187,6 @@ typedef interface IRDPSRAPIViewer IRDPSRAPIViewer;
 #endif 	/* __IRDPSRAPIViewer_FWD_DEFINED__ */
 
 
-#ifndef __IRDPViewerRenderingSurface_FWD_DEFINED__
-#define __IRDPViewerRenderingSurface_FWD_DEFINED__
-typedef interface IRDPViewerRenderingSurface IRDPViewerRenderingSurface;
-
-#endif 	/* __IRDPViewerRenderingSurface_FWD_DEFINED__ */
-
-
 #ifndef __IRDPViewerInputSink_FWD_DEFINED__
 #define __IRDPViewerInputSink_FWD_DEFINED__
 typedef interface IRDPViewerInputSink IRDPViewerInputSink;
@@ -248,13 +241,6 @@ typedef interface IRDPSRAPISharingSession2 IRDPSRAPISharingSession2;
 typedef interface _IRDPSessionEvents _IRDPSessionEvents;
 
 #endif 	/* ___IRDPSessionEvents_FWD_DEFINED__ */
-
-
-#ifndef __IRDPViewerRenderingSurface_FWD_DEFINED__
-#define __IRDPViewerRenderingSurface_FWD_DEFINED__
-typedef interface IRDPViewerRenderingSurface IRDPViewerRenderingSurface;
-
-#endif 	/* __IRDPViewerRenderingSurface_FWD_DEFINED__ */
 
 
 #ifndef __IRDPViewerInputSink_FWD_DEFINED__
@@ -4086,103 +4072,6 @@ EXTERN_C const IID IID_IRDPSRAPIViewer;
 #endif 	/* __IRDPSRAPIViewer_INTERFACE_DEFINED__ */
 
 
-#ifndef __IRDPViewerRenderingSurface_INTERFACE_DEFINED__
-#define __IRDPViewerRenderingSurface_INTERFACE_DEFINED__
-
-/* interface IRDPViewerRenderingSurface */
-/* [unique][uuid][object] */ 
-
-
-EXTERN_C const IID IID_IRDPViewerRenderingSurface;
-
-#if defined(__cplusplus) && !defined(CINTERFACE)
-    
-    MIDL_INTERFACE("56bfce32-83e9-414d-82e8-f31d01c62cb5")
-    IRDPViewerRenderingSurface : public IUnknown
-    {
-    public:
-        virtual /* [id] */ HRESULT STDMETHODCALLTYPE SetRenderingSurface( 
-            /* [in] */ __RPC__in_opt IUnknown *pRenderingSurface,
-            /* [in] */ long surfaceWidth,
-            /* [in] */ long surfaceHeight) = 0;
-        
-    };
-    
-    
-#else 	/* C style interface */
-
-    typedef struct IRDPViewerRenderingSurfaceVtbl
-    {
-        BEGIN_INTERFACE
-        
-        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
-            __RPC__in IRDPViewerRenderingSurface * This,
-            /* [in] */ __RPC__in REFIID riid,
-            /* [annotation][iid_is][out] */ 
-            _COM_Outptr_  void **ppvObject);
-        
-        DECLSPEC_XFGVIRT(IUnknown, AddRef)
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
-            __RPC__in IRDPViewerRenderingSurface * This);
-        
-        DECLSPEC_XFGVIRT(IUnknown, Release)
-        ULONG ( STDMETHODCALLTYPE *Release )( 
-            __RPC__in IRDPViewerRenderingSurface * This);
-        
-        DECLSPEC_XFGVIRT(IRDPViewerRenderingSurface, SetRenderingSurface)
-        /* [id] */ HRESULT ( STDMETHODCALLTYPE *SetRenderingSurface )( 
-            __RPC__in IRDPViewerRenderingSurface * This,
-            /* [in] */ __RPC__in_opt IUnknown *pRenderingSurface,
-            /* [in] */ long surfaceWidth,
-            /* [in] */ long surfaceHeight);
-        
-        END_INTERFACE
-    } IRDPViewerRenderingSurfaceVtbl;
-
-    interface IRDPViewerRenderingSurface
-    {
-        CONST_VTBL struct IRDPViewerRenderingSurfaceVtbl *lpVtbl;
-    };
-
-    
-
-#ifdef COBJMACROS
-
-
-#define IRDPViewerRenderingSurface_QueryInterface(This,riid,ppvObject)	\
-    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
-
-#define IRDPViewerRenderingSurface_AddRef(This)	\
-    ( (This)->lpVtbl -> AddRef(This) ) 
-
-#define IRDPViewerRenderingSurface_Release(This)	\
-    ( (This)->lpVtbl -> Release(This) ) 
-
-
-#define IRDPViewerRenderingSurface_SetRenderingSurface(This,pRenderingSurface,surfaceWidth,surfaceHeight)	\
-    ( (This)->lpVtbl -> SetRenderingSurface(This,pRenderingSurface,surfaceWidth,surfaceHeight) ) 
-
-#endif /* COBJMACROS */
-
-
-#endif 	/* C style interface */
-
-
-
-
-#endif 	/* __IRDPViewerRenderingSurface_INTERFACE_DEFINED__ */
-
-
-/* interface __MIDL_itf_rdpencomapi_0000_0021 */
-/* [local] */ 
-
-#pragma deprecated(IRDPViewerRenderingSurface)
-
-
-extern RPC_IF_HANDLE __MIDL_itf_rdpencomapi_0000_0021_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_rdpencomapi_0000_0021_v0_0_s_ifspec;
-
 #ifndef __IRDPViewerInputSink_INTERFACE_DEFINED__
 #define __IRDPViewerInputSink_INTERFACE_DEFINED__
 
@@ -5545,7 +5434,7 @@ EXTERN_C const IID IID_IRDPSRAPISharingSession2;
 /* [version][uuid] */ 
 
 typedef /* [public] */ 
-enum __MIDL___MIDL_itf_rdpencomapi_0000_0028_0001
+enum __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001
     {
         CONST_MAX_CHANNEL_MESSAGE_SIZE	= 1024,
         CONST_MAX_CHANNEL_NAME_LEN	= 8,
@@ -5567,7 +5456,6 @@ typedef /* [hidden] */ struct __ReferenceRemainingTypes__
     RDPSRAPI_WND_FLAGS __rdpsrapiWndFlags__;
     RDPSRAPI_APP_FLAGS __rdpsrapiAppFlags__;
     } 	__ReferenceRemainingTypes__;
-
 
 
 
@@ -5834,7 +5722,7 @@ RDPTransportStreamEvents;
 #endif
 #endif /* __RDPCOMAPILib_LIBRARY_DEFINED__ */
 
-/* interface __MIDL_itf_rdpencomapi_0000_0029 */
+/* interface __MIDL_itf_rdpencomapi_0000_0028 */
 /* [local] */ 
 
 #if !WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
@@ -5846,8 +5734,8 @@ RDPTransportStreamEvents;
 #pragma endregion
 
 
-extern RPC_IF_HANDLE __MIDL_itf_rdpencomapi_0000_0029_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_rdpencomapi_0000_0029_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_rdpencomapi_0000_0028_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_rdpencomapi_0000_0028_v0_0_s_ifspec;
 
 /* Additional Prototypes for ALL interfaces */
 

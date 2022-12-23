@@ -156,8 +156,6 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Activation
         StartupTask = 1020,
         CommandLineLaunch = 1021,
         BarcodeScannerProvider = 1022,
-        PrintSupportJobUI = 1023,
-        PrintSupportSettingsUI = 1024,
         PhoneCallActivation = 1025,
     };
     enum class ApplicationExecutionState : int32_t

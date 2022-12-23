@@ -129,6 +129,7 @@ WINRT_EXPORT namespace winrt::Windows::Security::Isolation
     struct IIsolatedWindowsEnvironmentHostStatics;
     struct IIsolatedWindowsEnvironmentLaunchFileResult;
     struct IIsolatedWindowsEnvironmentOptions;
+    struct IIsolatedWindowsEnvironmentOptions2;
     struct IIsolatedWindowsEnvironmentOwnerRegistrationData;
     struct IIsolatedWindowsEnvironmentOwnerRegistrationResult;
     struct IIsolatedWindowsEnvironmentOwnerRegistrationStatics;
@@ -178,6 +179,7 @@ namespace winrt::impl
     template <> struct category<Windows::Security::Isolation::IIsolatedWindowsEnvironmentHostStatics>{ using type = interface_category; };
     template <> struct category<Windows::Security::Isolation::IIsolatedWindowsEnvironmentLaunchFileResult>{ using type = interface_category; };
     template <> struct category<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions2>{ using type = interface_category; };
     template <> struct category<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationData>{ using type = interface_category; };
     template <> struct category<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationResult>{ using type = interface_category; };
     template <> struct category<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationStatics>{ using type = interface_category; };
@@ -272,6 +274,7 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentHostStatics> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentHostStatics";
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentLaunchFileResult> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentLaunchFileResult";
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOptions";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions2> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOptions2";
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationData> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOwnerRegistrationData";
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationResult> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOwnerRegistrationResult";
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationStatics> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOwnerRegistrationStatics";
@@ -298,6 +301,7 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentHostStatics>{ 0x2C0E22C7,0x05A0,0x517A,{ 0xB8,0x1C,0x6E,0xE8,0x79,0x0C,0x38,0x1F } }; // 2C0E22C7-05A0-517A-B81C-6EE8790C381F
     template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentLaunchFileResult>{ 0x685D4176,0xF6E0,0x4569,{ 0xB1,0xAA,0x21,0x5C,0x0F,0xF5,0xB2,0x57 } }; // 685D4176-F6E0-4569-B1AA-215C0FF5B257
     template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions>{ 0xB71D98F7,0x61F0,0x4008,{ 0xB2,0x07,0x0B,0xF9,0xEB,0x2D,0x76,0xF2 } }; // B71D98F7-61F0-4008-B207-0BF9EB2D76F2
+    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions2>{ 0x10D7CC31,0x8B8F,0x4B9D,{ 0xB2,0x2C,0x61,0x71,0x03,0xB5,0x5B,0x08 } }; // 10D7CC31-8B8F-4B9D-B22C-617103B55B08
     template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationData>{ 0xF888EC22,0xE8CF,0x56C0,{ 0xB1,0xDF,0x90,0xAF,0x4A,0xD8,0x0E,0x84 } }; // F888EC22-E8CF-56C0-B1DF-90AF4AD80E84
     template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationResult>{ 0x6DAB9451,0x6169,0x55DF,{ 0x8F,0x51,0x79,0x0E,0x99,0xD7,0x27,0x7D } }; // 6DAB9451-6169-55DF-8F51-790E99D7277D
     template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationStatics>{ 0x10951754,0x204B,0x5EC9,{ 0x9D,0xE3,0xDF,0x79,0x2D,0x07,0x4A,0x61 } }; // 10951754-204B-5EC9-9DE3-DF792D074A61
@@ -440,6 +444,14 @@ namespace winrt::impl
             virtual int32_t __stdcall put_AllowCameraAndMicrophoneAccess(bool) noexcept = 0;
         };
     };
+    template <> struct abi<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions2>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall get_WindowAnnotationOverride(void**) noexcept = 0;
+            virtual int32_t __stdcall put_WindowAnnotationOverride(void*) noexcept = 0;
+        };
+    };
     template <> struct abi<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationData>
     {
         struct __declspec(novtable) type : inspectable_abi
@@ -541,7 +553,7 @@ namespace winrt::impl
         {
             virtual int32_t __stdcall get_EnvironmentUserSid(void**) noexcept = 0;
             virtual int32_t __stdcall get_EnvironmentUserName(void**) noexcept = 0;
-            virtual int32_t __stdcall TryWaitForLogonAsync(void**) noexcept = 0;
+            virtual int32_t __stdcall TryWaitForSignInAsync(void**) noexcept = 0;
         };
     };
     template <> struct abi<Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics>
@@ -705,6 +717,16 @@ namespace winrt::impl
         template <typename D> using type = consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>;
     };
     template <typename D>
+    struct consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions2
+    {
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WindowAnnotationOverride() const;
+        WINRT_IMPL_AUTO(void) WindowAnnotationOverride(param::hstring const& value) const;
+    };
+    template <> struct consume<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions2>
+    {
+        template <typename D> using type = consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions2<D>;
+    };
+    template <typename D>
     struct consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOwnerRegistrationData
     {
         [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) ShareableFolders() const;
@@ -826,7 +848,7 @@ namespace winrt::impl
     {
         [[nodiscard]] WINRT_IMPL_AUTO(hstring) EnvironmentUserSid() const;
         [[nodiscard]] WINRT_IMPL_AUTO(hstring) EnvironmentUserName() const;
-        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryWaitForLogonAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryWaitForSignInAsync() const;
     };
     template <> struct consume<Windows::Security::Isolation::IIsolatedWindowsEnvironmentUserInfo>
     {

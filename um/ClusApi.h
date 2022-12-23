@@ -51,6 +51,7 @@ Revision History:
 #define NINETEEN_H1_UPGRADE_VERSION  1
 #define NINETEEN_H2_UPGRADE_VERSION  2
 #define MN_UPGRADE_VERSION           3
+#define FE_UPGRADE_VERSION           4
 
 #define HCI_UPGRADE_BIT 0x8000
 
@@ -7106,6 +7107,7 @@ typedef DWORD
 #define CLUS_RESTYPE_NAME_VMREPLICA_BROKER      L"Virtual Machine Replication Broker"
 #define CLUS_RESTYPE_NAME_VMREPLICA_COORDINATOR      L"Virtual Machine Replication Coordinator"
 #define CLUS_RESTYPE_NAME_NFS_V2                L"Network File System"
+#define CLUS_RESTYPE_NAME_NFS_MSNS              L"NFS Multi Server Namespace"
 #define CLUS_RESTYPE_NAME_CAU                   L"ClusterAwareUpdatingResource"
 #define CLUS_RESTYPE_NAME_NV_PROVIDER_ADDRESS   L"Provider Address"
 #define CLUS_RESTYPE_NAME_NAT                   L"Nat"

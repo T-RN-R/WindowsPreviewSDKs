@@ -10260,13 +10260,22 @@ Notes:
 #define STATUS_HAS_SYSTEM_CRITICAL_FILES ((NTSTATUS)0xC00004BDL)
 
 //
+// MessageId: STATUS_OBJECT_IS_IMMUTABLE
+//
+// MessageText:
+//
+// The request cannot be completed as it requires modifying an immutable object.
+//
+#define STATUS_OBJECT_IS_IMMUTABLE       ((NTSTATUS)0xC00004BEL)
+
+//
 // MessageId: STATUS_FT_READ_FROM_COPY_FAILURE
 //
 // MessageText:
 //
 // The specified copy of the requested data could not be read.
 //
-#define STATUS_FT_READ_FROM_COPY_FAILURE ((NTSTATUS)0xC00004BEL)
+#define STATUS_FT_READ_FROM_COPY_FAILURE ((NTSTATUS)0xC00004BFL)
 
 
 //     **** New SYSTEM error codes can be inserted here ****
@@ -22415,6 +22424,15 @@ Notes:
 // The operation that was requested is pending completion.
 //
 #define STATUS_HV_CALL_PENDING           ((NTSTATUS)0xC0350079L)
+
+//
+// MessageId: STATUS_HV_MSR_ACCESS_FAILED
+//
+// MessageText:
+//
+// The requested access to the model specific register failed.
+//
+#define STATUS_HV_MSR_ACCESS_FAILED      ((NTSTATUS)0xC0350080L)
 
 //
 // MessageId: STATUS_HV_NOT_PRESENT

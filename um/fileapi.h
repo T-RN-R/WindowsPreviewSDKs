@@ -815,6 +815,18 @@ GetLongPathNameW(
 #pragma region Desktop Family or OneCore Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 
+#if (NTDDI_VERSION >= NTDDI_WIN10_FE)
+
+WINBASEAPI
+BOOL
+WINAPI
+AreShortNamesEnabled(
+    _In_ HANDLE Handle,
+    _Out_ BOOL* Enabled
+    );
+
+#endif // (NTDDI_VERSION >= NTDDI_WIN10_FE)
+
 WINBASEAPI
 _Success_(return != 0 && return < cchBuffer)
 DWORD

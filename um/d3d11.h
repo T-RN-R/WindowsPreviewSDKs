@@ -8,7 +8,7 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0623 */
+ /* File created by MIDL compiler version 8.01.0624 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
@@ -4274,7 +4274,7 @@ struct CD3D11_VIEWPORT : public D3D11_VIEWPORT
         }
         TopLeftX = topLeftX;
         TopLeftY = 0.0f;
-        Width = NumElements - topLeftX;
+        Width = static_cast<FLOAT>(NumElements) - topLeftX;
         Height = 1.0f;
         MinDepth = minDepth;
         MaxDepth = maxDepth;
@@ -4304,7 +4304,7 @@ struct CD3D11_VIEWPORT : public D3D11_VIEWPORT
         const UINT SubResourceWidth = TexDesc.Width / (UINT( 1 ) << MipSlice);
         TopLeftX = topLeftX;
         TopLeftY = 0.0f;
-        Width = (SubResourceWidth ? SubResourceWidth : 1) - topLeftX;
+        Width = static_cast<FLOAT>(SubResourceWidth ? SubResourceWidth : 1) - topLeftX;
         Height = 1.0f;
         MinDepth = minDepth;
         MaxDepth = maxDepth;
@@ -4339,8 +4339,8 @@ struct CD3D11_VIEWPORT : public D3D11_VIEWPORT
         const UINT SubResourceHeight = TexDesc.Height / (UINT( 1 ) << MipSlice);
         TopLeftX = topLeftX;
         TopLeftY = topLeftY;
-        Width = (SubResourceWidth ? SubResourceWidth : 1) - topLeftX;
-        Height = (SubResourceHeight ? SubResourceHeight : 1) - topLeftY;
+        Width = static_cast<FLOAT>(SubResourceWidth ? SubResourceWidth : 1) - topLeftX;
+        Height = static_cast<FLOAT>(SubResourceHeight ? SubResourceHeight : 1) - topLeftY;
         MinDepth = minDepth;
         MaxDepth = maxDepth;
     }
@@ -4368,8 +4368,8 @@ struct CD3D11_VIEWPORT : public D3D11_VIEWPORT
         const UINT SubResourceHeight = TexDesc.Height / (UINT( 1 ) << MipSlice);
         TopLeftX = topLeftX;
         TopLeftY = topLeftY;
-        Width = (SubResourceWidth ? SubResourceWidth : 1) - topLeftX;
-        Height = (SubResourceHeight ? SubResourceHeight : 1) - topLeftY;
+        Width = static_cast<FLOAT>(SubResourceWidth ? SubResourceWidth : 1) - topLeftX;
+        Height = static_cast<FLOAT>(SubResourceHeight ? SubResourceHeight : 1) - topLeftY;
         MinDepth = minDepth;
         MaxDepth = maxDepth;
     }

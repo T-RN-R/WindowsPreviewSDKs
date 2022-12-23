@@ -314,6 +314,176 @@ WHvAdviseGpaRange(
     _In_ UINT32 AdviceBufferSizeInBytes
     );
 
+HRESULT
+WINAPI
+WHvReadGpaRange(
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ UINT32 VpIndex,
+    _In_ WHV_GUEST_PHYSICAL_ADDRESS GuestAddress,
+    _In_ WHV_ACCESS_GPA_CONTROLS Controls,
+    _In_ UINT32 DataSizeInBytes,
+    _Out_writes_bytes_(SizeInBytes) PVOID Data
+    );
+
+HRESULT
+WINAPI
+WHvWriteGpaRange(
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ UINT32 VpIndex,
+    _In_ WHV_GUEST_PHYSICAL_ADDRESS GuestAddress,
+    _In_ WHV_ACCESS_GPA_CONTROLS Controls,
+    _In_ UINT32 DataSizeInBytes,
+    _In_reads_bytes_(SizeInBytes) const VOID* Data
+    );
+
+HRESULT
+WINAPI
+WHvSignalSynicEvent(
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ UINT32 VpIndex,
+    _In_ UINT8 SintIndex,
+    _In_ UINT16 FlagNumber,
+    _Out_opt_ BOOL* NewlySignaled
+    );
+
+HRESULT
+WINAPI
+WHvGetVirtualProcessorState(
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ UINT32 VpIndex,
+    _In_ WHV_VIRTUAL_PROCESSOR_STATE_TYPE StateType,
+    _Out_writes_bytes_to_(BufferSizeInBytes, *BytesWritten) VOID* Buffer,
+    _In_ UINT32 BufferSizeInBytes,
+    _Out_opt_ UINT32* BytesWritten
+    );
+
+HRESULT
+WINAPI
+WHvSetVirtualProcessorState(
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ UINT32 VpIndex,
+    _In_ WHV_VIRTUAL_PROCESSOR_STATE_TYPE StateType,
+    _In_reads_bytes_(BufferSizeInBytes) const VOID* Buffer,
+    _In_ UINT32 BufferSizeInBytes
+    );
+
+//
+// Virtual PCI
+//
+
+HRESULT
+WINAPI
+WHvAllocateVpciResource(
+    _In_opt_ const GUID* ProviderId,
+    _In_ WHV_ALLOCATE_VPCI_RESOURCE_FLAGS Flags,
+    _In_ UINT32 ResourceDescriptorSizeInBytes,
+    _In_reads_opt_(ResourceDescriptorSizeInBytes) const VOID* ResourceDescriptor,
+    _Out_ HANDLE* VpciResource,
+    _Outptr_opt_result_maybenull_ LPCWSTR* ResourcePath
+    );
+
+HRESULT
+WINAPI
+WHvCreateVpciDevice(
+    _In_ WHV_PARTITION_HANDLE Partition,
+    _In_ UINT64 LogicalDeviceId,
+    _In_ HANDLE VpciResource,
+    _In_ WHV_CREATE_VPCI_DEVICE_FLAGS Flags,
+    _In_opt_ PWHV_PCI_DEVICE_NOTIFICATION_CALLBACK NotificationCallback,
+    _In_opt_ VOID* NotificationCallbackContext,
+    _Out_ WHV_VPCI_DEVICE_HANDLE* VpciDevice
+    );
+
+HRESULT
+WINAPI
+WHvDeleteVpciDevice(
+    _In_ WHV_VPCI_DEVICE_HANDLE VpciDevice
+    );
+
+HRESULT
+WINAPI
+WHvGetVpciDeviceProperty(
+    _In_ WHV_VPCI_DEVICE_HANDLE VpciDevice,
+    _In_ WHV_VPCI_DEVICE_PROPERTY_CODE PropertyCode,
+    _Out_writes_bytes_to_(PropertyBufferSizeInBytes, *WrittenSizeInBytes) VOID* PropertyBuffer,
+    _In_ UINT32 PropertyBufferSizeInBytes,
+    _Out_opt_ UINT32* WrittenSizeInBytes
+    );
+
+HRESULT
+WINAPI
+WHvMapVpciDeviceMmioRanges(
+    _In_ WHV_VPCI_DEVICE_HANDLE VpciDevice,
+    _Out_ UINT32* MappingCount,
+    _Outptr_result_buffer_(*MappingCount) WHV_VPCI_MMIO_MAPPING** Mappings
+    );
+
+HRESULT
+WINAPI
+WHvUnmapVpciDeviceMmioRanges(
+    _In_ WHV_VPCI_DEVICE_HANDLE VpciDevice
+    );
+
+HRESULT
+WINAPI
+WHvSetVpciDevicePowerState(
+    _In_ WHV_VPCI_DEVICE_HANDLE VpciDevice,
+    _In_ DEVICE_POWER_STATE PowerState
+    );
+
+HRESULT
+WINAPI
+WHvReadVpciDeviceRegister(
+    _In_ WHV_VPCI_DEVICE_HANDLE VpciDevice,
+    _In_ const WHV_VPCI_DEVICE_REGISTER* Register,
+    _Out_writes_bytes_(Register->SizeInBytes) VOID* Data
+    );
+
+HRESULT
+WINAPI
+WHvWriteVpciDeviceRegister(
+    _In_ WHV_VPCI_DEVICE_HANDLE VpciDevice,
+    _In_ const WHV_VPCI_DEVICE_REGISTER* Register,
+    _In_reads_bytes_(Register->SizeInBytes) const VOID* Data
+    );
+
+HRESULT
+WINAPI
+WHvMapVpciDeviceInterrupt(
+    _In_ WHV_VPCI_DEVICE_HANDLE VpciDevice,
+    _In_ UINT32 Index,
+    _In_ UINT32 MultiMessageNumber,
+    _In_ const WHV_VPCI_INTERRUPT_TARGET* Target,
+    _Out_ UINT64* MsiAddress,
+    _Out_ UINT32* MsiData
+    );
+
+HRESULT
+WINAPI
+WHvUnmapVpciDeviceInterrupt(
+    _In_ WHV_VPCI_DEVICE_HANDLE VpciDevice,
+    _In_ UINT32 Index
+    );
+
+HRESULT
+WINAPI
+WHvDeliverVpciDeviceInterrupt(
+    _In_ WHV_VPCI_DEVICE_HANDLE VpciDevice,
+    _In_ UINT64 MsiAddress,
+    _In_ UINT32 MsiData
+    );
+
+HRESULT
+WINAPI
+WHvGetVpciDeviceInterruptTarget(
+    _In_ WHV_VPCI_DEVICE_HANDLE VpciDevice,
+    _In_ UINT32 Index,
+    _In_ UINT32 MultiMessageNumber,
+    _In_ UINT32 TargetSizeInBytes,
+    _Out_writes_bytes_to_(TargetSizeInBytes, *BytesWritten) WHV_VPCI_INTERRUPT_TARGET* Target,
+    _Out_opt_ UINT32* BytesWritten
+    );
+
 #ifdef __cplusplus
 }
 #endif
@@ -519,6 +689,114 @@ IsWHvUnregisterPartitionDoorbellEventPresent(
 BOOLEAN
 __stdcall
 IsWHvAdviseGpaRangePresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvReadGpaRangePresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvWriteGpaRangePresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvSignalSynicEventPresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvGetVirtualProcessorStatePresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvSetVirtualProcessorStatePresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvAllocateVpciResourcePresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvCreateVpciDevicePresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvDeleteVpciDevicePresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvGetVpciDevicePropertyPresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvMapVpciDeviceMmioRangesPresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvUnmapVpciDeviceMmioRangesPresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvSetVpciDevicePowerStatePresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvReadVpciDeviceRegisterPresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvWriteVpciDeviceRegisterPresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvMapVpciDeviceInterruptPresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvUnmapVpciDeviceInterruptPresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvDeliverVpciDeviceInterruptPresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsWHvGetVpciDeviceInterruptTargetPresent(
     VOID
     );
 

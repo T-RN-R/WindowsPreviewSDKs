@@ -15,6 +15,7 @@ import "Windows.Graphics.DirectX.idl";
 import "Windows.Graphics.DirectX.Direct3D11.idl";
 import "Windows.Security.Authorization.AppCapabilityAccess.idl";
 import "Windows.System.idl";
+import "Windows.UI.idl";
 import "Windows.UI.Composition.idl";
 
 // Forward Declare
@@ -58,6 +59,8 @@ namespace Windows
 {
     namespace Graphics
     {
+        typedef struct DisplayId DisplayId;
+
         typedef struct SizeInt32 SizeInt32;
     }
 }
@@ -93,6 +96,13 @@ namespace Windows
 }
 namespace Windows
 {
+    namespace UI
+    {
+        typedef struct WindowId WindowId;
+    }
+}
+namespace Windows
+{
     namespace Graphics
     {
         namespace Capture
@@ -112,6 +122,8 @@ namespace Windows
             interface IGraphicsCaptureItem;
 
             interface IGraphicsCaptureItemStatics;
+
+            interface IGraphicsCaptureItemStatics2;
 
             interface IGraphicsCapturePicker;
 
@@ -236,6 +248,15 @@ namespace Windows
                 HRESULT CreateFromVisual([in] Windows.UI.Composition.Visual* visual, [out] [retval] Windows.Graphics.Capture.GraphicsCaptureItem** result);
             }
 
+            [contract(Windows.Foundation.UniversalApiContract, 12.0)]
+            [exclusiveto(Windows.Graphics.Capture.GraphicsCaptureItem)]
+            [uuid(6ACE9542-FBF2-5A4C-9D19-9972A6210818)]
+            interface IGraphicsCaptureItemStatics2 : IInspectable
+            {
+                HRESULT CreateFromWindowId([in] Windows.UI.WindowId windowId, [out] [retval] Windows.Graphics.Capture.GraphicsCaptureItem** result);
+                HRESULT CreateFromDisplayId([in] Windows.Graphics.DisplayId displayId, [out] [retval] Windows.Graphics.Capture.GraphicsCaptureItem** result);
+            }
+
             [contract(Windows.Foundation.UniversalApiContract, 6.0)]
             [exclusiveto(Windows.Graphics.Capture.GraphicsCapturePicker)]
             [uuid(5A1711B3-AD79-4B4A-9336-1318FDDE3539)]
@@ -308,6 +329,7 @@ namespace Windows
             [contract(Windows.Foundation.UniversalApiContract, 6.0)]
             [marshaling_behavior(agile)]
             [static(Windows.Graphics.Capture.IGraphicsCaptureItemStatics, Windows.Foundation.UniversalApiContract, 7.0)]
+            [static(Windows.Graphics.Capture.IGraphicsCaptureItemStatics2, Windows.Foundation.UniversalApiContract, 12.0)]
             [threading(both)]
             runtimeclass GraphicsCaptureItem
             {

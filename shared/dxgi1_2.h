@@ -3,7 +3,7 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0623 */
+ /* File created by MIDL compiler version 8.01.0624 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
@@ -1087,8 +1087,8 @@ EXTERN_C const IID IID_IDXGIDevice2;
             /* [in] */ DXGI_USAGE Usage,
             /* [annotation][in] */ 
             _In_opt_  const DXGI_SHARED_RESOURCE *pSharedResource,
-            /* [annotation][out] */ 
-            _COM_Outptr_  IDXGISurface **ppSurface);
+            /* [annotation][size_is][out] */ 
+            _Out_writes_(NumSurfaces)  IDXGISurface **ppSurface);
         
         DECLSPEC_XFGVIRT(IDXGIDevice, QueryResourceResidency)
         HRESULT ( STDMETHODCALLTYPE *QueryResourceResidency )( 

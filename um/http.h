@@ -2303,7 +2303,6 @@ typedef enum _HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE
     ExParamTypeHttpPerformance,
     ExParamTypeTlsRestrictions,
     ExParamTypeErrorHeaders,
-    ExParamTypeTlsSessionEncryptionKeys,
     ExParamTypeMax
 } HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE, *PHTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE;
 
@@ -2365,15 +2364,6 @@ typedef struct _HTTP_ERROR_HEADERS_PARAM
     PHTTP_UNKNOWN_HEADER Headers;
 } HTTP_ERROR_HEADERS_PARAM, *PHTTP_ERROR_HEADERS_PARAM;
 
-
-#define HTTP_MAX_TLS_SESSION_ENCRYPTION_KEY 2048
-
-typedef struct _HTTP_TLS_SESSION_ENCRYPTION_KEY_PARAM
-{
-    ULONG TlsSessionEncryptionKeyLength;
-    PVOID TlsSessionEncryptionKey;
-} HTTP_TLS_SESSION_ENCRYPTION_KEY_PARAM, *PHTTP_TLS_SESSION_ENCRYPTION_KEY_PARAM;
-
 //
 // This defines the exteded params for the ssl config record.
 //
@@ -2403,7 +2393,6 @@ typedef struct _HTTP_SERVICE_CONFIG_SSL_PARAM_EX
         HTTP_PERFORMANCE_PARAM HttpPerformanceParam;
         HTTP_TLS_RESTRICTIONS_PARAM HttpTlsRestrictionsParam;
         HTTP_ERROR_HEADERS_PARAM HttpErrorHeadersParam;
-        HTTP_TLS_SESSION_ENCRYPTION_KEY_PARAM HttpTlsSessionEncryptionKeyParam;
     };
 } HTTP_SERVICE_CONFIG_SSL_PARAM_EX, *PHTTP_SERVICE_CONFIG_SSL_PARAM_EX;
 

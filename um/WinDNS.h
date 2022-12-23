@@ -2834,6 +2834,7 @@ typedef struct _DNS_SERVICE_INSTANCE
 #ifndef __midl
 
 PDNS_SERVICE_INSTANCE
+WINAPI
 DnsServiceConstructInstance(
     _In_ PCWSTR pServiceName,
     _In_ PCWSTR pHostName,
@@ -2848,11 +2849,13 @@ DnsServiceConstructInstance(
     );
 
 PDNS_SERVICE_INSTANCE
+WINAPI
 DnsServiceCopyInstance(
     _In_ PDNS_SERVICE_INSTANCE pOrig
     );
 
 VOID
+WINAPI
 DnsServiceFreeInstance(
     _In_ PDNS_SERVICE_INSTANCE pInstance
     );
@@ -2978,18 +2981,21 @@ typedef struct _DNS_SERVICE_REGISTER_REQUEST{
 } DNS_SERVICE_REGISTER_REQUEST, *PDNS_SERVICE_REGISTER_REQUEST;
 
 DWORD
+WINAPI
 DnsServiceRegister(
     _In_    PDNS_SERVICE_REGISTER_REQUEST   pRequest,
     _Inout_opt_ PDNS_SERVICE_CANCEL             pCancel
     );
 
 DWORD
+WINAPI
 DnsServiceDeRegister(
     _In_    PDNS_SERVICE_REGISTER_REQUEST   pRequest,
     _Inout_opt_ PDNS_SERVICE_CANCEL             pCancel
     );
 
 DWORD
+WINAPI
 DnsServiceRegisterCancel(
     _In_ PDNS_SERVICE_CANCEL pCancelHandle
     );

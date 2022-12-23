@@ -239,7 +239,7 @@ namespace Windows
     {
         namespace Provider
         {
-            [contractversion(5.0)]
+            [contractversion(6.0)]
             apicontract CloudFilesContract
             {
             }
@@ -305,7 +305,7 @@ namespace Windows
                 StreamingAllowed             = 0x2,
                 [contract(Windows.Storage.Provider.CloudFilesContract, 3.0)]
                 AutoDehydrationAllowed       = 0x4,
-                [contract(Windows.Storage.Provider.CloudFilesContract, 5.0)]
+                [contract(Windows.Storage.Provider.CloudFilesContract, 6.0)]
                 FullRestartHydrationRequired = 0x8
             };
 

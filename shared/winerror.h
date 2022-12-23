@@ -14021,6 +14021,15 @@
 //
 #define ERROR_WOF_FILE_RESOURCE_TABLE_CORRUPT 4448L
 
+//
+// MessageId: ERROR_OBJECT_IS_IMMUTABLE
+//
+// MessageText:
+//
+// The request cannot be completed as it requires modifying an immutable object.
+//
+#define ERROR_OBJECT_IS_IMMUTABLE        4449L
+
 
 ///////////////////////////////////////////////////
 //                                               //
@@ -51754,6 +51763,15 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 #define ERROR_HV_NESTED_VM_EXIT          _NDIS_ERROR_TYPEDEF_(0xC0350077L)
 
 //
+// MessageId: ERROR_HV_MSR_ACCESS_FAILED
+//
+// MessageText:
+//
+// The requested access to the model specific register failed.
+//
+#define ERROR_HV_MSR_ACCESS_FAILED       _NDIS_ERROR_TYPEDEF_(0xC0350080L)
+
+//
 // MessageId: ERROR_HV_NOT_PRESENT
 //
 // MessageText:
@@ -52602,6 +52620,15 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 // The process has already exited.
 //
 #define HCS_E_PROCESS_ALREADY_STOPPED    _HRESULT_TYPEDEF_(0x8037011FL)
+
+//
+// MessageId: HCS_E_SYSTEM_NOT_CONFIGURED_FOR_OPERATION
+//
+// MessageText:
+//
+// The virtual machine or container is not configured to perform the operation.
+//
+#define HCS_E_SYSTEM_NOT_CONFIGURED_FOR_OPERATION _HRESULT_TYPEDEF_(0x80370120L)
 
 //
 // Virtual networking errors (0x0200-0x02ff)

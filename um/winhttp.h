@@ -1771,6 +1771,7 @@ WinHttpQueryHeadersEx
     _In_ HINTERNET hRequest,
     _In_ DWORD dwInfoLevel,
     _In_ ULONGLONG ullFlags,
+    _In_ UINT uiCodePage,
     _In_opt_ PCWSTR pwszName,
     _Out_writes_bytes_to_opt_(*pdwBufferLength, *pdwBufferLength) PVOID pBuffer,
     _Inout_ PDWORD pdwBufferLength,

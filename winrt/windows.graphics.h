@@ -146,6 +146,26 @@ namespace ABI {
 
 /*
  *
+ * Struct Windows.Graphics.DisplayId
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+namespace ABI {
+    namespace Windows {
+        namespace Graphics {
+            struct DisplayId
+            {
+                UINT64 Value;
+            };
+        } /* Graphics */
+    } /* Windows */
+} /* ABI */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
  * Struct Windows.Graphics.PointInt32
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 4.0
@@ -264,6 +284,20 @@ struct __x_ABI_CWindows_CGraphics_CDisplayAdapterId
     INT32 HighPart;
 };
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
+
+/*
+ *
+ * Struct Windows.Graphics.DisplayId
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+struct __x_ABI_CWindows_CGraphics_CDisplayId
+{
+    UINT64 Value;
+};
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *

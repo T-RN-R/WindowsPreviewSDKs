@@ -3076,6 +3076,10 @@ typedef struct _WIN32_STREAM_ID {
 #endif /* WINVER >= 0x0600 */
 
 
+#if (NTDDI_VERSION >= NTDDI_WIN10_FE)
+     #define STARTF_HOLOGRAPHIC    0x00040000
+#endif // (NTDDI_VERSION >= NTDDI_WIN10_FE)
+
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 #pragma endregion
 
@@ -5783,10 +5787,6 @@ typedef struct COPYFILE2_EXTENDED_PARAMETERS {
 
 #if (NTDDI_VERSION >= NTDDI_WIN10_FE)
 
-// maximum allowed delay between {read, write} cycles, in ms
-// (constrains COPYFILE2_EXTENDED_PARAMETERS_V2 interIoDelayMS field).
-#define COPYFILE2_MAX_INTER_IO_DELAY_MS             60000
-
 // minimum allowed requested i/o size, in bytes
 // (constrains COPYFILE2_EXTENDED_PARAMETERS_V2 ioDesiredSize field).
 #define COPYFILE2_IO_CYCLE_SIZE_MIN                 4096
@@ -5794,6 +5794,10 @@ typedef struct COPYFILE2_EXTENDED_PARAMETERS {
 // maximum allowed requested i/o size, in bytes (1GB)
 // (constrains COPYFILE2_EXTENDED_PARAMETERS_V2 ioDesiredSize field).
 #define COPYFILE2_IO_CYCLE_SIZE_MAX                 0x40000000
+
+// minimum allowed requested average i/o rate, in kbytes per second
+// (constrains COPYFILE2_EXTENDED_PARAMETERS_V2 ioDesiredRate field).
+#define COPYFILE2_IO_RATE_MIN   512
 
 typedef struct COPYFILE2_EXTENDED_PARAMETERS_V2 {
 
@@ -5803,13 +5807,22 @@ typedef struct COPYFILE2_EXTENDED_PARAMETERS_V2 {
   PCOPYFILE2_PROGRESS_ROUTINE   pProgressRoutine;
   PVOID                         pvCallbackContext;
 
-  // delay between each {read, write} cycle, in ms
-  ULONG                         interIoDelayMS;
+  // Additional copy flags (COPYFILE2_EXTENDED_PARAMETERS_V2 only;
+  // treated as zero if COPYFILE2_EXTENDED_PARAMETERS is used).
+  DWORD                         dwCopyFlagsV2;
 
   // size of the i/o for each {read, write} cycle, in bytes
   // (may be reduced, if insufficient memory is available)
   // if zero: use a suitable default.
+  //
+  // may be ignored if ioDesiredRate is specified (i.e.,
+  // CopyFile2() will disregard if a requested size is
+  // rate is inappropriate for a requested rate.)
   ULONG                         ioDesiredSize;
+
+  // requested average i/o rate, in kbytes per second.
+  // if zero: use a suitable default (usually as fast as possible).
+  ULONG                         ioDesiredRate;
 
   // reserved for future use; must be set to zero
   PVOID                         reserved[8];
