@@ -646,7 +646,9 @@ typedef struct _WINHTTP_EXTENDED_HEADER
 
 #define WINHTTP_OPTION_FAILED_CONNECTION_RETRIES        162
 
-#define WINHTTP_LAST_OPTION                             WINHTTP_OPTION_FAILED_CONNECTION_RETRIES
+#define WINHTTP_OPTION_SET_GLOBAL_CALLBACK              163
+
+#define WINHTTP_LAST_OPTION                             WINHTTP_OPTION_SET_GLOBAL_CALLBACK
 
 #define WINHTTP_OPTION_USERNAME                         0x1000
 #define WINHTTP_OPTION_PASSWORD                         0x1001
@@ -1319,9 +1321,10 @@ typedef struct
 #define ERROR_WINHTTP_SECURE_FAILURE_PROXY                  (WINHTTP_ERROR_BASE + 188)
 #define ERROR_WINHTTP_RESERVED_189                          (WINHTTP_ERROR_BASE + 189)
 #define ERROR_WINHTTP_HTTP_PROTOCOL_MISMATCH                (WINHTTP_ERROR_BASE + 190)
+#define ERROR_WINHTTP_GLOBAL_CALLBACK_FAILED                (WINHTTP_ERROR_BASE + 191)
 
 
-#define WINHTTP_ERROR_LAST                                  (WINHTTP_ERROR_BASE + 188)
+#define WINHTTP_ERROR_LAST                                  ERROR_WINHTTP_GLOBAL_CALLBACK_FAILED
 
 #define WINHTTP_RESET_STATE                     0x00000001
 #define WINHTTP_RESET_SWPAD_CURRENT_NETWORK     0x00000002
@@ -1926,6 +1929,32 @@ WinHttpWebSocketQueryCloseStatus
     _Out_range_(0, WINHTTP_WEB_SOCKET_MAX_CLOSE_REASON_LENGTH) DWORD *pdwReasonLengthConsumed
 );
 
+
+//
+// Callback function for WINHTTP_OPTION_SET_GLOBAL_CALLBACK option
+//
+
+#define WINHTTP_GLOBAL_CALLBACK_SENDING_HTTP_HEADERS          0x00000001
+
+typedef
+DWORD
+(CALLBACK *WINHTTP_GLOBAL_NOTIFICATION_CALLBACK)(
+    _In_ HINTERNET hInternet,
+    _In_opt_ PVOID pvContext,
+    _In_ PCWSTR pcswzUrl,
+    _In_ PCWSTR pcswzHost,
+    _In_ DWORD dwNotification,
+    _In_opt_ PVOID pvEventData,
+    _In_ DWORD dwEventDataLength
+);
+
+typedef struct _WINHTTP_GLOBAL_CALLBACK
+{
+    WINHTTP_GLOBAL_NOTIFICATION_CALLBACK pfnGlobalNotificationCallback;
+    DWORD dwNotifications;
+    PVOID pvContext;
+    GUID guidRegistrationId;
+} WINHTTP_GLOBAL_CALLBACK;
 
 
 #if defined(__cplusplus)

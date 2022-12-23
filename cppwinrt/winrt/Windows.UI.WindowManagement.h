@@ -254,6 +254,12 @@ namespace winrt::impl
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowChangedEventArgs2)->get_DidOffsetChange(&value));
         return value;
     }
+    template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowChangedEventArgs22<D>::VisibilityChangedDetails() const
+    {
+        Windows::UI::WindowManagement::VisibilityChangedDetails value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::WindowManagement::IAppWindowChangedEventArgs22)->get_VisibilityChangedDetails(reinterpret_cast<int32_t*>(&value)));
+        return value;
+    }
     template <typename D> auto consume_Windows_UI_WindowManagement_IAppWindowCloseRequestedEventArgs<D>::Cancel() const
     {
         bool value;
@@ -975,6 +981,19 @@ namespace winrt::impl
         {
             typename D::abi_guard guard(this->shim());
             *value = detach_from<bool>(this->shim().DidOffsetChange());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, Windows::UI::WindowManagement::IAppWindowChangedEventArgs22> : produce_base<D, Windows::UI::WindowManagement::IAppWindowChangedEventArgs22>
+    {
+        int32_t __stdcall get_VisibilityChangedDetails(int32_t* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<Windows::UI::WindowManagement::VisibilityChangedDetails>(this->shim().VisibilityChangedDetails());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1736,6 +1755,7 @@ namespace std
     template<> struct hash<winrt::Windows::UI::WindowManagement::IAppWindow2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::WindowManagement::IAppWindowChangedEventArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::WindowManagement::IAppWindowChangedEventArgs2> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::WindowManagement::IAppWindowChangedEventArgs22> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::WindowManagement::IAppWindowCloseRequestedEventArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::WindowManagement::IAppWindowClosedEventArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::WindowManagement::IAppWindowFrame> : winrt::impl::hash_base {};

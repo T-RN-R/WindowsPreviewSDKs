@@ -22237,6 +22237,15 @@ Notes:
 #define STATUS_HV_NESTED_VM_EXIT         ((NTSTATUS)0xC0350077L)
 
 //
+// MessageId: STATUS_HV_CALL_PENDING
+//
+// MessageText:
+//
+// The operation that was requested is pending completion.
+//
+#define STATUS_HV_CALL_PENDING           ((NTSTATUS)0xC0350079L)
+
+//
 // MessageId: STATUS_HV_NOT_PRESENT
 //
 // MessageText:

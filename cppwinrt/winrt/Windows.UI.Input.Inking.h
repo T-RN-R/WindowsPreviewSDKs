@@ -18,6 +18,48 @@ static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatche
 #include "winrt/impl/Windows.UI.Input.Inking.2.h"
 namespace winrt::impl
 {
+    template <typename D> auto consume_Windows_UI_Input_Inking_IDelegatedInkTrail<D>::AddTipPoints(param::vector<Windows::UI::Input::Inking::DelegatedInkTrailPoints> const& inkPoints, param::vector<Windows::UI::Input::Inking::DelegatedInkTrailPoints> const& predictedInkPoints, bool isNewStroke) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Input::Inking::IDelegatedInkTrail)->AddTipPoints(*(void**)(&inkPoints), *(void**)(&predictedInkPoints), isNewStroke));
+    }
+    template <typename D> auto consume_Windows_UI_Input_Inking_IDelegatedInkTrail<D>::SetRenderedBallpointInkForSwapchainPresentCount(uint32_t presentCount, Windows::UI::Input::Inking::InkPoint const& lastRenderedInkPoint, Windows::UI::Input::Inking::DelegatedInkTrailRenderParams const& renderedInkParams) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Input::Inking::IDelegatedInkTrail)->SetRenderedBallpointInkForSwapchainPresentCount(presentCount, *(void**)(&lastRenderedInkPoint), impl::bind_in(renderedInkParams)));
+    }
+    template <typename D> auto consume_Windows_UI_Input_Inking_IDelegatedInkTrailPoints<D>::frameId() const
+    {
+        uint32_t value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Input::Inking::IDelegatedInkTrailPoints)->get_frameId(&value));
+        return value;
+    }
+    template <typename D> auto consume_Windows_UI_Input_Inking_IDelegatedInkTrailPoints<D>::frameId(uint32_t value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Input::Inking::IDelegatedInkTrailPoints)->put_frameId(value));
+    }
+    template <typename D> auto consume_Windows_UI_Input_Inking_IDelegatedInkTrailPoints<D>::pointerId() const
+    {
+        uint32_t value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Input::Inking::IDelegatedInkTrailPoints)->get_pointerId(&value));
+        return value;
+    }
+    template <typename D> auto consume_Windows_UI_Input_Inking_IDelegatedInkTrailPoints<D>::pointerId(uint32_t value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Input::Inking::IDelegatedInkTrailPoints)->put_pointerId(value));
+    }
+    template <typename D> auto consume_Windows_UI_Input_Inking_IDelegatedInkTrailPoints<D>::inkPoint() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Input::Inking::IDelegatedInkTrailPoints)->get_inkPoint(&value));
+        return Windows::UI::Input::Inking::InkPoint{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Input_Inking_IDelegatedInkTrailPoints<D>::inkPoint(Windows::UI::Input::Inking::InkPoint const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Input::Inking::IDelegatedInkTrailPoints)->put_inkPoint(*(void**)(&value)));
+    }
+    template <typename D> auto consume_Windows_UI_Input_Inking_IDelegatedInkTrailReferenceSurface<D>::SetReferenceSurface(Windows::Foundation::IInspectable const& surface, Windows::Foundation::IInspectable const& dcompDevice) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Input::Inking::IDelegatedInkTrailReferenceSurface)->SetReferenceSurface(*(void**)(&surface), *(void**)(&dcompDevice)));
+    }
     template <typename D> auto consume_Windows_UI_Input_Inking_IInkDrawingAttributes<D>::Color() const
     {
         Windows::UI::Color value;
@@ -1094,6 +1136,88 @@ namespace winrt::impl
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Input::Inking::IPenAndInkSettingsStatics)->GetDefault(&result));
         return Windows::UI::Input::Inking::PenAndInkSettings{ result, take_ownership_from_abi };
     }
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, Windows::UI::Input::Inking::IDelegatedInkTrail> : produce_base<D, Windows::UI::Input::Inking::IDelegatedInkTrail>
+    {
+        int32_t __stdcall AddTipPoints(void* inkPoints, void* predictedInkPoints, bool isNewStroke) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().AddTipPoints(*reinterpret_cast<Windows::Foundation::Collections::IVector<Windows::UI::Input::Inking::DelegatedInkTrailPoints> const*>(&inkPoints), *reinterpret_cast<Windows::Foundation::Collections::IVector<Windows::UI::Input::Inking::DelegatedInkTrailPoints> const*>(&predictedInkPoints), isNewStroke);
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall SetRenderedBallpointInkForSwapchainPresentCount(uint32_t presentCount, void* lastRenderedInkPoint, struct struct_Windows_UI_Input_Inking_DelegatedInkTrailRenderParams renderedInkParams) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().SetRenderedBallpointInkForSwapchainPresentCount(presentCount, *reinterpret_cast<Windows::UI::Input::Inking::InkPoint const*>(&lastRenderedInkPoint), *reinterpret_cast<Windows::UI::Input::Inking::DelegatedInkTrailRenderParams const*>(&renderedInkParams));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, Windows::UI::Input::Inking::IDelegatedInkTrailPoints> : produce_base<D, Windows::UI::Input::Inking::IDelegatedInkTrailPoints>
+    {
+        int32_t __stdcall get_frameId(uint32_t* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<uint32_t>(this->shim().frameId());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_frameId(uint32_t value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().frameId(value);
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_pointerId(uint32_t* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<uint32_t>(this->shim().pointerId());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_pointerId(uint32_t value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().pointerId(value);
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_inkPoint(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<Windows::UI::Input::Inking::InkPoint>(this->shim().inkPoint());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_inkPoint(void* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().inkPoint(*reinterpret_cast<Windows::UI::Input::Inking::InkPoint const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, Windows::UI::Input::Inking::IDelegatedInkTrailReferenceSurface> : produce_base<D, Windows::UI::Input::Inking::IDelegatedInkTrailReferenceSurface>
+    {
+        int32_t __stdcall SetReferenceSurface(void* surface, void* dcompDevice) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().SetReferenceSurface(*reinterpret_cast<Windows::Foundation::IInspectable const*>(&surface), *reinterpret_cast<Windows::Foundation::IInspectable const*>(&dcompDevice));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
     struct produce<D, Windows::UI::Input::Inking::IInkDrawingAttributes> : produce_base<D, Windows::UI::Input::Inking::IInkDrawingAttributes>
@@ -2775,6 +2899,14 @@ namespace winrt::impl
 }
 WINRT_EXPORT namespace winrt::Windows::UI::Input::Inking
 {
+    inline DelegatedInkTrail::DelegatedInkTrail() :
+        DelegatedInkTrail(impl::call_factory_cast<DelegatedInkTrail(*)(Windows::Foundation::IActivationFactory const&), DelegatedInkTrail>([](Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<DelegatedInkTrail>(); }))
+    {
+    }
+    inline DelegatedInkTrailPoints::DelegatedInkTrailPoints() :
+        DelegatedInkTrailPoints(impl::call_factory_cast<DelegatedInkTrailPoints(*)(Windows::Foundation::IActivationFactory const&), DelegatedInkTrailPoints>([](Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<DelegatedInkTrailPoints>(); }))
+    {
+    }
     inline InkDrawingAttributes::InkDrawingAttributes() :
         InkDrawingAttributes(impl::call_factory_cast<InkDrawingAttributes(*)(Windows::Foundation::IActivationFactory const&), InkDrawingAttributes>([](Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<InkDrawingAttributes>(); }))
     {
@@ -2823,6 +2955,9 @@ WINRT_EXPORT namespace winrt::Windows::UI::Input::Inking
 namespace std
 {
 #ifndef WINRT_LEAN_AND_MEAN
+    template<> struct hash<winrt::Windows::UI::Input::Inking::IDelegatedInkTrail> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Input::Inking::IDelegatedInkTrailPoints> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Input::Inking::IDelegatedInkTrailReferenceSurface> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Input::Inking::IInkDrawingAttributes> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Input::Inking::IInkDrawingAttributes2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Input::Inking::IInkDrawingAttributes3> : winrt::impl::hash_base {};
@@ -2868,6 +3003,8 @@ namespace std
     template<> struct hash<winrt::Windows::UI::Input::Inking::IInkUnprocessedInput> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Input::Inking::IPenAndInkSettings> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Input::Inking::IPenAndInkSettingsStatics> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Input::Inking::DelegatedInkTrail> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Input::Inking::DelegatedInkTrailPoints> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Input::Inking::InkDrawingAttributes> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Input::Inking::InkDrawingAttributesPencilProperties> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Input::Inking::InkInputConfiguration> : winrt::impl::hash_base {};

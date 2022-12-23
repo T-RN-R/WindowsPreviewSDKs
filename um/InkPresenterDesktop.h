@@ -67,6 +67,13 @@ typedef interface IInkDesktopHost IInkDesktopHost;
 #endif 	/* __IInkDesktopHost_FWD_DEFINED__ */
 
 
+#ifndef __IDelegatedInkTrailDesktopReferenceSurface_FWD_DEFINED__
+#define __IDelegatedInkTrailDesktopReferenceSurface_FWD_DEFINED__
+typedef interface IDelegatedInkTrailDesktopReferenceSurface IDelegatedInkTrailDesktopReferenceSurface;
+
+#endif 	/* __IDelegatedInkTrailDesktopReferenceSurface_FWD_DEFINED__ */
+
+
 #ifndef __InkDesktopHost_FWD_DEFINED__
 #define __InkDesktopHost_FWD_DEFINED__
 
@@ -492,6 +499,111 @@ EXTERN_C const IID IID_IInkDesktopHost;
 #endif 	/* __IInkDesktopHost_INTERFACE_DEFINED__ */
 
 
+#ifndef __IDelegatedInkTrailDesktopReferenceSurface_INTERFACE_DEFINED__
+#define __IDelegatedInkTrailDesktopReferenceSurface_INTERFACE_DEFINED__
+
+/* interface IDelegatedInkTrailDesktopReferenceSurface */
+/* [uuid][object] */ 
+
+
+EXTERN_C const IID IID_IDelegatedInkTrailDesktopReferenceSurface;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("6F2CCD0D-6475-4753-B75A-CC2864E3535E")
+    IDelegatedInkTrailDesktopReferenceSurface : public IInspectable
+    {
+    public:
+        virtual HRESULT STDMETHODCALLTYPE SetReferenceSurface( 
+            /* [in] */ __RPC__in_opt IUnknown *surface,
+            /* [in] */ __RPC__in_opt IUnknown *dcompDevice) = 0;
+        
+    };
+    
+    
+#else 	/* C style interface */
+
+    typedef struct IDelegatedInkTrailDesktopReferenceSurfaceVtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            __RPC__in IDelegatedInkTrailDesktopReferenceSurface * This,
+            /* [in] */ __RPC__in REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            _COM_Outptr_  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            __RPC__in IDelegatedInkTrailDesktopReferenceSurface * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            __RPC__in IDelegatedInkTrailDesktopReferenceSurface * This);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetIids )( 
+            __RPC__in IDelegatedInkTrailDesktopReferenceSurface * This,
+            /* [out] */ __RPC__out ULONG *iidCount,
+            /* [size_is][size_is][out] */ __RPC__deref_out_ecount_full_opt(*iidCount) IID **iids);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetRuntimeClassName )( 
+            __RPC__in IDelegatedInkTrailDesktopReferenceSurface * This,
+            /* [out] */ __RPC__deref_out_opt HSTRING *className);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTrustLevel )( 
+            __RPC__in IDelegatedInkTrailDesktopReferenceSurface * This,
+            /* [out] */ __RPC__out TrustLevel *trustLevel);
+        
+        HRESULT ( STDMETHODCALLTYPE *SetReferenceSurface )( 
+            __RPC__in IDelegatedInkTrailDesktopReferenceSurface * This,
+            /* [in] */ __RPC__in_opt IUnknown *surface,
+            /* [in] */ __RPC__in_opt IUnknown *dcompDevice);
+        
+        END_INTERFACE
+    } IDelegatedInkTrailDesktopReferenceSurfaceVtbl;
+
+    interface IDelegatedInkTrailDesktopReferenceSurface
+    {
+        CONST_VTBL struct IDelegatedInkTrailDesktopReferenceSurfaceVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define IDelegatedInkTrailDesktopReferenceSurface_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define IDelegatedInkTrailDesktopReferenceSurface_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define IDelegatedInkTrailDesktopReferenceSurface_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define IDelegatedInkTrailDesktopReferenceSurface_GetIids(This,iidCount,iids)	\
+    ( (This)->lpVtbl -> GetIids(This,iidCount,iids) ) 
+
+#define IDelegatedInkTrailDesktopReferenceSurface_GetRuntimeClassName(This,className)	\
+    ( (This)->lpVtbl -> GetRuntimeClassName(This,className) ) 
+
+#define IDelegatedInkTrailDesktopReferenceSurface_GetTrustLevel(This,trustLevel)	\
+    ( (This)->lpVtbl -> GetTrustLevel(This,trustLevel) ) 
+
+
+#define IDelegatedInkTrailDesktopReferenceSurface_SetReferenceSurface(This,surface,dcompDevice)	\
+    ( (This)->lpVtbl -> SetReferenceSurface(This,surface,dcompDevice) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __IDelegatedInkTrailDesktopReferenceSurface_INTERFACE_DEFINED__ */
+
+
 
 #ifndef __InkDesktopHostLib_LIBRARY_DEFINED__
 #define __InkDesktopHostLib_LIBRARY_DEFINED__
@@ -511,7 +623,7 @@ InkDesktopHost;
 #endif
 #endif /* __InkDesktopHostLib_LIBRARY_DEFINED__ */
 
-/* interface __MIDL_itf_inkpresenterdesktop_0000_0005 */
+/* interface __MIDL_itf_inkpresenterdesktop_0000_0006 */
 /* [local] */ 
 
 #endif // NTDDI_VERSION >= NTDDI_WINTHRESHOLD
@@ -519,8 +631,8 @@ InkDesktopHost;
 #pragma endregion
 
 
-extern RPC_IF_HANDLE __MIDL_itf_inkpresenterdesktop_0000_0005_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_inkpresenterdesktop_0000_0005_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_inkpresenterdesktop_0000_0006_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_inkpresenterdesktop_0000_0006_v0_0_s_ifspec;
 
 /* Additional Prototypes for ALL interfaces */
 

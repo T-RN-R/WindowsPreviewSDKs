@@ -83,6 +83,8 @@ namespace Windows
 
             typedef enum AppWindowTitleBarVisibility AppWindowTitleBarVisibility;
 
+            typedef enum VisibilityChangedDetails VisibilityChangedDetails;
+
             typedef enum WindowVisibilityState WindowVisibilityState;
 
             typedef enum WindowingEnvironmentKind WindowingEnvironmentKind;
@@ -94,6 +96,8 @@ namespace Windows
             interface IAppWindowChangedEventArgs;
 
             interface IAppWindowChangedEventArgs2;
+
+            interface IAppWindowChangedEventArgs22;
 
             interface IAppWindowCloseRequestedEventArgs;
 
@@ -277,6 +281,16 @@ namespace Windows
             };
 
             [contract(Windows.Foundation.UniversalApiContract, 11.0)]
+            enum VisibilityChangedDetails
+            {
+                Unknown        = 0,
+                Visible        = 1,
+                HiddenBySystem = 2,
+                HiddenByApp    = 3,
+                Minimized      = 4
+            };
+
+            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
             enum WindowVisibilityState
             {
                 Unknown = 0,
@@ -360,6 +374,14 @@ namespace Windows
             interface IAppWindowChangedEventArgs2 : IInspectable
             {
                 [propget] HRESULT DidOffsetChange([out] [retval] boolean* value);
+            }
+
+            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
+            [exclusiveto(Windows.UI.WindowManagement.AppWindowChangedEventArgs)]
+            [uuid(54D35696-ACFF-5BCD-93E9-49EB5DBC6173)]
+            interface IAppWindowChangedEventArgs22 : IInspectable
+            {
+                [propget] HRESULT VisibilityChangedDetails([out] [retval] Windows.UI.WindowManagement.VisibilityChangedDetails* value);
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 8.0)]
@@ -617,6 +639,7 @@ namespace Windows
             {
                 [default] interface Windows.UI.WindowManagement.IAppWindowChangedEventArgs;
                 [contract(Windows.Foundation.UniversalApiContract, 11.0)] interface Windows.UI.WindowManagement.IAppWindowChangedEventArgs2;
+                [contract(Windows.Foundation.UniversalApiContract, 11.0)] interface Windows.UI.WindowManagement.IAppWindowChangedEventArgs22;
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 8.0)]

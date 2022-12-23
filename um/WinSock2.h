@@ -4135,6 +4135,73 @@ WSAPoll(
 #endif // (_WIN32_WINNT >= 0x0600)
 
 
+typedef struct SOCK_NOTIFY_REGISTRATION {
+    SOCKET socket;
+    PVOID completionKey;
+    UINT16 eventFilter;
+    UINT16 operationFlags;
+    DWORD registrationResult;
+} SOCK_NOTIFY_REGISTRATION;
+
+// Socket notification event flags. 
+#define SOCK_NOTIFY_EVENT_NONE     0x00
+#define SOCK_NOTIFY_EVENT_IN       0x01    // Input is available from the socket without blocking.
+#define SOCK_NOTIFY_EVENT_OUT      0x02    // Output can be provided to the socket without blocking.
+#define SOCK_NOTIFY_EVENT_ERR      0x04    // The socket is in an error state. Implicit and must not be supplied.
+#define SOCK_NOTIFY_EVENT_HANGUP   0x08    // The socket connection has been terminated.
+#define SOCK_NOTIFY_EVENT_REMOVE   0x80    // The notification has been deregistered. No more notifications will be provided.
+
+#define SOCK_NOTIFY_EVENT_FLAGS_ALLOWED  \
+    (SOCK_NOTIFY_EVENT_IN | SOCK_NOTIFY_EVENT_OUT | SOCK_NOTIFY_EVENT_HANGUP)
+
+#define SOCK_NOTIFY_EVENT_FLAGS_ALL      \
+    (SOCK_NOTIFY_EVENT_FLAGS_ALLOWED | SOCK_NOTIFY_EVENT_ERR | SOCK_NOTIFY_EVENT_REMOVE)
+
+#define SOCK_NOTIFY_OP_NONE      0x00
+#define SOCK_NOTIFY_OP_ENABLE    0x01    // The registration is enabled. Not compatible with disable. One of enable or disable must be supplied.
+#define SOCK_NOTIFY_OP_DISABLE   0x02    // The registration is disabled, but the underlying structures are not destroyed.  Not compatible with enable. One of enable or disable must be supplied.
+#define SOCK_NOTIFY_OP_REMOVE    0x04    // Removes the registration. A SOCK_NOTIFY_REMOVE notification will be delivered when this completes successfully.
+#define SOCK_NOTIFY_OP_ONESHOT   0x08    // The registration will be disabled upon delivery of the next notification. Note: it will not be removed, merely disabled.
+#define SOCK_NOTIFY_OP_LEVEL     0x10    // The registration is for level-triggered notifications. Not compatible with edge-triggered. One of edge- or level-triggered must be supplied.
+#define SOCK_NOTIFY_OP_EDGE      0x20    // The registration is for level-triggered notifications. Not compatible with level-triggered. One of edge- or level-triggered must be supplied.
+
+#define SOCK_NOTIFY_OP_FLAGS_ALL         \
+    (SOCK_NOTIFY_OP_ENABLE | SOCK_NOTIFY_OP_DISABLE | SOCK_NOTIFY_OP_REMOVE | SOCK_NOTIFY_OP_ONESHOT | \
+     SOCK_NOTIFY_OP_LEVEL | SOCK_NOTIFY_OP_EDGE)
+
+#if (NTDDI_VERSION >= NTDDI_WIN10_MN)
+#if INCL_WINSOCK_API_PROTOTYPES
+WINSOCK_API_LINKAGE
+DWORD
+WSAAPI
+ProcessSocketNotifications(
+    _In_ HANDLE completionPort,
+    _In_ UINT32 registrationCount,
+    _Inout_updates_opt_(registrationCount)
+        SOCK_NOTIFY_REGISTRATION* registrationInfos,
+    _In_ UINT32 timeoutMs,
+    _In_ ULONG completionCount,
+    _Out_writes_to_opt_(completionCount, *receivedEntryCount)
+        OVERLAPPED_ENTRY* completionPortEntries,
+    _Out_opt_ UINT32* receivedEntryCount
+    );
+
+#if !defined(__midl)
+
+inline
+UINT32
+SocketNotificationRetrieveEvents (
+    _In_ OVERLAPPED_ENTRY* notification
+    )
+{
+    return (UINT32)notification->dwNumberOfBytesTransferred;
+}
+
+#endif // __midl
+
+#endif // INCL_WINSOCK_API_PROTOTYPES
+#endif // (NTDDI_VERSION >= NTDDI_WIN10_MN)
+
 
 /* Microsoft Windows Extended data types */
 typedef struct sockaddr_in FAR *LPSOCKADDR_IN;

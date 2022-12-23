@@ -21,7 +21,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::WindowManagement
         static auto ClearPersistedState(param::hstring const& key);
     };
     struct __declspec(empty_bases) AppWindowChangedEventArgs : Windows::UI::WindowManagement::IAppWindowChangedEventArgs,
-        impl::require<AppWindowChangedEventArgs, Windows::UI::WindowManagement::IAppWindowChangedEventArgs2>
+        impl::require<AppWindowChangedEventArgs, Windows::UI::WindowManagement::IAppWindowChangedEventArgs2, Windows::UI::WindowManagement::IAppWindowChangedEventArgs22>
     {
         AppWindowChangedEventArgs(std::nullptr_t) noexcept {}
         AppWindowChangedEventArgs(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::WindowManagement::IAppWindowChangedEventArgs(ptr, take_ownership_from_abi) {}
