@@ -438,6 +438,13 @@ typedef interface IAgileReference IAgileReference;
 #endif 	/* __IAgileReference_FWD_DEFINED__ */
 
 
+#ifndef __IMachineGlobalObjectTable_FWD_DEFINED__
+#define __IMachineGlobalObjectTable_FWD_DEFINED__
+typedef interface IMachineGlobalObjectTable IMachineGlobalObjectTable;
+
+#endif 	/* __IMachineGlobalObjectTable_FWD_DEFINED__ */
+
+
 #ifndef __IMallocSpy_FWD_DEFINED__
 #define __IMallocSpy_FWD_DEFINED__
 typedef interface IMallocSpy IMallocSpy;
@@ -8133,6 +8140,135 @@ EXTERN_C const IID IID_IAgileReference;
 EXTERN_C const GUID  IID_ICallbackWithNoReentrancyToApplicationSTA;
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
+#pragma region Application Family or OneCore Family
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
+typedef struct MachineGlobalObjectTableRegistrationToken__
+    {
+    int unused;
+    } 	*MachineGlobalObjectTableRegistrationToken;
+
+
+
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0053_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0053_v0_0_s_ifspec;
+
+#ifndef __IMachineGlobalObjectTable_INTERFACE_DEFINED__
+#define __IMachineGlobalObjectTable_INTERFACE_DEFINED__
+
+/* interface IMachineGlobalObjectTable */
+/* [unique][uuid][object][local] */ 
+
+
+EXTERN_C const IID IID_IMachineGlobalObjectTable;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("26d709ac-f70b-4421-a96f-d2878fafb00d")
+    IMachineGlobalObjectTable : public IUnknown
+    {
+    public:
+        virtual HRESULT STDMETHODCALLTYPE RegisterObject( 
+            /* [in] */ REFCLSID clsid,
+            /* [in] */ LPCWSTR identifier,
+            /* [in] */ IUnknown *object,
+            /* [out] */ MachineGlobalObjectTableRegistrationToken *token) = 0;
+        
+        virtual HRESULT STDMETHODCALLTYPE GetObject( 
+            /* [in] */ REFCLSID clsid,
+            /* [in] */ LPCWSTR identifier,
+            /* [in] */ REFIID riid,
+            /* [iid_is][out] */ void **ppv) = 0;
+        
+        virtual HRESULT STDMETHODCALLTYPE RevokeObject( 
+            /* [in] */ MachineGlobalObjectTableRegistrationToken token) = 0;
+        
+    };
+    
+    
+#else 	/* C style interface */
+
+    typedef struct IMachineGlobalObjectTableVtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            IMachineGlobalObjectTable * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            _COM_Outptr_  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            IMachineGlobalObjectTable * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            IMachineGlobalObjectTable * This);
+        
+        HRESULT ( STDMETHODCALLTYPE *RegisterObject )( 
+            IMachineGlobalObjectTable * This,
+            /* [in] */ REFCLSID clsid,
+            /* [in] */ LPCWSTR identifier,
+            /* [in] */ IUnknown *object,
+            /* [out] */ MachineGlobalObjectTableRegistrationToken *token);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetObject )( 
+            IMachineGlobalObjectTable * This,
+            /* [in] */ REFCLSID clsid,
+            /* [in] */ LPCWSTR identifier,
+            /* [in] */ REFIID riid,
+            /* [iid_is][out] */ void **ppv);
+        
+        HRESULT ( STDMETHODCALLTYPE *RevokeObject )( 
+            IMachineGlobalObjectTable * This,
+            /* [in] */ MachineGlobalObjectTableRegistrationToken token);
+        
+        END_INTERFACE
+    } IMachineGlobalObjectTableVtbl;
+
+    interface IMachineGlobalObjectTable
+    {
+        CONST_VTBL struct IMachineGlobalObjectTableVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define IMachineGlobalObjectTable_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define IMachineGlobalObjectTable_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define IMachineGlobalObjectTable_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define IMachineGlobalObjectTable_RegisterObject(This,clsid,identifier,object,token)	\
+    ( (This)->lpVtbl -> RegisterObject(This,clsid,identifier,object,token) ) 
+
+#define IMachineGlobalObjectTable_GetObject(This,clsid,identifier,riid,ppv)	\
+    ( (This)->lpVtbl -> GetObject(This,clsid,identifier,riid,ppv) ) 
+
+#define IMachineGlobalObjectTable_RevokeObject(This,token)	\
+    ( (This)->lpVtbl -> RevokeObject(This,token) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __IMachineGlobalObjectTable_INTERFACE_DEFINED__ */
+
+
+/* interface __MIDL_itf_objidl_0000_0054 */
+/* [local] */ 
+
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
+#pragma endregion
 #define _OBJIDLBASE_
 #endif
 #if ( _MSC_VER >= 800 )
@@ -8155,8 +8291,8 @@ EXTERN_C const GUID  IID_ICallbackWithNoReentrancyToApplicationSTA;
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 
 
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0053_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0053_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0054_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0054_v0_0_s_ifspec;
 
 #ifndef __IMallocSpy_INTERFACE_DEFINED__
 #define __IMallocSpy_INTERFACE_DEFINED__
@@ -8406,7 +8542,7 @@ EXTERN_C const IID IID_IMallocSpy;
 #endif 	/* __IMallocSpy_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_objidl_0000_0054 */
+/* interface __MIDL_itf_objidl_0000_0055 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */
@@ -8415,8 +8551,8 @@ EXTERN_C const IID IID_IMallocSpy;
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 
 
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0054_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0054_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0055_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0055_v0_0_s_ifspec;
 
 #ifndef __IBindCtx_INTERFACE_DEFINED__
 #define __IBindCtx_INTERFACE_DEFINED__
@@ -8825,7 +8961,7 @@ void __RPC_STUB IEnumMoniker_RemoteNext_Stub(
 #endif 	/* __IEnumMoniker_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_objidl_0000_0056 */
+/* interface __MIDL_itf_objidl_0000_0057 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
@@ -8834,8 +8970,8 @@ void __RPC_STUB IEnumMoniker_RemoteNext_Stub(
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 
 
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0056_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0056_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0057_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0057_v0_0_s_ifspec;
 
 #ifndef __IRunnableObject_INTERFACE_DEFINED__
 #define __IRunnableObject_INTERFACE_DEFINED__
@@ -9124,7 +9260,7 @@ EXTERN_C const IID IID_IRunningObjectTable;
 #endif 	/* __IRunningObjectTable_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_objidl_0000_0058 */
+/* interface __MIDL_itf_objidl_0000_0059 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */
@@ -9133,8 +9269,8 @@ EXTERN_C const IID IID_IRunningObjectTable;
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 
 
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0058_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0058_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0059_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0059_v0_0_s_ifspec;
 
 #ifndef __IPersist_INTERFACE_DEFINED__
 #define __IPersist_INTERFACE_DEFINED__
@@ -9715,7 +9851,7 @@ void __RPC_STUB IMoniker_RemoteBindToStorage_Stub(
 #endif 	/* __IMoniker_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_objidl_0000_0061 */
+/* interface __MIDL_itf_objidl_0000_0062 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
@@ -9724,8 +9860,8 @@ void __RPC_STUB IMoniker_RemoteBindToStorage_Stub(
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 
 
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0061_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0061_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0062_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0062_v0_0_s_ifspec;
 
 #ifndef __IROTData_INTERFACE_DEFINED__
 #define __IROTData_INTERFACE_DEFINED__
@@ -9811,7 +9947,7 @@ EXTERN_C const IID IID_IROTData;
 #endif 	/* __IROTData_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_objidl_0000_0062 */
+/* interface __MIDL_itf_objidl_0000_0063 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */
@@ -9820,8 +9956,8 @@ EXTERN_C const IID IID_IROTData;
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 
 
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0062_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0062_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0063_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0063_v0_0_s_ifspec;
 
 #ifndef __IEnumSTATSTG_INTERFACE_DEFINED__
 #define __IEnumSTATSTG_INTERFACE_DEFINED__
@@ -10320,7 +10456,7 @@ void __RPC_STUB IStorage_RemoteEnumElements_Stub(
 #endif 	/* __IStorage_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_objidl_0000_0064 */
+/* interface __MIDL_itf_objidl_0000_0065 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
@@ -10329,8 +10465,8 @@ void __RPC_STUB IStorage_RemoteEnumElements_Stub(
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 
 
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0064_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0064_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0065_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0065_v0_0_s_ifspec;
 
 #ifndef __IPersistFile_INTERFACE_DEFINED__
 #define __IPersistFile_INTERFACE_DEFINED__
@@ -10602,7 +10738,7 @@ EXTERN_C const IID IID_IPersistStorage;
 #endif 	/* __IPersistStorage_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_objidl_0000_0066 */
+/* interface __MIDL_itf_objidl_0000_0067 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */
@@ -10611,8 +10747,8 @@ EXTERN_C const IID IID_IPersistStorage;
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 
 
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0066_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0066_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0067_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0067_v0_0_s_ifspec;
 
 #ifndef __ILockBytes_INTERFACE_DEFINED__
 #define __ILockBytes_INTERFACE_DEFINED__
@@ -11802,7 +11938,7 @@ void __RPC_STUB AsyncIAdviseSink_Finish_RemoteOnClose_Stub(
 #endif 	/* __AsyncIAdviseSink_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_objidl_0000_0071 */
+/* interface __MIDL_itf_objidl_0000_0072 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
@@ -11811,8 +11947,8 @@ void __RPC_STUB AsyncIAdviseSink_Finish_RemoteOnClose_Stub(
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 
 
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0071_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0071_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0072_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0072_v0_0_s_ifspec;
 
 #ifndef __IAdviseSink2_INTERFACE_DEFINED__
 #define __IAdviseSink2_INTERFACE_DEFINED__
@@ -12131,7 +12267,7 @@ void __RPC_STUB AsyncIAdviseSink2_Finish_RemoteOnLinkSrcChange_Stub(
 #endif 	/* __AsyncIAdviseSink2_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_objidl_0000_0072 */
+/* interface __MIDL_itf_objidl_0000_0073 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
@@ -12140,8 +12276,8 @@ void __RPC_STUB AsyncIAdviseSink2_Finish_RemoteOnLinkSrcChange_Stub(
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 
 
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0072_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0072_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0073_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0073_v0_0_s_ifspec;
 
 #ifndef __IDataObject_INTERFACE_DEFINED__
 #define __IDataObject_INTERFACE_DEFINED__
@@ -12382,7 +12518,7 @@ void __RPC_STUB IDataObject_RemoteSetData_Stub(
 #endif 	/* __IDataObject_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_objidl_0000_0073 */
+/* interface __MIDL_itf_objidl_0000_0074 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
@@ -12391,8 +12527,8 @@ void __RPC_STUB IDataObject_RemoteSetData_Stub(
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 
 
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0073_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0073_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0074_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0074_v0_0_s_ifspec;
 
 #ifndef __IDataAdviseHolder_INTERFACE_DEFINED__
 #define __IDataAdviseHolder_INTERFACE_DEFINED__
@@ -12716,7 +12852,7 @@ EXTERN_C const IID IID_IMessageFilter;
 #endif 	/* __IMessageFilter_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_objidl_0000_0075 */
+/* interface __MIDL_itf_objidl_0000_0076 */
 /* [local] */ 
 
 
@@ -12739,8 +12875,8 @@ extern const FMTID FMTID_MediaFileSummaryInformation;
 
 
 
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0075_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0075_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0076_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0076_v0_0_s_ifspec;
 
 #ifndef __IClassActivator_INTERFACE_DEFINED__
 #define __IClassActivator_INTERFACE_DEFINED__
@@ -12830,7 +12966,7 @@ EXTERN_C const IID IID_IClassActivator;
 #endif 	/* __IClassActivator_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_objidl_0000_0076 */
+/* interface __MIDL_itf_objidl_0000_0077 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
@@ -12839,8 +12975,8 @@ EXTERN_C const IID IID_IClassActivator;
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 
 
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0076_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0076_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0077_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0077_v0_0_s_ifspec;
 
 #ifndef __IFillLockBytes_INTERFACE_DEFINED__
 #define __IFillLockBytes_INTERFACE_DEFINED__
@@ -13005,7 +13141,7 @@ void __RPC_STUB IFillLockBytes_RemoteFillAt_Stub(
 #endif 	/* __IFillLockBytes_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_objidl_0000_0077 */
+/* interface __MIDL_itf_objidl_0000_0078 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
@@ -13014,8 +13150,8 @@ void __RPC_STUB IFillLockBytes_RemoteFillAt_Stub(
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 
 
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0077_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0077_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0078_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0078_v0_0_s_ifspec;
 
 #ifndef __IProgressNotify_INTERFACE_DEFINED__
 #define __IProgressNotify_INTERFACE_DEFINED__
@@ -13103,7 +13239,7 @@ EXTERN_C const IID IID_IProgressNotify;
 #endif 	/* __IProgressNotify_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_objidl_0000_0078 */
+/* interface __MIDL_itf_objidl_0000_0079 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */
@@ -13112,8 +13248,8 @@ EXTERN_C const IID IID_IProgressNotify;
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 
 
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0078_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0078_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0079_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0079_v0_0_s_ifspec;
 
 #ifndef __ILayoutStorage_INTERFACE_DEFINED__
 #define __ILayoutStorage_INTERFACE_DEFINED__
@@ -13253,7 +13389,7 @@ EXTERN_C const IID IID_ILayoutStorage;
 #endif 	/* __ILayoutStorage_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_objidl_0000_0079 */
+/* interface __MIDL_itf_objidl_0000_0080 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
@@ -13262,8 +13398,8 @@ EXTERN_C const IID IID_ILayoutStorage;
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 
 
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0079_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0079_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0080_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0080_v0_0_s_ifspec;
 
 #ifndef __IBlockingLock_INTERFACE_DEFINED__
 #define __IBlockingLock_INTERFACE_DEFINED__
@@ -13545,7 +13681,7 @@ EXTERN_C const IID IID_IOplockStorage;
 #endif 	/* __IOplockStorage_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_objidl_0000_0082 */
+/* interface __MIDL_itf_objidl_0000_0083 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */
@@ -13554,8 +13690,8 @@ EXTERN_C const IID IID_IOplockStorage;
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 
 
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0082_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0082_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0083_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0083_v0_0_s_ifspec;
 
 #ifndef __IDirectWriterLock_INTERFACE_DEFINED__
 #define __IDirectWriterLock_INTERFACE_DEFINED__
@@ -13653,7 +13789,7 @@ EXTERN_C const IID IID_IDirectWriterLock;
 #endif 	/* __IDirectWriterLock_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_objidl_0000_0083 */
+/* interface __MIDL_itf_objidl_0000_0084 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
@@ -13662,8 +13798,8 @@ EXTERN_C const IID IID_IDirectWriterLock;
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 
 
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0083_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0083_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0084_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0084_v0_0_s_ifspec;
 
 #ifndef __IUrlMon_INTERFACE_DEFINED__
 #define __IUrlMon_INTERFACE_DEFINED__
@@ -14027,7 +14163,7 @@ EXTERN_C const IID IID_IDummyHICONIncluder;
 #endif 	/* __IDummyHICONIncluder_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_objidl_0000_0087 */
+/* interface __MIDL_itf_objidl_0000_0088 */
 /* [local] */ 
 
 typedef 
@@ -14046,8 +14182,8 @@ enum tagShutdownType
 
 
 
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0087_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0087_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0088_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0088_v0_0_s_ifspec;
 
 #ifndef __IProcessLock_INTERFACE_DEFINED__
 #define __IProcessLock_INTERFACE_DEFINED__
@@ -14277,14 +14413,14 @@ EXTERN_C const IID IID_ISurrogateService;
 #endif 	/* __ISurrogateService_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_objidl_0000_0089 */
+/* interface __MIDL_itf_objidl_0000_0090 */
 /* [local] */ 
 
 #if  (_WIN32_WINNT >= 0x0501 )
 
 
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0089_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0089_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0090_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0090_v0_0_s_ifspec;
 
 #ifndef __IInitializeSpy_INTERFACE_DEFINED__
 #define __IInitializeSpy_INTERFACE_DEFINED__
@@ -14418,7 +14554,7 @@ EXTERN_C const IID IID_IInitializeSpy;
 #endif 	/* __IInitializeSpy_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_objidl_0000_0090 */
+/* interface __MIDL_itf_objidl_0000_0091 */
 /* [local] */ 
 
 #endif
@@ -14428,8 +14564,8 @@ EXTERN_C const IID IID_IInitializeSpy;
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 
 
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0090_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0090_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0091_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0091_v0_0_s_ifspec;
 
 #ifndef __IApartmentShutdown_INTERFACE_DEFINED__
 #define __IApartmentShutdown_INTERFACE_DEFINED__
@@ -14513,7 +14649,7 @@ EXTERN_C const IID IID_IApartmentShutdown;
 #endif 	/* __IApartmentShutdown_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_objidl_0000_0091 */
+/* interface __MIDL_itf_objidl_0000_0092 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
@@ -14527,8 +14663,8 @@ EXTERN_C const IID IID_IApartmentShutdown;
 #endif
 
 
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0091_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0091_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0092_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_objidl_0000_0092_v0_0_s_ifspec;
 
 /* Additional Prototypes for ALL interfaces */
 

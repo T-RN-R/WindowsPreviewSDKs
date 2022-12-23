@@ -1494,6 +1494,12 @@ typedef struct _HTTP_SSL_CLIENT_CERT_INFO
 
 #define HTTP_RECEIVE_SECURE_CHANNEL_TOKEN 0x1
 
+//
+// Flag to retrieve full certificate chain with HttpReceiveClientCertificate
+//
+
+#define HTTP_RECEIVE_FULL_CHAIN 0x2
+
 #endif
 
 //
@@ -2276,6 +2282,7 @@ typedef enum _HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE
     ExParamTypeHttp2Window,
     ExParamTypeHttp2SettingsLimits,
     ExParamTypeHttpPerformance,
+    ExParamTypeTlsRestrictions,
     ExParamTypeMax
 } HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE, *PHTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE;
 
@@ -2331,6 +2338,12 @@ typedef struct _HTTP_PERFORMANCE_PARAM
 
 } HTTP_PERFORMANCE_PARAM, *PHTTP_PERFORMANCE_PARAM;
 
+typedef struct _HTTP_TLS_RESTRICTIONS_PARAM
+{
+    ULONG RestrictionCount;
+    PVOID TlsRestrictions;
+} HTTP_TLS_RESTRICTIONS_PARAM, *PHTTP_TLS_RESTRICTIONS_PARAM;
+
 //
 // This defines the exteded params for the ssl config record.
 //
@@ -2358,6 +2371,7 @@ typedef struct _HTTP_SERVICE_CONFIG_SSL_PARAM_EX
         HTTP2_WINDOW_SIZE_PARAM Http2WindowSizeParam;
         HTTP2_SETTINGS_LIMITS_PARAM Http2SettingsLimitsParam;
         HTTP_PERFORMANCE_PARAM HttpPerformanceParam;
+        HTTP_TLS_RESTRICTIONS_PARAM HttpTlsRestrictionsParam;
     };
 } HTTP_SERVICE_CONFIG_SSL_PARAM_EX, *PHTTP_SERVICE_CONFIG_SSL_PARAM_EX;
 

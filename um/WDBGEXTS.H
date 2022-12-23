@@ -1261,6 +1261,7 @@ typedef struct _KDDEBUGGER_DATA64 {
     //
     USHORT  PaeEnabled:1;
     USHORT  KiBugCheckRecoveryActive:1; // Windows 10 Manganese Addition
+    USHORT  PagingLevels:4;
 
     //
     // Address of the kernel callout routine.

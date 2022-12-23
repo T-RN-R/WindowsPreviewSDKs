@@ -15,6 +15,14 @@ WINRT_EXPORT namespace winrt::Windows::Security::Isolation
         IIsolatedWindowsEnvironment(std::nullptr_t = nullptr) noexcept {}
         IIsolatedWindowsEnvironment(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
+    struct __declspec(empty_bases) IIsolatedWindowsEnvironment2 :
+        Windows::Foundation::IInspectable,
+        impl::consume_t<IIsolatedWindowsEnvironment2>,
+        impl::require<Windows::Security::Isolation::IIsolatedWindowsEnvironment2, Windows::Security::Isolation::IIsolatedWindowsEnvironment>
+    {
+        IIsolatedWindowsEnvironment2(std::nullptr_t = nullptr) noexcept {}
+        IIsolatedWindowsEnvironment2(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
     struct __declspec(empty_bases) IIsolatedWindowsEnvironmentCreateResult :
         Windows::Foundation::IInspectable,
         impl::consume_t<IIsolatedWindowsEnvironmentCreateResult>
@@ -77,6 +85,13 @@ WINRT_EXPORT namespace winrt::Windows::Security::Isolation
     {
         IIsolatedWindowsEnvironmentOwnerRegistrationStatics(std::nullptr_t = nullptr) noexcept {}
         IIsolatedWindowsEnvironmentOwnerRegistrationStatics(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IIsolatedWindowsEnvironmentPostMessageResult :
+        Windows::Foundation::IInspectable,
+        impl::consume_t<IIsolatedWindowsEnvironmentPostMessageResult>
+    {
+        IIsolatedWindowsEnvironmentPostMessageResult(std::nullptr_t = nullptr) noexcept {}
+        IIsolatedWindowsEnvironmentPostMessageResult(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
     struct __declspec(empty_bases) IIsolatedWindowsEnvironmentProcess :
         Windows::Foundation::IInspectable,

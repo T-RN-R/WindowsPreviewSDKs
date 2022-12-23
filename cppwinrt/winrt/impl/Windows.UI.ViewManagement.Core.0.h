@@ -24,6 +24,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::ViewManagement::Core
         Handwriting = 2,
         Emoji = 3,
         Symbols = 4,
+        Clipboard = 5,
     };
     enum class CoreInputViewOcclusionKind : int32_t
     {
