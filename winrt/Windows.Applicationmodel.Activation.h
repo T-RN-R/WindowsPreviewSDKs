@@ -816,21 +816,6 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CApplicationModel_CActivation_CILockScreenCallActivatedEventArgs_FWD_DEFINED__
 
-#ifndef ____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_FWD_DEFINED__
-#define ____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_FWD_DEFINED__
-namespace ABI {
-    namespace Windows {
-        namespace ApplicationModel {
-            namespace Activation {
-                interface IPhoneCallActivatedEventArgs;
-            } /* Activation */
-        } /* ApplicationModel */
-    } /* Windows */
-} /* ABI */
-#define __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs ABI::Windows::ApplicationModel::Activation::IPhoneCallActivatedEventArgs
-
-#endif // ____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_FWD_DEFINED__
-
 #ifndef ____x_ABI_CWindows_CApplicationModel_CActivation_CIPickerReturnedActivatedEventArgs_FWD_DEFINED__
 #define ____x_ABI_CWindows_CApplicationModel_CActivation_CIPickerReturnedActivatedEventArgs_FWD_DEFINED__
 namespace ABI {
@@ -2433,9 +2418,6 @@ namespace ABI {
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
                     ActivationKind_BarcodeScannerProvider = 1022,
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-                    ActivationKind_PhoneCallActivation = 1025,
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
                 };
             } /* Activation */
         } /* ApplicationModel */
@@ -4116,43 +4098,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CActivation_CILockScre
 
 /*
  *
- * Interface Windows.ApplicationModel.Activation.IPhoneCallActivatedEventArgs
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Any object which implements this interface must also implement the following interfaces:
- *     Windows.ApplicationModel.Activation.IActivatedEventArgs
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_ApplicationModel_Activation_IPhoneCallActivatedEventArgs[] = L"Windows.ApplicationModel.Activation.IPhoneCallActivatedEventArgs";
-namespace ABI {
-    namespace Windows {
-        namespace ApplicationModel {
-            namespace Activation {
-                MIDL_INTERFACE("54615221-a3c1-4ced-b62f-8c60523619ad")
-                IPhoneCallActivatedEventArgs : public IInspectable
-                {
-                public:
-                    virtual HRESULT STDMETHODCALLTYPE get_LineId(
-                        GUID* value
-                        ) = 0;
-                };
-
-                extern MIDL_CONST_ID IID& IID_IPhoneCallActivatedEventArgs = _uuidof(IPhoneCallActivatedEventArgs);
-            } /* Activation */
-        } /* ApplicationModel */
-    } /* Windows */
-} /* ABI */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs;
-#endif /* !defined(____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
  * Interface Windows.ApplicationModel.Activation.IPickerReturnedActivatedEventArgs
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
@@ -5625,27 +5570,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
- * Class Windows.ApplicationModel.Activation.PhoneCallActivatedEventArgs
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Class implements the following interfaces:
- *    Windows.ApplicationModel.Activation.IPhoneCallActivatedEventArgs ** Default Interface **
- *    Windows.ApplicationModel.Activation.IActivatedEventArgs
- *    Windows.ApplicationModel.Activation.IActivatedEventArgsWithUser
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#ifndef RUNTIMECLASS_Windows_ApplicationModel_Activation_PhoneCallActivatedEventArgs_DEFINED
-#define RUNTIMECLASS_Windows_ApplicationModel_Activation_PhoneCallActivatedEventArgs_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_ApplicationModel_Activation_PhoneCallActivatedEventArgs[] = L"Windows.ApplicationModel.Activation.PhoneCallActivatedEventArgs";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
  * Class Windows.ApplicationModel.Activation.PickerReturnedActivatedEventArgs
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
@@ -6256,12 +6180,6 @@ typedef interface __x_ABI_CWindows_CApplicationModel_CActivation_CILockScreenAct
 typedef interface __x_ABI_CWindows_CApplicationModel_CActivation_CILockScreenCallActivatedEventArgs __x_ABI_CWindows_CApplicationModel_CActivation_CILockScreenCallActivatedEventArgs;
 
 #endif // ____x_ABI_CWindows_CApplicationModel_CActivation_CILockScreenCallActivatedEventArgs_FWD_DEFINED__
-
-#ifndef ____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_FWD_DEFINED__
-#define ____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_FWD_DEFINED__
-typedef interface __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs;
-
-#endif // ____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CApplicationModel_CActivation_CIPickerReturnedActivatedEventArgs_FWD_DEFINED__
 #define ____x_ABI_CWindows_CApplicationModel_CActivation_CIPickerReturnedActivatedEventArgs_FWD_DEFINED__
@@ -7512,9 +7430,6 @@ enum __x_ABI_CWindows_CApplicationModel_CActivation_CActivationKind
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
     ActivationKind_BarcodeScannerProvider = 1022,
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-    ActivationKind_PhoneCallActivation = 1025,
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 };
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 
@@ -10629,76 +10544,6 @@ EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CActivation_CILockScre
 
 /*
  *
- * Interface Windows.ApplicationModel.Activation.IPhoneCallActivatedEventArgs
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Any object which implements this interface must also implement the following interfaces:
- *     Windows.ApplicationModel.Activation.IActivatedEventArgs
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#if !defined(____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_INTERFACE_DEFINED__)
-#define ____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_INTERFACE_DEFINED__
-extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_ApplicationModel_Activation_IPhoneCallActivatedEventArgs[] = L"Windows.ApplicationModel.Activation.IPhoneCallActivatedEventArgs";
-typedef struct __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgsVtbl
-{
-    BEGIN_INTERFACE
-
-    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs* This,
-        REFIID riid,
-        void** ppvObject);
-    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs* This);
-    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs* This);
-    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs* This,
-        ULONG* iidCount,
-        IID** iids);
-    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs* This,
-        HSTRING* className);
-    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs* This,
-        TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* get_LineId)(__x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs* This,
-        GUID* value);
-
-    END_INTERFACE
-} __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgsVtbl;
-
-interface __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs
-{
-    CONST_VTBL struct __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgsVtbl* lpVtbl;
-};
-
-#ifdef COBJMACROS
-
-#define __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_QueryInterface(This, riid, ppvObject) \
-    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
-
-#define __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_AddRef(This) \
-    ((This)->lpVtbl->AddRef(This))
-
-#define __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_Release(This) \
-    ((This)->lpVtbl->Release(This))
-
-#define __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_GetIids(This, iidCount, iids) \
-    ((This)->lpVtbl->GetIids(This, iidCount, iids))
-
-#define __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_GetRuntimeClassName(This, className) \
-    ((This)->lpVtbl->GetRuntimeClassName(This, className))
-
-#define __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_GetTrustLevel(This, trustLevel) \
-    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
-
-#define __x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_get_LineId(This, value) \
-    ((This)->lpVtbl->get_LineId(This, value))
-
-#endif /* COBJMACROS */
-
-EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs;
-#endif /* !defined(____x_ABI_CWindows_CApplicationModel_CActivation_CIPhoneCallActivatedEventArgs_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-
-/*
- *
  * Interface Windows.ApplicationModel.Activation.IPickerReturnedActivatedEventArgs
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
@@ -12875,27 +12720,6 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_ApplicationModel_Activation_LockScreenComponentActivatedEventArgs[] = L"Windows.ApplicationModel.Activation.LockScreenComponentActivatedEventArgs";
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x40000
-
-/*
- *
- * Class Windows.ApplicationModel.Activation.PhoneCallActivatedEventArgs
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
- *
- * Class implements the following interfaces:
- *    Windows.ApplicationModel.Activation.IPhoneCallActivatedEventArgs ** Default Interface **
- *    Windows.ApplicationModel.Activation.IActivatedEventArgs
- *    Windows.ApplicationModel.Activation.IActivatedEventArgsWithUser
- *
- * Class Marshaling Behavior:  Agile - Class is agile
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
-#ifndef RUNTIMECLASS_Windows_ApplicationModel_Activation_PhoneCallActivatedEventArgs_DEFINED
-#define RUNTIMECLASS_Windows_ApplicationModel_Activation_PhoneCallActivatedEventArgs_DEFINED
-extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_ApplicationModel_Activation_PhoneCallActivatedEventArgs[] = L"Windows.ApplicationModel.Activation.PhoneCallActivatedEventArgs";
-#endif
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *

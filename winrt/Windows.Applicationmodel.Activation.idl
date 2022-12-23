@@ -442,8 +442,6 @@ namespace Windows
 
             interface ILockScreenCallActivatedEventArgs;
 
-            interface IPhoneCallActivatedEventArgs;
-
             interface IPickerReturnedActivatedEventArgs;
 
             interface IPrelaunchActivatedEventArgs;
@@ -547,8 +545,6 @@ namespace Windows
             runtimeclass LockScreenCallActivatedEventArgs;
 
             runtimeclass LockScreenComponentActivatedEventArgs;
-
-            runtimeclass PhoneCallActivatedEventArgs;
 
             runtimeclass PickerReturnedActivatedEventArgs;
 
@@ -707,9 +703,7 @@ namespace Windows
                 [contract(Windows.Foundation.UniversalApiContract, 5.0)]
                 CommandLineLaunch                   = 1021,
                 [contract(Windows.Foundation.UniversalApiContract, 6.0)]
-                BarcodeScannerProvider              = 1022,
-                [contract(Windows.Foundation.UniversalApiContract, 12.0)]
-                PhoneCallActivation                 = 1025
+                BarcodeScannerProvider              = 1022
             };
 
             [contract(Windows.Foundation.UniversalApiContract, 1.0)]
@@ -1131,15 +1125,6 @@ namespace Windows
                     Windows.ApplicationModel.Activation.IActivatedEventArgs
             {
                 [propget] HRESULT CallUI([out] [retval] Windows.ApplicationModel.Calls.LockScreenCallUI** value);
-            }
-
-            [contract(Windows.Foundation.UniversalApiContract, 12.0)]
-            [uuid(54615221-A3C1-4CED-B62F-8C60523619AD)]
-            interface IPhoneCallActivatedEventArgs : IInspectable
-                requires
-                    Windows.ApplicationModel.Activation.IActivatedEventArgs
-            {
-                [propget] HRESULT LineId([out] [retval] GUID* value);
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 1.0)]
@@ -1632,15 +1617,6 @@ namespace Windows
             runtimeclass LockScreenComponentActivatedEventArgs
             {
                 [default] interface Windows.ApplicationModel.Activation.IActivatedEventArgs;
-            }
-
-            [contract(Windows.Foundation.UniversalApiContract, 12.0)]
-            [marshaling_behavior(agile)]
-            runtimeclass PhoneCallActivatedEventArgs
-            {
-                [default] interface Windows.ApplicationModel.Activation.IPhoneCallActivatedEventArgs;
-                interface Windows.ApplicationModel.Activation.IActivatedEventArgs;
-                interface Windows.ApplicationModel.Activation.IActivatedEventArgsWithUser;
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 1.0)]

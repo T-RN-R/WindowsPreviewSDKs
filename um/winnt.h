@@ -6819,7 +6819,7 @@ typedef union _AMD64_MXCSR_REG {
     } DUMMYSTRUCTNAME;
 } AMD64_MXCSR_REG;
 
-#if !defined(SORTPP_PASS) && !defined(MIDL_PASS) && !defined(RC_INVOKED)
+#if !defined(SORTPP_PASS) && !defined(MIDL_PASS) && !defined(RC_INVOKED) && !defined(NONAMELESSUNION) && defined(_MSC_EXTENSIONS)
 
 FORCEINLINE
 DWORD
@@ -7010,7 +7010,7 @@ _convert_eflags_to_cpsr (
     return Result;
 }
 
-#endif // !defined(SORTPP_PASS) && !defined(MIDL_PASS) && !defined(RC_INVOKED)
+#endif // !defined(SORTPP_PASS) && !defined(MIDL_PASS) && !defined(RC_INVOKED) && !defined(NONAMELESSUNION) && defined(_MSC_EXTENSIONS)
 
 typedef struct DECLSPEC_ALIGN(16) DECLSPEC_NOINITALL _ARM64EC_NT_CONTEXT {
     union {
@@ -9823,13 +9823,14 @@ typedef struct _WOW64_DESCRIPTOR_TABLE_ENTRY {
 #pragma warning(pop)
 #endif
 
-#define EXCEPTION_NONCONTINUABLE 0x1    // Noncontinuable exception
-#define EXCEPTION_UNWINDING 0x2         // Unwind is in progress
-#define EXCEPTION_EXIT_UNWIND 0x4       // Exit unwind is in progress
-#define EXCEPTION_STACK_INVALID 0x8     // Stack out of limits or unaligned
-#define EXCEPTION_NESTED_CALL 0x10      // Nested exception handler call
-#define EXCEPTION_TARGET_UNWIND 0x20    // Target unwind in progress
-#define EXCEPTION_COLLIDED_UNWIND 0x40  // Collided exception handler call
+#define EXCEPTION_NONCONTINUABLE 0x1        // Noncontinuable exception
+#define EXCEPTION_UNWINDING 0x2             // Unwind is in progress
+#define EXCEPTION_EXIT_UNWIND 0x4           // Exit unwind is in progress
+#define EXCEPTION_STACK_INVALID 0x8         // Stack out of limits or unaligned
+#define EXCEPTION_NESTED_CALL 0x10          // Nested exception handler call
+#define EXCEPTION_TARGET_UNWIND 0x20        // Target unwind in progress
+#define EXCEPTION_COLLIDED_UNWIND 0x40      // Collided exception handler call
+#define EXCEPTION_SOFTWARE_ORIGINATE 0x80   // Exception originated in software
 
 #define EXCEPTION_UNWIND (EXCEPTION_UNWINDING | EXCEPTION_EXIT_UNWIND | \
                           EXCEPTION_TARGET_UNWIND | EXCEPTION_COLLIDED_UNWIND)

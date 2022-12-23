@@ -12,6 +12,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
     struct IAsyncAction;
     template <typename TResult> struct __declspec(empty_bases) IAsyncOperation;
     template <typename T> struct __declspec(empty_bases) IReference;
+    struct Point;
     struct Size;
     template <typename TSender, typename TResult> struct __declspec(empty_bases) TypedEventHandler;
 }
@@ -312,6 +313,8 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     struct IContainerVisual;
     struct IContainerVisualFactory;
     struct ICubicBezierEasingFunction;
+    struct IDelegatedInkTrailVisual;
+    struct IDelegatedInkTrailVisualStatics;
     struct IDistantLight;
     struct IDistantLight2;
     struct IDropShadow;
@@ -435,6 +438,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     struct Compositor;
     struct ContainerVisual;
     struct CubicBezierEasingFunction;
+    struct DelegatedInkTrailVisual;
     struct DistantLight;
     struct DropShadow;
     struct ElasticEasingFunction;
@@ -472,6 +476,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     struct Visual;
     struct VisualCollection;
     struct VisualUnorderedCollection;
+    struct InkTrailPoint;
 }
 namespace winrt::impl
 {
@@ -594,6 +599,8 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Composition::IContainerVisual>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IContainerVisualFactory>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::ICubicBezierEasingFunction>{ using type = interface_category; };
+    template <> struct category<Windows::UI::Composition::IDelegatedInkTrailVisual>{ using type = interface_category; };
+    template <> struct category<Windows::UI::Composition::IDelegatedInkTrailVisualStatics>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IDistantLight>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IDistantLight2>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IDropShadow>{ using type = interface_category; };
@@ -717,6 +724,7 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Composition::Compositor>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::ContainerVisual>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::CubicBezierEasingFunction>{ using type = class_category; };
+    template <> struct category<Windows::UI::Composition::DelegatedInkTrailVisual>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::DistantLight>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::DropShadow>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::ElasticEasingFunction>{ using type = class_category; };
@@ -775,6 +783,7 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Composition::CompositionStretch>{ using type = enum_category; };
     template <> struct category<Windows::UI::Composition::CompositionStrokeCap>{ using type = enum_category; };
     template <> struct category<Windows::UI::Composition::CompositionStrokeLineJoin>{ using type = enum_category; };
+    template <> struct category<Windows::UI::Composition::InkTrailPoint>{ using type = struct_category<Windows::Foundation::Point, float>; };
     template <> inline constexpr auto& name_v<Windows::UI::Composition::AmbientLight> = L"Windows.UI.Composition.AmbientLight";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::AnimationController> = L"Windows.UI.Composition.AnimationController";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::AnimationPropertyInfo> = L"Windows.UI.Composition.AnimationPropertyInfo";
@@ -841,6 +850,7 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Composition::Compositor> = L"Windows.UI.Composition.Compositor";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ContainerVisual> = L"Windows.UI.Composition.ContainerVisual";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::CubicBezierEasingFunction> = L"Windows.UI.Composition.CubicBezierEasingFunction";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::DelegatedInkTrailVisual> = L"Windows.UI.Composition.DelegatedInkTrailVisual";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::DistantLight> = L"Windows.UI.Composition.DistantLight";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::DropShadow> = L"Windows.UI.Composition.DropShadow";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ElasticEasingFunction> = L"Windows.UI.Composition.ElasticEasingFunction";
@@ -899,6 +909,7 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Composition::CompositionStretch> = L"Windows.UI.Composition.CompositionStretch";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::CompositionStrokeCap> = L"Windows.UI.Composition.CompositionStrokeCap";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::CompositionStrokeLineJoin> = L"Windows.UI.Composition.CompositionStrokeLineJoin";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::InkTrailPoint> = L"Windows.UI.Composition.InkTrailPoint";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IAmbientLight> = L"Windows.UI.Composition.IAmbientLight";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IAmbientLight2> = L"Windows.UI.Composition.IAmbientLight2";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IAnimationController> = L"Windows.UI.Composition.IAnimationController";
@@ -1018,6 +1029,8 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IContainerVisual> = L"Windows.UI.Composition.IContainerVisual";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IContainerVisualFactory> = L"Windows.UI.Composition.IContainerVisualFactory";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ICubicBezierEasingFunction> = L"Windows.UI.Composition.ICubicBezierEasingFunction";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::IDelegatedInkTrailVisual> = L"Windows.UI.Composition.IDelegatedInkTrailVisual";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::IDelegatedInkTrailVisualStatics> = L"Windows.UI.Composition.IDelegatedInkTrailVisualStatics";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IDistantLight> = L"Windows.UI.Composition.IDistantLight";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IDistantLight2> = L"Windows.UI.Composition.IDistantLight2";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IDropShadow> = L"Windows.UI.Composition.IDropShadow";
@@ -1194,6 +1207,8 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IContainerVisual>{ 0x02F6BC74,0xED20,0x4773,{ 0xAF,0xE6,0xD4,0x9B,0x4A,0x93,0xDB,0x32 } }; // 02F6BC74-ED20-4773-AFE6-D49B4A93DB32
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IContainerVisualFactory>{ 0x0363A65B,0xC7DA,0x4D9A,{ 0x95,0xF4,0x69,0xB5,0xC8,0xDF,0x67,0x0B } }; // 0363A65B-C7DA-4D9A-95F4-69B5C8DF670B
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICubicBezierEasingFunction>{ 0x32350666,0xC1E8,0x44F9,{ 0x96,0xB8,0xC9,0x8A,0xCF,0x0A,0xE6,0x98 } }; // 32350666-C1E8-44F9-96B8-C98ACF0AE698
+    template <> inline constexpr guid guid_v<Windows::UI::Composition::IDelegatedInkTrailVisual>{ 0x856E60B1,0xE1AB,0x5B23,{ 0x8E,0x3D,0xD5,0x13,0xF2,0x21,0xC9,0x98 } }; // 856E60B1-E1AB-5B23-8E3D-D513F221C998
+    template <> inline constexpr guid guid_v<Windows::UI::Composition::IDelegatedInkTrailVisualStatics>{ 0x0DAF6BD5,0x42C6,0x555C,{ 0x92,0x67,0xE0,0xAC,0x66,0x3A,0xF8,0x36 } }; // 0DAF6BD5-42C6-555C-9267-E0AC663AF836
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IDistantLight>{ 0x318CFAFC,0x5CE3,0x4B55,{ 0xAB,0x5D,0x07,0xA0,0x03,0x53,0xAC,0x99 } }; // 318CFAFC-5CE3-4B55-AB5D-07A00353AC99
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IDistantLight2>{ 0xDBCDAA1C,0x294B,0x48D7,{ 0xB6,0x0E,0x76,0xDF,0x64,0xAA,0x39,0x2B } }; // DBCDAA1C-294B-48D7-B60E-76DF64AA392B
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IDropShadow>{ 0xCB977C07,0xA154,0x4851,{ 0x85,0xE7,0xA8,0x92,0x4C,0x84,0xFA,0xD8 } }; // CB977C07-A154-4851-85E7-A8924C84FAD8
@@ -1317,6 +1332,7 @@ namespace winrt::impl
     template <> struct default_interface<Windows::UI::Composition::Compositor>{ using type = Windows::UI::Composition::ICompositor; };
     template <> struct default_interface<Windows::UI::Composition::ContainerVisual>{ using type = Windows::UI::Composition::IContainerVisual; };
     template <> struct default_interface<Windows::UI::Composition::CubicBezierEasingFunction>{ using type = Windows::UI::Composition::ICubicBezierEasingFunction; };
+    template <> struct default_interface<Windows::UI::Composition::DelegatedInkTrailVisual>{ using type = Windows::UI::Composition::IDelegatedInkTrailVisual; };
     template <> struct default_interface<Windows::UI::Composition::DistantLight>{ using type = Windows::UI::Composition::IDistantLight; };
     template <> struct default_interface<Windows::UI::Composition::DropShadow>{ using type = Windows::UI::Composition::IDropShadow; };
     template <> struct default_interface<Windows::UI::Composition::ElasticEasingFunction>{ using type = Windows::UI::Composition::IElasticEasingFunction; };
@@ -2525,6 +2541,24 @@ namespace winrt::impl
         {
             virtual int32_t __stdcall get_ControlPoint1(Windows::Foundation::Numerics::float2*) noexcept = 0;
             virtual int32_t __stdcall get_ControlPoint2(Windows::Foundation::Numerics::float2*) noexcept = 0;
+        };
+    };
+    template <> struct abi<Windows::UI::Composition::IDelegatedInkTrailVisual>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall AddTrailPoints(uint32_t, struct struct_Windows_UI_Composition_InkTrailPoint*, uint32_t*) noexcept = 0;
+            virtual int32_t __stdcall AddTrailPointsWithPrediction(uint32_t, struct struct_Windows_UI_Composition_InkTrailPoint*, uint32_t, struct struct_Windows_UI_Composition_InkTrailPoint*, uint32_t*) noexcept = 0;
+            virtual int32_t __stdcall RemoveTrailPoints(uint32_t) noexcept = 0;
+            virtual int32_t __stdcall StartNewTrail(struct struct_Windows_UI_Color) noexcept = 0;
+        };
+    };
+    template <> struct abi<Windows::UI::Composition::IDelegatedInkTrailVisualStatics>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall Create(void*, void**) noexcept = 0;
+            virtual int32_t __stdcall CreateForSwapChain(void*, void*, void**) noexcept = 0;
         };
     };
     template <> struct abi<Windows::UI::Composition::IDistantLight>
@@ -4537,6 +4571,28 @@ namespace winrt::impl
         template <typename D> using type = consume_Windows_UI_Composition_ICubicBezierEasingFunction<D>;
     };
     template <typename D>
+    struct consume_Windows_UI_Composition_IDelegatedInkTrailVisual
+    {
+        WINRT_IMPL_AUTO(uint32_t) AddTrailPoints(array_view<Windows::UI::Composition::InkTrailPoint const> inkPoints) const;
+        WINRT_IMPL_AUTO(uint32_t) AddTrailPointsWithPrediction(array_view<Windows::UI::Composition::InkTrailPoint const> inkPoints, array_view<Windows::UI::Composition::InkTrailPoint const> predictedInkPoints) const;
+        WINRT_IMPL_AUTO(void) RemoveTrailPoints(uint32_t generationId) const;
+        WINRT_IMPL_AUTO(void) StartNewTrail(Windows::UI::Color const& color) const;
+    };
+    template <> struct consume<Windows::UI::Composition::IDelegatedInkTrailVisual>
+    {
+        template <typename D> using type = consume_Windows_UI_Composition_IDelegatedInkTrailVisual<D>;
+    };
+    template <typename D>
+    struct consume_Windows_UI_Composition_IDelegatedInkTrailVisualStatics
+    {
+        WINRT_IMPL_AUTO(Windows::UI::Composition::DelegatedInkTrailVisual) Create(Windows::UI::Composition::Compositor const& compositor) const;
+        WINRT_IMPL_AUTO(Windows::UI::Composition::DelegatedInkTrailVisual) CreateForSwapChain(Windows::UI::Composition::Compositor const& compositor, Windows::UI::Composition::ICompositionSurface const& swapChain) const;
+    };
+    template <> struct consume<Windows::UI::Composition::IDelegatedInkTrailVisualStatics>
+    {
+        template <typename D> using type = consume_Windows_UI_Composition_IDelegatedInkTrailVisualStatics<D>;
+    };
+    template <typename D>
     struct consume_Windows_UI_Composition_IDistantLight
     {
         [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Color) Color() const;
@@ -5239,6 +5295,15 @@ namespace winrt::impl
     template <> struct consume<Windows::UI::Composition::IVisualUnorderedCollection>
     {
         template <typename D> using type = consume_Windows_UI_Composition_IVisualUnorderedCollection<D>;
+    };
+    struct struct_Windows_UI_Composition_InkTrailPoint
+    {
+        Windows::Foundation::Point Point;
+        float Radius;
+    };
+    template <> struct abi<Windows::UI::Composition::InkTrailPoint>
+    {
+        using type = struct_Windows_UI_Composition_InkTrailPoint;
     };
 }
 #endif

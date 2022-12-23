@@ -612,7 +612,7 @@
 #define PeBeingDebugged 0x2
 #define PeProcessParameters 0x20
 #define PeKernelCallbackTable 0x58
-#define ProcessEnvironmentBlockLength 0x7c8
+#define ProcessEnvironmentBlockLength 0x7d0
 
 //
 // Process Parameters Block Structure Offset Definitions
@@ -703,7 +703,7 @@
 #define TeGuaranteedStackBytes 0x1748
 #define TeChpeV2CpuAreaInfo 0x1788
 #define TeFlsData 0x17c8
-#define ThreadEnvironmentBlockLength 0x1848
+#define ThreadEnvironmentBlockLength 0x1850
 #define CmThreadEnvironmentBlockOffset 0x2000
 #define TLS_MINIMUM_AVAILABLE 0x40
 #define TLS_EXPANSION_SLOTS 0x400

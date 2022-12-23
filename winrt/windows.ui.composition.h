@@ -1909,6 +1909,36 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CICubicBezierEasingFunction_FWD_DEFINED__
 
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                interface IDelegatedInkTrailVisual;
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual ABI::Windows::UI::Composition::IDelegatedInkTrailVisual
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                interface IDelegatedInkTrailVisualStatics;
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics ABI::Windows::UI::Composition::IDelegatedInkTrailVisualStatics
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIDistantLight_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIDistantLight_FWD_DEFINED__
 namespace ABI {
@@ -4027,6 +4057,14 @@ namespace ABI {
 namespace ABI {
     namespace Windows {
         namespace Foundation {
+            typedef struct Point Point;
+        } /* Foundation */
+    } /* Windows */
+} /* ABI */
+
+namespace ABI {
+    namespace Windows {
+        namespace Foundation {
             typedef struct Size Size;
         } /* Foundation */
     } /* Windows */
@@ -4386,6 +4424,16 @@ namespace ABI {
         namespace UI {
             namespace Composition {
                 typedef enum CompositionStrokeLineJoin : int CompositionStrokeLineJoin;
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                typedef struct InkTrailPoint InkTrailPoint;
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -4946,6 +4994,16 @@ namespace ABI {
         namespace UI {
             namespace Composition {
                 class CubicBezierEasingFunction;
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                class DelegatedInkTrailVisual;
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -5795,6 +5853,29 @@ namespace ABI {
     } /* Windows */
 } /* ABI */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
+
+/*
+ *
+ * Struct Windows.UI.Composition.InkTrailPoint
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                struct InkTrailPoint
+                {
+                    ABI::Windows::Foundation::Point Point;
+                    FLOAT Radius;
+                };
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -11222,6 +11303,99 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICubicBezierEasingFunc
 
 /*
  *
+ * Interface Windows.UI.Composition.IDelegatedInkTrailVisual
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Composition.DelegatedInkTrailVisual
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IDelegatedInkTrailVisual[] = L"Windows.UI.Composition.IDelegatedInkTrailVisual";
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                MIDL_INTERFACE("856e60b1-e1ab-5b23-8e3d-d513f221c998")
+                IDelegatedInkTrailVisual : public IInspectable
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE AddTrailPoints(
+                        UINT32 inkPointsLength,
+                        ABI::Windows::UI::Composition::InkTrailPoint* inkPoints,
+                        UINT32* result
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE AddTrailPointsWithPrediction(
+                        UINT32 inkPointsLength,
+                        ABI::Windows::UI::Composition::InkTrailPoint* inkPoints,
+                        UINT32 predictedInkPointsLength,
+                        ABI::Windows::UI::Composition::InkTrailPoint* predictedInkPoints,
+                        UINT32* result
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE RemoveTrailPoints(
+                        UINT32 generationId
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE StartNewTrail(
+                        ABI::Windows::UI::Color color
+                        ) = 0;
+                };
+
+                extern MIDL_CONST_ID IID& IID_IDelegatedInkTrailVisual = _uuidof(IDelegatedInkTrailVisual);
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
+ * Interface Windows.UI.Composition.IDelegatedInkTrailVisualStatics
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Composition.DelegatedInkTrailVisual
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IDelegatedInkTrailVisualStatics[] = L"Windows.UI.Composition.IDelegatedInkTrailVisualStatics";
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                MIDL_INTERFACE("0daf6bd5-42c6-555c-9267-e0ac663af836")
+                IDelegatedInkTrailVisualStatics : public IInspectable
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE Create(
+                        ABI::Windows::UI::Composition::ICompositor* compositor,
+                        ABI::Windows::UI::Composition::IDelegatedInkTrailVisual** result
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE CreateForSwapChain(
+                        ABI::Windows::UI::Composition::ICompositor* compositor,
+                        ABI::Windows::UI::Composition::ICompositionSurface* swapChain,
+                        ABI::Windows::UI::Composition::IDelegatedInkTrailVisual** result
+                        ) = 0;
+                };
+
+                extern MIDL_CONST_ID IID& IID_IDelegatedInkTrailVisualStatics = _uuidof(IDelegatedInkTrailVisualStatics);
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
  * Interface Windows.UI.Composition.IDistantLight
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 3.0
@@ -15318,6 +15492,30 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
+ * Class Windows.UI.Composition.DelegatedInkTrailVisual
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * RuntimeClass contains static methods.
+ *   Static Methods exist on the Windows.UI.Composition.IDelegatedInkTrailVisualStatics interface starting with version 12.0 of the Windows.Foundation.UniversalApiContract API contract
+ *
+ * Class implements the following interfaces:
+ *    Windows.UI.Composition.IDelegatedInkTrailVisual ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#ifndef RUNTIMECLASS_Windows_UI_Composition_DelegatedInkTrailVisual_DEFINED
+#define RUNTIMECLASS_Windows_UI_Composition_DelegatedInkTrailVisual_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_DelegatedInkTrailVisual[] = L"Windows.UI.Composition.DelegatedInkTrailVisual";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
  * Class Windows.UI.Composition.DistantLight
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 3.0
@@ -16826,6 +17024,18 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CIContainerVisualFactory __x
 typedef interface __x_ABI_CWindows_CUI_CComposition_CICubicBezierEasingFunction __x_ABI_CWindows_CUI_CComposition_CICubicBezierEasingFunction;
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CICubicBezierEasingFunction_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual;
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics;
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIDistantLight_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIDistantLight_FWD_DEFINED__
@@ -20228,6 +20438,8 @@ typedef struct __x_ABI_CWindows_CFoundation_CNumerics_CQuaternion __x_ABI_CWindo
 
 typedef struct __x_ABI_CWindows_CFoundation_CNumerics_CVector4 __x_ABI_CWindows_CFoundation_CNumerics_CVector4;
 
+typedef struct __x_ABI_CWindows_CFoundation_CPoint __x_ABI_CWindows_CFoundation_CPoint;
+
 typedef struct __x_ABI_CWindows_CFoundation_CSize __x_ABI_CWindows_CFoundation_CSize;
 
 typedef struct __x_ABI_CWindows_CFoundation_CTimeSpan __x_ABI_CWindows_CFoundation_CTimeSpan;
@@ -20315,6 +20527,8 @@ typedef enum __x_ABI_CWindows_CUI_CComposition_CCompositionStretch __x_ABI_CWind
 typedef enum __x_ABI_CWindows_CUI_CComposition_CCompositionStrokeCap __x_ABI_CWindows_CUI_CComposition_CCompositionStrokeCap;
 
 typedef enum __x_ABI_CWindows_CUI_CComposition_CCompositionStrokeLineJoin __x_ABI_CWindows_CUI_CComposition_CCompositionStrokeLineJoin;
+
+typedef struct __x_ABI_CWindows_CUI_CComposition_CInkTrailPoint __x_ABI_CWindows_CUI_CComposition_CInkTrailPoint;
 
 /*
  *
@@ -20690,6 +20904,21 @@ enum __x_ABI_CWindows_CUI_CComposition_CCompositionStrokeLineJoin
     CompositionStrokeLineJoin_MiterOrBevel = 3,
 };
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
+
+/*
+ *
+ * Struct Windows.UI.Composition.InkTrailPoint
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+struct __x_ABI_CWindows_CUI_CComposition_CInkTrailPoint
+{
+    struct __x_ABI_CWindows_CFoundation_CPoint Point;
+    FLOAT Radius;
+};
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -30734,6 +30963,173 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICubicBezierEasingFunc
 
 /*
  *
+ * Interface Windows.UI.Composition.IDelegatedInkTrailVisual
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Composition.DelegatedInkTrailVisual
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IDelegatedInkTrailVisual[] = L"Windows.UI.Composition.IDelegatedInkTrailVisual";
+typedef struct __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* AddTrailPoints)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual* This,
+        UINT32 inkPointsLength,
+        struct __x_ABI_CWindows_CUI_CComposition_CInkTrailPoint* inkPoints,
+        UINT32* result);
+    HRESULT (STDMETHODCALLTYPE* AddTrailPointsWithPrediction)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual* This,
+        UINT32 inkPointsLength,
+        struct __x_ABI_CWindows_CUI_CComposition_CInkTrailPoint* inkPoints,
+        UINT32 predictedInkPointsLength,
+        struct __x_ABI_CWindows_CUI_CComposition_CInkTrailPoint* predictedInkPoints,
+        UINT32* result);
+    HRESULT (STDMETHODCALLTYPE* RemoveTrailPoints)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual* This,
+        UINT32 generationId);
+    HRESULT (STDMETHODCALLTYPE* StartNewTrail)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual* This,
+        struct __x_ABI_CWindows_CUI_CColor color);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualVtbl;
+
+interface __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual
+{
+    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_AddTrailPoints(This, inkPointsLength, inkPoints, result) \
+    ((This)->lpVtbl->AddTrailPoints(This, inkPointsLength, inkPoints, result))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_AddTrailPointsWithPrediction(This, inkPointsLength, inkPoints, predictedInkPointsLength, predictedInkPoints, result) \
+    ((This)->lpVtbl->AddTrailPointsWithPrediction(This, inkPointsLength, inkPoints, predictedInkPointsLength, predictedInkPoints, result))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_RemoveTrailPoints(This, generationId) \
+    ((This)->lpVtbl->RemoveTrailPoints(This, generationId))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_StartNewTrail(This, color) \
+    ((This)->lpVtbl->StartNewTrail(This, color))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
+ * Interface Windows.UI.Composition.IDelegatedInkTrailVisualStatics
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Composition.DelegatedInkTrailVisual
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IDelegatedInkTrailVisualStatics[] = L"Windows.UI.Composition.IDelegatedInkTrailVisualStatics";
+typedef struct __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStaticsVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* Create)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics* This,
+        __x_ABI_CWindows_CUI_CComposition_CICompositor* compositor,
+        __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual** result);
+    HRESULT (STDMETHODCALLTYPE* CreateForSwapChain)(__x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics* This,
+        __x_ABI_CWindows_CUI_CComposition_CICompositor* compositor,
+        __x_ABI_CWindows_CUI_CComposition_CICompositionSurface* swapChain,
+        __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisual** result);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStaticsVtbl;
+
+interface __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics
+{
+    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStaticsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_Create(This, compositor, result) \
+    ((This)->lpVtbl->Create(This, compositor, result))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_CreateForSwapChain(This, compositor, swapChain, result) \
+    ((This)->lpVtbl->CreateForSwapChain(This, compositor, swapChain, result))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIDelegatedInkTrailVisualStatics_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
  * Interface Windows.UI.Composition.IDistantLight
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 3.0
@@ -37092,6 +37488,30 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_CubicBezierEasingFunction[] = L"Windows.UI.Composition.CubicBezierEasingFunction";
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x20000
+
+/*
+ *
+ * Class Windows.UI.Composition.DelegatedInkTrailVisual
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * RuntimeClass contains static methods.
+ *   Static Methods exist on the Windows.UI.Composition.IDelegatedInkTrailVisualStatics interface starting with version 12.0 of the Windows.Foundation.UniversalApiContract API contract
+ *
+ * Class implements the following interfaces:
+ *    Windows.UI.Composition.IDelegatedInkTrailVisual ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#ifndef RUNTIMECLASS_Windows_UI_Composition_DelegatedInkTrailVisual_DEFINED
+#define RUNTIMECLASS_Windows_UI_Composition_DelegatedInkTrailVisual_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_DelegatedInkTrailVisual[] = L"Windows.UI.Composition.DelegatedInkTrailVisual";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *

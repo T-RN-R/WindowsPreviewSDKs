@@ -5,14 +5,27 @@
 
 #ifndef WINRT_Windows_UI_Composition_2_H
 #define WINRT_Windows_UI_Composition_2_H
-#include "winrt/impl/Windows.Foundation.1.h"
-#include "winrt/impl/Windows.Foundation.Collections.1.h"
-#include "winrt/impl/Windows.Foundation.Numerics.1.h"
-#include "winrt/impl/Windows.Graphics.1.h"
-#include "winrt/impl/Windows.Graphics.Effects.1.h"
+#include "winrt/impl/Windows.Foundation.2.h"
+#include "winrt/impl/Windows.Foundation.Collections.2.h"
+#include "winrt/impl/Windows.Foundation.Numerics.2.h"
+#include "winrt/impl/Windows.Graphics.2.h"
+#include "winrt/impl/Windows.Graphics.Effects.2.h"
 #include "winrt/impl/Windows.UI.Composition.1.h"
 WINRT_EXPORT namespace winrt::Windows::UI::Composition
 {
+    struct InkTrailPoint
+    {
+        Windows::Foundation::Point Point;
+        float Radius;
+    };
+    inline bool operator==(InkTrailPoint const& left, InkTrailPoint const& right) noexcept
+    {
+        return left.Point == right.Point && left.Radius == right.Radius;
+    }
+    inline bool operator!=(InkTrailPoint const& left, InkTrailPoint const& right) noexcept
+    {
+        return !(left == right);
+    }
     struct __declspec(empty_bases) AmbientLight : Windows::UI::Composition::IAmbientLight,
         impl::base<AmbientLight, Windows::UI::Composition::CompositionLight, Windows::UI::Composition::CompositionObject>,
         impl::require<AmbientLight, Windows::UI::Composition::IAmbientLight2, Windows::UI::Composition::ICompositionLight, Windows::UI::Composition::ICompositionLight2, Windows::UI::Composition::ICompositionLight3, Windows::UI::Composition::ICompositionObject, Windows::UI::Composition::ICompositionObject2, Windows::UI::Composition::ICompositionObject3, Windows::UI::Composition::ICompositionObject4, Windows::Foundation::IClosable, Windows::UI::Composition::IAnimationObject>
@@ -489,6 +502,15 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     {
         CubicBezierEasingFunction(std::nullptr_t) noexcept {}
         CubicBezierEasingFunction(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Composition::ICubicBezierEasingFunction(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) DelegatedInkTrailVisual : Windows::UI::Composition::IDelegatedInkTrailVisual,
+        impl::base<DelegatedInkTrailVisual, Windows::UI::Composition::Visual, Windows::UI::Composition::CompositionObject>,
+        impl::require<DelegatedInkTrailVisual, Windows::UI::Composition::IVisual, Windows::UI::Composition::IVisual2, Windows::UI::Composition::IVisual3, Windows::UI::Composition::IVisual4, Windows::UI::Composition::ICompositionObject, Windows::UI::Composition::ICompositionObject2, Windows::UI::Composition::ICompositionObject3, Windows::UI::Composition::ICompositionObject4, Windows::Foundation::IClosable, Windows::UI::Composition::IAnimationObject>
+    {
+        DelegatedInkTrailVisual(std::nullptr_t) noexcept {}
+        DelegatedInkTrailVisual(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Composition::IDelegatedInkTrailVisual(ptr, take_ownership_from_abi) {}
+        static auto Create(Windows::UI::Composition::Compositor const& compositor);
+        static auto CreateForSwapChain(Windows::UI::Composition::Compositor const& compositor, Windows::UI::Composition::ICompositionSurface const& swapChain);
     };
     struct __declspec(empty_bases) DistantLight : Windows::UI::Composition::IDistantLight,
         impl::base<DistantLight, Windows::UI::Composition::CompositionLight, Windows::UI::Composition::CompositionObject>,

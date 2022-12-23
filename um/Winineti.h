@@ -11,6 +11,7 @@
 #endif
 
 #include <sspi.h>
+
 #if !defined(_WININETEX_)
 #define _WININETEX_
 
@@ -2242,6 +2243,8 @@ BOOLAPI HttpWebSocketQueryCloseStatus(
     _Out_range_(0, HTTP_WEB_SOCKET_MAX_CLOSE_REASON_LENGTH) DWORD *pdwReasonLengthConsumed);
 
 
+#ifdef _WS2DEF_
+
 //
 // callback function for INTERNET_OPTION_GLOBAL_CALLBACK option
 //
@@ -2255,6 +2258,7 @@ DWORD
     _In_opt_ PVOID pvContext,
     _In_ PCSTR pcszUrl,
     _In_ PCSTR pcszHost,
+    _In_ PSOCKADDR_STORAGE pRemoteAddress,
     _In_ DWORD dwNotification,
     _In_opt_ PVOID pvEventData,
     _In_ DWORD dwEventDataLength
@@ -2267,6 +2271,8 @@ typedef struct _INTERNET_GLOBAL_CALLBACK
     PVOID pvContext;
     GUID guidRegistrationId;
 } INTERNET_GLOBAL_CALLBACK;
+
+#endif
 
 STDAPI_(DWORD)
 InternetConvertUrlFromWireToWideChar(

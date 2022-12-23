@@ -319,6 +319,16 @@ HcsModifyComputeSystem(
     _In_opt_ HANDLE identity
     );
 
+// Waits for a compute system to exit.
+
+HRESULT
+WINAPI
+HcsWaitForComputeSystemExit(
+    _In_ HCS_SYSTEM computeSystem,
+    _In_ DWORD timeoutMs,
+    _Outptr_opt_ PWSTR* result
+    );
+
 /// Registers a callback function to receive notifications for the compute system.
 
 HRESULT
@@ -419,6 +429,16 @@ HcsSetProcessCallback(
     _In_ HCS_EVENT_OPTIONS callbackOptions,
     _In_ void* context,
     _In_ HCS_EVENT_CALLBACK callback
+    );
+
+// Waits for a process in a compute system to exit.
+
+HRESULT
+WINAPI
+HcsWaitForProcessExit(
+    _In_ HCS_PROCESS computeSystem,
+    _In_ DWORD timeoutMs,
+    _Outptr_opt_ PWSTR* result
     );
 
 /// Returns properties of the Host Compute Service
@@ -705,6 +725,12 @@ IsHcsModifyComputeSystemPresent(
 
 BOOLEAN
 __stdcall
+IsHcsWaitForComputeSystemExitPresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
 IsHcsSetComputeSystemCallbackPresent(
     VOID
     );
@@ -760,6 +786,12 @@ IsHcsModifyProcessPresent(
 BOOLEAN
 __stdcall
 IsHcsSetProcessCallbackPresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsHcsWaitForProcessExitPresent(
     VOID
     );
 

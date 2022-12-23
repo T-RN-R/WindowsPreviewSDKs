@@ -7116,6 +7116,7 @@ typedef DWORD
 #define CLUS_RESTYPE_NAME_HEALTH_SERVICE        L"Health Service"
 #define CLUS_RESTYPE_NAME_VM_WMI                L"Virtual Machine Cluster WMI"
 #define CLUS_RESTYPE_NAME_SDDC_MANAGEMENT       L"SDDC Management"
+#define CLUS_RESTYPE_NAME_HCSVM                 L"HCS Virtual Machine"
 
 #define CLUS_RESTYPE_NAME_VIRTUAL_IPV4          L"Disjoint IPv4 Address"
 #define CLUS_RESTYPE_NAME_VIRTUAL_IPV6          L"Disjoint IPv6 Address"

@@ -194,4 +194,5 @@ typedef struct
     HCS_EVENT_CALLBACK      Callback;
 } HCS_CREATE_OPTIONS_1;
 
+
 #endif // _HYPERV_COMPUTEDEFS_H_

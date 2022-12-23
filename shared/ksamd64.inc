@@ -623,7 +623,7 @@ FbSsp equ 00528H
 PeBeingDebugged equ 00002H
 PeProcessParameters equ 00020H
 PeKernelCallbackTable equ 00058H
-ProcessEnvironmentBlockLength equ 007C8H
+ProcessEnvironmentBlockLength equ 007D0H
 
 ;
 ;  Process Parameters Block Structure Offset Definitions
@@ -692,7 +692,7 @@ TeInstrumentation equ 016B8H
 TeGdiBatchCount equ 01740H
 TeGuaranteedStackBytes equ 01748H
 TeFlsData equ 017C8H
-ThreadEnvironmentBlockLength equ 01848H
+ThreadEnvironmentBlockLength equ 01850H
 CmThreadEnvironmentBlockOffset equ 02000H
 TLS_MINIMUM_AVAILABLE equ 00040H
 TLS_EXPANSION_SLOTS equ 00400H
@@ -796,6 +796,7 @@ XSTATE_MASK_LEGACY_SSE equ 00002H
 XSTATE_MASK_LEGACY equ 00003H
 XSTATE_MASK_GSSE equ 00004H
 XSTATE_MASK_IPT equ 00100H
+XSTATE_MASK_LARGE_FEATURES equ 040000H
 
 ;
 ;  Extended context structure offset definitions
@@ -1351,6 +1352,7 @@ KI_EXCEPTION_INTEGER_DIVIDE_BY_ZERO equ 010000003H
 KI_EXCEPTION_ACCESS_VIOLATION equ 010000004H
 KI_EXCEPTION_SECURE_FAULT equ 010000006H
 KI_EXCEPTION_SEGMENT_NOT_PRESENT equ 010000007H
+KI_EXCEPTION_XFD_ERROR equ 010000008H
 TARGET_FREEZE equ 00005H
 KI_DPC_INTERRUPT_FLAGS equ 000AFH
 KI_DPC_THREAD_ACTIVE equ 010000H
@@ -1869,6 +1871,7 @@ ThKernelShadowStack equ 00408H
 ThKernelShadowStackBase equ 00418H
 ThKernelShadowStackInitial equ 00410H
 ThKernelShadowStackLimit equ 00420H
+ThExtendedFeatureDisableMask equ 00428H
 
 ;
 ;  ETHREAD
@@ -1916,6 +1919,7 @@ KF_XSTATE_BIT equ 00017H
 KF_XSAVES_BIT equ 00026H
 KF_RDWRFSGSBASE_BIT equ 0001CH
 KF_CET_SS equ 00000400000000000H
+KF_XFD equ 00080000000000000H
 KF_FPU_LEAKAGE_BIT equ 00029H
 KF_CAT_BIT equ 0002CH
 KF_XFD_BIT equ 00037H
