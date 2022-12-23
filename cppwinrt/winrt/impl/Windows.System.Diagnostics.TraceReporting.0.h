@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200213.5
+// C++/WinRT v2.0.200303.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -7,8 +7,8 @@
 #define WINRT_Windows_System_Diagnostics_TraceReporting_0_H
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
-    template <typename K, typename V> struct IMapView;
-    template <typename T> struct IVectorView;
+    template <typename K, typename V> struct __declspec(empty_bases) IMapView;
+    template <typename T> struct __declspec(empty_bases) IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::System::Diagnostics::TraceReporting
 {

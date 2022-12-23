@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200213.5
+// C++/WinRT v2.0.200303.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_Foundation_H
 #define WINRT_Windows_Foundation_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200303.2"), "Mismatched C++/WinRT headers.");
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 namespace winrt::impl
@@ -2853,26 +2853,33 @@ WINRT_EXPORT namespace winrt
         {
             return value.as<T>();
         }
-        else if constexpr (std::is_enum_v<T>)
-        {
-            if (auto temp = value.try_as<Windows::Foundation::IReference<T>>())
-            {
-                return temp.Value();
-            }
-            else
-            {
-                return static_cast<T>(value.as<Windows::Foundation::IReference<std::underlying_type_t<T>>>().Value());
-            }
-        }
-#ifdef WINRT_IMPL_IUNKNOWN_DEFINED
-        else if constexpr (std::is_same_v<T, GUID>)
-        {
-            return value.as<Windows::Foundation::IReference<guid>>().Value();
-        }
-#endif
         else
         {
-            return value.as<Windows::Foundation::IReference<T>>().Value();
+            if (!value)
+            {
+                throw hresult_no_interface();
+            }
+            if constexpr (std::is_enum_v<T>)
+            {
+                if (auto temp = value.try_as<Windows::Foundation::IReference<T>>())
+                {
+                    return temp.Value();
+                }
+                else
+                {
+                    return static_cast<T>(value.as<Windows::Foundation::IReference<std::underlying_type_t<T>>>().Value());
+                }
+            }
+#ifdef WINRT_IMPL_IUNKNOWN_DEFINED
+            else if constexpr (std::is_same_v<T, GUID>)
+            {
+                return value.as<Windows::Foundation::IReference<guid>>().Value();
+            }
+#endif
+            else
+            {
+                return value.as<Windows::Foundation::IReference<T>>().Value();
+            }
         }
     }
 

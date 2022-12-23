@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200213.5
+// C++/WinRT v2.0.200303.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -7,14 +7,14 @@
 #define WINRT_Windows_Media_ContentRestrictions_0_H
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
-    template <typename T> struct EventHandler;
+    template <typename T> struct __declspec(empty_bases) EventHandler;
     struct EventRegistrationToken;
-    template <typename TResult> struct IAsyncOperation;
-    template <typename T> struct IReference;
+    template <typename TResult> struct __declspec(empty_bases) IAsyncOperation;
+    template <typename T> struct __declspec(empty_bases) IReference;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
-    template <typename T> struct IVector;
+    template <typename T> struct __declspec(empty_bases) IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage::Streams
 {

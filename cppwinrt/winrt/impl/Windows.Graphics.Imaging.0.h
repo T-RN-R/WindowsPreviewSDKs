@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200213.5
+// C++/WinRT v2.0.200303.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -8,15 +8,15 @@
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct IAsyncAction;
-    template <typename TResult> struct IAsyncOperation;
+    template <typename TResult> struct __declspec(empty_bases) IAsyncOperation;
     enum class PropertyType : int32_t;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
-    template <typename T> struct IIterable;
-    template <typename K, typename V> struct IKeyValuePair;
-    template <typename K, typename V> struct IMap;
-    template <typename T> struct IVectorView;
+    template <typename T> struct __declspec(empty_bases) IIterable;
+    template <typename K, typename V> struct __declspec(empty_bases) IKeyValuePair;
+    template <typename K, typename V> struct __declspec(empty_bases) IMap;
+    template <typename T> struct __declspec(empty_bases) IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Graphics::DirectX::Direct3D11
 {

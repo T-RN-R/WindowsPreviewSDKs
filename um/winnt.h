@@ -356,7 +356,10 @@ extern "C" {
 #endif
 
 //
-// CFORCEINLINE: __forceinline required for correctness.
+// CFORCEINLINE: __forceinline required for correctness.  Such definitions are
+//               typically required to be visible in the same translation unit
+//               (i.e., so that they may still be forceinlined, even in the
+//               event of non-LTCG code being encountered).
 //
 
 #define CFORCEINLINE FORCEINLINE
@@ -13104,6 +13107,7 @@ typedef enum MEM_EXTENDED_PARAMETER_TYPE {
     MemExtendedParameterPartitionHandle,
     MemExtendedParameterUserPhysicalHandle,
     MemExtendedParameterAttributeFlags,
+    MemExtendedParameterImageMachine,
     MemExtendedParameterMax
 } MEM_EXTENDED_PARAMETER_TYPE, *PMEM_EXTENDED_PARAMETER_TYPE;
 
@@ -15967,6 +15971,7 @@ typedef enum {
     EnergyTrackerQuery,
     UpdateBlackBoxRecorder,
     SessionAllowExternalDmaDevices,
+    SendSuspendResumeNotification,
     PowerInformationLevelMaximum
 } POWER_INFORMATION_LEVEL;
 

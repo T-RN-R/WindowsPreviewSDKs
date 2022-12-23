@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200213.5
+// C++/WinRT v2.0.200303.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_Storage_Provider_H
 #define WINRT_Windows_Storage_Provider_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200303.2"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.Storage.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
@@ -161,35 +161,35 @@ namespace winrt::impl
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Provider::IStorageProviderError)->put_FilePath(*(void**)(&value)));
     }
-    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Provider::StorageProviderErrorCommand) consume_Windows_Storage_Provider_IStorageProviderError<D>::Button1() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Provider::StorageProviderErrorCommand) consume_Windows_Storage_Provider_IStorageProviderError<D>::PrimaryAction() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Provider::IStorageProviderError)->get_Button1(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Provider::IStorageProviderError)->get_PrimaryAction(&value));
         return Windows::Storage::Provider::StorageProviderErrorCommand{ value, take_ownership_from_abi };
     }
-    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Storage_Provider_IStorageProviderError<D>::Button1(Windows::Storage::Provider::StorageProviderErrorCommand const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Storage_Provider_IStorageProviderError<D>::PrimaryAction(Windows::Storage::Provider::StorageProviderErrorCommand const& value) const
     {
-        check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Provider::IStorageProviderError)->put_Button1(*(void**)(&value)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Provider::IStorageProviderError)->put_PrimaryAction(*(void**)(&value)));
     }
-    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Provider::StorageProviderErrorCommand) consume_Windows_Storage_Provider_IStorageProviderError<D>::Button2() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Provider::StorageProviderErrorCommand) consume_Windows_Storage_Provider_IStorageProviderError<D>::SecondaryAction() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Provider::IStorageProviderError)->get_Button2(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Provider::IStorageProviderError)->get_SecondaryAction(&value));
         return Windows::Storage::Provider::StorageProviderErrorCommand{ value, take_ownership_from_abi };
     }
-    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Storage_Provider_IStorageProviderError<D>::Button2(Windows::Storage::Provider::StorageProviderErrorCommand const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Storage_Provider_IStorageProviderError<D>::SecondaryAction(Windows::Storage::Provider::StorageProviderErrorCommand const& value) const
     {
-        check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Provider::IStorageProviderError)->put_Button2(*(void**)(&value)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Provider::IStorageProviderError)->put_SecondaryAction(*(void**)(&value)));
     }
-    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Provider::StorageProviderErrorCommand) consume_Windows_Storage_Provider_IStorageProviderError<D>::Hyperlink1() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Provider::StorageProviderErrorCommand) consume_Windows_Storage_Provider_IStorageProviderError<D>::InformationalLink() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Provider::IStorageProviderError)->get_Hyperlink1(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Provider::IStorageProviderError)->get_InformationalLink(&value));
         return Windows::Storage::Provider::StorageProviderErrorCommand{ value, take_ownership_from_abi };
     }
-    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Storage_Provider_IStorageProviderError<D>::Hyperlink1(Windows::Storage::Provider::StorageProviderErrorCommand const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Storage_Provider_IStorageProviderError<D>::InformationalLink(Windows::Storage::Provider::StorageProviderErrorCommand const& value) const
     {
-        check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Provider::IStorageProviderError)->put_Hyperlink1(*(void**)(&value)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Provider::IStorageProviderError)->put_InformationalLink(*(void**)(&value)));
     }
     template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Storage_Provider_IStorageProviderErrorCommand<D>::Label() const
     {
@@ -214,6 +214,64 @@ namespace winrt::impl
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Provider::IStorageProviderErrorFactory)->CreateInstance(*(void**)(&id), *(void**)(&title), *(void**)(&message), &value));
         return Windows::Storage::Provider::StorageProviderError{ value, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Storage_Provider_IStorageProviderErrorLegacy<D>::Id_Legacy() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Provider::IStorageProviderErrorLegacy)->get_Id_Legacy(&value));
+        return hstring{ value, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Storage_Provider_IStorageProviderErrorLegacy<D>::Title_Legacy() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Provider::IStorageProviderErrorLegacy)->get_Title_Legacy(&value));
+        return hstring{ value, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Storage_Provider_IStorageProviderErrorLegacy<D>::Message_Legacy() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Provider::IStorageProviderErrorLegacy)->get_Message_Legacy(&value));
+        return hstring{ value, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Storage_Provider_IStorageProviderErrorLegacy<D>::FilePath_Legacy() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Provider::IStorageProviderErrorLegacy)->get_FilePath_Legacy(&value));
+        return hstring{ value, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Storage_Provider_IStorageProviderErrorLegacy<D>::FilePath_Legacy(param::hstring const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Provider::IStorageProviderErrorLegacy)->put_FilePath_Legacy(*(void**)(&value)));
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Provider::StorageProviderErrorCommand) consume_Windows_Storage_Provider_IStorageProviderErrorLegacy<D>::Button1() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Provider::IStorageProviderErrorLegacy)->get_Button1(&value));
+        return Windows::Storage::Provider::StorageProviderErrorCommand{ value, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Storage_Provider_IStorageProviderErrorLegacy<D>::Button1(Windows::Storage::Provider::StorageProviderErrorCommand const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Provider::IStorageProviderErrorLegacy)->put_Button1(*(void**)(&value)));
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Provider::StorageProviderErrorCommand) consume_Windows_Storage_Provider_IStorageProviderErrorLegacy<D>::Button2() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Provider::IStorageProviderErrorLegacy)->get_Button2(&value));
+        return Windows::Storage::Provider::StorageProviderErrorCommand{ value, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Storage_Provider_IStorageProviderErrorLegacy<D>::Button2(Windows::Storage::Provider::StorageProviderErrorCommand const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Provider::IStorageProviderErrorLegacy)->put_Button2(*(void**)(&value)));
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Provider::StorageProviderErrorCommand) consume_Windows_Storage_Provider_IStorageProviderErrorLegacy<D>::Hyperlink1() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Provider::IStorageProviderErrorLegacy)->get_Hyperlink1(&value));
+        return Windows::Storage::Provider::StorageProviderErrorCommand{ value, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Storage_Provider_IStorageProviderErrorLegacy<D>::Hyperlink1(Windows::Storage::Provider::StorageProviderErrorCommand const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Provider::IStorageProviderErrorLegacy)->put_Hyperlink1(*(void**)(&value)));
     }
     template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Storage_Provider_IStorageProviderFileTypeInfo<D>::FileExtension() const
     {
@@ -859,48 +917,48 @@ namespace winrt::impl
             return 0;
         }
         catch (...) { return to_hresult(); }
-        int32_t __stdcall get_Button1(void** value) noexcept final try
+        int32_t __stdcall get_PrimaryAction(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<Windows::Storage::Provider::StorageProviderErrorCommand>(this->shim().Button1());
+            *value = detach_from<Windows::Storage::Provider::StorageProviderErrorCommand>(this->shim().PrimaryAction());
             return 0;
         }
         catch (...) { return to_hresult(); }
-        int32_t __stdcall put_Button1(void* value) noexcept final try
+        int32_t __stdcall put_PrimaryAction(void* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            this->shim().Button1(*reinterpret_cast<Windows::Storage::Provider::StorageProviderErrorCommand const*>(&value));
+            this->shim().PrimaryAction(*reinterpret_cast<Windows::Storage::Provider::StorageProviderErrorCommand const*>(&value));
             return 0;
         }
         catch (...) { return to_hresult(); }
-        int32_t __stdcall get_Button2(void** value) noexcept final try
-        {
-            clear_abi(value);
-            typename D::abi_guard guard(this->shim());
-            *value = detach_from<Windows::Storage::Provider::StorageProviderErrorCommand>(this->shim().Button2());
-            return 0;
-        }
-        catch (...) { return to_hresult(); }
-        int32_t __stdcall put_Button2(void* value) noexcept final try
-        {
-            typename D::abi_guard guard(this->shim());
-            this->shim().Button2(*reinterpret_cast<Windows::Storage::Provider::StorageProviderErrorCommand const*>(&value));
-            return 0;
-        }
-        catch (...) { return to_hresult(); }
-        int32_t __stdcall get_Hyperlink1(void** value) noexcept final try
+        int32_t __stdcall get_SecondaryAction(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<Windows::Storage::Provider::StorageProviderErrorCommand>(this->shim().Hyperlink1());
+            *value = detach_from<Windows::Storage::Provider::StorageProviderErrorCommand>(this->shim().SecondaryAction());
             return 0;
         }
         catch (...) { return to_hresult(); }
-        int32_t __stdcall put_Hyperlink1(void* value) noexcept final try
+        int32_t __stdcall put_SecondaryAction(void* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            this->shim().Hyperlink1(*reinterpret_cast<Windows::Storage::Provider::StorageProviderErrorCommand const*>(&value));
+            this->shim().SecondaryAction(*reinterpret_cast<Windows::Storage::Provider::StorageProviderErrorCommand const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_InformationalLink(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<Windows::Storage::Provider::StorageProviderErrorCommand>(this->shim().InformationalLink());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_InformationalLink(void* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().InformationalLink(*reinterpret_cast<Windows::Storage::Provider::StorageProviderErrorCommand const*>(&value));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -951,6 +1009,96 @@ namespace winrt::impl
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
             *value = detach_from<Windows::Storage::Provider::StorageProviderError>(this->shim().CreateInstance(*reinterpret_cast<hstring const*>(&id), *reinterpret_cast<hstring const*>(&title), *reinterpret_cast<hstring const*>(&message)));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, Windows::Storage::Provider::IStorageProviderErrorLegacy> : produce_base<D, Windows::Storage::Provider::IStorageProviderErrorLegacy>
+    {
+        int32_t __stdcall get_Id_Legacy(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<hstring>(this->shim().Id_Legacy());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_Title_Legacy(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<hstring>(this->shim().Title_Legacy());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_Message_Legacy(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<hstring>(this->shim().Message_Legacy());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_FilePath_Legacy(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<hstring>(this->shim().FilePath_Legacy());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_FilePath_Legacy(void* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().FilePath_Legacy(*reinterpret_cast<hstring const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_Button1(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<Windows::Storage::Provider::StorageProviderErrorCommand>(this->shim().Button1());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_Button1(void* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().Button1(*reinterpret_cast<Windows::Storage::Provider::StorageProviderErrorCommand const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_Button2(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<Windows::Storage::Provider::StorageProviderErrorCommand>(this->shim().Button2());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_Button2(void* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().Button2(*reinterpret_cast<Windows::Storage::Provider::StorageProviderErrorCommand const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_Hyperlink1(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<Windows::Storage::Provider::StorageProviderErrorCommand>(this->shim().Hyperlink1());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_Hyperlink1(void* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().Hyperlink1(*reinterpret_cast<Windows::Storage::Provider::StorageProviderErrorCommand const*>(&value));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1842,6 +1990,7 @@ namespace std
     template<> struct hash<winrt::Windows::Storage::Provider::IStorageProviderErrorCommand> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Storage::Provider::IStorageProviderErrorCommandFactory> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Storage::Provider::IStorageProviderErrorFactory> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Storage::Provider::IStorageProviderErrorLegacy> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Storage::Provider::IStorageProviderFileTypeInfo> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Storage::Provider::IStorageProviderFileTypeInfoFactory> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Storage::Provider::IStorageProviderGetContentInfoForPathResult> : winrt::impl::hash_base {};

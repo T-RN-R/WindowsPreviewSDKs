@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200213.5
+// C++/WinRT v2.0.200303.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -8,20 +8,20 @@
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
-    template <typename TProgress> struct IAsyncActionWithProgress;
-    template <typename TResult, typename TProgress> struct IAsyncOperationWithProgress;
-    template <typename TResult> struct IAsyncOperation;
-    template <typename T> struct IReference;
+    template <typename TProgress> struct __declspec(empty_bases) IAsyncActionWithProgress;
+    template <typename TResult, typename TProgress> struct __declspec(empty_bases) IAsyncOperationWithProgress;
+    template <typename TResult> struct __declspec(empty_bases) IAsyncOperation;
+    template <typename T> struct __declspec(empty_bases) IReference;
     struct Point;
     struct Rect;
     struct Size;
-    template <typename TSender, typename TResult> struct TypedEventHandler;
+    template <typename TSender, typename TResult> struct __declspec(empty_bases) TypedEventHandler;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
-    template <typename T> struct IIterable;
-    template <typename T> struct IVectorView;
-    template <typename T> struct IVector;
+    template <typename T> struct __declspec(empty_bases) IIterable;
+    template <typename T> struct __declspec(empty_bases) IVectorView;
+    template <typename T> struct __declspec(empty_bases) IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Numerics
 {

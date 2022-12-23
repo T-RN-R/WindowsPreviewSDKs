@@ -906,6 +906,15 @@ TdhEnumerateProviders(
     _Inout_ ULONG* pBufferSize
     );
 
+// DecodingSourceXMLFile and DecodingSourceWbem are available options for Filter.
+TDHSTATUS
+__stdcall
+TdhEnumerateProvidersForDecodingSource(
+    _Out_writes_bytes_opt_(*pBufferSize) PPROVIDER_ENUMERATION_INFO pBuffer,
+    _Inout_ ULONG *pBufferSize,
+    _In_ DECODING_SOURCE Filter
+    );
+
 TDHSTATUS
 __stdcall
 TdhQueryProviderFieldInformation(

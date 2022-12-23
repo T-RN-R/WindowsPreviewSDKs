@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200213.5
+// C++/WinRT v2.0.200303.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -7,8 +7,8 @@
 #define WINRT_Windows_Media_Transcoding_0_H
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
-    template <typename TProgress> struct IAsyncActionWithProgress;
-    template <typename TResult> struct IAsyncOperation;
+    template <typename TProgress> struct __declspec(empty_bases) IAsyncActionWithProgress;
+    template <typename TResult> struct __declspec(empty_bases) IAsyncOperation;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {

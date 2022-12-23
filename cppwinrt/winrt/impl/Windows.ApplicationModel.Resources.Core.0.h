@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200213.5
+// C++/WinRT v2.0.200303.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -7,17 +7,17 @@
 #define WINRT_Windows_ApplicationModel_Resources_Core_0_H
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
-    template <typename TResult> struct IAsyncOperation;
+    template <typename TResult> struct __declspec(empty_bases) IAsyncOperation;
     struct Uri;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
-    template <typename T> struct IIterable;
-    template <typename T> struct IIterator;
-    template <typename K, typename V> struct IKeyValuePair;
-    template <typename K, typename V> struct IMapView;
-    template <typename K, typename V> struct IObservableMap;
-    template <typename T> struct IVectorView;
+    template <typename T> struct __declspec(empty_bases) IIterable;
+    template <typename T> struct __declspec(empty_bases) IIterator;
+    template <typename K, typename V> struct __declspec(empty_bases) IKeyValuePair;
+    template <typename K, typename V> struct __declspec(empty_bases) IMapView;
+    template <typename K, typename V> struct __declspec(empty_bases) IObservableMap;
+    template <typename T> struct __declspec(empty_bases) IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage
 {

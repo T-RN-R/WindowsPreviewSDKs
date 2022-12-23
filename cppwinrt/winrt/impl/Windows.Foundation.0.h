@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200213.5
+// C++/WinRT v2.0.200303.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -59,10 +59,10 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
         OtherTypeArray = 1044,
     };
     struct IAsyncAction;
-    template <typename TProgress> struct IAsyncActionWithProgress;
+    template <typename TProgress> struct __declspec(empty_bases) IAsyncActionWithProgress;
     struct IAsyncInfo;
-    template <typename TResult, typename TProgress> struct IAsyncOperationWithProgress;
-    template <typename TResult> struct IAsyncOperation;
+    template <typename TResult, typename TProgress> struct __declspec(empty_bases) IAsyncOperationWithProgress;
+    template <typename TResult> struct __declspec(empty_bases) IAsyncOperation;
     struct IClosable;
     struct IDeferral;
     struct IDeferralFactory;
@@ -73,8 +73,8 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
     struct IMemoryBufferReference;
     struct IPropertyValue;
     struct IPropertyValueStatics;
-    template <typename T> struct IReferenceArray;
-    template <typename T> struct IReference;
+    template <typename T> struct __declspec(empty_bases) IReferenceArray;
+    template <typename T> struct __declspec(empty_bases) IReference;
     struct IStringable;
     struct IUriEscapeStatics;
     struct IUriRuntimeClass;
@@ -91,14 +91,14 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
     struct WwwFormUrlDecoder;
     struct WwwFormUrlDecoderEntry;
     struct AsyncActionCompletedHandler;
-    template <typename TProgress> struct AsyncActionProgressHandler;
-    template <typename TProgress> struct AsyncActionWithProgressCompletedHandler;
-    template <typename TResult> struct AsyncOperationCompletedHandler;
-    template <typename TResult, typename TProgress> struct AsyncOperationProgressHandler;
-    template <typename TResult, typename TProgress> struct AsyncOperationWithProgressCompletedHandler;
+    template <typename TProgress> struct __declspec(empty_bases) AsyncActionProgressHandler;
+    template <typename TProgress> struct __declspec(empty_bases) AsyncActionWithProgressCompletedHandler;
+    template <typename TResult> struct __declspec(empty_bases) AsyncOperationCompletedHandler;
+    template <typename TResult, typename TProgress> struct __declspec(empty_bases) AsyncOperationProgressHandler;
+    template <typename TResult, typename TProgress> struct __declspec(empty_bases) AsyncOperationWithProgressCompletedHandler;
     struct DeferralCompletedHandler;
-    template <typename T> struct EventHandler;
-    template <typename TSender, typename TResult> struct TypedEventHandler;
+    template <typename T> struct __declspec(empty_bases) EventHandler;
+    template <typename TSender, typename TResult> struct __declspec(empty_bases) TypedEventHandler;
 }
 namespace winrt::impl
 {

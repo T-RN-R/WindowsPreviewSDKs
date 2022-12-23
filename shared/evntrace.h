@@ -1903,6 +1903,15 @@ typedef enum _TRACE_QUERY_INFO_CLASS {
     //      Output Format: ULONG
     //
     TraceStreamCount = 23,
+
+    //
+    // TraceStackCachingInfo:
+    // - TraceSetInformation.
+    //      Turns on stack caching
+    //
+    //      Input Format: TRACE_STACK_CACHING_INFO
+    //
+    TraceStackCachingInfo = 24,
     MaxTraceSetInfoClass
 } TRACE_QUERY_INFO_CLASS, TRACE_INFO_CLASS;
 
@@ -1935,6 +1944,12 @@ typedef struct _CLASSIC_EVENT_ID {
     UCHAR Type;
     UCHAR Reserved[7];
 } CLASSIC_EVENT_ID, *PCLASSIC_EVENT_ID;
+
+typedef struct _TRACE_STACK_CACHING_INFO {
+    BOOLEAN Enabled;
+    ULONG CacheSize;
+    ULONG BucketCount;
+} TRACE_STACK_CACHING_INFO, *PTRACE_STACK_CACHING_INFO;
 
 typedef struct _TRACE_PROFILE_INTERVAL {
     ULONG Source;

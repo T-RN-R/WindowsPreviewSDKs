@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200213.5
+// C++/WinRT v2.0.200303.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -2799,7 +2799,7 @@ WINRT_EXPORT namespace winrt
             }
             else
             {
-                return {};
+                return { L"", 0 };
             }
         }
 
@@ -3785,13 +3785,15 @@ WINRT_EXPORT namespace winrt
     template <typename T>
     auto get_abi(array_view<T> object) noexcept
     {
+        auto data = object.size() ? object.data() : (T*)alignof(T);
+
         if constexpr (std::is_base_of_v<Windows::Foundation::IUnknown, T>)
         {
-            return (void**)object.data();
+            return (void**)data;
         }
         else
         {
-            return reinterpret_cast<impl::arg_out<std::remove_const_t<T>>>(const_cast<std::remove_const_t<T>*>(object.data()));
+            return reinterpret_cast<impl::arg_out<std::remove_const_t<T>>>(const_cast<std::remove_const_t<T>*>(data));
         }
     }
 
@@ -8675,7 +8677,7 @@ decltype(winrt::impl::natvis::get_val) & WINRT_get_val = winrt::impl::natvis::ge
 
 #endif
 
-#define CPPWINRT_VERSION "2.0.200213.5"
+#define CPPWINRT_VERSION "2.0.200303.2"
 
 // WINRT_version is used by Microsoft to analyze C++/WinRT library adoption and inform future product decisions.
 extern "C"
