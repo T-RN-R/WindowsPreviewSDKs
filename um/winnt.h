@@ -3385,6 +3385,9 @@ InterlockedXor16(
 #endif
 
 VOID
+#if defined(_M_ARM64EC)
+__stdcall
+#endif
 __cpuidex (
     int CPUInfo[4],
     int Function,
