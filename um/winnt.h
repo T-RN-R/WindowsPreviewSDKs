@@ -22347,6 +22347,7 @@ RtlNormalizeSecurityDescriptor (
     _Out_opt_ PDWORD NewSecurityDescriptorLength,
     _In_ BOOLEAN CheckOnly
     );
+
 #endif // NTDDI_VERSION >= NTDDI_WIN10_VB
 
 #if (NTDDI_VERSION >= NTDDI_WIN10_FE)
@@ -22356,6 +22357,33 @@ RtlNormalizeSecurityDescriptor (
 //
 
 #define RTL_VIRTUAL_UNWIND2_VALIDATE_PAC        0x00000001UL
+
+//
+// Shared User Data fields and accessors.
+//
+
+typedef enum _RTL_SYSTEM_GLOBAL_DATA_ID {
+    GlobalDataIdUnknown = 0,
+    GlobalDataIdRngSeedVersion
+} RTL_SYSTEM_GLOBAL_DATA_ID, *PRTL_SYSTEM_GLOBAL_DATA_ID;
+
+NTSYSAPI
+DWORD   
+NTAPI
+RtlGetSystemGlobalData (
+    _In_ RTL_SYSTEM_GLOBAL_DATA_ID DataId,
+    _Inout_ PVOID Buffer,
+    _In_ DWORD Size
+    );
+
+NTSYSAPI
+DWORD   
+NTAPI
+RtlSetSystemGlobalData (
+    _In_ RTL_SYSTEM_GLOBAL_DATA_ID DataId,
+    _In_ PVOID Buffer,
+    _In_ DWORD Size
+    );
 
 #endif // NTDDI_VERSION >= NTDDI_WIN10_FE
 

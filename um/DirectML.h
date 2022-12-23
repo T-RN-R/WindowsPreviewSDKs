@@ -20,6 +20,8 @@
 
 #if !defined(NTDDI_VERSION) || defined(DML_TARGET_VERSION_USE_LATEST) // Use the latest if using redist or no Windows target set.
 #define DML_TARGET_VERSION 0x3000
+#elif NTDDI_VERSION >= NTDDI_WIN10_FE
+#define DML_TARGET_VERSION 0x3000
 #elif NTDDI_VERSION >= NTDDI_WIN10_VB // Windows 10 2004 Update
 #define DML_TARGET_VERSION 0x2000
 #else NTDDI_VERSION >= NTDDI_WIN10_19H1 // Windows 10 1903 Update
