@@ -1124,6 +1124,9 @@ RASCTRYINFO
 #define VS_Ikev2Sstp    14  // IKEv2 is attempted followed only by SSTP
 #endif
 
+#if (WINVER >= 0xA00)
+#define VS_ProtocolList 15  // Use ProtocolList to determine protocols to connect
+#endif
 
 /* A RAS phone book entry.
 */

@@ -314,11 +314,13 @@ RegisterDeviceWithManagementUsingAADDeviceCredentials();
 Routine Description:
 
 This function is used to register a device with the MDM service synchronously.
-It will automatically discover the MDM information, including MDM device enrollment URL and authentication device token from AAD
+It will automatically discover the MDM information, including MDM device enrollment resource URL and authentication device token from AAD
 
 Arguments:
 
-    pszCloudAssignedMDMId   Unique ID that identifies the MDM enrollment only required when multiple enrollments are configured on the AAD tenant.
+    MDMApplicationID   Unique ID of MDM application that is configured in Azure AD. 
+                       Only required when multiple MDM applications are configured on the Azure AD.
+                       The maximum length is 255 characters, excluding the terminal null.
 
 Return Value:
 
@@ -326,7 +328,7 @@ HRESULT indicating success or failure.
 
 --*/
 HRESULT WINAPI
-RegisterDeviceWithManagementUsingAADDeviceCredentialsEx(_In_opt_z_ LPCWSTR pszCloudAssignedMDMId);
+RegisterDeviceWithManagementUsingAADDeviceCredentialsEx(_In_opt_z_ LPCWSTR MDMApplicationID);
 
 
 /*++

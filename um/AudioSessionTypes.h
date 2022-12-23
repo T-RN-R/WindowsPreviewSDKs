@@ -49,6 +49,8 @@ typedef enum _AUDCLNT_SHAREMODE
 // Speech                  - Speech recognition
 // Media                   - Music, Streaming audio
 // Movie                   - Video with audio
+// FarFieldSpeech          - Capture of far field speech
+// UniformSpeech           - Uniform, device agnostic speech processing
 // Other                   - All other streams (default)
 //
 typedef enum _AUDIO_STREAM_CATEGORY
@@ -67,6 +69,10 @@ typedef enum _AUDIO_STREAM_CATEGORY
     AudioCategory_Speech = 9,
     AudioCategory_Movie = 10,
     AudioCategory_Media = 11,
+#if NTDDI_VERSION >= NTDDI_WIN10_FE
+    AudioCategory_FarFieldSpeech = 12,
+    AudioCategory_UniformSpeech = 13,
+#endif
 } AUDIO_STREAM_CATEGORY;
 
 

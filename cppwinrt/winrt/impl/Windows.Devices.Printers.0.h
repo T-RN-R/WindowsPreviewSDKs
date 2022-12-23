@@ -33,6 +33,7 @@ WINRT_EXPORT namespace winrt::Windows::Devices::Printers
         AttributeNotSupported = 1,
         AttributeValuesNotSupported = 2,
         AttributeNotSettable = 3,
+        ConflictingAttributes = 4,
     };
     enum class IppAttributeValueKind : int32_t
     {

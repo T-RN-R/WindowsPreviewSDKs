@@ -25435,6 +25435,15 @@ Notes:
 #define STATUS_SMB_GUEST_LOGON_BLOCKED   ((NTSTATUS)0xC05D0002L)
 
 //
+// MessageId: STATUS_SMB_NO_SIGNING_ALGORITHM_OVERLAP
+//
+// MessageText:
+//
+// Failed to negotiate a signing hash function.
+//
+#define STATUS_SMB_NO_SIGNING_ALGORITHM_OVERLAP ((NTSTATUS)0xC05D0003L)
+
+//
 // Embedded Security Core
 //
 // Reserved id values 0x0001 - 0x00FF
