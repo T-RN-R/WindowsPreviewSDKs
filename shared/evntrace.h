@@ -126,6 +126,25 @@ DEFINE_GUID ( /* 3595ab5c-042a-4c8e-b942-2d059bfeb1b1 */
     0xb9, 0x42, 0x2d, 0x05, 0x9b, 0xfe, 0xb1, 0xb1
   );
 
+//
+// System Provider GUIDs
+//
+
+DEFINE_GUID( /* 16156bd9-fab4-4cfa-a232-89d1099058e3 */
+    SystemRegistryProviderGuid,
+    0x16156bd9,
+    0xfab4,
+    0x4cfa,
+    0xa2, 0x32, 0x89, 0xd1, 0x9, 0x90, 0x58, 0xe3
+    );
+
+DEFINE_GUID( /* 151f55dc-467d-471f-83b5-5f889d46ff66 */
+    SystemProcessProviderGuid,
+    0x151f55dc,
+    0x467d,
+    0x471f,
+    0x83, 0xb5, 0x5f, 0x88, 0x9d, 0x46, 0xff, 0x66
+    );
 
 #define KERNEL_LOGGER_NAMEW         L"NT Kernel Logger"
 #define GLOBAL_LOGGER_NAMEW         L"GlobalLogger"
@@ -535,6 +554,27 @@ typedef ULONG64 TRACEHANDLE, *PTRACEHANDLE;
 #define TRACE_HEADER_FLAG_LOG_WNODE         0x00040000 // request to log Wnode
 #define TRACE_HEADER_FLAG_USE_GUID_PTR      0x00080000 // Guid is actually a pointer
 #define TRACE_HEADER_FLAG_USE_MOF_PTR       0x00100000 // MOF data are dereferenced
+
+//
+// Keywords to be used for the System Process Provider.
+//
+
+#define SYSTEM_PROCESS_KW_PROCESS        0x0000000000000001
+#define SYSTEM_PROCESS_KW_PROCESS_INSWAP 0x0000000000000002
+#define SYSTEM_PROCESS_KW_PROCESS_FREEZE 0x0000000000000004
+#define SYSTEM_PROCESS_KW_PERF_COUNTER   0x0000000000000008
+#define SYSTEM_PROCESS_KW_WAKE_COUNTER   0x0000000000000010
+#define SYSTEM_PROCESS_KW_WAKE_DROP      0x0000000000000020
+#define SYSTEM_PROCESS_KW_WAKE_EVENT     0x0000000000000040
+#define SYSTEM_PROCESS_KW_DEBUG_EVENTS   0x0000000000000080
+
+//
+// Keywords to be used for the System Registry Provider.
+//
+
+#define SYSTEM_REGISTRY_KW_REGISTRY  0x0000000000000001
+#define SYSTEM_REGISTRY_KW_REG_HIVE  0x0000000000000002
+#define SYSTEM_REGISTRY_KW_REG_NOTIF 0x0000000000000004
 
 typedef enum {
     EtwCompressionModeRestart = 0,
@@ -1283,7 +1323,7 @@ extern "C" {
 //      );
 
 
- EXTERN_C
+EXTERN_C
 ULONG
 WMIAPI
 StartTraceW (
@@ -1926,7 +1966,7 @@ typedef enum _TRACE_QUERY_INFO_CLASS {
     //
     // TraceStackCachingInfo:
     // - TraceSetInformation
-    //      Turns on stack caching.
+    //      Turns on stack caching for classic event stacks.
     //
     //      Input Format: TRACE_STACK_CACHING_INFO
     //
@@ -1950,6 +1990,15 @@ typedef enum _TRACE_QUERY_INFO_CLASS {
     //                     a tag provided by the counter owner.
     //               
     TracePmcCounterOwners = 25,
+
+    //
+    // TraceStackCachingInfo:
+    // - TraceSetInformation
+    //      Turns on unified stack caching for all event stacks.
+    //
+    //      Input Format: TRACE_STACK_CACHING_INFO
+    //
+    TraceUnifiedStackCachingInfo = 26,
 
     MaxTraceSetInfoClass
 } TRACE_QUERY_INFO_CLASS, TRACE_INFO_CLASS;
