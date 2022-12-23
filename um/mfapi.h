@@ -1603,6 +1603,20 @@ DEFINE_GUID(MF_CAPTURE_METADATA_SCANLINE_DIRECTION,
 #define MFCAPTURE_METADATA_SCAN_BOTTOM_TOP         0x00000002
 #define MFCAPTURE_METADATA_SCANLINE_VERTICAL       0x00000004
 
+// {276F72A2-59C8-4F69-97B4-068B8C0EC044}
+// Value type: BLOB
+// Reports the current Digital Window as a 
+DEFINE_GUID(MF_CAPTURE_METADATA_DIGITALWINDOW,
+    0x276f72a2, 0x59c8, 0x4f69, 0x97, 0xb4, 0x6, 0x8b, 0x8c, 0xe, 0xc0, 0x44);
+
+// Digital Window Region
+typedef struct tagDigitalWindowSetting {
+    double      OriginX;
+    double      OriginY;
+    double      WindowSize;
+} DigitalWindowSetting;
+
+
 typedef struct tagFaceRectInfoBlobHeader
 {
     ULONG Size;     // Size of this header + all FaceRectInfo following
@@ -2200,6 +2214,10 @@ DEFINE_MEDIATYPE_GUID(MFVideoFormat_A16B16G16R16F, D3DFMT_A16B16G16R16F);
 DEFINE_MEDIATYPE_GUID(MFVideoFormat_VP10,       FCC('VP10'));
 DEFINE_MEDIATYPE_GUID(MFVideoFormat_AV1,        FCC('AV01'));
 #endif
+
+#if (NTDDI_VERSION >= NTDDI_WIN10_FE)
+DEFINE_MEDIATYPE_GUID(MFVideoFormat_Theora,     FCC('theo')); // {6F656874-0000-0010-8000-00AA00389B71}
+#endif // (NTDDI_VERSION >= NTDDI_WIN10_FE)
 
 #if (WDK_NTDDI_VERSION >= NTDDI_WIN10)
 //

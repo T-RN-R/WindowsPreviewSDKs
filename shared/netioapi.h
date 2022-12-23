@@ -3185,7 +3185,11 @@ Return Value:
 #define DNS_SETTING_DOH                           0x1000
 #define DNS_SETTING_DOH_PROFILE                   0x2000
 
-#define DNS_ENABLE_AUTO_DOH                       0x0001
+#define DNS_ENABLE_DOH                            0x0001
+#define DNS_DOH_POLICY_NOT_CONFIGURED             0x0004
+#define DNS_DOH_POLICY_DISABLE                    0x0008
+#define DNS_DOH_POLICY_AUTO                       0x0010
+#define DNS_DOH_POLICY_REQUIRED                   0x0020
 
 #define DNS_SERVER_PROPERTY_VERSION1              0x0001
 

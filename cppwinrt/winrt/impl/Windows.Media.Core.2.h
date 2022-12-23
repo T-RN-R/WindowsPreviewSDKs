@@ -462,6 +462,11 @@ WINRT_EXPORT namespace winrt::Windows::Media::Core
         TimedMetadataTrackFailedEventArgs(std::nullptr_t) noexcept {}
         TimedMetadataTrackFailedEventArgs(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Media::Core::ITimedMetadataTrackFailedEventArgs(ptr, take_ownership_from_abi) {}
     };
+    struct __declspec(empty_bases) TimedTextBouten : Windows::Media::Core::ITimedTextBouten
+    {
+        TimedTextBouten(std::nullptr_t) noexcept {}
+        TimedTextBouten(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Media::Core::ITimedTextBouten(ptr, take_ownership_from_abi) {}
+    };
     struct __declspec(empty_bases) TimedTextCue : Windows::Media::Core::ITimedTextCue
     {
         TimedTextCue(std::nullptr_t) noexcept {}
@@ -479,6 +484,11 @@ WINRT_EXPORT namespace winrt::Windows::Media::Core
         TimedTextRegion(std::nullptr_t) noexcept {}
         TimedTextRegion(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Media::Core::ITimedTextRegion(ptr, take_ownership_from_abi) {}
         TimedTextRegion();
+    };
+    struct __declspec(empty_bases) TimedTextRuby : Windows::Media::Core::ITimedTextRuby
+    {
+        TimedTextRuby(std::nullptr_t) noexcept {}
+        TimedTextRuby(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Media::Core::ITimedTextRuby(ptr, take_ownership_from_abi) {}
     };
     struct __declspec(empty_bases) TimedTextSource : Windows::Media::Core::ITimedTextSource
     {
@@ -499,7 +509,7 @@ WINRT_EXPORT namespace winrt::Windows::Media::Core
         TimedTextSourceResolveResultEventArgs(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Media::Core::ITimedTextSourceResolveResultEventArgs(ptr, take_ownership_from_abi) {}
     };
     struct __declspec(empty_bases) TimedTextStyle : Windows::Media::Core::ITimedTextStyle,
-        impl::require<TimedTextStyle, Windows::Media::Core::ITimedTextStyle2>
+        impl::require<TimedTextStyle, Windows::Media::Core::ITimedTextStyle2, Windows::Media::Core::ITimedTextStyle3>
     {
         TimedTextStyle(std::nullptr_t) noexcept {}
         TimedTextStyle(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Media::Core::ITimedTextStyle(ptr, take_ownership_from_abi) {}

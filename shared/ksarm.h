@@ -954,11 +954,11 @@
 #define PbAdjustDpcThreshold 0x914
 #define PbParentNode 0x938
 #define PbStartCycles 0x948
-#define PbPageColor 0xaac
-#define PbNodeColor 0xab0
-#define PbNodeShiftedColor 0xab4
-#define PbSecondaryColorMask 0xab8
-#define PbCycleTime 0xac0
+#define PbPageColor 0xab4
+#define PbNodeColor 0xab8
+#define PbNodeShiftedColor 0xabc
+#define PbSecondaryColorMask 0xac0
+#define PbCycleTime 0xac8
 #define PbFastReadNoWait 0x638
 #define PbFastReadWait 0x63c
 #define PbFastReadNotPossible 0x640

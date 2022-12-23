@@ -104,6 +104,18 @@ namespace winrt::impl
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IAnimationPropertyInfo)->put_AccessMode(static_cast<int32_t>(value)));
     }
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionObject) consume_Windows_UI_Composition_IAnimationPropertyInfo2<D>::GetResolvedCompositionObject() const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IAnimationPropertyInfo2)->GetResolvedCompositionObject(&result));
+        return Windows::UI::Composition::CompositionObject{ result, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Composition_IAnimationPropertyInfo2<D>::GetResolvedCompositionObjectProperty() const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IAnimationPropertyInfo2)->GetResolvedCompositionObjectProperty(&result));
+        return hstring{ result, take_ownership_from_abi };
+    }
     template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IBooleanKeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IBooleanKeyFrameAnimation)->InsertKeyFrame(normalizedProgressKey, value));
@@ -3340,6 +3352,12 @@ namespace winrt::impl
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisualCollection)->RemoveAll());
     }
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::Visual) consume_Windows_UI_Composition_IVisualElement2<D>::GetVisualInternal() const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisualElement2)->GetVisualInternal(&result));
+        return Windows::UI::Composition::Visual{ result, take_ownership_from_abi };
+    }
     template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_UI_Composition_IVisualUnorderedCollection<D>::Count() const
     {
         int32_t value{};
@@ -3507,6 +3525,28 @@ namespace winrt::impl
         {
             typename D::abi_guard guard(this->shim());
             this->shim().AccessMode(*reinterpret_cast<Windows::UI::Composition::AnimationPropertyAccessMode const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, Windows::UI::Composition::IAnimationPropertyInfo2> : produce_base<D, Windows::UI::Composition::IAnimationPropertyInfo2>
+    {
+        int32_t __stdcall GetResolvedCompositionObject(void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<Windows::UI::Composition::CompositionObject>(this->shim().GetResolvedCompositionObject());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall GetResolvedCompositionObjectProperty(void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<hstring>(this->shim().GetResolvedCompositionObjectProperty());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -9072,6 +9112,18 @@ namespace winrt::impl
     struct produce<D, Windows::UI::Composition::IVisualElement> : produce_base<D, Windows::UI::Composition::IVisualElement>
     {
     };
+    template <typename D>
+    struct produce<D, Windows::UI::Composition::IVisualElement2> : produce_base<D, Windows::UI::Composition::IVisualElement2>
+    {
+        int32_t __stdcall GetVisualInternal(void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<Windows::UI::Composition::Visual>(this->shim().GetVisualInternal());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
     struct produce<D, Windows::UI::Composition::IVisualFactory> : produce_base<D, Windows::UI::Composition::IVisualFactory>
@@ -9200,6 +9252,7 @@ namespace std
     template<> struct hash<winrt::Windows::UI::Composition::IAnimationControllerStatics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IAnimationObject> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IAnimationPropertyInfo> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Composition::IAnimationPropertyInfo2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IBooleanKeyFrameAnimation> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IBounceScalarNaturalMotionAnimation> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IBounceVector2NaturalMotionAnimation> : winrt::impl::hash_base {};
@@ -9353,6 +9406,7 @@ namespace std
     template<> struct hash<winrt::Windows::UI::Composition::IVisual3> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IVisualCollection> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IVisualElement> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Composition::IVisualElement2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IVisualFactory> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IVisualUnorderedCollection> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::AmbientLight> : winrt::impl::hash_base {};

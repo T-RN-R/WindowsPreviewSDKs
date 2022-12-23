@@ -443,7 +443,6 @@ typedef struct FWPM_ACTION0_
         {
         /* [case()] */ GUID filterType;
         /* [case()] */ GUID calloutKey;
-        /* [case()] */ UINT8 bitmapIndex;
         } 	;
     } 	FWPM_ACTION0;
 
@@ -563,10 +562,6 @@ typedef struct FWPM_STATISTICS0_
     UINT64 reauthReasonSocketPropertyChanged;
     UINT64 reauthReasonNewInboundMCastBCastPacket;
     UINT64 reauthReasonEDPPolicyChanged;
-    UINT64 reauthReasonPreclassifyLocalAddrLayerChange;
-    UINT64 reauthReasonPreclassifyRemoteAddrLayerChange;
-    UINT64 reauthReasonPreclassifyLocalPortLayerChange;
-    UINT64 reauthReasonPreclassifyRemotePortLayerChange;
     UINT64 reauthReasonProxyHandleChanged;
     } 	FWPM_STATISTICS0;
 

@@ -50,6 +50,13 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
         IAnimationPropertyInfo(std::nullptr_t = nullptr) noexcept {}
         IAnimationPropertyInfo(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
+    struct __declspec(empty_bases) IAnimationPropertyInfo2 :
+        Windows::Foundation::IInspectable,
+        impl::consume_t<IAnimationPropertyInfo2>
+    {
+        IAnimationPropertyInfo2(std::nullptr_t = nullptr) noexcept {}
+        IAnimationPropertyInfo2(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
     struct __declspec(empty_bases) IBooleanKeyFrameAnimation :
         Windows::Foundation::IInspectable,
         impl::consume_t<IBooleanKeyFrameAnimation>
@@ -1120,6 +1127,13 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     {
         IVisualElement(std::nullptr_t = nullptr) noexcept {}
         IVisualElement(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IVisualElement2 :
+        Windows::Foundation::IInspectable,
+        impl::consume_t<IVisualElement2>
+    {
+        IVisualElement2(std::nullptr_t = nullptr) noexcept {}
+        IVisualElement2(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
     struct __declspec(empty_bases) IVisualFactory :
         Windows::Foundation::IInspectable,

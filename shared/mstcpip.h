@@ -1076,6 +1076,11 @@ IN4_IS_UNALIGNED_ADDR_6TO4ELIGIBLE(_In_ CONST IN_ADDR UNALIGNED *a)
 
 #ifdef _WS2IPDEF_
 
+#ifdef _PREFAST_
+#pragma prefast(push)
+#pragma prefast(disable:6385, "apparent one byte buffer overread in IN6_PREFIX_EQUAL")
+#endif
+
 MSTCPIP_INLINE
 BOOLEAN
 IN6_PREFIX_EQUAL(
@@ -1093,6 +1098,10 @@ IN6_PREFIX_EQUAL(
          ((Bits == 0) ||
           ((a->s6_bytes[Bytes] | Mask) == (b->s6_bytes[Bytes] | Mask))));
 }
+
+#ifdef _PREFAST_
+#pragma prefast(pop)
+#endif
 
 MSTCPIP_INLINE
 BOOLEAN

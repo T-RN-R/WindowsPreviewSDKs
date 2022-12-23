@@ -3786,6 +3786,8 @@ typedef struct _DEVICE_DATA_SET_SCRUB_EX_OUTPUT {
 
     DEVICE_DSM_RANGE ParityExtent;
 
+    DWORDLONG BytesScrubbed;
+
 } DEVICE_DATA_SET_SCRUB_EX_OUTPUT, *PDEVICE_DATA_SET_SCRUB_EX_OUTPUT,
   DEVICE_DSM_SCRUB_OUTPUT2, *PDEVICE_DSM_SCRUB_OUTPUT2;
 
@@ -7533,7 +7535,8 @@ typedef enum _SCM_PD_OPERATIONAL_STATUS_REASON {
     ScmPhysicalDeviceOpReason_MediaRemainingSpareBlock,
     ScmPhysicalDeviceOpReason_PerformanceDegradation,
     ScmPhysicalDeviceOpReason_ExcessiveTemperature,
-    
+    ScmPhysicalDeviceOpReason_InternalFailure,
+
     ScmPhysicalDeviceOpReason_Max
 } SCM_PD_OPERATIONAL_STATUS_REASON, *PSCM_PD_OPERATIONAL_STATUS_REASON;
 

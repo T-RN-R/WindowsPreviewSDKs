@@ -355,6 +355,27 @@ typedef interface IMFTimedTextCueList IMFTimedTextCueList;
 #endif 	/* __IMFTimedTextCueList_FWD_DEFINED__ */
 
 
+#ifndef __IMFTimedTextRuby_FWD_DEFINED__
+#define __IMFTimedTextRuby_FWD_DEFINED__
+typedef interface IMFTimedTextRuby IMFTimedTextRuby;
+
+#endif 	/* __IMFTimedTextRuby_FWD_DEFINED__ */
+
+
+#ifndef __IMFTimedTextBouten_FWD_DEFINED__
+#define __IMFTimedTextBouten_FWD_DEFINED__
+typedef interface IMFTimedTextBouten IMFTimedTextBouten;
+
+#endif 	/* __IMFTimedTextBouten_FWD_DEFINED__ */
+
+
+#ifndef __IMFTimedTextStyle2_FWD_DEFINED__
+#define __IMFTimedTextStyle2_FWD_DEFINED__
+typedef interface IMFTimedTextStyle2 IMFTimedTextStyle2;
+
+#endif 	/* __IMFTimedTextStyle2_FWD_DEFINED__ */
+
+
 #ifndef __IMFMediaEngineEMENotify_FWD_DEFINED__
 #define __IMFMediaEngineEMENotify_FWD_DEFINED__
 typedef interface IMFMediaEngineEMENotify IMFMediaEngineEMENotify;
@@ -6430,6 +6451,56 @@ enum MF_TIMED_TEXT_TRACK_READY_STATE
         MF_TIMED_TEXT_TRACK_READY_STATE_ERROR	= ( MF_TIMED_TEXT_TRACK_READY_STATE_LOADED + 1 ) 
     } 	MF_TIMED_TEXT_TRACK_READY_STATE;
 
+typedef 
+enum MF_TIMED_TEXT_RUBY_POSITION
+    {
+        MF_TIMED_TEXT_RUBY_POSITION_BEFORE	= 0,
+        MF_TIMED_TEXT_RUBY_POSITION_AFTER	= 1,
+        MF_TIMED_TEXT_RUBY_POSITION_OUTSIDE	= 2
+    } 	MF_TIMED_TEXT_RUBY_POSITION;
+
+typedef 
+enum MF_TIMED_TEXT_RUBY_ALIGN
+    {
+        MF_TIMED_TEXT_RUBY_ALIGN_CENTER	= 0,
+        MF_TIMED_TEXT_RUBY_ALIGN_START	= 1,
+        MF_TIMED_TEXT_RUBY_ALIGN_END	= 2,
+        MF_TIMED_TEXT_RUBY_ALIGN_SPACEAROUND	= 3,
+        MF_TIMED_TEXT_RUBY_ALIGN_SPACEBETWEEN	= 4,
+        MF_TIMED_TEXT_RUBY_ALIGN_WITHBASE	= 5
+    } 	MF_TIMED_TEXT_RUBY_ALIGN;
+
+typedef 
+enum MF_TIMED_TEXT_RUBY_RESERVE
+    {
+        MF_TIMED_TEXT_RUBY_RESERVE_NONE	= 0,
+        MF_TIMED_TEXT_RUBY_RESERVE_BEFORE	= 1,
+        MF_TIMED_TEXT_RUBY_RESERVE_AFTER	= 2,
+        MF_TIMED_TEXT_RUBY_RESERVE_BOTH	= 3,
+        MF_TIMED_TEXT_RUBY_RESERVE_OUTSIDE	= 4
+    } 	MF_TIMED_TEXT_RUBY_RESERVE;
+
+typedef 
+enum MF_TIMED_TEXT_BOUTEN_TYPE
+    {
+        MF_TIMED_TEXT_BOUTEN_TYPE_NONE	= 0,
+        MF_TIMED_TEXT_BOUTEN_TYPE_AUTO	= 1,
+        MF_TIMED_TEXT_BOUTEN_TYPE_FILLEDCIRCLE	= 2,
+        MF_TIMED_TEXT_BOUTEN_TYPE_OPENCIRCLE	= 3,
+        MF_TIMED_TEXT_BOUTEN_TYPE_FILLEDDOT	= 4,
+        MF_TIMED_TEXT_BOUTEN_TYPE_OPENDOT	= 5,
+        MF_TIMED_TEXT_BOUTEN_TYPE_FILLEDSESAME	= 6,
+        MF_TIMED_TEXT_BOUTEN_TYPE_OPENSESAME	= 7
+    } 	MF_TIMED_TEXT_BOUTEN_TYPE;
+
+typedef 
+enum MF_TIMED_TEXT_BOUTEN_POSITION
+    {
+        MF_TIMED_TEXT_BOUTEN_POSITION_BEFORE	= 0,
+        MF_TIMED_TEXT_BOUTEN_POSITION_AFTER	= 1,
+        MF_TIMED_TEXT_BOUTEN_POSITION_OUTSIDE	= 2
+    } 	MF_TIMED_TEXT_BOUTEN_POSITION;
+
 
 
 
@@ -8387,7 +8458,369 @@ EXTERN_C const IID IID_IMFTimedTextCueList;
 #endif 	/* __IMFTimedTextCueList_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_mfmediaengine_0000_0044 */
+#ifndef __IMFTimedTextRuby_INTERFACE_DEFINED__
+#define __IMFTimedTextRuby_INTERFACE_DEFINED__
+
+/* interface IMFTimedTextRuby */
+/* [local][unique][uuid][object] */ 
+
+
+EXTERN_C const IID IID_IMFTimedTextRuby;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("76c6a6f5-4955-4de5-b27b-14b734cc14b4")
+    IMFTimedTextRuby : public IUnknown
+    {
+    public:
+        virtual HRESULT STDMETHODCALLTYPE GetRubyText( 
+            /* [annotation][out] */ 
+            _Outptr_  LPWSTR *rubyText) = 0;
+        
+        virtual HRESULT STDMETHODCALLTYPE GetRubyPosition( 
+            /* [annotation][out] */ 
+            _Out_  MF_TIMED_TEXT_RUBY_POSITION *value) = 0;
+        
+        virtual HRESULT STDMETHODCALLTYPE GetRubyAlign( 
+            /* [annotation][out] */ 
+            _Out_  MF_TIMED_TEXT_RUBY_ALIGN *value) = 0;
+        
+        virtual HRESULT STDMETHODCALLTYPE GetRubyReserve( 
+            /* [annotation][out] */ 
+            _Out_  MF_TIMED_TEXT_RUBY_RESERVE *value) = 0;
+        
+    };
+    
+    
+#else 	/* C style interface */
+
+    typedef struct IMFTimedTextRubyVtbl
+    {
+        BEGIN_INTERFACE
+        
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            IMFTimedTextRuby * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            _COM_Outptr_  void **ppvObject);
+        
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            IMFTimedTextRuby * This);
+        
+        DECLSPEC_XFGVIRT(IUnknown, Release)
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            IMFTimedTextRuby * This);
+        
+        DECLSPEC_XFGVIRT(IMFTimedTextRuby, GetRubyText)
+        HRESULT ( STDMETHODCALLTYPE *GetRubyText )( 
+            IMFTimedTextRuby * This,
+            /* [annotation][out] */ 
+            _Outptr_  LPWSTR *rubyText);
+        
+        DECLSPEC_XFGVIRT(IMFTimedTextRuby, GetRubyPosition)
+        HRESULT ( STDMETHODCALLTYPE *GetRubyPosition )( 
+            IMFTimedTextRuby * This,
+            /* [annotation][out] */ 
+            _Out_  MF_TIMED_TEXT_RUBY_POSITION *value);
+        
+        DECLSPEC_XFGVIRT(IMFTimedTextRuby, GetRubyAlign)
+        HRESULT ( STDMETHODCALLTYPE *GetRubyAlign )( 
+            IMFTimedTextRuby * This,
+            /* [annotation][out] */ 
+            _Out_  MF_TIMED_TEXT_RUBY_ALIGN *value);
+        
+        DECLSPEC_XFGVIRT(IMFTimedTextRuby, GetRubyReserve)
+        HRESULT ( STDMETHODCALLTYPE *GetRubyReserve )( 
+            IMFTimedTextRuby * This,
+            /* [annotation][out] */ 
+            _Out_  MF_TIMED_TEXT_RUBY_RESERVE *value);
+        
+        END_INTERFACE
+    } IMFTimedTextRubyVtbl;
+
+    interface IMFTimedTextRuby
+    {
+        CONST_VTBL struct IMFTimedTextRubyVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define IMFTimedTextRuby_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define IMFTimedTextRuby_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define IMFTimedTextRuby_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define IMFTimedTextRuby_GetRubyText(This,rubyText)	\
+    ( (This)->lpVtbl -> GetRubyText(This,rubyText) ) 
+
+#define IMFTimedTextRuby_GetRubyPosition(This,value)	\
+    ( (This)->lpVtbl -> GetRubyPosition(This,value) ) 
+
+#define IMFTimedTextRuby_GetRubyAlign(This,value)	\
+    ( (This)->lpVtbl -> GetRubyAlign(This,value) ) 
+
+#define IMFTimedTextRuby_GetRubyReserve(This,value)	\
+    ( (This)->lpVtbl -> GetRubyReserve(This,value) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __IMFTimedTextRuby_INTERFACE_DEFINED__ */
+
+
+#ifndef __IMFTimedTextBouten_INTERFACE_DEFINED__
+#define __IMFTimedTextBouten_INTERFACE_DEFINED__
+
+/* interface IMFTimedTextBouten */
+/* [local][unique][uuid][object] */ 
+
+
+EXTERN_C const IID IID_IMFTimedTextBouten;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("3c5f3e8a-90c0-464e-8136-898d2975f847")
+    IMFTimedTextBouten : public IUnknown
+    {
+    public:
+        virtual HRESULT STDMETHODCALLTYPE GetBoutenStyle( 
+            /* [annotation][out] */ 
+            _Out_  MF_TIMED_TEXT_BOUTEN_TYPE *value) = 0;
+        
+        virtual HRESULT STDMETHODCALLTYPE GetBoutenColor( 
+            /* [annotation][out] */ 
+            _Out_  MFARGB *value) = 0;
+        
+        virtual HRESULT STDMETHODCALLTYPE GetBoutenPosition( 
+            /* [annotation][out] */ 
+            _Out_  MF_TIMED_TEXT_BOUTEN_POSITION *value) = 0;
+        
+    };
+    
+    
+#else 	/* C style interface */
+
+    typedef struct IMFTimedTextBoutenVtbl
+    {
+        BEGIN_INTERFACE
+        
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            IMFTimedTextBouten * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            _COM_Outptr_  void **ppvObject);
+        
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            IMFTimedTextBouten * This);
+        
+        DECLSPEC_XFGVIRT(IUnknown, Release)
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            IMFTimedTextBouten * This);
+        
+        DECLSPEC_XFGVIRT(IMFTimedTextBouten, GetBoutenStyle)
+        HRESULT ( STDMETHODCALLTYPE *GetBoutenStyle )( 
+            IMFTimedTextBouten * This,
+            /* [annotation][out] */ 
+            _Out_  MF_TIMED_TEXT_BOUTEN_TYPE *value);
+        
+        DECLSPEC_XFGVIRT(IMFTimedTextBouten, GetBoutenColor)
+        HRESULT ( STDMETHODCALLTYPE *GetBoutenColor )( 
+            IMFTimedTextBouten * This,
+            /* [annotation][out] */ 
+            _Out_  MFARGB *value);
+        
+        DECLSPEC_XFGVIRT(IMFTimedTextBouten, GetBoutenPosition)
+        HRESULT ( STDMETHODCALLTYPE *GetBoutenPosition )( 
+            IMFTimedTextBouten * This,
+            /* [annotation][out] */ 
+            _Out_  MF_TIMED_TEXT_BOUTEN_POSITION *value);
+        
+        END_INTERFACE
+    } IMFTimedTextBoutenVtbl;
+
+    interface IMFTimedTextBouten
+    {
+        CONST_VTBL struct IMFTimedTextBoutenVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define IMFTimedTextBouten_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define IMFTimedTextBouten_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define IMFTimedTextBouten_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define IMFTimedTextBouten_GetBoutenStyle(This,value)	\
+    ( (This)->lpVtbl -> GetBoutenStyle(This,value) ) 
+
+#define IMFTimedTextBouten_GetBoutenColor(This,value)	\
+    ( (This)->lpVtbl -> GetBoutenColor(This,value) ) 
+
+#define IMFTimedTextBouten_GetBoutenPosition(This,value)	\
+    ( (This)->lpVtbl -> GetBoutenPosition(This,value) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __IMFTimedTextBouten_INTERFACE_DEFINED__ */
+
+
+#ifndef __IMFTimedTextStyle2_INTERFACE_DEFINED__
+#define __IMFTimedTextStyle2_INTERFACE_DEFINED__
+
+/* interface IMFTimedTextStyle2 */
+/* [local][unique][uuid][object] */ 
+
+
+EXTERN_C const IID IID_IMFTimedTextStyle2;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("db639199-c809-4c89-bfca-d0bbb9729d6e")
+    IMFTimedTextStyle2 : public IUnknown
+    {
+    public:
+        virtual HRESULT STDMETHODCALLTYPE GetRuby( 
+            /* [annotation][out] */ 
+            _COM_Outptr_result_maybenull_  IMFTimedTextRuby **ruby) = 0;
+        
+        virtual HRESULT STDMETHODCALLTYPE GetBouten( 
+            /* [annotation][out] */ 
+            _COM_Outptr_result_maybenull_  IMFTimedTextBouten **bouten) = 0;
+        
+        virtual HRESULT STDMETHODCALLTYPE IsTextCombined( 
+            /* [annotation][out] */ 
+            _Out_  BOOL *value) = 0;
+        
+        virtual HRESULT STDMETHODCALLTYPE GetFontAngleInDegrees( 
+            /* [annotation][out] */ 
+            _Out_  double *value) = 0;
+        
+    };
+    
+    
+#else 	/* C style interface */
+
+    typedef struct IMFTimedTextStyle2Vtbl
+    {
+        BEGIN_INTERFACE
+        
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            IMFTimedTextStyle2 * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            _COM_Outptr_  void **ppvObject);
+        
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            IMFTimedTextStyle2 * This);
+        
+        DECLSPEC_XFGVIRT(IUnknown, Release)
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            IMFTimedTextStyle2 * This);
+        
+        DECLSPEC_XFGVIRT(IMFTimedTextStyle2, GetRuby)
+        HRESULT ( STDMETHODCALLTYPE *GetRuby )( 
+            IMFTimedTextStyle2 * This,
+            /* [annotation][out] */ 
+            _COM_Outptr_result_maybenull_  IMFTimedTextRuby **ruby);
+        
+        DECLSPEC_XFGVIRT(IMFTimedTextStyle2, GetBouten)
+        HRESULT ( STDMETHODCALLTYPE *GetBouten )( 
+            IMFTimedTextStyle2 * This,
+            /* [annotation][out] */ 
+            _COM_Outptr_result_maybenull_  IMFTimedTextBouten **bouten);
+        
+        DECLSPEC_XFGVIRT(IMFTimedTextStyle2, IsTextCombined)
+        HRESULT ( STDMETHODCALLTYPE *IsTextCombined )( 
+            IMFTimedTextStyle2 * This,
+            /* [annotation][out] */ 
+            _Out_  BOOL *value);
+        
+        DECLSPEC_XFGVIRT(IMFTimedTextStyle2, GetFontAngleInDegrees)
+        HRESULT ( STDMETHODCALLTYPE *GetFontAngleInDegrees )( 
+            IMFTimedTextStyle2 * This,
+            /* [annotation][out] */ 
+            _Out_  double *value);
+        
+        END_INTERFACE
+    } IMFTimedTextStyle2Vtbl;
+
+    interface IMFTimedTextStyle2
+    {
+        CONST_VTBL struct IMFTimedTextStyle2Vtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define IMFTimedTextStyle2_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define IMFTimedTextStyle2_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define IMFTimedTextStyle2_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define IMFTimedTextStyle2_GetRuby(This,ruby)	\
+    ( (This)->lpVtbl -> GetRuby(This,ruby) ) 
+
+#define IMFTimedTextStyle2_GetBouten(This,bouten)	\
+    ( (This)->lpVtbl -> GetBouten(This,bouten) ) 
+
+#define IMFTimedTextStyle2_IsTextCombined(This,value)	\
+    ( (This)->lpVtbl -> IsTextCombined(This,value) ) 
+
+#define IMFTimedTextStyle2_GetFontAngleInDegrees(This,value)	\
+    ( (This)->lpVtbl -> GetFontAngleInDegrees(This,value) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __IMFTimedTextStyle2_INTERFACE_DEFINED__ */
+
+
+/* interface __MIDL_itf_mfmediaengine_0000_0047 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
@@ -8419,8 +8852,8 @@ EXTERN_GUID(MF_MEDIA_ENGINE_EME_CALLBACK,
 0x494553a7, 0xa481, 0x4cb7, 0xbe, 0xc5, 0x38, 0x09, 0x03, 0x51, 0x37, 0x31);
 
 
-extern RPC_IF_HANDLE __MIDL_itf_mfmediaengine_0000_0044_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_mfmediaengine_0000_0044_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_mfmediaengine_0000_0047_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_mfmediaengine_0000_0047_v0_0_s_ifspec;
 
 #ifndef __IMFMediaEngineEMENotify_INTERFACE_DEFINED__
 #define __IMFMediaEngineEMENotify_INTERFACE_DEFINED__
@@ -8525,7 +8958,7 @@ EXTERN_C const IID IID_IMFMediaEngineEMENotify;
 #endif 	/* __IMFMediaEngineEMENotify_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_mfmediaengine_0000_0045 */
+/* interface __MIDL_itf_mfmediaengine_0000_0048 */
 /* [local] */ 
 
 #endif // (WINVER >= _WIN32_WINNT_WINTHRESHOLD) 
@@ -8550,8 +8983,8 @@ enum MF_MEDIAKEYS_REQUIREMENT
 #if (WINVER >= _WIN32_WINNT_WINTHRESHOLD) 
 
 
-extern RPC_IF_HANDLE __MIDL_itf_mfmediaengine_0000_0045_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_mfmediaengine_0000_0045_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_mfmediaengine_0000_0048_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_mfmediaengine_0000_0048_v0_0_s_ifspec;
 
 #ifndef __IMFMediaKeySessionNotify2_INTERFACE_DEFINED__
 #define __IMFMediaKeySessionNotify2_INTERFACE_DEFINED__
@@ -8906,7 +9339,7 @@ EXTERN_C const IID IID_IMFMediaEngineClassFactory3;
 #endif 	/* __IMFMediaEngineClassFactory3_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_mfmediaengine_0000_0048 */
+/* interface __MIDL_itf_mfmediaengine_0000_0051 */
 /* [local] */ 
 
 #endif // (WINVER >= _WIN32_WINNT_WINTHRESHOLD) 
@@ -8934,8 +9367,8 @@ EXTERN_C const DECLSPEC_SELECTANY PROPERTYKEY MF_EME_CDM_STOREPATH =          { 
 #if (WINVER >= _WIN32_WINNT_WINTHRESHOLD) 
 
 
-extern RPC_IF_HANDLE __MIDL_itf_mfmediaengine_0000_0048_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_mfmediaengine_0000_0048_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_mfmediaengine_0000_0051_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_mfmediaengine_0000_0051_v0_0_s_ifspec;
 
 #ifndef __IMFMediaKeys2_INTERFACE_DEFINED__
 #define __IMFMediaKeys2_INTERFACE_DEFINED__
@@ -9319,7 +9752,7 @@ EXTERN_C const IID IID_IMFMediaKeySession2;
 #endif 	/* __IMFMediaKeySession2_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_mfmediaengine_0000_0050 */
+/* interface __MIDL_itf_mfmediaengine_0000_0053 */
 /* [local] */ 
 
 #endif // (WINVER >= _WIN32_WINNT_WINTHRESHOLD) 
@@ -9330,8 +9763,8 @@ EXTERN_C const IID IID_IMFMediaKeySession2;
 #if (WINVER >= _WIN32_WINNT_WINTHRESHOLD) 
 
 
-extern RPC_IF_HANDLE __MIDL_itf_mfmediaengine_0000_0050_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_mfmediaengine_0000_0050_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_mfmediaengine_0000_0053_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_mfmediaengine_0000_0053_v0_0_s_ifspec;
 
 #ifndef __IMFMediaEngineClassFactory4_INTERFACE_DEFINED__
 #define __IMFMediaEngineClassFactory4_INTERFACE_DEFINED__
@@ -9427,7 +9860,7 @@ EXTERN_C const IID IID_IMFMediaEngineClassFactory4;
 #endif 	/* __IMFMediaEngineClassFactory4_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_mfmediaengine_0000_0051 */
+/* interface __MIDL_itf_mfmediaengine_0000_0054 */
 /* [local] */ 
 
 #endif // (WINVER >= _WIN32_WINNT_WINTHRESHOLD) 
@@ -9435,8 +9868,8 @@ EXTERN_C const IID IID_IMFMediaEngineClassFactory4;
 #pragma endregion
 
 
-extern RPC_IF_HANDLE __MIDL_itf_mfmediaengine_0000_0051_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_mfmediaengine_0000_0051_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_mfmediaengine_0000_0054_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_mfmediaengine_0000_0054_v0_0_s_ifspec;
 
 /* Additional Prototypes for ALL interfaces */
 
