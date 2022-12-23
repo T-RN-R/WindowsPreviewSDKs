@@ -457,7 +457,7 @@
 #define PrInstrumentationCallback 0x390
 #define PrMitigationFlags2 0xa94
 #define KernelProcessObjectLength 0x3f0
-#define ExecutiveProcessObjectLength 0xc00
+#define ExecutiveProcessObjectLength 0xc80
 #define Win32BatchFlushCallout 0x7
 
 //
@@ -474,9 +474,9 @@
 #define PfBuffer 0x38
 #define PfSegment 0x40
 #define PfAffinity 0x48
-#define PfSource 0xf8
-#define PfStarted 0xfa
-#define ProfileObjectLength 0x100
+#define PfSource 0x158
+#define PfStarted 0x15a
+#define ProfileObjectLength 0x160
 
 //
 // Queue Object Structure Offset Definitions
@@ -829,7 +829,7 @@
 #define PcPrcbLock 0x9a8
 #define PcGroupSetMember 0x10e0
 #define PcFeatureBits 0x1214
-#define PcVirtualApicAssist 0x2098
+#define PcVirtualApicAssist 0x2118
 #define PcTrappedSecurityDomain 0x1578
 #define TlThread 0x0
 #define TlCpuNumber 0x8
@@ -865,7 +865,7 @@
 #define PcSkipTick 0x1898
 #define PcStartCycles 0x18c8
 #define PcSpBase 0x1480
-#define ProcessorControlRegisterLength 0x1d3c0
+#define ProcessorControlRegisterLength 0x29440
 
 //
 // Defines for user shared data
@@ -905,18 +905,18 @@
 #define PbPriorityState 0x30
 #define PbLockQueue 0x780
 #define PbPPLookasideList 0x900
-#define PbPPNPagedLookasideList 0x6700
-#define PbPPPagedLookasideList 0x7300
+#define PbPPNPagedLookasideList 0x6780
+#define PbPPPagedLookasideList 0x7380
 #define PbPacketBarrier 0xa00
 #define PbDeferredReadyListHead 0xa08
 #define PbLookasideIrpFloat 0xa58
-#define PbRequestMailbox 0x8a00
+#define PbRequestMailbox 0x8a80
 #define PbMailbox 0xa80
 #define PbDpcGate 0xb80
 #define PbWaitListHead 0xc00
 #define PbCcFastMdlReadNoWait 0x1180
 #define PbPowerState 0x1200
-#define PbSpinLockAcquireCount 0x1780
+#define PbSpinLockAcquireCount 0x1800
 #define PbSystemCalls 0xa38
 #define PbReadOperationCount 0xa5c
 #define PbWriteOperationCount 0xa60
@@ -964,7 +964,7 @@
 #define PbExceptionDispatchCount 0xf34
 #define PbProcessorVendorString 0x890
 #define PbFeatureBits 0x894
-#define PbPanicStackBase 0x1858
+#define PbPanicStackBase 0x18d8
 
 //
 // KTHREAD state
@@ -1731,7 +1731,7 @@
 
 #define EpDebugPort 0x530
 #define EpSecurityDomain 0xaa0
-#define EpPointerAuthUserIpKey 0xb88
+#define EpPointerAuthUserIpKey 0xbe8
 
 //
 // EPROCESS MitigationFlags2
@@ -1761,6 +1761,6 @@
 // KAFFINITY_EX size
 //
 
-#define AffinityExLength 0xa8
+#define AffinityExLength 0x108
 #include "kxarm64.h"
 ;

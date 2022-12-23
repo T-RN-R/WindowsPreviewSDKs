@@ -1445,6 +1445,9 @@ typedef enum _NDIS_802_11_AUTHENTICATION_MODE
     Ndis802_11AuthModeWPA2,
     Ndis802_11AuthModeWPA2PSK,
     Ndis802_11AuthModeWPA3,
+#if (NTDDI_VERSION >= NTDDI_WIN10_FE)
+    Ndis802_11AuthModeWPA3Ent192 = Ndis802_11AuthModeWPA3,
+#endif
     Ndis802_11AuthModeWPA3SAE,
 #if(NDIS_SUPPORT_NDIS684)
     Ndis802_11AuthModeOWE,

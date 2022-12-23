@@ -11180,6 +11180,15 @@ Notes:
 //
 #define STATUS_FILE_HANDLE_REVOKED       ((NTSTATUS)0xC0000910L)
 
+//
+// MessageId: STATUS_SECTION_DIRECT_MAP_ONLY
+//
+// MessageText:
+//
+// The specified section is supported by direct map technology but the caller specifically does not want that.
+//
+#define STATUS_SECTION_DIRECT_MAP_ONLY   ((NTSTATUS)0xC0000911L)
+
 /*++
 
  MessageId's 0xc08 - 0xc7f (inclusive) are reserved for Verifier errors.

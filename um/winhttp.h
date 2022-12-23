@@ -496,18 +496,34 @@ typedef struct _WINHTTP_EXTENDED_HEADER
 #define WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_SOFT_LIMIT      0x00000001
 #define WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_BYPASS_CACHE    0x00000002
 #define WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_USE_DNS_TTL     0x00000004
-#define WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_FORCE_CLEARTEXT 0x00000008
 
-//
-// ulMaxCacheEntryAge is specified in minutes
-// ulMinCacheEntryTtl is specifiec in seconds
-//
+typedef enum _WINHTTP_SECURE_DNS_SETTING
+{
+    WinHttpSecureDnsSettingDefault                   = 0,
+    WinHttpSecureDnsSettingForcePlaintext            = 1,
+    WinHttpSecureDnsSettingRequireEncryption         = 2,
+    WinHttpSecureDnsSettingTryEncryptionWithFallback = 3,
+    WinHttpSecureDnsSettingMax                       = 4
+} WINHTTP_SECURE_DNS_SETTING;
+
 
 typedef struct _WINHTTP_RESOLVER_CACHE_CONFIG
 {
     ULONG ulMaxResolverCacheEntries;
+
+    //
+    // ulMaxCacheEntryAge is the maximum allowed age of a cache entry specified in minutes.
+    //
+
     ULONG ulMaxCacheEntryAge;
+
+    //
+    // ulMinCacheEntryTtl the minimum TTL of a cache entry specified in seconds.
+    //
+
     ULONG ulMinCacheEntryTtl;
+
+    WINHTTP_SECURE_DNS_SETTING SecureDnsSetting;
     ULONGLONG ullFlags;
 } WINHTTP_RESOLVER_CACHE_CONFIG, *PWINHTTP_RESOLVER_CACHE_CONFIG;
 
