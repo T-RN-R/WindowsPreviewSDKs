@@ -1525,6 +1525,46 @@ SetFileApisToANSI(
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion
 
+
+#pragma region Application Family or OneCore Family or Games Family
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
+
+#if (NTDDI_VERSION >= NTDDI_WIN10_FE)
+WINBASEAPI
+_Success_(return > 0 && return < BufferLength)
+DWORD
+WINAPI
+GetTempPath2W(
+    _In_ DWORD BufferLength,
+    _Out_writes_to_opt_(BufferLength,return + 1) LPWSTR Buffer
+    );
+
+
+#ifdef UNICODE
+#define GetTempPath2  GetTempPath2W
+#endif
+
+
+WINBASEAPI
+_Success_(return > 0 && return < BufferLength)
+DWORD
+WINAPI
+GetTempPath2A(
+    _In_ DWORD BufferLength,
+    _Out_writes_to_opt_(BufferLength,return + 1) LPSTR Buffer
+    );
+
+
+#ifndef UNICODE
+#define GetTempPath2  GetTempPath2A
+#endif
+
+
+#endif // (NTDDI_VERSION >= NTDDI_WIN10_FE)
+
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
+#pragma endregion
+
 #ifdef __cplusplus
 }
 #endif

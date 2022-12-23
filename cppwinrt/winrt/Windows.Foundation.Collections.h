@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200303.2
+// C++/WinRT v2.0.200514.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_Foundation_Collections_H
 #define WINRT_Windows_Foundation_Collections_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200303.2"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200514.2"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.Foundation.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
@@ -721,10 +721,12 @@ namespace winrt::impl
     struct fast_iterator
     {
         using iterator_category = std::input_iterator_tag;
-        using value_type = T;
+        using value_type = decltype(std::declval<T>().GetAt(0));
         using difference_type = ptrdiff_t;
-        using pointer = T * ;
-        using reference = T & ;
+        using pointer = value_type*;
+        using reference = value_type;
+
+        fast_iterator() noexcept : m_collection(nullptr), m_index(0) {}
 
         fast_iterator(T const& collection, uint32_t const index) noexcept :
         m_collection(&collection),
@@ -737,9 +739,60 @@ namespace winrt::impl
             return*this;
         }
 
-        auto operator*() const
+        fast_iterator operator++(int) noexcept
+        {
+            auto previous = *this;
+            ++m_index;
+            return previous;
+        }
+
+        fast_iterator& operator--() noexcept
+        {
+            --m_index;
+            return*this;
+        }
+
+        fast_iterator operator--(int) noexcept
+        {
+            auto previous = *this;
+            --m_index;
+            return previous;
+        }
+
+        fast_iterator& operator+=(difference_type n) noexcept
+        {
+            m_index += static_cast<uint32_t>(n);
+            return*this;
+        }
+
+        fast_iterator operator+(difference_type n) const noexcept
+        {
+            return fast_iterator(*this) += n;
+        }
+
+        fast_iterator& operator-=(difference_type n) noexcept
+        {
+            return *this += -n;
+        }
+
+        fast_iterator operator-(difference_type n) const noexcept
+        {
+            return *this + -n;
+        }
+
+        difference_type operator-(fast_iterator const& other) const noexcept
+        {
+            return static_cast<difference_type>(m_index) - static_cast<difference_type>(other.m_index);
+        }
+
+        reference operator*() const
         {
             return m_collection->GetAt(m_index);
+        }
+
+        reference operator[](difference_type n) const
+        {
+            return m_collection->GetAt(m_index + static_cast<uint32_t>(n));
         }
 
         bool operator==(fast_iterator const& other) const noexcept
@@ -748,57 +801,36 @@ namespace winrt::impl
             return m_index == other.m_index;
         }
 
+        bool operator<(fast_iterator const& other) const noexcept
+        {
+            WINRT_ASSERT(m_collection == other.m_collection);
+            return m_index < other.m_index;
+        }
+
         bool operator!=(fast_iterator const& other) const noexcept
         {
             return !(*this == other);
+        }
+
+        bool operator>(fast_iterator const& other) const noexcept
+        {
+            return !(*this < other);
+        }
+
+        bool operator<=(fast_iterator const& other) const noexcept
+        {
+            return !(*this > other);
+        }
+
+        bool operator>=(fast_iterator const& other) const noexcept
+        {
+            return !(*this < other);
         }
 
     private:
 
         T const* m_collection{};
         uint32_t m_index{};
-    };
-
-    template <typename T>
-    struct rfast_iterator
-    {
-        using iterator_category = std::input_iterator_tag;
-        using value_type = T;
-        using difference_type = ptrdiff_t;
-        using pointer = T *;
-        using reference = T &;
-
-        rfast_iterator(T const& collection, int64_t const index) noexcept :
-            m_collection(&collection),
-            m_index(index)
-        {}
-
-        rfast_iterator& operator++() noexcept
-        {
-            --m_index;
-            return*this;
-        }
-
-        auto operator*() const
-        {
-            return m_collection->GetAt(static_cast<uint32_t>(m_index));
-        }
-
-        bool operator==(rfast_iterator const& other) const noexcept
-        {
-            WINRT_ASSERT(m_collection == other.m_collection);
-            return m_index == other.m_index;
-        }
-
-        bool operator!=(rfast_iterator const& other) const noexcept
-        {
-            return !(*this == other);
-        }
-
-    private:
-
-        T const* m_collection{};
-        int64_t m_index{};
     };
 
     template <typename T>
@@ -844,15 +876,15 @@ namespace winrt::impl
     }
 
     template <typename T, std::enable_if_t<has_GetAt<T>::value, int> = 0>
-    rfast_iterator<T> rbegin(T const& collection) noexcept
+    auto rbegin(T const& collection)
     {
-        return { collection, collection.Size() - 1 };
+        return std::make_reverse_iterator(end(collection));
     }
 
     template <typename T, std::enable_if_t<has_GetAt<T>::value, int> = 0>
-    rfast_iterator<T> rend(T const& collection)
+    auto rend(T const& collection)
     {
-        return { collection, -1 };
+        return std::make_reverse_iterator(begin(collection));
     }
 
     template <typename T>
@@ -2798,6 +2830,39 @@ WINRT_EXPORT namespace winrt
     Windows::Foundation::Collections::IObservableMap<K, V> single_threaded_observable_map(std::unordered_map<K, V, Hash, KeyEqual, Allocator>&& values)
     {
         return make<impl::observable_map<K, V, std::unordered_map<K, V, Hash, KeyEqual, Allocator>>>(std::move(values));
+    }
+}
+
+namespace std
+{
+    template<typename K, typename V>
+    struct tuple_size<winrt::Windows::Foundation::Collections::IKeyValuePair<K, V>>
+        : integral_constant<size_t, 2>
+    {
+    };
+
+    template<size_t Idx, typename K, typename V>
+    struct tuple_element<Idx, winrt::Windows::Foundation::Collections::IKeyValuePair<K, V>>
+    {
+        static_assert(Idx < 2, "key-value pair index out of bounds");
+        using type = conditional_t<Idx == 0, K, V>;
+    };
+}
+
+namespace winrt::Windows::Foundation::Collections
+{
+    template<size_t Idx, typename K, typename V>
+    std::tuple_element_t<Idx, IKeyValuePair<K, V>> get(IKeyValuePair<K, V> const& kvp)
+    {
+        static_assert(Idx < 2, "key-value pair index out of bounds");
+        if constexpr (Idx == 0)
+        {
+            return kvp.Key();
+        }
+        else
+        {
+            return kvp.Value();
+        }
     }
 }
 #endif

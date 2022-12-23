@@ -1509,5 +1509,23 @@ Revision History:
 //
 #define IO_ERROR_DUMP_CREATION_ERROR     ((NTSTATUS)0xC00400A1L)
 
+//
+// MessageId: IO_DUMP_CREATION_SUCCESS
+//
+// MessageText:
+//
+// Dump file generation succeded.
+//
+#define IO_DUMP_CREATION_SUCCESS         ((NTSTATUS)0x000400A2L)
+
+//
+// MessageId: IO_DUMP_CALLBACK_EXCEPTION
+//
+// MessageText:
+//
+// A callback exception was logged during dump. See DumpStack.log for details.
+//
+#define IO_DUMP_CALLBACK_EXCEPTION       ((NTSTATUS)0xC00400A3L)
+
 #endif /* _NTIOLOGC_ */
 

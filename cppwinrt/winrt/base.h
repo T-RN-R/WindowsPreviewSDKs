@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200303.2
+// C++/WinRT v2.0.200514.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -12,6 +12,7 @@
 #include <charconv>
 #include <chrono>
 #include <cstddef>
+#include <iterator>
 #include <map>
 #include <memory>
 #include <optional>
@@ -344,6 +345,7 @@ namespace winrt::impl
     constexpr hresult error_out_of_bounds{ static_cast<hresult>(0x8000000B) }; // E_BOUNDS
     constexpr hresult error_no_interface{ static_cast<hresult>(0x80004002) }; // E_NOINTERFACE
     constexpr hresult error_class_not_available{ static_cast<hresult>(0x80040111) }; // CLASS_E_CLASSNOTAVAILABLE
+    constexpr hresult error_class_not_registered{ static_cast<hresult>(0x80040154) }; // REGDB_E_CLASSNOTREG
     constexpr hresult error_changed_state{ static_cast<hresult>(0x8000000C) }; // E_CHANGED_STATE
     constexpr hresult error_illegal_method_call{ static_cast<hresult>(0x8000000E) }; // E_ILLEGAL_METHOD_CALL
     constexpr hresult error_illegal_state_change{ static_cast<hresult>(0x8000000D) }; // E_ILLEGAL_STATE_CHANGE
@@ -389,6 +391,7 @@ extern "C"
     uint32_t __stdcall WINRT_IMPL_GetLastError() noexcept;
     void     __stdcall WINRT_IMPL_GetSystemTimePreciseAsFileTime(void* result) noexcept;
     uintptr_t __stdcall WINRT_IMPL_VirtualQuery(void* address, void* buffer, uintptr_t length) noexcept;
+    void*    __stdcall WINRT_IMPL_EncodePointer(void* ptr) noexcept;
 
     int32_t  __stdcall WINRT_IMPL_OpenProcessToken(void* process, uint32_t access, void** token) noexcept;
     void*    __stdcall WINRT_IMPL_GetCurrentProcess() noexcept;
@@ -436,6 +439,8 @@ extern "C"
 
 #ifdef _M_HYBRID
 #define WINRT_IMPL_LINK(function, count) __pragma(comment(linker, "/alternatename:#WINRT_IMPL_" #function "@" #count "=#" #function "@" #count))
+#elif _M_ARM64EC
+#define WINRT_IMPL_LINK(function, count) __pragma(comment(linker, "/alternatename:#WINRT_IMPL_" #function "=#" #function))
 #elif _M_IX86
 #define WINRT_IMPL_LINK(function, count) __pragma(comment(linker, "/alternatename:_WINRT_IMPL_" #function "@" #count "=_" #function "@" #count))
 #else
@@ -445,7 +450,6 @@ extern "C"
 WINRT_IMPL_LINK(LoadLibraryW, 4)
 WINRT_IMPL_LINK(FreeLibrary, 4)
 WINRT_IMPL_LINK(GetProcAddress, 8)
-
 WINRT_IMPL_LINK(SetErrorInfo, 8)
 WINRT_IMPL_LINK(GetErrorInfo, 8)
 WINRT_IMPL_LINK(CoInitializeEx, 8)
@@ -471,6 +475,7 @@ WINRT_IMPL_LINK(FormatMessageW, 28)
 WINRT_IMPL_LINK(GetLastError, 0)
 WINRT_IMPL_LINK(GetSystemTimePreciseAsFileTime, 4)
 WINRT_IMPL_LINK(VirtualQuery, 12)
+WINRT_IMPL_LINK(EncodePointer, 4)
 
 WINRT_IMPL_LINK(OpenProcessToken, 12)
 WINRT_IMPL_LINK(GetCurrentProcess, 0)
@@ -3485,6 +3490,12 @@ WINRT_EXPORT namespace winrt
             array_view(value.data(), static_cast<size_type>(value.size()))
         {}
 
+        template <typename OtherType>
+        array_view(array_view<OtherType> const& other,
+            std::enable_if_t<std::is_convertible_v<OtherType(*)[], T(*)[]>, int> = 0) noexcept :
+            array_view(other.data(), other.size())
+        {}
+
         reference operator[](size_type const pos) noexcept
         {
             WINRT_ASSERT(pos < size());
@@ -3541,12 +3552,7 @@ WINRT_EXPORT namespace winrt
             return m_data[m_size - 1];
         }
 
-        pointer data() noexcept
-        {
-            return m_data;
-        }
-
-        const_pointer data() const noexcept
+        pointer data() const noexcept
         {
             return m_data;
         }
@@ -3647,6 +3653,12 @@ WINRT_EXPORT namespace winrt
             return value.data();
         }
     };
+
+    template <typename C, size_t N> array_view(C(&value)[N]) -> array_view<C>;
+    template <typename C> array_view(std::vector<C>& value) -> array_view<C>;
+    template <typename C> array_view(std::vector<C> const& value) -> array_view<C const>;
+    template <typename C, size_t N> array_view(std::array<C, N>& value) -> array_view<C>;
+    template <typename C, size_t N> array_view(std::array<C, N> const& value) -> array_view<C const>;
 
     template <typename T>
     struct com_array : array_view<T>
@@ -3765,22 +3777,34 @@ WINRT_EXPORT namespace winrt
         }
     };
 
-    template <typename T>
-    bool operator==(array_view<T> const& left, array_view<T> const& right) noexcept
+    namespace impl
+    {
+        template <typename T, typename U>
+        inline constexpr bool array_comparable = std::is_same_v<std::remove_cv_t<T>, std::remove_cv_t<U>>;
+    }
+
+    template <typename T, typename U, 
+        std::enable_if_t<impl::array_comparable<T, U>, int> = 0>
+    bool operator==(array_view<T> const& left, array_view<U> const& right) noexcept
     {
         return std::equal(left.begin(), left.end(), right.begin(), right.end());
     }
 
-    template <typename T>
-    bool operator<(array_view<T> const& left, array_view<T> const& right) noexcept
+    template <typename T, typename U,
+        std::enable_if_t<impl::array_comparable<T, U>, int> = 0>
+    bool operator<(array_view<T> const& left, array_view<U> const& right) noexcept
     {
         return std::lexicographical_compare(left.begin(), left.end(), right.begin(), right.end());
     }
 
-    template <typename T> bool operator!=(array_view<T> const& left, array_view<T> const& right) noexcept { return !(left == right); }
-    template <typename T> bool operator>(array_view<T> const& left, array_view<T> const& right) noexcept { return right < left; }
-    template <typename T> bool operator<=(array_view<T> const& left, array_view<T> const& right) noexcept { return !(right < left); }
-    template <typename T> bool operator>=(array_view<T> const& left, array_view<T> const& right) noexcept { return !(left < right); }
+    template <typename T, typename U, std::enable_if_t<impl::array_comparable<T, U>, int> = 0>
+    bool operator!=(array_view<T> const& left, array_view<U> const& right) noexcept { return !(left == right); }
+    template <typename T, typename U,std::enable_if_t<impl::array_comparable<T, U>, int> = 0>
+    bool operator>(array_view<T> const& left, array_view<U> const& right) noexcept { return right < left; }
+    template <typename T, typename U,std::enable_if_t<impl::array_comparable<T, U>, int> = 0>
+    bool operator<=(array_view<T> const& left, array_view<U> const& right) noexcept { return !(right < left); }
+    template <typename T, typename U, std::enable_if_t<impl::array_comparable<T, U>, int> = 0>
+    bool operator>=(array_view<T> const& left, array_view<U> const& right) noexcept { return !(left < right); }
 
     template <typename T>
     auto get_abi(array_view<T> object) noexcept
@@ -3990,6 +4014,47 @@ WINRT_EXPORT namespace winrt
         com_ptr<impl::IWeakReference> m_ref;
     };
 
+    template<typename T>
+    struct impl::abi<weak_ref<T>> : impl::abi<com_ptr<impl::IWeakReference>>
+    {
+    };
+
+    template <typename T>
+    inline bool operator==(weak_ref<T> const& left, weak_ref<T> const& right) noexcept
+    {
+        return get_abi(left) == get_abi(right);
+    }
+
+    template <typename T>
+    inline bool operator==(weak_ref<T> const& left, std::nullptr_t) noexcept
+    {
+        return get_abi(left) == nullptr;
+    }
+
+    template <typename T>
+    inline bool operator==(std::nullptr_t, weak_ref<T> const& right) noexcept
+    {
+        return nullptr == get_abi(right);
+    }
+
+    template <typename T>
+    inline bool operator!=(weak_ref<T> const& left, weak_ref<T> const& right) noexcept
+    {
+        return !(left == right);
+    }
+
+    template <typename T>
+    inline bool operator!=(weak_ref<T> const& left, std::nullptr_t) noexcept
+    {
+        return !(left == nullptr);
+    }
+
+    template <typename T>
+    inline bool operator!=(std::nullptr_t, weak_ref<T> const& right) noexcept
+    {
+        return !(nullptr == right);
+    }
+
     template <typename T>
     weak_ref<impl::wrapped_type_t<T>> make_weak(T const& object)
     {
@@ -4042,19 +4107,39 @@ WINRT_EXPORT namespace winrt
 
 namespace winrt::impl
 {
-    struct agile_ref_fallback final : IAgileReference
+    template<bool UseModuleLock>
+    struct module_lock_updater;
+
+    template<>
+    struct module_lock_updater<true>
+    {
+        module_lock_updater() noexcept
+        {
+            ++get_module_lock();
+        }
+
+        ~module_lock_updater() noexcept
+        {
+            --get_module_lock();
+        }
+    };
+
+    template<>
+    struct module_lock_updater<false> {};
+
+    using update_module_lock = module_lock_updater<true>;
+
+    struct agile_ref_fallback final : IAgileReference, update_module_lock
     {
         agile_ref_fallback(com_ptr<IGlobalInterfaceTable>&& git, uint32_t cookie) noexcept :
             m_git(std::move(git)),
             m_cookie(cookie)
         {
-            ++get_module_lock();
         }
 
         ~agile_ref_fallback() noexcept
         {
             m_git->RevokeInterfaceFromGlobal(m_cookie);
-            --get_module_lock();
         }
 
         int32_t __stdcall QueryInterface(guid const& id, void** object) noexcept final
@@ -4251,18 +4336,12 @@ namespace winrt::impl
         return ((int32_t)((x) | 0x10000000));
     }
 
-    struct error_info_fallback final : IErrorInfo, IRestrictedErrorInfo
+    struct error_info_fallback final : IErrorInfo, IRestrictedErrorInfo, update_module_lock
     {
         error_info_fallback(int32_t code, void* message) noexcept :
             m_code(code),
             m_message(*reinterpret_cast<winrt::hstring*>(&message))
         {
-            ++get_module_lock();
-        }
-
-        ~error_info_fallback() noexcept
-        {
-            --get_module_lock();
         }
 
         int32_t __stdcall QueryInterface(guid const& id, void** object) noexcept final
@@ -4571,6 +4650,13 @@ WINRT_EXPORT namespace winrt
         hresult_class_not_available(take_ownership_from_abi_t) noexcept : hresult_error(impl::error_class_not_available, take_ownership_from_abi) {}
     };
 
+    struct hresult_class_not_registered : hresult_error
+    {
+        hresult_class_not_registered() noexcept : hresult_error(impl::error_class_not_registered) {}
+        hresult_class_not_registered(param::hstring const& message) noexcept : hresult_error(impl::error_class_not_registered, message) {}
+        hresult_class_not_registered(take_ownership_from_abi_t) noexcept : hresult_error(impl::error_class_not_registered, take_ownership_from_abi) {}
+    };
+
     struct hresult_changed_state : hresult_error
     {
         hresult_changed_state() noexcept : hresult_error(impl::error_changed_state) {}
@@ -4646,6 +4732,11 @@ WINRT_EXPORT namespace winrt
         if (result == impl::error_class_not_available)
         {
             throw hresult_class_not_available(take_ownership_from_abi);
+        }
+
+        if (result == impl::error_class_not_registered)
+        {
+            throw hresult_class_not_registered(take_ownership_from_abi);
         }
 
         if (result == impl::error_changed_state)
@@ -4892,16 +4983,10 @@ namespace winrt::impl
 namespace winrt::impl
 {
     template <typename T, typename H>
-    struct implements_delegate : abi_t<T>, H
+    struct implements_delegate : abi_t<T>, H, update_module_lock
     {
         implements_delegate(H&& handler) : H(std::forward<H>(handler))
         {
-            ++get_module_lock();
-        }
-
-        ~implements_delegate() noexcept
-        {
-            --get_module_lock();
         }
 
         int32_t __stdcall QueryInterface(guid const& id, void** result) noexcept final
@@ -4988,16 +5073,10 @@ namespace winrt::impl
     };
 
     template <typename H, typename R, typename... Args>
-    struct variadic_delegate final : variadic_delegate_abi<R, Args...>, H
+    struct variadic_delegate final : variadic_delegate_abi<R, Args...>, H, update_module_lock
     {
         variadic_delegate(H&& handler) : H(std::forward<H>(handler))
         {
-            ++get_module_lock();
-        }
-
-        ~variadic_delegate() noexcept
-        {
-            --get_module_lock();
         }
 
         R invoke(Args const& ... args) final
@@ -5599,7 +5678,7 @@ WINRT_EXPORT namespace winrt
 
         event_token get_token(delegate_type const& delegate) const noexcept
         {
-            return event_token{ reinterpret_cast<int64_t>(get_abi(delegate)) };
+            return event_token{ reinterpret_cast<int64_t>(WINRT_IMPL_EncodePointer(get_abi(delegate))) };
         }
 
         using delegate_array = com_ptr<impl::event_array<delegate_type>>;
@@ -5666,6 +5745,9 @@ namespace winrt::impl
             return 0;
         }
 
+        com_ptr<IErrorInfo> error_info;
+        WINRT_IMPL_GetErrorInfo(0, error_info.put_void());
+
         std::wstring path{ static_cast<hstring const&>(name) };
         std::size_t count{};
 
@@ -5708,7 +5790,8 @@ namespace winrt::impl
             }
         }
 
-        return error_class_not_available;
+        WINRT_IMPL_SetErrorInfo(0, error_info.get());
+        return hr;
     }
 }
 
@@ -6652,18 +6735,18 @@ namespace winrt::impl
         }
     };
 
-    template <bool Agile>
+    template <bool Agile, bool UseModuleLock>
     struct weak_ref;
 
-    template <bool Agile>
+    template <bool Agile, bool UseModuleLock>
     struct weak_source_producer;
 
-    template <bool Agile>
-    struct weak_source final : IWeakReferenceSource
+    template <bool Agile, bool UseModuleLock>
+    struct weak_source final : IWeakReferenceSource, module_lock_updater<UseModuleLock>
     {
-        weak_ref<Agile>* that() noexcept
+        weak_ref<Agile, UseModuleLock>* that() noexcept
         {
-            return static_cast<weak_ref<Agile>*>(reinterpret_cast<weak_source_producer<Agile>*>(this));
+            return static_cast<weak_ref<Agile, UseModuleLock>*>(reinterpret_cast<weak_source_producer<Agile, UseModuleLock>*>(this));
         }
 
         int32_t __stdcall QueryInterface(guid const& id, void** object) noexcept final
@@ -6696,15 +6779,15 @@ namespace winrt::impl
         }
     };
 
-    template <bool Agile>
+    template <bool Agile, bool UseModuleLock>
     struct weak_source_producer
     {
     protected:
-        weak_source<Agile> m_source;
+        weak_source<Agile, UseModuleLock> m_source;
     };
 
-    template <bool Agile>
-    struct weak_ref final : IWeakReference, weak_source_producer<Agile>
+    template <bool Agile, bool UseModuleLock>
+    struct weak_ref final : IWeakReference, weak_source_producer<Agile, UseModuleLock>
     {
         weak_ref(unknown_abi* object, uint32_t const strong) noexcept :
             m_object(object),
@@ -6808,10 +6891,10 @@ namespace winrt::impl
         }
 
     private:
-        template <bool T>
+        template <bool T, bool U>
         friend struct weak_source;
 
-        static_assert(sizeof(weak_source_producer<Agile>) == sizeof(weak_source<Agile>));
+        static_assert(sizeof(weak_source_producer<Agile, UseModuleLock>) == sizeof(weak_source<Agile, UseModuleLock>));
 
         unknown_abi* m_object{};
         std::atomic<uint32_t> m_strong{ 1 };
@@ -6873,6 +6956,7 @@ namespace winrt::impl
     struct __declspec(novtable) root_implements
         : root_implements_composing_outer<std::disjunction_v<std::is_same<composing, I>...>>
         , root_implements_composable_inner<D, std::disjunction_v<std::is_same<composable, I>...>>
+        , module_lock_updater<!std::disjunction_v<std::is_same<no_module_lock, I>...>>
     {
         using IInspectable = Windows::Foundation::IInspectable;
         using root_implements_type = root_implements;
@@ -6949,21 +7033,12 @@ namespace winrt::impl
 
         root_implements() noexcept
         {
-            if constexpr (use_module_lock::value)
-            {
-                ++get_module_lock();
-            }
         }
 
         virtual ~root_implements() noexcept
         {
             // If a weak reference is created during destruction, this ensures that it is also destroyed.
             subtract_reference();
-
-            if constexpr (use_module_lock::value)
-            {
-                --get_module_lock();
-            }
         }
 
         int32_t __stdcall GetIids(uint32_t* count, guid** array) noexcept
@@ -7190,7 +7265,7 @@ namespace winrt::impl
         using is_inspectable = std::disjunction<std::is_base_of<Windows::Foundation::IInspectable, I>...>;
         using is_weak_ref_source = std::conjunction<is_inspectable, std::negation<is_factory>, std::negation<std::disjunction<std::is_same<no_weak_ref, I>...>>>;
         using use_module_lock = std::negation<std::disjunction<std::is_same<no_module_lock, I>...>>;
-        using weak_ref_t = impl::weak_ref<is_agile::value>;
+        using weak_ref_t = impl::weak_ref<is_agile::value, use_module_lock::value>;
 
         std::atomic<std::conditional_t<is_weak_ref_source::value, uintptr_t, uint32_t>> m_references{ 1 };
 
@@ -7352,11 +7427,18 @@ namespace winrt::impl
             check_hresult(lifetime_factory->GetCollection(put_abi(collection)));
             auto const map = collection.as<IStaticLifetimeCollection>();
             param::hstring const name{ name_of<typename D::instance_type>() };
+            void* result{};
+            map->Lookup(get_abi(name), &result);
+
+            if (result)
+            {
+                return { result, take_ownership_from_abi };
+            }
+
             result_type object{ to_abi<result_type>(new heap_implements<D>), take_ownership_from_abi };
 
             static slim_mutex lock;
             slim_lock_guard const guard{ lock };
-            void* result{};
             map->Lookup(get_abi(name), &result);
 
             if (result)
@@ -7421,8 +7503,18 @@ WINRT_EXPORT namespace winrt
         static_assert(std::is_destructible_v<D>, "C++/WinRT implementation types must have a public destructor");
         static_assert(!std::is_final_v<D>, "C++/WinRT implementation types must not be final");
 #endif
-
-        return { new impl::heap_implements<D>(std::forward<Args>(args)...), take_ownership_from_abi };
+        if constexpr (std::is_same_v<typename impl::implements_default_interface<D>::type, Windows::Foundation::IActivationFactory>)
+        {
+            static_assert(sizeof...(args) == 0);
+            auto temp = impl::make_factory<D>();
+            void* result = get_self<D>(temp);
+            detach_abi(temp);
+            return { result, take_ownership_from_abi };
+        }
+        else
+        {
+            return { new impl::heap_implements<D>(std::forward<Args>(args)...), take_ownership_from_abi };
+        }
     }
 
     template <typename D, typename... I>
@@ -8677,7 +8769,7 @@ decltype(winrt::impl::natvis::get_val) & WINRT_get_val = winrt::impl::natvis::ge
 
 #endif
 
-#define CPPWINRT_VERSION "2.0.200303.2"
+#define CPPWINRT_VERSION "2.0.200514.2"
 
 // WINRT_version is used by Microsoft to analyze C++/WinRT library adoption and inform future product decisions.
 extern "C"

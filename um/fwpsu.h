@@ -137,33 +137,37 @@ typedef enum FWPS_BUILTIN_LAYERS_
    FWPS_LAYER_RESERVED_LAYER_1,
    FWPS_LAYER_RESERVED_LAYER_2,
    FWPS_LAYER_RESERVED_LAYER_3,
-   FWPS_LAYER_RESERVED_LAYER_4,                                  //85
+   FWPS_LAYER_RESERVED_LAYER_4,                                  // 85
    FWPS_LAYER_RESERVED_LAYER_5,
    FWPS_LAYER_RESERVED_LAYER_6,
    FWPS_LAYER_RESERVED_LAYER_7,
    FWPS_LAYER_RESERVED_LAYER_8,
 #endif // (NTDDI_VERSION >= NTDDI_WIN10_RS5)
-   FWPS_LAYER_INBOUND_RESERVED2,
+   FWPS_LAYER_INBOUND_RESERVED2,                                 // 90
+#if (NTDDI_VERSION >= NTDDI_WIN10_FE)
+   FWPS_LAYER_RESERVED_LAYER_9,
+   FWPS_LAYER_RESERVED_LAYER_10,
+#endif // (NTDDI_VERSION >= NTDDI_WIN10_FE)
 #endif // (NTDDI_VERSION >= NTDDI_WIN10_RS3)
 #endif // (NTDDI_VERSION >= NTDDI_WINBLUE)
 #endif // (NTDDI_VERSION >= NTDDI_WIN8)
 #endif // (NTDDI_VERSION >= NTDDI_WIN7)
    // User-mode layers
-   FWPS_LAYER_IPSEC_KM_DEMUX_V4,                                //90
+   FWPS_LAYER_IPSEC_KM_DEMUX_V4,
    FWPS_LAYER_IPSEC_KM_DEMUX_V6,
-   FWPS_LAYER_IPSEC_V4,
+   FWPS_LAYER_IPSEC_V4,                                          // 95
    FWPS_LAYER_IPSEC_V6,
    FWPS_LAYER_IKEEXT_V4,
    FWPS_LAYER_IKEEXT_V6,
    FWPS_LAYER_RPC_UM,
-   FWPS_LAYER_RPC_EPMAP,                                        // 95
+   FWPS_LAYER_RPC_EPMAP,                                         // 100
    FWPS_LAYER_RPC_EP_ADD,
    FWPS_LAYER_RPC_PROXY_CONN,
    FWPS_LAYER_RPC_PROXY_IF,
 #if (NTDDI_VERSION >= NTDDI_WIN7)
    FWPS_LAYER_KM_AUTHORIZATION,
 #endif // (NTDDI_VERSION >= NTDDI_WIN7)
-   FWPS_BUILTIN_LAYER_MAX
+   FWPS_BUILTIN_LAYER_MAX,                                       // 105
 } FWPS_BUILTIN_LAYERS;
 
 #define FWPS_BUILTIN_KM_LAYER_MAX FWPS_LAYER_IPSEC_KM_DEMUX_V4
@@ -1981,9 +1985,15 @@ typedef enum {
     InetDiscardTimeWaitTcbSynAndOtherFlags = 27,
     InetDiscardTimeWaitTcb = 28,
     InetDiscardSynAckWithFastopenCookieRequest = 29,
-    InetDiscardReasonPauseAccept = 30,
-    InetDiscardReasonSynAttack = 31,
-    InetDiscardReasonMaxEnumValue        
+    InetDiscardPauseAccept = 30,
+    InetDiscardSynAttack = 31,
+    InetDiscardNoData = 32,
+    InetDiscardCumAck = 33,
+    InetDiscardDupAck = 34,
+    InetDiscardOutOfSequence = 35,
+    InetDiscardAcceptInspection = 36,
+    InetDiscardAcceptRedirection = 37,
+    InetDiscardReasonMaxEnumValue
 } INET_DISCARD_REASON, *PINET_DISCARD_REASON;
 
 #endif
@@ -2068,6 +2078,7 @@ typedef enum {
     IpDiscardSmallerScope,
     IpDiscardQueueFull,
     IpDiscardInterfaceDisabled,
+    IpDiscardNlClientDiscard,
 
     IpDiscardMax
 } IP_DISCARD_REASON, *PIP_DISCARD_REASON;

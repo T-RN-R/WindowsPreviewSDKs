@@ -261,6 +261,7 @@ DEFINE_DEVPROPKEY(DEVPKEY_Storage_Gpt_Name,           0x4d1ebee8, 0x803, 0x4774,
 #define FILE_DEVICE_HOLOGRAPHIC         0x0000005b
 #define FILE_DEVICE_SDFXHCI             0x0000005c
 #define FILE_DEVICE_UCMUCSI             0x0000005d
+#define FILE_DEVICE_PRM                 0x0000005e
 
 //
 // Macro definition for defining IOCTL and FSCTL function control codes.  Note
@@ -416,11 +417,10 @@ extern "C" {
 
 #define IOCTL_STORAGE_PROTOCOL_COMMAND              CTL_CODE(IOCTL_STORAGE_BASE, 0x04F0, METHOD_BUFFERED, FILE_READ_ACCESS | FILE_WRITE_ACCESS)
 
+#define IOCTL_STORAGE_SET_PROPERTY                  CTL_CODE(IOCTL_STORAGE_BASE, 0x04FF, METHOD_BUFFERED, FILE_WRITE_ACCESS)
 #define IOCTL_STORAGE_QUERY_PROPERTY                CTL_CODE(IOCTL_STORAGE_BASE, 0x0500, METHOD_BUFFERED, FILE_ANY_ACCESS)
 #define IOCTL_STORAGE_MANAGE_DATA_SET_ATTRIBUTES    CTL_CODE(IOCTL_STORAGE_BASE, 0x0501, METHOD_BUFFERED, FILE_WRITE_ACCESS)
 #define IOCTL_STORAGE_GET_LB_PROVISIONING_MAP_RESOURCES  CTL_CODE(IOCTL_STORAGE_BASE, 0x0502, METHOD_BUFFERED, FILE_READ_ACCESS)
-
-#define IOCTL_STORAGE_SET_PROPERTY                  CTL_CODE(IOCTL_STORAGE_BASE, 0x0503, METHOD_BUFFERED, FILE_WRITE_ACCESS)
 
 //
 // IOCTLs 0x0503 to 0x0580 reserved for Enhanced Storage devices.
@@ -5311,6 +5311,12 @@ typedef enum _STORAGE_DIAGNOSTIC_TARGET_TYPE {
 } STORAGE_DIAGNOSTIC_TARGET_TYPE, *PSTORAGE_DIAGNOSTIC_TARGET_TYPE;
 
 //
+// Indicate the target of the request other than the device handle/object itself.
+// This is used in "Flags" field of data structures.
+//
+#define STORAGE_DIAGNOSTIC_FLAG_ADAPTER_REQUEST     0x00000001
+
+//
 // STORAGE_DIAGNOSTIC_REQUEST
 //
 
@@ -5323,8 +5329,8 @@ typedef struct _STORAGE_DIAGNOSTIC_REQUEST {
     // (In case adding variable-sized buffer in future.)
     DWORD Size;
 
-    // Reserved for future use.
-    DWORD Reserved;
+    // Request flag.
+    DWORD Flags;
 
     // Request target type. See definitions for STORAGE_DIAGNOSTIC_TARGET_TYPE.
     STORAGE_DIAGNOSTIC_TARGET_TYPE TargetType;

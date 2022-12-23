@@ -52,6 +52,8 @@ Revision History:
 #define NINETEEN_H2_UPGRADE_VERSION  2
 #define MN_UPGRADE_VERSION           3
 
+#define HCI_UPGRADE_BIT 0x8000
+
 #define CLUSREG_NAME_MIXED_MODE                    L"MixedMode"
 
 #endif // ( !MIDL_PASS && !__midl )
@@ -380,6 +382,7 @@ typedef enum {
     ClusGroupTypeVMReplicaCoordinator        = 120,
     ClusGroupTypeCrossClusterOrchestrator = 121,
     ClusGroupTypeInfrastructureFileServer = 122,
+    ClusGroupTypeCoreSddc           = 123,
     ClusGroupTypeUnknown            = 9999
 } CLUSGROUP_TYPE, *PCLUSGROUP_TYPE;
 
@@ -3859,6 +3862,7 @@ typedef enum CLCTL_CODES {
     //
     // Storage Replication
     //
+    CLCTL_REPLICATION_ADD_REPLICATION_GROUP           = CLCTL_EXTERNAL_CODE(2128, CLUS_ACCESS_WRITE, CLUS_NO_MODIFY),
     CLCTL_REPLICATION_GET_LOG_INFO                    = CLCTL_EXTERNAL_CODE(2129, CLUS_ACCESS_READ, CLUS_NO_MODIFY),
     CLCTL_REPLICATION_GET_ELIGIBLE_LOGDISKS           = CLCTL_EXTERNAL_CODE(2130, CLUS_ACCESS_READ, CLUS_NO_MODIFY),
     CLCTL_REPLICATION_GET_ELIGIBLE_TARGET_DATADISKS   = CLCTL_EXTERNAL_CODE(2131, CLUS_ACCESS_READ, CLUS_NO_MODIFY),
@@ -4537,6 +4541,9 @@ typedef enum CLUSCTL_RESOURCE_TYPE_CODES {
 
     CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_LOG_INFO =
         CLUSCTL_RESOURCE_TYPE_CODE( CLCTL_REPLICATION_GET_LOG_INFO),
+
+    CLUSCTL_RESOURCE_TYPE_REPLICATION_ADD_REPLICATION_GROUP =
+        CLUSCTL_RESOURCE_TYPE_CODE( CLCTL_REPLICATION_ADD_REPLICATION_GROUP ),
 
 
     CLUSCTL_CLOUD_WITNESS_RESOURCE_TYPE_VALIDATE_CREDENTIALS = CLUSCTL_RESOURCE_TYPE_CODE( CLCTL_CLOUD_WITNESS_RESOURCE_TYPE_VALIDATE_CREDENTIALS ),
@@ -7713,6 +7720,27 @@ typedef struct _SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT
     USHORT Count;                                        /**< Number of replicated disks in the result set.*/
     SR_RESOURCE_TYPE_REPLICATED_DISK ReplicatedDisks[1]; /**< Array of replicated disks.*/
 } SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT, *PSR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT;
+
+typedef struct _SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP
+{   
+    WCHAR       ReplicationGroupName[MAX_PATH];          /**< The name of the replication group to create*/
+    WCHAR       Description[MAX_PATH];                   /**< A text description of the group*/
+    WCHAR       LogPath[MAX_PATH];                       /**< Full path of the log container*/
+    ULONGLONG   MaxLogSizeInBytes;                       /**< The maximum size of the log file in Bytes*/
+    DWORD       ReplicationMode;                         /**< Whether the replication is performed synchronously(1) or asynchronously(2)*/
+    DWORD       MinimumPartnersInSync;                   /**< Minimum number of synchronous Replication Partners to be actively in sync before allowing data access by applications on the primary Replica*/
+    BOOLEAN     EnableWriteConsistency;                  /**< Set true to enable write consistency*/
+    BOOLEAN     EnableEncryption;                        /**< true to enable encryption; otherwise, false*/
+    WCHAR       CertificateThumbprint[MAX_PATH];         /**< The certificate thumbprint*/
+    ULONG       VolumeNameCount;                         /**< Count of number of volumes in \ref VolumeNames field*/
+    WCHAR       VolumeNames[ANYSIZE_ARRAY][MAX_PATH];    /**< A collection of volume names*/
+} SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP, *PSR_RESOURCE_TYPE_ADD_REPLICATION_GROUP;
+
+typedef struct _SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT
+{
+    DWORD       Result;                                  /**< Result code*/
+    WCHAR       ErrorString[MAX_PATH];                   /**< Buffer that contains error string from remote CIM calls.*/
+} SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT, *PSR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT;
 
 
 //

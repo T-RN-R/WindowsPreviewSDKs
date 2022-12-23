@@ -804,6 +804,24 @@ interface IDirectManipulationDeferContactService : IUnknown
     HRESULT CancelDeferral([in, annotation("_In_")] UINT32 pointerId);
 }
 
+#ifdef LIFTED_SDK
+// Defines a Direct Manipulation viewport (Lifted)
+[
+    local,
+    object,
+    uuid(2cdef8b7-ac1b-43ce-b8c8-349a54901412),
+    helpstring("IDirectManipulationViewportLifted Interface"),
+    pointer_default(unique)
+]
+interface IDirectManipulationViewportLifted : IDirectManipulationViewport2
+{
+    HRESULT AddEventHandler(
+        [in, annotation("_In_opt_")] IUnknown* inputSite,
+        [in, annotation("_In_")] IDirectManipulationViewportEventHandler* eventHandler,
+        [out, retval, annotation("_Out_")] DWORD* cookie);
+}
+#endif /*LIFTED_SDK*/
+
 
 cpp_quote("#endif // #if (NTDDI_VERSION > NTDDI_WIN8)")
 

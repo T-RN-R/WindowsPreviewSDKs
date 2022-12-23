@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200303.2
+// C++/WinRT v2.0.200514.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_Media_Audio_H
 #define WINRT_Windows_Media_Audio_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200303.2"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200514.2"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.Media.h"
 #include "winrt/impl/Windows.Devices.Enumeration.2.h"
 #include "winrt/impl/Windows.Foundation.2.h"
@@ -1612,6 +1612,12 @@ namespace winrt::impl
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Audio::ISpatialAudioFormatSubtypeStatics)->get_DTSXUltra(&value));
+        return hstring{ value, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Media_Audio_ISpatialAudioFormatSubtypeStatics2<D>::DTSXForHomeTheater() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::Media::Audio::ISpatialAudioFormatSubtypeStatics2)->get_DTSXForHomeTheater(&value));
         return hstring{ value, take_ownership_from_abi };
     }
 #ifndef WINRT_LEAN_AND_MEAN
@@ -4118,6 +4124,20 @@ namespace winrt::impl
         catch (...) { return to_hresult(); }
     };
 #endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, Windows::Media::Audio::ISpatialAudioFormatSubtypeStatics2> : produce_base<D, Windows::Media::Audio::ISpatialAudioFormatSubtypeStatics2>
+    {
+        int32_t __stdcall get_DTSXForHomeTheater(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<hstring>(this->shim().DTSXForHomeTheater());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
 }
 WINRT_EXPORT namespace winrt::Windows::Media::Audio
 {
@@ -4276,6 +4296,10 @@ WINRT_EXPORT namespace winrt::Windows::Media::Audio
     {
         return impl::call_factory_cast<hstring(*)(ISpatialAudioFormatSubtypeStatics const&), SpatialAudioFormatSubtype, ISpatialAudioFormatSubtypeStatics>([](ISpatialAudioFormatSubtypeStatics const& f) { return f.DTSXUltra(); });
     }
+    inline auto SpatialAudioFormatSubtype::DTSXForHomeTheater()
+    {
+        return impl::call_factory_cast<hstring(*)(ISpatialAudioFormatSubtypeStatics2 const&), SpatialAudioFormatSubtype, ISpatialAudioFormatSubtypeStatics2>([](ISpatialAudioFormatSubtypeStatics2 const& f) { return f.DTSXForHomeTheater(); });
+    }
 }
 namespace std
 {
@@ -4344,6 +4368,7 @@ namespace std
     template<> struct hash<winrt::Windows::Media::Audio::ISpatialAudioFormatConfiguration> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Media::Audio::ISpatialAudioFormatConfigurationStatics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Media::Audio::ISpatialAudioFormatSubtypeStatics> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Media::Audio::ISpatialAudioFormatSubtypeStatics2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Media::Audio::AudioDeviceInputNode> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Media::Audio::AudioDeviceOutputNode> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Media::Audio::AudioFileInputNode> : winrt::impl::hash_base {};

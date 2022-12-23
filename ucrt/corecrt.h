@@ -298,6 +298,14 @@ extern "C++"
  #endif /* _MSVC_LANG */
 #endif /* _CRT_HAS_CXX17 */
 
+#ifndef _CRT_HAS_C11
+ #if defined __STDC_VERSION__ && __STDC_VERSION__ >= 201112L
+   #define _CRT_HAS_C11 1
+ #else /* defined __STDC_VERSION__ && __STDC_VERSION__ >= 201112L */
+   #define _CRT_HAS_C11 0
+ #endif /* defined __STDC_VERSION__ && __STDC_VERSION__ >= 201112L */
+#endif /* _CRT_HAS_C11 */
+
 //-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 //
 // Windows API Partitioning and ARM Desktop Support

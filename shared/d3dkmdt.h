@@ -2123,6 +2123,42 @@ typedef struct _D3DKMT_WDDM_2_7_CAPS
 
 #endif
 
+#if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_9)
+
+// DXGK_FEATURE_SUPPORT constants
+
+// When a driver doesn't support a feature, it doesn't call into QueryFeatureSupport with that feature ID.
+// This value is provided for implementation convenience of enumerating possible driver support states
+// for a particular feature.
+#define DXGK_FEATURE_SUPPORT_ALWAYS_OFF ((UINT)0)
+
+// Driver support for a feature is in the experimental state
+#define DXGK_FEATURE_SUPPORT_EXPERIMENTAL ((UINT)1)
+
+// Driver support for a feature is in the stable state
+#define DXGK_FEATURE_SUPPORT_STABLE ((UINT)2)
+
+// Driver support for a feature is in the always on state,
+// and it doesn't operate without this feature enabled.
+#define DXGK_FEATURE_SUPPORT_ALWAYS_ON ((UINT)3)
+
+typedef struct _D3DKMT_WDDM_2_9_CAPS
+{
+    union
+    {
+        struct
+        {
+            _Field_range_(DXGK_FEATURE_SUPPORT_ALWAYS_OFF, DXGK_FEATURE_SUPPORT_ALWAYS_ON)
+            UINT    HwSchSupportState   :  2;   // DXGK_FEATURE_SUPPORT_* value that specifies driver support state for GPU supports hardware scheduling
+            UINT    HwSchEnabled        :  1;   // Specifies whether the hardware scheduling is currently enabled for this GPU
+            UINT    Reserved            : 29;
+        };
+        UINT Value;
+    };
+} D3DKMT_WDDM_2_9_CAPS;
+
+#endif
+
 typedef struct _D3DKMT_TRACKEDWORKLOAD_SUPPORT
 {
     _In_ UINT PhysicalAdapterIndex;

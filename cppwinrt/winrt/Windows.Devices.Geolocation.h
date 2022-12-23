@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200303.2
+// C++/WinRT v2.0.200514.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_Devices_Geolocation_H
 #define WINRT_Windows_Devices_Geolocation_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200303.2"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200514.2"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.Devices.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
@@ -204,6 +204,18 @@ namespace winrt::impl
         void* ppValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Geolocation::IGeocoordinateSatelliteData)->get_VerticalDilutionOfPrecision(&ppValue));
         return Windows::Foundation::IReference<double>{ ppValue, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) consume_Windows_Devices_Geolocation_IGeocoordinateSatelliteData2<D>::GeometricDilutionOfPrecision() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Geolocation::IGeocoordinateSatelliteData2)->get_GeometricDilutionOfPrecision(&value));
+        return Windows::Foundation::IReference<double>{ value, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) consume_Windows_Devices_Geolocation_IGeocoordinateSatelliteData2<D>::TimeDilutionOfPrecision() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Geolocation::IGeocoordinateSatelliteData2)->get_TimeDilutionOfPrecision(&value));
+        return Windows::Foundation::IReference<double>{ value, take_ownership_from_abi };
     }
     template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Geolocation::Geopoint) consume_Windows_Devices_Geolocation_IGeocoordinateWithPoint<D>::Point() const
     {
@@ -818,6 +830,28 @@ namespace winrt::impl
             clear_abi(ppValue);
             typename D::abi_guard guard(this->shim());
             *ppValue = detach_from<Windows::Foundation::IReference<double>>(this->shim().VerticalDilutionOfPrecision());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, Windows::Devices::Geolocation::IGeocoordinateSatelliteData2> : produce_base<D, Windows::Devices::Geolocation::IGeocoordinateSatelliteData2>
+    {
+        int32_t __stdcall get_GeometricDilutionOfPrecision(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<Windows::Foundation::IReference<double>>(this->shim().GeometricDilutionOfPrecision());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_TimeDilutionOfPrecision(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<Windows::Foundation::IReference<double>>(this->shim().TimeDilutionOfPrecision());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1484,6 +1518,7 @@ namespace std
     template<> struct hash<winrt::Windows::Devices::Geolocation::IGeocircleFactory> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Geolocation::IGeocoordinate> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Geolocation::IGeocoordinateSatelliteData> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Devices::Geolocation::IGeocoordinateSatelliteData2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Geolocation::IGeocoordinateWithPoint> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Geolocation::IGeocoordinateWithPositionData> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Geolocation::IGeocoordinateWithPositionSourceTimestamp> : winrt::impl::hash_base {};

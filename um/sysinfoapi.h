@@ -440,12 +440,6 @@ GetLogicalProcessorInformation(
     );
 
 
-#endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
-#pragma endregion
-
-#pragma region Application Family or OneCore Family
-#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
-
 #if (_WIN32_WINNT >= _WIN32_WINNT_WIN7)
 
 WINBASEAPI
@@ -459,12 +453,6 @@ GetLogicalProcessorInformationEx(
 
 
 #endif // (_WIN32_WINNT >= _WIN32_WINNT_WIN7)
-
-#endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
-#pragma endregion
-
-#pragma region Application Family or OneCore Family or Games Family
-#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 
 #if (_WIN32_WINNT >= _WIN32_WINNT_WINXP)
 

@@ -465,6 +465,7 @@ PrCycleTime equ 00360H
 PrKernelTime equ 0037CH
 PrUserTime equ 00380H
 PrInstrumentationCallback equ 003D8H
+PrMitigationFlags2 equ 009D4H
 KernelProcessObjectLength equ 00438H
 ExecutiveProcessObjectLength equ 00B00H
 Win32BatchFlushCallout equ 00007H
@@ -558,6 +559,7 @@ KTHREAD_SYSTEM_THREAD_BIT equ 0000AH
 KTHREAD_QUEUE_DEFER_PREEMPTION_BIT equ 0000BH
 KTHREAD_BAM_QOS_LEVEL_MASK equ 000FFH
 KTHREAD_CET_USER_SHADOW_STACK_BIT equ 00014H
+KTHREAD_CET_KERNEL_SHADOW_STACK_BIT equ 00016H
 DEBUG_ACTIVE_PRIMARY_THREAD equ 00080H
 DEBUG_ACTIVE_PRIMARY_THREAD_BIT equ 00007H
 DEBUG_ACTIVE_PRIMARY_THREAD_LOCK_BIT equ 0001FH
@@ -767,11 +769,15 @@ LqhLock equ 00008H
 ;  Kernel Stack Control Structure Offset (relative to initial stack pointer) Definitions
 ;
 
-KSTACK_CONTROL_LENGTH equ 00030H
+KSTACK_CONTROL_LENGTH equ 00050H
 KcPreviousBase equ 00010H
 KcPreviousLimit equ 00018H
 KcPreviousKernel equ 00020H
 KcPreviousInitial equ 00028H
+KcPreviousKernelShadowStack equ 00040H
+KcPreviousKernelShadowStackInitial equ 00048H
+KcPreviousKernelShadowStackBase equ 00030H
+KcPreviousKernelShadowStackLimit equ 00038H
 KcCurrentBase equ 00000H
 KcActualLimit equ 00008H
 KSTACK_ACTUAL_LIMIT_EXPANDED equ 00001H
@@ -967,6 +973,8 @@ PcKernelDirectoryTableBase equ 0A000H
 PcExceptionStack equ 083A8H
 PcExceptionStackActive equ 083A6H
 PcDpcRequestSummary equ 0353CH
+PcTransitionShadowStack equ 09260H
+PcKernelShadowStackInitial equ 09268H
 ;
 ;
 CPU_AMD equ 00001H
@@ -1154,6 +1162,7 @@ PbVendorString equ 08950H
 ProcessorBlockLength equ 0BF00H
 PbShadowFlags equ 09E98H
 PbTrappedSecurityDomain equ 000F0H
+PbKernelShadowStackInitial equ 090E8H
 
 ;
 ;  Time Fields (TIME_FIELDS) Structure Offset Definitions
@@ -1370,6 +1379,7 @@ LOW_REALTIME_PRIORITY equ 00010H
 KERNEL_LARGE_STACK_COMMIT equ 06000H
 KERNEL_LARGE_STACK_SIZE equ 012000H
 DOUBLE_FAULT_STACK_SIZE equ 02000H
+KI_KERNEL_SHADOW_STACK_SIZE_WITH_GUARD_PAGES equ 03000H
 BREAKPOINT_BREAK equ 00000H
 BREAKPOINT_COMMAND_STRING equ 00005H
 BREAKPOINT_PRINT equ 00001H
@@ -1917,6 +1927,10 @@ ThThreadFlags2 equ 00200H
 ThSpecCtrl equ 0007FH
 KTHREAD_RUNNING_NON_RETPOLINE_CODE_BIT equ 00001H
 KTHREAD_RUNNING_NON_RETPOLINE_CODE equ 00002H
+ThKernelShadowStack equ 00408H
+ThKernelShadowStackBase equ 00418H
+ThKernelShadowStackInitial equ 00410H
+ThKernelShadowStackLimit equ 00420H
 
 ;
 ;  ETHREAD

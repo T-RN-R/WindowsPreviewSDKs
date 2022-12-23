@@ -1260,6 +1260,9 @@ typedef struct _MINIDUMP_CALLBACK_OUTPUT {
 // The exact set of what is provided depends on the auxiliary.
 // This can be quite large.
 //
+// MiniDumpFilterWriteCombinedMemory asks to exclude all memory
+// with the virtual protection attribute of PAGE_WRITECOMBINE.
+//
 
 typedef enum _MINIDUMP_TYPE {
     MiniDumpNormal                         = 0x00000000,
@@ -1287,7 +1290,8 @@ typedef enum _MINIDUMP_TYPE {
     MiniDumpWithAvxXStateContext           = 0x00200000,
     MiniDumpWithIptTrace                   = 0x00400000,
     MiniDumpScanInaccessiblePartialPages   = 0x00800000,
-    MiniDumpValidTypeFlags                 = 0x00ffffff,
+    MiniDumpFilterWriteCombinedMemory      = 0x01000000,
+    MiniDumpValidTypeFlags                 = 0x01ffffff,
 } MINIDUMP_TYPE;
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES) */

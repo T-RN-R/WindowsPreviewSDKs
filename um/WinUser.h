@@ -11034,9 +11034,9 @@ GetIconInfoExW(
 
 #endif /* OEMRESOURCE */
 
-#define ORD_LANGDRIVER    1     /* The ordinal number for the entry point of
-                                ** language drivers.
-                                */
+
+// The ordinal number for the entry point of language drivers.
+#define ORD_LANGDRIVER    1
 
 #ifndef NOICONS
 

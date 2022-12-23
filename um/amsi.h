@@ -3,7 +3,7 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0622 */
+ /* File created by MIDL compiler version 8.01.0623 */
 /* @@MIDL_FILE_HEADING(  ) */
 
 
@@ -35,6 +35,14 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
+#endif
+
+#ifndef DECLSPEC_XFGVIRT
+#if _CONTROL_FLOW_GUARD_XFG
+#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
+#else
+#define DECLSPEC_XFGVIRT(base, func)
+#endif
 #endif
 
 /* Forward Declarations */ 
@@ -257,18 +265,22 @@ EXTERN_C const IID IID_IAmsiStream;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IAmsiStream * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IAmsiStream * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IAmsiStream * This);
         
+        DECLSPEC_XFGVIRT(IAmsiStream, GetAttribute)
         HRESULT ( STDMETHODCALLTYPE *GetAttribute )( 
             IAmsiStream * This,
             /* [in] */ AMSI_ATTRIBUTE attribute,
@@ -276,6 +288,7 @@ EXTERN_C const IID IID_IAmsiStream;
             /* [length_is][size_is][out] */ unsigned char *data,
             /* [out] */ ULONG *retData);
         
+        DECLSPEC_XFGVIRT(IAmsiStream, Read)
         HRESULT ( STDMETHODCALLTYPE *Read )( 
             IAmsiStream * This,
             /* [in] */ ULONGLONG position,
@@ -358,27 +371,33 @@ EXTERN_C const IID IID_IAntimalwareProvider;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IAntimalwareProvider * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IAntimalwareProvider * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IAntimalwareProvider * This);
         
+        DECLSPEC_XFGVIRT(IAntimalwareProvider, Scan)
         HRESULT ( STDMETHODCALLTYPE *Scan )( 
             IAntimalwareProvider * This,
             /* [in] */ IAmsiStream *stream,
             /* [out] */ AMSI_RESULT *result);
         
+        DECLSPEC_XFGVIRT(IAntimalwareProvider, CloseSession)
         void ( STDMETHODCALLTYPE *CloseSession )( 
             IAntimalwareProvider * This,
             /* [in] */ ULONGLONG session);
         
+        DECLSPEC_XFGVIRT(IAntimalwareProvider, DisplayName)
         HRESULT ( STDMETHODCALLTYPE *DisplayName )( 
             IAntimalwareProvider * This,
             /* [annotation][string][out] */ 
@@ -458,23 +477,28 @@ EXTERN_C const IID IID_IAntimalwareUacProvider;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             __RPC__in IAntimalwareUacProvider * This,
             /* [in] */ __RPC__in REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             __RPC__in IAntimalwareUacProvider * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             __RPC__in IAntimalwareUacProvider * This);
         
+        DECLSPEC_XFGVIRT(IAntimalwareUacProvider, UacScan)
         HRESULT ( STDMETHODCALLTYPE *UacScan )( 
             __RPC__in IAntimalwareUacProvider * This,
             /* [in] */ __RPC__in LPAMSI_UAC_REQUEST_CONTEXT context,
             /* [out] */ __RPC__out AMSI_RESULT *result);
         
+        DECLSPEC_XFGVIRT(IAntimalwareUacProvider, DisplayName)
         HRESULT ( STDMETHODCALLTYPE *DisplayName )( 
             __RPC__in IAntimalwareUacProvider * This,
             /* [string][out] */ __RPC__deref_out_opt_string LPWSTR *displayName);
@@ -551,24 +575,29 @@ EXTERN_C const IID IID_IAntimalware;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IAntimalware * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IAntimalware * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IAntimalware * This);
         
+        DECLSPEC_XFGVIRT(IAntimalware, Scan)
         HRESULT ( STDMETHODCALLTYPE *Scan )( 
             IAntimalware * This,
             /* [in] */ IAmsiStream *stream,
             /* [out] */ AMSI_RESULT *result,
             /* [out] */ IAntimalwareProvider **provider);
         
+        DECLSPEC_XFGVIRT(IAntimalware, CloseSession)
         void ( STDMETHODCALLTYPE *CloseSession )( 
             IAntimalware * This,
             /* [in] */ ULONGLONG session);

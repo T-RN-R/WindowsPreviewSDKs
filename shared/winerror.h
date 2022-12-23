@@ -28914,6 +28914,15 @@
 //
 #define ERROR_PACKAGE_LACKS_CAPABILITY_FOR_MANDATORY_STARTUPTASKS 15664L
 
+//
+// MessageId: ERROR_INSTALL_RESOLVE_HOSTRUNTIME_DEPENDENCY_FAILED
+//
+// MessageText:
+//
+// Package failed host runtime dependency or conflict validation.
+//
+#define ERROR_INSTALL_RESOLVE_HOSTRUNTIME_DEPENDENCY_FAILED 15665L
+
 //////////////////////////
 //                      //
 // AppModel Error Codes //

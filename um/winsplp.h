@@ -1039,6 +1039,16 @@ typedef struct _PRINTPROVIDOR
     DWORD (*fpRegeneratePrintDeviceCapabilities)(
         _In_    HANDLE  hPrinter
         );
+
+    HRESULT (*fpPrintSupportOperation)
+    (
+        _In_ HANDLE hPrinter,
+        _In_ DWORD JobId,
+        _In_ DWORD dwOperationType,
+        _In_reads_bytes_opt_(cbInputData) LPBYTE pInputData,
+        _In_ DWORD cbInputData,
+        _Out_ LPDWORD pcWritten
+        );
 #endif // (NTDDI_VERSION >= NTDDI_WIN10_19H1)
 }
 PRINTPROVIDOR, *LPPRINTPROVIDOR;

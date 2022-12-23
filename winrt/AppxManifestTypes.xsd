@@ -160,6 +160,12 @@
     </xs:restriction>
   </xs:simpleType>
 
+  <xs:simpleType name="ST_ImageLogo">
+    <xs:restriction base="ST_FileName">
+      <xs:pattern value=".+\.(([Jj][Pp][Gg])|([Pp][Nn][Gg])|([Jj][Pp][Ee][Gg])|([Ii][Cc][Oo])|([Dd][Ll][Ll])|([Ee][Xx][Ee]))"/>
+    </xs:restriction>
+  </xs:simpleType>
+
   <xs:simpleType name="ST_AsciiIdentifier">
     <xs:restriction base="ST_NonEmptyString">
       <xs:pattern value="[-.A-Za-z0-9]+"/>
@@ -786,6 +792,17 @@
     </xs:restriction>
   </xs:simpleType>
 
+  <xs:simpleType name="ST_ExtensionCategory_Uap12">
+    <xs:restriction base="xs:string">
+        <!-- Application Extensions -->
+        <xs:enumeration value="windows.printSupportSettingsUI"/>
+        <xs:enumeration value="windows.printSupportExtension"/>
+        <xs:enumeration value="windows.printSupportWorkflow"/>
+        <xs:enumeration value="windows.printSupportJobUI"/>
+        <!-- Package Extensions -->
+    </xs:restriction>
+  </xs:simpleType>
+
   <xs:simpleType name="ST_ExtensionCategory_Com">
     <xs:restriction base="xs:string">
       <xs:enumeration value="windows.comServer"/>
@@ -860,6 +877,15 @@
       <xs:enumeration value="windows.shortcut"/>
       <xs:enumeration value="windows.applicationRegistration"/>
       <xs:enumeration value="windows.desktopAppMigration"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ST_ExtensionCategory_PreviewAppCompat3">
+    <xs:restriction base="xs:string">
+        <!-- Application Extensions -->
+        <xs:enumeration value="windows.systemFileAssociation"/>
+        <!-- Package Extensions -->
+        <xs:enumeration value="windows.errorReporting"/>
     </xs:restriction>
   </xs:simpleType>
 

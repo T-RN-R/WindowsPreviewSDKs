@@ -27,8 +27,8 @@
 #include "ole2.h"
 #endif /*COM_NO_WINDOWS_H*/
 
-#ifndef __windows2Eai2Emachinelearning2Enative_h__
-#define __windows2Eai2Emachinelearning2Enative_h__
+#ifndef __Windows2EAI2EMachineLearning2ENative_h__
+#define __Windows2EAI2EMachineLearning2ENative_h__
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once

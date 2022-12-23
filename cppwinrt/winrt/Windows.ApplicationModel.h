@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200303.2
+// C++/WinRT v2.0.200514.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_ApplicationModel_H
 #define WINRT_Windows_ApplicationModel_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200303.2"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200514.2"), "Mismatched C++/WinRT headers.");
 #include "winrt/impl/Windows.ApplicationModel.Activation.2.h"
 #include "winrt/impl/Windows.ApplicationModel.Core.2.h"
 #include "winrt/impl/Windows.Foundation.2.h"
@@ -444,30 +444,6 @@ namespace winrt::impl
     {
         bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::IPackage8)->get_IsStub(&value));
-        return value;
-    }
-    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Package>) consume_Windows_ApplicationModel_IPackage9<D>::FindHostRuntimeProviders() const
-    {
-        void* result{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::IPackage9)->FindHostRuntimeProviders(&result));
-        return Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Package>{ result, take_ownership_from_abi };
-    }
-    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::AppInfo>) consume_Windows_ApplicationModel_IPackage9<D>::FindHostRuntimeConsumerApps() const
-    {
-        void* result{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::IPackage9)->FindHostRuntimeConsumerApps(&result));
-        return Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::AppInfo>{ result, take_ownership_from_abi };
-    }
-    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_ApplicationModel_IPackage9<D>::IsHostRuntimeProvider() const
-    {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::IPackage9)->get_IsHostRuntimeProvider(&value));
-        return value;
-    }
-    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_ApplicationModel_IPackage9<D>::IsHostRuntimeConsumer() const
-    {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::IPackage9)->get_IsHostRuntimeConsumer(&value));
         return value;
     }
     template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_ApplicationModel_IPackageCatalog<D>::PackageStaging(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::PackageCatalog, Windows::ApplicationModel::PackageStagingEventArgs> const& handler) const
@@ -1780,42 +1756,6 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
-    struct produce<D, Windows::ApplicationModel::IPackage9> : produce_base<D, Windows::ApplicationModel::IPackage9>
-    {
-        int32_t __stdcall FindHostRuntimeProviders(void** result) noexcept final try
-        {
-            clear_abi(result);
-            typename D::abi_guard guard(this->shim());
-            *result = detach_from<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Package>>(this->shim().FindHostRuntimeProviders());
-            return 0;
-        }
-        catch (...) { return to_hresult(); }
-        int32_t __stdcall FindHostRuntimeConsumerApps(void** result) noexcept final try
-        {
-            clear_abi(result);
-            typename D::abi_guard guard(this->shim());
-            *result = detach_from<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::AppInfo>>(this->shim().FindHostRuntimeConsumerApps());
-            return 0;
-        }
-        catch (...) { return to_hresult(); }
-        int32_t __stdcall get_IsHostRuntimeProvider(bool* value) noexcept final try
-        {
-            typename D::abi_guard guard(this->shim());
-            *value = detach_from<bool>(this->shim().IsHostRuntimeProvider());
-            return 0;
-        }
-        catch (...) { return to_hresult(); }
-        int32_t __stdcall get_IsHostRuntimeConsumer(bool* value) noexcept final try
-        {
-            typename D::abi_guard guard(this->shim());
-            *value = detach_from<bool>(this->shim().IsHostRuntimeConsumer());
-            return 0;
-        }
-        catch (...) { return to_hresult(); }
-    };
-#endif
-#ifndef WINRT_LEAN_AND_MEAN
-    template <typename D>
     struct produce<D, Windows::ApplicationModel::IPackageCatalog> : produce_base<D, Windows::ApplicationModel::IPackageCatalog>
     {
         int32_t __stdcall add_PackageStaging(void* handler, winrt::event_token* token) noexcept final try
@@ -2878,7 +2818,6 @@ namespace std
     template<> struct hash<winrt::Windows::ApplicationModel::IPackage6> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::ApplicationModel::IPackage7> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::ApplicationModel::IPackage8> : winrt::impl::hash_base {};
-    template<> struct hash<winrt::Windows::ApplicationModel::IPackage9> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::ApplicationModel::IPackageCatalog> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::ApplicationModel::IPackageCatalog2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::ApplicationModel::IPackageCatalog3> : winrt::impl::hash_base {};

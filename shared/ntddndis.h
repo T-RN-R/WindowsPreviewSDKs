@@ -25,8 +25,9 @@ Notes:
 
         Version     First available in
         ------------------------------------------------------------------
+        685         Windows 10, iron release
         684         Windows 10, vibranium release
-        683         Windows 10, RS6 release
+        683         Windows 10, version 1903
         682         Windows 10, version 1809
         681         Windows 10, version 1803
         680         Windows 10, version 1709
@@ -2701,9 +2702,7 @@ typedef struct _NDIS_LINK_SPEED
 #define NDIS_LINK_SPEED_UNKNOWN NET_IF_LINK_SPEED_UNKNOWN
 #endif
 
-#ifndef _NDIS_
-typedef _Return_type_success_(return >= 0) int NDIS_STATUS, *PNDIS_STATUS;
-#endif
+#include <ndis/types.h>
 
 #if ((NTDDI_VERSION >= NTDDI_VISTA) || NDIS_SUPPORT_NDIS6)
 // Native 802.11 Definitions
@@ -4420,6 +4419,7 @@ typedef struct _NDIS_PM_PARAMETERS
 // Pattern IDs above this number are treated as pre-assigned
 //
 #define NDIS_PM_MAX_PATTERN_ID  0x0000FFFF
+
 
 //
 // This value is used in the Flags field of the NDIS_PM_WOL_PATTERN structure

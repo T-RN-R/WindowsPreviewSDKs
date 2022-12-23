@@ -455,6 +455,7 @@
 #define PrKernelTime 0x384
 #define PrUserTime 0x388
 #define PrInstrumentationCallback 0x390
+#define PrMitigationFlags2 0xa94
 #define KernelProcessObjectLength 0x3f0
 #define ExecutiveProcessObjectLength 0xc00
 #define Win32BatchFlushCallout 0x7
@@ -542,6 +543,7 @@
 #define KTHREAD_QUEUE_DEFER_PREEMPTION_BIT 0xb
 #define KTHREAD_BAM_QOS_LEVEL_MASK 0xff
 #define KTHREAD_CET_USER_SHADOW_STACK_BIT 0x14
+#define KTHREAD_CET_KERNEL_SHADOW_STACK_BIT 0x16
 
 #define DEBUG_ACTIVE_ALT_SYSCALL_HANDLER 0x24
 #define PsSystemCallMapToSystem 0x1
@@ -828,7 +830,7 @@
 #define PcGroupSetMember 0x10e0
 #define PcFeatureBits 0x1214
 #define PcVirtualApicAssist 0x2098
-#define PcTrappedSecurityDomain 0x14b0
+#define PcTrappedSecurityDomain 0x1578
 #define TlThread 0x0
 #define TlCpuNumber 0x8
 #define TlTrapType 0x9
@@ -958,7 +960,7 @@
 #define PbCopyReadNoWait 0xa4c
 #define PbCopyReadWait 0xa50
 #define PbCopyReadNoWaitMiss 0xa54
-#define PbAlignmentFixupCount 0x1460
+#define PbAlignmentFixupCount 0x1468
 #define PbExceptionDispatchCount 0xf34
 #define PbProcessorVendorString 0x890
 #define PbFeatureBits 0x894
@@ -1000,6 +1002,9 @@
 //
 
 #define IPI_PACKET_READY 0x5
+#define KI_USER_PER_PROCESS_IP_AUTH_ENABLED_BIT 0x0
+#define KI_USER_GLOBAL_IP_AUTH_ENABLED_BIT 0x1
+#define KI_KERNEL_IP_AUTH_ENABLED_BIT 0x2
 
 //
 // Time Fields (TIME_FIELDS) Structure Offset Definitions
@@ -1222,6 +1227,7 @@
 //
 
 #define ARM64_TLBI_VMALLE1 0x438
+#define ARM64_TLBI_ALLE1 0x243c
 #define ARM64_TLBI_ALLE2 0x2438
 #define ARM64_TLBI_VAE1 0x439
 #define ARM64_TLBI_ASIDE1 0x43a
@@ -1387,6 +1393,13 @@
 #define ARM64_ICC_SRE_EL2 0x664d
 
 //
+// Pointer Authentication Key Registers
+//
+
+#define ARM64_APIBKeyHi_EL1 0x410b
+#define ARM64_APIBKeyLo_EL1 0x410a
+
+//
 // SCTLR bits
 //
 
@@ -1409,6 +1422,7 @@
 #define ARM64_SCTLR_E0E 0x1000000
 #define ARM64_SCTLR_EE 0x2000000
 #define ARM64_SCTLR_UCI 0x4000000
+#define ARM64_SCTLR_EnIB 0x40000000
 
 //
 // MDSCR bits
@@ -1717,6 +1731,13 @@
 
 #define EpDebugPort 0x530
 #define EpSecurityDomain 0xaa0
+#define EpPointerAuthUserIpKey 0xb88
+
+//
+// EPROCESS MitigationFlags2
+//
+
+#define PS_PROCESS_MITIGATION_FLAGS2_POINTER_AUTH_USER_IP_BIT 0x1b
 
 //
 // KeFeatureBits defines

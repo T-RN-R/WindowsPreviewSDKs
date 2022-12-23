@@ -154,8 +154,6 @@ namespace Windows
 
         interface IPackage8;
 
-        interface IPackage9;
-
         interface IPackageCatalog;
 
         interface IPackageCatalog2;
@@ -697,17 +695,6 @@ namespace Windows
             [propget] HRESULT IsStub([out] [retval] boolean* value);
         }
 
-        [contract(Windows.Foundation.UniversalApiContract, 11.0)]
-        [exclusiveto(Windows.ApplicationModel.Package)]
-        [uuid(71C3C2B9-9722-43D7-A48F-77D43B6F9084)]
-        interface IPackage9 : IInspectable
-        {
-            HRESULT FindHostRuntimeProviders([out] [retval] Windows.Foundation.Collections.IVectorView<Windows.ApplicationModel.Package*>** result);
-            HRESULT FindHostRuntimeConsumerApps([out] [retval] Windows.Foundation.Collections.IVectorView<Windows.ApplicationModel.AppInfo*>** result);
-            [propget] HRESULT IsHostRuntimeProvider([out] [retval] boolean* value);
-            [propget] HRESULT IsHostRuntimeConsumer([out] [retval] boolean* value);
-        }
-
         [contract(Windows.Foundation.UniversalApiContract, 3.0)]
         [exclusiveto(Windows.ApplicationModel.PackageCatalog)]
         [uuid(230A3751-9DE3-4445-BE74-91FB325ABEFE)]
@@ -1106,7 +1093,6 @@ namespace Windows
             [contract(Windows.Foundation.UniversalApiContract, 7.0)] interface Windows.ApplicationModel.IPackage6;
             [contract(Windows.Foundation.UniversalApiContract, 8.0)] interface Windows.ApplicationModel.IPackage7;
             [contract(Windows.Foundation.UniversalApiContract, 10.0)] interface Windows.ApplicationModel.IPackage8;
-            [contract(Windows.Foundation.UniversalApiContract, 11.0)] interface Windows.ApplicationModel.IPackage9;
         }
 
         [contract(Windows.Foundation.UniversalApiContract, 3.0)]

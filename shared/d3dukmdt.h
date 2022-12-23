@@ -48,6 +48,7 @@
 #define DXGKDDI_INTERFACE_VERSION_WDDM2_6    0xB004
 #define DXGKDDI_INTERFACE_VERSION_WDDM2_7    0xC004
 #define DXGKDDI_INTERFACE_VERSION_WDDM2_8    0xD001
+#define DXGKDDI_INTERFACE_VERSION_WDDM2_9    0xE001
 
 
 #define IS_OFFICIAL_DDI_INTERFACE_VERSION(version)                 \
@@ -67,11 +68,12 @@
              ((version) == DXGKDDI_INTERFACE_VERSION_WDDM2_5) ||   \
              ((version) == DXGKDDI_INTERFACE_VERSION_WDDM2_6) ||   \
              ((version) == DXGKDDI_INTERFACE_VERSION_WDDM2_7) ||   \
-             ((version) == DXGKDDI_INTERFACE_VERSION_WDDM2_8)      \
+             ((version) == DXGKDDI_INTERFACE_VERSION_WDDM2_8) ||   \
+             ((version) == DXGKDDI_INTERFACE_VERSION_WDDM2_9)      \
             )
 
 #if !defined(DXGKDDI_INTERFACE_VERSION)
-#define DXGKDDI_INTERFACE_VERSION           DXGKDDI_INTERFACE_VERSION_WDDM2_8
+#define DXGKDDI_INTERFACE_VERSION           DXGKDDI_INTERFACE_VERSION_WDDM2_9
 #endif // !defined(DXGKDDI_INTERFACE_VERSION)
 
 #define D3D_UMD_INTERFACE_VERSION_VISTA      0x000C
@@ -123,11 +125,14 @@
 #define D3D_UMD_INTERFACE_VERSION_WDDM2_8_1     0xD000
 #define D3D_UMD_INTERFACE_VERSION_WDDM2_8       D3D_UMD_INTERFACE_VERSION_WDDM2_8_1
 
+#define D3D_UMD_INTERFACE_VERSION_WDDM2_9_1     0xE000
+#define D3D_UMD_INTERFACE_VERSION_WDDM2_9       D3D_UMD_INTERFACE_VERSION_WDDM2_9_1
+
 // Components which depend on D3D_UMD_INTERFACE_VERSION need to be updated, static assert validation present.
 // Search for D3D_UMD_INTERFACE_VERSION across all depots to ensure all dependencies are updated.
 
 #if !defined(D3D_UMD_INTERFACE_VERSION)
-#define D3D_UMD_INTERFACE_VERSION           D3D_UMD_INTERFACE_VERSION_WDDM2_8
+#define D3D_UMD_INTERFACE_VERSION           D3D_UMD_INTERFACE_VERSION_WDDM2_9
 #endif // !defined(D3D_UMD_INTERFACE_VERSION)
 
 //

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200303.2
+// C++/WinRT v2.0.200514.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -260,6 +260,7 @@ WINRT_EXPORT namespace winrt::Windows::Media::Audio
         [[nodiscard]] static auto DolbyAtmosForSpeakers();
         [[nodiscard]] static auto DTSHeadphoneX();
         [[nodiscard]] static auto DTSXUltra();
+        [[nodiscard]] static auto DTSXForHomeTheater();
     };
 }
 #endif
