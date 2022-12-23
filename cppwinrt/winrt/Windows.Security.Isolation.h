@@ -290,15 +290,15 @@ namespace winrt::impl
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions)->put_AllowCameraAndMicrophoneAccess(value));
     }
-    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions2<D>::WindowTitleOverride() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions2<D>::WindowAnnotationOverride() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions2)->get_WindowTitleOverride(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions2)->get_WindowAnnotationOverride(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions2<D>::WindowTitleOverride(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions2<D>::WindowAnnotationOverride(param::hstring const& value) const
     {
-        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions2)->put_WindowTitleOverride(*(void**)(&value)));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions2)->put_WindowAnnotationOverride(*(void**)(&value)));
     }
     template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOwnerRegistrationData<D>::ShareableFolders() const
     {
@@ -972,18 +972,18 @@ namespace winrt::impl
     template <typename D>
     struct produce<D, Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions2> : produce_base<D, Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions2>
     {
-        int32_t __stdcall get_WindowTitleOverride(void** value) noexcept final try
+        int32_t __stdcall get_WindowAnnotationOverride(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<hstring>(this->shim().WindowTitleOverride());
+            *value = detach_from<hstring>(this->shim().WindowAnnotationOverride());
             return 0;
         }
         catch (...) { return to_hresult(); }
-        int32_t __stdcall put_WindowTitleOverride(void* value) noexcept final try
+        int32_t __stdcall put_WindowAnnotationOverride(void* value) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
-            this->shim().WindowTitleOverride(*reinterpret_cast<hstring const*>(&value));
+            this->shim().WindowAnnotationOverride(*reinterpret_cast<hstring const*>(&value));
             return 0;
         }
         catch (...) { return to_hresult(); }

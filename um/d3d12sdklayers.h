@@ -156,6 +156,13 @@ typedef interface ID3D12InfoQueue ID3D12InfoQueue;
 #endif 	/* __ID3D12InfoQueue_FWD_DEFINED__ */
 
 
+#ifndef __ID3D12InfoQueue1_FWD_DEFINED__
+#define __ID3D12InfoQueue1_FWD_DEFINED__
+typedef interface ID3D12InfoQueue1 ID3D12InfoQueue1;
+
+#endif 	/* __ID3D12InfoQueue1_FWD_DEFINED__ */
+
+
 /* header files for imported files */
 #include "oaidl.h"
 #include "ocidl.h"
@@ -3207,6 +3214,403 @@ EXTERN_C const IID IID_ID3D12InfoQueue;
 /* interface __MIDL_itf_d3d12sdklayers_0000_0015 */
 /* [local] */ 
 
+typedef 
+enum D3D12_MESSAGE_CALLBACK_FLAGS
+    {
+        D3D12_MESSAGE_CALLBACK_FLAG_NONE	= 0,
+        D3D12_MESSAGE_CALLBACK_IGNORE_FILTERS	= 0x1
+    } 	D3D12_MESSAGE_CALLBACK_FLAGS;
+
+DEFINE_ENUM_FLAG_OPERATORS(D3D12_MESSAGE_CALLBACK_FLAGS)
+typedef void ( __stdcall *D3D12MessageFunc )( 
+    D3D12_MESSAGE_CATEGORY Category,
+    D3D12_MESSAGE_SEVERITY Severity,
+    D3D12_MESSAGE_ID ID,
+    LPCSTR pDescription,
+    void *pContext);
+
+
+
+extern RPC_IF_HANDLE __MIDL_itf_d3d12sdklayers_0000_0015_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_d3d12sdklayers_0000_0015_v0_0_s_ifspec;
+
+#ifndef __ID3D12InfoQueue1_INTERFACE_DEFINED__
+#define __ID3D12InfoQueue1_INTERFACE_DEFINED__
+
+/* interface ID3D12InfoQueue1 */
+/* [unique][local][object][uuid] */ 
+
+
+EXTERN_C const IID IID_ID3D12InfoQueue1;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("2852dd88-b484-4c0c-b6b1-67168500e600")
+    ID3D12InfoQueue1 : public ID3D12InfoQueue
+    {
+    public:
+        virtual HRESULT STDMETHODCALLTYPE RegisterMessageCallback( 
+            _In_  D3D12MessageFunc CallbackFunc,
+            _In_  D3D12_MESSAGE_CALLBACK_FLAGS CallbackFilterFlags,
+            _In_  void *pContext,
+            _Inout_  DWORD *pCallbackCookie) = 0;
+        
+        virtual HRESULT STDMETHODCALLTYPE UnregisterMessageCallback( 
+            _In_  DWORD CallbackCookie) = 0;
+        
+    };
+    
+    
+#else 	/* C style interface */
+
+    typedef struct ID3D12InfoQueue1Vtbl
+    {
+        BEGIN_INTERFACE
+        
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            ID3D12InfoQueue1 * This,
+            REFIID riid,
+            _COM_Outptr_  void **ppvObject);
+        
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            ID3D12InfoQueue1 * This);
+        
+        DECLSPEC_XFGVIRT(IUnknown, Release)
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            ID3D12InfoQueue1 * This);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, SetMessageCountLimit)
+        HRESULT ( STDMETHODCALLTYPE *SetMessageCountLimit )( 
+            ID3D12InfoQueue1 * This,
+            _In_  UINT64 MessageCountLimit);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, ClearStoredMessages)
+        void ( STDMETHODCALLTYPE *ClearStoredMessages )( 
+            ID3D12InfoQueue1 * This);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, GetMessage)
+        HRESULT ( STDMETHODCALLTYPE *GetMessage )( 
+            ID3D12InfoQueue1 * This,
+            _In_  UINT64 MessageIndex,
+            _Out_writes_bytes_opt_(*pMessageByteLength)  D3D12_MESSAGE *pMessage,
+            _Inout_  SIZE_T *pMessageByteLength);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, GetNumMessagesAllowedByStorageFilter)
+        UINT64 ( STDMETHODCALLTYPE *GetNumMessagesAllowedByStorageFilter )( 
+            ID3D12InfoQueue1 * This);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, GetNumMessagesDeniedByStorageFilter)
+        UINT64 ( STDMETHODCALLTYPE *GetNumMessagesDeniedByStorageFilter )( 
+            ID3D12InfoQueue1 * This);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, GetNumStoredMessages)
+        UINT64 ( STDMETHODCALLTYPE *GetNumStoredMessages )( 
+            ID3D12InfoQueue1 * This);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, GetNumStoredMessagesAllowedByRetrievalFilter)
+        UINT64 ( STDMETHODCALLTYPE *GetNumStoredMessagesAllowedByRetrievalFilter )( 
+            ID3D12InfoQueue1 * This);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, GetNumMessagesDiscardedByMessageCountLimit)
+        UINT64 ( STDMETHODCALLTYPE *GetNumMessagesDiscardedByMessageCountLimit )( 
+            ID3D12InfoQueue1 * This);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, GetMessageCountLimit)
+        UINT64 ( STDMETHODCALLTYPE *GetMessageCountLimit )( 
+            ID3D12InfoQueue1 * This);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, AddStorageFilterEntries)
+        HRESULT ( STDMETHODCALLTYPE *AddStorageFilterEntries )( 
+            ID3D12InfoQueue1 * This,
+            _In_  D3D12_INFO_QUEUE_FILTER *pFilter);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, GetStorageFilter)
+        HRESULT ( STDMETHODCALLTYPE *GetStorageFilter )( 
+            ID3D12InfoQueue1 * This,
+            _Out_writes_bytes_opt_(*pFilterByteLength)  D3D12_INFO_QUEUE_FILTER *pFilter,
+            _Inout_  SIZE_T *pFilterByteLength);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, ClearStorageFilter)
+        void ( STDMETHODCALLTYPE *ClearStorageFilter )( 
+            ID3D12InfoQueue1 * This);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, PushEmptyStorageFilter)
+        HRESULT ( STDMETHODCALLTYPE *PushEmptyStorageFilter )( 
+            ID3D12InfoQueue1 * This);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, PushCopyOfStorageFilter)
+        HRESULT ( STDMETHODCALLTYPE *PushCopyOfStorageFilter )( 
+            ID3D12InfoQueue1 * This);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, PushStorageFilter)
+        HRESULT ( STDMETHODCALLTYPE *PushStorageFilter )( 
+            ID3D12InfoQueue1 * This,
+            _In_  D3D12_INFO_QUEUE_FILTER *pFilter);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, PopStorageFilter)
+        void ( STDMETHODCALLTYPE *PopStorageFilter )( 
+            ID3D12InfoQueue1 * This);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, GetStorageFilterStackSize)
+        UINT ( STDMETHODCALLTYPE *GetStorageFilterStackSize )( 
+            ID3D12InfoQueue1 * This);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, AddRetrievalFilterEntries)
+        HRESULT ( STDMETHODCALLTYPE *AddRetrievalFilterEntries )( 
+            ID3D12InfoQueue1 * This,
+            _In_  D3D12_INFO_QUEUE_FILTER *pFilter);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, GetRetrievalFilter)
+        HRESULT ( STDMETHODCALLTYPE *GetRetrievalFilter )( 
+            ID3D12InfoQueue1 * This,
+            _Out_writes_bytes_opt_(*pFilterByteLength)  D3D12_INFO_QUEUE_FILTER *pFilter,
+            _Inout_  SIZE_T *pFilterByteLength);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, ClearRetrievalFilter)
+        void ( STDMETHODCALLTYPE *ClearRetrievalFilter )( 
+            ID3D12InfoQueue1 * This);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, PushEmptyRetrievalFilter)
+        HRESULT ( STDMETHODCALLTYPE *PushEmptyRetrievalFilter )( 
+            ID3D12InfoQueue1 * This);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, PushCopyOfRetrievalFilter)
+        HRESULT ( STDMETHODCALLTYPE *PushCopyOfRetrievalFilter )( 
+            ID3D12InfoQueue1 * This);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, PushRetrievalFilter)
+        HRESULT ( STDMETHODCALLTYPE *PushRetrievalFilter )( 
+            ID3D12InfoQueue1 * This,
+            _In_  D3D12_INFO_QUEUE_FILTER *pFilter);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, PopRetrievalFilter)
+        void ( STDMETHODCALLTYPE *PopRetrievalFilter )( 
+            ID3D12InfoQueue1 * This);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, GetRetrievalFilterStackSize)
+        UINT ( STDMETHODCALLTYPE *GetRetrievalFilterStackSize )( 
+            ID3D12InfoQueue1 * This);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, AddMessage)
+        HRESULT ( STDMETHODCALLTYPE *AddMessage )( 
+            ID3D12InfoQueue1 * This,
+            _In_  D3D12_MESSAGE_CATEGORY Category,
+            _In_  D3D12_MESSAGE_SEVERITY Severity,
+            _In_  D3D12_MESSAGE_ID ID,
+            _In_  LPCSTR pDescription);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, AddApplicationMessage)
+        HRESULT ( STDMETHODCALLTYPE *AddApplicationMessage )( 
+            ID3D12InfoQueue1 * This,
+            _In_  D3D12_MESSAGE_SEVERITY Severity,
+            _In_  LPCSTR pDescription);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, SetBreakOnCategory)
+        HRESULT ( STDMETHODCALLTYPE *SetBreakOnCategory )( 
+            ID3D12InfoQueue1 * This,
+            _In_  D3D12_MESSAGE_CATEGORY Category,
+            _In_  BOOL bEnable);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, SetBreakOnSeverity)
+        HRESULT ( STDMETHODCALLTYPE *SetBreakOnSeverity )( 
+            ID3D12InfoQueue1 * This,
+            _In_  D3D12_MESSAGE_SEVERITY Severity,
+            _In_  BOOL bEnable);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, SetBreakOnID)
+        HRESULT ( STDMETHODCALLTYPE *SetBreakOnID )( 
+            ID3D12InfoQueue1 * This,
+            _In_  D3D12_MESSAGE_ID ID,
+            _In_  BOOL bEnable);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, GetBreakOnCategory)
+        BOOL ( STDMETHODCALLTYPE *GetBreakOnCategory )( 
+            ID3D12InfoQueue1 * This,
+            _In_  D3D12_MESSAGE_CATEGORY Category);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, GetBreakOnSeverity)
+        BOOL ( STDMETHODCALLTYPE *GetBreakOnSeverity )( 
+            ID3D12InfoQueue1 * This,
+            _In_  D3D12_MESSAGE_SEVERITY Severity);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, GetBreakOnID)
+        BOOL ( STDMETHODCALLTYPE *GetBreakOnID )( 
+            ID3D12InfoQueue1 * This,
+            _In_  D3D12_MESSAGE_ID ID);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, SetMuteDebugOutput)
+        void ( STDMETHODCALLTYPE *SetMuteDebugOutput )( 
+            ID3D12InfoQueue1 * This,
+            _In_  BOOL bMute);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue, GetMuteDebugOutput)
+        BOOL ( STDMETHODCALLTYPE *GetMuteDebugOutput )( 
+            ID3D12InfoQueue1 * This);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue1, RegisterMessageCallback)
+        HRESULT ( STDMETHODCALLTYPE *RegisterMessageCallback )( 
+            ID3D12InfoQueue1 * This,
+            _In_  D3D12MessageFunc CallbackFunc,
+            _In_  D3D12_MESSAGE_CALLBACK_FLAGS CallbackFilterFlags,
+            _In_  void *pContext,
+            _Inout_  DWORD *pCallbackCookie);
+        
+        DECLSPEC_XFGVIRT(ID3D12InfoQueue1, UnregisterMessageCallback)
+        HRESULT ( STDMETHODCALLTYPE *UnregisterMessageCallback )( 
+            ID3D12InfoQueue1 * This,
+            _In_  DWORD CallbackCookie);
+        
+        END_INTERFACE
+    } ID3D12InfoQueue1Vtbl;
+
+    interface ID3D12InfoQueue1
+    {
+        CONST_VTBL struct ID3D12InfoQueue1Vtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define ID3D12InfoQueue1_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define ID3D12InfoQueue1_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define ID3D12InfoQueue1_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define ID3D12InfoQueue1_SetMessageCountLimit(This,MessageCountLimit)	\
+    ( (This)->lpVtbl -> SetMessageCountLimit(This,MessageCountLimit) ) 
+
+#define ID3D12InfoQueue1_ClearStoredMessages(This)	\
+    ( (This)->lpVtbl -> ClearStoredMessages(This) ) 
+
+#define ID3D12InfoQueue1_GetMessage(This,MessageIndex,pMessage,pMessageByteLength)	\
+    ( (This)->lpVtbl -> GetMessage(This,MessageIndex,pMessage,pMessageByteLength) ) 
+
+#define ID3D12InfoQueue1_GetNumMessagesAllowedByStorageFilter(This)	\
+    ( (This)->lpVtbl -> GetNumMessagesAllowedByStorageFilter(This) ) 
+
+#define ID3D12InfoQueue1_GetNumMessagesDeniedByStorageFilter(This)	\
+    ( (This)->lpVtbl -> GetNumMessagesDeniedByStorageFilter(This) ) 
+
+#define ID3D12InfoQueue1_GetNumStoredMessages(This)	\
+    ( (This)->lpVtbl -> GetNumStoredMessages(This) ) 
+
+#define ID3D12InfoQueue1_GetNumStoredMessagesAllowedByRetrievalFilter(This)	\
+    ( (This)->lpVtbl -> GetNumStoredMessagesAllowedByRetrievalFilter(This) ) 
+
+#define ID3D12InfoQueue1_GetNumMessagesDiscardedByMessageCountLimit(This)	\
+    ( (This)->lpVtbl -> GetNumMessagesDiscardedByMessageCountLimit(This) ) 
+
+#define ID3D12InfoQueue1_GetMessageCountLimit(This)	\
+    ( (This)->lpVtbl -> GetMessageCountLimit(This) ) 
+
+#define ID3D12InfoQueue1_AddStorageFilterEntries(This,pFilter)	\
+    ( (This)->lpVtbl -> AddStorageFilterEntries(This,pFilter) ) 
+
+#define ID3D12InfoQueue1_GetStorageFilter(This,pFilter,pFilterByteLength)	\
+    ( (This)->lpVtbl -> GetStorageFilter(This,pFilter,pFilterByteLength) ) 
+
+#define ID3D12InfoQueue1_ClearStorageFilter(This)	\
+    ( (This)->lpVtbl -> ClearStorageFilter(This) ) 
+
+#define ID3D12InfoQueue1_PushEmptyStorageFilter(This)	\
+    ( (This)->lpVtbl -> PushEmptyStorageFilter(This) ) 
+
+#define ID3D12InfoQueue1_PushCopyOfStorageFilter(This)	\
+    ( (This)->lpVtbl -> PushCopyOfStorageFilter(This) ) 
+
+#define ID3D12InfoQueue1_PushStorageFilter(This,pFilter)	\
+    ( (This)->lpVtbl -> PushStorageFilter(This,pFilter) ) 
+
+#define ID3D12InfoQueue1_PopStorageFilter(This)	\
+    ( (This)->lpVtbl -> PopStorageFilter(This) ) 
+
+#define ID3D12InfoQueue1_GetStorageFilterStackSize(This)	\
+    ( (This)->lpVtbl -> GetStorageFilterStackSize(This) ) 
+
+#define ID3D12InfoQueue1_AddRetrievalFilterEntries(This,pFilter)	\
+    ( (This)->lpVtbl -> AddRetrievalFilterEntries(This,pFilter) ) 
+
+#define ID3D12InfoQueue1_GetRetrievalFilter(This,pFilter,pFilterByteLength)	\
+    ( (This)->lpVtbl -> GetRetrievalFilter(This,pFilter,pFilterByteLength) ) 
+
+#define ID3D12InfoQueue1_ClearRetrievalFilter(This)	\
+    ( (This)->lpVtbl -> ClearRetrievalFilter(This) ) 
+
+#define ID3D12InfoQueue1_PushEmptyRetrievalFilter(This)	\
+    ( (This)->lpVtbl -> PushEmptyRetrievalFilter(This) ) 
+
+#define ID3D12InfoQueue1_PushCopyOfRetrievalFilter(This)	\
+    ( (This)->lpVtbl -> PushCopyOfRetrievalFilter(This) ) 
+
+#define ID3D12InfoQueue1_PushRetrievalFilter(This,pFilter)	\
+    ( (This)->lpVtbl -> PushRetrievalFilter(This,pFilter) ) 
+
+#define ID3D12InfoQueue1_PopRetrievalFilter(This)	\
+    ( (This)->lpVtbl -> PopRetrievalFilter(This) ) 
+
+#define ID3D12InfoQueue1_GetRetrievalFilterStackSize(This)	\
+    ( (This)->lpVtbl -> GetRetrievalFilterStackSize(This) ) 
+
+#define ID3D12InfoQueue1_AddMessage(This,Category,Severity,ID,pDescription)	\
+    ( (This)->lpVtbl -> AddMessage(This,Category,Severity,ID,pDescription) ) 
+
+#define ID3D12InfoQueue1_AddApplicationMessage(This,Severity,pDescription)	\
+    ( (This)->lpVtbl -> AddApplicationMessage(This,Severity,pDescription) ) 
+
+#define ID3D12InfoQueue1_SetBreakOnCategory(This,Category,bEnable)	\
+    ( (This)->lpVtbl -> SetBreakOnCategory(This,Category,bEnable) ) 
+
+#define ID3D12InfoQueue1_SetBreakOnSeverity(This,Severity,bEnable)	\
+    ( (This)->lpVtbl -> SetBreakOnSeverity(This,Severity,bEnable) ) 
+
+#define ID3D12InfoQueue1_SetBreakOnID(This,ID,bEnable)	\
+    ( (This)->lpVtbl -> SetBreakOnID(This,ID,bEnable) ) 
+
+#define ID3D12InfoQueue1_GetBreakOnCategory(This,Category)	\
+    ( (This)->lpVtbl -> GetBreakOnCategory(This,Category) ) 
+
+#define ID3D12InfoQueue1_GetBreakOnSeverity(This,Severity)	\
+    ( (This)->lpVtbl -> GetBreakOnSeverity(This,Severity) ) 
+
+#define ID3D12InfoQueue1_GetBreakOnID(This,ID)	\
+    ( (This)->lpVtbl -> GetBreakOnID(This,ID) ) 
+
+#define ID3D12InfoQueue1_SetMuteDebugOutput(This,bMute)	\
+    ( (This)->lpVtbl -> SetMuteDebugOutput(This,bMute) ) 
+
+#define ID3D12InfoQueue1_GetMuteDebugOutput(This)	\
+    ( (This)->lpVtbl -> GetMuteDebugOutput(This) ) 
+
+
+#define ID3D12InfoQueue1_RegisterMessageCallback(This,CallbackFunc,CallbackFilterFlags,pContext,pCallbackCookie)	\
+    ( (This)->lpVtbl -> RegisterMessageCallback(This,CallbackFunc,CallbackFilterFlags,pContext,pCallbackCookie) ) 
+
+#define ID3D12InfoQueue1_UnregisterMessageCallback(This,CallbackCookie)	\
+    ( (This)->lpVtbl -> UnregisterMessageCallback(This,CallbackCookie) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __ID3D12InfoQueue1_INTERFACE_DEFINED__ */
+
+
+/* interface __MIDL_itf_d3d12sdklayers_0000_0016 */
+/* [local] */ 
+
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 DEFINE_GUID(IID_ID3D12Debug,0x344488b7,0x6846,0x474b,0xb9,0x89,0xf0,0x27,0x44,0x82,0x45,0xe0);
@@ -3224,10 +3628,11 @@ DEFINE_GUID(IID_ID3D12DebugCommandList,0x09e0bf36,0x54ac,0x484f,0x88,0x47,0x4b,0
 DEFINE_GUID(IID_ID3D12DebugCommandList2,0xaeb575cf,0x4e06,0x48be,0xba,0x3b,0xc4,0x50,0xfc,0x96,0x65,0x2e);
 DEFINE_GUID(IID_ID3D12SharingContract,0x0adf7d52,0x929c,0x4e61,0xad,0xdb,0xff,0xed,0x30,0xde,0x66,0xef);
 DEFINE_GUID(IID_ID3D12InfoQueue,0x0742a90b,0xc387,0x483f,0xb9,0x46,0x30,0xa7,0xe4,0xe6,0x14,0x58);
+DEFINE_GUID(IID_ID3D12InfoQueue1,0x2852dd88,0xb484,0x4c0c,0xb6,0xb1,0x67,0x16,0x85,0x00,0xe6,0x00);
 
 
-extern RPC_IF_HANDLE __MIDL_itf_d3d12sdklayers_0000_0015_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_d3d12sdklayers_0000_0015_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_d3d12sdklayers_0000_0016_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_d3d12sdklayers_0000_0016_v0_0_s_ifspec;
 
 /* Additional Prototypes for ALL interfaces */
 

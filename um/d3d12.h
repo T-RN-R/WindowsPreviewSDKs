@@ -2532,7 +2532,7 @@ typedef
 enum D3D12_WAVE_MMA_ACCUM_DATATYPE
     {
         D3D12_WAVE_MMA_ACCUM_DATATYPE_NONE	= 0,
-        D3D12_WAVE_MMA_ACCUM_DATTYPE_INT32	= 0x1,
+        D3D12_WAVE_MMA_ACCUM_DATATYPE_INT32	= 0x1,
         D3D12_WAVE_MMA_ACCUM_DATATYPE_FLOAT16	= 0x2,
         D3D12_WAVE_MMA_ACCUM_DATATYPE_FLOAT	= 0x4
     } 	D3D12_WAVE_MMA_ACCUM_DATATYPE;
@@ -2546,7 +2546,8 @@ typedef struct D3D12_FEATURE_DATA_WAVE_MMA
     _Out_  BOOL Supported;
     _Out_  UINT K;
     _Out_  D3D12_WAVE_MMA_ACCUM_DATATYPE AccumDataTypes;
-    _Out_  UINT RequiredWaveSize;
+    _Out_  UINT RequiredWaveLaneCountMin;
+    _Out_  UINT RequiredWaveLaneCountMax;
     } 	D3D12_FEATURE_DATA_WAVE_MMA;
 
 typedef struct D3D12_RESOURCE_ALLOCATION_INFO

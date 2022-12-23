@@ -249,7 +249,11 @@ namespace Windows
 
         interface IAppUriHandlerHost;
 
+        interface IAppUriHandlerHost2;
+
         interface IAppUriHandlerHostFactory;
+
+        interface IAppUriHandlerHostStatics;
 
         interface IAppUriHandlerRegistration;
 
@@ -1216,12 +1220,30 @@ namespace Windows
             [propput] HRESULT Name([in] HSTRING value);
         }
 
+        [contract(Windows.Foundation.UniversalApiContract, 12.0)]
+        [exclusiveto(Windows.System.AppUriHandlerHost)]
+        [uuid(680E6023-F820-57E9-8B4D-7D21998B9118)]
+        interface IAppUriHandlerHost2 : IInspectable
+        {
+            [propget] HRESULT Uri([out] [retval] Windows.Foundation.Uri** value);
+            [propput] HRESULT Uri([in] Windows.Foundation.Uri* value);
+            [propget] HRESULT Path([out] [retval] HSTRING* value);
+        }
+
         [contract(Windows.Foundation.UniversalApiContract, 7.0)]
         [exclusiveto(Windows.System.AppUriHandlerHost)]
         [uuid(257C3C96-CE04-5F98-96BB-3EBD3E9275BB)]
         interface IAppUriHandlerHostFactory : IInspectable
         {
             HRESULT CreateInstance([in] HSTRING name, [out] [retval] Windows.System.AppUriHandlerHost** value);
+        }
+
+        [contract(Windows.Foundation.UniversalApiContract, 12.0)]
+        [exclusiveto(Windows.System.AppUriHandlerHost)]
+        [uuid(47BA50D4-0B97-5712-8F2A-DB5AE8F1E846)]
+        interface IAppUriHandlerHostStatics : IInspectable
+        {
+            HRESULT CreateFromUri([in] Windows.Foundation.Uri* uri, [out] [retval] Windows.System.AppUriHandlerHost** result);
         }
 
         [contract(Windows.Foundation.UniversalApiContract, 7.0)]
@@ -1900,10 +1922,12 @@ namespace Windows
         [activatable(Windows.System.IAppUriHandlerHostFactory, Windows.Foundation.UniversalApiContract, 7.0)]
         [contract(Windows.Foundation.UniversalApiContract, 7.0)]
         [marshaling_behavior(agile)]
+        [static(Windows.System.IAppUriHandlerHostStatics, Windows.Foundation.UniversalApiContract, 12.0)]
         [threading(both)]
         runtimeclass AppUriHandlerHost
         {
             [default] interface Windows.System.IAppUriHandlerHost;
+            [contract(Windows.Foundation.UniversalApiContract, 12.0)] interface Windows.System.IAppUriHandlerHost2;
         }
 
         [contract(Windows.Foundation.UniversalApiContract, 7.0)]

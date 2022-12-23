@@ -448,8 +448,8 @@ namespace winrt::impl
     {
         struct __declspec(novtable) type : inspectable_abi
         {
-            virtual int32_t __stdcall get_WindowTitleOverride(void**) noexcept = 0;
-            virtual int32_t __stdcall put_WindowTitleOverride(void*) noexcept = 0;
+            virtual int32_t __stdcall get_WindowAnnotationOverride(void**) noexcept = 0;
+            virtual int32_t __stdcall put_WindowAnnotationOverride(void*) noexcept = 0;
         };
     };
     template <> struct abi<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationData>
@@ -721,8 +721,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions2
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WindowTitleOverride() const;
-        WINRT_IMPL_AUTO(void) WindowTitleOverride(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WindowAnnotationOverride() const;
+        WINRT_IMPL_AUTO(void) WindowAnnotationOverride(param::hstring const& value) const;
     };
     template <> struct consume<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions2>
     {

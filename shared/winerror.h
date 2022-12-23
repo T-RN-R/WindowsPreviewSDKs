@@ -154,6 +154,7 @@
 #define FACILITY_USER_MODE_SECURITY_CORE 232
 #define FACILITY_USERMODE_LICENSING      234
 #define FACILITY_SOS                     160
+#define FACILITY_OCP_UPDATE_AGENT        173
 #define FACILITY_DEBUGGERS               176
 #define FACILITY_SPP                     256
 #define FACILITY_RESTORE                 256
@@ -49847,6 +49848,15 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 // An invalid certificate has been found in the Network Boot Protector certificate store.
 //
 #define FVE_E_INVALID_NBP_CERT           _HRESULT_TYPEDEF_(0x803100E2L)
+
+//
+// MessageId: FVE_E_EDRIVE_BAND_ENUMERATION_FAILED
+//
+// MessageText:
+//
+// This command cannot be performed on an eDrive volume where the bands couldn't be enumerated.
+//
+#define FVE_E_EDRIVE_BAND_ENUMERATION_FAILED _HRESULT_TYPEDEF_(0x803100E3L)
 
 //
 // =======================================================

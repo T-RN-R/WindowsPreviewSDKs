@@ -821,6 +821,13 @@
       <xs:enumeration value="windows.comServer"/>
     </xs:restriction>
   </xs:simpleType>
+
+  <xs:simpleType name="ST_ExtensionCategory_Deployment">
+    <xs:restriction base="xs:string">
+      <!-- Package Extensions -->
+      <xs:enumeration value="windows.deploymentExtensionHandler"/>
+    </xs:restriction>
+  </xs:simpleType>
     
   <xs:simpleType name="ST_ApplicationExtensionCategory_Mobile">
     <xs:restriction base="xs:string">

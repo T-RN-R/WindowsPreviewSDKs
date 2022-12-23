@@ -2285,6 +2285,27 @@ HttpPreConnect(
     _In_ DWORD cConnections
 );
 
+typedef enum
+{
+    POLICY_EXTENSION_TYPE_NONE = 0,
+    POLICY_EXTENSION_TYPE_WINHTTP = 1,
+    POLICY_EXTENSION_TYPE_WININET = 2
+} HTTP_POLICY_EXTENSION_TYPE;
+
+typedef enum
+{
+    POLICY_EXTENSION_VERSION1 = 1
+}  HTTP_POLICY_EXTENSION_VERSION;
+
+typedef DWORD
+(WINAPI * HTTP_POLICY_EXTENSION_INIT)(_In_ HTTP_POLICY_EXTENSION_VERSION Version,
+                                      _In_ HTTP_POLICY_EXTENSION_TYPE Type,
+                                      _In_ VOID* pvData,
+                                      _In_ ULONG cbData);
+
+typedef DWORD
+(WINAPI * HTTP_POLICY_EXTENSION_SHUTDOWN)(_In_ HTTP_POLICY_EXTENSION_TYPE Type);
+
 
 #if defined(__cplusplus)
 }

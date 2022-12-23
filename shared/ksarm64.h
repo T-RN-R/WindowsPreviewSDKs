@@ -947,7 +947,6 @@
 #define PbDpcTime 0xf0c
 #define PbInterruptTime 0xf10
 #define PbAdjustDpcThreshold 0xf14
-#define PbParentNode 0xf38
 #define PbStartCycles 0xf48
 #define PbPageColor 0x10d0
 #define PbNodeColor 0x10d4

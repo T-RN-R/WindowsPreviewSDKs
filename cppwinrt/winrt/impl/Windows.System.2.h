@@ -102,12 +102,14 @@ WINRT_EXPORT namespace winrt::Windows::System
         AppResourceGroupStateReport(std::nullptr_t) noexcept {}
         AppResourceGroupStateReport(void* ptr, take_ownership_from_abi_t) noexcept : Windows::System::IAppResourceGroupStateReport(ptr, take_ownership_from_abi) {}
     };
-    struct __declspec(empty_bases) AppUriHandlerHost : Windows::System::IAppUriHandlerHost
+    struct __declspec(empty_bases) AppUriHandlerHost : Windows::System::IAppUriHandlerHost,
+        impl::require<AppUriHandlerHost, Windows::System::IAppUriHandlerHost2>
     {
         AppUriHandlerHost(std::nullptr_t) noexcept {}
         AppUriHandlerHost(void* ptr, take_ownership_from_abi_t) noexcept : Windows::System::IAppUriHandlerHost(ptr, take_ownership_from_abi) {}
         AppUriHandlerHost();
         explicit AppUriHandlerHost(param::hstring const& name);
+        static auto CreateFromUri(Windows::Foundation::Uri const& uri);
     };
     struct __declspec(empty_bases) AppUriHandlerRegistration : Windows::System::IAppUriHandlerRegistration
     {

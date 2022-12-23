@@ -328,7 +328,7 @@ HRESULT indicating success or failure.
 
 --*/
 HRESULT WINAPI
-RegisterDeviceWithManagementUsingAADDeviceCredentialsEx(_In_opt_z_ PCWSTR MDMApplicationID);
+RegisterDeviceWithManagementUsingAADDeviceCredentials2(_In_opt_ PCWSTR MDMApplicationID);
 
 
 /*++

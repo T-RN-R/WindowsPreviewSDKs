@@ -481,8 +481,8 @@ namespace Windows
             [uuid(10D7CC31-8B8F-4B9D-B22C-617103B55B08)]
             interface IIsolatedWindowsEnvironmentOptions2 : IInspectable
             {
-                [propget] HRESULT WindowTitleOverride([out] [retval] HSTRING* value);
-                [propput] HRESULT WindowTitleOverride([in] HSTRING value);
+                [propget] HRESULT WindowAnnotationOverride([out] [retval] HSTRING* value);
+                [propput] HRESULT WindowAnnotationOverride([in] HSTRING value);
             }
 
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]

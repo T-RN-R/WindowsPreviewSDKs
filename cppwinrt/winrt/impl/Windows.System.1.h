@@ -155,12 +155,26 @@ WINRT_EXPORT namespace winrt::Windows::System
         IAppUriHandlerHost(std::nullptr_t = nullptr) noexcept {}
         IAppUriHandlerHost(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
+    struct __declspec(empty_bases) IAppUriHandlerHost2 :
+        Windows::Foundation::IInspectable,
+        impl::consume_t<IAppUriHandlerHost2>
+    {
+        IAppUriHandlerHost2(std::nullptr_t = nullptr) noexcept {}
+        IAppUriHandlerHost2(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
     struct __declspec(empty_bases) IAppUriHandlerHostFactory :
         Windows::Foundation::IInspectable,
         impl::consume_t<IAppUriHandlerHostFactory>
     {
         IAppUriHandlerHostFactory(std::nullptr_t = nullptr) noexcept {}
         IAppUriHandlerHostFactory(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IAppUriHandlerHostStatics :
+        Windows::Foundation::IInspectable,
+        impl::consume_t<IAppUriHandlerHostStatics>
+    {
+        IAppUriHandlerHostStatics(std::nullptr_t = nullptr) noexcept {}
+        IAppUriHandlerHostStatics(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
     struct __declspec(empty_bases) IAppUriHandlerRegistration :
         Windows::Foundation::IInspectable,

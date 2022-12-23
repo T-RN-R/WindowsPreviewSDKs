@@ -551,9 +551,9 @@ typedef struct _D3DKMDT_VIDEO_SIGNAL_INFO
             D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING ScanLineOrdering : 3;
 
             // Vertical refresh frequency divider
-            UINT VSyncFreqDivider : 6;
+            UINT VSyncFreqDivider               : 6;
 
-            UINT Reserved : 23;
+            UINT Reserved                       : 23;
 
         } AdditionalSignalInfo;
 #endif // DXGKDDI_INTERFACE_VERSION_WDDM1_3_M1
@@ -632,6 +632,12 @@ typedef struct _D3DKMDT_VIDPN_TARGET_MODE
     // the source of the respective present path.
     D3DKMDT_MODE_PREFERENCE  Preference;
 #endif // (DXGKDDI_INTERFACE_VERSION < DXGKDDI_INTERFACE_VERSION_WDDM2_2)
+
+#if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_9)
+
+    D3DDDI_RATIONAL MinimumVSyncFreq;
+
+#endif // (DXGKDDI_INTERFACE_VERSION < DXGKDDI_INTERFACE_VERSION_WDDM2_9)
 
 }
 D3DKMDT_VIDPN_TARGET_MODE;
