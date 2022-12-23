@@ -493,6 +493,12 @@ typedef struct _WINHTTP_EXTENDED_HEADER
 
 #pragma warning(pop)
 
+typedef union _WINHTTP_HEADER_NAME
+{
+    PCWSTR pwszName;
+    PCSTR  pszName;
+} WINHTTP_HEADER_NAME, *PWINHTTP_HEADER_NAME;
+
 #define WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_SOFT_LIMIT      0x00000001
 #define WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_BYPASS_CACHE    0x00000002
 #define WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_USE_DNS_TTL     0x00000004
@@ -1067,6 +1073,8 @@ typedef WINHTTP_STATUS_CALLBACK * LPWINHTTP_STATUS_CALLBACK;
 #define WINHTTP_QUERY_PASSPORT_CONFIG              78
 
 #define WINHTTP_QUERY_MAX                          78
+
+#define WINHTTP_QUERY_EX_ALL_HEADERS               WINHTTP_QUERY_RAW_HEADERS
 
 //
 // WINHTTP_QUERY_CUSTOM - if this special value is supplied as the dwInfoLevel
@@ -1772,7 +1780,8 @@ WinHttpQueryHeadersEx
     _In_ DWORD dwInfoLevel,
     _In_ ULONGLONG ullFlags,
     _In_ UINT uiCodePage,
-    _In_opt_ PCWSTR pwszName,
+    _Inout_opt_ PDWORD pdwIndex,
+    _In_opt_ PWINHTTP_HEADER_NAME pHeaderName,
     _Out_writes_bytes_to_opt_(*pdwBufferLength, *pdwBufferLength) PVOID pBuffer,
     _Inout_ PDWORD pdwBufferLength,
     _Out_writes_opt_(*pdwHeadersCount) PWINHTTP_EXTENDED_HEADER *ppHeaders,

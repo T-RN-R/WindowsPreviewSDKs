@@ -300,13 +300,13 @@ namespace Windows
             [flags]
             enum StorageProviderHydrationPolicyModifier
             {
-                None                         = 0x0,
-                ValidationRequired           = 0x1,
-                StreamingAllowed             = 0x2,
+                None                      = 0x0,
+                ValidationRequired        = 0x1,
+                StreamingAllowed          = 0x2,
                 [contract(Windows.Storage.Provider.CloudFilesContract, 3.0)]
-                AutoDehydrationAllowed       = 0x4,
+                AutoDehydrationAllowed    = 0x4,
                 [contract(Windows.Storage.Provider.CloudFilesContract, 6.0)]
-                FullRestartHydrationRequired = 0x8
+                AllowFullRestartHydration = 0x8
             };
 
             [contract(Windows.Storage.Provider.CloudFilesContract, 1.0)]

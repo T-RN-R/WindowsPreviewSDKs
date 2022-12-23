@@ -1620,7 +1620,7 @@ namespace ABI {
                     StorageProviderHydrationPolicyModifier_AutoDehydrationAllowed = 0x4,
 #endif // WINDOWS_STORAGE_PROVIDER_CLOUDFILESCONTRACT_VERSION >= 0x30000
 #if WINDOWS_STORAGE_PROVIDER_CLOUDFILESCONTRACT_VERSION >= 0x60000
-                    StorageProviderHydrationPolicyModifier_FullRestartHydrationRequired = 0x8,
+                    StorageProviderHydrationPolicyModifier_AllowFullRestartHydration = 0x8,
 #endif // WINDOWS_STORAGE_PROVIDER_CLOUDFILESCONTRACT_VERSION >= 0x60000
                 };
 
@@ -5344,7 +5344,7 @@ enum __x_ABI_CWindows_CStorage_CProvider_CStorageProviderHydrationPolicyModifier
     StorageProviderHydrationPolicyModifier_AutoDehydrationAllowed = 0x4,
 #endif // WINDOWS_STORAGE_PROVIDER_CLOUDFILESCONTRACT_VERSION >= 0x30000
 #if WINDOWS_STORAGE_PROVIDER_CLOUDFILESCONTRACT_VERSION >= 0x60000
-    StorageProviderHydrationPolicyModifier_FullRestartHydrationRequired = 0x8,
+    StorageProviderHydrationPolicyModifier_AllowFullRestartHydration = 0x8,
 #endif // WINDOWS_STORAGE_PROVIDER_CLOUDFILESCONTRACT_VERSION >= 0x60000
 };
 #endif // WINDOWS_STORAGE_PROVIDER_CLOUDFILESCONTRACT_VERSION >= 0x10000
