@@ -3350,9 +3350,6 @@
 //
 #define ERROR_DLP_POLICY_SILENTLY_FAIL   449L
 
-//
-// **** Available SYSTEM error codes ****
-//
 
 ///////////////////////////////////////////////////
 //                                               //
@@ -3516,6 +3513,15 @@
 // Attempt to access invalid address.
 //
 #define ERROR_INVALID_ADDRESS            487L
+
+//
+// MessageId: ERROR_HAS_SYSTEM_CRITICAL_FILES
+//
+// MessageText:
+//
+// The volume contains paging, crash dump or other system critical files.
+//
+#define ERROR_HAS_SYSTEM_CRITICAL_FILES  488L
 
 //
 // MessageId: ERROR_PARTITION_TERMINATING
@@ -6081,6 +6087,15 @@
 // An attempt was made to access protected memory in violation of its secure access policy.
 //
 #define ERROR_ENCLAVE_VIOLATION          815L
+
+//
+// MessageId: ERROR_SERVER_TRANSPORT_CONFLICT
+//
+// MessageText:
+//
+// Multiple mappings to shared resource(s) on a server, using more than one transport, are not allowed. Use a single transport for all mappings to a server and try again.
+//
+#define ERROR_SERVER_TRANSPORT_CONFLICT  816L
 
 //
 // **** Available SYSTEM error codes ****
@@ -33511,7 +33526,7 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 //
 // MessageText:
 //
-// The package folder ACLs are invalid. 
+// The package folder ACLs are invalid.
 //
 #define APPX_E_INVALID_PACKAGE_FOLDER_ACLS _HRESULT_TYPEDEF_(0x80080217L)
 
@@ -41287,7 +41302,7 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 //
 // FACILITY_WINDOWS_CE
 // The following are MDM Registration and Enrollment errors
-// 
+//
 //
 // MessageId: MENROLL_E_DEVICE_MESSAGE_FORMAT_ERROR
 //
@@ -56850,6 +56865,114 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 #define ERROR_SPACES_ENTRY_INVALID       _HRESULT_TYPEDEF_(0x80E70014L)
 
 //
+// MessageId: ERROR_SPACES_UPDATE_COLUMN_STATE
+//
+// MessageText:
+//
+// A column's state needs to be updated.
+//
+#define ERROR_SPACES_UPDATE_COLUMN_STATE _HRESULT_TYPEDEF_(0x80E70015L)
+
+//
+// MessageId: ERROR_SPACES_MAP_REQUIRED
+//
+// MessageText:
+//
+// An extent needs to be allocated.
+//
+#define ERROR_SPACES_MAP_REQUIRED        _HRESULT_TYPEDEF_(0x80E70016L)
+
+//
+// MessageId: ERROR_SPACES_UNSUPPORTED_VERSION
+//
+// MessageText:
+//
+// The metadata version is unsupported.
+//
+#define ERROR_SPACES_UNSUPPORTED_VERSION _HRESULT_TYPEDEF_(0x80E70017L)
+
+//
+// MessageId: ERROR_SPACES_CORRUPT_METADATA
+//
+// MessageText:
+//
+// The metadata read was corrupt.
+//
+#define ERROR_SPACES_CORRUPT_METADATA    _HRESULT_TYPEDEF_(0x80E70018L)
+
+//
+// MessageId: ERROR_SPACES_DRT_FULL
+//
+// MessageText:
+//
+// The DRT is full.
+//
+#define ERROR_SPACES_DRT_FULL            _HRESULT_TYPEDEF_(0x80E70019L)
+
+//
+// MessageId: ERROR_SPACES_INCONSISTENCY
+//
+// MessageText:
+//
+// An inconsistency was found.
+//
+#define ERROR_SPACES_INCONSISTENCY       _HRESULT_TYPEDEF_(0x80E7001AL)
+
+//
+// MessageId: ERROR_SPACES_LOG_NOT_READY
+//
+// MessageText:
+//
+// The log is not ready.
+//
+#define ERROR_SPACES_LOG_NOT_READY       _HRESULT_TYPEDEF_(0x80E7001BL)
+
+//
+// MessageId: ERROR_SPACES_NO_REDUNDANCY
+//
+// MessageText:
+//
+// No good copy of data was available.
+//
+#define ERROR_SPACES_NO_REDUNDANCY       _HRESULT_TYPEDEF_(0x80E7001CL)
+
+//
+// MessageId: ERROR_SPACES_DRIVE_NOT_READY
+//
+// MessageText:
+//
+// The drive is not ready.
+//
+#define ERROR_SPACES_DRIVE_NOT_READY     _HRESULT_TYPEDEF_(0x80E7001DL)
+
+//
+// MessageId: ERROR_SPACES_DRIVE_SPLIT
+//
+// MessageText:
+//
+// The data on this drive is stale.
+//
+#define ERROR_SPACES_DRIVE_SPLIT         _HRESULT_TYPEDEF_(0x80E7001EL)
+
+//
+// MessageId: ERROR_SPACES_DRIVE_LOST_DATA
+//
+// MessageText:
+//
+// The data on this drive has been lost.
+//
+#define ERROR_SPACES_DRIVE_LOST_DATA     _HRESULT_TYPEDEF_(0x80E7001FL)
+
+//
+// MessageId: ERROR_SPACES_MARK_DIRTY
+//
+// MessageText:
+//
+// A slab needs to be marked dirty.
+//
+#define ERROR_SPACES_MARK_DIRTY          _HRESULT_TYPEDEF_(0x80E70020L)
+
+//
 // Volsnap errors
 //
 // Success
@@ -57620,6 +57743,15 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 // The blob provided was created for a different version of the driver, and must be re-created.
 //
 #define D3D12_ERROR_DRIVER_VERSION_MISMATCH _HRESULT_TYPEDEF_(0x887E0002L)
+
+//
+// MessageId: D3D12_ERROR_INVALID_REDIST
+//
+// MessageText:
+//
+// The D3D12 SDK version configuration of the host exe is invalid.
+//
+#define D3D12_ERROR_INVALID_REDIST       _HRESULT_TYPEDEF_(0x887E0003L)
 
 
 //

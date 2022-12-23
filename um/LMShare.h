@@ -653,6 +653,7 @@ typedef struct _SERVER_CERTIFICATE_INFO_0 {
     LMSTR      srvci0_storelocation;
     LMSTR      srvci0_storename;
     DWORD      srvci0_type;
+    DWORD      srvci0_flags;
 } SERVER_CERTIFICATE_INFO_0, *PSERVER_CERTIFICATE_INFO_0, *LPSERVER_CERTIFICATE_INFO_0;
 
 //

@@ -5989,6 +5989,15 @@ Notes:
 #define STATUS_WEAK_WHFBKEY_BLOCKED      ((NTSTATUS)0xC00001B3L)
 
 //
+// MessageId: STATUS_SERVER_TRANSPORT_CONFLICT
+//
+// MessageText:
+//
+// Multiple mappings to shared resource(s) on a server, using more than one transport, are not allowed. Use a single transport for all mappings to a server and try again.
+//
+#define STATUS_SERVER_TRANSPORT_CONFLICT ((NTSTATUS)0xC00001B4L)
+
+//
 //  Available range of NTSTATUS codes
 //
 //
@@ -10231,6 +10240,15 @@ Notes:
 // The path cannot be traversed because it contains an untrusted mount point.
 //
 #define STATUS_UNTRUSTED_MOUNT_POINT     ((NTSTATUS)0xC00004BCL)
+
+//
+// MessageId: STATUS_HAS_SYSTEM_CRITICAL_FILES
+//
+// MessageText:
+//
+// The volume contains paging, crash dump or other system critical files.
+//
+#define STATUS_HAS_SYSTEM_CRITICAL_FILES ((NTSTATUS)0xC00004BDL)
 
 
 //     **** New SYSTEM error codes can be inserted here ****

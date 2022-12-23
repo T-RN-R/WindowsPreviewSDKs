@@ -2806,10 +2806,10 @@ namespace ABI {
  *
  * Struct Windows.ApplicationModel.AppExecutionContext
  *
- * Introduced to Windows.Foundation.UniversalApiContract in version 10.0
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
  *
  */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 namespace ABI {
     namespace Windows {
         namespace ApplicationModel {
@@ -2822,7 +2822,7 @@ namespace ABI {
         } /* ApplicationModel */
     } /* Windows */
 } /* ABI */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 /*
  *
@@ -3111,12 +3111,12 @@ EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CIAppInfo2;
  *
  * Interface Windows.ApplicationModel.IAppInfo3
  *
- * Introduced to Windows.Foundation.UniversalApiContract in version 10.0
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
  *
  * Interface is a part of the implementation of type Windows.ApplicationModel.AppInfo
  *
  */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 #if !defined(____x_ABI_CWindows_CApplicationModel_CIAppInfo3_INTERFACE_DEFINED__)
 #define ____x_ABI_CWindows_CApplicationModel_CIAppInfo3_INTERFACE_DEFINED__
 extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_ApplicationModel_IAppInfo3[] = L"Windows.ApplicationModel.IAppInfo3";
@@ -3139,7 +3139,7 @@ namespace ABI {
 
 EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CIAppInfo3;
 #endif /* !defined(____x_ABI_CWindows_CApplicationModel_CIAppInfo3_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 /*
  *
@@ -5308,8 +5308,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.ApplicationModel.IDesignModeStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.ApplicationModel.IDesignModeStatics2 interface starting with version 5.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.ApplicationModel.IDesignModeStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
@@ -9980,17 +9980,17 @@ enum __x_ABI_CWindows_CApplicationModel_CAddResourcePackageOptions
  *
  * Struct Windows.ApplicationModel.AppExecutionContext
  *
- * Introduced to Windows.Foundation.UniversalApiContract in version 10.0
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
  *
  */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 enum __x_ABI_CWindows_CApplicationModel_CAppExecutionContext
 {
     AppExecutionContext_Unknown = 0,
     AppExecutionContext_Host = 1,
     AppExecutionContext_Guest = 2,
 };
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 /*
  *
@@ -10352,12 +10352,12 @@ EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CIAppInfo2;
  *
  * Interface Windows.ApplicationModel.IAppInfo3
  *
- * Introduced to Windows.Foundation.UniversalApiContract in version 10.0
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
  *
  * Interface is a part of the implementation of type Windows.ApplicationModel.AppInfo
  *
  */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 #if !defined(____x_ABI_CWindows_CApplicationModel_CIAppInfo3_INTERFACE_DEFINED__)
 #define ____x_ABI_CWindows_CApplicationModel_CIAppInfo3_INTERFACE_DEFINED__
 extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_ApplicationModel_IAppInfo3[] = L"Windows.ApplicationModel.IAppInfo3";
@@ -10415,7 +10415,7 @@ interface __x_ABI_CWindows_CApplicationModel_CIAppInfo3
 
 EXTERN_C const IID IID___x_ABI_CWindows_CApplicationModel_CIAppInfo3;
 #endif /* !defined(____x_ABI_CWindows_CApplicationModel_CIAppInfo3_INTERFACE_DEFINED__) */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 /*
  *
@@ -14575,8 +14575,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.ApplicationModel.IDesignModeStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.ApplicationModel.IDesignModeStatics2 interface starting with version 5.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.ApplicationModel.IDesignModeStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *

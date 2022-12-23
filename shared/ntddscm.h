@@ -495,39 +495,45 @@ typedef enum _SCM_PD_QUERY_TYPE {
 } SCM_PD_QUERY_TYPE, *PSCM_PD_QUERY_TYPE;
 
 typedef enum _SCM_PD_PROPERTY_ID {
-    
+
     //
     // General information about the device.
     //
     ScmPhysicalDeviceProperty_DeviceInfo = 0,
-    
+
     //
     // Information about the device's health.
     //
     ScmPhysicalDeviceProperty_ManagementStatus,
-    
+
     //
     // Firmware-related information.
     //
     ScmPhysicalDeviceProperty_FirmwareInfo,
-    
+
     //
     // Returns a string that identifies where the device is located
     // on the local system.
     //
     ScmPhysicalDeviceProperty_LocationString,
-    
+
     //
     // Returns a series of device-specific information, which give more detail
     // on the device's status.
     //
     ScmPhysicalDeviceProperty_DeviceSpecificInfo,
-    
+
     //
     // Returns a identifying handle of the physical device, which comes from
     // the NFIT table.
     //
     ScmPhysicalDeviceProperty_DeviceHandle,
+
+    //
+    // Returns a string that identifies the replacement unit housing
+    // the device on the local system.
+    //
+    ScmPhysicalDeviceProperty_FruIdString,
 
     ScmPhysicalDeviceProperty_Max
 } SCM_PD_PROPERTY_ID, *PSCM_PD_PROPERTY_ID;
@@ -954,6 +960,32 @@ typedef struct _SCM_PD_LOCATION_STRING {
     WCHAR Location[ANYSIZE_ARRAY];
 
 } SCM_PD_LOCATION_STRING, *PSCM_PD_LOCATION_STRING;
+
+//
+// Output buffer for ScmPhysicalDeviceQuery_Descriptor & ScmPhysicalDeviceProperty_FruIdString
+//
+typedef struct _SCM_PD_FRU_ID_STRING {
+
+    //
+    // Sizeof() of this structure serves as the version.
+    //
+    ULONG Version;
+
+    //
+    // The total size of the structure, including the buffer for the fru id string.
+    // If the output buffer is too small to contain the requested information,
+    // the Size field indicates the length of the output buffer the caller should provide
+    // in order to retrieve all the data.
+    //
+    ULONG Size;
+
+    //
+    // The string that represents the fru id of this physical device.
+    //
+    ULONG IdentifierSize;
+    UCHAR Identifier[ANYSIZE_ARRAY];
+
+} SCM_PD_FRU_ID_STRING, *PSCM_PD_FRU_ID_STRING;
 
 //
 // Firmware update IOCTLs.

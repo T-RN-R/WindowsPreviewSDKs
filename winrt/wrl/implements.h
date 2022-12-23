@@ -591,6 +591,8 @@ struct VerifyInheritanceHelper<I, Nil>
 
 } // namespace Details
 
+// note: Due to potential shutdown ordering issues, the results of GetModuleBase
+// should always be checked for null on reference counting and cleanup operations.
 inline Details::ModuleBase* GetModuleBase() throw()
 {
     return Details::ModuleBase::module_;
@@ -832,7 +834,7 @@ struct __declspec(novtable) ImplementsHelper<RuntimeClassFlagsT, doStrictCheck, 
     I0,
     AdjustImplements<RuntimeClassFlagsT, true, TInterfaces...>::Type
 {
-    template <typename RuntimeClassFlagsT, bool doStrictCheck, typename ...TInterfaces> friend struct ImplementsHelper;
+    template <typename OtherRuntimeClassFlagsT, bool OtherDoStrictCheck, typename ...TOtherInterfaces> friend struct ImplementsHelper;
     template <unsigned int RuntimeClassTypeT> friend class RuntimeClassBaseT;
 
 protected:
@@ -882,7 +884,7 @@ struct __declspec(novtable) ImplementsHelper<RuntimeClassFlagsT, doStrictCheck, 
     Selector<I0, ImplementsHelper<RuntimeClassFlagsT, doStrictCheck, ImplementsMarker<I0>, TInterfaces...>>,
     Selector<typename AdjustImplements<RuntimeClassFlagsT, true, TInterfaces...>::Type, ImplementsHelper<RuntimeClassFlagsT, doStrictCheck, ImplementsMarker<I0>, TInterfaces...>>
 {
-    template <typename RuntimeClassFlagsT, bool doStrictCheck, typename ...TInterfaces> friend struct ImplementsHelper;
+    template <typename OtherRuntimeClassFlagsT, bool OtherDoStrictCheck, typename ...TOtherInterfaces> friend struct ImplementsHelper;
     template <unsigned int RuntimeClassTypeT> friend class RuntimeClassBaseT;
 
 protected:
@@ -927,7 +929,7 @@ struct __declspec(novtable) ImplementsHelper<RuntimeClassFlagsT, doStrictCheck, 
     AdjustImplements<RuntimeClassFlagsT, doStrictCheck, I0>::Type,
     AdjustImplements<RuntimeClassFlagsT, true, I1, TInterfaces...>::Type
 {
-    template <typename RuntimeClassFlagsT, bool doStrictCheck, typename ...TInterfaces> friend struct ImplementsHelper;
+    template <typename OtherRuntimeClassFlagsT, bool OtherDoStrictCheck, typename ...TOtherInterfaces> friend struct ImplementsHelper;
     template <unsigned int RuntimeClassTypeT> friend class Details::RuntimeClassBaseT;
 
 protected:
@@ -968,7 +970,7 @@ template <typename RuntimeClassFlagsT, bool doStrictCheck, typename I0>
 struct __declspec(novtable) ImplementsHelper<RuntimeClassFlagsT, doStrictCheck, CloakedIid<I0>> :
     AdjustImplements<RuntimeClassFlagsT, doStrictCheck, I0>::Type
 {
-    template <typename RuntimeClassFlagsT, bool doStrictCheck, typename ...TInterfaces> friend struct ImplementsHelper;
+    template <typename OtherRuntimeClassFlagsT, bool OtherDoStrictCheck, typename ...TInterfaces> friend struct ImplementsHelper;
     template <unsigned int RuntimeClassTypeT> friend class Details::RuntimeClassBaseT;
 
 protected:
@@ -1004,7 +1006,7 @@ protected:
 template <typename RuntimeClassFlagsT, bool doStrictCheck>
 struct __declspec(novtable) ImplementsHelper<RuntimeClassFlagsT, doStrictCheck>
 {
-    template <typename RuntimeClassFlagsT, bool doStrictCheck, typename ...TInterfaces> friend struct ImplementsHelper;
+    template <typename OtherRuntimeClassFlagsT, bool OtherDoStrictCheck, typename ...TInterfaces> friend struct ImplementsHelper;
     template <unsigned int RuntimeClassTypeT> friend class RuntimeClassBaseT;
 
 protected:
@@ -1033,7 +1035,7 @@ struct __declspec(novtable) ImplementsHelper<RuntimeClassFlagsT, doStrictCheck, 
     ChainInterfaces<C0, C1, C2, C3, C4, C5, C6, C7, C8, C9>,
     AdjustImplements<RuntimeClassFlagsT, true, TInterfaces...>::Type
 {
-    template <typename RuntimeClassFlagsT, bool doStrictCheck, typename ...TInterfaces> friend struct ImplementsHelper;
+    template <typename OtherRuntimeClassFlagsT, bool OtherDoStrictCheck, typename ...TOtherInterfaces> friend struct ImplementsHelper;
     template <unsigned int RuntimeClassTypeT> friend class RuntimeClassBaseT;
 
 protected:
@@ -1078,7 +1080,7 @@ struct __declspec(novtable) ImplementsHelper<RuntimeClassFlagsT, doStrictCheck, 
 {
     static_assert(hasImplements, "Cannot use MixIn to with a class not deriving from \"Implements\"");
 
-    template <typename RuntimeClassFlagsT, bool doStrictCheck, typename ...TInterfaces> friend struct ImplementsHelper;
+    template <typename OtherRuntimeClassFlagsT, bool OtherDoStrictCheck, typename ...TOtherInterfaces> friend struct ImplementsHelper;
     template <unsigned int RuntimeClassTypeT> friend class RuntimeClassBaseT;
 
 protected:
@@ -1140,7 +1142,7 @@ template <typename RuntimeClassFlagsT, typename FactoryInterface, bool doStrictC
 struct __declspec(novtable) ImplementsHelper<RuntimeClassFlagsT, doStrictCheck, ComposableBase<FactoryInterface>, TInterfaces...> :
     ImplementsHelper<RuntimeClassFlagsT, true, ComposableBase<FactoryInterface>>
 {
-    template <typename RuntimeClassFlagsT, bool doStrictCheck, typename ...TInterfaces> friend struct ImplementsHelper;
+    template <typename OtherRuntimeClassFlagsT, bool OtherDoStrictCheck, typename ...TOtherInterfaces> friend struct ImplementsHelper;
     template <unsigned int RuntimeClassTypeT> friend class RuntimeClassBaseT;
 
 protected:
@@ -1176,7 +1178,7 @@ protected:
 template <typename RuntimeClassFlagsT, typename FactoryInterface, bool doStrictCheck>
 struct __declspec(novtable) ImplementsHelper<RuntimeClassFlagsT, doStrictCheck, ComposableBase<FactoryInterface>>
 {
-    template <typename RuntimeClassFlagsT, bool doStrictCheck, typename ...TInterfaces> friend struct ImplementsHelper;
+    template <typename OtherRuntimeClassFlagsT, bool OtherDoStrictCheck, typename ...TInterfaces> friend struct ImplementsHelper;
     template <unsigned int RuntimeClassTypeT> friend class RuntimeClassBaseT;
 
 protected:
@@ -1274,7 +1276,7 @@ public:
     typedef I0 FirstInterface;
 protected:
     typedef typename Details::AdjustImplements<RuntimeClassFlags<WinRt>, true, I0, TInterfaces...>::Type BaseType;
-    template <typename RuntimeClassFlagsT, bool doStrictCheck, typename ...TInterfaces> friend struct Details::ImplementsHelper;
+    template <typename RuntimeClassFlagsT, bool doStrictCheck, typename ...TOtherInterfaces> friend struct Details::ImplementsHelper;
     template <unsigned int RuntimeClassTypeT> friend class Details::RuntimeClassBaseT;
 
     HRESULT CanCastTo(REFIID riid, _Outptr_ void **ppv) throw()
@@ -1309,7 +1311,7 @@ public:
 protected:
 
     typedef typename Details::AdjustImplements<RuntimeClassFlags<flags>, true, I0, TInterfaces...>::Type BaseType;
-    template <typename RuntimeClassFlagsT, bool doStrictCheck, typename ...TInterfaces> friend struct Details::ImplementsHelper;
+    template <typename RuntimeClassFlagsT, bool doStrictCheck, typename ...TOtherInterfaces> friend struct Details::ImplementsHelper;
     template <unsigned int RuntimeClassTypeT> friend class Details::RuntimeClassBaseT;
 
     HRESULT CanCastTo(REFIID riid, _Outptr_ void **ppv) throw()

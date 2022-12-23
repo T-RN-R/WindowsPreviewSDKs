@@ -36,13 +36,6 @@ WINRT_EXPORT namespace winrt::Windows::System::Diagnostics
         IDiagnosticInvokerStatics(std::nullptr_t = nullptr) noexcept {}
         IDiagnosticInvokerStatics(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
-    struct __declspec(empty_bases) IExecutionEnvironment :
-        Windows::Foundation::IInspectable,
-        impl::consume_t<IExecutionEnvironment>
-    {
-        IExecutionEnvironment(std::nullptr_t = nullptr) noexcept {}
-        IExecutionEnvironment(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
-    };
     struct __declspec(empty_bases) IProcessCpuUsage :
         Windows::Foundation::IInspectable,
         impl::consume_t<IProcessCpuUsage>
@@ -70,13 +63,6 @@ WINRT_EXPORT namespace winrt::Windows::System::Diagnostics
     {
         IProcessDiagnosticInfo2(std::nullptr_t = nullptr) noexcept {}
         IProcessDiagnosticInfo2(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
-    };
-    struct __declspec(empty_bases) IProcessDiagnosticInfo3 :
-        Windows::Foundation::IInspectable,
-        impl::consume_t<IProcessDiagnosticInfo3>
-    {
-        IProcessDiagnosticInfo3(std::nullptr_t = nullptr) noexcept {}
-        IProcessDiagnosticInfo3(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
     struct __declspec(empty_bases) IProcessDiagnosticInfoStatics :
         Windows::Foundation::IInspectable,

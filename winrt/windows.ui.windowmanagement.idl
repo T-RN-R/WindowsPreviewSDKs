@@ -83,8 +83,6 @@ namespace Windows
 
             typedef enum AppWindowTitleBarVisibility AppWindowTitleBarVisibility;
 
-            typedef enum VisibilityDetails VisibilityDetails;
-
             typedef enum WindowVisibilityState WindowVisibilityState;
 
             typedef enum WindowingEnvironmentKind WindowingEnvironmentKind;
@@ -276,16 +274,6 @@ namespace Windows
             {
                 Default      = 0,
                 AlwaysHidden = 1
-            };
-
-            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
-            enum VisibilityDetails
-            {
-                Visible           = 0,
-                HiddenBySystem    = 1,
-                HiddenByApp       = 2,
-                MinimizedBySystem = 3,
-                MinimizedByApp    = 4
             };
 
             [contract(Windows.Foundation.UniversalApiContract, 11.0)]

@@ -460,8 +460,8 @@ BOOLAPI InternetWriteFileExW(
 #define INTERNET_OPTION_NOCACHE_WRITE_IN_PRIVATE     184
 #define INTERNET_OPTION_ACTIVITY_ID                  185
 #define INTERNET_OPTION_REQUEST_TIMES                186
-
-#define INTERNET_LAST_OPTION_INTERNAL           INTERNET_LAST_OPTION
+#define INTERNET_OPTION_GLOBAL_CALLBACK              188
+#define INTERNET_LAST_OPTION_INTERNAL           INTERNET_OPTION_GLOBAL_CALLBACK
 
 #define INTERNET_OPTION_OFFLINE_TIMEOUT INTERNET_OPTION_DISCONNECTED_TIMEOUT
 #define INTERNET_OPTION_LINE_STATE      INTERNET_OPTION_CONNECTED_STATE
@@ -2239,6 +2239,32 @@ BOOLAPI HttpWebSocketQueryCloseStatus(
     _In_range_(0, HTTP_WEB_SOCKET_MAX_CLOSE_REASON_LENGTH) DWORD dwReasonLength,
     _Out_range_(0, HTTP_WEB_SOCKET_MAX_CLOSE_REASON_LENGTH) DWORD *pdwReasonLengthConsumed);
 
+
+//
+// callback function for INTERNET_OPTION_GLOBAL_CALLBACK option
+//
+
+#define INTERNET_GLOBAL_CALLBACK_SENDING_HTTP_HEADERS          0x00000001
+
+typedef
+DWORD
+(CALLBACK * INTERNET_GLOBAL_NOTIFICATION_CALLBACK)(
+    _In_ HINTERNET hInternet,
+    _In_opt_ PVOID pvContext,
+    _In_ PCSTR pcszUrl,
+    _In_ PCSTR pcszHost,
+    _In_ DWORD dwNotification,
+    _In_opt_ PVOID pvEventData,
+    _In_ DWORD dwEventDataLength
+);
+
+typedef struct _INTERNET_GLOBAL_CALLBACK
+{
+    INTERNET_GLOBAL_NOTIFICATION_CALLBACK pfnGlobalNotificationCallback;
+    DWORD dwNotifications;
+    PVOID pvContext;
+    GUID guidRegistrationId;
+} INTERNET_GLOBAL_CALLBACK;
 
 STDAPI_(DWORD)
 InternetConvertUrlFromWireToWideChar(

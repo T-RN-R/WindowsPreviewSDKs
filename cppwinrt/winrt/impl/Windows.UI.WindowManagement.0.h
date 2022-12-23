@@ -67,14 +67,6 @@ WINRT_EXPORT namespace winrt::Windows::UI::WindowManagement
         Default = 0,
         AlwaysHidden = 1,
     };
-    enum class VisibilityDetails : int32_t
-    {
-        Visible = 0,
-        HiddenBySystem = 1,
-        HiddenByApp = 2,
-        MinimizedBySystem = 3,
-        MinimizedByApp = 4,
-    };
     enum class WindowVisibilityState : int32_t
     {
         Unknown = 0,
@@ -191,7 +183,6 @@ namespace winrt::impl
     template <> struct category<Windows::UI::WindowManagement::AppWindowPresentationKind>{ using type = enum_category; };
     template <> struct category<Windows::UI::WindowManagement::AppWindowShowOptions>{ using type = enum_category; };
     template <> struct category<Windows::UI::WindowManagement::AppWindowTitleBarVisibility>{ using type = enum_category; };
-    template <> struct category<Windows::UI::WindowManagement::VisibilityDetails>{ using type = enum_category; };
     template <> struct category<Windows::UI::WindowManagement::WindowVisibilityState>{ using type = enum_category; };
     template <> struct category<Windows::UI::WindowManagement::WindowingEnvironmentKind>{ using type = enum_category; };
     template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindow> = L"Windows.UI.WindowManagement.AppWindow";
@@ -219,7 +210,6 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowPresentationKind> = L"Windows.UI.WindowManagement.AppWindowPresentationKind";
     template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowShowOptions> = L"Windows.UI.WindowManagement.AppWindowShowOptions";
     template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::AppWindowTitleBarVisibility> = L"Windows.UI.WindowManagement.AppWindowTitleBarVisibility";
-    template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::VisibilityDetails> = L"Windows.UI.WindowManagement.VisibilityDetails";
     template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::WindowVisibilityState> = L"Windows.UI.WindowManagement.WindowVisibilityState";
     template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::WindowingEnvironmentKind> = L"Windows.UI.WindowManagement.WindowingEnvironmentKind";
     template <> inline constexpr auto& name_v<Windows::UI::WindowManagement::IAppWindow> = L"Windows.UI.WindowManagement.IAppWindow";

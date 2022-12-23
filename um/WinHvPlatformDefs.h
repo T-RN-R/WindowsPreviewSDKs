@@ -440,7 +440,9 @@ typedef enum WHV_TRANSLATE_GVA_FLAGS
     WHvTranslateGvaFlagValidateWrite    = 0x00000002,
     WHvTranslateGvaFlagValidateExecute  = 0x00000004,
     WHvTranslateGvaFlagPrivilegeExempt  = 0x00000008,
-    WHvTranslateGvaFlagSetPageTableBits = 0x00000010
+    WHvTranslateGvaFlagSetPageTableBits = 0x00000010,
+    WHvTranslateGvaFlagEnforceSmap      = 0x00000100,
+    WHvTranslateGvaFlagOverrideSmap     = 0x00000200
 } WHV_TRANSLATE_GVA_FLAGS;
 
 DEFINE_ENUM_FLAG_OPERATORS(WHV_TRANSLATE_GVA_FLAGS);

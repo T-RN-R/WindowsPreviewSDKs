@@ -1757,32 +1757,6 @@ namespace ABI {
 
 /*
  *
- * Struct Windows.UI.WindowManagement.VisibilityDetails
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
-namespace ABI {
-    namespace Windows {
-        namespace UI {
-            namespace WindowManagement {
-                enum VisibilityDetails : int
-                {
-                    VisibilityDetails_Visible = 0,
-                    VisibilityDetails_HiddenBySystem = 1,
-                    VisibilityDetails_HiddenByApp = 2,
-                    VisibilityDetails_MinimizedBySystem = 3,
-                    VisibilityDetails_MinimizedByApp = 4,
-                };
-            } /* WindowManagement */
-        } /* UI */
-    } /* Windows */
-} /* ABI */
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
-
-/*
- *
  * Struct Windows.UI.WindowManagement.WindowVisibilityState
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
@@ -5686,24 +5660,6 @@ enum __x_ABI_CWindows_CUI_CWindowManagement_CAppWindowTitleBarVisibility
     AppWindowTitleBarVisibility_AlwaysHidden = 1,
 };
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x80000
-
-/*
- *
- * Struct Windows.UI.WindowManagement.VisibilityDetails
- *
- * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
- *
- */
-#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
-enum __x_ABI_CWindows_CUI_CWindowManagement_CVisibilityDetails
-{
-    VisibilityDetails_Visible = 0,
-    VisibilityDetails_HiddenBySystem = 1,
-    VisibilityDetails_HiddenByApp = 2,
-    VisibilityDetails_MinimizedBySystem = 3,
-    VisibilityDetails_MinimizedByApp = 4,
-};
-#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 /*
  *

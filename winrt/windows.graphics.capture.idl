@@ -91,10 +91,6 @@ namespace Windows
     {
         namespace Capture
         {
-            typedef enum GraphicsCaptureAccessKind GraphicsCaptureAccessKind;
-
-            typedef enum GraphicsCaptureAccessStatus GraphicsCaptureAccessStatus;
-
             interface IDirect3D11CaptureFrame;
 
             interface IDirect3D11CaptureFramePool;
@@ -102,8 +98,6 @@ namespace Windows
             interface IDirect3D11CaptureFramePoolStatics;
 
             interface IDirect3D11CaptureFramePoolStatics2;
-
-            interface IGraphicsCaptureAccessStatics;
 
             interface IGraphicsCaptureItem;
 
@@ -123,8 +117,6 @@ namespace Windows
 
             runtimeclass Direct3D11CaptureFramePool;
 
-            runtimeclass GraphicsCaptureAccess;
-
             runtimeclass GraphicsCaptureItem;
 
             runtimeclass GraphicsCapturePicker;
@@ -143,8 +135,6 @@ namespace Windows
         {
             declare
             {
-                interface Windows.Foundation.IAsyncOperation<Windows.Graphics.Capture.GraphicsCaptureAccessStatus>;
-
                 interface Windows.Foundation.IAsyncOperation<Windows.Graphics.Capture.GraphicsCaptureItem*>;
 
                 interface Windows.Foundation.TypedEventHandler<Windows.Graphics.Capture.Direct3D11CaptureFramePool*, IInspectable*>;
@@ -162,23 +152,6 @@ namespace Windows
     {
         namespace Capture
         {
-            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
-            enum GraphicsCaptureAccessKind
-            {
-                Programmatic = 0,
-                Borderless   = 1
-            };
-
-            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
-            enum GraphicsCaptureAccessStatus
-            {
-                DeniedBySystem     = 0,
-                NotDeclaredByApp   = 1,
-                DeniedByUser       = 2,
-                UserPromptRequired = 3,
-                Allowed            = 4
-            };
-
             [contract(Windows.Foundation.UniversalApiContract, 6.0)]
             [exclusiveto(Windows.Graphics.Capture.Direct3D11CaptureFrame)]
             [uuid(FA50C623-38DA-4B32-ACF3-FA9734AD800E)]
@@ -216,14 +189,6 @@ namespace Windows
             interface IDirect3D11CaptureFramePoolStatics2 : IInspectable
             {
                 HRESULT CreateFreeThreaded([in] Windows.Graphics.DirectX.Direct3D11.IDirect3DDevice* device, [in] Windows.Graphics.DirectX.DirectXPixelFormat pixelFormat, [in] INT32 numberOfBuffers, [in] Windows.Graphics.SizeInt32 size, [out] [retval] Windows.Graphics.Capture.Direct3D11CaptureFramePool** result);
-            }
-
-            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
-            [exclusiveto(Windows.Graphics.Capture.GraphicsCaptureAccess)]
-            [uuid(3A72225E-434F-5EE1-9E23-42BFAA371AE5)]
-            interface IGraphicsCaptureAccessStatics : IInspectable
-            {
-                HRESULT RequestAccessAsync([in] Windows.Graphics.Capture.GraphicsCaptureAccessKind request, [out] [retval] Windows.Foundation.IAsyncOperation<Windows.Graphics.Capture.GraphicsCaptureAccessStatus>** operation);
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 6.0)]
@@ -303,14 +268,6 @@ namespace Windows
             {
                 [default] interface Windows.Graphics.Capture.IDirect3D11CaptureFramePool;
                 interface Windows.Foundation.IClosable;
-            }
-
-            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
-            [marshaling_behavior(agile)]
-            [static(Windows.Graphics.Capture.IGraphicsCaptureAccessStatics, Windows.Foundation.UniversalApiContract, 11.0)]
-            [threading(both)]
-            runtimeclass GraphicsCaptureAccess
-            {
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 6.0)]

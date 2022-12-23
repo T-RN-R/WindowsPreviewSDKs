@@ -13724,7 +13724,7 @@ typedef struct _SCRUB_DATA_INPUT {
     // at Flags field.  This offset needs to match that of SCRUB_DATA_OUTPUT.
     //
 
-    BYTE  ResumeContext[816];
+    BYTE  ResumeContext[976];
 
 } SCRUB_DATA_INPUT, *PSCRUB_DATA_INPUT;
 
@@ -13906,7 +13906,7 @@ typedef struct _SCRUB_DATA_OUTPUT {
     // is set.  It has to be last in the structure.
     //
 
-    BYTE  ResumeContext[816];
+    BYTE  ResumeContext[976];
 
 } SCRUB_DATA_OUTPUT, *PSCRUB_DATA_OUTPUT;
 

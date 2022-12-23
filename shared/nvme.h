@@ -1650,6 +1650,58 @@ typedef union {
 } NVME_CDW11_FEATURE_ERROR_INJECTION, *PNVME_CDW11_FEATURE_ERROR_INJECTION;
 
 //
+// DWORD 0 for get feature command (Error Injection) shares the same format with DWORD 11 for set feature command (Error Injection).
+//
+typedef NVME_CDW11_FEATURE_ERROR_INJECTION NVME_CDW0_FEATURE_ERROR_INJECTION, *PNVME_CDW0_FEATURE_ERROR_INJECTION;
+
+typedef struct {
+
+    union {
+
+        struct {
+
+            UCHAR Enable         : 1; // A value of 0 indicates error injection is not enabled. A value of 1 indicates error injection is enabled.
+
+            UCHAR SingleInstance : 1; // A value of 0 indicates error injection is enabled until disable.
+                                      // A value of 1 indicates a single instance error injection where a single error is injected.
+                                      // After a single instance error has been created, the value of the Enable field shall be 0 in the results from Get Features command.
+            UCHAR Reserved0      : 6;
+
+        } DUMMYSTRUCTNAME;
+
+        UCHAR AsUchar;
+
+    } Flags;
+
+    UCHAR  Reserved1;
+    USHORT ErrorInjectionType;             // Specifies the Type of Error Injection.
+    UCHAR  ErrorInjectionTypeSpecific[28]; // Error Injection Type specific definition.
+
+} NVME_ERROR_INJECTION_ENTRY, *PNVME_ERROR_INJECTION_ENTRY;
+
+//
+// Definitions are used in "Error Injection Type" field.
+//
+typedef enum {
+
+    NVME_ERROR_INJECTION_TYPE_RESERVED0 = 0,
+    NVME_ERROR_INJECTION_TYPE_DEVICE_PANIC_CPU_CONTROLLER_HANG,         // 0x1
+    NVME_ERROR_INJECTION_TYPE_DEVICE_PANIC_NAND_HANG,                   // 0x2
+    NVME_ERROR_INJECTION_TYPE_DEVICE_PANIC_PLP_DEFECT,                  // 0x3
+    NVME_ERROR_INJECTION_TYPE_DEVICE_PANIC_LOGICAL_FW_ERROR,            // 0x4
+    NVME_ERROR_INJECTION_TYPE_DEVICE_PANIC_DRAM_CORRUPTION_CRITICAL,    // 0x5
+    NVME_ERROR_INJECTION_TYPE_DEVICE_PANIC_DRAM_CORRUPTION_NONCRITICAL, // 0x6
+    NVME_ERROR_INJECTION_TYPE_DEVICE_PANIC_NAND_CORRUPTION,             // 0x7
+    NVME_ERROR_INJECTION_TYPE_DEVICE_PANIC_SRAM_CORRUPTION,             // 0x8
+    NVME_ERROR_INJECTION_TYPE_DEVICE_PANIC_HW_MALFUNCTION,              // 0x9
+
+    NVME_ERROR_INJECTION_TYPE_RESERVED1,                                // 0xA
+
+    NVME_ERROR_INJECTION_TYPE_MAX = 0xFFFF
+
+} NVME_ERROR_INJECTION_TYPES;
+
+//
 // Parameter for NVME_FEATURE_TEMPERATURE_THRESHOLD
 //
 

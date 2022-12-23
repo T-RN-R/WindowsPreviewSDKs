@@ -3223,7 +3223,7 @@ typedef struct _DNS_DOH_SERVER_SETTINGS
 
 typedef enum _DNS_SERVER_PROPERTY_TYPE
 {
-    DnsServerNoProperty = 0,
+    DnsServerInvalidProperty = 0,
     DnsServerDohProperty,
 } DNS_SERVER_PROPERTY_TYPE;
 

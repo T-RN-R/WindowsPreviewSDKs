@@ -57,12 +57,6 @@ namespace winrt::impl
         check_hresult(WINRT_IMPL_SHIM(Windows::System::Diagnostics::IDiagnosticInvokerStatics)->get_IsSupported(&value));
         return value;
     }
-    template <typename D> WINRT_IMPL_AUTO(Windows::System::Diagnostics::ExecutionEnvironmentKind) consume_Windows_System_Diagnostics_IExecutionEnvironment<D>::Kind() const
-    {
-        Windows::System::Diagnostics::ExecutionEnvironmentKind value{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::System::Diagnostics::IExecutionEnvironment)->get_Kind(reinterpret_cast<int32_t*>(&value)));
-        return value;
-    }
     template <typename D> WINRT_IMPL_AUTO(Windows::System::Diagnostics::ProcessCpuUsageReport) consume_Windows_System_Diagnostics_IProcessCpuUsage<D>::GetReport() const
     {
         void* value{};
@@ -134,12 +128,6 @@ namespace winrt::impl
         bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::System::Diagnostics::IProcessDiagnosticInfo2)->get_IsPackaged(&value));
         return value;
-    }
-    template <typename D> WINRT_IMPL_AUTO(Windows::System::Diagnostics::ExecutionEnvironment) consume_Windows_System_Diagnostics_IProcessDiagnosticInfo3<D>::ExecutionEnvironmentInfo() const
-    {
-        void* value{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::System::Diagnostics::IProcessDiagnosticInfo3)->get_ExecutionEnvironmentInfo(&value));
-        return Windows::System::Diagnostics::ExecutionEnvironment{ value, take_ownership_from_abi };
     }
     template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::System::Diagnostics::ProcessDiagnosticInfo>) consume_Windows_System_Diagnostics_IProcessDiagnosticInfoStatics<D>::GetForProcesses() const
     {
@@ -321,18 +309,6 @@ namespace winrt::impl
         check_hresult(WINRT_IMPL_SHIM(Windows::System::Diagnostics::ISystemDiagnosticInfoStatics)->GetForCurrentSystem(&value));
         return Windows::System::Diagnostics::SystemDiagnosticInfo{ value, take_ownership_from_abi };
     }
-    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::System::Diagnostics::ExecutionEnvironment>) consume_Windows_System_Diagnostics_ISystemDiagnosticInfoStatics2<D>::SupportedExecutionEnvironments() const
-    {
-        void* value{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::System::Diagnostics::ISystemDiagnosticInfoStatics2)->get_SupportedExecutionEnvironments(&value));
-        return Windows::Foundation::Collections::IVectorView<Windows::System::Diagnostics::ExecutionEnvironment>{ value, take_ownership_from_abi };
-    }
-    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_System_Diagnostics_ISystemDiagnosticInfoStatics2<D>::IsEnvironmentKindSupported(Windows::System::Diagnostics::ExecutionEnvironmentKind const& kind) const
-    {
-        bool result{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::System::Diagnostics::ISystemDiagnosticInfoStatics2)->IsEnvironmentKindSupported(static_cast<int32_t>(kind), &result));
-        return result;
-    }
     template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_System_Diagnostics_ISystemDiagnosticInfoStatics2<D>::IsArchitectureSupported(Windows::System::ProcessorArchitecture const& type) const
     {
         bool result{};
@@ -443,19 +419,6 @@ namespace winrt::impl
         {
             typename D::abi_guard guard(this->shim());
             *value = detach_from<bool>(this->shim().IsSupported());
-            return 0;
-        }
-        catch (...) { return to_hresult(); }
-    };
-#endif
-#ifndef WINRT_LEAN_AND_MEAN
-    template <typename D>
-    struct produce<D, Windows::System::Diagnostics::IExecutionEnvironment> : produce_base<D, Windows::System::Diagnostics::IExecutionEnvironment>
-    {
-        int32_t __stdcall get_Kind(int32_t* value) noexcept final try
-        {
-            typename D::abi_guard guard(this->shim());
-            *value = detach_from<Windows::System::Diagnostics::ExecutionEnvironmentKind>(this->shim().Kind());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -574,20 +537,6 @@ namespace winrt::impl
         {
             typename D::abi_guard guard(this->shim());
             *value = detach_from<bool>(this->shim().IsPackaged());
-            return 0;
-        }
-        catch (...) { return to_hresult(); }
-    };
-#endif
-#ifndef WINRT_LEAN_AND_MEAN
-    template <typename D>
-    struct produce<D, Windows::System::Diagnostics::IProcessDiagnosticInfo3> : produce_base<D, Windows::System::Diagnostics::IProcessDiagnosticInfo3>
-    {
-        int32_t __stdcall get_ExecutionEnvironmentInfo(void** value) noexcept final try
-        {
-            clear_abi(value);
-            typename D::abi_guard guard(this->shim());
-            *value = detach_from<Windows::System::Diagnostics::ExecutionEnvironment>(this->shim().ExecutionEnvironmentInfo());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -879,21 +828,6 @@ namespace winrt::impl
     template <typename D>
     struct produce<D, Windows::System::Diagnostics::ISystemDiagnosticInfoStatics2> : produce_base<D, Windows::System::Diagnostics::ISystemDiagnosticInfoStatics2>
     {
-        int32_t __stdcall get_SupportedExecutionEnvironments(void** value) noexcept final try
-        {
-            clear_abi(value);
-            typename D::abi_guard guard(this->shim());
-            *value = detach_from<Windows::Foundation::Collections::IVectorView<Windows::System::Diagnostics::ExecutionEnvironment>>(this->shim().SupportedExecutionEnvironments());
-            return 0;
-        }
-        catch (...) { return to_hresult(); }
-        int32_t __stdcall IsEnvironmentKindSupported(int32_t kind, bool* result) noexcept final try
-        {
-            typename D::abi_guard guard(this->shim());
-            *result = detach_from<bool>(this->shim().IsEnvironmentKindSupported(*reinterpret_cast<Windows::System::Diagnostics::ExecutionEnvironmentKind const*>(&kind)));
-            return 0;
-        }
-        catch (...) { return to_hresult(); }
         int32_t __stdcall IsArchitectureSupported(int32_t type, bool* result) noexcept final try
         {
             typename D::abi_guard guard(this->shim());
@@ -982,14 +916,6 @@ WINRT_EXPORT namespace winrt::Windows::System::Diagnostics
     {
         return impl::call_factory_cast<Windows::System::Diagnostics::SystemDiagnosticInfo(*)(ISystemDiagnosticInfoStatics const&), SystemDiagnosticInfo, ISystemDiagnosticInfoStatics>([](ISystemDiagnosticInfoStatics const& f) { return f.GetForCurrentSystem(); });
     }
-    inline auto SystemDiagnosticInfo::SupportedExecutionEnvironments()
-    {
-        return impl::call_factory_cast<Windows::Foundation::Collections::IVectorView<Windows::System::Diagnostics::ExecutionEnvironment>(*)(ISystemDiagnosticInfoStatics2 const&), SystemDiagnosticInfo, ISystemDiagnosticInfoStatics2>([](ISystemDiagnosticInfoStatics2 const& f) { return f.SupportedExecutionEnvironments(); });
-    }
-    inline auto SystemDiagnosticInfo::IsEnvironmentKindSupported(Windows::System::Diagnostics::ExecutionEnvironmentKind const& kind)
-    {
-        return impl::call_factory<SystemDiagnosticInfo, ISystemDiagnosticInfoStatics2>([&](ISystemDiagnosticInfoStatics2 const& f) { return f.IsEnvironmentKindSupported(kind); });
-    }
     inline auto SystemDiagnosticInfo::IsArchitectureSupported(Windows::System::ProcessorArchitecture const& type)
     {
         return impl::call_factory<SystemDiagnosticInfo, ISystemDiagnosticInfoStatics2>([&](ISystemDiagnosticInfoStatics2 const& f) { return f.IsArchitectureSupported(type); });
@@ -1006,12 +932,10 @@ namespace std
     template<> struct hash<winrt::Windows::System::Diagnostics::IDiagnosticInvoker> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::System::Diagnostics::IDiagnosticInvoker2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::System::Diagnostics::IDiagnosticInvokerStatics> : winrt::impl::hash_base {};
-    template<> struct hash<winrt::Windows::System::Diagnostics::IExecutionEnvironment> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::System::Diagnostics::IProcessCpuUsage> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::System::Diagnostics::IProcessCpuUsageReport> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::System::Diagnostics::IProcessDiagnosticInfo> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::System::Diagnostics::IProcessDiagnosticInfo2> : winrt::impl::hash_base {};
-    template<> struct hash<winrt::Windows::System::Diagnostics::IProcessDiagnosticInfo3> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::System::Diagnostics::IProcessDiagnosticInfoStatics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::System::Diagnostics::IProcessDiagnosticInfoStatics2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::System::Diagnostics::IProcessDiskUsage> : winrt::impl::hash_base {};
@@ -1027,7 +951,6 @@ namespace std
     template<> struct hash<winrt::Windows::System::Diagnostics::ISystemMemoryUsageReport> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::System::Diagnostics::DiagnosticActionResult> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::System::Diagnostics::DiagnosticInvoker> : winrt::impl::hash_base {};
-    template<> struct hash<winrt::Windows::System::Diagnostics::ExecutionEnvironment> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::System::Diagnostics::ProcessCpuUsage> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::System::Diagnostics::ProcessCpuUsageReport> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::System::Diagnostics::ProcessDiagnosticInfo> : winrt::impl::hash_base {};
