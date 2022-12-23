@@ -1,10 +1,14 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
 #ifndef WINRT_Windows_ApplicationModel_Calls_Provider_0_H
 #define WINRT_Windows_ApplicationModel_Calls_Provider_0_H
+WINRT_EXPORT namespace winrt::Windows::Foundation
+{
+    template <typename TResult> struct IAsyncOperation;
+}
 WINRT_EXPORT namespace winrt::Windows::Storage
 {
     struct StorageFile;
@@ -30,16 +34,14 @@ namespace winrt::impl
     template <> struct category<Windows::ApplicationModel::Calls::Provider::IPhoneCallOriginManagerStatics3>{ using type = interface_category; };
     template <> struct category<Windows::ApplicationModel::Calls::Provider::PhoneCallOrigin>{ using type = class_category; };
     template <> struct category<Windows::ApplicationModel::Calls::Provider::PhoneCallOriginManager>{ using type = class_category; };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::Provider::PhoneCallOrigin>{ L"Windows.ApplicationModel.Calls.Provider.PhoneCallOrigin" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::Provider::PhoneCallOriginManager>{ L"Windows.ApplicationModel.Calls.Provider.PhoneCallOriginManager" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::Provider::IPhoneCallOrigin>{ L"Windows.ApplicationModel.Calls.Provider.IPhoneCallOrigin" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::Provider::IPhoneCallOrigin2>{ L"Windows.ApplicationModel.Calls.Provider.IPhoneCallOrigin2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::Provider::IPhoneCallOrigin3>{ L"Windows.ApplicationModel.Calls.Provider.IPhoneCallOrigin3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::Provider::IPhoneCallOriginManagerStatics>{ L"Windows.ApplicationModel.Calls.Provider.IPhoneCallOriginManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::Provider::IPhoneCallOriginManagerStatics2>{ L"Windows.ApplicationModel.Calls.Provider.IPhoneCallOriginManagerStatics2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::Provider::IPhoneCallOriginManagerStatics3>{ L"Windows.ApplicationModel.Calls.Provider.IPhoneCallOriginManagerStatics3" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::Provider::PhoneCallOrigin> = L"Windows.ApplicationModel.Calls.Provider.PhoneCallOrigin";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::Provider::PhoneCallOriginManager> = L"Windows.ApplicationModel.Calls.Provider.PhoneCallOriginManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::Provider::IPhoneCallOrigin> = L"Windows.ApplicationModel.Calls.Provider.IPhoneCallOrigin";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::Provider::IPhoneCallOrigin2> = L"Windows.ApplicationModel.Calls.Provider.IPhoneCallOrigin2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::Provider::IPhoneCallOrigin3> = L"Windows.ApplicationModel.Calls.Provider.IPhoneCallOrigin3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::Provider::IPhoneCallOriginManagerStatics> = L"Windows.ApplicationModel.Calls.Provider.IPhoneCallOriginManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::Provider::IPhoneCallOriginManagerStatics2> = L"Windows.ApplicationModel.Calls.Provider.IPhoneCallOriginManagerStatics2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Calls::Provider::IPhoneCallOriginManagerStatics3> = L"Windows.ApplicationModel.Calls.Provider.IPhoneCallOriginManagerStatics3";
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Calls::Provider::IPhoneCallOrigin>{ 0x20613479,0x0EF9,0x4454,{ 0x87,0x1C,0xAF,0xB6,0x6A,0x14,0xB6,0xA5 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Calls::Provider::IPhoneCallOrigin2>{ 0x04C7E980,0x9AC2,0x4768,{ 0xB5,0x36,0xB6,0x8D,0xA4,0x95,0x7D,0x02 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Calls::Provider::IPhoneCallOrigin3>{ 0x49330FB4,0xD1A7,0x43A2,{ 0xAE,0xEE,0xC0,0x7B,0x6D,0xBA,0xF0,0x68 } };
@@ -101,12 +103,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_Provider_IPhoneCallOrigin
     {
-        [[nodiscard]] auto Category() const;
-        auto Category(param::hstring const& value) const;
-        [[nodiscard]] auto CategoryDescription() const;
-        auto CategoryDescription(param::hstring const& value) const;
-        [[nodiscard]] auto Location() const;
-        auto Location(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Category() const;
+        WINRT_IMPL_AUTO(void) Category(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CategoryDescription() const;
+        WINRT_IMPL_AUTO(void) CategoryDescription(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Location() const;
+        WINRT_IMPL_AUTO(void) Location(param::hstring const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::Provider::IPhoneCallOrigin>
     {
@@ -115,8 +117,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_Provider_IPhoneCallOrigin2
     {
-        [[nodiscard]] auto DisplayName() const;
-        auto DisplayName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        WINRT_IMPL_AUTO(void) DisplayName(param::hstring const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::Provider::IPhoneCallOrigin2>
     {
@@ -125,8 +127,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_Provider_IPhoneCallOrigin3
     {
-        [[nodiscard]] auto DisplayPicture() const;
-        auto DisplayPicture(Windows::Storage::StorageFile const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::StorageFile) DisplayPicture() const;
+        WINRT_IMPL_AUTO(void) DisplayPicture(Windows::Storage::StorageFile const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::Provider::IPhoneCallOrigin3>
     {
@@ -135,9 +137,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_Provider_IPhoneCallOriginManagerStatics
     {
-        [[nodiscard]] auto IsCurrentAppActiveCallOriginApp() const;
-        auto ShowPhoneCallOriginSettingsUI() const;
-        auto SetCallOrigin(winrt::guid const& requestId, Windows::ApplicationModel::Calls::Provider::PhoneCallOrigin const& callOrigin) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsCurrentAppActiveCallOriginApp() const;
+        WINRT_IMPL_AUTO(void) ShowPhoneCallOriginSettingsUI() const;
+        WINRT_IMPL_AUTO(void) SetCallOrigin(winrt::guid const& requestId, Windows::ApplicationModel::Calls::Provider::PhoneCallOrigin const& callOrigin) const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::Provider::IPhoneCallOriginManagerStatics>
     {
@@ -146,7 +148,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_Provider_IPhoneCallOriginManagerStatics2
     {
-        auto RequestSetAsActiveCallOriginAppAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) RequestSetAsActiveCallOriginAppAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::Provider::IPhoneCallOriginManagerStatics2>
     {
@@ -155,7 +157,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Calls_Provider_IPhoneCallOriginManagerStatics3
     {
-        [[nodiscard]] auto IsSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSupported() const;
     };
     template <> struct consume<Windows::ApplicationModel::Calls::Provider::IPhoneCallOriginManagerStatics3>
     {

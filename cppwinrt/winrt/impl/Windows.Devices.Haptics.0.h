@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -7,6 +7,11 @@
 #define WINRT_Windows_Devices_Haptics_0_H
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
+    template <typename TResult> struct IAsyncOperation;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Devices::Haptics
 {
@@ -39,18 +44,16 @@ namespace winrt::impl
     template <> struct category<Windows::Devices::Haptics::SimpleHapticsControllerFeedback>{ using type = class_category; };
     template <> struct category<Windows::Devices::Haptics::VibrationDevice>{ using type = class_category; };
     template <> struct category<Windows::Devices::Haptics::VibrationAccessStatus>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Devices::Haptics::KnownSimpleHapticsControllerWaveforms>{ L"Windows.Devices.Haptics.KnownSimpleHapticsControllerWaveforms" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Haptics::SimpleHapticsController>{ L"Windows.Devices.Haptics.SimpleHapticsController" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Haptics::SimpleHapticsControllerFeedback>{ L"Windows.Devices.Haptics.SimpleHapticsControllerFeedback" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Haptics::VibrationDevice>{ L"Windows.Devices.Haptics.VibrationDevice" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Haptics::VibrationAccessStatus>{ L"Windows.Devices.Haptics.VibrationAccessStatus" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Devices::Haptics::IKnownSimpleHapticsControllerWaveformsStatics>{ L"Windows.Devices.Haptics.IKnownSimpleHapticsControllerWaveformsStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Haptics::ISimpleHapticsController>{ L"Windows.Devices.Haptics.ISimpleHapticsController" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Haptics::ISimpleHapticsControllerFeedback>{ L"Windows.Devices.Haptics.ISimpleHapticsControllerFeedback" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Haptics::IVibrationDevice>{ L"Windows.Devices.Haptics.IVibrationDevice" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Haptics::IVibrationDeviceStatics>{ L"Windows.Devices.Haptics.IVibrationDeviceStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Devices::Haptics::KnownSimpleHapticsControllerWaveforms> = L"Windows.Devices.Haptics.KnownSimpleHapticsControllerWaveforms";
+    template <> inline constexpr auto& name_v<Windows::Devices::Haptics::SimpleHapticsController> = L"Windows.Devices.Haptics.SimpleHapticsController";
+    template <> inline constexpr auto& name_v<Windows::Devices::Haptics::SimpleHapticsControllerFeedback> = L"Windows.Devices.Haptics.SimpleHapticsControllerFeedback";
+    template <> inline constexpr auto& name_v<Windows::Devices::Haptics::VibrationDevice> = L"Windows.Devices.Haptics.VibrationDevice";
+    template <> inline constexpr auto& name_v<Windows::Devices::Haptics::VibrationAccessStatus> = L"Windows.Devices.Haptics.VibrationAccessStatus";
+    template <> inline constexpr auto& name_v<Windows::Devices::Haptics::IKnownSimpleHapticsControllerWaveformsStatics> = L"Windows.Devices.Haptics.IKnownSimpleHapticsControllerWaveformsStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Haptics::ISimpleHapticsController> = L"Windows.Devices.Haptics.ISimpleHapticsController";
+    template <> inline constexpr auto& name_v<Windows::Devices::Haptics::ISimpleHapticsControllerFeedback> = L"Windows.Devices.Haptics.ISimpleHapticsControllerFeedback";
+    template <> inline constexpr auto& name_v<Windows::Devices::Haptics::IVibrationDevice> = L"Windows.Devices.Haptics.IVibrationDevice";
+    template <> inline constexpr auto& name_v<Windows::Devices::Haptics::IVibrationDeviceStatics> = L"Windows.Devices.Haptics.IVibrationDeviceStatics";
     template <> inline constexpr guid guid_v<Windows::Devices::Haptics::IKnownSimpleHapticsControllerWaveformsStatics>{ 0x3D577EF7,0x4CEE,0x11E6,{ 0xB5,0x35,0x00,0x1B,0xDC,0x06,0xAB,0x3B } };
     template <> inline constexpr guid guid_v<Windows::Devices::Haptics::ISimpleHapticsController>{ 0x3D577EF9,0x4CEE,0x11E6,{ 0xB5,0x35,0x00,0x1B,0xDC,0x06,0xAB,0x3B } };
     template <> inline constexpr guid guid_v<Windows::Devices::Haptics::ISimpleHapticsControllerFeedback>{ 0x3D577EF8,0x4CEE,0x11E6,{ 0xB5,0x35,0x00,0x1B,0xDC,0x06,0xAB,0x3B } };
@@ -117,11 +120,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Haptics_IKnownSimpleHapticsControllerWaveformsStatics
     {
-        [[nodiscard]] auto Click() const;
-        [[nodiscard]] auto BuzzContinuous() const;
-        [[nodiscard]] auto RumbleContinuous() const;
-        [[nodiscard]] auto Press() const;
-        [[nodiscard]] auto Release() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) Click() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) BuzzContinuous() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) RumbleContinuous() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) Press() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) Release() const;
     };
     template <> struct consume<Windows::Devices::Haptics::IKnownSimpleHapticsControllerWaveformsStatics>
     {
@@ -130,17 +133,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Haptics_ISimpleHapticsController
     {
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto SupportedFeedback() const;
-        [[nodiscard]] auto IsIntensitySupported() const;
-        [[nodiscard]] auto IsPlayCountSupported() const;
-        [[nodiscard]] auto IsPlayDurationSupported() const;
-        [[nodiscard]] auto IsReplayPauseIntervalSupported() const;
-        auto StopFeedback() const;
-        auto SendHapticFeedback(Windows::Devices::Haptics::SimpleHapticsControllerFeedback const& feedback) const;
-        auto SendHapticFeedback(Windows::Devices::Haptics::SimpleHapticsControllerFeedback const& feedback, double intensity) const;
-        auto SendHapticFeedbackForDuration(Windows::Devices::Haptics::SimpleHapticsControllerFeedback const& feedback, double intensity, Windows::Foundation::TimeSpan const& playDuration) const;
-        auto SendHapticFeedbackForPlayCount(Windows::Devices::Haptics::SimpleHapticsControllerFeedback const& feedback, double intensity, int32_t playCount, Windows::Foundation::TimeSpan const& replayPauseInterval) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Haptics::SimpleHapticsControllerFeedback>) SupportedFeedback() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsIntensitySupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPlayCountSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPlayDurationSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsReplayPauseIntervalSupported() const;
+        WINRT_IMPL_AUTO(void) StopFeedback() const;
+        WINRT_IMPL_AUTO(void) SendHapticFeedback(Windows::Devices::Haptics::SimpleHapticsControllerFeedback const& feedback) const;
+        WINRT_IMPL_AUTO(void) SendHapticFeedback(Windows::Devices::Haptics::SimpleHapticsControllerFeedback const& feedback, double intensity) const;
+        WINRT_IMPL_AUTO(void) SendHapticFeedbackForDuration(Windows::Devices::Haptics::SimpleHapticsControllerFeedback const& feedback, double intensity, Windows::Foundation::TimeSpan const& playDuration) const;
+        WINRT_IMPL_AUTO(void) SendHapticFeedbackForPlayCount(Windows::Devices::Haptics::SimpleHapticsControllerFeedback const& feedback, double intensity, int32_t playCount, Windows::Foundation::TimeSpan const& replayPauseInterval) const;
     };
     template <> struct consume<Windows::Devices::Haptics::ISimpleHapticsController>
     {
@@ -149,8 +152,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Haptics_ISimpleHapticsControllerFeedback
     {
-        [[nodiscard]] auto Waveform() const;
-        [[nodiscard]] auto Duration() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) Waveform() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Duration() const;
     };
     template <> struct consume<Windows::Devices::Haptics::ISimpleHapticsControllerFeedback>
     {
@@ -159,8 +162,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Haptics_IVibrationDevice
     {
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto SimpleHapticsController() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Haptics::SimpleHapticsController) SimpleHapticsController() const;
     };
     template <> struct consume<Windows::Devices::Haptics::IVibrationDevice>
     {
@@ -169,11 +172,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Haptics_IVibrationDeviceStatics
     {
-        auto RequestAccessAsync() const;
-        auto GetDeviceSelector() const;
-        auto FromIdAsync(param::hstring const& deviceId) const;
-        auto GetDefaultAsync() const;
-        auto FindAllAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Haptics::VibrationAccessStatus>) RequestAccessAsync() const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Haptics::VibrationDevice>) FromIdAsync(param::hstring const& deviceId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Haptics::VibrationDevice>) GetDefaultAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Devices::Haptics::VibrationDevice>>) FindAllAsync() const;
     };
     template <> struct consume<Windows::Devices::Haptics::IVibrationDeviceStatics>
     {

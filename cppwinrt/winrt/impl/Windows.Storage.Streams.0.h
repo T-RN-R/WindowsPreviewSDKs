@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -7,6 +7,7 @@
 #define WINRT_Windows_Storage_Streams_0_H
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
+    template <typename TResult, typename TProgress> struct IAsyncOperationWithProgress;
     template <typename TResult> struct IAsyncOperation;
     struct IMemoryBuffer;
     struct MemoryBuffer;
@@ -17,6 +18,7 @@ WINRT_EXPORT namespace winrt::Windows::Storage
     enum class FileAccessMode : int32_t;
     struct IStorageFile;
     enum class StorageOpenOptions : uint32_t;
+    struct StorageStreamTransaction;
 }
 WINRT_EXPORT namespace winrt::Windows::System
 {
@@ -120,44 +122,42 @@ namespace winrt::impl
     template <> struct category<Windows::Storage::Streams::FileOpenDisposition>{ using type = enum_category; };
     template <> struct category<Windows::Storage::Streams::InputStreamOptions>{ using type = enum_category; };
     template <> struct category<Windows::Storage::Streams::UnicodeEncoding>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::Buffer>{ L"Windows.Storage.Streams.Buffer" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::DataReader>{ L"Windows.Storage.Streams.DataReader" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::DataReaderLoadOperation>{ L"Windows.Storage.Streams.DataReaderLoadOperation" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::DataWriter>{ L"Windows.Storage.Streams.DataWriter" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::DataWriterStoreOperation>{ L"Windows.Storage.Streams.DataWriterStoreOperation" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::FileInputStream>{ L"Windows.Storage.Streams.FileInputStream" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::FileOutputStream>{ L"Windows.Storage.Streams.FileOutputStream" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::FileRandomAccessStream>{ L"Windows.Storage.Streams.FileRandomAccessStream" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::InMemoryRandomAccessStream>{ L"Windows.Storage.Streams.InMemoryRandomAccessStream" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::InputStreamOverStream>{ L"Windows.Storage.Streams.InputStreamOverStream" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::OutputStreamOverStream>{ L"Windows.Storage.Streams.OutputStreamOverStream" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::RandomAccessStream>{ L"Windows.Storage.Streams.RandomAccessStream" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::RandomAccessStreamOverStream>{ L"Windows.Storage.Streams.RandomAccessStreamOverStream" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::RandomAccessStreamReference>{ L"Windows.Storage.Streams.RandomAccessStreamReference" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::ByteOrder>{ L"Windows.Storage.Streams.ByteOrder" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::FileOpenDisposition>{ L"Windows.Storage.Streams.FileOpenDisposition" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::InputStreamOptions>{ L"Windows.Storage.Streams.InputStreamOptions" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::UnicodeEncoding>{ L"Windows.Storage.Streams.UnicodeEncoding" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IBuffer>{ L"Windows.Storage.Streams.IBuffer" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IBufferFactory>{ L"Windows.Storage.Streams.IBufferFactory" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IBufferStatics>{ L"Windows.Storage.Streams.IBufferStatics" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IContentTypeProvider>{ L"Windows.Storage.Streams.IContentTypeProvider" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IDataReader>{ L"Windows.Storage.Streams.IDataReader" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IDataReaderFactory>{ L"Windows.Storage.Streams.IDataReaderFactory" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IDataReaderStatics>{ L"Windows.Storage.Streams.IDataReaderStatics" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IDataWriter>{ L"Windows.Storage.Streams.IDataWriter" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IDataWriterFactory>{ L"Windows.Storage.Streams.IDataWriterFactory" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IFileRandomAccessStreamStatics>{ L"Windows.Storage.Streams.IFileRandomAccessStreamStatics" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IInputStream>{ L"Windows.Storage.Streams.IInputStream" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IInputStreamReference>{ L"Windows.Storage.Streams.IInputStreamReference" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IOutputStream>{ L"Windows.Storage.Streams.IOutputStream" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IRandomAccessStream>{ L"Windows.Storage.Streams.IRandomAccessStream" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IRandomAccessStreamReference>{ L"Windows.Storage.Streams.IRandomAccessStreamReference" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IRandomAccessStreamReferenceStatics>{ L"Windows.Storage.Streams.IRandomAccessStreamReferenceStatics" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IRandomAccessStreamStatics>{ L"Windows.Storage.Streams.IRandomAccessStreamStatics" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IRandomAccessStreamWithContentType>{ L"Windows.Storage.Streams.IRandomAccessStreamWithContentType" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::Buffer> = L"Windows.Storage.Streams.Buffer";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::DataReader> = L"Windows.Storage.Streams.DataReader";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::DataReaderLoadOperation> = L"Windows.Storage.Streams.DataReaderLoadOperation";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::DataWriter> = L"Windows.Storage.Streams.DataWriter";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::DataWriterStoreOperation> = L"Windows.Storage.Streams.DataWriterStoreOperation";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::FileInputStream> = L"Windows.Storage.Streams.FileInputStream";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::FileOutputStream> = L"Windows.Storage.Streams.FileOutputStream";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::FileRandomAccessStream> = L"Windows.Storage.Streams.FileRandomAccessStream";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::InMemoryRandomAccessStream> = L"Windows.Storage.Streams.InMemoryRandomAccessStream";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::InputStreamOverStream> = L"Windows.Storage.Streams.InputStreamOverStream";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::OutputStreamOverStream> = L"Windows.Storage.Streams.OutputStreamOverStream";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::RandomAccessStream> = L"Windows.Storage.Streams.RandomAccessStream";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::RandomAccessStreamOverStream> = L"Windows.Storage.Streams.RandomAccessStreamOverStream";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::RandomAccessStreamReference> = L"Windows.Storage.Streams.RandomAccessStreamReference";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::ByteOrder> = L"Windows.Storage.Streams.ByteOrder";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::FileOpenDisposition> = L"Windows.Storage.Streams.FileOpenDisposition";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::InputStreamOptions> = L"Windows.Storage.Streams.InputStreamOptions";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::UnicodeEncoding> = L"Windows.Storage.Streams.UnicodeEncoding";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IBuffer> = L"Windows.Storage.Streams.IBuffer";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IBufferFactory> = L"Windows.Storage.Streams.IBufferFactory";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IBufferStatics> = L"Windows.Storage.Streams.IBufferStatics";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IContentTypeProvider> = L"Windows.Storage.Streams.IContentTypeProvider";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IDataReader> = L"Windows.Storage.Streams.IDataReader";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IDataReaderFactory> = L"Windows.Storage.Streams.IDataReaderFactory";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IDataReaderStatics> = L"Windows.Storage.Streams.IDataReaderStatics";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IDataWriter> = L"Windows.Storage.Streams.IDataWriter";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IDataWriterFactory> = L"Windows.Storage.Streams.IDataWriterFactory";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IFileRandomAccessStreamStatics> = L"Windows.Storage.Streams.IFileRandomAccessStreamStatics";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IInputStream> = L"Windows.Storage.Streams.IInputStream";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IInputStreamReference> = L"Windows.Storage.Streams.IInputStreamReference";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IOutputStream> = L"Windows.Storage.Streams.IOutputStream";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IRandomAccessStream> = L"Windows.Storage.Streams.IRandomAccessStream";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IRandomAccessStreamReference> = L"Windows.Storage.Streams.IRandomAccessStreamReference";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IRandomAccessStreamReferenceStatics> = L"Windows.Storage.Streams.IRandomAccessStreamReferenceStatics";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IRandomAccessStreamStatics> = L"Windows.Storage.Streams.IRandomAccessStreamStatics";
+    template <> inline constexpr auto& name_v<Windows::Storage::Streams::IRandomAccessStreamWithContentType> = L"Windows.Storage.Streams.IRandomAccessStreamWithContentType";
     template <> inline constexpr guid guid_v<Windows::Storage::Streams::IBuffer>{ 0x905A0FE0,0xBC53,0x11DF,{ 0x8C,0x49,0x00,0x1E,0x4F,0xC6,0x86,0xDA } };
     template <> inline constexpr guid guid_v<Windows::Storage::Streams::IBufferFactory>{ 0x71AF914D,0xC10F,0x484B,{ 0xBC,0x50,0x14,0xBC,0x62,0x3B,0x3A,0x27 } };
     template <> inline constexpr guid guid_v<Windows::Storage::Streams::IBufferStatics>{ 0xE901E65B,0xD716,0x475A,{ 0xA9,0x0A,0xAF,0x72,0x29,0xB1,0xE7,0x41 } };
@@ -391,9 +391,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_Streams_IBuffer
     {
-        [[nodiscard]] auto Capacity() const;
-        [[nodiscard]] auto Length() const;
-        auto Length(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Capacity() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Length() const;
+        WINRT_IMPL_AUTO(void) Length(uint32_t value) const;
 
         auto data() const
         {
@@ -409,7 +409,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_Streams_IBufferFactory
     {
-        auto Create(uint32_t capacity) const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::Buffer) Create(uint32_t capacity) const;
     };
     template <> struct consume<Windows::Storage::Streams::IBufferFactory>
     {
@@ -418,8 +418,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_Streams_IBufferStatics
     {
-        auto CreateCopyFromMemoryBuffer(Windows::Foundation::IMemoryBuffer const& input) const;
-        auto CreateMemoryBufferOverIBuffer(Windows::Storage::Streams::IBuffer const& input) const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::Buffer) CreateCopyFromMemoryBuffer(Windows::Foundation::IMemoryBuffer const& input) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::MemoryBuffer) CreateMemoryBufferOverIBuffer(Windows::Storage::Streams::IBuffer const& input) const;
     };
     template <> struct consume<Windows::Storage::Streams::IBufferStatics>
     {
@@ -428,7 +428,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_Streams_IContentTypeProvider
     {
-        [[nodiscard]] auto ContentType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ContentType() const;
     };
     template <> struct consume<Windows::Storage::Streams::IContentTypeProvider>
     {
@@ -437,32 +437,32 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_Streams_IDataReader
     {
-        [[nodiscard]] auto UnconsumedBufferLength() const;
-        [[nodiscard]] auto UnicodeEncoding() const;
-        auto UnicodeEncoding(Windows::Storage::Streams::UnicodeEncoding const& value) const;
-        [[nodiscard]] auto ByteOrder() const;
-        auto ByteOrder(Windows::Storage::Streams::ByteOrder const& value) const;
-        [[nodiscard]] auto InputStreamOptions() const;
-        auto InputStreamOptions(Windows::Storage::Streams::InputStreamOptions const& value) const;
-        auto ReadByte() const;
-        auto ReadBytes(array_view<uint8_t> value) const;
-        auto ReadBuffer(uint32_t length) const;
-        auto ReadBoolean() const;
-        auto ReadGuid() const;
-        auto ReadInt16() const;
-        auto ReadInt32() const;
-        auto ReadInt64() const;
-        auto ReadUInt16() const;
-        auto ReadUInt32() const;
-        auto ReadUInt64() const;
-        auto ReadSingle() const;
-        auto ReadDouble() const;
-        auto ReadString(uint32_t codeUnitCount) const;
-        auto ReadDateTime() const;
-        auto ReadTimeSpan() const;
-        auto LoadAsync(uint32_t count) const;
-        auto DetachBuffer() const;
-        auto DetachStream() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) UnconsumedBufferLength() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::UnicodeEncoding) UnicodeEncoding() const;
+        WINRT_IMPL_AUTO(void) UnicodeEncoding(Windows::Storage::Streams::UnicodeEncoding const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::ByteOrder) ByteOrder() const;
+        WINRT_IMPL_AUTO(void) ByteOrder(Windows::Storage::Streams::ByteOrder const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::InputStreamOptions) InputStreamOptions() const;
+        WINRT_IMPL_AUTO(void) InputStreamOptions(Windows::Storage::Streams::InputStreamOptions const& value) const;
+        WINRT_IMPL_AUTO(uint8_t) ReadByte() const;
+        WINRT_IMPL_AUTO(void) ReadBytes(array_view<uint8_t> value) const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) ReadBuffer(uint32_t length) const;
+        WINRT_IMPL_AUTO(bool) ReadBoolean() const;
+        WINRT_IMPL_AUTO(winrt::guid) ReadGuid() const;
+        WINRT_IMPL_AUTO(int16_t) ReadInt16() const;
+        WINRT_IMPL_AUTO(int32_t) ReadInt32() const;
+        WINRT_IMPL_AUTO(int64_t) ReadInt64() const;
+        WINRT_IMPL_AUTO(uint16_t) ReadUInt16() const;
+        WINRT_IMPL_AUTO(uint32_t) ReadUInt32() const;
+        WINRT_IMPL_AUTO(uint64_t) ReadUInt64() const;
+        WINRT_IMPL_AUTO(float) ReadSingle() const;
+        WINRT_IMPL_AUTO(double) ReadDouble() const;
+        WINRT_IMPL_AUTO(hstring) ReadString(uint32_t codeUnitCount) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::DateTime) ReadDateTime() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) ReadTimeSpan() const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::DataReaderLoadOperation) LoadAsync(uint32_t count) const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) DetachBuffer() const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::IInputStream) DetachStream() const;
     };
     template <> struct consume<Windows::Storage::Streams::IDataReader>
     {
@@ -471,7 +471,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_Streams_IDataReaderFactory
     {
-        auto CreateDataReader(Windows::Storage::Streams::IInputStream const& inputStream) const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::DataReader) CreateDataReader(Windows::Storage::Streams::IInputStream const& inputStream) const;
     };
     template <> struct consume<Windows::Storage::Streams::IDataReaderFactory>
     {
@@ -480,7 +480,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_Streams_IDataReaderStatics
     {
-        auto FromBuffer(Windows::Storage::Streams::IBuffer const& buffer) const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::DataReader) FromBuffer(Windows::Storage::Streams::IBuffer const& buffer) const;
     };
     template <> struct consume<Windows::Storage::Streams::IDataReaderStatics>
     {
@@ -489,33 +489,33 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_Streams_IDataWriter
     {
-        [[nodiscard]] auto UnstoredBufferLength() const;
-        [[nodiscard]] auto UnicodeEncoding() const;
-        auto UnicodeEncoding(Windows::Storage::Streams::UnicodeEncoding const& value) const;
-        [[nodiscard]] auto ByteOrder() const;
-        auto ByteOrder(Windows::Storage::Streams::ByteOrder const& value) const;
-        auto WriteByte(uint8_t value) const;
-        auto WriteBytes(array_view<uint8_t const> value) const;
-        auto WriteBuffer(Windows::Storage::Streams::IBuffer const& buffer) const;
-        auto WriteBuffer(Windows::Storage::Streams::IBuffer const& buffer, uint32_t start, uint32_t count) const;
-        auto WriteBoolean(bool value) const;
-        auto WriteGuid(winrt::guid const& value) const;
-        auto WriteInt16(int16_t value) const;
-        auto WriteInt32(int32_t value) const;
-        auto WriteInt64(int64_t value) const;
-        auto WriteUInt16(uint16_t value) const;
-        auto WriteUInt32(uint32_t value) const;
-        auto WriteUInt64(uint64_t value) const;
-        auto WriteSingle(float value) const;
-        auto WriteDouble(double value) const;
-        auto WriteDateTime(Windows::Foundation::DateTime const& value) const;
-        auto WriteTimeSpan(Windows::Foundation::TimeSpan const& value) const;
-        auto WriteString(param::hstring const& value) const;
-        auto MeasureString(param::hstring const& value) const;
-        auto StoreAsync() const;
-        auto FlushAsync() const;
-        auto DetachBuffer() const;
-        auto DetachStream() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) UnstoredBufferLength() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::UnicodeEncoding) UnicodeEncoding() const;
+        WINRT_IMPL_AUTO(void) UnicodeEncoding(Windows::Storage::Streams::UnicodeEncoding const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::ByteOrder) ByteOrder() const;
+        WINRT_IMPL_AUTO(void) ByteOrder(Windows::Storage::Streams::ByteOrder const& value) const;
+        WINRT_IMPL_AUTO(void) WriteByte(uint8_t value) const;
+        WINRT_IMPL_AUTO(void) WriteBytes(array_view<uint8_t const> value) const;
+        WINRT_IMPL_AUTO(void) WriteBuffer(Windows::Storage::Streams::IBuffer const& buffer) const;
+        WINRT_IMPL_AUTO(void) WriteBuffer(Windows::Storage::Streams::IBuffer const& buffer, uint32_t start, uint32_t count) const;
+        WINRT_IMPL_AUTO(void) WriteBoolean(bool value) const;
+        WINRT_IMPL_AUTO(void) WriteGuid(winrt::guid const& value) const;
+        WINRT_IMPL_AUTO(void) WriteInt16(int16_t value) const;
+        WINRT_IMPL_AUTO(void) WriteInt32(int32_t value) const;
+        WINRT_IMPL_AUTO(void) WriteInt64(int64_t value) const;
+        WINRT_IMPL_AUTO(void) WriteUInt16(uint16_t value) const;
+        WINRT_IMPL_AUTO(void) WriteUInt32(uint32_t value) const;
+        WINRT_IMPL_AUTO(void) WriteUInt64(uint64_t value) const;
+        WINRT_IMPL_AUTO(void) WriteSingle(float value) const;
+        WINRT_IMPL_AUTO(void) WriteDouble(double value) const;
+        WINRT_IMPL_AUTO(void) WriteDateTime(Windows::Foundation::DateTime const& value) const;
+        WINRT_IMPL_AUTO(void) WriteTimeSpan(Windows::Foundation::TimeSpan const& value) const;
+        WINRT_IMPL_AUTO(uint32_t) WriteString(param::hstring const& value) const;
+        WINRT_IMPL_AUTO(uint32_t) MeasureString(param::hstring const& value) const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::DataWriterStoreOperation) StoreAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) FlushAsync() const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) DetachBuffer() const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::IOutputStream) DetachStream() const;
     };
     template <> struct consume<Windows::Storage::Streams::IDataWriter>
     {
@@ -524,7 +524,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_Streams_IDataWriterFactory
     {
-        auto CreateDataWriter(Windows::Storage::Streams::IOutputStream const& outputStream) const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::DataWriter) CreateDataWriter(Windows::Storage::Streams::IOutputStream const& outputStream) const;
     };
     template <> struct consume<Windows::Storage::Streams::IDataWriterFactory>
     {
@@ -533,14 +533,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_Streams_IFileRandomAccessStreamStatics
     {
-        auto OpenAsync(param::hstring const& filePath, Windows::Storage::FileAccessMode const& accessMode) const;
-        auto OpenAsync(param::hstring const& filePath, Windows::Storage::FileAccessMode const& accessMode, Windows::Storage::StorageOpenOptions const& sharingOptions, Windows::Storage::Streams::FileOpenDisposition const& openDisposition) const;
-        auto OpenTransactedWriteAsync(param::hstring const& filePath) const;
-        auto OpenTransactedWriteAsync(param::hstring const& filePath, Windows::Storage::StorageOpenOptions const& openOptions, Windows::Storage::Streams::FileOpenDisposition const& openDisposition) const;
-        auto OpenForUserAsync(Windows::System::User const& user, param::hstring const& filePath, Windows::Storage::FileAccessMode const& accessMode) const;
-        auto OpenForUserAsync(Windows::System::User const& user, param::hstring const& filePath, Windows::Storage::FileAccessMode const& accessMode, Windows::Storage::StorageOpenOptions const& sharingOptions, Windows::Storage::Streams::FileOpenDisposition const& openDisposition) const;
-        auto OpenTransactedWriteForUserAsync(Windows::System::User const& user, param::hstring const& filePath) const;
-        auto OpenTransactedWriteForUserAsync(Windows::System::User const& user, param::hstring const& filePath, Windows::Storage::StorageOpenOptions const& openOptions, Windows::Storage::Streams::FileOpenDisposition const& openDisposition) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::IRandomAccessStream>) OpenAsync(param::hstring const& filePath, Windows::Storage::FileAccessMode const& accessMode) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::IRandomAccessStream>) OpenAsync(param::hstring const& filePath, Windows::Storage::FileAccessMode const& accessMode, Windows::Storage::StorageOpenOptions const& sharingOptions, Windows::Storage::Streams::FileOpenDisposition const& openDisposition) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::StorageStreamTransaction>) OpenTransactedWriteAsync(param::hstring const& filePath) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::StorageStreamTransaction>) OpenTransactedWriteAsync(param::hstring const& filePath, Windows::Storage::StorageOpenOptions const& openOptions, Windows::Storage::Streams::FileOpenDisposition const& openDisposition) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::IRandomAccessStream>) OpenForUserAsync(Windows::System::User const& user, param::hstring const& filePath, Windows::Storage::FileAccessMode const& accessMode) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::IRandomAccessStream>) OpenForUserAsync(Windows::System::User const& user, param::hstring const& filePath, Windows::Storage::FileAccessMode const& accessMode, Windows::Storage::StorageOpenOptions const& sharingOptions, Windows::Storage::Streams::FileOpenDisposition const& openDisposition) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::StorageStreamTransaction>) OpenTransactedWriteForUserAsync(Windows::System::User const& user, param::hstring const& filePath) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::StorageStreamTransaction>) OpenTransactedWriteForUserAsync(Windows::System::User const& user, param::hstring const& filePath, Windows::Storage::StorageOpenOptions const& openOptions, Windows::Storage::Streams::FileOpenDisposition const& openDisposition) const;
     };
     template <> struct consume<Windows::Storage::Streams::IFileRandomAccessStreamStatics>
     {
@@ -549,7 +549,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_Streams_IInputStream
     {
-        auto ReadAsync(Windows::Storage::Streams::IBuffer const& buffer, uint32_t count, Windows::Storage::Streams::InputStreamOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Storage::Streams::IBuffer, uint32_t>) ReadAsync(Windows::Storage::Streams::IBuffer const& buffer, uint32_t count, Windows::Storage::Streams::InputStreamOptions const& options) const;
     };
     template <> struct consume<Windows::Storage::Streams::IInputStream>
     {
@@ -558,7 +558,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_Streams_IInputStreamReference
     {
-        auto OpenSequentialReadAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::IInputStream>) OpenSequentialReadAsync() const;
     };
     template <> struct consume<Windows::Storage::Streams::IInputStreamReference>
     {
@@ -567,8 +567,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_Streams_IOutputStream
     {
-        auto WriteAsync(Windows::Storage::Streams::IBuffer const& buffer) const;
-        auto FlushAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<uint32_t, uint32_t>) WriteAsync(Windows::Storage::Streams::IBuffer const& buffer) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) FlushAsync() const;
     };
     template <> struct consume<Windows::Storage::Streams::IOutputStream>
     {
@@ -577,15 +577,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_Streams_IRandomAccessStream
     {
-        [[nodiscard]] auto Size() const;
-        auto Size(uint64_t value) const;
-        auto GetInputStreamAt(uint64_t position) const;
-        auto GetOutputStreamAt(uint64_t position) const;
-        [[nodiscard]] auto Position() const;
-        auto Seek(uint64_t position) const;
-        auto CloneStream() const;
-        [[nodiscard]] auto CanRead() const;
-        [[nodiscard]] auto CanWrite() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) Size() const;
+        WINRT_IMPL_AUTO(void) Size(uint64_t value) const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::IInputStream) GetInputStreamAt(uint64_t position) const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::IOutputStream) GetOutputStreamAt(uint64_t position) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) Position() const;
+        WINRT_IMPL_AUTO(void) Seek(uint64_t position) const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStream) CloneStream() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanRead() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanWrite() const;
     };
     template <> struct consume<Windows::Storage::Streams::IRandomAccessStream>
     {
@@ -594,7 +594,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_Streams_IRandomAccessStreamReference
     {
-        auto OpenReadAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::IRandomAccessStreamWithContentType>) OpenReadAsync() const;
     };
     template <> struct consume<Windows::Storage::Streams::IRandomAccessStreamReference>
     {
@@ -603,9 +603,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_Streams_IRandomAccessStreamReferenceStatics
     {
-        auto CreateFromFile(Windows::Storage::IStorageFile const& file) const;
-        auto CreateFromUri(Windows::Foundation::Uri const& uri) const;
-        auto CreateFromStream(Windows::Storage::Streams::IRandomAccessStream const& stream) const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::RandomAccessStreamReference) CreateFromFile(Windows::Storage::IStorageFile const& file) const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::RandomAccessStreamReference) CreateFromUri(Windows::Foundation::Uri const& uri) const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::RandomAccessStreamReference) CreateFromStream(Windows::Storage::Streams::IRandomAccessStream const& stream) const;
     };
     template <> struct consume<Windows::Storage::Streams::IRandomAccessStreamReferenceStatics>
     {
@@ -614,9 +614,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_Streams_IRandomAccessStreamStatics
     {
-        auto CopyAsync(Windows::Storage::Streams::IInputStream const& source, Windows::Storage::Streams::IOutputStream const& destination) const;
-        auto CopyAsync(Windows::Storage::Streams::IInputStream const& source, Windows::Storage::Streams::IOutputStream const& destination, uint64_t bytesToCopy) const;
-        auto CopyAndCloseAsync(Windows::Storage::Streams::IInputStream const& source, Windows::Storage::Streams::IOutputStream const& destination) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<uint64_t, uint64_t>) CopyAsync(Windows::Storage::Streams::IInputStream const& source, Windows::Storage::Streams::IOutputStream const& destination) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<uint64_t, uint64_t>) CopyAsync(Windows::Storage::Streams::IInputStream const& source, Windows::Storage::Streams::IOutputStream const& destination, uint64_t bytesToCopy) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<uint64_t, uint64_t>) CopyAndCloseAsync(Windows::Storage::Streams::IInputStream const& source, Windows::Storage::Streams::IOutputStream const& destination) const;
     };
     template <> struct consume<Windows::Storage::Streams::IRandomAccessStreamStatics>
     {

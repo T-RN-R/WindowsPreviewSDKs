@@ -175,6 +175,21 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CSystem_CDiagnostics_CIDiagnosticInvokerStatics_FWD_DEFINED__
 
+#ifndef ____x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment_FWD_DEFINED__
+#define ____x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            namespace Diagnostics {
+                interface IExecutionEnvironment;
+            } /* Diagnostics */
+        } /* System */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment ABI::Windows::System::Diagnostics::IExecutionEnvironment
+
+#endif // ____x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CSystem_CDiagnostics_CIProcessCpuUsage_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSystem_CDiagnostics_CIProcessCpuUsage_FWD_DEFINED__
 namespace ABI {
@@ -234,6 +249,21 @@ namespace ABI {
 #define __x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo2 ABI::Windows::System::Diagnostics::IProcessDiagnosticInfo2
 
 #endif // ____x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo2_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3_FWD_DEFINED__
+#define ____x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            namespace Diagnostics {
+                interface IProcessDiagnosticInfo3;
+            } /* Diagnostics */
+        } /* System */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3 ABI::Windows::System::Diagnostics::IProcessDiagnosticInfo3
+
+#endif // ____x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfoStatics_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfoStatics_FWD_DEFINED__
@@ -384,6 +414,21 @@ namespace ABI {
 #define __x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics ABI::Windows::System::Diagnostics::ISystemDiagnosticInfoStatics
 
 #endif // ____x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            namespace Diagnostics {
+                interface ISystemDiagnosticInfoStatics2;
+            } /* Diagnostics */
+        } /* System */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2 ABI::Windows::System::Diagnostics::ISystemDiagnosticInfoStatics2
+
+#endif // ____x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CSystem_CDiagnostics_CISystemMemoryUsage_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSystem_CDiagnostics_CISystemMemoryUsage_FWD_DEFINED__
@@ -604,6 +649,70 @@ namespace ABI {
     namespace Windows {
         namespace System {
             namespace Diagnostics {
+                class ExecutionEnvironment;
+            } /* Diagnostics */
+        } /* System */
+    } /* Windows */
+} /* ABI */
+
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+#ifndef DEF___FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_USE
+#define DEF___FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_USE
+#if !defined(RO_NO_TEMPLATE_NAME)
+namespace ABI { namespace Windows { namespace Foundation { namespace Collections {
+template <>
+struct __declspec(uuid("98112db2-0aa2-5217-962a-ae4b1fdd84aa"))
+IIterator<ABI::Windows::System::Diagnostics::ExecutionEnvironment*> : IIterator_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::System::Diagnostics::ExecutionEnvironment*, ABI::Windows::System::Diagnostics::IExecutionEnvironment*>>
+{
+    static const wchar_t* z_get_rc_name_impl()
+    {
+        return L"Windows.Foundation.Collections.IIterator`1<Windows.System.Diagnostics.ExecutionEnvironment>";
+    }
+};
+// Define a typedef for the parameterized interface specialization's mangled name.
+// This allows code which uses the mangled name for the parameterized interface to access the
+// correct parameterized interface specialization.
+typedef IIterator<ABI::Windows::System::Diagnostics::ExecutionEnvironment*> __FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_t;
+#define __FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment ABI::Windows::Foundation::Collections::__FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_t
+/* Collections */ } /* Foundation */ } /* Windows */ } /* ABI */ }
+
+#endif // !defined(RO_NO_TEMPLATE_NAME)
+#endif /* DEF___FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_USE */
+
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+#ifndef DEF___FIIterable_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_USE
+#define DEF___FIIterable_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_USE
+#if !defined(RO_NO_TEMPLATE_NAME)
+namespace ABI { namespace Windows { namespace Foundation { namespace Collections {
+template <>
+struct __declspec(uuid("266e01e4-0bdb-5dd7-9d20-f8732367aa5b"))
+IIterable<ABI::Windows::System::Diagnostics::ExecutionEnvironment*> : IIterable_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::System::Diagnostics::ExecutionEnvironment*, ABI::Windows::System::Diagnostics::IExecutionEnvironment*>>
+{
+    static const wchar_t* z_get_rc_name_impl()
+    {
+        return L"Windows.Foundation.Collections.IIterable`1<Windows.System.Diagnostics.ExecutionEnvironment>";
+    }
+};
+// Define a typedef for the parameterized interface specialization's mangled name.
+// This allows code which uses the mangled name for the parameterized interface to access the
+// correct parameterized interface specialization.
+typedef IIterable<ABI::Windows::System::Diagnostics::ExecutionEnvironment*> __FIIterable_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_t;
+#define __FIIterable_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment ABI::Windows::Foundation::Collections::__FIIterable_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_t
+/* Collections */ } /* Foundation */ } /* Windows */ } /* ABI */ }
+
+#endif // !defined(RO_NO_TEMPLATE_NAME)
+#endif /* DEF___FIIterable_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_USE */
+
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            namespace Diagnostics {
                 class ProcessDiagnosticInfo;
             } /* Diagnostics */
         } /* System */
@@ -690,6 +799,33 @@ typedef IVectorView<ABI::Windows::System::AppDiagnosticInfo*> __FIVectorView_1_W
 #endif /* DEF___FIVectorView_1_Windows__CSystem__CAppDiagnosticInfo_USE */
 
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x40000
+
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+#ifndef DEF___FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_USE
+#define DEF___FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_USE
+#if !defined(RO_NO_TEMPLATE_NAME)
+namespace ABI { namespace Windows { namespace Foundation { namespace Collections {
+template <>
+struct __declspec(uuid("79bb3f2d-c990-5f9d-bad0-892073b5dc8c"))
+IVectorView<ABI::Windows::System::Diagnostics::ExecutionEnvironment*> : IVectorView_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::System::Diagnostics::ExecutionEnvironment*, ABI::Windows::System::Diagnostics::IExecutionEnvironment*>>
+{
+    static const wchar_t* z_get_rc_name_impl()
+    {
+        return L"Windows.Foundation.Collections.IVectorView`1<Windows.System.Diagnostics.ExecutionEnvironment>";
+    }
+};
+// Define a typedef for the parameterized interface specialization's mangled name.
+// This allows code which uses the mangled name for the parameterized interface to access the
+// correct parameterized interface specialization.
+typedef IVectorView<ABI::Windows::System::Diagnostics::ExecutionEnvironment*> __FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_t;
+#define __FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment ABI::Windows::Foundation::Collections::__FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_t
+/* Collections */ } /* Foundation */ } /* Windows */ } /* ABI */ }
+
+#endif // !defined(RO_NO_TEMPLATE_NAME)
+#endif /* DEF___FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_USE */
+
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 
@@ -814,6 +950,14 @@ namespace ABI {
 namespace ABI {
     namespace Windows {
         namespace System {
+            typedef enum ProcessorArchitecture : int ProcessorArchitecture;
+        } /* System */
+    } /* Windows */
+} /* ABI */
+
+namespace ABI {
+    namespace Windows {
+        namespace System {
             class User;
         } /* System */
     } /* Windows */
@@ -831,6 +975,16 @@ namespace ABI {
 #define __x_ABI_CWindows_CSystem_CIUser ABI::Windows::System::IUser
 
 #endif // ____x_ABI_CWindows_CSystem_CIUser_FWD_DEFINED__
+
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            namespace Diagnostics {
+                typedef enum ExecutionEnvironmentKind : int ExecutionEnvironmentKind;
+            } /* Diagnostics */
+        } /* System */
+    } /* Windows */
+} /* ABI */
 
 namespace ABI {
     namespace Windows {
@@ -979,6 +1133,30 @@ namespace ABI {
     } /* Windows */
 } /* ABI */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x50000
+
+/*
+ *
+ * Struct Windows.System.Diagnostics.ExecutionEnvironmentKind
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            namespace Diagnostics {
+                enum ExecutionEnvironmentKind : int
+                {
+                    ExecutionEnvironmentKind_Other = 0,
+                    ExecutionEnvironmentKind_Native = 1,
+                    ExecutionEnvironmentKind_Win32Container = 2,
+                };
+            } /* Diagnostics */
+        } /* System */
+    } /* Windows */
+} /* ABI */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 /*
  *
@@ -1135,6 +1313,42 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CSystem_CDiagnostics_CIDiagnosticInvokerStatics;
 #endif /* !defined(____x_ABI_CWindows_CSystem_CDiagnostics_CIDiagnosticInvokerStatics_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x50000
+
+/*
+ *
+ * Interface Windows.System.Diagnostics.IExecutionEnvironment
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Interface is a part of the implementation of type Windows.System.Diagnostics.ExecutionEnvironment
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_System_Diagnostics_IExecutionEnvironment[] = L"Windows.System.Diagnostics.IExecutionEnvironment";
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            namespace Diagnostics {
+                MIDL_INTERFACE("d49b283a-7aa3-4100-a5ea-7ea03ed8f10a")
+                IExecutionEnvironment : public IInspectable
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE get_Kind(
+                        ABI::Windows::System::Diagnostics::ExecutionEnvironmentKind* value
+                        ) = 0;
+                };
+
+                extern MIDL_CONST_ID IID& IID_IExecutionEnvironment = _uuidof(IExecutionEnvironment);
+            } /* Diagnostics */
+        } /* System */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment;
+#endif /* !defined(____x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 /*
  *
@@ -1303,6 +1517,42 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo2;
 #endif /* !defined(____x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo2_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x50000
+
+/*
+ *
+ * Interface Windows.System.Diagnostics.IProcessDiagnosticInfo3
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Interface is a part of the implementation of type Windows.System.Diagnostics.ProcessDiagnosticInfo
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_System_Diagnostics_IProcessDiagnosticInfo3[] = L"Windows.System.Diagnostics.IProcessDiagnosticInfo3";
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            namespace Diagnostics {
+                MIDL_INTERFACE("ed5d0634-75b8-4941-998a-45153f67e65f")
+                IProcessDiagnosticInfo3 : public IInspectable
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE get_ExecutionEnvironmentInfo(
+                        ABI::Windows::System::Diagnostics::IExecutionEnvironment** value
+                        ) = 0;
+                };
+
+                extern MIDL_CONST_ID IID& IID_IProcessDiagnosticInfo3 = _uuidof(IProcessDiagnosticInfo3);
+            } /* Diagnostics */
+        } /* System */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3;
+#endif /* !defined(____x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 /*
  *
@@ -1727,6 +1977,53 @@ EXTERN_C const IID IID___x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticI
 
 /*
  *
+ * Interface Windows.System.Diagnostics.ISystemDiagnosticInfoStatics2
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Interface is a part of the implementation of type Windows.System.Diagnostics.SystemDiagnosticInfo
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_System_Diagnostics_ISystemDiagnosticInfoStatics2[] = L"Windows.System.Diagnostics.ISystemDiagnosticInfoStatics2";
+namespace ABI {
+    namespace Windows {
+        namespace System {
+            namespace Diagnostics {
+                MIDL_INTERFACE("f6aae5f4-f4d7-4081-9dfa-6b499cc91387")
+                ISystemDiagnosticInfoStatics2 : public IInspectable
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE get_SupportedExecutionEnvironments(
+                        __FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment** value
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE IsEnvironmentKindSupported(
+                        ABI::Windows::System::Diagnostics::ExecutionEnvironmentKind kind,
+                        boolean* result
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE IsArchitectureSupported(
+                        ABI::Windows::System::ProcessorArchitecture type,
+                        boolean* result
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE get_PreferredArchitecture(
+                        ABI::Windows::System::ProcessorArchitecture* value
+                        ) = 0;
+                };
+
+                extern MIDL_CONST_ID IID& IID_ISystemDiagnosticInfoStatics2 = _uuidof(ISystemDiagnosticInfoStatics2);
+            } /* Diagnostics */
+        } /* System */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2;
+#endif /* !defined(____x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
  * Interface Windows.System.Diagnostics.ISystemMemoryUsage
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 4.0
@@ -1851,6 +2148,27 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
+ * Class Windows.System.Diagnostics.ExecutionEnvironment
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Class implements the following interfaces:
+ *    Windows.System.Diagnostics.IExecutionEnvironment ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#ifndef RUNTIMECLASS_Windows_System_Diagnostics_ExecutionEnvironment_DEFINED
+#define RUNTIMECLASS_Windows_System_Diagnostics_ExecutionEnvironment_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_System_Diagnostics_ExecutionEnvironment[] = L"Windows.System.Diagnostics.ExecutionEnvironment";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
  * Class Windows.System.Diagnostics.ProcessCpuUsage
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
@@ -1904,6 +2222,7 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Class implements the following interfaces:
  *    Windows.System.Diagnostics.IProcessDiagnosticInfo ** Default Interface **
  *    Windows.System.Diagnostics.IProcessDiagnosticInfo2
+ *    Windows.System.Diagnostics.IProcessDiagnosticInfo3
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
@@ -2050,6 +2369,7 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 4.0
  *
  * RuntimeClass contains static methods.
+ *   Static Methods exist on the Windows.System.Diagnostics.ISystemDiagnosticInfoStatics2 interface starting with version 11.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.System.Diagnostics.ISystemDiagnosticInfoStatics interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
@@ -2135,6 +2455,12 @@ typedef interface __x_ABI_CWindows_CSystem_CDiagnostics_CIDiagnosticInvokerStati
 
 #endif // ____x_ABI_CWindows_CSystem_CDiagnostics_CIDiagnosticInvokerStatics_FWD_DEFINED__
 
+#ifndef ____x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment_FWD_DEFINED__
+#define ____x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment __x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment;
+
+#endif // ____x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CSystem_CDiagnostics_CIProcessCpuUsage_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSystem_CDiagnostics_CIProcessCpuUsage_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CSystem_CDiagnostics_CIProcessCpuUsage __x_ABI_CWindows_CSystem_CDiagnostics_CIProcessCpuUsage;
@@ -2158,6 +2484,12 @@ typedef interface __x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo 
 typedef interface __x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo2 __x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo2;
 
 #endif // ____x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo2_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3_FWD_DEFINED__
+#define ____x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3 __x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3;
+
+#endif // ____x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfoStatics_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfoStatics_FWD_DEFINED__
@@ -2218,6 +2550,12 @@ typedef interface __x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfo _
 typedef interface __x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics __x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics;
 
 #endif // ____x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2 __x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2;
+
+#endif // ____x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CSystem_CDiagnostics_CISystemMemoryUsage_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSystem_CDiagnostics_CISystemMemoryUsage_FWD_DEFINED__
@@ -2580,6 +2918,151 @@ interface __FIIterable_1_Windows__CSystem__CAppDiagnosticInfo
 #endif // ____FIIterable_1_Windows__CSystem__CAppDiagnosticInfo_INTERFACE_DEFINED__
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x40000
 
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_INTERFACE_DEFINED__)
+#define ____FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_INTERFACE_DEFINED__
+
+typedef interface __FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment __FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment;
+
+//  Declare the parameterized interface IID.
+EXTERN_C const IID IID___FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment;
+
+typedef struct __FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironmentVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* get_Current)(__FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment* This,
+        __x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment** result);
+    HRESULT (STDMETHODCALLTYPE* get_HasCurrent)(__FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment* This,
+        boolean* result);
+    HRESULT (STDMETHODCALLTYPE* MoveNext)(__FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment* This,
+        boolean* result);
+    HRESULT (STDMETHODCALLTYPE* GetMany)(__FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment* This,
+        UINT32 itemsLength,
+        __x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment** items,
+        UINT32* result);
+
+    END_INTERFACE
+} __FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironmentVtbl;
+
+interface __FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment
+{
+    CONST_VTBL struct __FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironmentVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_get_Current(This, result) \
+    ((This)->lpVtbl->get_Current(This, result))
+
+#define __FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_get_HasCurrent(This, result) \
+    ((This)->lpVtbl->get_HasCurrent(This, result))
+
+#define __FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_MoveNext(This, result) \
+    ((This)->lpVtbl->MoveNext(This, result))
+
+#define __FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_GetMany(This, itemsLength, items, result) \
+    ((This)->lpVtbl->GetMany(This, itemsLength, items, result))
+
+#endif /* COBJMACROS */
+
+#endif // ____FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_INTERFACE_DEFINED__
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____FIIterable_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_INTERFACE_DEFINED__)
+#define ____FIIterable_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_INTERFACE_DEFINED__
+
+typedef interface __FIIterable_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment __FIIterable_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment;
+
+//  Declare the parameterized interface IID.
+EXTERN_C const IID IID___FIIterable_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment;
+
+typedef struct __FIIterable_1_Windows__CSystem__CDiagnostics__CExecutionEnvironmentVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIIterable_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__FIIterable_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__FIIterable_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__FIIterable_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__FIIterable_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__FIIterable_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* First)(__FIIterable_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment* This,
+        __FIIterator_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment** result);
+
+    END_INTERFACE
+} __FIIterable_1_Windows__CSystem__CDiagnostics__CExecutionEnvironmentVtbl;
+
+interface __FIIterable_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment
+{
+    CONST_VTBL struct __FIIterable_1_Windows__CSystem__CDiagnostics__CExecutionEnvironmentVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __FIIterable_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __FIIterable_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __FIIterable_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __FIIterable_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __FIIterable_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __FIIterable_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __FIIterable_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_First(This, result) \
+    ((This)->lpVtbl->First(This, result))
+
+#endif /* COBJMACROS */
+
+#endif // ____FIIterable_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_INTERFACE_DEFINED__
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 #if !defined(____FIIterator_1_Windows__CSystem__CDiagnostics__CProcessDiagnosticInfo_INTERFACE_DEFINED__)
 #define ____FIIterator_1_Windows__CSystem__CDiagnostics__CProcessDiagnosticInfo_INTERFACE_DEFINED__
@@ -2810,6 +3293,91 @@ interface __FIVectorView_1_Windows__CSystem__CAppDiagnosticInfo
 #endif // ____FIVectorView_1_Windows__CSystem__CAppDiagnosticInfo_INTERFACE_DEFINED__
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x40000
 
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_INTERFACE_DEFINED__)
+#define ____FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_INTERFACE_DEFINED__
+
+typedef interface __FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment __FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment;
+
+//  Declare the parameterized interface IID.
+EXTERN_C const IID IID___FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment;
+
+typedef struct __FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironmentVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* GetAt)(__FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment* This,
+        UINT32 index,
+        __x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment** result);
+    HRESULT (STDMETHODCALLTYPE* get_Size)(__FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment* This,
+        UINT32* result);
+    HRESULT (STDMETHODCALLTYPE* IndexOf)(__FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment* This,
+        __x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment* value,
+        UINT32* index,
+        boolean* result);
+    HRESULT (STDMETHODCALLTYPE* GetMany)(__FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment* This,
+        UINT32 startIndex,
+        UINT32 itemsLength,
+        __x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment** items,
+        UINT32* result);
+
+    END_INTERFACE
+} __FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironmentVtbl;
+
+interface __FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment
+{
+    CONST_VTBL struct __FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironmentVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_GetAt(This, index, result) \
+    ((This)->lpVtbl->GetAt(This, index, result))
+
+#define __FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_get_Size(This, result) \
+    ((This)->lpVtbl->get_Size(This, result))
+
+#define __FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_IndexOf(This, value, index, result) \
+    ((This)->lpVtbl->IndexOf(This, value, index, result))
+
+#define __FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_GetMany(This, startIndex, itemsLength, items, result) \
+    ((This)->lpVtbl->GetMany(This, startIndex, itemsLength, items, result))
+
+#endif /* COBJMACROS */
+
+#endif // ____FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment_INTERFACE_DEFINED__
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 #if !defined(____FIVectorView_1_Windows__CSystem__CDiagnostics__CProcessDiagnosticInfo_INTERFACE_DEFINED__)
 #define ____FIVectorView_1_Windows__CSystem__CDiagnostics__CProcessDiagnosticInfo_INTERFACE_DEFINED__
@@ -3037,11 +3605,15 @@ typedef struct __x_ABI_CWindows_CFoundation_CDateTime __x_ABI_CWindows_CFoundati
 
 typedef struct __x_ABI_CWindows_CFoundation_CTimeSpan __x_ABI_CWindows_CFoundation_CTimeSpan;
 
+typedef enum __x_ABI_CWindows_CSystem_CProcessorArchitecture __x_ABI_CWindows_CSystem_CProcessorArchitecture;
+
 #ifndef ____x_ABI_CWindows_CSystem_CIUser_FWD_DEFINED__
 #define ____x_ABI_CWindows_CSystem_CIUser_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CSystem_CIUser __x_ABI_CWindows_CSystem_CIUser;
 
 #endif // ____x_ABI_CWindows_CSystem_CIUser_FWD_DEFINED__
+
+typedef enum __x_ABI_CWindows_CSystem_CDiagnostics_CExecutionEnvironmentKind __x_ABI_CWindows_CSystem_CDiagnostics_CExecutionEnvironmentKind;
 
 /*
  *
@@ -3062,6 +3634,22 @@ enum __x_ABI_CWindows_CSystem_CDiagnostics_CDiagnosticActionState
     DiagnosticActionState_Executing = 6,
 };
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x50000
+
+/*
+ *
+ * Struct Windows.System.Diagnostics.ExecutionEnvironmentKind
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+enum __x_ABI_CWindows_CSystem_CDiagnostics_CExecutionEnvironmentKind
+{
+    ExecutionEnvironmentKind_Other = 0,
+    ExecutionEnvironmentKind_Native = 1,
+    ExecutionEnvironmentKind_Win32Container = 2,
+};
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 /*
  *
@@ -3356,6 +3944,75 @@ interface __x_ABI_CWindows_CSystem_CDiagnostics_CIDiagnosticInvokerStatics
 EXTERN_C const IID IID___x_ABI_CWindows_CSystem_CDiagnostics_CIDiagnosticInvokerStatics;
 #endif /* !defined(____x_ABI_CWindows_CSystem_CDiagnostics_CIDiagnosticInvokerStatics_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x50000
+
+/*
+ *
+ * Interface Windows.System.Diagnostics.IExecutionEnvironment
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Interface is a part of the implementation of type Windows.System.Diagnostics.ExecutionEnvironment
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_System_Diagnostics_IExecutionEnvironment[] = L"Windows.System.Diagnostics.IExecutionEnvironment";
+typedef struct __x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironmentVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* get_Kind)(__x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment* This,
+        enum __x_ABI_CWindows_CSystem_CDiagnostics_CExecutionEnvironmentKind* value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironmentVtbl;
+
+interface __x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment
+{
+    CONST_VTBL struct __x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironmentVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment_get_Kind(This, value) \
+    ((This)->lpVtbl->get_Kind(This, value))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment;
+#endif /* !defined(____x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 /*
  *
@@ -3672,6 +4329,75 @@ interface __x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo2
 EXTERN_C const IID IID___x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo2;
 #endif /* !defined(____x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo2_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x50000
+
+/*
+ *
+ * Interface Windows.System.Diagnostics.IProcessDiagnosticInfo3
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Interface is a part of the implementation of type Windows.System.Diagnostics.ProcessDiagnosticInfo
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_System_Diagnostics_IProcessDiagnosticInfo3[] = L"Windows.System.Diagnostics.IProcessDiagnosticInfo3";
+typedef struct __x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3Vtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* get_ExecutionEnvironmentInfo)(__x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3* This,
+        __x_ABI_CWindows_CSystem_CDiagnostics_CIExecutionEnvironment** value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3Vtbl;
+
+interface __x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3
+{
+    CONST_VTBL struct __x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3_get_ExecutionEnvironmentInfo(This, value) \
+    ((This)->lpVtbl->get_ExecutionEnvironmentInfo(This, value))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3;
+#endif /* !defined(____x_ABI_CWindows_CSystem_CDiagnostics_CIProcessDiagnosticInfo3_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
 
 /*
  *
@@ -4466,6 +5192,92 @@ EXTERN_C const IID IID___x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticI
 
 /*
  *
+ * Interface Windows.System.Diagnostics.ISystemDiagnosticInfoStatics2
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Interface is a part of the implementation of type Windows.System.Diagnostics.SystemDiagnosticInfo
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#if !defined(____x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_System_Diagnostics_ISystemDiagnosticInfoStatics2[] = L"Windows.System.Diagnostics.ISystemDiagnosticInfoStatics2";
+typedef struct __x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2Vtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* get_SupportedExecutionEnvironments)(__x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2* This,
+        __FIVectorView_1_Windows__CSystem__CDiagnostics__CExecutionEnvironment** value);
+    HRESULT (STDMETHODCALLTYPE* IsEnvironmentKindSupported)(__x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2* This,
+        enum __x_ABI_CWindows_CSystem_CDiagnostics_CExecutionEnvironmentKind kind,
+        boolean* result);
+    HRESULT (STDMETHODCALLTYPE* IsArchitectureSupported)(__x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2* This,
+        enum __x_ABI_CWindows_CSystem_CProcessorArchitecture type,
+        boolean* result);
+    HRESULT (STDMETHODCALLTYPE* get_PreferredArchitecture)(__x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2* This,
+        enum __x_ABI_CWindows_CSystem_CProcessorArchitecture* value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2Vtbl;
+
+interface __x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2
+{
+    CONST_VTBL struct __x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2_get_SupportedExecutionEnvironments(This, value) \
+    ((This)->lpVtbl->get_SupportedExecutionEnvironments(This, value))
+
+#define __x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2_IsEnvironmentKindSupported(This, kind, result) \
+    ((This)->lpVtbl->IsEnvironmentKindSupported(This, kind, result))
+
+#define __x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2_IsArchitectureSupported(This, type, result) \
+    ((This)->lpVtbl->IsArchitectureSupported(This, type, result))
+
+#define __x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2_get_PreferredArchitecture(This, value) \
+    ((This)->lpVtbl->get_PreferredArchitecture(This, value))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2;
+#endif /* !defined(____x_ABI_CWindows_CSystem_CDiagnostics_CISystemDiagnosticInfoStatics2_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
  * Interface Windows.System.Diagnostics.ISystemMemoryUsage
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 4.0
@@ -4660,6 +5472,27 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
+ * Class Windows.System.Diagnostics.ExecutionEnvironment
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 11.0
+ *
+ * Class implements the following interfaces:
+ *    Windows.System.Diagnostics.IExecutionEnvironment ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+#ifndef RUNTIMECLASS_Windows_System_Diagnostics_ExecutionEnvironment_DEFINED
+#define RUNTIMECLASS_Windows_System_Diagnostics_ExecutionEnvironment_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_System_Diagnostics_ExecutionEnvironment[] = L"Windows.System.Diagnostics.ExecutionEnvironment";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xb0000
+
+/*
+ *
  * Class Windows.System.Diagnostics.ProcessCpuUsage
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
@@ -4713,6 +5546,7 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Class implements the following interfaces:
  *    Windows.System.Diagnostics.IProcessDiagnosticInfo ** Default Interface **
  *    Windows.System.Diagnostics.IProcessDiagnosticInfo2
+ *    Windows.System.Diagnostics.IProcessDiagnosticInfo3
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
@@ -4859,6 +5693,7 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 4.0
  *
  * RuntimeClass contains static methods.
+ *   Static Methods exist on the Windows.System.Diagnostics.ISystemDiagnosticInfoStatics2 interface starting with version 11.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.System.Diagnostics.ISystemDiagnosticInfoStatics interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -26,7 +26,7 @@ WINRT_EXPORT namespace winrt::Windows::Security::Authentication::OnlineId
         OnlineIdServiceTicketRequest(std::nullptr_t) noexcept {}
         OnlineIdServiceTicketRequest(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Security::Authentication::OnlineId::IOnlineIdServiceTicketRequest(ptr, take_ownership_from_abi) {}
         OnlineIdServiceTicketRequest(param::hstring const& service, param::hstring const& policy);
-        OnlineIdServiceTicketRequest(param::hstring const& service);
+        explicit OnlineIdServiceTicketRequest(param::hstring const& service);
     };
     struct OnlineIdSystemAuthenticator
     {

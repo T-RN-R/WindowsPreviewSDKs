@@ -1585,7 +1585,7 @@ typedef struct _HTTP_REQUEST_SIZING_INFO
 // HTTP_REQUEST_TIMING_INFO. Not all timings apply for every request.
 //
 
-typedef enum  _HTTP_REQUEST_TIMING_TYPE
+typedef enum _HTTP_REQUEST_TIMING_TYPE
 {
     HttpRequestTimingTypeConnectionStart,
     HttpRequestTimingTypeDataStart,
@@ -1650,7 +1650,7 @@ typedef enum _HTTP_REQUEST_INFO_TYPE
     HttpRequestInfoTypeTcpInfoV0,
     HttpRequestInfoTypeRequestSizing,
     HttpRequestInfoTypeQuicStats,
-    HttpRequestInfoTypeTcpInfoV1,
+    HttpRequestInfoTypeTcpInfoV1
 
 } HTTP_REQUEST_INFO_TYPE, *PHTTP_REQUEST_INFO_TYPE;
 
@@ -2646,6 +2646,7 @@ typedef enum _HTTP_REQUEST_PROPERTY
     HttpRequestPropertyTcpInfoV1,
     HttpRequestPropertySni,
     HttpRequestPropertyStreamError,
+    HttpRequestPropertyWskTiming
 } HTTP_REQUEST_PROPERTY, *PHTTP_REQUEST_PROPERTY;
 
 typedef struct _HTTP_QUERY_REQUEST_QUALIFIER_TCP
@@ -2682,6 +2683,25 @@ typedef struct _HTTP_REQUEST_PROPERTY_STREAM_ERROR
 {
     ULONG ErrorCode;
 } HTTP_REQUEST_PROPERTY_STREAM_ERROR, *PHTTP_REQUEST_PROPERTY_STREAM_ERROR;
+
+typedef struct _HTTP_WSK_API_TIMINGS
+{
+    ULONGLONG ConnectCount;
+    ULONGLONG ConnectSum;
+    ULONGLONG DisconnectCount;
+    ULONGLONG DisconnectSum;
+
+    ULONGLONG SendCount;
+    ULONGLONG SendSum;
+    ULONGLONG ReceiveCount;
+    ULONGLONG ReceiveSum;
+
+    ULONGLONG ReleaseCount;
+    ULONGLONG ReleaseSum;
+
+    ULONGLONG ControlSocketCount;
+    ULONGLONG ControlSocketSum;
+} HTTP_WSK_API_TIMINGS, *PHTTP_WSK_API_TIMINGS;
 
 
 //

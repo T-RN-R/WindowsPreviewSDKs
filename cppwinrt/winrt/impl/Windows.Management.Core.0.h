@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -20,11 +20,9 @@ namespace winrt::impl
     template <> struct category<Windows::Management::Core::IApplicationDataManager>{ using type = interface_category; };
     template <> struct category<Windows::Management::Core::IApplicationDataManagerStatics>{ using type = interface_category; };
     template <> struct category<Windows::Management::Core::ApplicationDataManager>{ using type = class_category; };
-    template <> inline constexpr auto& name_v<Windows::Management::Core::ApplicationDataManager>{ L"Windows.Management.Core.ApplicationDataManager" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Management::Core::IApplicationDataManager>{ L"Windows.Management.Core.IApplicationDataManager" };
-    template <> inline constexpr auto& name_v<Windows::Management::Core::IApplicationDataManagerStatics>{ L"Windows.Management.Core.IApplicationDataManagerStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Management::Core::ApplicationDataManager> = L"Windows.Management.Core.ApplicationDataManager";
+    template <> inline constexpr auto& name_v<Windows::Management::Core::IApplicationDataManager> = L"Windows.Management.Core.IApplicationDataManager";
+    template <> inline constexpr auto& name_v<Windows::Management::Core::IApplicationDataManagerStatics> = L"Windows.Management.Core.IApplicationDataManagerStatics";
     template <> inline constexpr guid guid_v<Windows::Management::Core::IApplicationDataManager>{ 0x74D10432,0x2E99,0x4000,{ 0x9A,0x3A,0x64,0x30,0x7E,0x85,0x81,0x29 } };
     template <> inline constexpr guid guid_v<Windows::Management::Core::IApplicationDataManagerStatics>{ 0x1E1862E3,0x698E,0x49A1,{ 0x97,0x52,0xDE,0xE9,0x49,0x25,0xB9,0xB3 } };
     template <> struct default_interface<Windows::Management::Core::ApplicationDataManager>{ using type = Windows::Management::Core::IApplicationDataManager; };
@@ -52,7 +50,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Management_Core_IApplicationDataManagerStatics
     {
-        auto CreateForPackageFamily(param::hstring const& packageFamilyName) const;
+        WINRT_IMPL_AUTO(Windows::Storage::ApplicationData) CreateForPackageFamily(param::hstring const& packageFamilyName) const;
     };
     template <> struct consume<Windows::Management::Core::IApplicationDataManagerStatics>
     {

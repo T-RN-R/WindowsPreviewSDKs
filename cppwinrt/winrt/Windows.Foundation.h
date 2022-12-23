@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,176 +6,176 @@
 #ifndef WINRT_Windows_Foundation_H
 #define WINRT_Windows_Foundation_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_Foundation_IAsyncAction<D>::Completed(Windows::Foundation::AsyncActionCompletedHandler const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IAsyncAction<D>::Completed(Windows::Foundation::AsyncActionCompletedHandler const& handler) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IAsyncAction)->put_Completed(*(void**)(&handler)));
     }
-    template <typename D> auto consume_Windows_Foundation_IAsyncAction<D>::Completed() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::AsyncActionCompletedHandler) consume_Windows_Foundation_IAsyncAction<D>::Completed() const
     {
         void* handler{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IAsyncAction)->get_Completed(&handler));
         return Windows::Foundation::AsyncActionCompletedHandler{ handler, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IAsyncAction<D>::GetResults() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IAsyncAction<D>::GetResults() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IAsyncAction)->GetResults());
     }
-    template <typename D, typename TProgress> auto consume_Windows_Foundation_IAsyncActionWithProgress<D, TProgress>::Progress(Windows::Foundation::AsyncActionProgressHandler<TProgress> const& handler) const
+    template <typename D, typename TProgress> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IAsyncActionWithProgress<D, TProgress>::Progress(Windows::Foundation::AsyncActionProgressHandler<TProgress> const& handler) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IAsyncActionWithProgress<TProgress>)->put_Progress(*(void**)(&handler)));
     }
-    template <typename D, typename TProgress> auto consume_Windows_Foundation_IAsyncActionWithProgress<D, TProgress>::Progress() const
+    template <typename D, typename TProgress> WINRT_IMPL_AUTO(Windows::Foundation::AsyncActionProgressHandler<TProgress>) consume_Windows_Foundation_IAsyncActionWithProgress<D, TProgress>::Progress() const
     {
         void* winrt_impl_result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IAsyncActionWithProgress<TProgress>)->get_Progress(&winrt_impl_result));
         return Windows::Foundation::AsyncActionProgressHandler<TProgress>{ winrt_impl_result, take_ownership_from_abi };
     }
-    template <typename D, typename TProgress> auto consume_Windows_Foundation_IAsyncActionWithProgress<D, TProgress>::Completed(Windows::Foundation::AsyncActionWithProgressCompletedHandler<TProgress> const& handler) const
+    template <typename D, typename TProgress> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IAsyncActionWithProgress<D, TProgress>::Completed(Windows::Foundation::AsyncActionWithProgressCompletedHandler<TProgress> const& handler) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IAsyncActionWithProgress<TProgress>)->put_Completed(*(void**)(&handler)));
     }
-    template <typename D, typename TProgress> auto consume_Windows_Foundation_IAsyncActionWithProgress<D, TProgress>::Completed() const
+    template <typename D, typename TProgress> WINRT_IMPL_AUTO(Windows::Foundation::AsyncActionWithProgressCompletedHandler<TProgress>) consume_Windows_Foundation_IAsyncActionWithProgress<D, TProgress>::Completed() const
     {
         void* winrt_impl_result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IAsyncActionWithProgress<TProgress>)->get_Completed(&winrt_impl_result));
         return Windows::Foundation::AsyncActionWithProgressCompletedHandler<TProgress>{ winrt_impl_result, take_ownership_from_abi };
     }
-    template <typename D, typename TProgress> auto consume_Windows_Foundation_IAsyncActionWithProgress<D, TProgress>::GetResults() const
+    template <typename D, typename TProgress> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IAsyncActionWithProgress<D, TProgress>::GetResults() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IAsyncActionWithProgress<TProgress>)->GetResults());
     }
-    template <typename D> auto consume_Windows_Foundation_IAsyncInfo<D>::Id() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Foundation_IAsyncInfo<D>::Id() const
     {
-        uint32_t winrt_impl_result;
+        uint32_t winrt_impl_result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IAsyncInfo)->get_Id(&winrt_impl_result));
         return winrt_impl_result;
     }
-    template <typename D> auto consume_Windows_Foundation_IAsyncInfo<D>::Status() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::AsyncStatus) consume_Windows_Foundation_IAsyncInfo<D>::Status() const
     {
-        Windows::Foundation::AsyncStatus winrt_impl_result;
+        Windows::Foundation::AsyncStatus winrt_impl_result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IAsyncInfo)->get_Status(reinterpret_cast<int32_t*>(&winrt_impl_result)));
         return winrt_impl_result;
     }
-    template <typename D> auto consume_Windows_Foundation_IAsyncInfo<D>::ErrorCode() const
+    template <typename D> WINRT_IMPL_AUTO(winrt::hresult) consume_Windows_Foundation_IAsyncInfo<D>::ErrorCode() const
     {
-        winrt::hresult winrt_impl_result;
+        winrt::hresult winrt_impl_result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IAsyncInfo)->get_ErrorCode(put_abi(winrt_impl_result)));
         return winrt_impl_result;
     }
-    template <typename D> auto consume_Windows_Foundation_IAsyncInfo<D>::Cancel() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IAsyncInfo<D>::Cancel() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IAsyncInfo)->Cancel());
     }
-    template <typename D> auto consume_Windows_Foundation_IAsyncInfo<D>::Close() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IAsyncInfo<D>::Close() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IAsyncInfo)->Close());
     }
-    template <typename D, typename TResult, typename TProgress> auto consume_Windows_Foundation_IAsyncOperationWithProgress<D, TResult, TProgress>::Progress(Windows::Foundation::AsyncOperationProgressHandler<TResult, TProgress> const& handler) const
+    template <typename D, typename TResult, typename TProgress> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IAsyncOperationWithProgress<D, TResult, TProgress>::Progress(Windows::Foundation::AsyncOperationProgressHandler<TResult, TProgress> const& handler) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IAsyncOperationWithProgress<TResult, TProgress>)->put_Progress(*(void**)(&handler)));
     }
-    template <typename D, typename TResult, typename TProgress> auto consume_Windows_Foundation_IAsyncOperationWithProgress<D, TResult, TProgress>::Progress() const
+    template <typename D, typename TResult, typename TProgress> WINRT_IMPL_AUTO(Windows::Foundation::AsyncOperationProgressHandler<TResult, TProgress>) consume_Windows_Foundation_IAsyncOperationWithProgress<D, TResult, TProgress>::Progress() const
     {
         void* winrt_impl_result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IAsyncOperationWithProgress<TResult, TProgress>)->get_Progress(&winrt_impl_result));
         return Windows::Foundation::AsyncOperationProgressHandler<TResult, TProgress>{ winrt_impl_result, take_ownership_from_abi };
     }
-    template <typename D, typename TResult, typename TProgress> auto consume_Windows_Foundation_IAsyncOperationWithProgress<D, TResult, TProgress>::Completed(Windows::Foundation::AsyncOperationWithProgressCompletedHandler<TResult, TProgress> const& handler) const
+    template <typename D, typename TResult, typename TProgress> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IAsyncOperationWithProgress<D, TResult, TProgress>::Completed(Windows::Foundation::AsyncOperationWithProgressCompletedHandler<TResult, TProgress> const& handler) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IAsyncOperationWithProgress<TResult, TProgress>)->put_Completed(*(void**)(&handler)));
     }
-    template <typename D, typename TResult, typename TProgress> auto consume_Windows_Foundation_IAsyncOperationWithProgress<D, TResult, TProgress>::Completed() const
+    template <typename D, typename TResult, typename TProgress> WINRT_IMPL_AUTO(Windows::Foundation::AsyncOperationWithProgressCompletedHandler<TResult, TProgress>) consume_Windows_Foundation_IAsyncOperationWithProgress<D, TResult, TProgress>::Completed() const
     {
         void* winrt_impl_result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IAsyncOperationWithProgress<TResult, TProgress>)->get_Completed(&winrt_impl_result));
         return Windows::Foundation::AsyncOperationWithProgressCompletedHandler<TResult, TProgress>{ winrt_impl_result, take_ownership_from_abi };
     }
-    template <typename D, typename TResult, typename TProgress> auto consume_Windows_Foundation_IAsyncOperationWithProgress<D, TResult, TProgress>::GetResults() const
+    template <typename D, typename TResult, typename TProgress> WINRT_IMPL_AUTO(TResult) consume_Windows_Foundation_IAsyncOperationWithProgress<D, TResult, TProgress>::GetResults() const
     {
         TResult winrt_impl_result{ empty_value<TResult>() };
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IAsyncOperationWithProgress<TResult, TProgress>)->GetResults(put_abi(winrt_impl_result)));
         return winrt_impl_result;
     }
-    template <typename D, typename TResult> auto consume_Windows_Foundation_IAsyncOperation<D, TResult>::Completed(Windows::Foundation::AsyncOperationCompletedHandler<TResult> const& handler) const
+    template <typename D, typename TResult> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IAsyncOperation<D, TResult>::Completed(Windows::Foundation::AsyncOperationCompletedHandler<TResult> const& handler) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IAsyncOperation<TResult>)->put_Completed(*(void**)(&handler)));
     }
-    template <typename D, typename TResult> auto consume_Windows_Foundation_IAsyncOperation<D, TResult>::Completed() const
+    template <typename D, typename TResult> WINRT_IMPL_AUTO(Windows::Foundation::AsyncOperationCompletedHandler<TResult>) consume_Windows_Foundation_IAsyncOperation<D, TResult>::Completed() const
     {
         void* winrt_impl_result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IAsyncOperation<TResult>)->get_Completed(&winrt_impl_result));
         return Windows::Foundation::AsyncOperationCompletedHandler<TResult>{ winrt_impl_result, take_ownership_from_abi };
     }
-    template <typename D, typename TResult> auto consume_Windows_Foundation_IAsyncOperation<D, TResult>::GetResults() const
+    template <typename D, typename TResult> WINRT_IMPL_AUTO(TResult) consume_Windows_Foundation_IAsyncOperation<D, TResult>::GetResults() const
     {
         TResult winrt_impl_result{ empty_value<TResult>() };
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IAsyncOperation<TResult>)->GetResults(put_abi(winrt_impl_result)));
         return winrt_impl_result;
     }
-    template <typename D> auto consume_Windows_Foundation_IClosable<D>::Close() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IClosable<D>::Close() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IClosable)->Close());
     }
-    template <typename D> auto consume_Windows_Foundation_IDeferral<D>::Complete() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IDeferral<D>::Complete() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IDeferral)->Complete());
     }
-    template <typename D> auto consume_Windows_Foundation_IDeferralFactory<D>::Create(Windows::Foundation::DeferralCompletedHandler const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Deferral) consume_Windows_Foundation_IDeferralFactory<D>::Create(Windows::Foundation::DeferralCompletedHandler const& handler) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IDeferralFactory)->Create(*(void**)(&handler), &result));
         return Windows::Foundation::Deferral{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IGetActivationFactory<D>::GetActivationFactory(param::hstring const& activatableClassId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IGetActivationFactory<D>::GetActivationFactory(param::hstring const& activatableClassId) const
     {
         void* factory{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IGetActivationFactory)->GetActivationFactory(*(void**)(&activatableClassId), &factory));
         return Windows::Foundation::IInspectable{ factory, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IGuidHelperStatics<D>::CreateNewGuid() const
+    template <typename D> WINRT_IMPL_AUTO(winrt::guid) consume_Windows_Foundation_IGuidHelperStatics<D>::CreateNewGuid() const
     {
-        winrt::guid result;
+        winrt::guid result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IGuidHelperStatics)->CreateNewGuid(put_abi(result)));
         return result;
     }
-    template <typename D> auto consume_Windows_Foundation_IGuidHelperStatics<D>::Empty() const
+    template <typename D> WINRT_IMPL_AUTO(winrt::guid) consume_Windows_Foundation_IGuidHelperStatics<D>::Empty() const
     {
-        winrt::guid value;
+        winrt::guid value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IGuidHelperStatics)->get_Empty(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Foundation_IGuidHelperStatics<D>::Equals(winrt::guid const& target, winrt::guid const& value) const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Foundation_IGuidHelperStatics<D>::Equals(winrt::guid const& target, winrt::guid const& value) const
     {
-        bool result;
+        bool result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IGuidHelperStatics)->Equals(impl::bind_in(target), impl::bind_in(value), &result));
         return result;
     }
-    template <typename D> auto consume_Windows_Foundation_IMemoryBuffer<D>::CreateReference() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IMemoryBufferReference) consume_Windows_Foundation_IMemoryBuffer<D>::CreateReference() const
     {
         void* reference{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IMemoryBuffer)->CreateReference(&reference));
         return Windows::Foundation::IMemoryBufferReference{ reference, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IMemoryBufferFactory<D>::Create(uint32_t capacity) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::MemoryBuffer) consume_Windows_Foundation_IMemoryBufferFactory<D>::Create(uint32_t capacity) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IMemoryBufferFactory)->Create(capacity, &value));
         return Windows::Foundation::MemoryBuffer{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IMemoryBufferReference<D>::Capacity() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Foundation_IMemoryBufferReference<D>::Capacity() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IMemoryBufferReference)->get_Capacity(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Foundation_IMemoryBufferReference<D>::Closed(Windows::Foundation::TypedEventHandler<Windows::Foundation::IMemoryBufferReference, Windows::Foundation::IInspectable> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Foundation_IMemoryBufferReference<D>::Closed(Windows::Foundation::TypedEventHandler<Windows::Foundation::IMemoryBufferReference, Windows::Foundation::IInspectable> const& handler) const
     {
-        winrt::event_token cookie;
+        winrt::event_token cookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IMemoryBufferReference)->add_Closed(*(void**)(&handler), put_abi(cookie)));
         return cookie;
     }
@@ -183,616 +183,616 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, Closed_revoker>(this, Closed(handler));
     }
-    template <typename D> auto consume_Windows_Foundation_IMemoryBufferReference<D>::Closed(winrt::event_token const& cookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IMemoryBufferReference<D>::Closed(winrt::event_token const& cookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Foundation::IMemoryBufferReference)->remove_Closed(impl::bind_in(cookie)));
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::Type() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::PropertyType) consume_Windows_Foundation_IPropertyValue<D>::Type() const
     {
-        Windows::Foundation::PropertyType value;
+        Windows::Foundation::PropertyType value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->get_Type(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::IsNumericScalar() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Foundation_IPropertyValue<D>::IsNumericScalar() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->get_IsNumericScalar(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetUInt8() const
+    template <typename D> WINRT_IMPL_AUTO(uint8_t) consume_Windows_Foundation_IPropertyValue<D>::GetUInt8() const
     {
-        uint8_t value;
+        uint8_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetUInt8(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetInt16() const
+    template <typename D> WINRT_IMPL_AUTO(int16_t) consume_Windows_Foundation_IPropertyValue<D>::GetInt16() const
     {
-        int16_t value;
+        int16_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetInt16(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetUInt16() const
+    template <typename D> WINRT_IMPL_AUTO(uint16_t) consume_Windows_Foundation_IPropertyValue<D>::GetUInt16() const
     {
-        uint16_t value;
+        uint16_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetUInt16(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetInt32() const
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_Foundation_IPropertyValue<D>::GetInt32() const
     {
-        int32_t value;
+        int32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetInt32(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetUInt32() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Foundation_IPropertyValue<D>::GetUInt32() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetUInt32(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetInt64() const
+    template <typename D> WINRT_IMPL_AUTO(int64_t) consume_Windows_Foundation_IPropertyValue<D>::GetInt64() const
     {
-        int64_t value;
+        int64_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetInt64(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetUInt64() const
+    template <typename D> WINRT_IMPL_AUTO(uint64_t) consume_Windows_Foundation_IPropertyValue<D>::GetUInt64() const
     {
-        uint64_t value;
+        uint64_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetUInt64(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetSingle() const
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_Foundation_IPropertyValue<D>::GetSingle() const
     {
-        float value;
+        float value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetSingle(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetDouble() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Foundation_IPropertyValue<D>::GetDouble() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetDouble(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetChar16() const
+    template <typename D> WINRT_IMPL_AUTO(char16_t) consume_Windows_Foundation_IPropertyValue<D>::GetChar16() const
     {
-        char16_t value;
+        char16_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetChar16(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetBoolean() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Foundation_IPropertyValue<D>::GetBoolean() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetBoolean(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetString() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Foundation_IPropertyValue<D>::GetString() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetString(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetGuid() const
+    template <typename D> WINRT_IMPL_AUTO(winrt::guid) consume_Windows_Foundation_IPropertyValue<D>::GetGuid() const
     {
-        winrt::guid value;
+        winrt::guid value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetGuid(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetDateTime() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::DateTime) consume_Windows_Foundation_IPropertyValue<D>::GetDateTime() const
     {
-        Windows::Foundation::DateTime value;
+        Windows::Foundation::DateTime value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetDateTime(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetTimeSpan() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) consume_Windows_Foundation_IPropertyValue<D>::GetTimeSpan() const
     {
-        Windows::Foundation::TimeSpan value;
+        Windows::Foundation::TimeSpan value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetTimeSpan(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetPoint() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Point) consume_Windows_Foundation_IPropertyValue<D>::GetPoint() const
     {
-        Windows::Foundation::Point value;
+        Windows::Foundation::Point value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetPoint(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetSize() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Size) consume_Windows_Foundation_IPropertyValue<D>::GetSize() const
     {
-        Windows::Foundation::Size value;
+        Windows::Foundation::Size value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetSize(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetRect() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Rect) consume_Windows_Foundation_IPropertyValue<D>::GetRect() const
     {
-        Windows::Foundation::Rect value;
+        Windows::Foundation::Rect value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetRect(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetUInt8Array(com_array<uint8_t>& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IPropertyValue<D>::GetUInt8Array(com_array<uint8_t>& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetUInt8Array(impl::put_size_abi(value), put_abi(value)));
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetInt16Array(com_array<int16_t>& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IPropertyValue<D>::GetInt16Array(com_array<int16_t>& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetInt16Array(impl::put_size_abi(value), put_abi(value)));
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetUInt16Array(com_array<uint16_t>& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IPropertyValue<D>::GetUInt16Array(com_array<uint16_t>& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetUInt16Array(impl::put_size_abi(value), put_abi(value)));
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetInt32Array(com_array<int32_t>& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IPropertyValue<D>::GetInt32Array(com_array<int32_t>& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetInt32Array(impl::put_size_abi(value), put_abi(value)));
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetUInt32Array(com_array<uint32_t>& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IPropertyValue<D>::GetUInt32Array(com_array<uint32_t>& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetUInt32Array(impl::put_size_abi(value), put_abi(value)));
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetInt64Array(com_array<int64_t>& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IPropertyValue<D>::GetInt64Array(com_array<int64_t>& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetInt64Array(impl::put_size_abi(value), put_abi(value)));
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetUInt64Array(com_array<uint64_t>& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IPropertyValue<D>::GetUInt64Array(com_array<uint64_t>& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetUInt64Array(impl::put_size_abi(value), put_abi(value)));
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetSingleArray(com_array<float>& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IPropertyValue<D>::GetSingleArray(com_array<float>& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetSingleArray(impl::put_size_abi(value), put_abi(value)));
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetDoubleArray(com_array<double>& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IPropertyValue<D>::GetDoubleArray(com_array<double>& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetDoubleArray(impl::put_size_abi(value), put_abi(value)));
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetChar16Array(com_array<char16_t>& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IPropertyValue<D>::GetChar16Array(com_array<char16_t>& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetChar16Array(impl::put_size_abi(value), put_abi(value)));
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetBooleanArray(com_array<bool>& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IPropertyValue<D>::GetBooleanArray(com_array<bool>& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetBooleanArray(impl::put_size_abi(value), put_abi(value)));
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetStringArray(com_array<hstring>& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IPropertyValue<D>::GetStringArray(com_array<hstring>& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetStringArray(impl::put_size_abi(value), put_abi(value)));
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetInspectableArray(com_array<Windows::Foundation::IInspectable>& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IPropertyValue<D>::GetInspectableArray(com_array<Windows::Foundation::IInspectable>& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetInspectableArray(impl::put_size_abi(value), put_abi(value)));
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetGuidArray(com_array<winrt::guid>& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IPropertyValue<D>::GetGuidArray(com_array<winrt::guid>& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetGuidArray(impl::put_size_abi(value), put_abi(value)));
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetDateTimeArray(com_array<Windows::Foundation::DateTime>& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IPropertyValue<D>::GetDateTimeArray(com_array<Windows::Foundation::DateTime>& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetDateTimeArray(impl::put_size_abi(value), put_abi(value)));
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetTimeSpanArray(com_array<Windows::Foundation::TimeSpan>& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IPropertyValue<D>::GetTimeSpanArray(com_array<Windows::Foundation::TimeSpan>& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetTimeSpanArray(impl::put_size_abi(value), put_abi(value)));
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetPointArray(com_array<Windows::Foundation::Point>& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IPropertyValue<D>::GetPointArray(com_array<Windows::Foundation::Point>& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetPointArray(impl::put_size_abi(value), put_abi(value)));
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetSizeArray(com_array<Windows::Foundation::Size>& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IPropertyValue<D>::GetSizeArray(com_array<Windows::Foundation::Size>& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetSizeArray(impl::put_size_abi(value), put_abi(value)));
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValue<D>::GetRectArray(com_array<Windows::Foundation::Rect>& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Foundation_IPropertyValue<D>::GetRectArray(com_array<Windows::Foundation::Rect>& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValue)->GetRectArray(impl::put_size_abi(value), put_abi(value)));
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateEmpty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateEmpty() const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateEmpty(&propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateUInt8(uint8_t value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateUInt8(uint8_t value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateUInt8(value, &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateInt16(int16_t value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateInt16(int16_t value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateInt16(value, &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateUInt16(uint16_t value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateUInt16(uint16_t value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateUInt16(value, &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateInt32(int32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateInt32(int32_t value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateInt32(value, &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateUInt32(uint32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateUInt32(uint32_t value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateUInt32(value, &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateInt64(int64_t value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateInt64(int64_t value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateInt64(value, &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateUInt64(uint64_t value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateUInt64(uint64_t value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateUInt64(value, &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateSingle(float value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateSingle(float value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateSingle(value, &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateDouble(double value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateDouble(double value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateDouble(value, &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateChar16(char16_t value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateChar16(char16_t value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateChar16(value, &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateBoolean(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateBoolean(bool value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateBoolean(value, &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateString(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateString(param::hstring const& value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateString(*(void**)(&value), &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateInspectable(Windows::Foundation::IInspectable const& value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateInspectable(Windows::Foundation::IInspectable const& value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateInspectable(*(void**)(&value), &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateGuid(winrt::guid const& value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateGuid(winrt::guid const& value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateGuid(impl::bind_in(value), &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateDateTime(Windows::Foundation::DateTime const& value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateDateTime(Windows::Foundation::DateTime const& value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateDateTime(impl::bind_in(value), &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateTimeSpan(Windows::Foundation::TimeSpan const& value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateTimeSpan(Windows::Foundation::TimeSpan const& value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateTimeSpan(impl::bind_in(value), &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreatePoint(Windows::Foundation::Point const& value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreatePoint(Windows::Foundation::Point const& value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreatePoint(impl::bind_in(value), &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateSize(Windows::Foundation::Size const& value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateSize(Windows::Foundation::Size const& value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateSize(impl::bind_in(value), &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateRect(Windows::Foundation::Rect const& value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateRect(Windows::Foundation::Rect const& value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateRect(impl::bind_in(value), &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateUInt8Array(array_view<uint8_t const> value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateUInt8Array(array_view<uint8_t const> value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateUInt8Array(value.size(), get_abi(value), &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateInt16Array(array_view<int16_t const> value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateInt16Array(array_view<int16_t const> value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateInt16Array(value.size(), get_abi(value), &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateUInt16Array(array_view<uint16_t const> value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateUInt16Array(array_view<uint16_t const> value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateUInt16Array(value.size(), get_abi(value), &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateInt32Array(array_view<int32_t const> value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateInt32Array(array_view<int32_t const> value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateInt32Array(value.size(), get_abi(value), &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateUInt32Array(array_view<uint32_t const> value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateUInt32Array(array_view<uint32_t const> value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateUInt32Array(value.size(), get_abi(value), &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateInt64Array(array_view<int64_t const> value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateInt64Array(array_view<int64_t const> value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateInt64Array(value.size(), get_abi(value), &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateUInt64Array(array_view<uint64_t const> value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateUInt64Array(array_view<uint64_t const> value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateUInt64Array(value.size(), get_abi(value), &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateSingleArray(array_view<float const> value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateSingleArray(array_view<float const> value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateSingleArray(value.size(), get_abi(value), &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateDoubleArray(array_view<double const> value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateDoubleArray(array_view<double const> value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateDoubleArray(value.size(), get_abi(value), &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateChar16Array(array_view<char16_t const> value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateChar16Array(array_view<char16_t const> value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateChar16Array(value.size(), get_abi(value), &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateBooleanArray(array_view<bool const> value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateBooleanArray(array_view<bool const> value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateBooleanArray(value.size(), get_abi(value), &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateStringArray(array_view<hstring const> value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateStringArray(array_view<hstring const> value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateStringArray(value.size(), get_abi(value), &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateInspectableArray(array_view<Windows::Foundation::IInspectable const> value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateInspectableArray(array_view<Windows::Foundation::IInspectable const> value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateInspectableArray(value.size(), get_abi(value), &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateGuidArray(array_view<winrt::guid const> value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateGuidArray(array_view<winrt::guid const> value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateGuidArray(value.size(), get_abi(value), &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateDateTimeArray(array_view<Windows::Foundation::DateTime const> value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateDateTimeArray(array_view<Windows::Foundation::DateTime const> value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateDateTimeArray(value.size(), get_abi(value), &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateTimeSpanArray(array_view<Windows::Foundation::TimeSpan const> value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateTimeSpanArray(array_view<Windows::Foundation::TimeSpan const> value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateTimeSpanArray(value.size(), get_abi(value), &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreatePointArray(array_view<Windows::Foundation::Point const> value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreatePointArray(array_view<Windows::Foundation::Point const> value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreatePointArray(value.size(), get_abi(value), &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateSizeArray(array_view<Windows::Foundation::Size const> value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateSizeArray(array_view<Windows::Foundation::Size const> value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateSizeArray(value.size(), get_abi(value), &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IPropertyValueStatics<D>::CreateRectArray(array_view<Windows::Foundation::Rect const> value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_Foundation_IPropertyValueStatics<D>::CreateRectArray(array_view<Windows::Foundation::Rect const> value) const
     {
         void* propertyValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IPropertyValueStatics)->CreateRectArray(value.size(), get_abi(value), &propertyValue));
         return Windows::Foundation::IInspectable{ propertyValue, take_ownership_from_abi };
     }
-    template <typename D, typename T> auto consume_Windows_Foundation_IReferenceArray<D, T>::Value() const
+    template <typename D, typename T> WINRT_IMPL_AUTO(com_array<T>) consume_Windows_Foundation_IReferenceArray<D, T>::Value() const
     {
         uint32_t winrt_impl_result_impl_size{};
         T* winrt_impl_result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IReferenceArray<T>)->get_Value(&winrt_impl_result_impl_size, &winrt_impl_result));
         return com_array<T>{ winrt_impl_result, winrt_impl_result_impl_size, take_ownership_from_abi };
     }
-    template <typename D, typename T> auto consume_Windows_Foundation_IReference<D, T>::Value() const
+    template <typename D, typename T> WINRT_IMPL_AUTO(T) consume_Windows_Foundation_IReference<D, T>::Value() const
     {
         T winrt_impl_result{ empty_value<T>() };
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IReference<T>)->get_Value(put_abi(winrt_impl_result)));
         return winrt_impl_result;
     }
-    template <typename D> auto consume_Windows_Foundation_IStringable<D>::ToString() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Foundation_IStringable<D>::ToString() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IStringable)->ToString(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IUriEscapeStatics<D>::UnescapeComponent(param::hstring const& toUnescape) const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Foundation_IUriEscapeStatics<D>::UnescapeComponent(param::hstring const& toUnescape) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IUriEscapeStatics)->UnescapeComponent(*(void**)(&toUnescape), &value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IUriEscapeStatics<D>::EscapeComponent(param::hstring const& toEscape) const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Foundation_IUriEscapeStatics<D>::EscapeComponent(param::hstring const& toEscape) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IUriEscapeStatics)->EscapeComponent(*(void**)(&toEscape), &value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IUriRuntimeClass<D>::AbsoluteUri() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Foundation_IUriRuntimeClass<D>::AbsoluteUri() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IUriRuntimeClass)->get_AbsoluteUri(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IUriRuntimeClass<D>::DisplayUri() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Foundation_IUriRuntimeClass<D>::DisplayUri() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IUriRuntimeClass)->get_DisplayUri(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IUriRuntimeClass<D>::Domain() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Foundation_IUriRuntimeClass<D>::Domain() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IUriRuntimeClass)->get_Domain(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IUriRuntimeClass<D>::Extension() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Foundation_IUriRuntimeClass<D>::Extension() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IUriRuntimeClass)->get_Extension(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IUriRuntimeClass<D>::Fragment() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Foundation_IUriRuntimeClass<D>::Fragment() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IUriRuntimeClass)->get_Fragment(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IUriRuntimeClass<D>::Host() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Foundation_IUriRuntimeClass<D>::Host() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IUriRuntimeClass)->get_Host(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IUriRuntimeClass<D>::Password() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Foundation_IUriRuntimeClass<D>::Password() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IUriRuntimeClass)->get_Password(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IUriRuntimeClass<D>::Path() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Foundation_IUriRuntimeClass<D>::Path() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IUriRuntimeClass)->get_Path(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IUriRuntimeClass<D>::Query() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Foundation_IUriRuntimeClass<D>::Query() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IUriRuntimeClass)->get_Query(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IUriRuntimeClass<D>::QueryParsed() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::WwwFormUrlDecoder) consume_Windows_Foundation_IUriRuntimeClass<D>::QueryParsed() const
     {
         void* ppWwwFormUrlDecoder{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IUriRuntimeClass)->get_QueryParsed(&ppWwwFormUrlDecoder));
         return Windows::Foundation::WwwFormUrlDecoder{ ppWwwFormUrlDecoder, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IUriRuntimeClass<D>::RawUri() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Foundation_IUriRuntimeClass<D>::RawUri() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IUriRuntimeClass)->get_RawUri(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IUriRuntimeClass<D>::SchemeName() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Foundation_IUriRuntimeClass<D>::SchemeName() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IUriRuntimeClass)->get_SchemeName(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IUriRuntimeClass<D>::UserName() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Foundation_IUriRuntimeClass<D>::UserName() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IUriRuntimeClass)->get_UserName(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IUriRuntimeClass<D>::Port() const
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_Foundation_IUriRuntimeClass<D>::Port() const
     {
-        int32_t value;
+        int32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IUriRuntimeClass)->get_Port(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Foundation_IUriRuntimeClass<D>::Suspicious() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Foundation_IUriRuntimeClass<D>::Suspicious() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IUriRuntimeClass)->get_Suspicious(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Foundation_IUriRuntimeClass<D>::Equals(Windows::Foundation::Uri const& pUri) const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Foundation_IUriRuntimeClass<D>::Equals(Windows::Foundation::Uri const& pUri) const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IUriRuntimeClass)->Equals(*(void**)(&pUri), &value));
         return value;
     }
-    template <typename D> auto consume_Windows_Foundation_IUriRuntimeClass<D>::CombineUri(param::hstring const& relativeUri) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Uri) consume_Windows_Foundation_IUriRuntimeClass<D>::CombineUri(param::hstring const& relativeUri) const
     {
         void* instance{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IUriRuntimeClass)->CombineUri(*(void**)(&relativeUri), &instance));
         return Windows::Foundation::Uri{ instance, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IUriRuntimeClassFactory<D>::CreateUri(param::hstring const& uri) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Uri) consume_Windows_Foundation_IUriRuntimeClassFactory<D>::CreateUri(param::hstring const& uri) const
     {
         void* instance{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IUriRuntimeClassFactory)->CreateUri(*(void**)(&uri), &instance));
         return Windows::Foundation::Uri{ instance, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IUriRuntimeClassFactory<D>::CreateWithRelativeUri(param::hstring const& baseUri, param::hstring const& relativeUri) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Uri) consume_Windows_Foundation_IUriRuntimeClassFactory<D>::CreateWithRelativeUri(param::hstring const& baseUri, param::hstring const& relativeUri) const
     {
         void* instance{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IUriRuntimeClassFactory)->CreateWithRelativeUri(*(void**)(&baseUri), *(void**)(&relativeUri), &instance));
         return Windows::Foundation::Uri{ instance, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IUriRuntimeClassWithAbsoluteCanonicalUri<D>::AbsoluteCanonicalUri() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Foundation_IUriRuntimeClassWithAbsoluteCanonicalUri<D>::AbsoluteCanonicalUri() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IUriRuntimeClassWithAbsoluteCanonicalUri)->get_AbsoluteCanonicalUri(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IUriRuntimeClassWithAbsoluteCanonicalUri<D>::DisplayIri() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Foundation_IUriRuntimeClassWithAbsoluteCanonicalUri<D>::DisplayIri() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IUriRuntimeClassWithAbsoluteCanonicalUri)->get_DisplayIri(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IWwwFormUrlDecoderEntry<D>::Name() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Foundation_IWwwFormUrlDecoderEntry<D>::Name() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IWwwFormUrlDecoderEntry)->get_Name(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IWwwFormUrlDecoderEntry<D>::Value() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Foundation_IWwwFormUrlDecoderEntry<D>::Value() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IWwwFormUrlDecoderEntry)->get_Value(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IWwwFormUrlDecoderRuntimeClass<D>::GetFirstValueByName(param::hstring const& name) const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Foundation_IWwwFormUrlDecoderRuntimeClass<D>::GetFirstValueByName(param::hstring const& name) const
     {
         void* phstrValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IWwwFormUrlDecoderRuntimeClass)->GetFirstValueByName(*(void**)(&name), &phstrValue));
         return hstring{ phstrValue, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Foundation_IWwwFormUrlDecoderRuntimeClassFactory<D>::CreateWwwFormUrlDecoder(param::hstring const& query) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::WwwFormUrlDecoder) consume_Windows_Foundation_IWwwFormUrlDecoderRuntimeClassFactory<D>::CreateWwwFormUrlDecoder(param::hstring const& query) const
     {
         void* instance{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Foundation::IWwwFormUrlDecoderRuntimeClassFactory)->CreateWwwFormUrlDecoder(*(void**)(&query), &instance));
@@ -2762,6 +2762,14 @@ namespace winrt::impl
         static auto make(guid const& value) { return Windows::Foundation::PropertyValue::CreateGuid(value); }
     };
 
+#ifdef WINRT_IMPL_IUNKNOWN_DEFINED
+    template <>
+    struct reference_traits<GUID>
+    {
+        static auto make(GUID const& value) { return Windows::Foundation::PropertyValue::CreateGuid(value); }
+    };
+#endif
+
     template <>
     struct reference_traits<Windows::Foundation::DateTime>
     {
@@ -2856,6 +2864,12 @@ WINRT_EXPORT namespace winrt
                 return static_cast<T>(value.as<Windows::Foundation::IReference<std::underlying_type_t<T>>>().Value());
             }
         }
+#ifdef WINRT_IMPL_IUNKNOWN_DEFINED
+        else if constexpr (std::is_same_v<T, GUID>)
+        {
+            return value.as<Windows::Foundation::IReference<guid>>().Value();
+        }
+#endif
         else
         {
             return value.as<Windows::Foundation::IReference<T>>().Value();
@@ -2900,6 +2914,15 @@ WINRT_EXPORT namespace winrt
                     return static_cast<T>(temp.Value());
                 }
             }
+#ifdef WINRT_IMPL_IUNKNOWN_DEFINED
+            else if constexpr (std::is_same_v<T, GUID>)
+            {
+                if (auto temp = value.try_as<Windows::Foundation::IReference<guid>>())
+                {
+                    return temp.Value();
+                }
+            }
+#endif
             else
             {
                 if (auto temp = value.try_as<Windows::Foundation::IReference<T>>())
@@ -3035,16 +3058,16 @@ namespace winrt::impl
     template <typename Async>
     void wait_for_completed(Async const& async, uint32_t const timeout)
     {
-        void* event = check_pointer(WINRT_CreateEventW(nullptr, true, false, nullptr));
+        void* event = check_pointer(WINRT_IMPL_CreateEventW(nullptr, true, false, nullptr));
 
         // The delegate is a local to ensure that the event outlives the call to WaitForSingleObject.
         async_completed_handler_t<Async> delegate = [event = handle(event)](auto && ...)
         {
-            WINRT_VERIFY(WINRT_SetEvent(event.get()));
+            WINRT_VERIFY(WINRT_IMPL_SetEvent(event.get()));
         };
 
         async.Completed(delegate);
-        WINRT_WaitForSingleObject(event, timeout);
+        WINRT_IMPL_WaitForSingleObject(event, timeout);
     }
 
     template <typename Async>
@@ -3082,7 +3105,7 @@ namespace winrt::impl
 
         void await_suspend(std::experimental::coroutine_handle<> handle) const
         {
-            async.Completed([handle, context = impl::sta_apartment_context()](auto&& ...)
+            async.Completed([handle, context = impl::apartment_context()](auto&& ...)
             {
                 impl::resume_apartment(context, handle);
             });
@@ -3521,7 +3544,7 @@ namespace winrt::impl
     };
 }
 
-namespace std::experimental
+WINRT_EXPORT namespace std::experimental
 {
     template <typename... Args>
     struct coroutine_traits<winrt::Windows::Foundation::IAsyncAction, Args...>
@@ -3658,7 +3681,7 @@ WINRT_EXPORT namespace winrt
 
         struct shared_type
         {
-            handle event{ check_pointer(WINRT_CreateEventW(nullptr, true, false, nullptr)) };
+            handle event{ check_pointer(WINRT_IMPL_CreateEventW(nullptr, true, false, nullptr)) };
             T result;
         };
 
@@ -3673,7 +3696,7 @@ WINRT_EXPORT namespace winrt
                     if (nullptr == _InterlockedCompareExchangePointer(reinterpret_cast<void**>(&shared->result), sender_abi, nullptr))
                     {
                         sender_abi->AddRef();
-                        WINRT_VERIFY(WINRT_SetEvent(shared->event.get()));
+                        WINRT_VERIFY(WINRT_IMPL_SetEvent(shared->event.get()));
                     }
                 });
         };

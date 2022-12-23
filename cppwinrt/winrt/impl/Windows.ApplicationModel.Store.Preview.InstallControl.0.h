@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -9,7 +9,12 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
     struct HResult;
+    template <typename TResult> struct IAsyncOperation;
     template <typename TSender, typename TResult> struct TypedEventHandler;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Management::Deployment
 {
@@ -129,41 +134,39 @@ namespace winrt::impl
     template <> struct category<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallationToastNotificationMode>{ using type = enum_category; };
     template <> struct category<Windows::ApplicationModel::Store::Preview::InstallControl::AutoUpdateSetting>{ using type = enum_category; };
     template <> struct category<Windows::ApplicationModel::Store::Preview::InstallControl::GetEntitlementStatus>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallItem" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallManager>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallManager" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallManagerItemEventArgs>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallManagerItemEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallOptions>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallOptions" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallStatus>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallStatus" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::AppUpdateOptions>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.AppUpdateOptions" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::GetEntitlementResult>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.GetEntitlementResult" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallState>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallState" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallType>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallType" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallationToastNotificationMode>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallationToastNotificationMode" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::AutoUpdateSetting>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.AutoUpdateSetting" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::GetEntitlementStatus>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.GetEntitlementStatus" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem2>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem3>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem4>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem4" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem5>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem5" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager2>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager3>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager4>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager4" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager5>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager5" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager6>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager6" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager7>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager7" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManagerItemEventArgs>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManagerItemEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallOptions>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallOptions" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallOptions2>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallOptions2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallStatus>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallStatus" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallStatus2>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallStatus2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallStatus3>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallStatus3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppUpdateOptions>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppUpdateOptions" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppUpdateOptions2>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppUpdateOptions2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IGetEntitlementResult>{ L"Windows.ApplicationModel.Store.Preview.InstallControl.IGetEntitlementResult" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem> = L"Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallItem";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallManager> = L"Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallManagerItemEventArgs> = L"Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallManagerItemEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallOptions> = L"Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallOptions";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallStatus> = L"Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallStatus";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::AppUpdateOptions> = L"Windows.ApplicationModel.Store.Preview.InstallControl.AppUpdateOptions";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::GetEntitlementResult> = L"Windows.ApplicationModel.Store.Preview.InstallControl.GetEntitlementResult";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallState> = L"Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallState";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallType> = L"Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallType";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallationToastNotificationMode> = L"Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallationToastNotificationMode";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::AutoUpdateSetting> = L"Windows.ApplicationModel.Store.Preview.InstallControl.AutoUpdateSetting";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::GetEntitlementStatus> = L"Windows.ApplicationModel.Store.Preview.InstallControl.GetEntitlementStatus";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem> = L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem2> = L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem3> = L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem4> = L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem4";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem5> = L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallItem5";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager> = L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager2> = L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager3> = L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager4> = L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager4";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager5> = L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager5";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager6> = L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager6";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager7> = L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManager7";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManagerItemEventArgs> = L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallManagerItemEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallOptions> = L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallOptions";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallOptions2> = L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallOptions2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallStatus> = L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallStatus";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallStatus2> = L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallStatus2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallStatus3> = L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppInstallStatus3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppUpdateOptions> = L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppUpdateOptions";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppUpdateOptions2> = L"Windows.ApplicationModel.Store.Preview.InstallControl.IAppUpdateOptions2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::Preview::InstallControl::IGetEntitlementResult> = L"Windows.ApplicationModel.Store.Preview.InstallControl.IGetEntitlementResult";
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem>{ 0x49D3DFAB,0x168A,0x4CBF,{ 0xA9,0x3A,0x9E,0x44,0x8C,0x82,0x73,0x7D } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem2>{ 0xD3972AF8,0x40C0,0x4FD7,{ 0xAA,0x6C,0x0A,0xA1,0x3C,0xA6,0x18,0x8C } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem3>{ 0x6F3DC998,0xDD47,0x433C,{ 0x92,0x34,0x56,0x01,0x72,0xD6,0x7A,0x45 } };
@@ -444,22 +447,22 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_Preview_InstallControl_IAppInstallItem
     {
-        [[nodiscard]] auto ProductId() const;
-        [[nodiscard]] auto PackageFamilyName() const;
-        [[nodiscard]] auto InstallType() const;
-        [[nodiscard]] auto IsUserInitiated() const;
-        auto GetCurrentStatus() const;
-        auto Cancel() const;
-        auto Pause() const;
-        auto Restart() const;
-        auto Completed(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem, Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ProductId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PackageFamilyName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallType) InstallType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsUserInitiated() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallStatus) GetCurrentStatus() const;
+        WINRT_IMPL_AUTO(void) Cancel() const;
+        WINRT_IMPL_AUTO(void) Pause() const;
+        WINRT_IMPL_AUTO(void) Restart() const;
+        WINRT_IMPL_AUTO(winrt::event_token) Completed(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem, Windows::Foundation::IInspectable> const& handler) const;
         using Completed_revoker = impl::event_revoker<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem, &impl::abi_t<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem>::remove_Completed>;
         [[nodiscard]] Completed_revoker Completed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem, Windows::Foundation::IInspectable> const& handler) const;
-        auto Completed(winrt::event_token const& token) const noexcept;
-        auto StatusChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) Completed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) StatusChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem, Windows::Foundation::IInspectable> const& handler) const;
         using StatusChanged_revoker = impl::event_revoker<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem, &impl::abi_t<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem>::remove_StatusChanged>;
         [[nodiscard]] StatusChanged_revoker StatusChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem, Windows::Foundation::IInspectable> const& handler) const;
-        auto StatusChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) StatusChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem>
     {
@@ -468,9 +471,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_Preview_InstallControl_IAppInstallItem2
     {
-        auto Cancel(param::hstring const& correlationVector) const;
-        auto Pause(param::hstring const& correlationVector) const;
-        auto Restart(param::hstring const& correlationVector) const;
+        WINRT_IMPL_AUTO(void) Cancel(param::hstring const& correlationVector) const;
+        WINRT_IMPL_AUTO(void) Pause(param::hstring const& correlationVector) const;
+        WINRT_IMPL_AUTO(void) Restart(param::hstring const& correlationVector) const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem2>
     {
@@ -479,8 +482,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_Preview_InstallControl_IAppInstallItem3
     {
-        [[nodiscard]] auto Children() const;
-        [[nodiscard]] auto ItemOperationsMightAffectOtherItems() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem>) Children() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ItemOperationsMightAffectOtherItems() const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem3>
     {
@@ -489,8 +492,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_Preview_InstallControl_IAppInstallItem4
     {
-        [[nodiscard]] auto LaunchAfterInstall() const;
-        auto LaunchAfterInstall(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) LaunchAfterInstall() const;
+        WINRT_IMPL_AUTO(void) LaunchAfterInstall(bool value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem4>
     {
@@ -499,16 +502,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_Preview_InstallControl_IAppInstallItem5
     {
-        [[nodiscard]] auto PinToDesktopAfterInstall() const;
-        auto PinToDesktopAfterInstall(bool value) const;
-        [[nodiscard]] auto PinToStartAfterInstall() const;
-        auto PinToStartAfterInstall(bool value) const;
-        [[nodiscard]] auto PinToTaskbarAfterInstall() const;
-        auto PinToTaskbarAfterInstall(bool value) const;
-        [[nodiscard]] auto CompletedInstallToastNotificationMode() const;
-        auto CompletedInstallToastNotificationMode(Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallationToastNotificationMode const& value) const;
-        [[nodiscard]] auto InstallInProgressToastNotificationMode() const;
-        auto InstallInProgressToastNotificationMode(Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallationToastNotificationMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) PinToDesktopAfterInstall() const;
+        WINRT_IMPL_AUTO(void) PinToDesktopAfterInstall(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) PinToStartAfterInstall() const;
+        WINRT_IMPL_AUTO(void) PinToStartAfterInstall(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) PinToTaskbarAfterInstall() const;
+        WINRT_IMPL_AUTO(void) PinToTaskbarAfterInstall(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallationToastNotificationMode) CompletedInstallToastNotificationMode() const;
+        WINRT_IMPL_AUTO(void) CompletedInstallToastNotificationMode(Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallationToastNotificationMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallationToastNotificationMode) InstallInProgressToastNotificationMode() const;
+        WINRT_IMPL_AUTO(void) InstallInProgressToastNotificationMode(Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallationToastNotificationMode const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallItem5>
     {
@@ -517,29 +520,29 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_Preview_InstallControl_IAppInstallManager
     {
-        [[nodiscard]] auto AppInstallItems() const;
-        auto Cancel(param::hstring const& productId) const;
-        auto Pause(param::hstring const& productId) const;
-        auto Restart(param::hstring const& productId) const;
-        auto ItemCompleted(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallManager, Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallManagerItemEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem>) AppInstallItems() const;
+        WINRT_IMPL_AUTO(void) Cancel(param::hstring const& productId) const;
+        WINRT_IMPL_AUTO(void) Pause(param::hstring const& productId) const;
+        WINRT_IMPL_AUTO(void) Restart(param::hstring const& productId) const;
+        WINRT_IMPL_AUTO(winrt::event_token) ItemCompleted(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallManager, Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallManagerItemEventArgs> const& handler) const;
         using ItemCompleted_revoker = impl::event_revoker<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager, &impl::abi_t<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager>::remove_ItemCompleted>;
         [[nodiscard]] ItemCompleted_revoker ItemCompleted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallManager, Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallManagerItemEventArgs> const& handler) const;
-        auto ItemCompleted(winrt::event_token const& token) const noexcept;
-        auto ItemStatusChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallManager, Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallManagerItemEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) ItemCompleted(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ItemStatusChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallManager, Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallManagerItemEventArgs> const& handler) const;
         using ItemStatusChanged_revoker = impl::event_revoker<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager, &impl::abi_t<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager>::remove_ItemStatusChanged>;
         [[nodiscard]] ItemStatusChanged_revoker ItemStatusChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallManager, Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallManagerItemEventArgs> const& handler) const;
-        auto ItemStatusChanged(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto AutoUpdateSetting() const;
-        auto AutoUpdateSetting(Windows::ApplicationModel::Store::Preview::InstallControl::AutoUpdateSetting const& value) const;
-        [[nodiscard]] auto AcquisitionIdentity() const;
-        auto AcquisitionIdentity(param::hstring const& value) const;
-        auto GetIsApplicableAsync(param::hstring const& productId, param::hstring const& skuId) const;
-        auto StartAppInstallAsync(param::hstring const& productId, param::hstring const& skuId, bool repair, bool forceUseOfNonRemovableStorage) const;
-        auto UpdateAppByPackageFamilyNameAsync(param::hstring const& packageFamilyName) const;
-        auto SearchForUpdatesAsync(param::hstring const& productId, param::hstring const& skuId) const;
-        auto SearchForAllUpdatesAsync() const;
-        auto IsStoreBlockedByPolicyAsync(param::hstring const& storeClientName, param::hstring const& storeClientPublisher) const;
-        auto GetIsAppAllowedToInstallAsync(param::hstring const& productId) const;
+        WINRT_IMPL_AUTO(void) ItemStatusChanged(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Store::Preview::InstallControl::AutoUpdateSetting) AutoUpdateSetting() const;
+        WINRT_IMPL_AUTO(void) AutoUpdateSetting(Windows::ApplicationModel::Store::Preview::InstallControl::AutoUpdateSetting const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AcquisitionIdentity() const;
+        WINRT_IMPL_AUTO(void) AcquisitionIdentity(param::hstring const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) GetIsApplicableAsync(param::hstring const& productId, param::hstring const& skuId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem>) StartAppInstallAsync(param::hstring const& productId, param::hstring const& skuId, bool repair, bool forceUseOfNonRemovableStorage) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem>) UpdateAppByPackageFamilyNameAsync(param::hstring const& packageFamilyName) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem>) SearchForUpdatesAsync(param::hstring const& productId, param::hstring const& skuId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem>>) SearchForAllUpdatesAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) IsStoreBlockedByPolicyAsync(param::hstring const& storeClientName, param::hstring const& storeClientPublisher) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) GetIsAppAllowedToInstallAsync(param::hstring const& productId) const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager>
     {
@@ -548,14 +551,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_Preview_InstallControl_IAppInstallManager2
     {
-        auto StartAppInstallAsync(param::hstring const& productId, param::hstring const& skuId, bool repair, bool forceUseOfNonRemovableStorage, param::hstring const& catalogId, param::hstring const& bundleId, param::hstring const& correlationVector) const;
-        auto UpdateAppByPackageFamilyNameAsync(param::hstring const& packageFamilyName, param::hstring const& correlationVector) const;
-        auto SearchForUpdatesAsync(param::hstring const& productId, param::hstring const& skuId, param::hstring const& catalogId, param::hstring const& correlationVector) const;
-        auto SearchForAllUpdatesAsync(param::hstring const& correlationVector) const;
-        auto GetIsAppAllowedToInstallAsync(param::hstring const& productId, param::hstring const& skuId, param::hstring const& catalogId, param::hstring const& correlationVector) const;
-        auto Cancel(param::hstring const& productId, param::hstring const& correlationVector) const;
-        auto Pause(param::hstring const& productId, param::hstring const& correlationVector) const;
-        auto Restart(param::hstring const& productId, param::hstring const& correlationVector) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem>) StartAppInstallAsync(param::hstring const& productId, param::hstring const& skuId, bool repair, bool forceUseOfNonRemovableStorage, param::hstring const& catalogId, param::hstring const& bundleId, param::hstring const& correlationVector) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem>) UpdateAppByPackageFamilyNameAsync(param::hstring const& packageFamilyName, param::hstring const& correlationVector) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem>) SearchForUpdatesAsync(param::hstring const& productId, param::hstring const& skuId, param::hstring const& catalogId, param::hstring const& correlationVector) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem>>) SearchForAllUpdatesAsync(param::hstring const& correlationVector) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) GetIsAppAllowedToInstallAsync(param::hstring const& productId, param::hstring const& skuId, param::hstring const& catalogId, param::hstring const& correlationVector) const;
+        WINRT_IMPL_AUTO(void) Cancel(param::hstring const& productId, param::hstring const& correlationVector) const;
+        WINRT_IMPL_AUTO(void) Pause(param::hstring const& productId, param::hstring const& correlationVector) const;
+        WINRT_IMPL_AUTO(void) Restart(param::hstring const& productId, param::hstring const& correlationVector) const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager2>
     {
@@ -564,14 +567,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_Preview_InstallControl_IAppInstallManager3
     {
-        auto StartProductInstallAsync(param::hstring const& productId, param::hstring const& catalogId, param::hstring const& flightId, param::hstring const& clientId, bool repair, bool forceUseOfNonRemovableStorage, param::hstring const& correlationVector, Windows::Management::Deployment::PackageVolume const& targetVolume) const;
-        auto StartProductInstallForUserAsync(Windows::System::User const& user, param::hstring const& productId, param::hstring const& catalogId, param::hstring const& flightId, param::hstring const& clientId, bool repair, bool forceUseOfNonRemovableStorage, param::hstring const& correlationVector, Windows::Management::Deployment::PackageVolume const& targetVolume) const;
-        auto UpdateAppByPackageFamilyNameForUserAsync(Windows::System::User const& user, param::hstring const& packageFamilyName, param::hstring const& correlationVector) const;
-        auto SearchForUpdatesForUserAsync(Windows::System::User const& user, param::hstring const& productId, param::hstring const& skuId, param::hstring const& catalogId, param::hstring const& correlationVector) const;
-        auto SearchForAllUpdatesForUserAsync(Windows::System::User const& user, param::hstring const& correlationVector) const;
-        auto GetIsAppAllowedToInstallForUserAsync(Windows::System::User const& user, param::hstring const& productId, param::hstring const& skuId, param::hstring const& catalogId, param::hstring const& correlationVector) const;
-        auto GetIsApplicableForUserAsync(Windows::System::User const& user, param::hstring const& productId, param::hstring const& skuId) const;
-        auto MoveToFrontOfDownloadQueue(param::hstring const& productId, param::hstring const& correlationVector) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem>>) StartProductInstallAsync(param::hstring const& productId, param::hstring const& catalogId, param::hstring const& flightId, param::hstring const& clientId, bool repair, bool forceUseOfNonRemovableStorage, param::hstring const& correlationVector, Windows::Management::Deployment::PackageVolume const& targetVolume) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem>>) StartProductInstallForUserAsync(Windows::System::User const& user, param::hstring const& productId, param::hstring const& catalogId, param::hstring const& flightId, param::hstring const& clientId, bool repair, bool forceUseOfNonRemovableStorage, param::hstring const& correlationVector, Windows::Management::Deployment::PackageVolume const& targetVolume) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem>) UpdateAppByPackageFamilyNameForUserAsync(Windows::System::User const& user, param::hstring const& packageFamilyName, param::hstring const& correlationVector) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem>) SearchForUpdatesForUserAsync(Windows::System::User const& user, param::hstring const& productId, param::hstring const& skuId, param::hstring const& catalogId, param::hstring const& correlationVector) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem>>) SearchForAllUpdatesForUserAsync(Windows::System::User const& user, param::hstring const& correlationVector) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) GetIsAppAllowedToInstallForUserAsync(Windows::System::User const& user, param::hstring const& productId, param::hstring const& skuId, param::hstring const& catalogId, param::hstring const& correlationVector) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) GetIsApplicableForUserAsync(Windows::System::User const& user, param::hstring const& productId, param::hstring const& skuId) const;
+        WINRT_IMPL_AUTO(void) MoveToFrontOfDownloadQueue(param::hstring const& productId, param::hstring const& correlationVector) const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager3>
     {
@@ -580,9 +583,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_Preview_InstallControl_IAppInstallManager4
     {
-        auto GetFreeUserEntitlementAsync(param::hstring const& storeId, param::hstring const& campaignId, param::hstring const& correlationVector) const;
-        auto GetFreeUserEntitlementForUserAsync(Windows::System::User const& user, param::hstring const& storeId, param::hstring const& campaignId, param::hstring const& correlationVector) const;
-        auto GetFreeDeviceEntitlementAsync(param::hstring const& storeId, param::hstring const& campaignId, param::hstring const& correlationVector) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Store::Preview::InstallControl::GetEntitlementResult>) GetFreeUserEntitlementAsync(param::hstring const& storeId, param::hstring const& campaignId, param::hstring const& correlationVector) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Store::Preview::InstallControl::GetEntitlementResult>) GetFreeUserEntitlementForUserAsync(Windows::System::User const& user, param::hstring const& storeId, param::hstring const& campaignId, param::hstring const& correlationVector) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Store::Preview::InstallControl::GetEntitlementResult>) GetFreeDeviceEntitlementAsync(param::hstring const& storeId, param::hstring const& campaignId, param::hstring const& correlationVector) const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager4>
     {
@@ -591,7 +594,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_Preview_InstallControl_IAppInstallManager5
     {
-        [[nodiscard]] auto AppInstallItemsWithGroupSupport() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem>) AppInstallItemsWithGroupSupport() const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager5>
     {
@@ -600,14 +603,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_Preview_InstallControl_IAppInstallManager6
     {
-        auto SearchForAllUpdatesAsync(param::hstring const& correlationVector, param::hstring const& clientId, Windows::ApplicationModel::Store::Preview::InstallControl::AppUpdateOptions const& updateOptions) const;
-        auto SearchForAllUpdatesForUserAsync(Windows::System::User const& user, param::hstring const& correlationVector, param::hstring const& clientId, Windows::ApplicationModel::Store::Preview::InstallControl::AppUpdateOptions const& updateOptions) const;
-        auto SearchForUpdatesAsync(param::hstring const& productId, param::hstring const& skuId, param::hstring const& correlationVector, param::hstring const& clientId, Windows::ApplicationModel::Store::Preview::InstallControl::AppUpdateOptions const& updateOptions) const;
-        auto SearchForUpdatesForUserAsync(Windows::System::User const& user, param::hstring const& productId, param::hstring const& skuId, param::hstring const& correlationVector, param::hstring const& clientId, Windows::ApplicationModel::Store::Preview::InstallControl::AppUpdateOptions const& updateOptions) const;
-        auto StartProductInstallAsync(param::hstring const& productId, param::hstring const& flightId, param::hstring const& clientId, param::hstring const& correlationVector, Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallOptions const& installOptions) const;
-        auto StartProductInstallForUserAsync(Windows::System::User const& user, param::hstring const& productId, param::hstring const& flightId, param::hstring const& clientId, param::hstring const& correlationVector, Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallOptions const& installOptions) const;
-        auto GetIsPackageIdentityAllowedToInstallAsync(param::hstring const& correlationVector, param::hstring const& packageIdentityName, param::hstring const& publisherCertificateName) const;
-        auto GetIsPackageIdentityAllowedToInstallForUserAsync(Windows::System::User const& user, param::hstring const& correlationVector, param::hstring const& packageIdentityName, param::hstring const& publisherCertificateName) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem>>) SearchForAllUpdatesAsync(param::hstring const& correlationVector, param::hstring const& clientId, Windows::ApplicationModel::Store::Preview::InstallControl::AppUpdateOptions const& updateOptions) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem>>) SearchForAllUpdatesForUserAsync(Windows::System::User const& user, param::hstring const& correlationVector, param::hstring const& clientId, Windows::ApplicationModel::Store::Preview::InstallControl::AppUpdateOptions const& updateOptions) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem>) SearchForUpdatesAsync(param::hstring const& productId, param::hstring const& skuId, param::hstring const& correlationVector, param::hstring const& clientId, Windows::ApplicationModel::Store::Preview::InstallControl::AppUpdateOptions const& updateOptions) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem>) SearchForUpdatesForUserAsync(Windows::System::User const& user, param::hstring const& productId, param::hstring const& skuId, param::hstring const& correlationVector, param::hstring const& clientId, Windows::ApplicationModel::Store::Preview::InstallControl::AppUpdateOptions const& updateOptions) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem>>) StartProductInstallAsync(param::hstring const& productId, param::hstring const& flightId, param::hstring const& clientId, param::hstring const& correlationVector, Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallOptions const& installOptions) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem>>) StartProductInstallForUserAsync(Windows::System::User const& user, param::hstring const& productId, param::hstring const& flightId, param::hstring const& clientId, param::hstring const& correlationVector, Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallOptions const& installOptions) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) GetIsPackageIdentityAllowedToInstallAsync(param::hstring const& correlationVector, param::hstring const& packageIdentityName, param::hstring const& publisherCertificateName) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) GetIsPackageIdentityAllowedToInstallForUserAsync(Windows::System::User const& user, param::hstring const& correlationVector, param::hstring const& packageIdentityName, param::hstring const& publisherCertificateName) const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager6>
     {
@@ -616,7 +619,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_Preview_InstallControl_IAppInstallManager7
     {
-        [[nodiscard]] auto CanInstallForAllUsers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanInstallForAllUsers() const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManager7>
     {
@@ -625,7 +628,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_Preview_InstallControl_IAppInstallManagerItemEventArgs
     {
-        [[nodiscard]] auto Item() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallItem) Item() const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallManagerItemEventArgs>
     {
@@ -634,18 +637,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_Preview_InstallControl_IAppInstallOptions
     {
-        [[nodiscard]] auto CatalogId() const;
-        auto CatalogId(param::hstring const& value) const;
-        [[nodiscard]] auto ForceUseOfNonRemovableStorage() const;
-        auto ForceUseOfNonRemovableStorage(bool value) const;
-        [[nodiscard]] auto AllowForcedAppRestart() const;
-        auto AllowForcedAppRestart(bool value) const;
-        [[nodiscard]] auto Repair() const;
-        auto Repair(bool value) const;
-        [[nodiscard]] auto TargetVolume() const;
-        auto TargetVolume(Windows::Management::Deployment::PackageVolume const& value) const;
-        [[nodiscard]] auto LaunchAfterInstall() const;
-        auto LaunchAfterInstall(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CatalogId() const;
+        WINRT_IMPL_AUTO(void) CatalogId(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ForceUseOfNonRemovableStorage() const;
+        WINRT_IMPL_AUTO(void) ForceUseOfNonRemovableStorage(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AllowForcedAppRestart() const;
+        WINRT_IMPL_AUTO(void) AllowForcedAppRestart(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Repair() const;
+        WINRT_IMPL_AUTO(void) Repair(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Management::Deployment::PackageVolume) TargetVolume() const;
+        WINRT_IMPL_AUTO(void) TargetVolume(Windows::Management::Deployment::PackageVolume const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) LaunchAfterInstall() const;
+        WINRT_IMPL_AUTO(void) LaunchAfterInstall(bool value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallOptions>
     {
@@ -654,24 +657,24 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_Preview_InstallControl_IAppInstallOptions2
     {
-        [[nodiscard]] auto PinToDesktopAfterInstall() const;
-        auto PinToDesktopAfterInstall(bool value) const;
-        [[nodiscard]] auto PinToStartAfterInstall() const;
-        auto PinToStartAfterInstall(bool value) const;
-        [[nodiscard]] auto PinToTaskbarAfterInstall() const;
-        auto PinToTaskbarAfterInstall(bool value) const;
-        [[nodiscard]] auto CompletedInstallToastNotificationMode() const;
-        auto CompletedInstallToastNotificationMode(Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallationToastNotificationMode const& value) const;
-        [[nodiscard]] auto InstallInProgressToastNotificationMode() const;
-        auto InstallInProgressToastNotificationMode(Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallationToastNotificationMode const& value) const;
-        [[nodiscard]] auto InstallForAllUsers() const;
-        auto InstallForAllUsers(bool value) const;
-        [[nodiscard]] auto StageButDoNotInstall() const;
-        auto StageButDoNotInstall(bool value) const;
-        [[nodiscard]] auto CampaignId() const;
-        auto CampaignId(param::hstring const& value) const;
-        [[nodiscard]] auto ExtendedCampaignId() const;
-        auto ExtendedCampaignId(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) PinToDesktopAfterInstall() const;
+        WINRT_IMPL_AUTO(void) PinToDesktopAfterInstall(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) PinToStartAfterInstall() const;
+        WINRT_IMPL_AUTO(void) PinToStartAfterInstall(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) PinToTaskbarAfterInstall() const;
+        WINRT_IMPL_AUTO(void) PinToTaskbarAfterInstall(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallationToastNotificationMode) CompletedInstallToastNotificationMode() const;
+        WINRT_IMPL_AUTO(void) CompletedInstallToastNotificationMode(Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallationToastNotificationMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallationToastNotificationMode) InstallInProgressToastNotificationMode() const;
+        WINRT_IMPL_AUTO(void) InstallInProgressToastNotificationMode(Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallationToastNotificationMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) InstallForAllUsers() const;
+        WINRT_IMPL_AUTO(void) InstallForAllUsers(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) StageButDoNotInstall() const;
+        WINRT_IMPL_AUTO(void) StageButDoNotInstall(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CampaignId() const;
+        WINRT_IMPL_AUTO(void) CampaignId(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ExtendedCampaignId() const;
+        WINRT_IMPL_AUTO(void) ExtendedCampaignId(param::hstring const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallOptions2>
     {
@@ -680,11 +683,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_Preview_InstallControl_IAppInstallStatus
     {
-        [[nodiscard]] auto InstallState() const;
-        [[nodiscard]] auto DownloadSizeInBytes() const;
-        [[nodiscard]] auto BytesDownloaded() const;
-        [[nodiscard]] auto PercentComplete() const;
-        [[nodiscard]] auto ErrorCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Store::Preview::InstallControl::AppInstallState) InstallState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) DownloadSizeInBytes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) BytesDownloaded() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) PercentComplete() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ErrorCode() const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallStatus>
     {
@@ -693,8 +696,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_Preview_InstallControl_IAppInstallStatus2
     {
-        [[nodiscard]] auto User() const;
-        [[nodiscard]] auto ReadyForLaunch() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::User) User() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ReadyForLaunch() const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallStatus2>
     {
@@ -703,7 +706,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_Preview_InstallControl_IAppInstallStatus3
     {
-        [[nodiscard]] auto IsStaged() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStaged() const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::Preview::InstallControl::IAppInstallStatus3>
     {
@@ -712,10 +715,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_Preview_InstallControl_IAppUpdateOptions
     {
-        [[nodiscard]] auto CatalogId() const;
-        auto CatalogId(param::hstring const& value) const;
-        [[nodiscard]] auto AllowForcedAppRestart() const;
-        auto AllowForcedAppRestart(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CatalogId() const;
+        WINRT_IMPL_AUTO(void) CatalogId(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AllowForcedAppRestart() const;
+        WINRT_IMPL_AUTO(void) AllowForcedAppRestart(bool value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::Preview::InstallControl::IAppUpdateOptions>
     {
@@ -724,8 +727,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_Preview_InstallControl_IAppUpdateOptions2
     {
-        [[nodiscard]] auto AutomaticallyDownloadAndInstallUpdateIfFound() const;
-        auto AutomaticallyDownloadAndInstallUpdateIfFound(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AutomaticallyDownloadAndInstallUpdateIfFound() const;
+        WINRT_IMPL_AUTO(void) AutomaticallyDownloadAndInstallUpdateIfFound(bool value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::Preview::InstallControl::IAppUpdateOptions2>
     {
@@ -734,7 +737,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_Preview_InstallControl_IGetEntitlementResult
     {
-        [[nodiscard]] auto Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Store::Preview::InstallControl::GetEntitlementStatus) Status() const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::Preview::InstallControl::IGetEntitlementResult>
     {

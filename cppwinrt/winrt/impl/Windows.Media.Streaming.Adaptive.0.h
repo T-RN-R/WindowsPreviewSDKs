@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -9,9 +9,14 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
     struct HResult;
+    template <typename TResult> struct IAsyncOperation;
     template <typename T> struct IReference;
     template <typename TSender, typename TResult> struct TypedEventHandler;
     struct Uri;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage::Streams
 {
@@ -157,54 +162,52 @@ namespace winrt::impl
     template <> struct category<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDiagnosticType>{ using type = enum_category; };
     template <> struct category<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadBitrateChangedReason>{ using type = enum_category; };
     template <> struct category<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceResourceType>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSource>{ L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSource" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceAdvancedSettings>{ L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceAdvancedSettings" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceCorrelatedTimes>{ L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCorrelatedTimes" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceCreationResult>{ L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCreationResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDiagnosticAvailableEventArgs>{ L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnosticAvailableEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDiagnostics>{ L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnostics" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadBitrateChangedEventArgs>{ L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadBitrateChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadCompletedEventArgs>{ L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadCompletedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadFailedEventArgs>{ L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadFailedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadRequestedDeferral>{ L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadRequestedDeferral" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadRequestedEventArgs>{ L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadResult>{ L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadStatistics>{ L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadStatistics" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourcePlaybackBitrateChangedEventArgs>{ L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourcePlaybackBitrateChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceCreationStatus>{ L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCreationStatus" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDiagnosticType>{ L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnosticType" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadBitrateChangedReason>{ L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadBitrateChangedReason" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceResourceType>{ L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceResourceType" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSource>{ L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSource2>{ L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSource3>{ L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource3" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceAdvancedSettings>{ L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceAdvancedSettings" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceCorrelatedTimes>{ L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceCorrelatedTimes" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceCreationResult>{ L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceCreationResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceCreationResult2>{ L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceCreationResult2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDiagnosticAvailableEventArgs>{ L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDiagnosticAvailableEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDiagnosticAvailableEventArgs2>{ L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDiagnosticAvailableEventArgs2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDiagnosticAvailableEventArgs3>{ L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDiagnosticAvailableEventArgs3" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDiagnostics>{ L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDiagnostics" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadBitrateChangedEventArgs>{ L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadBitrateChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2>{ L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadCompletedEventArgs>{ L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadCompletedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadCompletedEventArgs2>{ L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadCompletedEventArgs2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadCompletedEventArgs3>{ L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadCompletedEventArgs3" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadFailedEventArgs>{ L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadFailedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadFailedEventArgs2>{ L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadFailedEventArgs2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadFailedEventArgs3>{ L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadFailedEventArgs3" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadRequestedDeferral>{ L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadRequestedDeferral" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadRequestedEventArgs>{ L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadRequestedEventArgs2>{ L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadRequestedEventArgs2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadRequestedEventArgs3>{ L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadRequestedEventArgs3" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadResult>{ L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadResult2>{ L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadResult2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadStatistics>{ L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadStatistics" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs>{ L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceStatics>{ L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSource> = L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSource";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceAdvancedSettings> = L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceAdvancedSettings";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceCorrelatedTimes> = L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCorrelatedTimes";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceCreationResult> = L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCreationResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDiagnosticAvailableEventArgs> = L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnosticAvailableEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDiagnostics> = L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnostics";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadBitrateChangedEventArgs> = L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadBitrateChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadCompletedEventArgs> = L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadCompletedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadFailedEventArgs> = L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadFailedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadRequestedDeferral> = L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadRequestedDeferral";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadRequestedEventArgs> = L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadResult> = L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadStatistics> = L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadStatistics";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourcePlaybackBitrateChangedEventArgs> = L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourcePlaybackBitrateChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceCreationStatus> = L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCreationStatus";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDiagnosticType> = L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnosticType";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadBitrateChangedReason> = L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadBitrateChangedReason";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceResourceType> = L"Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceResourceType";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSource> = L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSource2> = L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource2";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSource3> = L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSource3";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceAdvancedSettings> = L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceAdvancedSettings";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceCorrelatedTimes> = L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceCorrelatedTimes";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceCreationResult> = L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceCreationResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceCreationResult2> = L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceCreationResult2";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDiagnosticAvailableEventArgs> = L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDiagnosticAvailableEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDiagnosticAvailableEventArgs2> = L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDiagnosticAvailableEventArgs2";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDiagnosticAvailableEventArgs3> = L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDiagnosticAvailableEventArgs3";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDiagnostics> = L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDiagnostics";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadBitrateChangedEventArgs> = L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadBitrateChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2> = L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadCompletedEventArgs> = L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadCompletedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadCompletedEventArgs2> = L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadCompletedEventArgs2";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadCompletedEventArgs3> = L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadCompletedEventArgs3";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadFailedEventArgs> = L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadFailedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadFailedEventArgs2> = L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadFailedEventArgs2";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadFailedEventArgs3> = L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadFailedEventArgs3";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadRequestedDeferral> = L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadRequestedDeferral";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadRequestedEventArgs> = L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadRequestedEventArgs2> = L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadRequestedEventArgs2";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadRequestedEventArgs3> = L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadRequestedEventArgs3";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadResult> = L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadResult2> = L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadResult2";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadStatistics> = L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceDownloadStatistics";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs> = L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceStatics> = L"Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceStatics";
     template <> inline constexpr guid guid_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSource>{ 0x4C7332EF,0xD39F,0x4396,{ 0xB4,0xD9,0x04,0x39,0x57,0xA7,0xC9,0x64 } };
     template <> inline constexpr guid guid_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSource2>{ 0x17890342,0x6760,0x4BB9,{ 0xA5,0x8A,0xF7,0xAA,0x98,0xB0,0x8C,0x0E } };
     template <> inline constexpr guid guid_v<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSource3>{ 0xBA7023FD,0xC334,0x461B,{ 0xA3,0x6E,0xC9,0x9F,0x54,0xF7,0x17,0x4A } };
@@ -539,42 +542,42 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Streaming_Adaptive_IAdaptiveMediaSource
     {
-        [[nodiscard]] auto IsLive() const;
-        [[nodiscard]] auto DesiredLiveOffset() const;
-        auto DesiredLiveOffset(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto InitialBitrate() const;
-        auto InitialBitrate(uint32_t value) const;
-        [[nodiscard]] auto CurrentDownloadBitrate() const;
-        [[nodiscard]] auto CurrentPlaybackBitrate() const;
-        [[nodiscard]] auto AvailableBitrates() const;
-        [[nodiscard]] auto DesiredMinBitrate() const;
-        auto DesiredMinBitrate(Windows::Foundation::IReference<uint32_t> const& value) const;
-        [[nodiscard]] auto DesiredMaxBitrate() const;
-        auto DesiredMaxBitrate(Windows::Foundation::IReference<uint32_t> const& value) const;
-        [[nodiscard]] auto AudioOnlyPlayback() const;
-        [[nodiscard]] auto InboundBitsPerSecond() const;
-        [[nodiscard]] auto InboundBitsPerSecondWindow() const;
-        auto InboundBitsPerSecondWindow(Windows::Foundation::TimeSpan const& value) const;
-        auto DownloadBitrateChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Streaming::Adaptive::AdaptiveMediaSource, Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadBitrateChangedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsLive() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) DesiredLiveOffset() const;
+        WINRT_IMPL_AUTO(void) DesiredLiveOffset(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) InitialBitrate() const;
+        WINRT_IMPL_AUTO(void) InitialBitrate(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) CurrentDownloadBitrate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) CurrentPlaybackBitrate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<uint32_t>) AvailableBitrates() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint32_t>) DesiredMinBitrate() const;
+        WINRT_IMPL_AUTO(void) DesiredMinBitrate(Windows::Foundation::IReference<uint32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint32_t>) DesiredMaxBitrate() const;
+        WINRT_IMPL_AUTO(void) DesiredMaxBitrate(Windows::Foundation::IReference<uint32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AudioOnlyPlayback() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) InboundBitsPerSecond() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) InboundBitsPerSecondWindow() const;
+        WINRT_IMPL_AUTO(void) InboundBitsPerSecondWindow(Windows::Foundation::TimeSpan const& value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) DownloadBitrateChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Streaming::Adaptive::AdaptiveMediaSource, Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadBitrateChangedEventArgs> const& handler) const;
         using DownloadBitrateChanged_revoker = impl::event_revoker<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSource, &impl::abi_t<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSource>::remove_DownloadBitrateChanged>;
         [[nodiscard]] DownloadBitrateChanged_revoker DownloadBitrateChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Streaming::Adaptive::AdaptiveMediaSource, Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadBitrateChangedEventArgs> const& handler) const;
-        auto DownloadBitrateChanged(winrt::event_token const& token) const noexcept;
-        auto PlaybackBitrateChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Streaming::Adaptive::AdaptiveMediaSource, Windows::Media::Streaming::Adaptive::AdaptiveMediaSourcePlaybackBitrateChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) DownloadBitrateChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PlaybackBitrateChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Streaming::Adaptive::AdaptiveMediaSource, Windows::Media::Streaming::Adaptive::AdaptiveMediaSourcePlaybackBitrateChangedEventArgs> const& handler) const;
         using PlaybackBitrateChanged_revoker = impl::event_revoker<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSource, &impl::abi_t<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSource>::remove_PlaybackBitrateChanged>;
         [[nodiscard]] PlaybackBitrateChanged_revoker PlaybackBitrateChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Streaming::Adaptive::AdaptiveMediaSource, Windows::Media::Streaming::Adaptive::AdaptiveMediaSourcePlaybackBitrateChangedEventArgs> const& handler) const;
-        auto PlaybackBitrateChanged(winrt::event_token const& token) const noexcept;
-        auto DownloadRequested(Windows::Foundation::TypedEventHandler<Windows::Media::Streaming::Adaptive::AdaptiveMediaSource, Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) PlaybackBitrateChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) DownloadRequested(Windows::Foundation::TypedEventHandler<Windows::Media::Streaming::Adaptive::AdaptiveMediaSource, Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadRequestedEventArgs> const& handler) const;
         using DownloadRequested_revoker = impl::event_revoker<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSource, &impl::abi_t<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSource>::remove_DownloadRequested>;
         [[nodiscard]] DownloadRequested_revoker DownloadRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Streaming::Adaptive::AdaptiveMediaSource, Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadRequestedEventArgs> const& handler) const;
-        auto DownloadRequested(winrt::event_token const& token) const noexcept;
-        auto DownloadCompleted(Windows::Foundation::TypedEventHandler<Windows::Media::Streaming::Adaptive::AdaptiveMediaSource, Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadCompletedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) DownloadRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) DownloadCompleted(Windows::Foundation::TypedEventHandler<Windows::Media::Streaming::Adaptive::AdaptiveMediaSource, Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadCompletedEventArgs> const& handler) const;
         using DownloadCompleted_revoker = impl::event_revoker<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSource, &impl::abi_t<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSource>::remove_DownloadCompleted>;
         [[nodiscard]] DownloadCompleted_revoker DownloadCompleted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Streaming::Adaptive::AdaptiveMediaSource, Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadCompletedEventArgs> const& handler) const;
-        auto DownloadCompleted(winrt::event_token const& token) const noexcept;
-        auto DownloadFailed(Windows::Foundation::TypedEventHandler<Windows::Media::Streaming::Adaptive::AdaptiveMediaSource, Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadFailedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) DownloadCompleted(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) DownloadFailed(Windows::Foundation::TypedEventHandler<Windows::Media::Streaming::Adaptive::AdaptiveMediaSource, Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadFailedEventArgs> const& handler) const;
         using DownloadFailed_revoker = impl::event_revoker<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSource, &impl::abi_t<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSource>::remove_DownloadFailed>;
         [[nodiscard]] DownloadFailed_revoker DownloadFailed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Streaming::Adaptive::AdaptiveMediaSource, Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadFailedEventArgs> const& handler) const;
-        auto DownloadFailed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) DownloadFailed(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSource>
     {
@@ -583,7 +586,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Streaming_Adaptive_IAdaptiveMediaSource2
     {
-        [[nodiscard]] auto AdvancedSettings() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceAdvancedSettings) AdvancedSettings() const;
     };
     template <> struct consume<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSource2>
     {
@@ -592,12 +595,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Streaming_Adaptive_IAdaptiveMediaSource3
     {
-        [[nodiscard]] auto MinLiveOffset() const;
-        [[nodiscard]] auto MaxSeekableWindowSize() const;
-        [[nodiscard]] auto DesiredSeekableWindowSize() const;
-        auto DesiredSeekableWindowSize(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
-        [[nodiscard]] auto Diagnostics() const;
-        auto GetCorrelatedTimes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) MinLiveOffset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) MaxSeekableWindowSize() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) DesiredSeekableWindowSize() const;
+        WINRT_IMPL_AUTO(void) DesiredSeekableWindowSize(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDiagnostics) Diagnostics() const;
+        WINRT_IMPL_AUTO(Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceCorrelatedTimes) GetCorrelatedTimes() const;
     };
     template <> struct consume<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSource3>
     {
@@ -606,12 +609,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Streaming_Adaptive_IAdaptiveMediaSourceAdvancedSettings
     {
-        [[nodiscard]] auto AllSegmentsIndependent() const;
-        auto AllSegmentsIndependent(bool value) const;
-        [[nodiscard]] auto DesiredBitrateHeadroomRatio() const;
-        auto DesiredBitrateHeadroomRatio(Windows::Foundation::IReference<double> const& value) const;
-        [[nodiscard]] auto BitrateDowngradeTriggerRatio() const;
-        auto BitrateDowngradeTriggerRatio(Windows::Foundation::IReference<double> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AllSegmentsIndependent() const;
+        WINRT_IMPL_AUTO(void) AllSegmentsIndependent(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) DesiredBitrateHeadroomRatio() const;
+        WINRT_IMPL_AUTO(void) DesiredBitrateHeadroomRatio(Windows::Foundation::IReference<double> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) BitrateDowngradeTriggerRatio() const;
+        WINRT_IMPL_AUTO(void) BitrateDowngradeTriggerRatio(Windows::Foundation::IReference<double> const& value) const;
     };
     template <> struct consume<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceAdvancedSettings>
     {
@@ -620,9 +623,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Streaming_Adaptive_IAdaptiveMediaSourceCorrelatedTimes
     {
-        [[nodiscard]] auto Position() const;
-        [[nodiscard]] auto PresentationTimeStamp() const;
-        [[nodiscard]] auto ProgramDateTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) Position() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) PresentationTimeStamp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) ProgramDateTime() const;
     };
     template <> struct consume<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceCorrelatedTimes>
     {
@@ -631,9 +634,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Streaming_Adaptive_IAdaptiveMediaSourceCreationResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto MediaSource() const;
-        [[nodiscard]] auto HttpResponseMessage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceCreationStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Streaming::Adaptive::AdaptiveMediaSource) MediaSource() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Http::HttpResponseMessage) HttpResponseMessage() const;
     };
     template <> struct consume<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceCreationResult>
     {
@@ -642,7 +645,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Streaming_Adaptive_IAdaptiveMediaSourceCreationResult2
     {
-        [[nodiscard]] auto ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
     };
     template <> struct consume<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceCreationResult2>
     {
@@ -651,15 +654,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Streaming_Adaptive_IAdaptiveMediaSourceDiagnosticAvailableEventArgs
     {
-        [[nodiscard]] auto DiagnosticType() const;
-        [[nodiscard]] auto RequestId() const;
-        [[nodiscard]] auto Position() const;
-        [[nodiscard]] auto SegmentId() const;
-        [[nodiscard]] auto ResourceType() const;
-        [[nodiscard]] auto ResourceUri() const;
-        [[nodiscard]] auto ResourceByteRangeOffset() const;
-        [[nodiscard]] auto ResourceByteRangeLength() const;
-        [[nodiscard]] auto Bitrate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDiagnosticType) DiagnosticType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) RequestId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) Position() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint64_t>) SegmentId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceResourceType>) ResourceType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) ResourceUri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint64_t>) ResourceByteRangeOffset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint64_t>) ResourceByteRangeLength() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint32_t>) Bitrate() const;
     };
     template <> struct consume<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDiagnosticAvailableEventArgs>
     {
@@ -668,7 +671,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Streaming_Adaptive_IAdaptiveMediaSourceDiagnosticAvailableEventArgs2
     {
-        [[nodiscard]] auto ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
     };
     template <> struct consume<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDiagnosticAvailableEventArgs2>
     {
@@ -677,8 +680,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Streaming_Adaptive_IAdaptiveMediaSourceDiagnosticAvailableEventArgs3
     {
-        [[nodiscard]] auto ResourceDuration() const;
-        [[nodiscard]] auto ResourceContentType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) ResourceDuration() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ResourceContentType() const;
     };
     template <> struct consume<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDiagnosticAvailableEventArgs3>
     {
@@ -687,10 +690,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Streaming_Adaptive_IAdaptiveMediaSourceDiagnostics
     {
-        auto DiagnosticAvailable(Windows::Foundation::TypedEventHandler<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDiagnostics, Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDiagnosticAvailableEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) DiagnosticAvailable(Windows::Foundation::TypedEventHandler<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDiagnostics, Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDiagnosticAvailableEventArgs> const& handler) const;
         using DiagnosticAvailable_revoker = impl::event_revoker<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDiagnostics, &impl::abi_t<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDiagnostics>::remove_DiagnosticAvailable>;
         [[nodiscard]] DiagnosticAvailable_revoker DiagnosticAvailable(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDiagnostics, Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDiagnosticAvailableEventArgs> const& handler) const;
-        auto DiagnosticAvailable(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) DiagnosticAvailable(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDiagnostics>
     {
@@ -699,8 +702,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Streaming_Adaptive_IAdaptiveMediaSourceDownloadBitrateChangedEventArgs
     {
-        [[nodiscard]] auto OldValue() const;
-        [[nodiscard]] auto NewValue() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) OldValue() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) NewValue() const;
     };
     template <> struct consume<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadBitrateChangedEventArgs>
     {
@@ -709,7 +712,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Streaming_Adaptive_IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2
     {
-        [[nodiscard]] auto Reason() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadBitrateChangedReason) Reason() const;
     };
     template <> struct consume<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2>
     {
@@ -718,11 +721,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Streaming_Adaptive_IAdaptiveMediaSourceDownloadCompletedEventArgs
     {
-        [[nodiscard]] auto ResourceType() const;
-        [[nodiscard]] auto ResourceUri() const;
-        [[nodiscard]] auto ResourceByteRangeOffset() const;
-        [[nodiscard]] auto ResourceByteRangeLength() const;
-        [[nodiscard]] auto HttpResponseMessage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceResourceType) ResourceType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) ResourceUri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint64_t>) ResourceByteRangeOffset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint64_t>) ResourceByteRangeLength() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Http::HttpResponseMessage) HttpResponseMessage() const;
     };
     template <> struct consume<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadCompletedEventArgs>
     {
@@ -731,9 +734,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Streaming_Adaptive_IAdaptiveMediaSourceDownloadCompletedEventArgs2
     {
-        [[nodiscard]] auto RequestId() const;
-        [[nodiscard]] auto Statistics() const;
-        [[nodiscard]] auto Position() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) RequestId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadStatistics) Statistics() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) Position() const;
     };
     template <> struct consume<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadCompletedEventArgs2>
     {
@@ -742,8 +745,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Streaming_Adaptive_IAdaptiveMediaSourceDownloadCompletedEventArgs3
     {
-        [[nodiscard]] auto ResourceDuration() const;
-        [[nodiscard]] auto ResourceContentType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) ResourceDuration() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ResourceContentType() const;
     };
     template <> struct consume<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadCompletedEventArgs3>
     {
@@ -752,11 +755,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Streaming_Adaptive_IAdaptiveMediaSourceDownloadFailedEventArgs
     {
-        [[nodiscard]] auto ResourceType() const;
-        [[nodiscard]] auto ResourceUri() const;
-        [[nodiscard]] auto ResourceByteRangeOffset() const;
-        [[nodiscard]] auto ResourceByteRangeLength() const;
-        [[nodiscard]] auto HttpResponseMessage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceResourceType) ResourceType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) ResourceUri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint64_t>) ResourceByteRangeOffset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint64_t>) ResourceByteRangeLength() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Http::HttpResponseMessage) HttpResponseMessage() const;
     };
     template <> struct consume<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadFailedEventArgs>
     {
@@ -765,10 +768,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Streaming_Adaptive_IAdaptiveMediaSourceDownloadFailedEventArgs2
     {
-        [[nodiscard]] auto RequestId() const;
-        [[nodiscard]] auto ExtendedError() const;
-        [[nodiscard]] auto Statistics() const;
-        [[nodiscard]] auto Position() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) RequestId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadStatistics) Statistics() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) Position() const;
     };
     template <> struct consume<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadFailedEventArgs2>
     {
@@ -777,8 +780,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Streaming_Adaptive_IAdaptiveMediaSourceDownloadFailedEventArgs3
     {
-        [[nodiscard]] auto ResourceDuration() const;
-        [[nodiscard]] auto ResourceContentType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) ResourceDuration() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ResourceContentType() const;
     };
     template <> struct consume<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadFailedEventArgs3>
     {
@@ -787,7 +790,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Streaming_Adaptive_IAdaptiveMediaSourceDownloadRequestedDeferral
     {
-        auto Complete() const;
+        WINRT_IMPL_AUTO(void) Complete() const;
     };
     template <> struct consume<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadRequestedDeferral>
     {
@@ -796,12 +799,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Streaming_Adaptive_IAdaptiveMediaSourceDownloadRequestedEventArgs
     {
-        [[nodiscard]] auto ResourceType() const;
-        [[nodiscard]] auto ResourceUri() const;
-        [[nodiscard]] auto ResourceByteRangeOffset() const;
-        [[nodiscard]] auto ResourceByteRangeLength() const;
-        [[nodiscard]] auto Result() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceResourceType) ResourceType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) ResourceUri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint64_t>) ResourceByteRangeOffset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint64_t>) ResourceByteRangeLength() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadResult) Result() const;
+        WINRT_IMPL_AUTO(Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceDownloadRequestedDeferral) GetDeferral() const;
     };
     template <> struct consume<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadRequestedEventArgs>
     {
@@ -810,8 +813,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Streaming_Adaptive_IAdaptiveMediaSourceDownloadRequestedEventArgs2
     {
-        [[nodiscard]] auto RequestId() const;
-        [[nodiscard]] auto Position() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) RequestId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) Position() const;
     };
     template <> struct consume<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadRequestedEventArgs2>
     {
@@ -820,8 +823,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Streaming_Adaptive_IAdaptiveMediaSourceDownloadRequestedEventArgs3
     {
-        [[nodiscard]] auto ResourceDuration() const;
-        [[nodiscard]] auto ResourceContentType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) ResourceDuration() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ResourceContentType() const;
     };
     template <> struct consume<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadRequestedEventArgs3>
     {
@@ -830,16 +833,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Streaming_Adaptive_IAdaptiveMediaSourceDownloadResult
     {
-        [[nodiscard]] auto ResourceUri() const;
-        auto ResourceUri(Windows::Foundation::Uri const& value) const;
-        [[nodiscard]] auto InputStream() const;
-        auto InputStream(Windows::Storage::Streams::IInputStream const& value) const;
-        [[nodiscard]] auto Buffer() const;
-        auto Buffer(Windows::Storage::Streams::IBuffer const& value) const;
-        [[nodiscard]] auto ContentType() const;
-        auto ContentType(param::hstring const& value) const;
-        [[nodiscard]] auto ExtendedStatus() const;
-        auto ExtendedStatus(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) ResourceUri() const;
+        WINRT_IMPL_AUTO(void) ResourceUri(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IInputStream) InputStream() const;
+        WINRT_IMPL_AUTO(void) InputStream(Windows::Storage::Streams::IInputStream const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) Buffer() const;
+        WINRT_IMPL_AUTO(void) Buffer(Windows::Storage::Streams::IBuffer const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ContentType() const;
+        WINRT_IMPL_AUTO(void) ContentType(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ExtendedStatus() const;
+        WINRT_IMPL_AUTO(void) ExtendedStatus(uint32_t value) const;
     };
     template <> struct consume<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadResult>
     {
@@ -848,10 +851,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Streaming_Adaptive_IAdaptiveMediaSourceDownloadResult2
     {
-        [[nodiscard]] auto ResourceByteRangeOffset() const;
-        auto ResourceByteRangeOffset(Windows::Foundation::IReference<uint64_t> const& value) const;
-        [[nodiscard]] auto ResourceByteRangeLength() const;
-        auto ResourceByteRangeLength(Windows::Foundation::IReference<uint64_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint64_t>) ResourceByteRangeOffset() const;
+        WINRT_IMPL_AUTO(void) ResourceByteRangeOffset(Windows::Foundation::IReference<uint64_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint64_t>) ResourceByteRangeLength() const;
+        WINRT_IMPL_AUTO(void) ResourceByteRangeLength(Windows::Foundation::IReference<uint64_t> const& value) const;
     };
     template <> struct consume<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadResult2>
     {
@@ -860,10 +863,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Streaming_Adaptive_IAdaptiveMediaSourceDownloadStatistics
     {
-        [[nodiscard]] auto ContentBytesReceivedCount() const;
-        [[nodiscard]] auto TimeToHeadersReceived() const;
-        [[nodiscard]] auto TimeToFirstByteReceived() const;
-        [[nodiscard]] auto TimeToLastByteReceived() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) ContentBytesReceivedCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) TimeToHeadersReceived() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) TimeToFirstByteReceived() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) TimeToLastByteReceived() const;
     };
     template <> struct consume<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceDownloadStatistics>
     {
@@ -872,9 +875,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Streaming_Adaptive_IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs
     {
-        [[nodiscard]] auto OldValue() const;
-        [[nodiscard]] auto NewValue() const;
-        [[nodiscard]] auto AudioOnly() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) OldValue() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) NewValue() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AudioOnly() const;
     };
     template <> struct consume<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs>
     {
@@ -883,11 +886,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Streaming_Adaptive_IAdaptiveMediaSourceStatics
     {
-        auto IsContentTypeSupported(param::hstring const& contentType) const;
-        auto CreateFromUriAsync(Windows::Foundation::Uri const& uri) const;
-        auto CreateFromUriAsync(Windows::Foundation::Uri const& uri, Windows::Web::Http::HttpClient const& httpClient) const;
-        auto CreateFromStreamAsync(Windows::Storage::Streams::IInputStream const& stream, Windows::Foundation::Uri const& uri, param::hstring const& contentType) const;
-        auto CreateFromStreamAsync(Windows::Storage::Streams::IInputStream const& stream, Windows::Foundation::Uri const& uri, param::hstring const& contentType, Windows::Web::Http::HttpClient const& httpClient) const;
+        WINRT_IMPL_AUTO(bool) IsContentTypeSupported(param::hstring const& contentType) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceCreationResult>) CreateFromUriAsync(Windows::Foundation::Uri const& uri) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceCreationResult>) CreateFromUriAsync(Windows::Foundation::Uri const& uri, Windows::Web::Http::HttpClient const& httpClient) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceCreationResult>) CreateFromStreamAsync(Windows::Storage::Streams::IInputStream const& stream, Windows::Foundation::Uri const& uri, param::hstring const& contentType) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Streaming::Adaptive::AdaptiveMediaSourceCreationResult>) CreateFromStreamAsync(Windows::Storage::Streams::IInputStream const& stream, Windows::Foundation::Uri const& uri, param::hstring const& contentType, Windows::Web::Http::HttpClient const& httpClient) const;
     };
     template <> struct consume<Windows::Media::Streaming::Adaptive::IAdaptiveMediaSourceStatics>
     {

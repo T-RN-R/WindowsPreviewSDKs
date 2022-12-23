@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_Networking_Connectivity_H
 #define WINRT_Windows_Networking_Connectivity_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.Networking.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
@@ -15,573 +15,573 @@ static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatche
 #include "winrt/impl/Windows.Networking.Connectivity.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_Networking_Connectivity_IAttributedNetworkUsage<D>::BytesSent() const
+    template <typename D> WINRT_IMPL_AUTO(uint64_t) consume_Windows_Networking_Connectivity_IAttributedNetworkUsage<D>::BytesSent() const
     {
-        uint64_t value;
+        uint64_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IAttributedNetworkUsage)->get_BytesSent(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IAttributedNetworkUsage<D>::BytesReceived() const
+    template <typename D> WINRT_IMPL_AUTO(uint64_t) consume_Windows_Networking_Connectivity_IAttributedNetworkUsage<D>::BytesReceived() const
     {
-        uint64_t value;
+        uint64_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IAttributedNetworkUsage)->get_BytesReceived(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IAttributedNetworkUsage<D>::AttributionId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Networking_Connectivity_IAttributedNetworkUsage<D>::AttributionId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IAttributedNetworkUsage)->get_AttributionId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IAttributedNetworkUsage<D>::AttributionName() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Networking_Connectivity_IAttributedNetworkUsage<D>::AttributionName() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IAttributedNetworkUsage)->get_AttributionName(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IAttributedNetworkUsage<D>::AttributionThumbnail() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamReference) consume_Windows_Networking_Connectivity_IAttributedNetworkUsage<D>::AttributionThumbnail() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IAttributedNetworkUsage)->get_AttributionThumbnail(&value));
         return Windows::Storage::Streams::IRandomAccessStreamReference{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_ICellularApnContext<D>::ProviderId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Networking_Connectivity_ICellularApnContext<D>::ProviderId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::ICellularApnContext)->get_ProviderId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_ICellularApnContext<D>::ProviderId(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Connectivity_ICellularApnContext<D>::ProviderId(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::ICellularApnContext)->put_ProviderId(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_ICellularApnContext<D>::AccessPointName() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Networking_Connectivity_ICellularApnContext<D>::AccessPointName() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::ICellularApnContext)->get_AccessPointName(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_ICellularApnContext<D>::AccessPointName(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Connectivity_ICellularApnContext<D>::AccessPointName(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::ICellularApnContext)->put_AccessPointName(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_ICellularApnContext<D>::UserName() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Networking_Connectivity_ICellularApnContext<D>::UserName() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::ICellularApnContext)->get_UserName(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_ICellularApnContext<D>::UserName(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Connectivity_ICellularApnContext<D>::UserName(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::ICellularApnContext)->put_UserName(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_ICellularApnContext<D>::Password() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Networking_Connectivity_ICellularApnContext<D>::Password() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::ICellularApnContext)->get_Password(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_ICellularApnContext<D>::Password(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Connectivity_ICellularApnContext<D>::Password(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::ICellularApnContext)->put_Password(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_ICellularApnContext<D>::IsCompressionEnabled() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Networking_Connectivity_ICellularApnContext<D>::IsCompressionEnabled() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::ICellularApnContext)->get_IsCompressionEnabled(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_ICellularApnContext<D>::IsCompressionEnabled(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Connectivity_ICellularApnContext<D>::IsCompressionEnabled(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::ICellularApnContext)->put_IsCompressionEnabled(value));
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_ICellularApnContext<D>::AuthenticationType() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Connectivity::CellularApnAuthenticationType) consume_Windows_Networking_Connectivity_ICellularApnContext<D>::AuthenticationType() const
     {
-        Windows::Networking::Connectivity::CellularApnAuthenticationType value;
+        Windows::Networking::Connectivity::CellularApnAuthenticationType value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::ICellularApnContext)->get_AuthenticationType(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_ICellularApnContext<D>::AuthenticationType(Windows::Networking::Connectivity::CellularApnAuthenticationType const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Connectivity_ICellularApnContext<D>::AuthenticationType(Windows::Networking::Connectivity::CellularApnAuthenticationType const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::ICellularApnContext)->put_AuthenticationType(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_ICellularApnContext2<D>::ProfileName() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Networking_Connectivity_ICellularApnContext2<D>::ProfileName() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::ICellularApnContext2)->get_ProfileName(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_ICellularApnContext2<D>::ProfileName(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Connectivity_ICellularApnContext2<D>::ProfileName(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::ICellularApnContext2)->put_ProfileName(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionCost<D>::NetworkCostType() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Connectivity::NetworkCostType) consume_Windows_Networking_Connectivity_IConnectionCost<D>::NetworkCostType() const
     {
-        Windows::Networking::Connectivity::NetworkCostType value;
+        Windows::Networking::Connectivity::NetworkCostType value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionCost)->get_NetworkCostType(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionCost<D>::Roaming() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Networking_Connectivity_IConnectionCost<D>::Roaming() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionCost)->get_Roaming(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionCost<D>::OverDataLimit() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Networking_Connectivity_IConnectionCost<D>::OverDataLimit() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionCost)->get_OverDataLimit(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionCost<D>::ApproachingDataLimit() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Networking_Connectivity_IConnectionCost<D>::ApproachingDataLimit() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionCost)->get_ApproachingDataLimit(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionCost2<D>::BackgroundDataUsageRestricted() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Networking_Connectivity_IConnectionCost2<D>::BackgroundDataUsageRestricted() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionCost2)->get_BackgroundDataUsageRestricted(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfile<D>::ProfileName() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Networking_Connectivity_IConnectionProfile<D>::ProfileName() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfile)->get_ProfileName(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfile<D>::GetNetworkConnectivityLevel() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Connectivity::NetworkConnectivityLevel) consume_Windows_Networking_Connectivity_IConnectionProfile<D>::GetNetworkConnectivityLevel() const
     {
-        Windows::Networking::Connectivity::NetworkConnectivityLevel value;
+        Windows::Networking::Connectivity::NetworkConnectivityLevel value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfile)->GetNetworkConnectivityLevel(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfile<D>::GetNetworkNames() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) consume_Windows_Networking_Connectivity_IConnectionProfile<D>::GetNetworkNames() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfile)->GetNetworkNames(&value));
         return Windows::Foundation::Collections::IVectorView<hstring>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfile<D>::GetConnectionCost() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Connectivity::ConnectionCost) consume_Windows_Networking_Connectivity_IConnectionProfile<D>::GetConnectionCost() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfile)->GetConnectionCost(&value));
         return Windows::Networking::Connectivity::ConnectionCost{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfile<D>::GetDataPlanStatus() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Connectivity::DataPlanStatus) consume_Windows_Networking_Connectivity_IConnectionProfile<D>::GetDataPlanStatus() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfile)->GetDataPlanStatus(&value));
         return Windows::Networking::Connectivity::DataPlanStatus{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfile<D>::NetworkAdapter() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Connectivity::NetworkAdapter) consume_Windows_Networking_Connectivity_IConnectionProfile<D>::NetworkAdapter() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfile)->get_NetworkAdapter(&value));
         return Windows::Networking::Connectivity::NetworkAdapter{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfile<D>::GetLocalUsage(Windows::Foundation::DateTime const& StartTime, Windows::Foundation::DateTime const& EndTime) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Connectivity::DataUsage) consume_Windows_Networking_Connectivity_IConnectionProfile<D>::GetLocalUsage(Windows::Foundation::DateTime const& StartTime, Windows::Foundation::DateTime const& EndTime) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfile)->GetLocalUsage(impl::bind_in(StartTime), impl::bind_in(EndTime), &value));
         return Windows::Networking::Connectivity::DataUsage{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfile<D>::GetLocalUsage(Windows::Foundation::DateTime const& StartTime, Windows::Foundation::DateTime const& EndTime, Windows::Networking::Connectivity::RoamingStates const& States) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Connectivity::DataUsage) consume_Windows_Networking_Connectivity_IConnectionProfile<D>::GetLocalUsage(Windows::Foundation::DateTime const& StartTime, Windows::Foundation::DateTime const& EndTime, Windows::Networking::Connectivity::RoamingStates const& States) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfile)->GetLocalUsagePerRoamingStates(impl::bind_in(StartTime), impl::bind_in(EndTime), static_cast<uint32_t>(States), &value));
         return Windows::Networking::Connectivity::DataUsage{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfile<D>::NetworkSecuritySettings() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Connectivity::NetworkSecuritySettings) consume_Windows_Networking_Connectivity_IConnectionProfile<D>::NetworkSecuritySettings() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfile)->get_NetworkSecuritySettings(&value));
         return Windows::Networking::Connectivity::NetworkSecuritySettings{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfile2<D>::IsWwanConnectionProfile() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Networking_Connectivity_IConnectionProfile2<D>::IsWwanConnectionProfile() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfile2)->get_IsWwanConnectionProfile(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfile2<D>::IsWlanConnectionProfile() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Networking_Connectivity_IConnectionProfile2<D>::IsWlanConnectionProfile() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfile2)->get_IsWlanConnectionProfile(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfile2<D>::WwanConnectionProfileDetails() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Connectivity::WwanConnectionProfileDetails) consume_Windows_Networking_Connectivity_IConnectionProfile2<D>::WwanConnectionProfileDetails() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfile2)->get_WwanConnectionProfileDetails(&value));
         return Windows::Networking::Connectivity::WwanConnectionProfileDetails{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfile2<D>::WlanConnectionProfileDetails() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Connectivity::WlanConnectionProfileDetails) consume_Windows_Networking_Connectivity_IConnectionProfile2<D>::WlanConnectionProfileDetails() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfile2)->get_WlanConnectionProfileDetails(&value));
         return Windows::Networking::Connectivity::WlanConnectionProfileDetails{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfile2<D>::ServiceProviderGuid() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<winrt::guid>) consume_Windows_Networking_Connectivity_IConnectionProfile2<D>::ServiceProviderGuid() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfile2)->get_ServiceProviderGuid(&value));
         return Windows::Foundation::IReference<winrt::guid>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfile2<D>::GetSignalBars() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint8_t>) consume_Windows_Networking_Connectivity_IConnectionProfile2<D>::GetSignalBars() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfile2)->GetSignalBars(&value));
         return Windows::Foundation::IReference<uint8_t>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfile2<D>::GetDomainConnectivityLevel() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Connectivity::DomainConnectivityLevel) consume_Windows_Networking_Connectivity_IConnectionProfile2<D>::GetDomainConnectivityLevel() const
     {
-        Windows::Networking::Connectivity::DomainConnectivityLevel value;
+        Windows::Networking::Connectivity::DomainConnectivityLevel value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfile2)->GetDomainConnectivityLevel(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfile2<D>::GetNetworkUsageAsync(Windows::Foundation::DateTime const& startTime, Windows::Foundation::DateTime const& endTime, Windows::Networking::Connectivity::DataUsageGranularity const& granularity, Windows::Networking::Connectivity::NetworkUsageStates const& states) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Networking::Connectivity::NetworkUsage>>) consume_Windows_Networking_Connectivity_IConnectionProfile2<D>::GetNetworkUsageAsync(Windows::Foundation::DateTime const& startTime, Windows::Foundation::DateTime const& endTime, Windows::Networking::Connectivity::DataUsageGranularity const& granularity, Windows::Networking::Connectivity::NetworkUsageStates const& states) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfile2)->GetNetworkUsageAsync(impl::bind_in(startTime), impl::bind_in(endTime), static_cast<int32_t>(granularity), impl::bind_in(states), &value));
         return Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Networking::Connectivity::NetworkUsage>>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfile2<D>::GetConnectivityIntervalsAsync(Windows::Foundation::DateTime const& startTime, Windows::Foundation::DateTime const& endTime, Windows::Networking::Connectivity::NetworkUsageStates const& states) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Networking::Connectivity::ConnectivityInterval>>) consume_Windows_Networking_Connectivity_IConnectionProfile2<D>::GetConnectivityIntervalsAsync(Windows::Foundation::DateTime const& startTime, Windows::Foundation::DateTime const& endTime, Windows::Networking::Connectivity::NetworkUsageStates const& states) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfile2)->GetConnectivityIntervalsAsync(impl::bind_in(startTime), impl::bind_in(endTime), impl::bind_in(states), &value));
         return Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Networking::Connectivity::ConnectivityInterval>>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfile3<D>::GetAttributedNetworkUsageAsync(Windows::Foundation::DateTime const& startTime, Windows::Foundation::DateTime const& endTime, Windows::Networking::Connectivity::NetworkUsageStates const& states) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Networking::Connectivity::AttributedNetworkUsage>>) consume_Windows_Networking_Connectivity_IConnectionProfile3<D>::GetAttributedNetworkUsageAsync(Windows::Foundation::DateTime const& startTime, Windows::Foundation::DateTime const& endTime, Windows::Networking::Connectivity::NetworkUsageStates const& states) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfile3)->GetAttributedNetworkUsageAsync(impl::bind_in(startTime), impl::bind_in(endTime), impl::bind_in(states), &value));
         return Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Networking::Connectivity::AttributedNetworkUsage>>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfile4<D>::GetProviderNetworkUsageAsync(Windows::Foundation::DateTime const& startTime, Windows::Foundation::DateTime const& endTime, Windows::Networking::Connectivity::NetworkUsageStates const& states) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Networking::Connectivity::ProviderNetworkUsage>>) consume_Windows_Networking_Connectivity_IConnectionProfile4<D>::GetProviderNetworkUsageAsync(Windows::Foundation::DateTime const& startTime, Windows::Foundation::DateTime const& endTime, Windows::Networking::Connectivity::NetworkUsageStates const& states) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfile4)->GetProviderNetworkUsageAsync(impl::bind_in(startTime), impl::bind_in(endTime), impl::bind_in(states), &value));
         return Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Networking::Connectivity::ProviderNetworkUsage>>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfile5<D>::CanDelete() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Networking_Connectivity_IConnectionProfile5<D>::CanDelete() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfile5)->get_CanDelete(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfile5<D>::TryDeleteAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::Connectivity::ConnectionProfileDeleteStatus>) consume_Windows_Networking_Connectivity_IConnectionProfile5<D>::TryDeleteAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfile5)->TryDeleteAsync(&operation));
         return Windows::Foundation::IAsyncOperation<Windows::Networking::Connectivity::ConnectionProfileDeleteStatus>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfileFilter<D>::IsConnected(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Connectivity_IConnectionProfileFilter<D>::IsConnected(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfileFilter)->put_IsConnected(value));
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfileFilter<D>::IsConnected() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Networking_Connectivity_IConnectionProfileFilter<D>::IsConnected() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfileFilter)->get_IsConnected(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfileFilter<D>::IsWwanConnectionProfile(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Connectivity_IConnectionProfileFilter<D>::IsWwanConnectionProfile(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfileFilter)->put_IsWwanConnectionProfile(value));
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfileFilter<D>::IsWwanConnectionProfile() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Networking_Connectivity_IConnectionProfileFilter<D>::IsWwanConnectionProfile() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfileFilter)->get_IsWwanConnectionProfile(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfileFilter<D>::IsWlanConnectionProfile(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Connectivity_IConnectionProfileFilter<D>::IsWlanConnectionProfile(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfileFilter)->put_IsWlanConnectionProfile(value));
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfileFilter<D>::IsWlanConnectionProfile() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Networking_Connectivity_IConnectionProfileFilter<D>::IsWlanConnectionProfile() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfileFilter)->get_IsWlanConnectionProfile(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfileFilter<D>::NetworkCostType(Windows::Networking::Connectivity::NetworkCostType const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Connectivity_IConnectionProfileFilter<D>::NetworkCostType(Windows::Networking::Connectivity::NetworkCostType const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfileFilter)->put_NetworkCostType(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfileFilter<D>::NetworkCostType() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Connectivity::NetworkCostType) consume_Windows_Networking_Connectivity_IConnectionProfileFilter<D>::NetworkCostType() const
     {
-        Windows::Networking::Connectivity::NetworkCostType value;
+        Windows::Networking::Connectivity::NetworkCostType value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfileFilter)->get_NetworkCostType(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfileFilter<D>::ServiceProviderGuid(Windows::Foundation::IReference<winrt::guid> const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Connectivity_IConnectionProfileFilter<D>::ServiceProviderGuid(Windows::Foundation::IReference<winrt::guid> const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfileFilter)->put_ServiceProviderGuid(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfileFilter<D>::ServiceProviderGuid() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<winrt::guid>) consume_Windows_Networking_Connectivity_IConnectionProfileFilter<D>::ServiceProviderGuid() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfileFilter)->get_ServiceProviderGuid(&value));
         return Windows::Foundation::IReference<winrt::guid>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfileFilter2<D>::IsRoaming(Windows::Foundation::IReference<bool> const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Connectivity_IConnectionProfileFilter2<D>::IsRoaming(Windows::Foundation::IReference<bool> const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfileFilter2)->put_IsRoaming(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfileFilter2<D>::IsRoaming() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<bool>) consume_Windows_Networking_Connectivity_IConnectionProfileFilter2<D>::IsRoaming() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfileFilter2)->get_IsRoaming(&value));
         return Windows::Foundation::IReference<bool>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfileFilter2<D>::IsOverDataLimit(Windows::Foundation::IReference<bool> const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Connectivity_IConnectionProfileFilter2<D>::IsOverDataLimit(Windows::Foundation::IReference<bool> const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfileFilter2)->put_IsOverDataLimit(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfileFilter2<D>::IsOverDataLimit() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<bool>) consume_Windows_Networking_Connectivity_IConnectionProfileFilter2<D>::IsOverDataLimit() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfileFilter2)->get_IsOverDataLimit(&value));
         return Windows::Foundation::IReference<bool>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfileFilter2<D>::IsBackgroundDataUsageRestricted(Windows::Foundation::IReference<bool> const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Connectivity_IConnectionProfileFilter2<D>::IsBackgroundDataUsageRestricted(Windows::Foundation::IReference<bool> const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfileFilter2)->put_IsBackgroundDataUsageRestricted(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfileFilter2<D>::IsBackgroundDataUsageRestricted() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<bool>) consume_Windows_Networking_Connectivity_IConnectionProfileFilter2<D>::IsBackgroundDataUsageRestricted() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfileFilter2)->get_IsBackgroundDataUsageRestricted(&value));
         return Windows::Foundation::IReference<bool>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfileFilter2<D>::RawData() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) consume_Windows_Networking_Connectivity_IConnectionProfileFilter2<D>::RawData() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfileFilter2)->get_RawData(&value));
         return Windows::Storage::Streams::IBuffer{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfileFilter3<D>::PurposeGuid(Windows::Foundation::IReference<winrt::guid> const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Connectivity_IConnectionProfileFilter3<D>::PurposeGuid(Windows::Foundation::IReference<winrt::guid> const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfileFilter3)->put_PurposeGuid(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionProfileFilter3<D>::PurposeGuid() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<winrt::guid>) consume_Windows_Networking_Connectivity_IConnectionProfileFilter3<D>::PurposeGuid() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionProfileFilter3)->get_PurposeGuid(&value));
         return Windows::Foundation::IReference<winrt::guid>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectionSession<D>::ConnectionProfile() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Connectivity::ConnectionProfile) consume_Windows_Networking_Connectivity_IConnectionSession<D>::ConnectionProfile() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectionSession)->get_ConnectionProfile(&value));
         return Windows::Networking::Connectivity::ConnectionProfile{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectivityInterval<D>::StartTime() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::DateTime) consume_Windows_Networking_Connectivity_IConnectivityInterval<D>::StartTime() const
     {
-        Windows::Foundation::DateTime startTime;
+        Windows::Foundation::DateTime startTime{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectivityInterval)->get_StartTime(put_abi(startTime)));
         return startTime;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectivityInterval<D>::ConnectionDuration() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) consume_Windows_Networking_Connectivity_IConnectivityInterval<D>::ConnectionDuration() const
     {
-        Windows::Foundation::TimeSpan duration;
+        Windows::Foundation::TimeSpan duration{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectivityInterval)->get_ConnectionDuration(put_abi(duration)));
         return duration;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectivityManagerStatics<D>::AcquireConnectionAsync(Windows::Networking::Connectivity::CellularApnContext const& cellularApnContext) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::Connectivity::ConnectionSession>) consume_Windows_Networking_Connectivity_IConnectivityManagerStatics<D>::AcquireConnectionAsync(Windows::Networking::Connectivity::CellularApnContext const& cellularApnContext) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectivityManagerStatics)->AcquireConnectionAsync(*(void**)(&cellularApnContext), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::Networking::Connectivity::ConnectionSession>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectivityManagerStatics<D>::AddHttpRoutePolicy(Windows::Networking::Connectivity::RoutePolicy const& routePolicy) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Connectivity_IConnectivityManagerStatics<D>::AddHttpRoutePolicy(Windows::Networking::Connectivity::RoutePolicy const& routePolicy) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectivityManagerStatics)->AddHttpRoutePolicy(*(void**)(&routePolicy)));
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IConnectivityManagerStatics<D>::RemoveHttpRoutePolicy(Windows::Networking::Connectivity::RoutePolicy const& routePolicy) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Connectivity_IConnectivityManagerStatics<D>::RemoveHttpRoutePolicy(Windows::Networking::Connectivity::RoutePolicy const& routePolicy) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IConnectivityManagerStatics)->RemoveHttpRoutePolicy(*(void**)(&routePolicy)));
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IDataPlanStatus<D>::DataPlanUsage() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Connectivity::DataPlanUsage) consume_Windows_Networking_Connectivity_IDataPlanStatus<D>::DataPlanUsage() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IDataPlanStatus)->get_DataPlanUsage(&value));
         return Windows::Networking::Connectivity::DataPlanUsage{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IDataPlanStatus<D>::DataLimitInMegabytes() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint32_t>) consume_Windows_Networking_Connectivity_IDataPlanStatus<D>::DataLimitInMegabytes() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IDataPlanStatus)->get_DataLimitInMegabytes(&value));
         return Windows::Foundation::IReference<uint32_t>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IDataPlanStatus<D>::InboundBitsPerSecond() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint64_t>) consume_Windows_Networking_Connectivity_IDataPlanStatus<D>::InboundBitsPerSecond() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IDataPlanStatus)->get_InboundBitsPerSecond(&value));
         return Windows::Foundation::IReference<uint64_t>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IDataPlanStatus<D>::OutboundBitsPerSecond() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint64_t>) consume_Windows_Networking_Connectivity_IDataPlanStatus<D>::OutboundBitsPerSecond() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IDataPlanStatus)->get_OutboundBitsPerSecond(&value));
         return Windows::Foundation::IReference<uint64_t>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IDataPlanStatus<D>::NextBillingCycle() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) consume_Windows_Networking_Connectivity_IDataPlanStatus<D>::NextBillingCycle() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IDataPlanStatus)->get_NextBillingCycle(&value));
         return Windows::Foundation::IReference<Windows::Foundation::DateTime>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IDataPlanStatus<D>::MaxTransferSizeInMegabytes() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint32_t>) consume_Windows_Networking_Connectivity_IDataPlanStatus<D>::MaxTransferSizeInMegabytes() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IDataPlanStatus)->get_MaxTransferSizeInMegabytes(&value));
         return Windows::Foundation::IReference<uint32_t>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IDataPlanUsage<D>::MegabytesUsed() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Networking_Connectivity_IDataPlanUsage<D>::MegabytesUsed() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IDataPlanUsage)->get_MegabytesUsed(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IDataPlanUsage<D>::LastSyncTime() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::DateTime) consume_Windows_Networking_Connectivity_IDataPlanUsage<D>::LastSyncTime() const
     {
-        Windows::Foundation::DateTime value;
+        Windows::Foundation::DateTime value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IDataPlanUsage)->get_LastSyncTime(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IDataUsage<D>::BytesSent() const
+    template <typename D> WINRT_IMPL_AUTO(uint64_t) consume_Windows_Networking_Connectivity_IDataUsage<D>::BytesSent() const
     {
-        uint64_t value;
+        uint64_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IDataUsage)->get_BytesSent(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IDataUsage<D>::BytesReceived() const
+    template <typename D> WINRT_IMPL_AUTO(uint64_t) consume_Windows_Networking_Connectivity_IDataUsage<D>::BytesReceived() const
     {
-        uint64_t value;
+        uint64_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IDataUsage)->get_BytesReceived(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IIPInformation<D>::NetworkAdapter() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Connectivity::NetworkAdapter) consume_Windows_Networking_Connectivity_IIPInformation<D>::NetworkAdapter() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IIPInformation)->get_NetworkAdapter(&value));
         return Windows::Networking::Connectivity::NetworkAdapter{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IIPInformation<D>::PrefixLength() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint8_t>) consume_Windows_Networking_Connectivity_IIPInformation<D>::PrefixLength() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IIPInformation)->get_PrefixLength(&value));
         return Windows::Foundation::IReference<uint8_t>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_ILanIdentifier<D>::InfrastructureId() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Connectivity::LanIdentifierData) consume_Windows_Networking_Connectivity_ILanIdentifier<D>::InfrastructureId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::ILanIdentifier)->get_InfrastructureId(&value));
         return Windows::Networking::Connectivity::LanIdentifierData{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_ILanIdentifier<D>::PortId() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Connectivity::LanIdentifierData) consume_Windows_Networking_Connectivity_ILanIdentifier<D>::PortId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::ILanIdentifier)->get_PortId(&value));
         return Windows::Networking::Connectivity::LanIdentifierData{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_ILanIdentifier<D>::NetworkAdapterId() const
+    template <typename D> WINRT_IMPL_AUTO(winrt::guid) consume_Windows_Networking_Connectivity_ILanIdentifier<D>::NetworkAdapterId() const
     {
-        winrt::guid value;
+        winrt::guid value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::ILanIdentifier)->get_NetworkAdapterId(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_ILanIdentifierData<D>::Type() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Networking_Connectivity_ILanIdentifierData<D>::Type() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::ILanIdentifierData)->get_Type(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_ILanIdentifierData<D>::Value() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<uint8_t>) consume_Windows_Networking_Connectivity_ILanIdentifierData<D>::Value() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::ILanIdentifierData)->get_Value(&value));
         return Windows::Foundation::Collections::IVectorView<uint8_t>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_INetworkAdapter<D>::OutboundMaxBitsPerSecond() const
+    template <typename D> WINRT_IMPL_AUTO(uint64_t) consume_Windows_Networking_Connectivity_INetworkAdapter<D>::OutboundMaxBitsPerSecond() const
     {
-        uint64_t value;
+        uint64_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::INetworkAdapter)->get_OutboundMaxBitsPerSecond(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_INetworkAdapter<D>::InboundMaxBitsPerSecond() const
+    template <typename D> WINRT_IMPL_AUTO(uint64_t) consume_Windows_Networking_Connectivity_INetworkAdapter<D>::InboundMaxBitsPerSecond() const
     {
-        uint64_t value;
+        uint64_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::INetworkAdapter)->get_InboundMaxBitsPerSecond(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_INetworkAdapter<D>::IanaInterfaceType() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Networking_Connectivity_INetworkAdapter<D>::IanaInterfaceType() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::INetworkAdapter)->get_IanaInterfaceType(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_INetworkAdapter<D>::NetworkItem() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Connectivity::NetworkItem) consume_Windows_Networking_Connectivity_INetworkAdapter<D>::NetworkItem() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::INetworkAdapter)->get_NetworkItem(&value));
         return Windows::Networking::Connectivity::NetworkItem{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_INetworkAdapter<D>::NetworkAdapterId() const
+    template <typename D> WINRT_IMPL_AUTO(winrt::guid) consume_Windows_Networking_Connectivity_INetworkAdapter<D>::NetworkAdapterId() const
     {
-        winrt::guid value;
+        winrt::guid value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::INetworkAdapter)->get_NetworkAdapterId(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_INetworkAdapter<D>::GetConnectedProfileAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::Connectivity::ConnectionProfile>) consume_Windows_Networking_Connectivity_INetworkAdapter<D>::GetConnectedProfileAsync() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::INetworkAdapter)->GetConnectedProfileAsync(&value));
         return Windows::Foundation::IAsyncOperation<Windows::Networking::Connectivity::ConnectionProfile>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_INetworkInformationStatics<D>::GetConnectionProfiles() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::Connectivity::ConnectionProfile>) consume_Windows_Networking_Connectivity_INetworkInformationStatics<D>::GetConnectionProfiles() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::INetworkInformationStatics)->GetConnectionProfiles(&value));
         return Windows::Foundation::Collections::IVectorView<Windows::Networking::Connectivity::ConnectionProfile>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_INetworkInformationStatics<D>::GetInternetConnectionProfile() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Connectivity::ConnectionProfile) consume_Windows_Networking_Connectivity_INetworkInformationStatics<D>::GetInternetConnectionProfile() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::INetworkInformationStatics)->GetInternetConnectionProfile(&value));
         return Windows::Networking::Connectivity::ConnectionProfile{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_INetworkInformationStatics<D>::GetLanIdentifiers() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::Connectivity::LanIdentifier>) consume_Windows_Networking_Connectivity_INetworkInformationStatics<D>::GetLanIdentifiers() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::INetworkInformationStatics)->GetLanIdentifiers(&value));
         return Windows::Foundation::Collections::IVectorView<Windows::Networking::Connectivity::LanIdentifier>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_INetworkInformationStatics<D>::GetHostNames() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::HostName>) consume_Windows_Networking_Connectivity_INetworkInformationStatics<D>::GetHostNames() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::INetworkInformationStatics)->GetHostNames(&value));
         return Windows::Foundation::Collections::IVectorView<Windows::Networking::HostName>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_INetworkInformationStatics<D>::GetProxyConfigurationAsync(Windows::Foundation::Uri const& uri) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::Connectivity::ProxyConfiguration>) consume_Windows_Networking_Connectivity_INetworkInformationStatics<D>::GetProxyConfigurationAsync(Windows::Foundation::Uri const& uri) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::INetworkInformationStatics)->GetProxyConfigurationAsync(*(void**)(&uri), &value));
         return Windows::Foundation::IAsyncOperation<Windows::Networking::Connectivity::ProxyConfiguration>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_INetworkInformationStatics<D>::GetSortedEndpointPairs(param::iterable<Windows::Networking::EndpointPair> const& destinationList, Windows::Networking::HostNameSortOptions const& sortOptions) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::EndpointPair>) consume_Windows_Networking_Connectivity_INetworkInformationStatics<D>::GetSortedEndpointPairs(param::iterable<Windows::Networking::EndpointPair> const& destinationList, Windows::Networking::HostNameSortOptions const& sortOptions) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::INetworkInformationStatics)->GetSortedEndpointPairs(*(void**)(&destinationList), static_cast<uint32_t>(sortOptions), &value));
         return Windows::Foundation::Collections::IVectorView<Windows::Networking::EndpointPair>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_INetworkInformationStatics<D>::NetworkStatusChanged(Windows::Networking::Connectivity::NetworkStatusChangedEventHandler const& networkStatusHandler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Networking_Connectivity_INetworkInformationStatics<D>::NetworkStatusChanged(Windows::Networking::Connectivity::NetworkStatusChangedEventHandler const& networkStatusHandler) const
     {
-        winrt::event_token eventCookie;
+        winrt::event_token eventCookie{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::INetworkInformationStatics)->add_NetworkStatusChanged(*(void**)(&networkStatusHandler), put_abi(eventCookie)));
         return eventCookie;
     }
@@ -589,197 +589,197 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, NetworkStatusChanged_revoker>(this, NetworkStatusChanged(networkStatusHandler));
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_INetworkInformationStatics<D>::NetworkStatusChanged(winrt::event_token const& eventCookie) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Connectivity_INetworkInformationStatics<D>::NetworkStatusChanged(winrt::event_token const& eventCookie) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Networking::Connectivity::INetworkInformationStatics)->remove_NetworkStatusChanged(impl::bind_in(eventCookie)));
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_INetworkInformationStatics2<D>::FindConnectionProfilesAsync(Windows::Networking::Connectivity::ConnectionProfileFilter const& pProfileFilter) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Networking::Connectivity::ConnectionProfile>>) consume_Windows_Networking_Connectivity_INetworkInformationStatics2<D>::FindConnectionProfilesAsync(Windows::Networking::Connectivity::ConnectionProfileFilter const& pProfileFilter) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::INetworkInformationStatics2)->FindConnectionProfilesAsync(*(void**)(&pProfileFilter), &value));
         return Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Networking::Connectivity::ConnectionProfile>>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_INetworkItem<D>::NetworkId() const
+    template <typename D> WINRT_IMPL_AUTO(winrt::guid) consume_Windows_Networking_Connectivity_INetworkItem<D>::NetworkId() const
     {
-        winrt::guid value;
+        winrt::guid value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::INetworkItem)->get_NetworkId(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_INetworkItem<D>::GetNetworkTypes() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Connectivity::NetworkTypes) consume_Windows_Networking_Connectivity_INetworkItem<D>::GetNetworkTypes() const
     {
-        Windows::Networking::Connectivity::NetworkTypes value;
+        Windows::Networking::Connectivity::NetworkTypes value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::INetworkItem)->GetNetworkTypes(reinterpret_cast<uint32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_INetworkSecuritySettings<D>::NetworkAuthenticationType() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Connectivity::NetworkAuthenticationType) consume_Windows_Networking_Connectivity_INetworkSecuritySettings<D>::NetworkAuthenticationType() const
     {
-        Windows::Networking::Connectivity::NetworkAuthenticationType value;
+        Windows::Networking::Connectivity::NetworkAuthenticationType value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::INetworkSecuritySettings)->get_NetworkAuthenticationType(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_INetworkSecuritySettings<D>::NetworkEncryptionType() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Connectivity::NetworkEncryptionType) consume_Windows_Networking_Connectivity_INetworkSecuritySettings<D>::NetworkEncryptionType() const
     {
-        Windows::Networking::Connectivity::NetworkEncryptionType value;
+        Windows::Networking::Connectivity::NetworkEncryptionType value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::INetworkSecuritySettings)->get_NetworkEncryptionType(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_INetworkStateChangeEventDetails<D>::HasNewInternetConnectionProfile() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Networking_Connectivity_INetworkStateChangeEventDetails<D>::HasNewInternetConnectionProfile() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::INetworkStateChangeEventDetails)->get_HasNewInternetConnectionProfile(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_INetworkStateChangeEventDetails<D>::HasNewConnectionCost() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Networking_Connectivity_INetworkStateChangeEventDetails<D>::HasNewConnectionCost() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::INetworkStateChangeEventDetails)->get_HasNewConnectionCost(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_INetworkStateChangeEventDetails<D>::HasNewNetworkConnectivityLevel() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Networking_Connectivity_INetworkStateChangeEventDetails<D>::HasNewNetworkConnectivityLevel() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::INetworkStateChangeEventDetails)->get_HasNewNetworkConnectivityLevel(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_INetworkStateChangeEventDetails<D>::HasNewDomainConnectivityLevel() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Networking_Connectivity_INetworkStateChangeEventDetails<D>::HasNewDomainConnectivityLevel() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::INetworkStateChangeEventDetails)->get_HasNewDomainConnectivityLevel(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_INetworkStateChangeEventDetails<D>::HasNewHostNameList() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Networking_Connectivity_INetworkStateChangeEventDetails<D>::HasNewHostNameList() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::INetworkStateChangeEventDetails)->get_HasNewHostNameList(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_INetworkStateChangeEventDetails<D>::HasNewWwanRegistrationState() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Networking_Connectivity_INetworkStateChangeEventDetails<D>::HasNewWwanRegistrationState() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::INetworkStateChangeEventDetails)->get_HasNewWwanRegistrationState(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_INetworkStateChangeEventDetails2<D>::HasNewTetheringOperationalState() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Networking_Connectivity_INetworkStateChangeEventDetails2<D>::HasNewTetheringOperationalState() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::INetworkStateChangeEventDetails2)->get_HasNewTetheringOperationalState(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_INetworkStateChangeEventDetails2<D>::HasNewTetheringClientCount() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Networking_Connectivity_INetworkStateChangeEventDetails2<D>::HasNewTetheringClientCount() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::INetworkStateChangeEventDetails2)->get_HasNewTetheringClientCount(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_INetworkUsage<D>::BytesSent() const
+    template <typename D> WINRT_IMPL_AUTO(uint64_t) consume_Windows_Networking_Connectivity_INetworkUsage<D>::BytesSent() const
     {
-        uint64_t value;
+        uint64_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::INetworkUsage)->get_BytesSent(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_INetworkUsage<D>::BytesReceived() const
+    template <typename D> WINRT_IMPL_AUTO(uint64_t) consume_Windows_Networking_Connectivity_INetworkUsage<D>::BytesReceived() const
     {
-        uint64_t value;
+        uint64_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::INetworkUsage)->get_BytesReceived(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_INetworkUsage<D>::ConnectionDuration() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) consume_Windows_Networking_Connectivity_INetworkUsage<D>::ConnectionDuration() const
     {
-        Windows::Foundation::TimeSpan duration;
+        Windows::Foundation::TimeSpan duration{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::INetworkUsage)->get_ConnectionDuration(put_abi(duration)));
         return duration;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IProviderNetworkUsage<D>::BytesSent() const
+    template <typename D> WINRT_IMPL_AUTO(uint64_t) consume_Windows_Networking_Connectivity_IProviderNetworkUsage<D>::BytesSent() const
     {
-        uint64_t value;
+        uint64_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IProviderNetworkUsage)->get_BytesSent(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IProviderNetworkUsage<D>::BytesReceived() const
+    template <typename D> WINRT_IMPL_AUTO(uint64_t) consume_Windows_Networking_Connectivity_IProviderNetworkUsage<D>::BytesReceived() const
     {
-        uint64_t value;
+        uint64_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IProviderNetworkUsage)->get_BytesReceived(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IProviderNetworkUsage<D>::ProviderId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Networking_Connectivity_IProviderNetworkUsage<D>::ProviderId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IProviderNetworkUsage)->get_ProviderId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IProxyConfiguration<D>::ProxyUris() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Foundation::Uri>) consume_Windows_Networking_Connectivity_IProxyConfiguration<D>::ProxyUris() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IProxyConfiguration)->get_ProxyUris(&value));
         return Windows::Foundation::Collections::IVectorView<Windows::Foundation::Uri>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IProxyConfiguration<D>::CanConnectDirectly() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Networking_Connectivity_IProxyConfiguration<D>::CanConnectDirectly() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IProxyConfiguration)->get_CanConnectDirectly(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IRoutePolicy<D>::ConnectionProfile() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Connectivity::ConnectionProfile) consume_Windows_Networking_Connectivity_IRoutePolicy<D>::ConnectionProfile() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IRoutePolicy)->get_ConnectionProfile(&value));
         return Windows::Networking::Connectivity::ConnectionProfile{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IRoutePolicy<D>::HostName() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::HostName) consume_Windows_Networking_Connectivity_IRoutePolicy<D>::HostName() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IRoutePolicy)->get_HostName(&value));
         return Windows::Networking::HostName{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IRoutePolicy<D>::HostNameType() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::DomainNameType) consume_Windows_Networking_Connectivity_IRoutePolicy<D>::HostNameType() const
     {
-        Windows::Networking::DomainNameType value;
+        Windows::Networking::DomainNameType value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IRoutePolicy)->get_HostNameType(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IRoutePolicyFactory<D>::CreateRoutePolicy(Windows::Networking::Connectivity::ConnectionProfile const& connectionProfile, Windows::Networking::HostName const& hostName, Windows::Networking::DomainNameType const& type) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Connectivity::RoutePolicy) consume_Windows_Networking_Connectivity_IRoutePolicyFactory<D>::CreateRoutePolicy(Windows::Networking::Connectivity::ConnectionProfile const& connectionProfile, Windows::Networking::HostName const& hostName, Windows::Networking::DomainNameType const& type) const
     {
         void* routePolicy{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IRoutePolicyFactory)->CreateRoutePolicy(*(void**)(&connectionProfile), *(void**)(&hostName), static_cast<int32_t>(type), &routePolicy));
         return Windows::Networking::Connectivity::RoutePolicy{ routePolicy, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IWlanConnectionProfileDetails<D>::GetConnectedSsid() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Networking_Connectivity_IWlanConnectionProfileDetails<D>::GetConnectedSsid() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IWlanConnectionProfileDetails)->GetConnectedSsid(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IWwanConnectionProfileDetails<D>::HomeProviderId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Networking_Connectivity_IWwanConnectionProfileDetails<D>::HomeProviderId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IWwanConnectionProfileDetails)->get_HomeProviderId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IWwanConnectionProfileDetails<D>::AccessPointName() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Networking_Connectivity_IWwanConnectionProfileDetails<D>::AccessPointName() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IWwanConnectionProfileDetails)->get_AccessPointName(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IWwanConnectionProfileDetails<D>::GetNetworkRegistrationState() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Connectivity::WwanNetworkRegistrationState) consume_Windows_Networking_Connectivity_IWwanConnectionProfileDetails<D>::GetNetworkRegistrationState() const
     {
-        Windows::Networking::Connectivity::WwanNetworkRegistrationState value;
+        Windows::Networking::Connectivity::WwanNetworkRegistrationState value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IWwanConnectionProfileDetails)->GetNetworkRegistrationState(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IWwanConnectionProfileDetails<D>::GetCurrentDataClass() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Connectivity::WwanDataClass) consume_Windows_Networking_Connectivity_IWwanConnectionProfileDetails<D>::GetCurrentDataClass() const
     {
-        Windows::Networking::Connectivity::WwanDataClass value;
+        Windows::Networking::Connectivity::WwanDataClass value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IWwanConnectionProfileDetails)->GetCurrentDataClass(reinterpret_cast<uint32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IWwanConnectionProfileDetails2<D>::IPKind() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Connectivity::WwanNetworkIPKind) consume_Windows_Networking_Connectivity_IWwanConnectionProfileDetails2<D>::IPKind() const
     {
-        Windows::Networking::Connectivity::WwanNetworkIPKind value;
+        Windows::Networking::Connectivity::WwanNetworkIPKind value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IWwanConnectionProfileDetails2)->get_IPKind(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Networking_Connectivity_IWwanConnectionProfileDetails2<D>::PurposeGuids() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<winrt::guid>) consume_Windows_Networking_Connectivity_IWwanConnectionProfileDetails2<D>::PurposeGuids() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Connectivity::IWwanConnectionProfileDetails2)->get_PurposeGuids(&value));

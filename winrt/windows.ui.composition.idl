@@ -2679,8 +2679,8 @@ namespace Windows
             [uuid(30BE580D-F4B6-4AB7-80DD-3738CBAC9F2C)]
             interface IVisual3 : IInspectable
             {
-                [propget] HRESULT IsTransparentForHitTest([out] [retval] boolean* value);
-                [propput] HRESULT IsTransparentForHitTest([in] boolean value);
+                [propget] HRESULT IsHitTestVisible([out] [retval] boolean* value);
+                [propput] HRESULT IsHitTestVisible([in] boolean value);
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 2.0)]

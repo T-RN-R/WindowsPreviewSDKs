@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -67,7 +67,7 @@ WINRT_EXPORT namespace winrt::Windows::Security::EnterpriseData
     {
         FileUnprotectOptions(std::nullptr_t) noexcept {}
         FileUnprotectOptions(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Security::EnterpriseData::IFileUnprotectOptions(ptr, take_ownership_from_abi) {}
-        FileUnprotectOptions(bool audit);
+        explicit FileUnprotectOptions(bool audit);
     };
     struct __declspec(empty_bases) ProtectedAccessResumedEventArgs : Windows::Security::EnterpriseData::IProtectedAccessResumedEventArgs
     {

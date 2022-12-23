@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -9,10 +9,12 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct HResult;
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
+    template <typename K, typename V> struct IMapView;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage::Streams
 {
@@ -43,16 +45,14 @@ namespace winrt::impl
     template <> struct category<Windows::ApplicationModel::Store::LicenseManagement::LicenseSatisfactionInfo>{ using type = class_category; };
     template <> struct category<Windows::ApplicationModel::Store::LicenseManagement::LicenseSatisfactionResult>{ using type = class_category; };
     template <> struct category<Windows::ApplicationModel::Store::LicenseManagement::LicenseRefreshOption>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::LicenseManagement::LicenseManager>{ L"Windows.ApplicationModel.Store.LicenseManagement.LicenseManager" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::LicenseManagement::LicenseSatisfactionInfo>{ L"Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionInfo" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::LicenseManagement::LicenseSatisfactionResult>{ L"Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionResult" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::LicenseManagement::LicenseRefreshOption>{ L"Windows.ApplicationModel.Store.LicenseManagement.LicenseRefreshOption" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::LicenseManagement::ILicenseManagerStatics>{ L"Windows.ApplicationModel.Store.LicenseManagement.ILicenseManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::LicenseManagement::ILicenseManagerStatics2>{ L"Windows.ApplicationModel.Store.LicenseManagement.ILicenseManagerStatics2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::LicenseManagement::ILicenseSatisfactionInfo>{ L"Windows.ApplicationModel.Store.LicenseManagement.ILicenseSatisfactionInfo" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::LicenseManagement::ILicenseSatisfactionResult>{ L"Windows.ApplicationModel.Store.LicenseManagement.ILicenseSatisfactionResult" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::LicenseManagement::LicenseManager> = L"Windows.ApplicationModel.Store.LicenseManagement.LicenseManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::LicenseManagement::LicenseSatisfactionInfo> = L"Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionInfo";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::LicenseManagement::LicenseSatisfactionResult> = L"Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionResult";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::LicenseManagement::LicenseRefreshOption> = L"Windows.ApplicationModel.Store.LicenseManagement.LicenseRefreshOption";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::LicenseManagement::ILicenseManagerStatics> = L"Windows.ApplicationModel.Store.LicenseManagement.ILicenseManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::LicenseManagement::ILicenseManagerStatics2> = L"Windows.ApplicationModel.Store.LicenseManagement.ILicenseManagerStatics2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::LicenseManagement::ILicenseSatisfactionInfo> = L"Windows.ApplicationModel.Store.LicenseManagement.ILicenseSatisfactionInfo";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Store::LicenseManagement::ILicenseSatisfactionResult> = L"Windows.ApplicationModel.Store.LicenseManagement.ILicenseSatisfactionResult";
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::LicenseManagement::ILicenseManagerStatics>{ 0xB5AC3AE0,0xDA47,0x4F20,{ 0x9A,0x23,0x09,0x18,0x2C,0x94,0x76,0xFF } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::LicenseManagement::ILicenseManagerStatics2>{ 0xAB2EC47B,0x1F79,0x4480,{ 0xB8,0x7E,0x2C,0x49,0x9E,0x60,0x1B,0xA3 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Store::LicenseManagement::ILicenseSatisfactionInfo>{ 0x3CCBB08F,0xDB31,0x48D5,{ 0x83,0x84,0xFA,0x17,0xC8,0x14,0x74,0xE2 } };
@@ -98,8 +98,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_LicenseManagement_ILicenseManagerStatics
     {
-        auto AddLicenseAsync(Windows::Storage::Streams::IBuffer const& license) const;
-        auto GetSatisfactionInfosAsync(param::async_iterable<hstring> const& contentIds, param::async_iterable<hstring> const& keyIds) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) AddLicenseAsync(Windows::Storage::Streams::IBuffer const& license) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Store::LicenseManagement::LicenseSatisfactionResult>) GetSatisfactionInfosAsync(param::async_iterable<hstring> const& contentIds, param::async_iterable<hstring> const& keyIds) const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::LicenseManagement::ILicenseManagerStatics>
     {
@@ -108,7 +108,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_LicenseManagement_ILicenseManagerStatics2
     {
-        auto RefreshLicensesAsync(Windows::ApplicationModel::Store::LicenseManagement::LicenseRefreshOption const& refreshOption) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) RefreshLicensesAsync(Windows::ApplicationModel::Store::LicenseManagement::LicenseRefreshOption const& refreshOption) const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::LicenseManagement::ILicenseManagerStatics2>
     {
@@ -117,13 +117,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_LicenseManagement_ILicenseSatisfactionInfo
     {
-        [[nodiscard]] auto SatisfiedByDevice() const;
-        [[nodiscard]] auto SatisfiedByOpenLicense() const;
-        [[nodiscard]] auto SatisfiedByTrial() const;
-        [[nodiscard]] auto SatisfiedByPass() const;
-        [[nodiscard]] auto SatisfiedByInstallMedia() const;
-        [[nodiscard]] auto SatisfiedBySignedInUser() const;
-        [[nodiscard]] auto IsSatisfied() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) SatisfiedByDevice() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) SatisfiedByOpenLicense() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) SatisfiedByTrial() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) SatisfiedByPass() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) SatisfiedByInstallMedia() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) SatisfiedBySignedInUser() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSatisfied() const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::LicenseManagement::ILicenseSatisfactionInfo>
     {
@@ -132,8 +132,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Store_LicenseManagement_ILicenseSatisfactionResult
     {
-        [[nodiscard]] auto LicenseSatisfactionInfos() const;
-        [[nodiscard]] auto ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, Windows::ApplicationModel::Store::LicenseManagement::LicenseSatisfactionInfo>) LicenseSatisfactionInfos() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
     };
     template <> struct consume<Windows::ApplicationModel::Store::LicenseManagement::ILicenseSatisfactionResult>
     {

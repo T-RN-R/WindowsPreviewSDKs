@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -25,11 +25,9 @@ namespace winrt::impl
     template <> struct category<Windows::Security::Cryptography::ICryptographicBufferStatics>{ using type = interface_category; };
     template <> struct category<Windows::Security::Cryptography::CryptographicBuffer>{ using type = class_category; };
     template <> struct category<Windows::Security::Cryptography::BinaryStringEncoding>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::CryptographicBuffer>{ L"Windows.Security.Cryptography.CryptographicBuffer" };
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::BinaryStringEncoding>{ L"Windows.Security.Cryptography.BinaryStringEncoding" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::ICryptographicBufferStatics>{ L"Windows.Security.Cryptography.ICryptographicBufferStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::CryptographicBuffer> = L"Windows.Security.Cryptography.CryptographicBuffer";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::BinaryStringEncoding> = L"Windows.Security.Cryptography.BinaryStringEncoding";
+    template <> inline constexpr auto& name_v<Windows::Security::Cryptography::ICryptographicBufferStatics> = L"Windows.Security.Cryptography.ICryptographicBufferStatics";
     template <> inline constexpr guid guid_v<Windows::Security::Cryptography::ICryptographicBufferStatics>{ 0x320B7E22,0x3CB0,0x4CDF,{ 0x86,0x63,0x1D,0x28,0x91,0x00,0x65,0xEB } };
     template <> struct abi<Windows::Security::Cryptography::ICryptographicBufferStatics>
     {
@@ -51,17 +49,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Cryptography_ICryptographicBufferStatics
     {
-        auto Compare(Windows::Storage::Streams::IBuffer const& object1, Windows::Storage::Streams::IBuffer const& object2) const;
-        auto GenerateRandom(uint32_t length) const;
-        auto GenerateRandomNumber() const;
-        auto CreateFromByteArray(array_view<uint8_t const> value) const;
-        auto CopyToByteArray(Windows::Storage::Streams::IBuffer const& buffer, com_array<uint8_t>& value) const;
-        auto DecodeFromHexString(param::hstring const& value) const;
-        auto EncodeToHexString(Windows::Storage::Streams::IBuffer const& buffer) const;
-        auto DecodeFromBase64String(param::hstring const& value) const;
-        auto EncodeToBase64String(Windows::Storage::Streams::IBuffer const& buffer) const;
-        auto ConvertStringToBinary(param::hstring const& value, Windows::Security::Cryptography::BinaryStringEncoding const& encoding) const;
-        auto ConvertBinaryToString(Windows::Security::Cryptography::BinaryStringEncoding const& encoding, Windows::Storage::Streams::IBuffer const& buffer) const;
+        WINRT_IMPL_AUTO(bool) Compare(Windows::Storage::Streams::IBuffer const& object1, Windows::Storage::Streams::IBuffer const& object2) const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) GenerateRandom(uint32_t length) const;
+        WINRT_IMPL_AUTO(uint32_t) GenerateRandomNumber() const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) CreateFromByteArray(array_view<uint8_t const> value) const;
+        WINRT_IMPL_AUTO(void) CopyToByteArray(Windows::Storage::Streams::IBuffer const& buffer, com_array<uint8_t>& value) const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) DecodeFromHexString(param::hstring const& value) const;
+        WINRT_IMPL_AUTO(hstring) EncodeToHexString(Windows::Storage::Streams::IBuffer const& buffer) const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) DecodeFromBase64String(param::hstring const& value) const;
+        WINRT_IMPL_AUTO(hstring) EncodeToBase64String(Windows::Storage::Streams::IBuffer const& buffer) const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) ConvertStringToBinary(param::hstring const& value, Windows::Security::Cryptography::BinaryStringEncoding const& encoding) const;
+        WINRT_IMPL_AUTO(hstring) ConvertBinaryToString(Windows::Security::Cryptography::BinaryStringEncoding const& encoding, Windows::Storage::Streams::IBuffer const& buffer) const;
     };
     template <> struct consume<Windows::Security::Cryptography::ICryptographicBufferStatics>
     {

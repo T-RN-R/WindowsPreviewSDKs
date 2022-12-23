@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -63,7 +63,7 @@ WINRT_EXPORT namespace winrt::Windows::Networking::BackgroundTransfer
         BackgroundDownloader(std::nullptr_t) noexcept {}
         BackgroundDownloader(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Networking::BackgroundTransfer::IBackgroundDownloader(ptr, take_ownership_from_abi) {}
         BackgroundDownloader();
-        BackgroundDownloader(Windows::Networking::BackgroundTransfer::BackgroundTransferCompletionGroup const& completionGroup);
+        explicit BackgroundDownloader(Windows::Networking::BackgroundTransfer::BackgroundTransferCompletionGroup const& completionGroup);
         static auto GetCurrentDownloadsAsync();
         static auto GetCurrentDownloadsAsync(param::hstring const& group);
         static auto GetCurrentDownloadsForTransferGroupAsync(Windows::Networking::BackgroundTransfer::BackgroundTransferGroup const& group);
@@ -85,7 +85,7 @@ WINRT_EXPORT namespace winrt::Windows::Networking::BackgroundTransfer
         BackgroundTransferContentPart(std::nullptr_t) noexcept {}
         BackgroundTransferContentPart(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Networking::BackgroundTransfer::IBackgroundTransferContentPart(ptr, take_ownership_from_abi) {}
         BackgroundTransferContentPart();
-        BackgroundTransferContentPart(param::hstring const& name);
+        explicit BackgroundTransferContentPart(param::hstring const& name);
         BackgroundTransferContentPart(param::hstring const& name, param::hstring const& fileName);
     };
     struct BackgroundTransferError
@@ -110,7 +110,7 @@ WINRT_EXPORT namespace winrt::Windows::Networking::BackgroundTransfer
         BackgroundUploader(std::nullptr_t) noexcept {}
         BackgroundUploader(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Networking::BackgroundTransfer::IBackgroundUploader(ptr, take_ownership_from_abi) {}
         BackgroundUploader();
-        BackgroundUploader(Windows::Networking::BackgroundTransfer::BackgroundTransferCompletionGroup const& completionGroup);
+        explicit BackgroundUploader(Windows::Networking::BackgroundTransfer::BackgroundTransferCompletionGroup const& completionGroup);
         static auto GetCurrentUploadsAsync();
         static auto GetCurrentUploadsAsync(param::hstring const& group);
         static auto GetCurrentUploadsForTransferGroupAsync(Windows::Networking::BackgroundTransfer::BackgroundTransferGroup const& group);

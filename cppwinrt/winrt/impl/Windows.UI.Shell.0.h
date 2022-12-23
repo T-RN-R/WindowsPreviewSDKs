@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -13,8 +13,13 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct Deferral;
     struct EventRegistrationToken;
+    template <typename TResult> struct IAsyncOperation;
     template <typename TSender, typename TResult> struct TypedEventHandler;
     struct Uri;
+}
+WINRT_EXPORT namespace winrt::Windows::Graphics::Imaging
+{
+    struct BitmapSize;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage::Streams
 {
@@ -106,38 +111,36 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Shell::SecurityAppKind>{ using type = enum_category; };
     template <> struct category<Windows::UI::Shell::SecurityAppState>{ using type = enum_category; };
     template <> struct category<Windows::UI::Shell::SecurityAppSubstatus>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::UI::Shell::AdaptiveCardBuilder>{ L"Windows.UI.Shell.AdaptiveCardBuilder" };
-    template <> inline constexpr auto& name_v<Windows::UI::Shell::SecurityAppManager>{ L"Windows.UI.Shell.SecurityAppManager" };
-    template <> inline constexpr auto& name_v<Windows::UI::Shell::TaskbarManager>{ L"Windows.UI.Shell.TaskbarManager" };
-    template <> inline constexpr auto& name_v<Windows::UI::Shell::WindowTab>{ L"Windows.UI.Shell.WindowTab" };
-    template <> inline constexpr auto& name_v<Windows::UI::Shell::WindowTabCloseRequestedEventArgs>{ L"Windows.UI.Shell.WindowTabCloseRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Shell::WindowTabCollection>{ L"Windows.UI.Shell.WindowTabCollection" };
-    template <> inline constexpr auto& name_v<Windows::UI::Shell::WindowTabGroup>{ L"Windows.UI.Shell.WindowTabGroup" };
-    template <> inline constexpr auto& name_v<Windows::UI::Shell::WindowTabIcon>{ L"Windows.UI.Shell.WindowTabIcon" };
-    template <> inline constexpr auto& name_v<Windows::UI::Shell::WindowTabManager>{ L"Windows.UI.Shell.WindowTabManager" };
-    template <> inline constexpr auto& name_v<Windows::UI::Shell::WindowTabSwitchRequestedEventArgs>{ L"Windows.UI.Shell.WindowTabSwitchRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Shell::WindowTabThumbnailRequestedEventArgs>{ L"Windows.UI.Shell.WindowTabThumbnailRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Shell::SecurityAppKind>{ L"Windows.UI.Shell.SecurityAppKind" };
-    template <> inline constexpr auto& name_v<Windows::UI::Shell::SecurityAppState>{ L"Windows.UI.Shell.SecurityAppState" };
-    template <> inline constexpr auto& name_v<Windows::UI::Shell::SecurityAppSubstatus>{ L"Windows.UI.Shell.SecurityAppSubstatus" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::UI::Shell::IAdaptiveCard>{ L"Windows.UI.Shell.IAdaptiveCard" };
-    template <> inline constexpr auto& name_v<Windows::UI::Shell::IAdaptiveCardBuilderStatics>{ L"Windows.UI.Shell.IAdaptiveCardBuilderStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Shell::ISecurityAppManager>{ L"Windows.UI.Shell.ISecurityAppManager" };
-    template <> inline constexpr auto& name_v<Windows::UI::Shell::ITaskbarManager>{ L"Windows.UI.Shell.ITaskbarManager" };
-    template <> inline constexpr auto& name_v<Windows::UI::Shell::ITaskbarManager2>{ L"Windows.UI.Shell.ITaskbarManager2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Shell::ITaskbarManagerStatics>{ L"Windows.UI.Shell.ITaskbarManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Shell::IWindowTab>{ L"Windows.UI.Shell.IWindowTab" };
-    template <> inline constexpr auto& name_v<Windows::UI::Shell::IWindowTabCloseRequestedEventArgs>{ L"Windows.UI.Shell.IWindowTabCloseRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Shell::IWindowTabCollection>{ L"Windows.UI.Shell.IWindowTabCollection" };
-    template <> inline constexpr auto& name_v<Windows::UI::Shell::IWindowTabGroup>{ L"Windows.UI.Shell.IWindowTabGroup" };
-    template <> inline constexpr auto& name_v<Windows::UI::Shell::IWindowTabIcon>{ L"Windows.UI.Shell.IWindowTabIcon" };
-    template <> inline constexpr auto& name_v<Windows::UI::Shell::IWindowTabIconStatics>{ L"Windows.UI.Shell.IWindowTabIconStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Shell::IWindowTabManager>{ L"Windows.UI.Shell.IWindowTabManager" };
-    template <> inline constexpr auto& name_v<Windows::UI::Shell::IWindowTabManagerStatics>{ L"Windows.UI.Shell.IWindowTabManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Shell::IWindowTabSwitchRequestedEventArgs>{ L"Windows.UI.Shell.IWindowTabSwitchRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Shell::IWindowTabThumbnailRequestedEventArgs>{ L"Windows.UI.Shell.IWindowTabThumbnailRequestedEventArgs" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::UI::Shell::AdaptiveCardBuilder> = L"Windows.UI.Shell.AdaptiveCardBuilder";
+    template <> inline constexpr auto& name_v<Windows::UI::Shell::SecurityAppManager> = L"Windows.UI.Shell.SecurityAppManager";
+    template <> inline constexpr auto& name_v<Windows::UI::Shell::TaskbarManager> = L"Windows.UI.Shell.TaskbarManager";
+    template <> inline constexpr auto& name_v<Windows::UI::Shell::WindowTab> = L"Windows.UI.Shell.WindowTab";
+    template <> inline constexpr auto& name_v<Windows::UI::Shell::WindowTabCloseRequestedEventArgs> = L"Windows.UI.Shell.WindowTabCloseRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Shell::WindowTabCollection> = L"Windows.UI.Shell.WindowTabCollection";
+    template <> inline constexpr auto& name_v<Windows::UI::Shell::WindowTabGroup> = L"Windows.UI.Shell.WindowTabGroup";
+    template <> inline constexpr auto& name_v<Windows::UI::Shell::WindowTabIcon> = L"Windows.UI.Shell.WindowTabIcon";
+    template <> inline constexpr auto& name_v<Windows::UI::Shell::WindowTabManager> = L"Windows.UI.Shell.WindowTabManager";
+    template <> inline constexpr auto& name_v<Windows::UI::Shell::WindowTabSwitchRequestedEventArgs> = L"Windows.UI.Shell.WindowTabSwitchRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Shell::WindowTabThumbnailRequestedEventArgs> = L"Windows.UI.Shell.WindowTabThumbnailRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Shell::SecurityAppKind> = L"Windows.UI.Shell.SecurityAppKind";
+    template <> inline constexpr auto& name_v<Windows::UI::Shell::SecurityAppState> = L"Windows.UI.Shell.SecurityAppState";
+    template <> inline constexpr auto& name_v<Windows::UI::Shell::SecurityAppSubstatus> = L"Windows.UI.Shell.SecurityAppSubstatus";
+    template <> inline constexpr auto& name_v<Windows::UI::Shell::IAdaptiveCard> = L"Windows.UI.Shell.IAdaptiveCard";
+    template <> inline constexpr auto& name_v<Windows::UI::Shell::IAdaptiveCardBuilderStatics> = L"Windows.UI.Shell.IAdaptiveCardBuilderStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Shell::ISecurityAppManager> = L"Windows.UI.Shell.ISecurityAppManager";
+    template <> inline constexpr auto& name_v<Windows::UI::Shell::ITaskbarManager> = L"Windows.UI.Shell.ITaskbarManager";
+    template <> inline constexpr auto& name_v<Windows::UI::Shell::ITaskbarManager2> = L"Windows.UI.Shell.ITaskbarManager2";
+    template <> inline constexpr auto& name_v<Windows::UI::Shell::ITaskbarManagerStatics> = L"Windows.UI.Shell.ITaskbarManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Shell::IWindowTab> = L"Windows.UI.Shell.IWindowTab";
+    template <> inline constexpr auto& name_v<Windows::UI::Shell::IWindowTabCloseRequestedEventArgs> = L"Windows.UI.Shell.IWindowTabCloseRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Shell::IWindowTabCollection> = L"Windows.UI.Shell.IWindowTabCollection";
+    template <> inline constexpr auto& name_v<Windows::UI::Shell::IWindowTabGroup> = L"Windows.UI.Shell.IWindowTabGroup";
+    template <> inline constexpr auto& name_v<Windows::UI::Shell::IWindowTabIcon> = L"Windows.UI.Shell.IWindowTabIcon";
+    template <> inline constexpr auto& name_v<Windows::UI::Shell::IWindowTabIconStatics> = L"Windows.UI.Shell.IWindowTabIconStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Shell::IWindowTabManager> = L"Windows.UI.Shell.IWindowTabManager";
+    template <> inline constexpr auto& name_v<Windows::UI::Shell::IWindowTabManagerStatics> = L"Windows.UI.Shell.IWindowTabManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Shell::IWindowTabSwitchRequestedEventArgs> = L"Windows.UI.Shell.IWindowTabSwitchRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Shell::IWindowTabThumbnailRequestedEventArgs> = L"Windows.UI.Shell.IWindowTabThumbnailRequestedEventArgs";
     template <> inline constexpr guid guid_v<Windows::UI::Shell::IAdaptiveCard>{ 0x72D0568C,0xA274,0x41CD,{ 0x82,0xA8,0x98,0x9D,0x40,0xB9,0xB0,0x5E } };
     template <> inline constexpr guid guid_v<Windows::UI::Shell::IAdaptiveCardBuilderStatics>{ 0x766D8F08,0xD3FE,0x4347,{ 0xA0,0xBC,0xB9,0xEA,0x9A,0x6D,0xC2,0x8E } };
     template <> inline constexpr guid guid_v<Windows::UI::Shell::ISecurityAppManager>{ 0x96AC500C,0xAED4,0x561D,{ 0xBD,0xE8,0x95,0x35,0x20,0x34,0x3A,0x2D } };
@@ -153,7 +156,7 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::UI::Shell::IWindowTabManager>{ 0x46905D33,0x6ADF,0x5A24,{ 0xBA,0x7C,0x3C,0x76,0x68,0x70,0x96,0x20 } };
     template <> inline constexpr guid guid_v<Windows::UI::Shell::IWindowTabManagerStatics>{ 0x2F667FC5,0x8253,0x54F9,{ 0xB9,0x18,0x88,0xEC,0x25,0x60,0xD9,0xC8 } };
     template <> inline constexpr guid guid_v<Windows::UI::Shell::IWindowTabSwitchRequestedEventArgs>{ 0x7CBC421A,0x58A4,0x568B,{ 0xA3,0x51,0xF8,0xA9,0x47,0xA5,0xAA,0xD8 } };
-    template <> inline constexpr guid guid_v<Windows::UI::Shell::IWindowTabThumbnailRequestedEventArgs>{ 0x567A78CE,0xC0AE,0x59B5,{ 0xA9,0x5C,0x7A,0x84,0x5E,0xB9,0x92,0x30 } };
+    template <> inline constexpr guid guid_v<Windows::UI::Shell::IWindowTabThumbnailRequestedEventArgs>{ 0xB05A41E4,0x6C90,0x5BE4,{ 0xB6,0xAE,0xDF,0xE9,0x80,0x4F,0x53,0xB7 } };
     template <> struct default_interface<Windows::UI::Shell::SecurityAppManager>{ using type = Windows::UI::Shell::ISecurityAppManager; };
     template <> struct default_interface<Windows::UI::Shell::TaskbarManager>{ using type = Windows::UI::Shell::ITaskbarManager; };
     template <> struct default_interface<Windows::UI::Shell::WindowTab>{ using type = Windows::UI::Shell::IWindowTab; };
@@ -314,12 +317,13 @@ namespace winrt::impl
             virtual int32_t __stdcall get_Image(void**) noexcept = 0;
             virtual int32_t __stdcall put_Image(void*) noexcept = 0;
             virtual int32_t __stdcall GetDeferral(void**) noexcept = 0;
+            virtual int32_t __stdcall get_RequestedSize_Temp(struct struct_Windows_Graphics_Imaging_BitmapSize*) noexcept = 0;
         };
     };
     template <typename D>
     struct consume_Windows_UI_Shell_IAdaptiveCard
     {
-        auto ToJson() const;
+        WINRT_IMPL_AUTO(hstring) ToJson() const;
     };
     template <> struct consume<Windows::UI::Shell::IAdaptiveCard>
     {
@@ -328,7 +332,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Shell_IAdaptiveCardBuilderStatics
     {
-        auto CreateAdaptiveCardFromJson(param::hstring const& value) const;
+        WINRT_IMPL_AUTO(Windows::UI::Shell::IAdaptiveCard) CreateAdaptiveCardFromJson(param::hstring const& value) const;
     };
     template <> struct consume<Windows::UI::Shell::IAdaptiveCardBuilderStatics>
     {
@@ -337,9 +341,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Shell_ISecurityAppManager
     {
-        auto Register(Windows::UI::Shell::SecurityAppKind const& kind, param::hstring const& displayName, Windows::Foundation::Uri const& detailsUri, bool registerPerUser) const;
-        auto Unregister(Windows::UI::Shell::SecurityAppKind const& kind, winrt::guid const& guidRegistration) const;
-        auto UpdateState(Windows::UI::Shell::SecurityAppKind const& kind, winrt::guid const& guidRegistration, Windows::UI::Shell::SecurityAppState const& state, Windows::UI::Shell::SecurityAppSubstatus const& substatus, Windows::Foundation::Uri const& detailsUri) const;
+        WINRT_IMPL_AUTO(winrt::guid) Register(Windows::UI::Shell::SecurityAppKind const& kind, param::hstring const& displayName, Windows::Foundation::Uri const& detailsUri, bool registerPerUser) const;
+        WINRT_IMPL_AUTO(void) Unregister(Windows::UI::Shell::SecurityAppKind const& kind, winrt::guid const& guidRegistration) const;
+        WINRT_IMPL_AUTO(void) UpdateState(Windows::UI::Shell::SecurityAppKind const& kind, winrt::guid const& guidRegistration, Windows::UI::Shell::SecurityAppState const& state, Windows::UI::Shell::SecurityAppSubstatus const& substatus, Windows::Foundation::Uri const& detailsUri) const;
     };
     template <> struct consume<Windows::UI::Shell::ISecurityAppManager>
     {
@@ -348,12 +352,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Shell_ITaskbarManager
     {
-        [[nodiscard]] auto IsSupported() const;
-        [[nodiscard]] auto IsPinningAllowed() const;
-        auto IsCurrentAppPinnedAsync() const;
-        auto IsAppListEntryPinnedAsync(Windows::ApplicationModel::Core::AppListEntry const& appListEntry) const;
-        auto RequestPinCurrentAppAsync() const;
-        auto RequestPinAppListEntryAsync(Windows::ApplicationModel::Core::AppListEntry const& appListEntry) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPinningAllowed() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) IsCurrentAppPinnedAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) IsAppListEntryPinnedAsync(Windows::ApplicationModel::Core::AppListEntry const& appListEntry) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) RequestPinCurrentAppAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) RequestPinAppListEntryAsync(Windows::ApplicationModel::Core::AppListEntry const& appListEntry) const;
     };
     template <> struct consume<Windows::UI::Shell::ITaskbarManager>
     {
@@ -362,9 +366,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Shell_ITaskbarManager2
     {
-        auto IsSecondaryTilePinnedAsync(param::hstring const& tileId) const;
-        auto RequestPinSecondaryTileAsync(Windows::UI::StartScreen::SecondaryTile const& secondaryTile) const;
-        auto TryUnpinSecondaryTileAsync(param::hstring const& tileId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) IsSecondaryTilePinnedAsync(param::hstring const& tileId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) RequestPinSecondaryTileAsync(Windows::UI::StartScreen::SecondaryTile const& secondaryTile) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryUnpinSecondaryTileAsync(param::hstring const& tileId) const;
     };
     template <> struct consume<Windows::UI::Shell::ITaskbarManager2>
     {
@@ -373,7 +377,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Shell_ITaskbarManagerStatics
     {
-        auto GetDefault() const;
+        WINRT_IMPL_AUTO(Windows::UI::Shell::TaskbarManager) GetDefault() const;
     };
     template <> struct consume<Windows::UI::Shell::ITaskbarManagerStatics>
     {
@@ -382,22 +386,22 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Shell_IWindowTab
     {
-        [[nodiscard]] auto Tag() const;
-        auto Tag(Windows::Foundation::IInspectable const& value) const;
-        [[nodiscard]] auto Title() const;
-        auto Title(param::hstring const& value) const;
-        [[nodiscard]] auto IsRequestingAttention() const;
-        auto IsRequestingAttention(bool value) const;
-        [[nodiscard]] auto IsUnresponsive() const;
-        auto IsUnresponsive(bool value) const;
-        [[nodiscard]] auto Icon() const;
-        auto Icon(Windows::UI::Shell::WindowTabIcon const& value) const;
-        [[nodiscard]] auto TreatAsAppId() const;
-        auto TreatAsAppId(param::hstring const& value) const;
-        [[nodiscard]] auto TreatAsSecondaryTileId() const;
-        auto TreatAsSecondaryTileId(param::hstring const& value) const;
-        [[nodiscard]] auto Group() const;
-        auto Group(Windows::UI::Shell::WindowTabGroup const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) Tag() const;
+        WINRT_IMPL_AUTO(void) Tag(Windows::Foundation::IInspectable const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Title() const;
+        WINRT_IMPL_AUTO(void) Title(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsRequestingAttention() const;
+        WINRT_IMPL_AUTO(void) IsRequestingAttention(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsUnresponsive() const;
+        WINRT_IMPL_AUTO(void) IsUnresponsive(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Shell::WindowTabIcon) Icon() const;
+        WINRT_IMPL_AUTO(void) Icon(Windows::UI::Shell::WindowTabIcon const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TreatAsAppId() const;
+        WINRT_IMPL_AUTO(void) TreatAsAppId(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TreatAsSecondaryTileId() const;
+        WINRT_IMPL_AUTO(void) TreatAsSecondaryTileId(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Shell::WindowTabGroup) Group() const;
+        WINRT_IMPL_AUTO(void) Group(Windows::UI::Shell::WindowTabGroup const& value) const;
     };
     template <> struct consume<Windows::UI::Shell::IWindowTab>
     {
@@ -406,7 +410,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Shell_IWindowTabCloseRequestedEventArgs
     {
-        [[nodiscard]] auto Tab() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Shell::WindowTab) Tab() const;
     };
     template <> struct consume<Windows::UI::Shell::IWindowTabCloseRequestedEventArgs>
     {
@@ -415,7 +419,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Shell_IWindowTabCollection
     {
-        auto MoveTab(Windows::UI::Shell::WindowTab const& tab, uint32_t index) const;
+        WINRT_IMPL_AUTO(void) MoveTab(Windows::UI::Shell::WindowTab const& tab, uint32_t index) const;
     };
     template <> struct consume<Windows::UI::Shell::IWindowTabCollection>
     {
@@ -424,10 +428,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Shell_IWindowTabGroup
     {
-        [[nodiscard]] auto Title() const;
-        auto Title(param::hstring const& value) const;
-        [[nodiscard]] auto Icon() const;
-        auto Icon(Windows::UI::Shell::WindowTabIcon const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Title() const;
+        WINRT_IMPL_AUTO(void) Title(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Shell::WindowTabIcon) Icon() const;
+        WINRT_IMPL_AUTO(void) Icon(Windows::UI::Shell::WindowTabIcon const& value) const;
     };
     template <> struct consume<Windows::UI::Shell::IWindowTabGroup>
     {
@@ -444,9 +448,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Shell_IWindowTabIconStatics
     {
-        auto CreateFromFontGlyph(param::hstring const& glyph, param::hstring const& fontFamily) const;
-        auto CreateFromFontGlyph(param::hstring const& glyph, param::hstring const& fontFamily, Windows::Foundation::Uri const& fontUri) const;
-        auto CreateFromImage(Windows::Storage::Streams::IRandomAccessStreamReference const& image) const;
+        WINRT_IMPL_AUTO(Windows::UI::Shell::WindowTabIcon) CreateFromFontGlyph(param::hstring const& glyph, param::hstring const& fontFamily) const;
+        WINRT_IMPL_AUTO(Windows::UI::Shell::WindowTabIcon) CreateFromFontGlyph(param::hstring const& glyph, param::hstring const& fontFamily, Windows::Foundation::Uri const& fontUri) const;
+        WINRT_IMPL_AUTO(Windows::UI::Shell::WindowTabIcon) CreateFromImage(Windows::Storage::Streams::IRandomAccessStreamReference const& image) const;
     };
     template <> struct consume<Windows::UI::Shell::IWindowTabIconStatics>
     {
@@ -455,20 +459,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Shell_IWindowTabManager
     {
-        [[nodiscard]] auto Tabs() const;
-        auto SetActiveTab(Windows::UI::Shell::WindowTab const& tab) const;
-        auto TabSwitchRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Shell::WindowTabManager, Windows::UI::Shell::WindowTabSwitchRequestedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Shell::WindowTabCollection) Tabs() const;
+        WINRT_IMPL_AUTO(void) SetActiveTab(Windows::UI::Shell::WindowTab const& tab) const;
+        WINRT_IMPL_AUTO(winrt::event_token) TabSwitchRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Shell::WindowTabManager, Windows::UI::Shell::WindowTabSwitchRequestedEventArgs> const& handler) const;
         using TabSwitchRequested_revoker = impl::event_revoker<Windows::UI::Shell::IWindowTabManager, &impl::abi_t<Windows::UI::Shell::IWindowTabManager>::remove_TabSwitchRequested>;
         [[nodiscard]] TabSwitchRequested_revoker TabSwitchRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Shell::WindowTabManager, Windows::UI::Shell::WindowTabSwitchRequestedEventArgs> const& handler) const;
-        auto TabSwitchRequested(winrt::event_token const& token) const noexcept;
-        auto TabCloseRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Shell::WindowTabManager, Windows::UI::Shell::WindowTabCloseRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) TabSwitchRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) TabCloseRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Shell::WindowTabManager, Windows::UI::Shell::WindowTabCloseRequestedEventArgs> const& handler) const;
         using TabCloseRequested_revoker = impl::event_revoker<Windows::UI::Shell::IWindowTabManager, &impl::abi_t<Windows::UI::Shell::IWindowTabManager>::remove_TabCloseRequested>;
         [[nodiscard]] TabCloseRequested_revoker TabCloseRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Shell::WindowTabManager, Windows::UI::Shell::WindowTabCloseRequestedEventArgs> const& handler) const;
-        auto TabCloseRequested(winrt::event_token const& token) const noexcept;
-        auto TabThumbnailRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Shell::WindowTabManager, Windows::UI::Shell::WindowTabThumbnailRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) TabCloseRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) TabThumbnailRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Shell::WindowTabManager, Windows::UI::Shell::WindowTabThumbnailRequestedEventArgs> const& handler) const;
         using TabThumbnailRequested_revoker = impl::event_revoker<Windows::UI::Shell::IWindowTabManager, &impl::abi_t<Windows::UI::Shell::IWindowTabManager>::remove_TabThumbnailRequested>;
         [[nodiscard]] TabThumbnailRequested_revoker TabThumbnailRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Shell::WindowTabManager, Windows::UI::Shell::WindowTabThumbnailRequestedEventArgs> const& handler) const;
-        auto TabThumbnailRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) TabThumbnailRequested(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::Shell::IWindowTabManager>
     {
@@ -477,8 +481,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Shell_IWindowTabManagerStatics
     {
-        auto GetForCurrentView() const;
-        auto GetForAppWindow(Windows::UI::WindowManagement::AppWindow const& appWindow) const;
+        WINRT_IMPL_AUTO(Windows::UI::Shell::WindowTabManager) GetForCurrentView() const;
+        WINRT_IMPL_AUTO(Windows::UI::Shell::WindowTabManager) GetForAppWindow(Windows::UI::WindowManagement::AppWindow const& appWindow) const;
     };
     template <> struct consume<Windows::UI::Shell::IWindowTabManagerStatics>
     {
@@ -487,7 +491,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Shell_IWindowTabSwitchRequestedEventArgs
     {
-        [[nodiscard]] auto Tab() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Shell::WindowTab) Tab() const;
     };
     template <> struct consume<Windows::UI::Shell::IWindowTabSwitchRequestedEventArgs>
     {
@@ -496,11 +500,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Shell_IWindowTabThumbnailRequestedEventArgs
     {
-        [[nodiscard]] auto Tab() const;
-        [[nodiscard]] auto RequestedSize() const;
-        [[nodiscard]] auto Image() const;
-        auto Image(Windows::Storage::Streams::IRandomAccessStreamReference const& value) const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Shell::WindowTab) Tab() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) RequestedSize() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamReference) Image() const;
+        WINRT_IMPL_AUTO(void) Image(Windows::Storage::Streams::IRandomAccessStreamReference const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Imaging::BitmapSize) RequestedSize_Temp() const;
     };
     template <> struct consume<Windows::UI::Shell::IWindowTabThumbnailRequestedEventArgs>
     {

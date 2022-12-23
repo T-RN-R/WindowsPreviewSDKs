@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -91,14 +91,14 @@ WINRT_EXPORT namespace winrt::Windows::UI::Input::Inking
     {
         InkPresenterProtractor(std::nullptr_t) noexcept {}
         InkPresenterProtractor(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Input::Inking::IInkPresenterProtractor(ptr, take_ownership_from_abi) {}
-        InkPresenterProtractor(Windows::UI::Input::Inking::InkPresenter const& inkPresenter);
+        explicit InkPresenterProtractor(Windows::UI::Input::Inking::InkPresenter const& inkPresenter);
     };
     struct __declspec(empty_bases) InkPresenterRuler : Windows::UI::Input::Inking::IInkPresenterRuler,
         impl::require<InkPresenterRuler, Windows::UI::Input::Inking::IInkPresenterRuler2>
     {
         InkPresenterRuler(std::nullptr_t) noexcept {}
         InkPresenterRuler(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Input::Inking::IInkPresenterRuler(ptr, take_ownership_from_abi) {}
-        InkPresenterRuler(Windows::UI::Input::Inking::InkPresenter const& inkPresenter);
+        explicit InkPresenterRuler(Windows::UI::Input::Inking::InkPresenter const& inkPresenter);
     };
     struct __declspec(empty_bases) InkRecognitionResult : Windows::UI::Input::Inking::IInkRecognitionResult
     {

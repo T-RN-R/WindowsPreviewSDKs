@@ -11,6 +11,7 @@ import "EventToken.idl";
 import "windowscontracts.idl";
 import "Windows.Foundation.idl";
 import "Windows.ApplicationModel.Core.idl";
+import "Windows.Graphics.Imaging.idl";
 import "Windows.Storage.Streams.idl";
 import "Windows.UI.StartScreen.idl";
 import "Windows.UI.WindowManagement.idl";
@@ -35,6 +36,16 @@ namespace Windows
         apicontract UniversalApiContract;
 
         runtimeclass Uri;
+    }
+}
+namespace Windows
+{
+    namespace Graphics
+    {
+        namespace Imaging
+        {
+            typedef struct BitmapSize BitmapSize;
+        }
     }
 }
 namespace Windows
@@ -357,7 +368,7 @@ namespace Windows
 
             [contract(Windows.Foundation.UniversalApiContract, 11.0)]
             [exclusiveto(Windows.UI.Shell.WindowTabThumbnailRequestedEventArgs)]
-            [uuid(567A78CE-C0AE-59B5-A95C-7A845EB99230)]
+            [uuid(B05A41E4-6C90-5BE4-B6AE-DFE9804F53B7)]
             interface IWindowTabThumbnailRequestedEventArgs : IInspectable
             {
                 [propget] HRESULT Tab([out] [retval] Windows.UI.Shell.WindowTab** value);
@@ -365,6 +376,7 @@ namespace Windows
                 [propget] HRESULT Image([out] [retval] Windows.Storage.Streams.IRandomAccessStreamReference** value);
                 [propput] HRESULT Image([in] Windows.Storage.Streams.IRandomAccessStreamReference* value);
                 HRESULT GetDeferral([out] [retval] Windows.Foundation.Deferral** result);
+                [propget] HRESULT RequestedSize_Temp([out] [retval] Windows.Graphics.Imaging.BitmapSize* value);
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 5.0)]

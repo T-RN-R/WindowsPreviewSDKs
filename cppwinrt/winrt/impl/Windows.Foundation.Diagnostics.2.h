@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -32,7 +32,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation::Diagnostics
     {
         FileLoggingSession(std::nullptr_t) noexcept {}
         FileLoggingSession(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::Diagnostics::IFileLoggingSession(ptr, take_ownership_from_abi) {}
-        FileLoggingSession(param::hstring const& name);
+        explicit FileLoggingSession(param::hstring const& name);
     };
     struct __declspec(empty_bases) LogFileGeneratedEventArgs : Windows::Foundation::Diagnostics::ILogFileGeneratedEventArgs
     {
@@ -52,7 +52,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation::Diagnostics
     {
         LoggingChannel(std::nullptr_t) noexcept {}
         LoggingChannel(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::Diagnostics::ILoggingChannel(ptr, take_ownership_from_abi) {}
-        LoggingChannel(param::hstring const& name);
+        explicit LoggingChannel(param::hstring const& name);
         LoggingChannel(param::hstring const& name, Windows::Foundation::Diagnostics::LoggingChannelOptions const& options);
         LoggingChannel(param::hstring const& name, Windows::Foundation::Diagnostics::LoggingChannelOptions const& options, winrt::guid const& id);
     };
@@ -61,7 +61,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation::Diagnostics
         LoggingChannelOptions(std::nullptr_t) noexcept {}
         LoggingChannelOptions(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::Diagnostics::ILoggingChannelOptions(ptr, take_ownership_from_abi) {}
         LoggingChannelOptions();
-        LoggingChannelOptions(winrt::guid const& group);
+        explicit LoggingChannelOptions(winrt::guid const& group);
     };
     struct __declspec(empty_bases) LoggingFields : Windows::Foundation::Diagnostics::ILoggingFields
     {
@@ -74,13 +74,13 @@ WINRT_EXPORT namespace winrt::Windows::Foundation::Diagnostics
         LoggingOptions(std::nullptr_t) noexcept {}
         LoggingOptions(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::Diagnostics::ILoggingOptions(ptr, take_ownership_from_abi) {}
         LoggingOptions();
-        LoggingOptions(int64_t keywords);
+        explicit LoggingOptions(int64_t keywords);
     };
     struct __declspec(empty_bases) LoggingSession : Windows::Foundation::Diagnostics::ILoggingSession
     {
         LoggingSession(std::nullptr_t) noexcept {}
         LoggingSession(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::Diagnostics::ILoggingSession(ptr, take_ownership_from_abi) {}
-        LoggingSession(param::hstring const& name);
+        explicit LoggingSession(param::hstring const& name);
     };
     struct __declspec(empty_bases) RuntimeBrokerErrorSettings : Windows::Foundation::Diagnostics::IErrorReportingSettings
     {

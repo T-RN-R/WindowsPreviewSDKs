@@ -1,10 +1,22 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
 #ifndef WINRT_Windows_Media_SpeechSynthesis_0_H
 #define WINRT_Windows_Media_SpeechSynthesis_0_H
+WINRT_EXPORT namespace winrt::Windows::Foundation
+{
+    template <typename TResult> struct IAsyncOperation;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
+}
+WINRT_EXPORT namespace winrt::Windows::Media
+{
+    struct IMediaMarker;
+}
 WINRT_EXPORT namespace winrt::Windows::Media::SpeechSynthesis
 {
     enum class SpeechAppendedSilence : int32_t
@@ -54,24 +66,22 @@ namespace winrt::impl
     template <> struct category<Windows::Media::SpeechSynthesis::SpeechAppendedSilence>{ using type = enum_category; };
     template <> struct category<Windows::Media::SpeechSynthesis::SpeechPunctuationSilence>{ using type = enum_category; };
     template <> struct category<Windows::Media::SpeechSynthesis::VoiceGender>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::SpeechSynthesisStream>{ L"Windows.Media.SpeechSynthesis.SpeechSynthesisStream" };
-    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::SpeechSynthesizer>{ L"Windows.Media.SpeechSynthesis.SpeechSynthesizer" };
-    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::SpeechSynthesizerOptions>{ L"Windows.Media.SpeechSynthesis.SpeechSynthesizerOptions" };
-    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::VoiceInformation>{ L"Windows.Media.SpeechSynthesis.VoiceInformation" };
-    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::SpeechAppendedSilence>{ L"Windows.Media.SpeechSynthesis.SpeechAppendedSilence" };
-    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::SpeechPunctuationSilence>{ L"Windows.Media.SpeechSynthesis.SpeechPunctuationSilence" };
-    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::VoiceGender>{ L"Windows.Media.SpeechSynthesis.VoiceGender" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::IInstalledVoicesStatic>{ L"Windows.Media.SpeechSynthesis.IInstalledVoicesStatic" };
-    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::IInstalledVoicesStatic2>{ L"Windows.Media.SpeechSynthesis.IInstalledVoicesStatic2" };
-    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::ISpeechSynthesisStream>{ L"Windows.Media.SpeechSynthesis.ISpeechSynthesisStream" };
-    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::ISpeechSynthesizer>{ L"Windows.Media.SpeechSynthesis.ISpeechSynthesizer" };
-    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::ISpeechSynthesizer2>{ L"Windows.Media.SpeechSynthesis.ISpeechSynthesizer2" };
-    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::ISpeechSynthesizerOptions>{ L"Windows.Media.SpeechSynthesis.ISpeechSynthesizerOptions" };
-    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::ISpeechSynthesizerOptions2>{ L"Windows.Media.SpeechSynthesis.ISpeechSynthesizerOptions2" };
-    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::ISpeechSynthesizerOptions3>{ L"Windows.Media.SpeechSynthesis.ISpeechSynthesizerOptions3" };
-    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::IVoiceInformation>{ L"Windows.Media.SpeechSynthesis.IVoiceInformation" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::SpeechSynthesisStream> = L"Windows.Media.SpeechSynthesis.SpeechSynthesisStream";
+    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::SpeechSynthesizer> = L"Windows.Media.SpeechSynthesis.SpeechSynthesizer";
+    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::SpeechSynthesizerOptions> = L"Windows.Media.SpeechSynthesis.SpeechSynthesizerOptions";
+    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::VoiceInformation> = L"Windows.Media.SpeechSynthesis.VoiceInformation";
+    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::SpeechAppendedSilence> = L"Windows.Media.SpeechSynthesis.SpeechAppendedSilence";
+    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::SpeechPunctuationSilence> = L"Windows.Media.SpeechSynthesis.SpeechPunctuationSilence";
+    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::VoiceGender> = L"Windows.Media.SpeechSynthesis.VoiceGender";
+    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::IInstalledVoicesStatic> = L"Windows.Media.SpeechSynthesis.IInstalledVoicesStatic";
+    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::IInstalledVoicesStatic2> = L"Windows.Media.SpeechSynthesis.IInstalledVoicesStatic2";
+    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::ISpeechSynthesisStream> = L"Windows.Media.SpeechSynthesis.ISpeechSynthesisStream";
+    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::ISpeechSynthesizer> = L"Windows.Media.SpeechSynthesis.ISpeechSynthesizer";
+    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::ISpeechSynthesizer2> = L"Windows.Media.SpeechSynthesis.ISpeechSynthesizer2";
+    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::ISpeechSynthesizerOptions> = L"Windows.Media.SpeechSynthesis.ISpeechSynthesizerOptions";
+    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::ISpeechSynthesizerOptions2> = L"Windows.Media.SpeechSynthesis.ISpeechSynthesizerOptions2";
+    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::ISpeechSynthesizerOptions3> = L"Windows.Media.SpeechSynthesis.ISpeechSynthesizerOptions3";
+    template <> inline constexpr auto& name_v<Windows::Media::SpeechSynthesis::IVoiceInformation> = L"Windows.Media.SpeechSynthesis.IVoiceInformation";
     template <> inline constexpr guid guid_v<Windows::Media::SpeechSynthesis::IInstalledVoicesStatic>{ 0x7D526ECC,0x7533,0x4C3F,{ 0x85,0xBE,0x88,0x8C,0x2B,0xAE,0xEB,0xDC } };
     template <> inline constexpr guid guid_v<Windows::Media::SpeechSynthesis::IInstalledVoicesStatic2>{ 0x64255F2E,0x358D,0x4058,{ 0xBE,0x9A,0xFD,0x3F,0xCB,0x42,0x35,0x30 } };
     template <> inline constexpr guid guid_v<Windows::Media::SpeechSynthesis::ISpeechSynthesisStream>{ 0x83E46E93,0x244C,0x4622,{ 0xBA,0x0B,0x62,0x29,0xC4,0xD0,0xD6,0x5D } };
@@ -170,8 +180,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_SpeechSynthesis_IInstalledVoicesStatic
     {
-        [[nodiscard]] auto AllVoices() const;
-        [[nodiscard]] auto DefaultVoice() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::SpeechSynthesis::VoiceInformation>) AllVoices() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::SpeechSynthesis::VoiceInformation) DefaultVoice() const;
     };
     template <> struct consume<Windows::Media::SpeechSynthesis::IInstalledVoicesStatic>
     {
@@ -180,7 +190,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_SpeechSynthesis_IInstalledVoicesStatic2
     {
-        auto TrySetDefaultVoiceAsync(Windows::Media::SpeechSynthesis::VoiceInformation const& voice) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TrySetDefaultVoiceAsync(Windows::Media::SpeechSynthesis::VoiceInformation const& voice) const;
     };
     template <> struct consume<Windows::Media::SpeechSynthesis::IInstalledVoicesStatic2>
     {
@@ -189,7 +199,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_SpeechSynthesis_ISpeechSynthesisStream
     {
-        [[nodiscard]] auto Markers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::IMediaMarker>) Markers() const;
     };
     template <> struct consume<Windows::Media::SpeechSynthesis::ISpeechSynthesisStream>
     {
@@ -198,10 +208,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_SpeechSynthesis_ISpeechSynthesizer
     {
-        auto SynthesizeTextToStreamAsync(param::hstring const& text) const;
-        auto SynthesizeSsmlToStreamAsync(param::hstring const& Ssml) const;
-        auto Voice(Windows::Media::SpeechSynthesis::VoiceInformation const& value) const;
-        [[nodiscard]] auto Voice() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::SpeechSynthesis::SpeechSynthesisStream>) SynthesizeTextToStreamAsync(param::hstring const& text) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::SpeechSynthesis::SpeechSynthesisStream>) SynthesizeSsmlToStreamAsync(param::hstring const& Ssml) const;
+        WINRT_IMPL_AUTO(void) Voice(Windows::Media::SpeechSynthesis::VoiceInformation const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::SpeechSynthesis::VoiceInformation) Voice() const;
     };
     template <> struct consume<Windows::Media::SpeechSynthesis::ISpeechSynthesizer>
     {
@@ -210,7 +220,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_SpeechSynthesis_ISpeechSynthesizer2
     {
-        [[nodiscard]] auto Options() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::SpeechSynthesis::SpeechSynthesizerOptions) Options() const;
     };
     template <> struct consume<Windows::Media::SpeechSynthesis::ISpeechSynthesizer2>
     {
@@ -219,10 +229,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_SpeechSynthesis_ISpeechSynthesizerOptions
     {
-        [[nodiscard]] auto IncludeWordBoundaryMetadata() const;
-        auto IncludeWordBoundaryMetadata(bool value) const;
-        [[nodiscard]] auto IncludeSentenceBoundaryMetadata() const;
-        auto IncludeSentenceBoundaryMetadata(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IncludeWordBoundaryMetadata() const;
+        WINRT_IMPL_AUTO(void) IncludeWordBoundaryMetadata(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IncludeSentenceBoundaryMetadata() const;
+        WINRT_IMPL_AUTO(void) IncludeSentenceBoundaryMetadata(bool value) const;
     };
     template <> struct consume<Windows::Media::SpeechSynthesis::ISpeechSynthesizerOptions>
     {
@@ -231,12 +241,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_SpeechSynthesis_ISpeechSynthesizerOptions2
     {
-        [[nodiscard]] auto AudioVolume() const;
-        auto AudioVolume(double value) const;
-        [[nodiscard]] auto SpeakingRate() const;
-        auto SpeakingRate(double value) const;
-        [[nodiscard]] auto AudioPitch() const;
-        auto AudioPitch(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) AudioVolume() const;
+        WINRT_IMPL_AUTO(void) AudioVolume(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) SpeakingRate() const;
+        WINRT_IMPL_AUTO(void) SpeakingRate(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) AudioPitch() const;
+        WINRT_IMPL_AUTO(void) AudioPitch(double value) const;
     };
     template <> struct consume<Windows::Media::SpeechSynthesis::ISpeechSynthesizerOptions2>
     {
@@ -245,10 +255,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_SpeechSynthesis_ISpeechSynthesizerOptions3
     {
-        [[nodiscard]] auto AppendedSilence() const;
-        auto AppendedSilence(Windows::Media::SpeechSynthesis::SpeechAppendedSilence const& value) const;
-        [[nodiscard]] auto PunctuationSilence() const;
-        auto PunctuationSilence(Windows::Media::SpeechSynthesis::SpeechPunctuationSilence const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::SpeechSynthesis::SpeechAppendedSilence) AppendedSilence() const;
+        WINRT_IMPL_AUTO(void) AppendedSilence(Windows::Media::SpeechSynthesis::SpeechAppendedSilence const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::SpeechSynthesis::SpeechPunctuationSilence) PunctuationSilence() const;
+        WINRT_IMPL_AUTO(void) PunctuationSilence(Windows::Media::SpeechSynthesis::SpeechPunctuationSilence const& value) const;
     };
     template <> struct consume<Windows::Media::SpeechSynthesis::ISpeechSynthesizerOptions3>
     {
@@ -257,11 +267,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_SpeechSynthesis_IVoiceInformation
     {
-        [[nodiscard]] auto DisplayName() const;
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto Language() const;
-        [[nodiscard]] auto Description() const;
-        [[nodiscard]] auto Gender() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Language() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::SpeechSynthesis::VoiceGender) Gender() const;
     };
     template <> struct consume<Windows::Media::SpeechSynthesis::IVoiceInformation>
     {

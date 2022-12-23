@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -36,7 +36,7 @@ WINRT_EXPORT namespace winrt::Windows::Media::SpeechRecognition
     {
         SpeechRecognitionGrammarFileConstraint(std::nullptr_t) noexcept {}
         SpeechRecognitionGrammarFileConstraint(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Media::SpeechRecognition::ISpeechRecognitionGrammarFileConstraint(ptr, take_ownership_from_abi) {}
-        SpeechRecognitionGrammarFileConstraint(Windows::Storage::StorageFile const& file);
+        explicit SpeechRecognitionGrammarFileConstraint(Windows::Storage::StorageFile const& file);
         SpeechRecognitionGrammarFileConstraint(Windows::Storage::StorageFile const& file, param::hstring const& tag);
     };
     struct __declspec(empty_bases) SpeechRecognitionHypothesis : Windows::Media::SpeechRecognition::ISpeechRecognitionHypothesis
@@ -53,7 +53,7 @@ WINRT_EXPORT namespace winrt::Windows::Media::SpeechRecognition
     {
         SpeechRecognitionListConstraint(std::nullptr_t) noexcept {}
         SpeechRecognitionListConstraint(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Media::SpeechRecognition::ISpeechRecognitionListConstraint(ptr, take_ownership_from_abi) {}
-        SpeechRecognitionListConstraint(param::iterable<hstring> const& commands);
+        explicit SpeechRecognitionListConstraint(param::iterable<hstring> const& commands);
         SpeechRecognitionListConstraint(param::iterable<hstring> const& commands, param::hstring const& tag);
     };
     struct __declspec(empty_bases) SpeechRecognitionQualityDegradingEventArgs : Windows::Media::SpeechRecognition::ISpeechRecognitionQualityDegradingEventArgs
@@ -90,7 +90,7 @@ WINRT_EXPORT namespace winrt::Windows::Media::SpeechRecognition
         SpeechRecognizer(std::nullptr_t) noexcept {}
         SpeechRecognizer(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Media::SpeechRecognition::ISpeechRecognizer(ptr, take_ownership_from_abi) {}
         SpeechRecognizer();
-        SpeechRecognizer(Windows::Globalization::Language const& language);
+        explicit SpeechRecognizer(Windows::Globalization::Language const& language);
         [[nodiscard]] static auto SystemSpeechLanguage();
         [[nodiscard]] static auto SupportedTopicLanguages();
         [[nodiscard]] static auto SupportedGrammarLanguages();

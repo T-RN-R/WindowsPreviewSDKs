@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -9,6 +9,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct Deferral;
     struct EventRegistrationToken;
+    template <typename TResult> struct IAsyncOperation;
     template <typename TSender, typename TResult> struct TypedEventHandler;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage
@@ -66,20 +67,18 @@ namespace winrt::impl
     template <> struct category<Windows::Security::DataProtection::UserDataAvailability>{ using type = enum_category; };
     template <> struct category<Windows::Security::DataProtection::UserDataBufferUnprotectStatus>{ using type = enum_category; };
     template <> struct category<Windows::Security::DataProtection::UserDataStorageItemProtectionStatus>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Security::DataProtection::UserDataAvailabilityStateChangedEventArgs>{ L"Windows.Security.DataProtection.UserDataAvailabilityStateChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Security::DataProtection::UserDataBufferUnprotectResult>{ L"Windows.Security.DataProtection.UserDataBufferUnprotectResult" };
-    template <> inline constexpr auto& name_v<Windows::Security::DataProtection::UserDataProtectionManager>{ L"Windows.Security.DataProtection.UserDataProtectionManager" };
-    template <> inline constexpr auto& name_v<Windows::Security::DataProtection::UserDataStorageItemProtectionInfo>{ L"Windows.Security.DataProtection.UserDataStorageItemProtectionInfo" };
-    template <> inline constexpr auto& name_v<Windows::Security::DataProtection::UserDataAvailability>{ L"Windows.Security.DataProtection.UserDataAvailability" };
-    template <> inline constexpr auto& name_v<Windows::Security::DataProtection::UserDataBufferUnprotectStatus>{ L"Windows.Security.DataProtection.UserDataBufferUnprotectStatus" };
-    template <> inline constexpr auto& name_v<Windows::Security::DataProtection::UserDataStorageItemProtectionStatus>{ L"Windows.Security.DataProtection.UserDataStorageItemProtectionStatus" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Security::DataProtection::IUserDataAvailabilityStateChangedEventArgs>{ L"Windows.Security.DataProtection.IUserDataAvailabilityStateChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Security::DataProtection::IUserDataBufferUnprotectResult>{ L"Windows.Security.DataProtection.IUserDataBufferUnprotectResult" };
-    template <> inline constexpr auto& name_v<Windows::Security::DataProtection::IUserDataProtectionManager>{ L"Windows.Security.DataProtection.IUserDataProtectionManager" };
-    template <> inline constexpr auto& name_v<Windows::Security::DataProtection::IUserDataProtectionManagerStatics>{ L"Windows.Security.DataProtection.IUserDataProtectionManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::Security::DataProtection::IUserDataStorageItemProtectionInfo>{ L"Windows.Security.DataProtection.IUserDataStorageItemProtectionInfo" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Security::DataProtection::UserDataAvailabilityStateChangedEventArgs> = L"Windows.Security.DataProtection.UserDataAvailabilityStateChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Security::DataProtection::UserDataBufferUnprotectResult> = L"Windows.Security.DataProtection.UserDataBufferUnprotectResult";
+    template <> inline constexpr auto& name_v<Windows::Security::DataProtection::UserDataProtectionManager> = L"Windows.Security.DataProtection.UserDataProtectionManager";
+    template <> inline constexpr auto& name_v<Windows::Security::DataProtection::UserDataStorageItemProtectionInfo> = L"Windows.Security.DataProtection.UserDataStorageItemProtectionInfo";
+    template <> inline constexpr auto& name_v<Windows::Security::DataProtection::UserDataAvailability> = L"Windows.Security.DataProtection.UserDataAvailability";
+    template <> inline constexpr auto& name_v<Windows::Security::DataProtection::UserDataBufferUnprotectStatus> = L"Windows.Security.DataProtection.UserDataBufferUnprotectStatus";
+    template <> inline constexpr auto& name_v<Windows::Security::DataProtection::UserDataStorageItemProtectionStatus> = L"Windows.Security.DataProtection.UserDataStorageItemProtectionStatus";
+    template <> inline constexpr auto& name_v<Windows::Security::DataProtection::IUserDataAvailabilityStateChangedEventArgs> = L"Windows.Security.DataProtection.IUserDataAvailabilityStateChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Security::DataProtection::IUserDataBufferUnprotectResult> = L"Windows.Security.DataProtection.IUserDataBufferUnprotectResult";
+    template <> inline constexpr auto& name_v<Windows::Security::DataProtection::IUserDataProtectionManager> = L"Windows.Security.DataProtection.IUserDataProtectionManager";
+    template <> inline constexpr auto& name_v<Windows::Security::DataProtection::IUserDataProtectionManagerStatics> = L"Windows.Security.DataProtection.IUserDataProtectionManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::Security::DataProtection::IUserDataStorageItemProtectionInfo> = L"Windows.Security.DataProtection.IUserDataStorageItemProtectionInfo";
     template <> inline constexpr guid guid_v<Windows::Security::DataProtection::IUserDataAvailabilityStateChangedEventArgs>{ 0xA76582C9,0x06A2,0x4273,{ 0xA8,0x03,0x83,0x4C,0x9F,0x87,0xFB,0xEB } };
     template <> inline constexpr guid guid_v<Windows::Security::DataProtection::IUserDataBufferUnprotectResult>{ 0x8EFD0E90,0xFA9A,0x46A4,{ 0xA3,0x77,0x01,0xCE,0xBF,0x1E,0x74,0xD8 } };
     template <> inline constexpr guid guid_v<Windows::Security::DataProtection::IUserDataProtectionManager>{ 0x1F13237D,0xB42E,0x4A88,{ 0x94,0x80,0x0F,0x24,0x09,0x24,0xC8,0x76 } };
@@ -135,7 +134,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_DataProtection_IUserDataAvailabilityStateChangedEventArgs
     {
-        auto GetDeferral() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::Security::DataProtection::IUserDataAvailabilityStateChangedEventArgs>
     {
@@ -144,8 +143,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_DataProtection_IUserDataBufferUnprotectResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto UnprotectedBuffer() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::DataProtection::UserDataBufferUnprotectStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) UnprotectedBuffer() const;
     };
     template <> struct consume<Windows::Security::DataProtection::IUserDataBufferUnprotectResult>
     {
@@ -154,15 +153,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_DataProtection_IUserDataProtectionManager
     {
-        auto ProtectStorageItemAsync(Windows::Storage::IStorageItem const& storageItem, Windows::Security::DataProtection::UserDataAvailability const& availability) const;
-        auto GetStorageItemProtectionInfoAsync(Windows::Storage::IStorageItem const& storageItem) const;
-        auto ProtectBufferAsync(Windows::Storage::Streams::IBuffer const& unprotectedBuffer, Windows::Security::DataProtection::UserDataAvailability const& availability) const;
-        auto UnprotectBufferAsync(Windows::Storage::Streams::IBuffer const& protectedBuffer) const;
-        auto IsContinuedDataAvailabilityExpected(Windows::Security::DataProtection::UserDataAvailability const& availability) const;
-        auto DataAvailabilityStateChanged(Windows::Foundation::TypedEventHandler<Windows::Security::DataProtection::UserDataProtectionManager, Windows::Security::DataProtection::UserDataAvailabilityStateChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::DataProtection::UserDataStorageItemProtectionStatus>) ProtectStorageItemAsync(Windows::Storage::IStorageItem const& storageItem, Windows::Security::DataProtection::UserDataAvailability const& availability) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::DataProtection::UserDataStorageItemProtectionInfo>) GetStorageItemProtectionInfoAsync(Windows::Storage::IStorageItem const& storageItem) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::IBuffer>) ProtectBufferAsync(Windows::Storage::Streams::IBuffer const& unprotectedBuffer, Windows::Security::DataProtection::UserDataAvailability const& availability) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::DataProtection::UserDataBufferUnprotectResult>) UnprotectBufferAsync(Windows::Storage::Streams::IBuffer const& protectedBuffer) const;
+        WINRT_IMPL_AUTO(bool) IsContinuedDataAvailabilityExpected(Windows::Security::DataProtection::UserDataAvailability const& availability) const;
+        WINRT_IMPL_AUTO(winrt::event_token) DataAvailabilityStateChanged(Windows::Foundation::TypedEventHandler<Windows::Security::DataProtection::UserDataProtectionManager, Windows::Security::DataProtection::UserDataAvailabilityStateChangedEventArgs> const& handler) const;
         using DataAvailabilityStateChanged_revoker = impl::event_revoker<Windows::Security::DataProtection::IUserDataProtectionManager, &impl::abi_t<Windows::Security::DataProtection::IUserDataProtectionManager>::remove_DataAvailabilityStateChanged>;
         [[nodiscard]] DataAvailabilityStateChanged_revoker DataAvailabilityStateChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Security::DataProtection::UserDataProtectionManager, Windows::Security::DataProtection::UserDataAvailabilityStateChangedEventArgs> const& handler) const;
-        auto DataAvailabilityStateChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) DataAvailabilityStateChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Security::DataProtection::IUserDataProtectionManager>
     {
@@ -171,8 +170,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_DataProtection_IUserDataProtectionManagerStatics
     {
-        auto TryGetDefault() const;
-        auto TryGetForUser(Windows::System::User const& user) const;
+        WINRT_IMPL_AUTO(Windows::Security::DataProtection::UserDataProtectionManager) TryGetDefault() const;
+        WINRT_IMPL_AUTO(Windows::Security::DataProtection::UserDataProtectionManager) TryGetForUser(Windows::System::User const& user) const;
     };
     template <> struct consume<Windows::Security::DataProtection::IUserDataProtectionManagerStatics>
     {
@@ -181,7 +180,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_DataProtection_IUserDataStorageItemProtectionInfo
     {
-        [[nodiscard]] auto Availability() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::DataProtection::UserDataAvailability) Availability() const;
     };
     template <> struct consume<Windows::Security::DataProtection::IUserDataStorageItemProtectionInfo>
     {

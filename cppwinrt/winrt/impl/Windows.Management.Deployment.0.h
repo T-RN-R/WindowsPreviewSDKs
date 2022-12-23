@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -14,11 +14,15 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct HResult;
     struct IAsyncAction;
+    template <typename TResult, typename TProgress> struct IAsyncOperationWithProgress;
+    template <typename TResult> struct IAsyncOperation;
     struct Uri;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
+    template <typename T> struct IVectorView;
+    template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::Management::Deployment
 {
@@ -166,45 +170,43 @@ namespace winrt::impl
     template <> struct category<Windows::Management::Deployment::RemovalOptions>{ using type = enum_category; };
     template <> struct category<Windows::Management::Deployment::StubPackageOption>{ using type = enum_category; };
     template <> struct category<Windows::Management::Deployment::DeploymentProgress>{ using type = struct_category<Windows::Management::Deployment::DeploymentProgressState, uint32_t>; };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::AddPackageOptions>{ L"Windows.Management.Deployment.AddPackageOptions" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::DeploymentResult>{ L"Windows.Management.Deployment.DeploymentResult" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::PackageManager>{ L"Windows.Management.Deployment.PackageManager" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::PackageManagerDebugSettings>{ L"Windows.Management.Deployment.PackageManagerDebugSettings" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::PackageUserInformation>{ L"Windows.Management.Deployment.PackageUserInformation" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::PackageVolume>{ L"Windows.Management.Deployment.PackageVolume" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::RegisterPackageOptions>{ L"Windows.Management.Deployment.RegisterPackageOptions" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::StagePackageOptions>{ L"Windows.Management.Deployment.StagePackageOptions" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::AddPackageByAppInstallerOptions>{ L"Windows.Management.Deployment.AddPackageByAppInstallerOptions" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::DeploymentOptions>{ L"Windows.Management.Deployment.DeploymentOptions" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::DeploymentProgressState>{ L"Windows.Management.Deployment.DeploymentProgressState" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::PackageInstallState>{ L"Windows.Management.Deployment.PackageInstallState" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::PackageState>{ L"Windows.Management.Deployment.PackageState" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::PackageStatus>{ L"Windows.Management.Deployment.PackageStatus" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::PackageStubPreference>{ L"Windows.Management.Deployment.PackageStubPreference" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::PackageTypes>{ L"Windows.Management.Deployment.PackageTypes" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::RemovalOptions>{ L"Windows.Management.Deployment.RemovalOptions" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::StubPackageOption>{ L"Windows.Management.Deployment.StubPackageOption" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::DeploymentProgress>{ L"Windows.Management.Deployment.DeploymentProgress" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IAddPackageOptions>{ L"Windows.Management.Deployment.IAddPackageOptions" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IDeploymentResult>{ L"Windows.Management.Deployment.IDeploymentResult" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IDeploymentResult2>{ L"Windows.Management.Deployment.IDeploymentResult2" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IPackageManager>{ L"Windows.Management.Deployment.IPackageManager" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IPackageManager2>{ L"Windows.Management.Deployment.IPackageManager2" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IPackageManager3>{ L"Windows.Management.Deployment.IPackageManager3" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IPackageManager4>{ L"Windows.Management.Deployment.IPackageManager4" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IPackageManager5>{ L"Windows.Management.Deployment.IPackageManager5" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IPackageManager6>{ L"Windows.Management.Deployment.IPackageManager6" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IPackageManager7>{ L"Windows.Management.Deployment.IPackageManager7" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IPackageManager8>{ L"Windows.Management.Deployment.IPackageManager8" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IPackageManager9>{ L"Windows.Management.Deployment.IPackageManager9" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IPackageManagerDebugSettings>{ L"Windows.Management.Deployment.IPackageManagerDebugSettings" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IPackageUserInformation>{ L"Windows.Management.Deployment.IPackageUserInformation" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IPackageVolume>{ L"Windows.Management.Deployment.IPackageVolume" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IPackageVolume2>{ L"Windows.Management.Deployment.IPackageVolume2" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IRegisterPackageOptions>{ L"Windows.Management.Deployment.IRegisterPackageOptions" };
-    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IStagePackageOptions>{ L"Windows.Management.Deployment.IStagePackageOptions" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::AddPackageOptions> = L"Windows.Management.Deployment.AddPackageOptions";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::DeploymentResult> = L"Windows.Management.Deployment.DeploymentResult";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::PackageManager> = L"Windows.Management.Deployment.PackageManager";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::PackageManagerDebugSettings> = L"Windows.Management.Deployment.PackageManagerDebugSettings";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::PackageUserInformation> = L"Windows.Management.Deployment.PackageUserInformation";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::PackageVolume> = L"Windows.Management.Deployment.PackageVolume";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::RegisterPackageOptions> = L"Windows.Management.Deployment.RegisterPackageOptions";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::StagePackageOptions> = L"Windows.Management.Deployment.StagePackageOptions";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::AddPackageByAppInstallerOptions> = L"Windows.Management.Deployment.AddPackageByAppInstallerOptions";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::DeploymentOptions> = L"Windows.Management.Deployment.DeploymentOptions";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::DeploymentProgressState> = L"Windows.Management.Deployment.DeploymentProgressState";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::PackageInstallState> = L"Windows.Management.Deployment.PackageInstallState";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::PackageState> = L"Windows.Management.Deployment.PackageState";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::PackageStatus> = L"Windows.Management.Deployment.PackageStatus";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::PackageStubPreference> = L"Windows.Management.Deployment.PackageStubPreference";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::PackageTypes> = L"Windows.Management.Deployment.PackageTypes";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::RemovalOptions> = L"Windows.Management.Deployment.RemovalOptions";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::StubPackageOption> = L"Windows.Management.Deployment.StubPackageOption";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::DeploymentProgress> = L"Windows.Management.Deployment.DeploymentProgress";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IAddPackageOptions> = L"Windows.Management.Deployment.IAddPackageOptions";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IDeploymentResult> = L"Windows.Management.Deployment.IDeploymentResult";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IDeploymentResult2> = L"Windows.Management.Deployment.IDeploymentResult2";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IPackageManager> = L"Windows.Management.Deployment.IPackageManager";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IPackageManager2> = L"Windows.Management.Deployment.IPackageManager2";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IPackageManager3> = L"Windows.Management.Deployment.IPackageManager3";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IPackageManager4> = L"Windows.Management.Deployment.IPackageManager4";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IPackageManager5> = L"Windows.Management.Deployment.IPackageManager5";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IPackageManager6> = L"Windows.Management.Deployment.IPackageManager6";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IPackageManager7> = L"Windows.Management.Deployment.IPackageManager7";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IPackageManager8> = L"Windows.Management.Deployment.IPackageManager8";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IPackageManager9> = L"Windows.Management.Deployment.IPackageManager9";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IPackageManagerDebugSettings> = L"Windows.Management.Deployment.IPackageManagerDebugSettings";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IPackageUserInformation> = L"Windows.Management.Deployment.IPackageUserInformation";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IPackageVolume> = L"Windows.Management.Deployment.IPackageVolume";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IPackageVolume2> = L"Windows.Management.Deployment.IPackageVolume2";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IRegisterPackageOptions> = L"Windows.Management.Deployment.IRegisterPackageOptions";
+    template <> inline constexpr auto& name_v<Windows::Management::Deployment::IStagePackageOptions> = L"Windows.Management.Deployment.IStagePackageOptions";
     template <> inline constexpr guid guid_v<Windows::Management::Deployment::IAddPackageOptions>{ 0x05CEE018,0xF68F,0x422B,{ 0x95,0xA4,0x66,0x67,0x9E,0xC7,0x7F,0xC0 } };
     template <> inline constexpr guid guid_v<Windows::Management::Deployment::IDeploymentResult>{ 0x2563B9AE,0xB77D,0x4C1F,{ 0x8A,0x7B,0x20,0xE6,0xAD,0x51,0x5E,0xF3 } };
     template <> inline constexpr guid guid_v<Windows::Management::Deployment::IDeploymentResult2>{ 0xFC0E715C,0x5A01,0x4BD7,{ 0xBC,0xF1,0x38,0x1C,0x8C,0x82,0xE0,0x4A } };
@@ -508,36 +510,36 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Management_Deployment_IAddPackageOptions
     {
-        [[nodiscard]] auto DependencyPackageUris() const;
-        [[nodiscard]] auto TargetVolume() const;
-        auto TargetVolume(Windows::Management::Deployment::PackageVolume const& value) const;
-        [[nodiscard]] auto OptionalPackageFamilyNames() const;
-        [[nodiscard]] auto OptionalPackageUris() const;
-        [[nodiscard]] auto RelatedPackageUris() const;
-        [[nodiscard]] auto ExternalLocationUri() const;
-        auto ExternalLocationUri(Windows::Foundation::Uri const& value) const;
-        [[nodiscard]] auto StubPackageOption() const;
-        auto StubPackageOption(Windows::Management::Deployment::StubPackageOption const& value) const;
-        [[nodiscard]] auto DeveloperMode() const;
-        auto DeveloperMode(bool value) const;
-        [[nodiscard]] auto ForceAppShutdown() const;
-        auto ForceAppShutdown(bool value) const;
-        [[nodiscard]] auto ForceTargetAppShutdown() const;
-        auto ForceTargetAppShutdown(bool value) const;
-        [[nodiscard]] auto ForceUpdateFromAnyVersion() const;
-        auto ForceUpdateFromAnyVersion(bool value) const;
-        [[nodiscard]] auto InstallAllResources() const;
-        auto InstallAllResources(bool value) const;
-        [[nodiscard]] auto RequiredContentGroupOnly() const;
-        auto RequiredContentGroupOnly(bool value) const;
-        [[nodiscard]] auto RetainFilesOnFailure() const;
-        auto RetainFilesOnFailure(bool value) const;
-        [[nodiscard]] auto StageInPlace() const;
-        auto StageInPlace(bool value) const;
-        [[nodiscard]] auto AllowUnsigned() const;
-        auto AllowUnsigned(bool value) const;
-        [[nodiscard]] auto DeferRegistrationWhenPackagesAreInUse() const;
-        auto DeferRegistrationWhenPackagesAreInUse(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Foundation::Uri>) DependencyPackageUris() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Management::Deployment::PackageVolume) TargetVolume() const;
+        WINRT_IMPL_AUTO(void) TargetVolume(Windows::Management::Deployment::PackageVolume const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) OptionalPackageFamilyNames() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Foundation::Uri>) OptionalPackageUris() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Foundation::Uri>) RelatedPackageUris() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) ExternalLocationUri() const;
+        WINRT_IMPL_AUTO(void) ExternalLocationUri(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Management::Deployment::StubPackageOption) StubPackageOption() const;
+        WINRT_IMPL_AUTO(void) StubPackageOption(Windows::Management::Deployment::StubPackageOption const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) DeveloperMode() const;
+        WINRT_IMPL_AUTO(void) DeveloperMode(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ForceAppShutdown() const;
+        WINRT_IMPL_AUTO(void) ForceAppShutdown(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ForceTargetAppShutdown() const;
+        WINRT_IMPL_AUTO(void) ForceTargetAppShutdown(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ForceUpdateFromAnyVersion() const;
+        WINRT_IMPL_AUTO(void) ForceUpdateFromAnyVersion(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) InstallAllResources() const;
+        WINRT_IMPL_AUTO(void) InstallAllResources(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) RequiredContentGroupOnly() const;
+        WINRT_IMPL_AUTO(void) RequiredContentGroupOnly(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) RetainFilesOnFailure() const;
+        WINRT_IMPL_AUTO(void) RetainFilesOnFailure(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) StageInPlace() const;
+        WINRT_IMPL_AUTO(void) StageInPlace(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AllowUnsigned() const;
+        WINRT_IMPL_AUTO(void) AllowUnsigned(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) DeferRegistrationWhenPackagesAreInUse() const;
+        WINRT_IMPL_AUTO(void) DeferRegistrationWhenPackagesAreInUse(bool value) const;
     };
     template <> struct consume<Windows::Management::Deployment::IAddPackageOptions>
     {
@@ -546,9 +548,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Management_Deployment_IDeploymentResult
     {
-        [[nodiscard]] auto ErrorText() const;
-        [[nodiscard]] auto ActivityId() const;
-        [[nodiscard]] auto ExtendedErrorCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ErrorText() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) ActivityId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedErrorCode() const;
     };
     template <> struct consume<Windows::Management::Deployment::IDeploymentResult>
     {
@@ -557,7 +559,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Management_Deployment_IDeploymentResult2
     {
-        [[nodiscard]] auto IsRegistered() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsRegistered() const;
     };
     template <> struct consume<Windows::Management::Deployment::IDeploymentResult2>
     {
@@ -566,22 +568,22 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Management_Deployment_IPackageManager
     {
-        auto AddPackageAsync(Windows::Foundation::Uri const& packageUri, param::async_iterable<Windows::Foundation::Uri> const& dependencyPackageUris, Windows::Management::Deployment::DeploymentOptions const& deploymentOptions) const;
-        auto UpdatePackageAsync(Windows::Foundation::Uri const& packageUri, param::async_iterable<Windows::Foundation::Uri> const& dependencyPackageUris, Windows::Management::Deployment::DeploymentOptions const& deploymentOptions) const;
-        auto RemovePackageAsync(param::hstring const& packageFullName) const;
-        auto StagePackageAsync(Windows::Foundation::Uri const& packageUri, param::async_iterable<Windows::Foundation::Uri> const& dependencyPackageUris) const;
-        auto RegisterPackageAsync(Windows::Foundation::Uri const& manifestUri, param::async_iterable<Windows::Foundation::Uri> const& dependencyPackageUris, Windows::Management::Deployment::DeploymentOptions const& deploymentOptions) const;
-        auto FindPackages() const;
-        auto FindPackagesForUser(param::hstring const& userSecurityId) const;
-        auto FindPackages(param::hstring const& packageName, param::hstring const& packagePublisher) const;
-        auto FindPackagesForUser(param::hstring const& userSecurityId, param::hstring const& packageName, param::hstring const& packagePublisher) const;
-        auto FindUsers(param::hstring const& packageFullName) const;
-        auto SetPackageState(param::hstring const& packageFullName, Windows::Management::Deployment::PackageState const& packageState) const;
-        auto FindPackage(param::hstring const& packageFullName) const;
-        auto CleanupPackageForUserAsync(param::hstring const& packageName, param::hstring const& userSecurityId) const;
-        auto FindPackages(param::hstring const& packageFamilyName) const;
-        auto FindPackagesForUser(param::hstring const& userSecurityId, param::hstring const& packageFamilyName) const;
-        auto FindPackageForUser(param::hstring const& userSecurityId, param::hstring const& packageFullName) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) AddPackageAsync(Windows::Foundation::Uri const& packageUri, param::async_iterable<Windows::Foundation::Uri> const& dependencyPackageUris, Windows::Management::Deployment::DeploymentOptions const& deploymentOptions) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) UpdatePackageAsync(Windows::Foundation::Uri const& packageUri, param::async_iterable<Windows::Foundation::Uri> const& dependencyPackageUris, Windows::Management::Deployment::DeploymentOptions const& deploymentOptions) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) RemovePackageAsync(param::hstring const& packageFullName) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) StagePackageAsync(Windows::Foundation::Uri const& packageUri, param::async_iterable<Windows::Foundation::Uri> const& dependencyPackageUris) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) RegisterPackageAsync(Windows::Foundation::Uri const& manifestUri, param::async_iterable<Windows::Foundation::Uri> const& dependencyPackageUris, Windows::Management::Deployment::DeploymentOptions const& deploymentOptions) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IIterable<Windows::ApplicationModel::Package>) FindPackages() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IIterable<Windows::ApplicationModel::Package>) FindPackagesForUser(param::hstring const& userSecurityId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IIterable<Windows::ApplicationModel::Package>) FindPackages(param::hstring const& packageName, param::hstring const& packagePublisher) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IIterable<Windows::ApplicationModel::Package>) FindPackagesForUser(param::hstring const& userSecurityId, param::hstring const& packageName, param::hstring const& packagePublisher) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IIterable<Windows::Management::Deployment::PackageUserInformation>) FindUsers(param::hstring const& packageFullName) const;
+        WINRT_IMPL_AUTO(void) SetPackageState(param::hstring const& packageFullName, Windows::Management::Deployment::PackageState const& packageState) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Package) FindPackage(param::hstring const& packageFullName) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) CleanupPackageForUserAsync(param::hstring const& packageName, param::hstring const& userSecurityId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IIterable<Windows::ApplicationModel::Package>) FindPackages(param::hstring const& packageFamilyName) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IIterable<Windows::ApplicationModel::Package>) FindPackagesForUser(param::hstring const& userSecurityId, param::hstring const& packageFamilyName) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Package) FindPackageForUser(param::hstring const& userSecurityId, param::hstring const& packageFullName) const;
     };
     template <> struct consume<Windows::Management::Deployment::IPackageManager>
     {
@@ -590,16 +592,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Management_Deployment_IPackageManager2
     {
-        auto RemovePackageAsync(param::hstring const& packageFullName, Windows::Management::Deployment::RemovalOptions const& removalOptions) const;
-        auto StagePackageAsync(Windows::Foundation::Uri const& packageUri, param::async_iterable<Windows::Foundation::Uri> const& dependencyPackageUris, Windows::Management::Deployment::DeploymentOptions const& deploymentOptions) const;
-        auto RegisterPackageByFullNameAsync(param::hstring const& mainPackageFullName, param::async_iterable<hstring> const& dependencyPackageFullNames, Windows::Management::Deployment::DeploymentOptions const& deploymentOptions) const;
-        auto FindPackagesWithPackageTypes(Windows::Management::Deployment::PackageTypes const& packageTypes) const;
-        auto FindPackagesForUserWithPackageTypes(param::hstring const& userSecurityId, Windows::Management::Deployment::PackageTypes const& packageTypes) const;
-        auto FindPackagesWithPackageTypes(param::hstring const& packageName, param::hstring const& packagePublisher, Windows::Management::Deployment::PackageTypes const& packageTypes) const;
-        auto FindPackagesForUserWithPackageTypes(param::hstring const& userSecurityId, param::hstring const& packageName, param::hstring const& packagePublisher, Windows::Management::Deployment::PackageTypes const& packageTypes) const;
-        auto FindPackagesWithPackageTypes(param::hstring const& packageFamilyName, Windows::Management::Deployment::PackageTypes const& packageTypes) const;
-        auto FindPackagesForUserWithPackageTypes(param::hstring const& userSecurityId, param::hstring const& packageFamilyName, Windows::Management::Deployment::PackageTypes const& packageTypes) const;
-        auto StageUserDataAsync(param::hstring const& packageFullName) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) RemovePackageAsync(param::hstring const& packageFullName, Windows::Management::Deployment::RemovalOptions const& removalOptions) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) StagePackageAsync(Windows::Foundation::Uri const& packageUri, param::async_iterable<Windows::Foundation::Uri> const& dependencyPackageUris, Windows::Management::Deployment::DeploymentOptions const& deploymentOptions) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) RegisterPackageByFullNameAsync(param::hstring const& mainPackageFullName, param::async_iterable<hstring> const& dependencyPackageFullNames, Windows::Management::Deployment::DeploymentOptions const& deploymentOptions) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IIterable<Windows::ApplicationModel::Package>) FindPackagesWithPackageTypes(Windows::Management::Deployment::PackageTypes const& packageTypes) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IIterable<Windows::ApplicationModel::Package>) FindPackagesForUserWithPackageTypes(param::hstring const& userSecurityId, Windows::Management::Deployment::PackageTypes const& packageTypes) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IIterable<Windows::ApplicationModel::Package>) FindPackagesWithPackageTypes(param::hstring const& packageName, param::hstring const& packagePublisher, Windows::Management::Deployment::PackageTypes const& packageTypes) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IIterable<Windows::ApplicationModel::Package>) FindPackagesForUserWithPackageTypes(param::hstring const& userSecurityId, param::hstring const& packageName, param::hstring const& packagePublisher, Windows::Management::Deployment::PackageTypes const& packageTypes) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IIterable<Windows::ApplicationModel::Package>) FindPackagesWithPackageTypes(param::hstring const& packageFamilyName, Windows::Management::Deployment::PackageTypes const& packageTypes) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IIterable<Windows::ApplicationModel::Package>) FindPackagesForUserWithPackageTypes(param::hstring const& userSecurityId, param::hstring const& packageFamilyName, Windows::Management::Deployment::PackageTypes const& packageTypes) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) StageUserDataAsync(param::hstring const& packageFullName) const;
     };
     template <> struct consume<Windows::Management::Deployment::IPackageManager2>
     {
@@ -608,21 +610,21 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Management_Deployment_IPackageManager3
     {
-        auto AddPackageVolumeAsync(param::hstring const& packageStorePath) const;
-        auto AddPackageAsync(Windows::Foundation::Uri const& packageUri, param::async_iterable<Windows::Foundation::Uri> const& dependencyPackageUris, Windows::Management::Deployment::DeploymentOptions const& deploymentOptions, Windows::Management::Deployment::PackageVolume const& targetVolume) const;
-        auto ClearPackageStatus(param::hstring const& packageFullName, Windows::Management::Deployment::PackageStatus const& status) const;
-        auto RegisterPackageAsync(Windows::Foundation::Uri const& manifestUri, param::async_iterable<Windows::Foundation::Uri> const& dependencyPackageUris, Windows::Management::Deployment::DeploymentOptions const& deploymentOptions, Windows::Management::Deployment::PackageVolume const& appDataVolume) const;
-        auto FindPackageVolume(param::hstring const& volumeName) const;
-        auto FindPackageVolumes() const;
-        auto GetDefaultPackageVolume() const;
-        auto MovePackageToVolumeAsync(param::hstring const& packageFullName, Windows::Management::Deployment::DeploymentOptions const& deploymentOptions, Windows::Management::Deployment::PackageVolume const& targetVolume) const;
-        auto RemovePackageVolumeAsync(Windows::Management::Deployment::PackageVolume const& volume) const;
-        auto SetDefaultPackageVolume(Windows::Management::Deployment::PackageVolume const& volume) const;
-        auto SetPackageStatus(param::hstring const& packageFullName, Windows::Management::Deployment::PackageStatus const& status) const;
-        auto SetPackageVolumeOfflineAsync(Windows::Management::Deployment::PackageVolume const& packageVolume) const;
-        auto SetPackageVolumeOnlineAsync(Windows::Management::Deployment::PackageVolume const& packageVolume) const;
-        auto StagePackageAsync(Windows::Foundation::Uri const& packageUri, param::async_iterable<Windows::Foundation::Uri> const& dependencyPackageUris, Windows::Management::Deployment::DeploymentOptions const& deploymentOptions, Windows::Management::Deployment::PackageVolume const& targetVolume) const;
-        auto StageUserDataAsync(param::hstring const& packageFullName, Windows::Management::Deployment::DeploymentOptions const& deploymentOptions) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Management::Deployment::PackageVolume>) AddPackageVolumeAsync(param::hstring const& packageStorePath) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) AddPackageAsync(Windows::Foundation::Uri const& packageUri, param::async_iterable<Windows::Foundation::Uri> const& dependencyPackageUris, Windows::Management::Deployment::DeploymentOptions const& deploymentOptions, Windows::Management::Deployment::PackageVolume const& targetVolume) const;
+        WINRT_IMPL_AUTO(void) ClearPackageStatus(param::hstring const& packageFullName, Windows::Management::Deployment::PackageStatus const& status) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) RegisterPackageAsync(Windows::Foundation::Uri const& manifestUri, param::async_iterable<Windows::Foundation::Uri> const& dependencyPackageUris, Windows::Management::Deployment::DeploymentOptions const& deploymentOptions, Windows::Management::Deployment::PackageVolume const& appDataVolume) const;
+        WINRT_IMPL_AUTO(Windows::Management::Deployment::PackageVolume) FindPackageVolume(param::hstring const& volumeName) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IIterable<Windows::Management::Deployment::PackageVolume>) FindPackageVolumes() const;
+        WINRT_IMPL_AUTO(Windows::Management::Deployment::PackageVolume) GetDefaultPackageVolume() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) MovePackageToVolumeAsync(param::hstring const& packageFullName, Windows::Management::Deployment::DeploymentOptions const& deploymentOptions, Windows::Management::Deployment::PackageVolume const& targetVolume) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) RemovePackageVolumeAsync(Windows::Management::Deployment::PackageVolume const& volume) const;
+        WINRT_IMPL_AUTO(void) SetDefaultPackageVolume(Windows::Management::Deployment::PackageVolume const& volume) const;
+        WINRT_IMPL_AUTO(void) SetPackageStatus(param::hstring const& packageFullName, Windows::Management::Deployment::PackageStatus const& status) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) SetPackageVolumeOfflineAsync(Windows::Management::Deployment::PackageVolume const& packageVolume) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) SetPackageVolumeOnlineAsync(Windows::Management::Deployment::PackageVolume const& packageVolume) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) StagePackageAsync(Windows::Foundation::Uri const& packageUri, param::async_iterable<Windows::Foundation::Uri> const& dependencyPackageUris, Windows::Management::Deployment::DeploymentOptions const& deploymentOptions, Windows::Management::Deployment::PackageVolume const& targetVolume) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) StageUserDataAsync(param::hstring const& packageFullName, Windows::Management::Deployment::DeploymentOptions const& deploymentOptions) const;
     };
     template <> struct consume<Windows::Management::Deployment::IPackageManager3>
     {
@@ -631,7 +633,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Management_Deployment_IPackageManager4
     {
-        auto GetPackageVolumesAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Management::Deployment::PackageVolume>>) GetPackageVolumesAsync() const;
     };
     template <> struct consume<Windows::Management::Deployment::IPackageManager4>
     {
@@ -640,10 +642,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Management_Deployment_IPackageManager5
     {
-        auto AddPackageAsync(Windows::Foundation::Uri const& packageUri, param::async_iterable<Windows::Foundation::Uri> const& dependencyPackageUris, Windows::Management::Deployment::DeploymentOptions const& deploymentOptions, Windows::Management::Deployment::PackageVolume const& targetVolume, param::async_iterable<hstring> const& optionalPackageFamilyNames, param::async_iterable<Windows::Foundation::Uri> const& externalPackageUris) const;
-        auto StagePackageAsync(Windows::Foundation::Uri const& packageUri, param::async_iterable<Windows::Foundation::Uri> const& dependencyPackageUris, Windows::Management::Deployment::DeploymentOptions const& deploymentOptions, Windows::Management::Deployment::PackageVolume const& targetVolume, param::async_iterable<hstring> const& optionalPackageFamilyNames, param::async_iterable<Windows::Foundation::Uri> const& externalPackageUris) const;
-        auto RegisterPackageByFamilyNameAsync(param::hstring const& mainPackageFamilyName, param::async_iterable<hstring> const& dependencyPackageFamilyNames, Windows::Management::Deployment::DeploymentOptions const& deploymentOptions, Windows::Management::Deployment::PackageVolume const& appDataVolume, param::async_iterable<hstring> const& optionalPackageFamilyNames) const;
-        [[nodiscard]] auto DebugSettings() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) AddPackageAsync(Windows::Foundation::Uri const& packageUri, param::async_iterable<Windows::Foundation::Uri> const& dependencyPackageUris, Windows::Management::Deployment::DeploymentOptions const& deploymentOptions, Windows::Management::Deployment::PackageVolume const& targetVolume, param::async_iterable<hstring> const& optionalPackageFamilyNames, param::async_iterable<Windows::Foundation::Uri> const& externalPackageUris) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) StagePackageAsync(Windows::Foundation::Uri const& packageUri, param::async_iterable<Windows::Foundation::Uri> const& dependencyPackageUris, Windows::Management::Deployment::DeploymentOptions const& deploymentOptions, Windows::Management::Deployment::PackageVolume const& targetVolume, param::async_iterable<hstring> const& optionalPackageFamilyNames, param::async_iterable<Windows::Foundation::Uri> const& externalPackageUris) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) RegisterPackageByFamilyNameAsync(param::hstring const& mainPackageFamilyName, param::async_iterable<hstring> const& dependencyPackageFamilyNames, Windows::Management::Deployment::DeploymentOptions const& deploymentOptions, Windows::Management::Deployment::PackageVolume const& appDataVolume, param::async_iterable<hstring> const& optionalPackageFamilyNames) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Management::Deployment::PackageManagerDebugSettings) DebugSettings() const;
     };
     template <> struct consume<Windows::Management::Deployment::IPackageManager5>
     {
@@ -652,12 +654,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Management_Deployment_IPackageManager6
     {
-        auto ProvisionPackageForAllUsersAsync(param::hstring const& packageFamilyName) const;
-        auto AddPackageByAppInstallerFileAsync(Windows::Foundation::Uri const& appInstallerFileUri, Windows::Management::Deployment::AddPackageByAppInstallerOptions const& options, Windows::Management::Deployment::PackageVolume const& targetVolume) const;
-        auto RequestAddPackageByAppInstallerFileAsync(Windows::Foundation::Uri const& appInstallerFileUri, Windows::Management::Deployment::AddPackageByAppInstallerOptions const& options, Windows::Management::Deployment::PackageVolume const& targetVolume) const;
-        auto AddPackageAsync(Windows::Foundation::Uri const& packageUri, param::async_iterable<Windows::Foundation::Uri> const& dependencyPackageUris, Windows::Management::Deployment::DeploymentOptions const& options, Windows::Management::Deployment::PackageVolume const& targetVolume, param::async_iterable<hstring> const& optionalPackageFamilyNames, param::async_iterable<Windows::Foundation::Uri> const& packageUrisToInstall, param::async_iterable<Windows::Foundation::Uri> const& relatedPackageUris) const;
-        auto StagePackageAsync(Windows::Foundation::Uri const& packageUri, param::async_iterable<Windows::Foundation::Uri> const& dependencyPackageUris, Windows::Management::Deployment::DeploymentOptions const& options, Windows::Management::Deployment::PackageVolume const& targetVolume, param::async_iterable<hstring> const& optionalPackageFamilyNames, param::async_iterable<Windows::Foundation::Uri> const& packageUrisToInstall, param::async_iterable<Windows::Foundation::Uri> const& relatedPackageUris) const;
-        auto RequestAddPackageAsync(Windows::Foundation::Uri const& packageUri, param::async_iterable<Windows::Foundation::Uri> const& dependencyPackageUris, Windows::Management::Deployment::DeploymentOptions const& deploymentOptions, Windows::Management::Deployment::PackageVolume const& targetVolume, param::async_iterable<hstring> const& optionalPackageFamilyNames, param::async_iterable<Windows::Foundation::Uri> const& relatedPackageUris) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) ProvisionPackageForAllUsersAsync(param::hstring const& packageFamilyName) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) AddPackageByAppInstallerFileAsync(Windows::Foundation::Uri const& appInstallerFileUri, Windows::Management::Deployment::AddPackageByAppInstallerOptions const& options, Windows::Management::Deployment::PackageVolume const& targetVolume) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) RequestAddPackageByAppInstallerFileAsync(Windows::Foundation::Uri const& appInstallerFileUri, Windows::Management::Deployment::AddPackageByAppInstallerOptions const& options, Windows::Management::Deployment::PackageVolume const& targetVolume) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) AddPackageAsync(Windows::Foundation::Uri const& packageUri, param::async_iterable<Windows::Foundation::Uri> const& dependencyPackageUris, Windows::Management::Deployment::DeploymentOptions const& options, Windows::Management::Deployment::PackageVolume const& targetVolume, param::async_iterable<hstring> const& optionalPackageFamilyNames, param::async_iterable<Windows::Foundation::Uri> const& packageUrisToInstall, param::async_iterable<Windows::Foundation::Uri> const& relatedPackageUris) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) StagePackageAsync(Windows::Foundation::Uri const& packageUri, param::async_iterable<Windows::Foundation::Uri> const& dependencyPackageUris, Windows::Management::Deployment::DeploymentOptions const& options, Windows::Management::Deployment::PackageVolume const& targetVolume, param::async_iterable<hstring> const& optionalPackageFamilyNames, param::async_iterable<Windows::Foundation::Uri> const& packageUrisToInstall, param::async_iterable<Windows::Foundation::Uri> const& relatedPackageUris) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) RequestAddPackageAsync(Windows::Foundation::Uri const& packageUri, param::async_iterable<Windows::Foundation::Uri> const& dependencyPackageUris, Windows::Management::Deployment::DeploymentOptions const& deploymentOptions, Windows::Management::Deployment::PackageVolume const& targetVolume, param::async_iterable<hstring> const& optionalPackageFamilyNames, param::async_iterable<Windows::Foundation::Uri> const& relatedPackageUris) const;
     };
     template <> struct consume<Windows::Management::Deployment::IPackageManager6>
     {
@@ -666,7 +668,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Management_Deployment_IPackageManager7
     {
-        auto RequestAddPackageAsync(Windows::Foundation::Uri const& packageUri, param::async_iterable<Windows::Foundation::Uri> const& dependencyPackageUris, Windows::Management::Deployment::DeploymentOptions const& deploymentOptions, Windows::Management::Deployment::PackageVolume const& targetVolume, param::async_iterable<hstring> const& optionalPackageFamilyNames, param::async_iterable<Windows::Foundation::Uri> const& relatedPackageUris, param::async_iterable<Windows::Foundation::Uri> const& packageUrisToInstall) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) RequestAddPackageAsync(Windows::Foundation::Uri const& packageUri, param::async_iterable<Windows::Foundation::Uri> const& dependencyPackageUris, Windows::Management::Deployment::DeploymentOptions const& deploymentOptions, Windows::Management::Deployment::PackageVolume const& targetVolume, param::async_iterable<hstring> const& optionalPackageFamilyNames, param::async_iterable<Windows::Foundation::Uri> const& relatedPackageUris, param::async_iterable<Windows::Foundation::Uri> const& packageUrisToInstall) const;
     };
     template <> struct consume<Windows::Management::Deployment::IPackageManager7>
     {
@@ -675,7 +677,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Management_Deployment_IPackageManager8
     {
-        auto DeprovisionPackageForAllUsersAsync(param::hstring const& packageFamilyName) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) DeprovisionPackageForAllUsersAsync(param::hstring const& packageFamilyName) const;
     };
     template <> struct consume<Windows::Management::Deployment::IPackageManager8>
     {
@@ -684,13 +686,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Management_Deployment_IPackageManager9
     {
-        auto FindProvisionedPackages() const;
-        auto AddPackageByUriAsync(Windows::Foundation::Uri const& packageUri, Windows::Management::Deployment::AddPackageOptions const& options) const;
-        auto StagePackageByUriAsync(Windows::Foundation::Uri const& packageUri, Windows::Management::Deployment::StagePackageOptions const& options) const;
-        auto RegisterPackageByUriAsync(Windows::Foundation::Uri const& manifestUri, Windows::Management::Deployment::RegisterPackageOptions const& options) const;
-        auto RegisterPackagesByFullNameAsync(param::async_iterable<hstring> const& packageFullNames, Windows::Management::Deployment::RegisterPackageOptions const& options) const;
-        auto SetPackageStubPreference(param::hstring const& packageFamilyName, Windows::Management::Deployment::PackageStubPreference const& useStub) const;
-        auto GetPackageStubPreference(param::hstring const& packageFamilyName) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::ApplicationModel::Package>) FindProvisionedPackages() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) AddPackageByUriAsync(Windows::Foundation::Uri const& packageUri, Windows::Management::Deployment::AddPackageOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) StagePackageByUriAsync(Windows::Foundation::Uri const& packageUri, Windows::Management::Deployment::StagePackageOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) RegisterPackageByUriAsync(Windows::Foundation::Uri const& manifestUri, Windows::Management::Deployment::RegisterPackageOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Management::Deployment::DeploymentResult, Windows::Management::Deployment::DeploymentProgress>) RegisterPackagesByFullNameAsync(param::async_iterable<hstring> const& packageFullNames, Windows::Management::Deployment::RegisterPackageOptions const& options) const;
+        WINRT_IMPL_AUTO(void) SetPackageStubPreference(param::hstring const& packageFamilyName, Windows::Management::Deployment::PackageStubPreference const& useStub) const;
+        WINRT_IMPL_AUTO(Windows::Management::Deployment::PackageStubPreference) GetPackageStubPreference(param::hstring const& packageFamilyName) const;
     };
     template <> struct consume<Windows::Management::Deployment::IPackageManager9>
     {
@@ -699,8 +701,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Management_Deployment_IPackageManagerDebugSettings
     {
-        auto SetContentGroupStateAsync(Windows::ApplicationModel::Package const& package, param::hstring const& contentGroupName, Windows::ApplicationModel::PackageContentGroupState const& state) const;
-        auto SetContentGroupStateAsync(Windows::ApplicationModel::Package const& package, param::hstring const& contentGroupName, Windows::ApplicationModel::PackageContentGroupState const& state, double completionPercentage) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetContentGroupStateAsync(Windows::ApplicationModel::Package const& package, param::hstring const& contentGroupName, Windows::ApplicationModel::PackageContentGroupState const& state) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetContentGroupStateAsync(Windows::ApplicationModel::Package const& package, param::hstring const& contentGroupName, Windows::ApplicationModel::PackageContentGroupState const& state, double completionPercentage) const;
     };
     template <> struct consume<Windows::Management::Deployment::IPackageManagerDebugSettings>
     {
@@ -709,8 +711,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Management_Deployment_IPackageUserInformation
     {
-        [[nodiscard]] auto UserSecurityId() const;
-        [[nodiscard]] auto InstallState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) UserSecurityId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Management::Deployment::PackageInstallState) InstallState() const;
     };
     template <> struct consume<Windows::Management::Deployment::IPackageUserInformation>
     {
@@ -719,26 +721,26 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Management_Deployment_IPackageVolume
     {
-        [[nodiscard]] auto IsOffline() const;
-        [[nodiscard]] auto IsSystemVolume() const;
-        [[nodiscard]] auto MountPoint() const;
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto PackageStorePath() const;
-        [[nodiscard]] auto SupportsHardLinks() const;
-        auto FindPackages() const;
-        auto FindPackages(param::hstring const& packageName, param::hstring const& packagePublisher) const;
-        auto FindPackages(param::hstring const& packageFamilyName) const;
-        auto FindPackagesWithPackageTypes(Windows::Management::Deployment::PackageTypes const& packageTypes) const;
-        auto FindPackagesWithPackageTypes(Windows::Management::Deployment::PackageTypes const& packageTypes, param::hstring const& packageName, param::hstring const& packagePublisher) const;
-        auto FindPackagesWithPackageTypes(Windows::Management::Deployment::PackageTypes const& packageTypes, param::hstring const& packageFamilyName) const;
-        auto FindPackage(param::hstring const& packageFullName) const;
-        auto FindPackagesForUser(param::hstring const& userSecurityId) const;
-        auto FindPackagesForUser(param::hstring const& userSecurityId, param::hstring const& packageName, param::hstring const& packagePublisher) const;
-        auto FindPackagesForUser(param::hstring const& userSecurityId, param::hstring const& packageFamilyName) const;
-        auto FindPackagesForUserWithPackageTypes(param::hstring const& userSecurityId, Windows::Management::Deployment::PackageTypes const& packageTypes) const;
-        auto FindPackagesForUserWithPackageTypes(param::hstring const& userSecurityId, Windows::Management::Deployment::PackageTypes const& packageTypes, param::hstring const& packageName, param::hstring const& packagePublisher) const;
-        auto FindPackagesForUserWithPackageTypes(param::hstring const& userSecurityId, Windows::Management::Deployment::PackageTypes const& packageTypes, param::hstring const& packageFamilyName) const;
-        auto FindPackageForUser(param::hstring const& userSecurityId, param::hstring const& packageFullName) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsOffline() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSystemVolume() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MountPoint() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PackageStorePath() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) SupportsHardLinks() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::ApplicationModel::Package>) FindPackages() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::ApplicationModel::Package>) FindPackages(param::hstring const& packageName, param::hstring const& packagePublisher) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::ApplicationModel::Package>) FindPackages(param::hstring const& packageFamilyName) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::ApplicationModel::Package>) FindPackagesWithPackageTypes(Windows::Management::Deployment::PackageTypes const& packageTypes) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::ApplicationModel::Package>) FindPackagesWithPackageTypes(Windows::Management::Deployment::PackageTypes const& packageTypes, param::hstring const& packageName, param::hstring const& packagePublisher) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::ApplicationModel::Package>) FindPackagesWithPackageTypes(Windows::Management::Deployment::PackageTypes const& packageTypes, param::hstring const& packageFamilyName) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::ApplicationModel::Package>) FindPackage(param::hstring const& packageFullName) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::ApplicationModel::Package>) FindPackagesForUser(param::hstring const& userSecurityId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::ApplicationModel::Package>) FindPackagesForUser(param::hstring const& userSecurityId, param::hstring const& packageName, param::hstring const& packagePublisher) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::ApplicationModel::Package>) FindPackagesForUser(param::hstring const& userSecurityId, param::hstring const& packageFamilyName) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::ApplicationModel::Package>) FindPackagesForUserWithPackageTypes(param::hstring const& userSecurityId, Windows::Management::Deployment::PackageTypes const& packageTypes) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::ApplicationModel::Package>) FindPackagesForUserWithPackageTypes(param::hstring const& userSecurityId, Windows::Management::Deployment::PackageTypes const& packageTypes, param::hstring const& packageName, param::hstring const& packagePublisher) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::ApplicationModel::Package>) FindPackagesForUserWithPackageTypes(param::hstring const& userSecurityId, Windows::Management::Deployment::PackageTypes const& packageTypes, param::hstring const& packageFamilyName) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::ApplicationModel::Package>) FindPackageForUser(param::hstring const& userSecurityId, param::hstring const& packageFullName) const;
     };
     template <> struct consume<Windows::Management::Deployment::IPackageVolume>
     {
@@ -747,9 +749,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Management_Deployment_IPackageVolume2
     {
-        [[nodiscard]] auto IsFullTrustPackageSupported() const;
-        [[nodiscard]] auto IsAppxInstallSupported() const;
-        auto GetAvailableSpaceAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsFullTrustPackageSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsAppxInstallSupported() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<uint64_t>) GetAvailableSpaceAsync() const;
     };
     template <> struct consume<Windows::Management::Deployment::IPackageVolume2>
     {
@@ -758,28 +760,28 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Management_Deployment_IRegisterPackageOptions
     {
-        [[nodiscard]] auto DependencyPackageUris() const;
-        [[nodiscard]] auto AppDataVolume() const;
-        auto AppDataVolume(Windows::Management::Deployment::PackageVolume const& value) const;
-        [[nodiscard]] auto OptionalPackageFamilyNames() const;
-        [[nodiscard]] auto ExternalLocationUri() const;
-        auto ExternalLocationUri(Windows::Foundation::Uri const& value) const;
-        [[nodiscard]] auto DeveloperMode() const;
-        auto DeveloperMode(bool value) const;
-        [[nodiscard]] auto ForceAppShutdown() const;
-        auto ForceAppShutdown(bool value) const;
-        [[nodiscard]] auto ForceTargetAppShutdown() const;
-        auto ForceTargetAppShutdown(bool value) const;
-        [[nodiscard]] auto ForceUpdateFromAnyVersion() const;
-        auto ForceUpdateFromAnyVersion(bool value) const;
-        [[nodiscard]] auto InstallAllResources() const;
-        auto InstallAllResources(bool value) const;
-        [[nodiscard]] auto StageInPlace() const;
-        auto StageInPlace(bool value) const;
-        [[nodiscard]] auto AllowUnsigned() const;
-        auto AllowUnsigned(bool value) const;
-        [[nodiscard]] auto DeferRegistrationWhenPackagesAreInUse() const;
-        auto DeferRegistrationWhenPackagesAreInUse(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Foundation::Uri>) DependencyPackageUris() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Management::Deployment::PackageVolume) AppDataVolume() const;
+        WINRT_IMPL_AUTO(void) AppDataVolume(Windows::Management::Deployment::PackageVolume const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) OptionalPackageFamilyNames() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) ExternalLocationUri() const;
+        WINRT_IMPL_AUTO(void) ExternalLocationUri(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) DeveloperMode() const;
+        WINRT_IMPL_AUTO(void) DeveloperMode(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ForceAppShutdown() const;
+        WINRT_IMPL_AUTO(void) ForceAppShutdown(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ForceTargetAppShutdown() const;
+        WINRT_IMPL_AUTO(void) ForceTargetAppShutdown(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ForceUpdateFromAnyVersion() const;
+        WINRT_IMPL_AUTO(void) ForceUpdateFromAnyVersion(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) InstallAllResources() const;
+        WINRT_IMPL_AUTO(void) InstallAllResources(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) StageInPlace() const;
+        WINRT_IMPL_AUTO(void) StageInPlace(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AllowUnsigned() const;
+        WINRT_IMPL_AUTO(void) AllowUnsigned(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) DeferRegistrationWhenPackagesAreInUse() const;
+        WINRT_IMPL_AUTO(void) DeferRegistrationWhenPackagesAreInUse(bool value) const;
     };
     template <> struct consume<Windows::Management::Deployment::IRegisterPackageOptions>
     {
@@ -788,28 +790,28 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Management_Deployment_IStagePackageOptions
     {
-        [[nodiscard]] auto DependencyPackageUris() const;
-        [[nodiscard]] auto TargetVolume() const;
-        auto TargetVolume(Windows::Management::Deployment::PackageVolume const& value) const;
-        [[nodiscard]] auto OptionalPackageFamilyNames() const;
-        [[nodiscard]] auto OptionalPackageUris() const;
-        [[nodiscard]] auto RelatedPackageUris() const;
-        [[nodiscard]] auto ExternalLocationUri() const;
-        auto ExternalLocationUri(Windows::Foundation::Uri const& value) const;
-        [[nodiscard]] auto StubPackageOption() const;
-        auto StubPackageOption(Windows::Management::Deployment::StubPackageOption const& value) const;
-        [[nodiscard]] auto DeveloperMode() const;
-        auto DeveloperMode(bool value) const;
-        [[nodiscard]] auto ForceUpdateFromAnyVersion() const;
-        auto ForceUpdateFromAnyVersion(bool value) const;
-        [[nodiscard]] auto InstallAllResources() const;
-        auto InstallAllResources(bool value) const;
-        [[nodiscard]] auto RequiredContentGroupOnly() const;
-        auto RequiredContentGroupOnly(bool value) const;
-        [[nodiscard]] auto StageInPlace() const;
-        auto StageInPlace(bool value) const;
-        [[nodiscard]] auto AllowUnsigned() const;
-        auto AllowUnsigned(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Foundation::Uri>) DependencyPackageUris() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Management::Deployment::PackageVolume) TargetVolume() const;
+        WINRT_IMPL_AUTO(void) TargetVolume(Windows::Management::Deployment::PackageVolume const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) OptionalPackageFamilyNames() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Foundation::Uri>) OptionalPackageUris() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Foundation::Uri>) RelatedPackageUris() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) ExternalLocationUri() const;
+        WINRT_IMPL_AUTO(void) ExternalLocationUri(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Management::Deployment::StubPackageOption) StubPackageOption() const;
+        WINRT_IMPL_AUTO(void) StubPackageOption(Windows::Management::Deployment::StubPackageOption const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) DeveloperMode() const;
+        WINRT_IMPL_AUTO(void) DeveloperMode(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ForceUpdateFromAnyVersion() const;
+        WINRT_IMPL_AUTO(void) ForceUpdateFromAnyVersion(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) InstallAllResources() const;
+        WINRT_IMPL_AUTO(void) InstallAllResources(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) RequiredContentGroupOnly() const;
+        WINRT_IMPL_AUTO(void) RequiredContentGroupOnly(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) StageInPlace() const;
+        WINRT_IMPL_AUTO(void) StageInPlace(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AllowUnsigned() const;
+        WINRT_IMPL_AUTO(void) AllowUnsigned(bool value) const;
     };
     template <> struct consume<Windows::Management::Deployment::IStagePackageOptions>
     {

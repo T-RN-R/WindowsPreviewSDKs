@@ -13894,6 +13894,24 @@
 //
 #define ERROR_SYSTEM_INTEGRITY_SUPPLEMENTAL_POLICY_NOT_AUTHORIZED 4555L
 
+//
+// MessageId: ERROR_SYSTEM_INTEGRITY_REPUTATION_MALICIOUS
+//
+// MessageText:
+//
+// System Integrity policy has been violated.  Malicious binary reputation.
+//
+#define ERROR_SYSTEM_INTEGRITY_REPUTATION_MALICIOUS 4556L
+
+//
+// MessageId: ERROR_SYSTEM_INTEGRITY_REPUTATION_PUA
+//
+// MessageText:
+//
+// System Integrity policy has been violated.  Potentially unwanted application.
+//
+#define ERROR_SYSTEM_INTEGRITY_REPUTATION_PUA 4557L
+
 
 ///////////////////////////////////////////////////
 //                                               //

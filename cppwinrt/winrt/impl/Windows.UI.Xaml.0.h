@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -38,6 +38,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
     template <typename T> struct EventHandler;
     struct EventRegistrationToken;
     struct HResult;
+    template <typename TResult> struct IAsyncOperation;
     template <typename T> struct IReference;
     struct Point;
     struct Rect;
@@ -47,7 +48,10 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
+    template <typename T> struct IIterable;
+    template <typename K, typename V> struct IMap;
     template <typename T> struct IObservableVector;
+    template <typename T> struct IVectorView;
     template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Numerics
@@ -112,6 +116,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Input
     struct HoldingEventHandler;
     struct KeyEventHandler;
     enum class KeyTipPlacementMode : int32_t;
+    struct KeyboardAccelerator;
     struct KeyboardAcceleratorInvokedEventArgs;
     enum class KeyboardAcceleratorPlacementMode : int32_t;
     enum class KeyboardNavigationMode : int32_t;
@@ -145,6 +150,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Media
     struct RectangleGeometry;
     struct Shadow;
     struct Transform;
+    struct XamlLight;
 }
 WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Media::Animation
 {
@@ -995,310 +1001,308 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Xaml::WindowClosedEventHandler>{ using type = delegate_category; };
     template <> struct category<Windows::UI::Xaml::WindowSizeChangedEventHandler>{ using type = delegate_category; };
     template <> struct category<Windows::UI::Xaml::WindowVisibilityChangedEventHandler>{ using type = delegate_category; };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::AdaptiveTrigger>{ L"Windows.UI.Xaml.AdaptiveTrigger" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Application>{ L"Windows.UI.Xaml.Application" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ApplicationInitializationCallbackParams>{ L"Windows.UI.Xaml.ApplicationInitializationCallbackParams" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::BindingFailedEventArgs>{ L"Windows.UI.Xaml.BindingFailedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::BringIntoViewOptions>{ L"Windows.UI.Xaml.BringIntoViewOptions" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::BringIntoViewRequestedEventArgs>{ L"Windows.UI.Xaml.BringIntoViewRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::BrushTransition>{ L"Windows.UI.Xaml.BrushTransition" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ColorPaletteResources>{ L"Windows.UI.Xaml.ColorPaletteResources" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::CornerRadiusHelper>{ L"Windows.UI.Xaml.CornerRadiusHelper" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DataContextChangedEventArgs>{ L"Windows.UI.Xaml.DataContextChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DataTemplate>{ L"Windows.UI.Xaml.DataTemplate" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DataTemplateKey>{ L"Windows.UI.Xaml.DataTemplateKey" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DebugSettings>{ L"Windows.UI.Xaml.DebugSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DependencyObject>{ L"Windows.UI.Xaml.DependencyObject" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DependencyObjectCollection>{ L"Windows.UI.Xaml.DependencyObjectCollection" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DependencyProperty>{ L"Windows.UI.Xaml.DependencyProperty" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DependencyPropertyChangedEventArgs>{ L"Windows.UI.Xaml.DependencyPropertyChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DispatcherTimer>{ L"Windows.UI.Xaml.DispatcherTimer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DragEventArgs>{ L"Windows.UI.Xaml.DragEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DragOperationDeferral>{ L"Windows.UI.Xaml.DragOperationDeferral" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DragStartingEventArgs>{ L"Windows.UI.Xaml.DragStartingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DragUI>{ L"Windows.UI.Xaml.DragUI" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DragUIOverride>{ L"Windows.UI.Xaml.DragUIOverride" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DropCompletedEventArgs>{ L"Windows.UI.Xaml.DropCompletedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DurationHelper>{ L"Windows.UI.Xaml.DurationHelper" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::EffectiveViewportChangedEventArgs>{ L"Windows.UI.Xaml.EffectiveViewportChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ElementFactoryGetArgs>{ L"Windows.UI.Xaml.ElementFactoryGetArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ElementFactoryRecycleArgs>{ L"Windows.UI.Xaml.ElementFactoryRecycleArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ElementSoundPlayer>{ L"Windows.UI.Xaml.ElementSoundPlayer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::EventTrigger>{ L"Windows.UI.Xaml.EventTrigger" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ExceptionRoutedEventArgs>{ L"Windows.UI.Xaml.ExceptionRoutedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::FrameworkElement>{ L"Windows.UI.Xaml.FrameworkElement" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::FrameworkTemplate>{ L"Windows.UI.Xaml.FrameworkTemplate" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::FrameworkView>{ L"Windows.UI.Xaml.FrameworkView" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::FrameworkViewSource>{ L"Windows.UI.Xaml.FrameworkViewSource" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::GridLengthHelper>{ L"Windows.UI.Xaml.GridLengthHelper" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::MediaFailedRoutedEventArgs>{ L"Windows.UI.Xaml.MediaFailedRoutedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::PointHelper>{ L"Windows.UI.Xaml.PointHelper" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::PropertyMetadata>{ L"Windows.UI.Xaml.PropertyMetadata" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::PropertyPath>{ L"Windows.UI.Xaml.PropertyPath" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::RectHelper>{ L"Windows.UI.Xaml.RectHelper" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ResourceDictionary>{ L"Windows.UI.Xaml.ResourceDictionary" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::RoutedEvent>{ L"Windows.UI.Xaml.RoutedEvent" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::RoutedEventArgs>{ L"Windows.UI.Xaml.RoutedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ScalarTransition>{ L"Windows.UI.Xaml.ScalarTransition" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Setter>{ L"Windows.UI.Xaml.Setter" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::SetterBase>{ L"Windows.UI.Xaml.SetterBase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::SetterBaseCollection>{ L"Windows.UI.Xaml.SetterBaseCollection" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::SizeChangedEventArgs>{ L"Windows.UI.Xaml.SizeChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::SizeHelper>{ L"Windows.UI.Xaml.SizeHelper" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::StateTrigger>{ L"Windows.UI.Xaml.StateTrigger" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::StateTriggerBase>{ L"Windows.UI.Xaml.StateTriggerBase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Style>{ L"Windows.UI.Xaml.Style" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::TargetPropertyPath>{ L"Windows.UI.Xaml.TargetPropertyPath" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ThicknessHelper>{ L"Windows.UI.Xaml.ThicknessHelper" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::TriggerAction>{ L"Windows.UI.Xaml.TriggerAction" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::TriggerActionCollection>{ L"Windows.UI.Xaml.TriggerActionCollection" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::TriggerBase>{ L"Windows.UI.Xaml.TriggerBase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::TriggerCollection>{ L"Windows.UI.Xaml.TriggerCollection" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::UIElement>{ L"Windows.UI.Xaml.UIElement" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::UIElementWeakCollection>{ L"Windows.UI.Xaml.UIElementWeakCollection" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::UnhandledExceptionEventArgs>{ L"Windows.UI.Xaml.UnhandledExceptionEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Vector3Transition>{ L"Windows.UI.Xaml.Vector3Transition" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::VisualState>{ L"Windows.UI.Xaml.VisualState" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::VisualStateChangedEventArgs>{ L"Windows.UI.Xaml.VisualStateChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::VisualStateGroup>{ L"Windows.UI.Xaml.VisualStateGroup" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::VisualStateManager>{ L"Windows.UI.Xaml.VisualStateManager" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::VisualTransition>{ L"Windows.UI.Xaml.VisualTransition" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Window>{ L"Windows.UI.Xaml.Window" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::WindowCreatedEventArgs>{ L"Windows.UI.Xaml.WindowCreatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::XamlRoot>{ L"Windows.UI.Xaml.XamlRoot" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::XamlRootChangedEventArgs>{ L"Windows.UI.Xaml.XamlRootChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ApplicationHighContrastAdjustment>{ L"Windows.UI.Xaml.ApplicationHighContrastAdjustment" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ApplicationRequiresPointerMode>{ L"Windows.UI.Xaml.ApplicationRequiresPointerMode" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ApplicationTheme>{ L"Windows.UI.Xaml.ApplicationTheme" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::AutomationTextAttributesEnum>{ L"Windows.UI.Xaml.AutomationTextAttributesEnum" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DurationType>{ L"Windows.UI.Xaml.DurationType" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ElementHighContrastAdjustment>{ L"Windows.UI.Xaml.ElementHighContrastAdjustment" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ElementSoundKind>{ L"Windows.UI.Xaml.ElementSoundKind" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ElementSoundMode>{ L"Windows.UI.Xaml.ElementSoundMode" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ElementSoundPlayerState>{ L"Windows.UI.Xaml.ElementSoundPlayerState" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ElementSpatialAudioMode>{ L"Windows.UI.Xaml.ElementSpatialAudioMode" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ElementTheme>{ L"Windows.UI.Xaml.ElementTheme" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::FlowDirection>{ L"Windows.UI.Xaml.FlowDirection" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::FocusState>{ L"Windows.UI.Xaml.FocusState" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::FocusVisualKind>{ L"Windows.UI.Xaml.FocusVisualKind" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::FontCapitals>{ L"Windows.UI.Xaml.FontCapitals" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::FontEastAsianLanguage>{ L"Windows.UI.Xaml.FontEastAsianLanguage" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::FontEastAsianWidths>{ L"Windows.UI.Xaml.FontEastAsianWidths" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::FontFraction>{ L"Windows.UI.Xaml.FontFraction" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::FontNumeralAlignment>{ L"Windows.UI.Xaml.FontNumeralAlignment" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::FontNumeralStyle>{ L"Windows.UI.Xaml.FontNumeralStyle" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::FontVariants>{ L"Windows.UI.Xaml.FontVariants" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::GridUnitType>{ L"Windows.UI.Xaml.GridUnitType" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::HorizontalAlignment>{ L"Windows.UI.Xaml.HorizontalAlignment" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::LineStackingStrategy>{ L"Windows.UI.Xaml.LineStackingStrategy" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::OpticalMarginAlignment>{ L"Windows.UI.Xaml.OpticalMarginAlignment" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::TextAlignment>{ L"Windows.UI.Xaml.TextAlignment" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::TextLineBounds>{ L"Windows.UI.Xaml.TextLineBounds" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::TextReadingOrder>{ L"Windows.UI.Xaml.TextReadingOrder" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::TextTrimming>{ L"Windows.UI.Xaml.TextTrimming" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::TextWrapping>{ L"Windows.UI.Xaml.TextWrapping" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Vector3TransitionComponents>{ L"Windows.UI.Xaml.Vector3TransitionComponents" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::VerticalAlignment>{ L"Windows.UI.Xaml.VerticalAlignment" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Visibility>{ L"Windows.UI.Xaml.Visibility" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::CornerRadius>{ L"Windows.UI.Xaml.CornerRadius" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Duration>{ L"Windows.UI.Xaml.Duration" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::GridLength>{ L"Windows.UI.Xaml.GridLength" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Thickness>{ L"Windows.UI.Xaml.Thickness" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IAdaptiveTrigger>{ L"Windows.UI.Xaml.IAdaptiveTrigger" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IAdaptiveTriggerFactory>{ L"Windows.UI.Xaml.IAdaptiveTriggerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IAdaptiveTriggerStatics>{ L"Windows.UI.Xaml.IAdaptiveTriggerStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IApplication>{ L"Windows.UI.Xaml.IApplication" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IApplication2>{ L"Windows.UI.Xaml.IApplication2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IApplication3>{ L"Windows.UI.Xaml.IApplication3" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IApplicationFactory>{ L"Windows.UI.Xaml.IApplicationFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IApplicationInitializationCallbackParams>{ L"Windows.UI.Xaml.IApplicationInitializationCallbackParams" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IApplicationOverrides>{ L"Windows.UI.Xaml.IApplicationOverrides" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IApplicationOverrides2>{ L"Windows.UI.Xaml.IApplicationOverrides2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IApplicationStatics>{ L"Windows.UI.Xaml.IApplicationStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IBindingFailedEventArgs>{ L"Windows.UI.Xaml.IBindingFailedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IBringIntoViewOptions>{ L"Windows.UI.Xaml.IBringIntoViewOptions" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IBringIntoViewOptions2>{ L"Windows.UI.Xaml.IBringIntoViewOptions2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IBringIntoViewRequestedEventArgs>{ L"Windows.UI.Xaml.IBringIntoViewRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IBrushTransition>{ L"Windows.UI.Xaml.IBrushTransition" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IBrushTransitionFactory>{ L"Windows.UI.Xaml.IBrushTransitionFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IColorPaletteResources>{ L"Windows.UI.Xaml.IColorPaletteResources" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IColorPaletteResourcesFactory>{ L"Windows.UI.Xaml.IColorPaletteResourcesFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ICornerRadiusHelper>{ L"Windows.UI.Xaml.ICornerRadiusHelper" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ICornerRadiusHelperStatics>{ L"Windows.UI.Xaml.ICornerRadiusHelperStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDataContextChangedEventArgs>{ L"Windows.UI.Xaml.IDataContextChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDataTemplate>{ L"Windows.UI.Xaml.IDataTemplate" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDataTemplateExtension>{ L"Windows.UI.Xaml.IDataTemplateExtension" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDataTemplateFactory>{ L"Windows.UI.Xaml.IDataTemplateFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDataTemplateKey>{ L"Windows.UI.Xaml.IDataTemplateKey" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDataTemplateKeyFactory>{ L"Windows.UI.Xaml.IDataTemplateKeyFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDataTemplateStatics2>{ L"Windows.UI.Xaml.IDataTemplateStatics2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDebugSettings>{ L"Windows.UI.Xaml.IDebugSettings" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDebugSettings2>{ L"Windows.UI.Xaml.IDebugSettings2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDebugSettings3>{ L"Windows.UI.Xaml.IDebugSettings3" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDebugSettings4>{ L"Windows.UI.Xaml.IDebugSettings4" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDependencyObject>{ L"Windows.UI.Xaml.IDependencyObject" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDependencyObject2>{ L"Windows.UI.Xaml.IDependencyObject2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDependencyObjectCollectionFactory>{ L"Windows.UI.Xaml.IDependencyObjectCollectionFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDependencyObjectFactory>{ L"Windows.UI.Xaml.IDependencyObjectFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDependencyProperty>{ L"Windows.UI.Xaml.IDependencyProperty" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDependencyPropertyChangedEventArgs>{ L"Windows.UI.Xaml.IDependencyPropertyChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDependencyPropertyStatics>{ L"Windows.UI.Xaml.IDependencyPropertyStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDispatcherTimer>{ L"Windows.UI.Xaml.IDispatcherTimer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDispatcherTimerFactory>{ L"Windows.UI.Xaml.IDispatcherTimerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDragEventArgs>{ L"Windows.UI.Xaml.IDragEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDragEventArgs2>{ L"Windows.UI.Xaml.IDragEventArgs2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDragEventArgs3>{ L"Windows.UI.Xaml.IDragEventArgs3" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDragOperationDeferral>{ L"Windows.UI.Xaml.IDragOperationDeferral" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDragStartingEventArgs>{ L"Windows.UI.Xaml.IDragStartingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDragStartingEventArgs2>{ L"Windows.UI.Xaml.IDragStartingEventArgs2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDragUI>{ L"Windows.UI.Xaml.IDragUI" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDragUIOverride>{ L"Windows.UI.Xaml.IDragUIOverride" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDropCompletedEventArgs>{ L"Windows.UI.Xaml.IDropCompletedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDurationHelper>{ L"Windows.UI.Xaml.IDurationHelper" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDurationHelperStatics>{ L"Windows.UI.Xaml.IDurationHelperStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IEffectiveViewportChangedEventArgs>{ L"Windows.UI.Xaml.IEffectiveViewportChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IElementFactory>{ L"Windows.UI.Xaml.IElementFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IElementFactoryGetArgs>{ L"Windows.UI.Xaml.IElementFactoryGetArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IElementFactoryGetArgsFactory>{ L"Windows.UI.Xaml.IElementFactoryGetArgsFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IElementFactoryRecycleArgs>{ L"Windows.UI.Xaml.IElementFactoryRecycleArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IElementFactoryRecycleArgsFactory>{ L"Windows.UI.Xaml.IElementFactoryRecycleArgsFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IElementSoundPlayer>{ L"Windows.UI.Xaml.IElementSoundPlayer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IElementSoundPlayerStatics>{ L"Windows.UI.Xaml.IElementSoundPlayerStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IElementSoundPlayerStatics2>{ L"Windows.UI.Xaml.IElementSoundPlayerStatics2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IEventTrigger>{ L"Windows.UI.Xaml.IEventTrigger" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IExceptionRoutedEventArgs>{ L"Windows.UI.Xaml.IExceptionRoutedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IExceptionRoutedEventArgsFactory>{ L"Windows.UI.Xaml.IExceptionRoutedEventArgsFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkElement>{ L"Windows.UI.Xaml.IFrameworkElement" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkElement2>{ L"Windows.UI.Xaml.IFrameworkElement2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkElement3>{ L"Windows.UI.Xaml.IFrameworkElement3" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkElement4>{ L"Windows.UI.Xaml.IFrameworkElement4" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkElement6>{ L"Windows.UI.Xaml.IFrameworkElement6" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkElement7>{ L"Windows.UI.Xaml.IFrameworkElement7" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkElementFactory>{ L"Windows.UI.Xaml.IFrameworkElementFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkElementOverrides>{ L"Windows.UI.Xaml.IFrameworkElementOverrides" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkElementOverrides2>{ L"Windows.UI.Xaml.IFrameworkElementOverrides2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkElementProtected7>{ L"Windows.UI.Xaml.IFrameworkElementProtected7" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkElementStatics>{ L"Windows.UI.Xaml.IFrameworkElementStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkElementStatics2>{ L"Windows.UI.Xaml.IFrameworkElementStatics2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkElementStatics4>{ L"Windows.UI.Xaml.IFrameworkElementStatics4" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkElementStatics5>{ L"Windows.UI.Xaml.IFrameworkElementStatics5" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkElementStatics6>{ L"Windows.UI.Xaml.IFrameworkElementStatics6" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkTemplate>{ L"Windows.UI.Xaml.IFrameworkTemplate" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkTemplateFactory>{ L"Windows.UI.Xaml.IFrameworkTemplateFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkView>{ L"Windows.UI.Xaml.IFrameworkView" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkViewSource>{ L"Windows.UI.Xaml.IFrameworkViewSource" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IGridLengthHelper>{ L"Windows.UI.Xaml.IGridLengthHelper" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IGridLengthHelperStatics>{ L"Windows.UI.Xaml.IGridLengthHelperStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IMediaFailedRoutedEventArgs>{ L"Windows.UI.Xaml.IMediaFailedRoutedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IPointHelper>{ L"Windows.UI.Xaml.IPointHelper" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IPointHelperStatics>{ L"Windows.UI.Xaml.IPointHelperStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IPropertyMetadata>{ L"Windows.UI.Xaml.IPropertyMetadata" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IPropertyMetadataFactory>{ L"Windows.UI.Xaml.IPropertyMetadataFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IPropertyMetadataStatics>{ L"Windows.UI.Xaml.IPropertyMetadataStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IPropertyPath>{ L"Windows.UI.Xaml.IPropertyPath" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IPropertyPathFactory>{ L"Windows.UI.Xaml.IPropertyPathFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IRectHelper>{ L"Windows.UI.Xaml.IRectHelper" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IRectHelperStatics>{ L"Windows.UI.Xaml.IRectHelperStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IResourceDictionary>{ L"Windows.UI.Xaml.IResourceDictionary" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IResourceDictionaryFactory>{ L"Windows.UI.Xaml.IResourceDictionaryFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IRoutedEvent>{ L"Windows.UI.Xaml.IRoutedEvent" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IRoutedEventArgs>{ L"Windows.UI.Xaml.IRoutedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IRoutedEventArgsFactory>{ L"Windows.UI.Xaml.IRoutedEventArgsFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IScalarTransition>{ L"Windows.UI.Xaml.IScalarTransition" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IScalarTransitionFactory>{ L"Windows.UI.Xaml.IScalarTransitionFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ISetter>{ L"Windows.UI.Xaml.ISetter" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ISetter2>{ L"Windows.UI.Xaml.ISetter2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ISetterBase>{ L"Windows.UI.Xaml.ISetterBase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ISetterBaseCollection>{ L"Windows.UI.Xaml.ISetterBaseCollection" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ISetterBaseFactory>{ L"Windows.UI.Xaml.ISetterBaseFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ISetterFactory>{ L"Windows.UI.Xaml.ISetterFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ISizeChangedEventArgs>{ L"Windows.UI.Xaml.ISizeChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ISizeHelper>{ L"Windows.UI.Xaml.ISizeHelper" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ISizeHelperStatics>{ L"Windows.UI.Xaml.ISizeHelperStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IStateTrigger>{ L"Windows.UI.Xaml.IStateTrigger" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IStateTriggerBase>{ L"Windows.UI.Xaml.IStateTriggerBase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IStateTriggerBaseFactory>{ L"Windows.UI.Xaml.IStateTriggerBaseFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IStateTriggerBaseProtected>{ L"Windows.UI.Xaml.IStateTriggerBaseProtected" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IStateTriggerStatics>{ L"Windows.UI.Xaml.IStateTriggerStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IStyle>{ L"Windows.UI.Xaml.IStyle" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IStyleFactory>{ L"Windows.UI.Xaml.IStyleFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ITargetPropertyPath>{ L"Windows.UI.Xaml.ITargetPropertyPath" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ITargetPropertyPathFactory>{ L"Windows.UI.Xaml.ITargetPropertyPathFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IThicknessHelper>{ L"Windows.UI.Xaml.IThicknessHelper" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IThicknessHelperStatics>{ L"Windows.UI.Xaml.IThicknessHelperStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ITriggerAction>{ L"Windows.UI.Xaml.ITriggerAction" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ITriggerActionFactory>{ L"Windows.UI.Xaml.ITriggerActionFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ITriggerBase>{ L"Windows.UI.Xaml.ITriggerBase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ITriggerBaseFactory>{ L"Windows.UI.Xaml.ITriggerBaseFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElement>{ L"Windows.UI.Xaml.IUIElement" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElement10>{ L"Windows.UI.Xaml.IUIElement10" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElement2>{ L"Windows.UI.Xaml.IUIElement2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElement3>{ L"Windows.UI.Xaml.IUIElement3" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElement4>{ L"Windows.UI.Xaml.IUIElement4" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElement5>{ L"Windows.UI.Xaml.IUIElement5" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElement7>{ L"Windows.UI.Xaml.IUIElement7" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElement8>{ L"Windows.UI.Xaml.IUIElement8" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElement9>{ L"Windows.UI.Xaml.IUIElement9" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementFactory>{ L"Windows.UI.Xaml.IUIElementFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementOverrides>{ L"Windows.UI.Xaml.IUIElementOverrides" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementOverrides7>{ L"Windows.UI.Xaml.IUIElementOverrides7" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementOverrides8>{ L"Windows.UI.Xaml.IUIElementOverrides8" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementOverrides9>{ L"Windows.UI.Xaml.IUIElementOverrides9" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementStatics>{ L"Windows.UI.Xaml.IUIElementStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementStatics10>{ L"Windows.UI.Xaml.IUIElementStatics10" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementStatics2>{ L"Windows.UI.Xaml.IUIElementStatics2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementStatics3>{ L"Windows.UI.Xaml.IUIElementStatics3" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementStatics4>{ L"Windows.UI.Xaml.IUIElementStatics4" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementStatics5>{ L"Windows.UI.Xaml.IUIElementStatics5" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementStatics6>{ L"Windows.UI.Xaml.IUIElementStatics6" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementStatics7>{ L"Windows.UI.Xaml.IUIElementStatics7" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementStatics8>{ L"Windows.UI.Xaml.IUIElementStatics8" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementStatics9>{ L"Windows.UI.Xaml.IUIElementStatics9" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementWeakCollection>{ L"Windows.UI.Xaml.IUIElementWeakCollection" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementWeakCollectionFactory>{ L"Windows.UI.Xaml.IUIElementWeakCollectionFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUnhandledExceptionEventArgs>{ L"Windows.UI.Xaml.IUnhandledExceptionEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IVector3Transition>{ L"Windows.UI.Xaml.IVector3Transition" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IVector3TransitionFactory>{ L"Windows.UI.Xaml.IVector3TransitionFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IVisualState>{ L"Windows.UI.Xaml.IVisualState" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IVisualState2>{ L"Windows.UI.Xaml.IVisualState2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IVisualStateChangedEventArgs>{ L"Windows.UI.Xaml.IVisualStateChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IVisualStateGroup>{ L"Windows.UI.Xaml.IVisualStateGroup" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IVisualStateManager>{ L"Windows.UI.Xaml.IVisualStateManager" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IVisualStateManagerFactory>{ L"Windows.UI.Xaml.IVisualStateManagerFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IVisualStateManagerOverrides>{ L"Windows.UI.Xaml.IVisualStateManagerOverrides" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IVisualStateManagerProtected>{ L"Windows.UI.Xaml.IVisualStateManagerProtected" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IVisualStateManagerStatics>{ L"Windows.UI.Xaml.IVisualStateManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IVisualTransition>{ L"Windows.UI.Xaml.IVisualTransition" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IVisualTransitionFactory>{ L"Windows.UI.Xaml.IVisualTransitionFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IWindow>{ L"Windows.UI.Xaml.IWindow" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IWindow2>{ L"Windows.UI.Xaml.IWindow2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IWindow3>{ L"Windows.UI.Xaml.IWindow3" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IWindow4>{ L"Windows.UI.Xaml.IWindow4" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IWindowCreatedEventArgs>{ L"Windows.UI.Xaml.IWindowCreatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IWindowStatics>{ L"Windows.UI.Xaml.IWindowStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IXamlRoot>{ L"Windows.UI.Xaml.IXamlRoot" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IXamlRootChangedEventArgs>{ L"Windows.UI.Xaml.IXamlRootChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ApplicationInitializationCallback>{ L"Windows.UI.Xaml.ApplicationInitializationCallback" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::BindingFailedEventHandler>{ L"Windows.UI.Xaml.BindingFailedEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::CreateDefaultValueCallback>{ L"Windows.UI.Xaml.CreateDefaultValueCallback" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DependencyPropertyChangedCallback>{ L"Windows.UI.Xaml.DependencyPropertyChangedCallback" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DependencyPropertyChangedEventHandler>{ L"Windows.UI.Xaml.DependencyPropertyChangedEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DragEventHandler>{ L"Windows.UI.Xaml.DragEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::EnteredBackgroundEventHandler>{ L"Windows.UI.Xaml.EnteredBackgroundEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ExceptionRoutedEventHandler>{ L"Windows.UI.Xaml.ExceptionRoutedEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::LeavingBackgroundEventHandler>{ L"Windows.UI.Xaml.LeavingBackgroundEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::PropertyChangedCallback>{ L"Windows.UI.Xaml.PropertyChangedCallback" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::RoutedEventHandler>{ L"Windows.UI.Xaml.RoutedEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::SizeChangedEventHandler>{ L"Windows.UI.Xaml.SizeChangedEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::SuspendingEventHandler>{ L"Windows.UI.Xaml.SuspendingEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::UnhandledExceptionEventHandler>{ L"Windows.UI.Xaml.UnhandledExceptionEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::VisualStateChangedEventHandler>{ L"Windows.UI.Xaml.VisualStateChangedEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::WindowActivatedEventHandler>{ L"Windows.UI.Xaml.WindowActivatedEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::WindowClosedEventHandler>{ L"Windows.UI.Xaml.WindowClosedEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::WindowSizeChangedEventHandler>{ L"Windows.UI.Xaml.WindowSizeChangedEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::WindowVisibilityChangedEventHandler>{ L"Windows.UI.Xaml.WindowVisibilityChangedEventHandler" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::AdaptiveTrigger> = L"Windows.UI.Xaml.AdaptiveTrigger";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Application> = L"Windows.UI.Xaml.Application";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ApplicationInitializationCallbackParams> = L"Windows.UI.Xaml.ApplicationInitializationCallbackParams";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::BindingFailedEventArgs> = L"Windows.UI.Xaml.BindingFailedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::BringIntoViewOptions> = L"Windows.UI.Xaml.BringIntoViewOptions";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::BringIntoViewRequestedEventArgs> = L"Windows.UI.Xaml.BringIntoViewRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::BrushTransition> = L"Windows.UI.Xaml.BrushTransition";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ColorPaletteResources> = L"Windows.UI.Xaml.ColorPaletteResources";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::CornerRadiusHelper> = L"Windows.UI.Xaml.CornerRadiusHelper";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DataContextChangedEventArgs> = L"Windows.UI.Xaml.DataContextChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DataTemplate> = L"Windows.UI.Xaml.DataTemplate";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DataTemplateKey> = L"Windows.UI.Xaml.DataTemplateKey";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DebugSettings> = L"Windows.UI.Xaml.DebugSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DependencyObject> = L"Windows.UI.Xaml.DependencyObject";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DependencyObjectCollection> = L"Windows.UI.Xaml.DependencyObjectCollection";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DependencyProperty> = L"Windows.UI.Xaml.DependencyProperty";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DependencyPropertyChangedEventArgs> = L"Windows.UI.Xaml.DependencyPropertyChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DispatcherTimer> = L"Windows.UI.Xaml.DispatcherTimer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DragEventArgs> = L"Windows.UI.Xaml.DragEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DragOperationDeferral> = L"Windows.UI.Xaml.DragOperationDeferral";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DragStartingEventArgs> = L"Windows.UI.Xaml.DragStartingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DragUI> = L"Windows.UI.Xaml.DragUI";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DragUIOverride> = L"Windows.UI.Xaml.DragUIOverride";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DropCompletedEventArgs> = L"Windows.UI.Xaml.DropCompletedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DurationHelper> = L"Windows.UI.Xaml.DurationHelper";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::EffectiveViewportChangedEventArgs> = L"Windows.UI.Xaml.EffectiveViewportChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ElementFactoryGetArgs> = L"Windows.UI.Xaml.ElementFactoryGetArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ElementFactoryRecycleArgs> = L"Windows.UI.Xaml.ElementFactoryRecycleArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ElementSoundPlayer> = L"Windows.UI.Xaml.ElementSoundPlayer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::EventTrigger> = L"Windows.UI.Xaml.EventTrigger";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ExceptionRoutedEventArgs> = L"Windows.UI.Xaml.ExceptionRoutedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::FrameworkElement> = L"Windows.UI.Xaml.FrameworkElement";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::FrameworkTemplate> = L"Windows.UI.Xaml.FrameworkTemplate";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::FrameworkView> = L"Windows.UI.Xaml.FrameworkView";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::FrameworkViewSource> = L"Windows.UI.Xaml.FrameworkViewSource";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::GridLengthHelper> = L"Windows.UI.Xaml.GridLengthHelper";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::MediaFailedRoutedEventArgs> = L"Windows.UI.Xaml.MediaFailedRoutedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::PointHelper> = L"Windows.UI.Xaml.PointHelper";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::PropertyMetadata> = L"Windows.UI.Xaml.PropertyMetadata";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::PropertyPath> = L"Windows.UI.Xaml.PropertyPath";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::RectHelper> = L"Windows.UI.Xaml.RectHelper";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ResourceDictionary> = L"Windows.UI.Xaml.ResourceDictionary";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::RoutedEvent> = L"Windows.UI.Xaml.RoutedEvent";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::RoutedEventArgs> = L"Windows.UI.Xaml.RoutedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ScalarTransition> = L"Windows.UI.Xaml.ScalarTransition";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Setter> = L"Windows.UI.Xaml.Setter";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::SetterBase> = L"Windows.UI.Xaml.SetterBase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::SetterBaseCollection> = L"Windows.UI.Xaml.SetterBaseCollection";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::SizeChangedEventArgs> = L"Windows.UI.Xaml.SizeChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::SizeHelper> = L"Windows.UI.Xaml.SizeHelper";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::StateTrigger> = L"Windows.UI.Xaml.StateTrigger";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::StateTriggerBase> = L"Windows.UI.Xaml.StateTriggerBase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Style> = L"Windows.UI.Xaml.Style";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::TargetPropertyPath> = L"Windows.UI.Xaml.TargetPropertyPath";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ThicknessHelper> = L"Windows.UI.Xaml.ThicknessHelper";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::TriggerAction> = L"Windows.UI.Xaml.TriggerAction";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::TriggerActionCollection> = L"Windows.UI.Xaml.TriggerActionCollection";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::TriggerBase> = L"Windows.UI.Xaml.TriggerBase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::TriggerCollection> = L"Windows.UI.Xaml.TriggerCollection";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::UIElement> = L"Windows.UI.Xaml.UIElement";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::UIElementWeakCollection> = L"Windows.UI.Xaml.UIElementWeakCollection";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::UnhandledExceptionEventArgs> = L"Windows.UI.Xaml.UnhandledExceptionEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Vector3Transition> = L"Windows.UI.Xaml.Vector3Transition";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::VisualState> = L"Windows.UI.Xaml.VisualState";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::VisualStateChangedEventArgs> = L"Windows.UI.Xaml.VisualStateChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::VisualStateGroup> = L"Windows.UI.Xaml.VisualStateGroup";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::VisualStateManager> = L"Windows.UI.Xaml.VisualStateManager";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::VisualTransition> = L"Windows.UI.Xaml.VisualTransition";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Window> = L"Windows.UI.Xaml.Window";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::WindowCreatedEventArgs> = L"Windows.UI.Xaml.WindowCreatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::XamlRoot> = L"Windows.UI.Xaml.XamlRoot";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::XamlRootChangedEventArgs> = L"Windows.UI.Xaml.XamlRootChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ApplicationHighContrastAdjustment> = L"Windows.UI.Xaml.ApplicationHighContrastAdjustment";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ApplicationRequiresPointerMode> = L"Windows.UI.Xaml.ApplicationRequiresPointerMode";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ApplicationTheme> = L"Windows.UI.Xaml.ApplicationTheme";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::AutomationTextAttributesEnum> = L"Windows.UI.Xaml.AutomationTextAttributesEnum";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DurationType> = L"Windows.UI.Xaml.DurationType";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ElementHighContrastAdjustment> = L"Windows.UI.Xaml.ElementHighContrastAdjustment";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ElementSoundKind> = L"Windows.UI.Xaml.ElementSoundKind";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ElementSoundMode> = L"Windows.UI.Xaml.ElementSoundMode";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ElementSoundPlayerState> = L"Windows.UI.Xaml.ElementSoundPlayerState";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ElementSpatialAudioMode> = L"Windows.UI.Xaml.ElementSpatialAudioMode";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ElementTheme> = L"Windows.UI.Xaml.ElementTheme";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::FlowDirection> = L"Windows.UI.Xaml.FlowDirection";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::FocusState> = L"Windows.UI.Xaml.FocusState";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::FocusVisualKind> = L"Windows.UI.Xaml.FocusVisualKind";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::FontCapitals> = L"Windows.UI.Xaml.FontCapitals";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::FontEastAsianLanguage> = L"Windows.UI.Xaml.FontEastAsianLanguage";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::FontEastAsianWidths> = L"Windows.UI.Xaml.FontEastAsianWidths";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::FontFraction> = L"Windows.UI.Xaml.FontFraction";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::FontNumeralAlignment> = L"Windows.UI.Xaml.FontNumeralAlignment";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::FontNumeralStyle> = L"Windows.UI.Xaml.FontNumeralStyle";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::FontVariants> = L"Windows.UI.Xaml.FontVariants";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::GridUnitType> = L"Windows.UI.Xaml.GridUnitType";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::HorizontalAlignment> = L"Windows.UI.Xaml.HorizontalAlignment";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::LineStackingStrategy> = L"Windows.UI.Xaml.LineStackingStrategy";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::OpticalMarginAlignment> = L"Windows.UI.Xaml.OpticalMarginAlignment";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::TextAlignment> = L"Windows.UI.Xaml.TextAlignment";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::TextLineBounds> = L"Windows.UI.Xaml.TextLineBounds";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::TextReadingOrder> = L"Windows.UI.Xaml.TextReadingOrder";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::TextTrimming> = L"Windows.UI.Xaml.TextTrimming";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::TextWrapping> = L"Windows.UI.Xaml.TextWrapping";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Vector3TransitionComponents> = L"Windows.UI.Xaml.Vector3TransitionComponents";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::VerticalAlignment> = L"Windows.UI.Xaml.VerticalAlignment";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Visibility> = L"Windows.UI.Xaml.Visibility";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::CornerRadius> = L"Windows.UI.Xaml.CornerRadius";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Duration> = L"Windows.UI.Xaml.Duration";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::GridLength> = L"Windows.UI.Xaml.GridLength";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Thickness> = L"Windows.UI.Xaml.Thickness";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IAdaptiveTrigger> = L"Windows.UI.Xaml.IAdaptiveTrigger";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IAdaptiveTriggerFactory> = L"Windows.UI.Xaml.IAdaptiveTriggerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IAdaptiveTriggerStatics> = L"Windows.UI.Xaml.IAdaptiveTriggerStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IApplication> = L"Windows.UI.Xaml.IApplication";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IApplication2> = L"Windows.UI.Xaml.IApplication2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IApplication3> = L"Windows.UI.Xaml.IApplication3";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IApplicationFactory> = L"Windows.UI.Xaml.IApplicationFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IApplicationInitializationCallbackParams> = L"Windows.UI.Xaml.IApplicationInitializationCallbackParams";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IApplicationOverrides> = L"Windows.UI.Xaml.IApplicationOverrides";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IApplicationOverrides2> = L"Windows.UI.Xaml.IApplicationOverrides2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IApplicationStatics> = L"Windows.UI.Xaml.IApplicationStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IBindingFailedEventArgs> = L"Windows.UI.Xaml.IBindingFailedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IBringIntoViewOptions> = L"Windows.UI.Xaml.IBringIntoViewOptions";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IBringIntoViewOptions2> = L"Windows.UI.Xaml.IBringIntoViewOptions2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IBringIntoViewRequestedEventArgs> = L"Windows.UI.Xaml.IBringIntoViewRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IBrushTransition> = L"Windows.UI.Xaml.IBrushTransition";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IBrushTransitionFactory> = L"Windows.UI.Xaml.IBrushTransitionFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IColorPaletteResources> = L"Windows.UI.Xaml.IColorPaletteResources";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IColorPaletteResourcesFactory> = L"Windows.UI.Xaml.IColorPaletteResourcesFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ICornerRadiusHelper> = L"Windows.UI.Xaml.ICornerRadiusHelper";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ICornerRadiusHelperStatics> = L"Windows.UI.Xaml.ICornerRadiusHelperStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDataContextChangedEventArgs> = L"Windows.UI.Xaml.IDataContextChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDataTemplate> = L"Windows.UI.Xaml.IDataTemplate";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDataTemplateExtension> = L"Windows.UI.Xaml.IDataTemplateExtension";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDataTemplateFactory> = L"Windows.UI.Xaml.IDataTemplateFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDataTemplateKey> = L"Windows.UI.Xaml.IDataTemplateKey";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDataTemplateKeyFactory> = L"Windows.UI.Xaml.IDataTemplateKeyFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDataTemplateStatics2> = L"Windows.UI.Xaml.IDataTemplateStatics2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDebugSettings> = L"Windows.UI.Xaml.IDebugSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDebugSettings2> = L"Windows.UI.Xaml.IDebugSettings2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDebugSettings3> = L"Windows.UI.Xaml.IDebugSettings3";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDebugSettings4> = L"Windows.UI.Xaml.IDebugSettings4";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDependencyObject> = L"Windows.UI.Xaml.IDependencyObject";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDependencyObject2> = L"Windows.UI.Xaml.IDependencyObject2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDependencyObjectCollectionFactory> = L"Windows.UI.Xaml.IDependencyObjectCollectionFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDependencyObjectFactory> = L"Windows.UI.Xaml.IDependencyObjectFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDependencyProperty> = L"Windows.UI.Xaml.IDependencyProperty";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDependencyPropertyChangedEventArgs> = L"Windows.UI.Xaml.IDependencyPropertyChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDependencyPropertyStatics> = L"Windows.UI.Xaml.IDependencyPropertyStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDispatcherTimer> = L"Windows.UI.Xaml.IDispatcherTimer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDispatcherTimerFactory> = L"Windows.UI.Xaml.IDispatcherTimerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDragEventArgs> = L"Windows.UI.Xaml.IDragEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDragEventArgs2> = L"Windows.UI.Xaml.IDragEventArgs2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDragEventArgs3> = L"Windows.UI.Xaml.IDragEventArgs3";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDragOperationDeferral> = L"Windows.UI.Xaml.IDragOperationDeferral";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDragStartingEventArgs> = L"Windows.UI.Xaml.IDragStartingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDragStartingEventArgs2> = L"Windows.UI.Xaml.IDragStartingEventArgs2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDragUI> = L"Windows.UI.Xaml.IDragUI";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDragUIOverride> = L"Windows.UI.Xaml.IDragUIOverride";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDropCompletedEventArgs> = L"Windows.UI.Xaml.IDropCompletedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDurationHelper> = L"Windows.UI.Xaml.IDurationHelper";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IDurationHelperStatics> = L"Windows.UI.Xaml.IDurationHelperStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IEffectiveViewportChangedEventArgs> = L"Windows.UI.Xaml.IEffectiveViewportChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IElementFactory> = L"Windows.UI.Xaml.IElementFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IElementFactoryGetArgs> = L"Windows.UI.Xaml.IElementFactoryGetArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IElementFactoryGetArgsFactory> = L"Windows.UI.Xaml.IElementFactoryGetArgsFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IElementFactoryRecycleArgs> = L"Windows.UI.Xaml.IElementFactoryRecycleArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IElementFactoryRecycleArgsFactory> = L"Windows.UI.Xaml.IElementFactoryRecycleArgsFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IElementSoundPlayer> = L"Windows.UI.Xaml.IElementSoundPlayer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IElementSoundPlayerStatics> = L"Windows.UI.Xaml.IElementSoundPlayerStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IElementSoundPlayerStatics2> = L"Windows.UI.Xaml.IElementSoundPlayerStatics2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IEventTrigger> = L"Windows.UI.Xaml.IEventTrigger";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IExceptionRoutedEventArgs> = L"Windows.UI.Xaml.IExceptionRoutedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IExceptionRoutedEventArgsFactory> = L"Windows.UI.Xaml.IExceptionRoutedEventArgsFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkElement> = L"Windows.UI.Xaml.IFrameworkElement";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkElement2> = L"Windows.UI.Xaml.IFrameworkElement2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkElement3> = L"Windows.UI.Xaml.IFrameworkElement3";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkElement4> = L"Windows.UI.Xaml.IFrameworkElement4";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkElement6> = L"Windows.UI.Xaml.IFrameworkElement6";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkElement7> = L"Windows.UI.Xaml.IFrameworkElement7";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkElementFactory> = L"Windows.UI.Xaml.IFrameworkElementFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkElementOverrides> = L"Windows.UI.Xaml.IFrameworkElementOverrides";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkElementOverrides2> = L"Windows.UI.Xaml.IFrameworkElementOverrides2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkElementProtected7> = L"Windows.UI.Xaml.IFrameworkElementProtected7";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkElementStatics> = L"Windows.UI.Xaml.IFrameworkElementStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkElementStatics2> = L"Windows.UI.Xaml.IFrameworkElementStatics2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkElementStatics4> = L"Windows.UI.Xaml.IFrameworkElementStatics4";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkElementStatics5> = L"Windows.UI.Xaml.IFrameworkElementStatics5";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkElementStatics6> = L"Windows.UI.Xaml.IFrameworkElementStatics6";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkTemplate> = L"Windows.UI.Xaml.IFrameworkTemplate";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkTemplateFactory> = L"Windows.UI.Xaml.IFrameworkTemplateFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkView> = L"Windows.UI.Xaml.IFrameworkView";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IFrameworkViewSource> = L"Windows.UI.Xaml.IFrameworkViewSource";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IGridLengthHelper> = L"Windows.UI.Xaml.IGridLengthHelper";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IGridLengthHelperStatics> = L"Windows.UI.Xaml.IGridLengthHelperStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IMediaFailedRoutedEventArgs> = L"Windows.UI.Xaml.IMediaFailedRoutedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IPointHelper> = L"Windows.UI.Xaml.IPointHelper";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IPointHelperStatics> = L"Windows.UI.Xaml.IPointHelperStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IPropertyMetadata> = L"Windows.UI.Xaml.IPropertyMetadata";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IPropertyMetadataFactory> = L"Windows.UI.Xaml.IPropertyMetadataFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IPropertyMetadataStatics> = L"Windows.UI.Xaml.IPropertyMetadataStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IPropertyPath> = L"Windows.UI.Xaml.IPropertyPath";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IPropertyPathFactory> = L"Windows.UI.Xaml.IPropertyPathFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IRectHelper> = L"Windows.UI.Xaml.IRectHelper";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IRectHelperStatics> = L"Windows.UI.Xaml.IRectHelperStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IResourceDictionary> = L"Windows.UI.Xaml.IResourceDictionary";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IResourceDictionaryFactory> = L"Windows.UI.Xaml.IResourceDictionaryFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IRoutedEvent> = L"Windows.UI.Xaml.IRoutedEvent";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IRoutedEventArgs> = L"Windows.UI.Xaml.IRoutedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IRoutedEventArgsFactory> = L"Windows.UI.Xaml.IRoutedEventArgsFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IScalarTransition> = L"Windows.UI.Xaml.IScalarTransition";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IScalarTransitionFactory> = L"Windows.UI.Xaml.IScalarTransitionFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ISetter> = L"Windows.UI.Xaml.ISetter";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ISetter2> = L"Windows.UI.Xaml.ISetter2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ISetterBase> = L"Windows.UI.Xaml.ISetterBase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ISetterBaseCollection> = L"Windows.UI.Xaml.ISetterBaseCollection";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ISetterBaseFactory> = L"Windows.UI.Xaml.ISetterBaseFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ISetterFactory> = L"Windows.UI.Xaml.ISetterFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ISizeChangedEventArgs> = L"Windows.UI.Xaml.ISizeChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ISizeHelper> = L"Windows.UI.Xaml.ISizeHelper";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ISizeHelperStatics> = L"Windows.UI.Xaml.ISizeHelperStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IStateTrigger> = L"Windows.UI.Xaml.IStateTrigger";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IStateTriggerBase> = L"Windows.UI.Xaml.IStateTriggerBase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IStateTriggerBaseFactory> = L"Windows.UI.Xaml.IStateTriggerBaseFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IStateTriggerBaseProtected> = L"Windows.UI.Xaml.IStateTriggerBaseProtected";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IStateTriggerStatics> = L"Windows.UI.Xaml.IStateTriggerStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IStyle> = L"Windows.UI.Xaml.IStyle";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IStyleFactory> = L"Windows.UI.Xaml.IStyleFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ITargetPropertyPath> = L"Windows.UI.Xaml.ITargetPropertyPath";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ITargetPropertyPathFactory> = L"Windows.UI.Xaml.ITargetPropertyPathFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IThicknessHelper> = L"Windows.UI.Xaml.IThicknessHelper";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IThicknessHelperStatics> = L"Windows.UI.Xaml.IThicknessHelperStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ITriggerAction> = L"Windows.UI.Xaml.ITriggerAction";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ITriggerActionFactory> = L"Windows.UI.Xaml.ITriggerActionFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ITriggerBase> = L"Windows.UI.Xaml.ITriggerBase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ITriggerBaseFactory> = L"Windows.UI.Xaml.ITriggerBaseFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElement> = L"Windows.UI.Xaml.IUIElement";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElement10> = L"Windows.UI.Xaml.IUIElement10";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElement2> = L"Windows.UI.Xaml.IUIElement2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElement3> = L"Windows.UI.Xaml.IUIElement3";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElement4> = L"Windows.UI.Xaml.IUIElement4";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElement5> = L"Windows.UI.Xaml.IUIElement5";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElement7> = L"Windows.UI.Xaml.IUIElement7";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElement8> = L"Windows.UI.Xaml.IUIElement8";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElement9> = L"Windows.UI.Xaml.IUIElement9";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementFactory> = L"Windows.UI.Xaml.IUIElementFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementOverrides> = L"Windows.UI.Xaml.IUIElementOverrides";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementOverrides7> = L"Windows.UI.Xaml.IUIElementOverrides7";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementOverrides8> = L"Windows.UI.Xaml.IUIElementOverrides8";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementOverrides9> = L"Windows.UI.Xaml.IUIElementOverrides9";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementStatics> = L"Windows.UI.Xaml.IUIElementStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementStatics10> = L"Windows.UI.Xaml.IUIElementStatics10";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementStatics2> = L"Windows.UI.Xaml.IUIElementStatics2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementStatics3> = L"Windows.UI.Xaml.IUIElementStatics3";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementStatics4> = L"Windows.UI.Xaml.IUIElementStatics4";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementStatics5> = L"Windows.UI.Xaml.IUIElementStatics5";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementStatics6> = L"Windows.UI.Xaml.IUIElementStatics6";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementStatics7> = L"Windows.UI.Xaml.IUIElementStatics7";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementStatics8> = L"Windows.UI.Xaml.IUIElementStatics8";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementStatics9> = L"Windows.UI.Xaml.IUIElementStatics9";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementWeakCollection> = L"Windows.UI.Xaml.IUIElementWeakCollection";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUIElementWeakCollectionFactory> = L"Windows.UI.Xaml.IUIElementWeakCollectionFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IUnhandledExceptionEventArgs> = L"Windows.UI.Xaml.IUnhandledExceptionEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IVector3Transition> = L"Windows.UI.Xaml.IVector3Transition";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IVector3TransitionFactory> = L"Windows.UI.Xaml.IVector3TransitionFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IVisualState> = L"Windows.UI.Xaml.IVisualState";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IVisualState2> = L"Windows.UI.Xaml.IVisualState2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IVisualStateChangedEventArgs> = L"Windows.UI.Xaml.IVisualStateChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IVisualStateGroup> = L"Windows.UI.Xaml.IVisualStateGroup";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IVisualStateManager> = L"Windows.UI.Xaml.IVisualStateManager";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IVisualStateManagerFactory> = L"Windows.UI.Xaml.IVisualStateManagerFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IVisualStateManagerOverrides> = L"Windows.UI.Xaml.IVisualStateManagerOverrides";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IVisualStateManagerProtected> = L"Windows.UI.Xaml.IVisualStateManagerProtected";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IVisualStateManagerStatics> = L"Windows.UI.Xaml.IVisualStateManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IVisualTransition> = L"Windows.UI.Xaml.IVisualTransition";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IVisualTransitionFactory> = L"Windows.UI.Xaml.IVisualTransitionFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IWindow> = L"Windows.UI.Xaml.IWindow";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IWindow2> = L"Windows.UI.Xaml.IWindow2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IWindow3> = L"Windows.UI.Xaml.IWindow3";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IWindow4> = L"Windows.UI.Xaml.IWindow4";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IWindowCreatedEventArgs> = L"Windows.UI.Xaml.IWindowCreatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IWindowStatics> = L"Windows.UI.Xaml.IWindowStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IXamlRoot> = L"Windows.UI.Xaml.IXamlRoot";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::IXamlRootChangedEventArgs> = L"Windows.UI.Xaml.IXamlRootChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ApplicationInitializationCallback> = L"Windows.UI.Xaml.ApplicationInitializationCallback";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::BindingFailedEventHandler> = L"Windows.UI.Xaml.BindingFailedEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::CreateDefaultValueCallback> = L"Windows.UI.Xaml.CreateDefaultValueCallback";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DependencyPropertyChangedCallback> = L"Windows.UI.Xaml.DependencyPropertyChangedCallback";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DependencyPropertyChangedEventHandler> = L"Windows.UI.Xaml.DependencyPropertyChangedEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::DragEventHandler> = L"Windows.UI.Xaml.DragEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::EnteredBackgroundEventHandler> = L"Windows.UI.Xaml.EnteredBackgroundEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::ExceptionRoutedEventHandler> = L"Windows.UI.Xaml.ExceptionRoutedEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::LeavingBackgroundEventHandler> = L"Windows.UI.Xaml.LeavingBackgroundEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::PropertyChangedCallback> = L"Windows.UI.Xaml.PropertyChangedCallback";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::RoutedEventHandler> = L"Windows.UI.Xaml.RoutedEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::SizeChangedEventHandler> = L"Windows.UI.Xaml.SizeChangedEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::SuspendingEventHandler> = L"Windows.UI.Xaml.SuspendingEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::UnhandledExceptionEventHandler> = L"Windows.UI.Xaml.UnhandledExceptionEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::VisualStateChangedEventHandler> = L"Windows.UI.Xaml.VisualStateChangedEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::WindowActivatedEventHandler> = L"Windows.UI.Xaml.WindowActivatedEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::WindowClosedEventHandler> = L"Windows.UI.Xaml.WindowClosedEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::WindowSizeChangedEventHandler> = L"Windows.UI.Xaml.WindowSizeChangedEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::WindowVisibilityChangedEventHandler> = L"Windows.UI.Xaml.WindowVisibilityChangedEventHandler";
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::IAdaptiveTrigger>{ 0xA5F04119,0x0CD9,0x49F1,{ 0xA2,0x3F,0x44,0xE5,0x47,0xAB,0x9F,0x1A } };
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::IAdaptiveTriggerFactory>{ 0xC966D482,0x5AEB,0x4841,{ 0x92,0x47,0xC1,0xA0,0xBD,0xD6,0xF5,0x9F } };
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::IAdaptiveTriggerStatics>{ 0xB92E29EA,0x1615,0x4350,{ 0x9C,0x3B,0x92,0xB2,0x98,0x6B,0xF4,0x44 } };
@@ -3555,10 +3559,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IAdaptiveTrigger
     {
-        [[nodiscard]] auto MinWindowWidth() const;
-        auto MinWindowWidth(double value) const;
-        [[nodiscard]] auto MinWindowHeight() const;
-        auto MinWindowHeight(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) MinWindowWidth() const;
+        WINRT_IMPL_AUTO(void) MinWindowWidth(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) MinWindowHeight() const;
+        WINRT_IMPL_AUTO(void) MinWindowHeight(double value) const;
     };
     template <> struct consume<Windows::UI::Xaml::IAdaptiveTrigger>
     {
@@ -3567,7 +3571,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IAdaptiveTriggerFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::AdaptiveTrigger) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::IAdaptiveTriggerFactory>
     {
@@ -3576,8 +3580,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IAdaptiveTriggerStatics
     {
-        [[nodiscard]] auto MinWindowWidthProperty() const;
-        [[nodiscard]] auto MinWindowHeightProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) MinWindowWidthProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) MinWindowHeightProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::IAdaptiveTriggerStatics>
     {
@@ -3586,24 +3590,24 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IApplication
     {
-        [[nodiscard]] auto Resources() const;
-        auto Resources(Windows::UI::Xaml::ResourceDictionary const& value) const;
-        [[nodiscard]] auto DebugSettings() const;
-        [[nodiscard]] auto RequestedTheme() const;
-        auto RequestedTheme(Windows::UI::Xaml::ApplicationTheme const& value) const;
-        auto UnhandledException(Windows::UI::Xaml::UnhandledExceptionEventHandler const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::ResourceDictionary) Resources() const;
+        WINRT_IMPL_AUTO(void) Resources(Windows::UI::Xaml::ResourceDictionary const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DebugSettings) DebugSettings() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::ApplicationTheme) RequestedTheme() const;
+        WINRT_IMPL_AUTO(void) RequestedTheme(Windows::UI::Xaml::ApplicationTheme const& value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) UnhandledException(Windows::UI::Xaml::UnhandledExceptionEventHandler const& handler) const;
         using UnhandledException_revoker = impl::event_revoker<Windows::UI::Xaml::IApplication, &impl::abi_t<Windows::UI::Xaml::IApplication>::remove_UnhandledException>;
         [[nodiscard]] UnhandledException_revoker UnhandledException(auto_revoke_t, Windows::UI::Xaml::UnhandledExceptionEventHandler const& handler) const;
-        auto UnhandledException(winrt::event_token const& token) const noexcept;
-        auto Suspending(Windows::UI::Xaml::SuspendingEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) UnhandledException(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Suspending(Windows::UI::Xaml::SuspendingEventHandler const& handler) const;
         using Suspending_revoker = impl::event_revoker<Windows::UI::Xaml::IApplication, &impl::abi_t<Windows::UI::Xaml::IApplication>::remove_Suspending>;
         [[nodiscard]] Suspending_revoker Suspending(auto_revoke_t, Windows::UI::Xaml::SuspendingEventHandler const& handler) const;
-        auto Suspending(winrt::event_token const& token) const noexcept;
-        auto Resuming(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) Suspending(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Resuming(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using Resuming_revoker = impl::event_revoker<Windows::UI::Xaml::IApplication, &impl::abi_t<Windows::UI::Xaml::IApplication>::remove_Resuming>;
         [[nodiscard]] Resuming_revoker Resuming(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto Resuming(winrt::event_token const& token) const noexcept;
-        auto Exit() const;
+        WINRT_IMPL_AUTO(void) Resuming(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Exit() const;
     };
     template <> struct consume<Windows::UI::Xaml::IApplication>
     {
@@ -3612,18 +3616,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IApplication2
     {
-        [[nodiscard]] auto FocusVisualKind() const;
-        auto FocusVisualKind(Windows::UI::Xaml::FocusVisualKind const& value) const;
-        [[nodiscard]] auto RequiresPointerMode() const;
-        auto RequiresPointerMode(Windows::UI::Xaml::ApplicationRequiresPointerMode const& value) const;
-        auto LeavingBackground(Windows::UI::Xaml::LeavingBackgroundEventHandler const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::FocusVisualKind) FocusVisualKind() const;
+        WINRT_IMPL_AUTO(void) FocusVisualKind(Windows::UI::Xaml::FocusVisualKind const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::ApplicationRequiresPointerMode) RequiresPointerMode() const;
+        WINRT_IMPL_AUTO(void) RequiresPointerMode(Windows::UI::Xaml::ApplicationRequiresPointerMode const& value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) LeavingBackground(Windows::UI::Xaml::LeavingBackgroundEventHandler const& handler) const;
         using LeavingBackground_revoker = impl::event_revoker<Windows::UI::Xaml::IApplication2, &impl::abi_t<Windows::UI::Xaml::IApplication2>::remove_LeavingBackground>;
         [[nodiscard]] LeavingBackground_revoker LeavingBackground(auto_revoke_t, Windows::UI::Xaml::LeavingBackgroundEventHandler const& handler) const;
-        auto LeavingBackground(winrt::event_token const& token) const noexcept;
-        auto EnteredBackground(Windows::UI::Xaml::EnteredBackgroundEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) LeavingBackground(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) EnteredBackground(Windows::UI::Xaml::EnteredBackgroundEventHandler const& handler) const;
         using EnteredBackground_revoker = impl::event_revoker<Windows::UI::Xaml::IApplication2, &impl::abi_t<Windows::UI::Xaml::IApplication2>::remove_EnteredBackground>;
         [[nodiscard]] EnteredBackground_revoker EnteredBackground(auto_revoke_t, Windows::UI::Xaml::EnteredBackgroundEventHandler const& handler) const;
-        auto EnteredBackground(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) EnteredBackground(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::Xaml::IApplication2>
     {
@@ -3632,8 +3636,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IApplication3
     {
-        [[nodiscard]] auto HighContrastAdjustment() const;
-        auto HighContrastAdjustment(Windows::UI::Xaml::ApplicationHighContrastAdjustment const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::ApplicationHighContrastAdjustment) HighContrastAdjustment() const;
+        WINRT_IMPL_AUTO(void) HighContrastAdjustment(Windows::UI::Xaml::ApplicationHighContrastAdjustment const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::IApplication3>
     {
@@ -3642,7 +3646,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IApplicationFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Application) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::IApplicationFactory>
     {
@@ -3659,15 +3663,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IApplicationOverrides
     {
-        auto OnActivated(Windows::ApplicationModel::Activation::IActivatedEventArgs const& args) const;
-        auto OnLaunched(Windows::ApplicationModel::Activation::LaunchActivatedEventArgs const& args) const;
-        auto OnFileActivated(Windows::ApplicationModel::Activation::FileActivatedEventArgs const& args) const;
-        auto OnSearchActivated(Windows::ApplicationModel::Activation::SearchActivatedEventArgs const& args) const;
-        auto OnShareTargetActivated(Windows::ApplicationModel::Activation::ShareTargetActivatedEventArgs const& args) const;
-        auto OnFileOpenPickerActivated(Windows::ApplicationModel::Activation::FileOpenPickerActivatedEventArgs const& args) const;
-        auto OnFileSavePickerActivated(Windows::ApplicationModel::Activation::FileSavePickerActivatedEventArgs const& args) const;
-        auto OnCachedFileUpdaterActivated(Windows::ApplicationModel::Activation::CachedFileUpdaterActivatedEventArgs const& args) const;
-        auto OnWindowCreated(Windows::UI::Xaml::WindowCreatedEventArgs const& args) const;
+        WINRT_IMPL_AUTO(void) OnActivated(Windows::ApplicationModel::Activation::IActivatedEventArgs const& args) const;
+        WINRT_IMPL_AUTO(void) OnLaunched(Windows::ApplicationModel::Activation::LaunchActivatedEventArgs const& args) const;
+        WINRT_IMPL_AUTO(void) OnFileActivated(Windows::ApplicationModel::Activation::FileActivatedEventArgs const& args) const;
+        WINRT_IMPL_AUTO(void) OnSearchActivated(Windows::ApplicationModel::Activation::SearchActivatedEventArgs const& args) const;
+        WINRT_IMPL_AUTO(void) OnShareTargetActivated(Windows::ApplicationModel::Activation::ShareTargetActivatedEventArgs const& args) const;
+        WINRT_IMPL_AUTO(void) OnFileOpenPickerActivated(Windows::ApplicationModel::Activation::FileOpenPickerActivatedEventArgs const& args) const;
+        WINRT_IMPL_AUTO(void) OnFileSavePickerActivated(Windows::ApplicationModel::Activation::FileSavePickerActivatedEventArgs const& args) const;
+        WINRT_IMPL_AUTO(void) OnCachedFileUpdaterActivated(Windows::ApplicationModel::Activation::CachedFileUpdaterActivatedEventArgs const& args) const;
+        WINRT_IMPL_AUTO(void) OnWindowCreated(Windows::UI::Xaml::WindowCreatedEventArgs const& args) const;
     };
     template <> struct consume<Windows::UI::Xaml::IApplicationOverrides>
     {
@@ -3676,7 +3680,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IApplicationOverrides2
     {
-        auto OnBackgroundActivated(Windows::ApplicationModel::Activation::BackgroundActivatedEventArgs const& args) const;
+        WINRT_IMPL_AUTO(void) OnBackgroundActivated(Windows::ApplicationModel::Activation::BackgroundActivatedEventArgs const& args) const;
     };
     template <> struct consume<Windows::UI::Xaml::IApplicationOverrides2>
     {
@@ -3685,10 +3689,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IApplicationStatics
     {
-        [[nodiscard]] auto Current() const;
-        auto Start(Windows::UI::Xaml::ApplicationInitializationCallback const& callback) const;
-        auto LoadComponent(Windows::Foundation::IInspectable const& component, Windows::Foundation::Uri const& resourceLocator) const;
-        auto LoadComponent(Windows::Foundation::IInspectable const& component, Windows::Foundation::Uri const& resourceLocator, Windows::UI::Xaml::Controls::Primitives::ComponentResourceLocation const& componentResourceLocation) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Application) Current() const;
+        WINRT_IMPL_AUTO(void) Start(Windows::UI::Xaml::ApplicationInitializationCallback const& callback) const;
+        WINRT_IMPL_AUTO(void) LoadComponent(Windows::Foundation::IInspectable const& component, Windows::Foundation::Uri const& resourceLocator) const;
+        WINRT_IMPL_AUTO(void) LoadComponent(Windows::Foundation::IInspectable const& component, Windows::Foundation::Uri const& resourceLocator, Windows::UI::Xaml::Controls::Primitives::ComponentResourceLocation const& componentResourceLocation) const;
     };
     template <> struct consume<Windows::UI::Xaml::IApplicationStatics>
     {
@@ -3697,7 +3701,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IBindingFailedEventArgs
     {
-        [[nodiscard]] auto Message() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Message() const;
     };
     template <> struct consume<Windows::UI::Xaml::IBindingFailedEventArgs>
     {
@@ -3706,10 +3710,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IBringIntoViewOptions
     {
-        [[nodiscard]] auto AnimationDesired() const;
-        auto AnimationDesired(bool value) const;
-        [[nodiscard]] auto TargetRect() const;
-        auto TargetRect(Windows::Foundation::IReference<Windows::Foundation::Rect> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AnimationDesired() const;
+        WINRT_IMPL_AUTO(void) AnimationDesired(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::Rect>) TargetRect() const;
+        WINRT_IMPL_AUTO(void) TargetRect(Windows::Foundation::IReference<Windows::Foundation::Rect> const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::IBringIntoViewOptions>
     {
@@ -3718,14 +3722,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IBringIntoViewOptions2
     {
-        [[nodiscard]] auto HorizontalAlignmentRatio() const;
-        auto HorizontalAlignmentRatio(double value) const;
-        [[nodiscard]] auto VerticalAlignmentRatio() const;
-        auto VerticalAlignmentRatio(double value) const;
-        [[nodiscard]] auto HorizontalOffset() const;
-        auto HorizontalOffset(double value) const;
-        [[nodiscard]] auto VerticalOffset() const;
-        auto VerticalOffset(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) HorizontalAlignmentRatio() const;
+        WINRT_IMPL_AUTO(void) HorizontalAlignmentRatio(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) VerticalAlignmentRatio() const;
+        WINRT_IMPL_AUTO(void) VerticalAlignmentRatio(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) HorizontalOffset() const;
+        WINRT_IMPL_AUTO(void) HorizontalOffset(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) VerticalOffset() const;
+        WINRT_IMPL_AUTO(void) VerticalOffset(double value) const;
     };
     template <> struct consume<Windows::UI::Xaml::IBringIntoViewOptions2>
     {
@@ -3734,20 +3738,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IBringIntoViewRequestedEventArgs
     {
-        [[nodiscard]] auto TargetElement() const;
-        auto TargetElement(Windows::UI::Xaml::UIElement const& value) const;
-        [[nodiscard]] auto AnimationDesired() const;
-        auto AnimationDesired(bool value) const;
-        [[nodiscard]] auto TargetRect() const;
-        auto TargetRect(Windows::Foundation::Rect const& value) const;
-        [[nodiscard]] auto HorizontalAlignmentRatio() const;
-        [[nodiscard]] auto VerticalAlignmentRatio() const;
-        [[nodiscard]] auto HorizontalOffset() const;
-        auto HorizontalOffset(double value) const;
-        [[nodiscard]] auto VerticalOffset() const;
-        auto VerticalOffset(double value) const;
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::UIElement) TargetElement() const;
+        WINRT_IMPL_AUTO(void) TargetElement(Windows::UI::Xaml::UIElement const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AnimationDesired() const;
+        WINRT_IMPL_AUTO(void) AnimationDesired(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) TargetRect() const;
+        WINRT_IMPL_AUTO(void) TargetRect(Windows::Foundation::Rect const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) HorizontalAlignmentRatio() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) VerticalAlignmentRatio() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) HorizontalOffset() const;
+        WINRT_IMPL_AUTO(void) HorizontalOffset(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) VerticalOffset() const;
+        WINRT_IMPL_AUTO(void) VerticalOffset(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::IBringIntoViewRequestedEventArgs>
     {
@@ -3756,8 +3760,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IBrushTransition
     {
-        [[nodiscard]] auto Duration() const;
-        auto Duration(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Duration() const;
+        WINRT_IMPL_AUTO(void) Duration(Windows::Foundation::TimeSpan const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::IBrushTransition>
     {
@@ -3766,7 +3770,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IBrushTransitionFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::BrushTransition) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::IBrushTransitionFactory>
     {
@@ -3775,60 +3779,60 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IColorPaletteResources
     {
-        [[nodiscard]] auto AltHigh() const;
-        auto AltHigh(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto AltLow() const;
-        auto AltLow(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto AltMedium() const;
-        auto AltMedium(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto AltMediumHigh() const;
-        auto AltMediumHigh(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto AltMediumLow() const;
-        auto AltMediumLow(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto BaseHigh() const;
-        auto BaseHigh(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto BaseLow() const;
-        auto BaseLow(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto BaseMedium() const;
-        auto BaseMedium(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto BaseMediumHigh() const;
-        auto BaseMediumHigh(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto BaseMediumLow() const;
-        auto BaseMediumLow(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto ChromeAltLow() const;
-        auto ChromeAltLow(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto ChromeBlackHigh() const;
-        auto ChromeBlackHigh(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto ChromeBlackLow() const;
-        auto ChromeBlackLow(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto ChromeBlackMediumLow() const;
-        auto ChromeBlackMediumLow(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto ChromeBlackMedium() const;
-        auto ChromeBlackMedium(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto ChromeDisabledHigh() const;
-        auto ChromeDisabledHigh(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto ChromeDisabledLow() const;
-        auto ChromeDisabledLow(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto ChromeHigh() const;
-        auto ChromeHigh(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto ChromeLow() const;
-        auto ChromeLow(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto ChromeMedium() const;
-        auto ChromeMedium(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto ChromeMediumLow() const;
-        auto ChromeMediumLow(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto ChromeWhite() const;
-        auto ChromeWhite(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto ChromeGray() const;
-        auto ChromeGray(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto ListLow() const;
-        auto ListLow(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto ListMedium() const;
-        auto ListMedium(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto ErrorText() const;
-        auto ErrorText(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        [[nodiscard]] auto Accent() const;
-        auto Accent(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) AltHigh() const;
+        WINRT_IMPL_AUTO(void) AltHigh(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) AltLow() const;
+        WINRT_IMPL_AUTO(void) AltLow(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) AltMedium() const;
+        WINRT_IMPL_AUTO(void) AltMedium(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) AltMediumHigh() const;
+        WINRT_IMPL_AUTO(void) AltMediumHigh(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) AltMediumLow() const;
+        WINRT_IMPL_AUTO(void) AltMediumLow(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) BaseHigh() const;
+        WINRT_IMPL_AUTO(void) BaseHigh(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) BaseLow() const;
+        WINRT_IMPL_AUTO(void) BaseLow(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) BaseMedium() const;
+        WINRT_IMPL_AUTO(void) BaseMedium(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) BaseMediumHigh() const;
+        WINRT_IMPL_AUTO(void) BaseMediumHigh(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) BaseMediumLow() const;
+        WINRT_IMPL_AUTO(void) BaseMediumLow(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) ChromeAltLow() const;
+        WINRT_IMPL_AUTO(void) ChromeAltLow(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) ChromeBlackHigh() const;
+        WINRT_IMPL_AUTO(void) ChromeBlackHigh(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) ChromeBlackLow() const;
+        WINRT_IMPL_AUTO(void) ChromeBlackLow(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) ChromeBlackMediumLow() const;
+        WINRT_IMPL_AUTO(void) ChromeBlackMediumLow(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) ChromeBlackMedium() const;
+        WINRT_IMPL_AUTO(void) ChromeBlackMedium(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) ChromeDisabledHigh() const;
+        WINRT_IMPL_AUTO(void) ChromeDisabledHigh(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) ChromeDisabledLow() const;
+        WINRT_IMPL_AUTO(void) ChromeDisabledLow(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) ChromeHigh() const;
+        WINRT_IMPL_AUTO(void) ChromeHigh(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) ChromeLow() const;
+        WINRT_IMPL_AUTO(void) ChromeLow(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) ChromeMedium() const;
+        WINRT_IMPL_AUTO(void) ChromeMedium(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) ChromeMediumLow() const;
+        WINRT_IMPL_AUTO(void) ChromeMediumLow(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) ChromeWhite() const;
+        WINRT_IMPL_AUTO(void) ChromeWhite(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) ChromeGray() const;
+        WINRT_IMPL_AUTO(void) ChromeGray(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) ListLow() const;
+        WINRT_IMPL_AUTO(void) ListLow(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) ListMedium() const;
+        WINRT_IMPL_AUTO(void) ListMedium(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) ErrorText() const;
+        WINRT_IMPL_AUTO(void) ErrorText(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) Accent() const;
+        WINRT_IMPL_AUTO(void) Accent(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::IColorPaletteResources>
     {
@@ -3837,7 +3841,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IColorPaletteResourcesFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::ColorPaletteResources) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::IColorPaletteResourcesFactory>
     {
@@ -3854,8 +3858,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_ICornerRadiusHelperStatics
     {
-        auto FromRadii(double topLeft, double topRight, double bottomRight, double bottomLeft) const;
-        auto FromUniformRadius(double uniformRadius) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::CornerRadius) FromRadii(double topLeft, double topRight, double bottomRight, double bottomLeft) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::CornerRadius) FromUniformRadius(double uniformRadius) const;
     };
     template <> struct consume<Windows::UI::Xaml::ICornerRadiusHelperStatics>
     {
@@ -3864,9 +3868,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IDataContextChangedEventArgs
     {
-        [[nodiscard]] auto NewValue() const;
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) NewValue() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::IDataContextChangedEventArgs>
     {
@@ -3875,7 +3879,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IDataTemplate
     {
-        auto LoadContent() const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObject) LoadContent() const;
     };
     template <> struct consume<Windows::UI::Xaml::IDataTemplate>
     {
@@ -3884,9 +3888,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IDataTemplateExtension
     {
-        auto ResetTemplate() const;
-        auto ProcessBinding(uint32_t phase) const;
-        auto ProcessBindings(Windows::UI::Xaml::Controls::ContainerContentChangingEventArgs const& arg) const;
+        WINRT_IMPL_AUTO(void) ResetTemplate() const;
+        WINRT_IMPL_AUTO(bool) ProcessBinding(uint32_t phase) const;
+        WINRT_IMPL_AUTO(int32_t) ProcessBindings(Windows::UI::Xaml::Controls::ContainerContentChangingEventArgs const& arg) const;
     };
     template <> struct consume<Windows::UI::Xaml::IDataTemplateExtension>
     {
@@ -3895,7 +3899,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IDataTemplateFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::DataTemplate) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::IDataTemplateFactory>
     {
@@ -3904,8 +3908,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IDataTemplateKey
     {
-        [[nodiscard]] auto DataType() const;
-        auto DataType(Windows::Foundation::IInspectable const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) DataType() const;
+        WINRT_IMPL_AUTO(void) DataType(Windows::Foundation::IInspectable const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::IDataTemplateKey>
     {
@@ -3914,8 +3918,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IDataTemplateKeyFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
-        auto CreateInstanceWithType(Windows::Foundation::IInspectable const& dataType, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::DataTemplateKey) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::DataTemplateKey) CreateInstanceWithType(Windows::Foundation::IInspectable const& dataType, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::IDataTemplateKeyFactory>
     {
@@ -3924,9 +3928,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IDataTemplateStatics2
     {
-        [[nodiscard]] auto ExtensionInstanceProperty() const;
-        auto GetExtensionInstance(Windows::UI::Xaml::FrameworkElement const& element) const;
-        auto SetExtensionInstance(Windows::UI::Xaml::FrameworkElement const& element, Windows::UI::Xaml::IDataTemplateExtension const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ExtensionInstanceProperty() const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::IDataTemplateExtension) GetExtensionInstance(Windows::UI::Xaml::FrameworkElement const& element) const;
+        WINRT_IMPL_AUTO(void) SetExtensionInstance(Windows::UI::Xaml::FrameworkElement const& element, Windows::UI::Xaml::IDataTemplateExtension const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::IDataTemplateStatics2>
     {
@@ -3935,16 +3939,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IDebugSettings
     {
-        [[nodiscard]] auto EnableFrameRateCounter() const;
-        auto EnableFrameRateCounter(bool value) const;
-        [[nodiscard]] auto IsBindingTracingEnabled() const;
-        auto IsBindingTracingEnabled(bool value) const;
-        [[nodiscard]] auto IsOverdrawHeatMapEnabled() const;
-        auto IsOverdrawHeatMapEnabled(bool value) const;
-        auto BindingFailed(Windows::UI::Xaml::BindingFailedEventHandler const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) EnableFrameRateCounter() const;
+        WINRT_IMPL_AUTO(void) EnableFrameRateCounter(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsBindingTracingEnabled() const;
+        WINRT_IMPL_AUTO(void) IsBindingTracingEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsOverdrawHeatMapEnabled() const;
+        WINRT_IMPL_AUTO(void) IsOverdrawHeatMapEnabled(bool value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) BindingFailed(Windows::UI::Xaml::BindingFailedEventHandler const& handler) const;
         using BindingFailed_revoker = impl::event_revoker<Windows::UI::Xaml::IDebugSettings, &impl::abi_t<Windows::UI::Xaml::IDebugSettings>::remove_BindingFailed>;
         [[nodiscard]] BindingFailed_revoker BindingFailed(auto_revoke_t, Windows::UI::Xaml::BindingFailedEventHandler const& handler) const;
-        auto BindingFailed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) BindingFailed(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::Xaml::IDebugSettings>
     {
@@ -3953,8 +3957,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IDebugSettings2
     {
-        [[nodiscard]] auto EnableRedrawRegions() const;
-        auto EnableRedrawRegions(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) EnableRedrawRegions() const;
+        WINRT_IMPL_AUTO(void) EnableRedrawRegions(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::IDebugSettings2>
     {
@@ -3963,8 +3967,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IDebugSettings3
     {
-        [[nodiscard]] auto IsTextPerformanceVisualizationEnabled() const;
-        auto IsTextPerformanceVisualizationEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsTextPerformanceVisualizationEnabled() const;
+        WINRT_IMPL_AUTO(void) IsTextPerformanceVisualizationEnabled(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::IDebugSettings3>
     {
@@ -3973,8 +3977,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IDebugSettings4
     {
-        [[nodiscard]] auto FailFastOnErrors() const;
-        auto FailFastOnErrors(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) FailFastOnErrors() const;
+        WINRT_IMPL_AUTO(void) FailFastOnErrors(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::IDebugSettings4>
     {
@@ -3983,12 +3987,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IDependencyObject
     {
-        auto GetValue(Windows::UI::Xaml::DependencyProperty const& dp) const;
-        auto SetValue(Windows::UI::Xaml::DependencyProperty const& dp, Windows::Foundation::IInspectable const& value) const;
-        auto ClearValue(Windows::UI::Xaml::DependencyProperty const& dp) const;
-        auto ReadLocalValue(Windows::UI::Xaml::DependencyProperty const& dp) const;
-        auto GetAnimationBaseValue(Windows::UI::Xaml::DependencyProperty const& dp) const;
-        [[nodiscard]] auto Dispatcher() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) GetValue(Windows::UI::Xaml::DependencyProperty const& dp) const;
+        WINRT_IMPL_AUTO(void) SetValue(Windows::UI::Xaml::DependencyProperty const& dp, Windows::Foundation::IInspectable const& value) const;
+        WINRT_IMPL_AUTO(void) ClearValue(Windows::UI::Xaml::DependencyProperty const& dp) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) ReadLocalValue(Windows::UI::Xaml::DependencyProperty const& dp) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) GetAnimationBaseValue(Windows::UI::Xaml::DependencyProperty const& dp) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Core::CoreDispatcher) Dispatcher() const;
     };
     template <> struct consume<Windows::UI::Xaml::IDependencyObject>
     {
@@ -3997,8 +4001,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IDependencyObject2
     {
-        auto RegisterPropertyChangedCallback(Windows::UI::Xaml::DependencyProperty const& dp, Windows::UI::Xaml::DependencyPropertyChangedCallback const& callback) const;
-        auto UnregisterPropertyChangedCallback(Windows::UI::Xaml::DependencyProperty const& dp, int64_t token) const;
+        WINRT_IMPL_AUTO(int64_t) RegisterPropertyChangedCallback(Windows::UI::Xaml::DependencyProperty const& dp, Windows::UI::Xaml::DependencyPropertyChangedCallback const& callback) const;
+        WINRT_IMPL_AUTO(void) UnregisterPropertyChangedCallback(Windows::UI::Xaml::DependencyProperty const& dp, int64_t token) const;
     };
     template <> struct consume<Windows::UI::Xaml::IDependencyObject2>
     {
@@ -4007,7 +4011,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IDependencyObjectCollectionFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObjectCollection) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::IDependencyObjectCollectionFactory>
     {
@@ -4016,7 +4020,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IDependencyObjectFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObject) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::IDependencyObjectFactory>
     {
@@ -4025,7 +4029,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IDependencyProperty
     {
-        auto GetMetadata(Windows::UI::Xaml::Interop::TypeName const& forType) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::PropertyMetadata) GetMetadata(Windows::UI::Xaml::Interop::TypeName const& forType) const;
     };
     template <> struct consume<Windows::UI::Xaml::IDependencyProperty>
     {
@@ -4034,9 +4038,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IDependencyPropertyChangedEventArgs
     {
-        [[nodiscard]] auto Property() const;
-        [[nodiscard]] auto OldValue() const;
-        [[nodiscard]] auto NewValue() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) Property() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) OldValue() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) NewValue() const;
     };
     template <> struct consume<Windows::UI::Xaml::IDependencyPropertyChangedEventArgs>
     {
@@ -4045,9 +4049,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IDependencyPropertyStatics
     {
-        [[nodiscard]] auto UnsetValue() const;
-        auto Register(param::hstring const& name, Windows::UI::Xaml::Interop::TypeName const& propertyType, Windows::UI::Xaml::Interop::TypeName const& ownerType, Windows::UI::Xaml::PropertyMetadata const& typeMetadata) const;
-        auto RegisterAttached(param::hstring const& name, Windows::UI::Xaml::Interop::TypeName const& propertyType, Windows::UI::Xaml::Interop::TypeName const& ownerType, Windows::UI::Xaml::PropertyMetadata const& defaultMetadata) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) UnsetValue() const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) Register(param::hstring const& name, Windows::UI::Xaml::Interop::TypeName const& propertyType, Windows::UI::Xaml::Interop::TypeName const& ownerType, Windows::UI::Xaml::PropertyMetadata const& typeMetadata) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) RegisterAttached(param::hstring const& name, Windows::UI::Xaml::Interop::TypeName const& propertyType, Windows::UI::Xaml::Interop::TypeName const& ownerType, Windows::UI::Xaml::PropertyMetadata const& defaultMetadata) const;
     };
     template <> struct consume<Windows::UI::Xaml::IDependencyPropertyStatics>
     {
@@ -4056,15 +4060,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IDispatcherTimer
     {
-        [[nodiscard]] auto Interval() const;
-        auto Interval(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto IsEnabled() const;
-        auto Tick(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Interval() const;
+        WINRT_IMPL_AUTO(void) Interval(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsEnabled() const;
+        WINRT_IMPL_AUTO(winrt::event_token) Tick(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using Tick_revoker = impl::event_revoker<Windows::UI::Xaml::IDispatcherTimer, &impl::abi_t<Windows::UI::Xaml::IDispatcherTimer>::remove_Tick>;
         [[nodiscard]] Tick_revoker Tick(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto Tick(winrt::event_token const& token) const noexcept;
-        auto Start() const;
-        auto Stop() const;
+        WINRT_IMPL_AUTO(void) Tick(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Start() const;
+        WINRT_IMPL_AUTO(void) Stop() const;
     };
     template <> struct consume<Windows::UI::Xaml::IDispatcherTimer>
     {
@@ -4073,7 +4077,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IDispatcherTimerFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::DispatcherTimer) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::IDispatcherTimerFactory>
     {
@@ -4082,11 +4086,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IDragEventArgs
     {
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
-        [[nodiscard]] auto Data() const;
-        auto Data(Windows::ApplicationModel::DataTransfer::DataPackage const& value) const;
-        auto GetPosition(Windows::UI::Xaml::UIElement const& relativeTo) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DataPackage) Data() const;
+        WINRT_IMPL_AUTO(void) Data(Windows::ApplicationModel::DataTransfer::DataPackage const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Point) GetPosition(Windows::UI::Xaml::UIElement const& relativeTo) const;
     };
     template <> struct consume<Windows::UI::Xaml::IDragEventArgs>
     {
@@ -4095,12 +4099,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IDragEventArgs2
     {
-        [[nodiscard]] auto DataView() const;
-        [[nodiscard]] auto DragUIOverride() const;
-        [[nodiscard]] auto Modifiers() const;
-        [[nodiscard]] auto AcceptedOperation() const;
-        auto AcceptedOperation(Windows::ApplicationModel::DataTransfer::DataPackageOperation const& value) const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DataPackageView) DataView() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DragUIOverride) DragUIOverride() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DragDrop::DragDropModifiers) Modifiers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DataPackageOperation) AcceptedOperation() const;
+        WINRT_IMPL_AUTO(void) AcceptedOperation(Windows::ApplicationModel::DataTransfer::DataPackageOperation const& value) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::DragOperationDeferral) GetDeferral() const;
     };
     template <> struct consume<Windows::UI::Xaml::IDragEventArgs2>
     {
@@ -4109,7 +4113,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IDragEventArgs3
     {
-        [[nodiscard]] auto AllowedOperations() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DataPackageOperation) AllowedOperations() const;
     };
     template <> struct consume<Windows::UI::Xaml::IDragEventArgs3>
     {
@@ -4118,7 +4122,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IDragOperationDeferral
     {
-        auto Complete() const;
+        WINRT_IMPL_AUTO(void) Complete() const;
     };
     template <> struct consume<Windows::UI::Xaml::IDragOperationDeferral>
     {
@@ -4127,12 +4131,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IDragStartingEventArgs
     {
-        [[nodiscard]] auto Cancel() const;
-        auto Cancel(bool value) const;
-        [[nodiscard]] auto Data() const;
-        [[nodiscard]] auto DragUI() const;
-        auto GetDeferral() const;
-        auto GetPosition(Windows::UI::Xaml::UIElement const& relativeTo) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Cancel() const;
+        WINRT_IMPL_AUTO(void) Cancel(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DataPackage) Data() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DragUI) DragUI() const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::DragOperationDeferral) GetDeferral() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Point) GetPosition(Windows::UI::Xaml::UIElement const& relativeTo) const;
     };
     template <> struct consume<Windows::UI::Xaml::IDragStartingEventArgs>
     {
@@ -4141,8 +4145,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IDragStartingEventArgs2
     {
-        [[nodiscard]] auto AllowedOperations() const;
-        auto AllowedOperations(Windows::ApplicationModel::DataTransfer::DataPackageOperation const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DataPackageOperation) AllowedOperations() const;
+        WINRT_IMPL_AUTO(void) AllowedOperations(Windows::ApplicationModel::DataTransfer::DataPackageOperation const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::IDragStartingEventArgs2>
     {
@@ -4151,11 +4155,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IDragUI
     {
-        auto SetContentFromBitmapImage(Windows::UI::Xaml::Media::Imaging::BitmapImage const& bitmapImage) const;
-        auto SetContentFromBitmapImage(Windows::UI::Xaml::Media::Imaging::BitmapImage const& bitmapImage, Windows::Foundation::Point const& anchorPoint) const;
-        auto SetContentFromSoftwareBitmap(Windows::Graphics::Imaging::SoftwareBitmap const& softwareBitmap) const;
-        auto SetContentFromSoftwareBitmap(Windows::Graphics::Imaging::SoftwareBitmap const& softwareBitmap, Windows::Foundation::Point const& anchorPoint) const;
-        auto SetContentFromDataPackage() const;
+        WINRT_IMPL_AUTO(void) SetContentFromBitmapImage(Windows::UI::Xaml::Media::Imaging::BitmapImage const& bitmapImage) const;
+        WINRT_IMPL_AUTO(void) SetContentFromBitmapImage(Windows::UI::Xaml::Media::Imaging::BitmapImage const& bitmapImage, Windows::Foundation::Point const& anchorPoint) const;
+        WINRT_IMPL_AUTO(void) SetContentFromSoftwareBitmap(Windows::Graphics::Imaging::SoftwareBitmap const& softwareBitmap) const;
+        WINRT_IMPL_AUTO(void) SetContentFromSoftwareBitmap(Windows::Graphics::Imaging::SoftwareBitmap const& softwareBitmap, Windows::Foundation::Point const& anchorPoint) const;
+        WINRT_IMPL_AUTO(void) SetContentFromDataPackage() const;
     };
     template <> struct consume<Windows::UI::Xaml::IDragUI>
     {
@@ -4164,19 +4168,19 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IDragUIOverride
     {
-        [[nodiscard]] auto Caption() const;
-        auto Caption(param::hstring const& value) const;
-        [[nodiscard]] auto IsContentVisible() const;
-        auto IsContentVisible(bool value) const;
-        [[nodiscard]] auto IsCaptionVisible() const;
-        auto IsCaptionVisible(bool value) const;
-        [[nodiscard]] auto IsGlyphVisible() const;
-        auto IsGlyphVisible(bool value) const;
-        auto Clear() const;
-        auto SetContentFromBitmapImage(Windows::UI::Xaml::Media::Imaging::BitmapImage const& bitmapImage) const;
-        auto SetContentFromBitmapImage(Windows::UI::Xaml::Media::Imaging::BitmapImage const& bitmapImage, Windows::Foundation::Point const& anchorPoint) const;
-        auto SetContentFromSoftwareBitmap(Windows::Graphics::Imaging::SoftwareBitmap const& softwareBitmap) const;
-        auto SetContentFromSoftwareBitmap(Windows::Graphics::Imaging::SoftwareBitmap const& softwareBitmap, Windows::Foundation::Point const& anchorPoint) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Caption() const;
+        WINRT_IMPL_AUTO(void) Caption(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsContentVisible() const;
+        WINRT_IMPL_AUTO(void) IsContentVisible(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsCaptionVisible() const;
+        WINRT_IMPL_AUTO(void) IsCaptionVisible(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsGlyphVisible() const;
+        WINRT_IMPL_AUTO(void) IsGlyphVisible(bool value) const;
+        WINRT_IMPL_AUTO(void) Clear() const;
+        WINRT_IMPL_AUTO(void) SetContentFromBitmapImage(Windows::UI::Xaml::Media::Imaging::BitmapImage const& bitmapImage) const;
+        WINRT_IMPL_AUTO(void) SetContentFromBitmapImage(Windows::UI::Xaml::Media::Imaging::BitmapImage const& bitmapImage, Windows::Foundation::Point const& anchorPoint) const;
+        WINRT_IMPL_AUTO(void) SetContentFromSoftwareBitmap(Windows::Graphics::Imaging::SoftwareBitmap const& softwareBitmap) const;
+        WINRT_IMPL_AUTO(void) SetContentFromSoftwareBitmap(Windows::Graphics::Imaging::SoftwareBitmap const& softwareBitmap, Windows::Foundation::Point const& anchorPoint) const;
     };
     template <> struct consume<Windows::UI::Xaml::IDragUIOverride>
     {
@@ -4185,7 +4189,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IDropCompletedEventArgs
     {
-        [[nodiscard]] auto DropResult() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::DataPackageOperation) DropResult() const;
     };
     template <> struct consume<Windows::UI::Xaml::IDropCompletedEventArgs>
     {
@@ -4202,14 +4206,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IDurationHelperStatics
     {
-        [[nodiscard]] auto Automatic() const;
-        [[nodiscard]] auto Forever() const;
-        auto Compare(Windows::UI::Xaml::Duration const& duration1, Windows::UI::Xaml::Duration const& duration2) const;
-        auto FromTimeSpan(Windows::Foundation::TimeSpan const& timeSpan) const;
-        auto GetHasTimeSpan(Windows::UI::Xaml::Duration const& target) const;
-        auto Add(Windows::UI::Xaml::Duration const& target, Windows::UI::Xaml::Duration const& duration) const;
-        auto Equals(Windows::UI::Xaml::Duration const& target, Windows::UI::Xaml::Duration const& value) const;
-        auto Subtract(Windows::UI::Xaml::Duration const& target, Windows::UI::Xaml::Duration const& duration) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Duration) Automatic() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Duration) Forever() const;
+        WINRT_IMPL_AUTO(int32_t) Compare(Windows::UI::Xaml::Duration const& duration1, Windows::UI::Xaml::Duration const& duration2) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Duration) FromTimeSpan(Windows::Foundation::TimeSpan const& timeSpan) const;
+        WINRT_IMPL_AUTO(bool) GetHasTimeSpan(Windows::UI::Xaml::Duration const& target) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Duration) Add(Windows::UI::Xaml::Duration const& target, Windows::UI::Xaml::Duration const& duration) const;
+        WINRT_IMPL_AUTO(bool) Equals(Windows::UI::Xaml::Duration const& target, Windows::UI::Xaml::Duration const& value) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Duration) Subtract(Windows::UI::Xaml::Duration const& target, Windows::UI::Xaml::Duration const& duration) const;
     };
     template <> struct consume<Windows::UI::Xaml::IDurationHelperStatics>
     {
@@ -4218,10 +4222,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IEffectiveViewportChangedEventArgs
     {
-        [[nodiscard]] auto EffectiveViewport() const;
-        [[nodiscard]] auto MaxViewport() const;
-        [[nodiscard]] auto BringIntoViewDistanceX() const;
-        [[nodiscard]] auto BringIntoViewDistanceY() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) EffectiveViewport() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) MaxViewport() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) BringIntoViewDistanceX() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) BringIntoViewDistanceY() const;
     };
     template <> struct consume<Windows::UI::Xaml::IEffectiveViewportChangedEventArgs>
     {
@@ -4230,8 +4234,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IElementFactory
     {
-        auto GetElement(Windows::UI::Xaml::ElementFactoryGetArgs const& args) const;
-        auto RecycleElement(Windows::UI::Xaml::ElementFactoryRecycleArgs const& args) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::UIElement) GetElement(Windows::UI::Xaml::ElementFactoryGetArgs const& args) const;
+        WINRT_IMPL_AUTO(void) RecycleElement(Windows::UI::Xaml::ElementFactoryRecycleArgs const& args) const;
     };
     template <> struct consume<Windows::UI::Xaml::IElementFactory>
     {
@@ -4240,10 +4244,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IElementFactoryGetArgs
     {
-        [[nodiscard]] auto Data() const;
-        auto Data(Windows::Foundation::IInspectable const& value) const;
-        [[nodiscard]] auto Parent() const;
-        auto Parent(Windows::UI::Xaml::UIElement const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) Data() const;
+        WINRT_IMPL_AUTO(void) Data(Windows::Foundation::IInspectable const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::UIElement) Parent() const;
+        WINRT_IMPL_AUTO(void) Parent(Windows::UI::Xaml::UIElement const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::IElementFactoryGetArgs>
     {
@@ -4252,7 +4256,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IElementFactoryGetArgsFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::ElementFactoryGetArgs) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::IElementFactoryGetArgsFactory>
     {
@@ -4261,10 +4265,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IElementFactoryRecycleArgs
     {
-        [[nodiscard]] auto Element() const;
-        auto Element(Windows::UI::Xaml::UIElement const& value) const;
-        [[nodiscard]] auto Parent() const;
-        auto Parent(Windows::UI::Xaml::UIElement const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::UIElement) Element() const;
+        WINRT_IMPL_AUTO(void) Element(Windows::UI::Xaml::UIElement const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::UIElement) Parent() const;
+        WINRT_IMPL_AUTO(void) Parent(Windows::UI::Xaml::UIElement const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::IElementFactoryRecycleArgs>
     {
@@ -4273,7 +4277,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IElementFactoryRecycleArgsFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::ElementFactoryRecycleArgs) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::IElementFactoryRecycleArgsFactory>
     {
@@ -4290,11 +4294,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IElementSoundPlayerStatics
     {
-        [[nodiscard]] auto Volume() const;
-        auto Volume(double value) const;
-        [[nodiscard]] auto State() const;
-        auto State(Windows::UI::Xaml::ElementSoundPlayerState const& value) const;
-        auto Play(Windows::UI::Xaml::ElementSoundKind const& sound) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Volume() const;
+        WINRT_IMPL_AUTO(void) Volume(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::ElementSoundPlayerState) State() const;
+        WINRT_IMPL_AUTO(void) State(Windows::UI::Xaml::ElementSoundPlayerState const& value) const;
+        WINRT_IMPL_AUTO(void) Play(Windows::UI::Xaml::ElementSoundKind const& sound) const;
     };
     template <> struct consume<Windows::UI::Xaml::IElementSoundPlayerStatics>
     {
@@ -4303,8 +4307,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IElementSoundPlayerStatics2
     {
-        [[nodiscard]] auto SpatialAudioMode() const;
-        auto SpatialAudioMode(Windows::UI::Xaml::ElementSpatialAudioMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::ElementSpatialAudioMode) SpatialAudioMode() const;
+        WINRT_IMPL_AUTO(void) SpatialAudioMode(Windows::UI::Xaml::ElementSpatialAudioMode const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::IElementSoundPlayerStatics2>
     {
@@ -4313,9 +4317,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IEventTrigger
     {
-        [[nodiscard]] auto RoutedEvent() const;
-        auto RoutedEvent(Windows::UI::Xaml::RoutedEvent const& value) const;
-        [[nodiscard]] auto Actions() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) RoutedEvent() const;
+        WINRT_IMPL_AUTO(void) RoutedEvent(Windows::UI::Xaml::RoutedEvent const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::TriggerActionCollection) Actions() const;
     };
     template <> struct consume<Windows::UI::Xaml::IEventTrigger>
     {
@@ -4324,7 +4328,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IExceptionRoutedEventArgs
     {
-        [[nodiscard]] auto ErrorMessage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ErrorMessage() const;
     };
     template <> struct consume<Windows::UI::Xaml::IExceptionRoutedEventArgs>
     {
@@ -4341,61 +4345,61 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IFrameworkElement
     {
-        [[nodiscard]] auto Triggers() const;
-        [[nodiscard]] auto Resources() const;
-        auto Resources(Windows::UI::Xaml::ResourceDictionary const& value) const;
-        [[nodiscard]] auto Tag() const;
-        auto Tag(Windows::Foundation::IInspectable const& value) const;
-        [[nodiscard]] auto Language() const;
-        auto Language(param::hstring const& value) const;
-        [[nodiscard]] auto ActualWidth() const;
-        [[nodiscard]] auto ActualHeight() const;
-        [[nodiscard]] auto Width() const;
-        auto Width(double value) const;
-        [[nodiscard]] auto Height() const;
-        auto Height(double value) const;
-        [[nodiscard]] auto MinWidth() const;
-        auto MinWidth(double value) const;
-        [[nodiscard]] auto MaxWidth() const;
-        auto MaxWidth(double value) const;
-        [[nodiscard]] auto MinHeight() const;
-        auto MinHeight(double value) const;
-        [[nodiscard]] auto MaxHeight() const;
-        auto MaxHeight(double value) const;
-        [[nodiscard]] auto HorizontalAlignment() const;
-        auto HorizontalAlignment(Windows::UI::Xaml::HorizontalAlignment const& value) const;
-        [[nodiscard]] auto VerticalAlignment() const;
-        auto VerticalAlignment(Windows::UI::Xaml::VerticalAlignment const& value) const;
-        [[nodiscard]] auto Margin() const;
-        auto Margin(Windows::UI::Xaml::Thickness const& value) const;
-        [[nodiscard]] auto Name() const;
-        auto Name(param::hstring const& value) const;
-        [[nodiscard]] auto BaseUri() const;
-        [[nodiscard]] auto DataContext() const;
-        auto DataContext(Windows::Foundation::IInspectable const& value) const;
-        [[nodiscard]] auto Style() const;
-        auto Style(Windows::UI::Xaml::Style const& value) const;
-        [[nodiscard]] auto Parent() const;
-        [[nodiscard]] auto FlowDirection() const;
-        auto FlowDirection(Windows::UI::Xaml::FlowDirection const& value) const;
-        auto Loaded(Windows::UI::Xaml::RoutedEventHandler const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::TriggerCollection) Triggers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::ResourceDictionary) Resources() const;
+        WINRT_IMPL_AUTO(void) Resources(Windows::UI::Xaml::ResourceDictionary const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) Tag() const;
+        WINRT_IMPL_AUTO(void) Tag(Windows::Foundation::IInspectable const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Language() const;
+        WINRT_IMPL_AUTO(void) Language(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ActualWidth() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ActualHeight() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Width() const;
+        WINRT_IMPL_AUTO(void) Width(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Height() const;
+        WINRT_IMPL_AUTO(void) Height(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) MinWidth() const;
+        WINRT_IMPL_AUTO(void) MinWidth(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) MaxWidth() const;
+        WINRT_IMPL_AUTO(void) MaxWidth(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) MinHeight() const;
+        WINRT_IMPL_AUTO(void) MinHeight(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) MaxHeight() const;
+        WINRT_IMPL_AUTO(void) MaxHeight(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::HorizontalAlignment) HorizontalAlignment() const;
+        WINRT_IMPL_AUTO(void) HorizontalAlignment(Windows::UI::Xaml::HorizontalAlignment const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::VerticalAlignment) VerticalAlignment() const;
+        WINRT_IMPL_AUTO(void) VerticalAlignment(Windows::UI::Xaml::VerticalAlignment const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Thickness) Margin() const;
+        WINRT_IMPL_AUTO(void) Margin(Windows::UI::Xaml::Thickness const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        WINRT_IMPL_AUTO(void) Name(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) BaseUri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) DataContext() const;
+        WINRT_IMPL_AUTO(void) DataContext(Windows::Foundation::IInspectable const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Style) Style() const;
+        WINRT_IMPL_AUTO(void) Style(Windows::UI::Xaml::Style const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObject) Parent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::FlowDirection) FlowDirection() const;
+        WINRT_IMPL_AUTO(void) FlowDirection(Windows::UI::Xaml::FlowDirection const& value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Loaded(Windows::UI::Xaml::RoutedEventHandler const& handler) const;
         using Loaded_revoker = impl::event_revoker<Windows::UI::Xaml::IFrameworkElement, &impl::abi_t<Windows::UI::Xaml::IFrameworkElement>::remove_Loaded>;
         [[nodiscard]] Loaded_revoker Loaded(auto_revoke_t, Windows::UI::Xaml::RoutedEventHandler const& handler) const;
-        auto Loaded(winrt::event_token const& token) const noexcept;
-        auto Unloaded(Windows::UI::Xaml::RoutedEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) Loaded(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Unloaded(Windows::UI::Xaml::RoutedEventHandler const& handler) const;
         using Unloaded_revoker = impl::event_revoker<Windows::UI::Xaml::IFrameworkElement, &impl::abi_t<Windows::UI::Xaml::IFrameworkElement>::remove_Unloaded>;
         [[nodiscard]] Unloaded_revoker Unloaded(auto_revoke_t, Windows::UI::Xaml::RoutedEventHandler const& handler) const;
-        auto Unloaded(winrt::event_token const& token) const noexcept;
-        auto SizeChanged(Windows::UI::Xaml::SizeChangedEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) Unloaded(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) SizeChanged(Windows::UI::Xaml::SizeChangedEventHandler const& handler) const;
         using SizeChanged_revoker = impl::event_revoker<Windows::UI::Xaml::IFrameworkElement, &impl::abi_t<Windows::UI::Xaml::IFrameworkElement>::remove_SizeChanged>;
         [[nodiscard]] SizeChanged_revoker SizeChanged(auto_revoke_t, Windows::UI::Xaml::SizeChangedEventHandler const& handler) const;
-        auto SizeChanged(winrt::event_token const& token) const noexcept;
-        auto LayoutUpdated(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) SizeChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) LayoutUpdated(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using LayoutUpdated_revoker = impl::event_revoker<Windows::UI::Xaml::IFrameworkElement, &impl::abi_t<Windows::UI::Xaml::IFrameworkElement>::remove_LayoutUpdated>;
         [[nodiscard]] LayoutUpdated_revoker LayoutUpdated(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto LayoutUpdated(winrt::event_token const& token) const noexcept;
-        auto FindName(param::hstring const& name) const;
-        auto SetBinding(Windows::UI::Xaml::DependencyProperty const& dp, Windows::UI::Xaml::Data::BindingBase const& binding) const;
+        WINRT_IMPL_AUTO(void) LayoutUpdated(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) FindName(param::hstring const& name) const;
+        WINRT_IMPL_AUTO(void) SetBinding(Windows::UI::Xaml::DependencyProperty const& dp, Windows::UI::Xaml::Data::BindingBase const& binding) const;
     };
     template <> struct consume<Windows::UI::Xaml::IFrameworkElement>
     {
@@ -4404,13 +4408,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IFrameworkElement2
     {
-        [[nodiscard]] auto RequestedTheme() const;
-        auto RequestedTheme(Windows::UI::Xaml::ElementTheme const& value) const;
-        auto DataContextChanged(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::FrameworkElement, Windows::UI::Xaml::DataContextChangedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::ElementTheme) RequestedTheme() const;
+        WINRT_IMPL_AUTO(void) RequestedTheme(Windows::UI::Xaml::ElementTheme const& value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) DataContextChanged(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::FrameworkElement, Windows::UI::Xaml::DataContextChangedEventArgs> const& handler) const;
         using DataContextChanged_revoker = impl::event_revoker<Windows::UI::Xaml::IFrameworkElement2, &impl::abi_t<Windows::UI::Xaml::IFrameworkElement2>::remove_DataContextChanged>;
         [[nodiscard]] DataContextChanged_revoker DataContextChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::FrameworkElement, Windows::UI::Xaml::DataContextChangedEventArgs> const& handler) const;
-        auto DataContextChanged(winrt::event_token const& token) const noexcept;
-        auto GetBindingExpression(Windows::UI::Xaml::DependencyProperty const& dp) const;
+        WINRT_IMPL_AUTO(void) DataContextChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Data::BindingExpression) GetBindingExpression(Windows::UI::Xaml::DependencyProperty const& dp) const;
     };
     template <> struct consume<Windows::UI::Xaml::IFrameworkElement2>
     {
@@ -4419,10 +4423,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IFrameworkElement3
     {
-        auto Loading(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::FrameworkElement, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Loading(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::FrameworkElement, Windows::Foundation::IInspectable> const& handler) const;
         using Loading_revoker = impl::event_revoker<Windows::UI::Xaml::IFrameworkElement3, &impl::abi_t<Windows::UI::Xaml::IFrameworkElement3>::remove_Loading>;
         [[nodiscard]] Loading_revoker Loading(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::FrameworkElement, Windows::Foundation::IInspectable> const& handler) const;
-        auto Loading(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Loading(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::Xaml::IFrameworkElement3>
     {
@@ -4431,20 +4435,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IFrameworkElement4
     {
-        [[nodiscard]] auto AllowFocusOnInteraction() const;
-        auto AllowFocusOnInteraction(bool value) const;
-        [[nodiscard]] auto FocusVisualMargin() const;
-        auto FocusVisualMargin(Windows::UI::Xaml::Thickness const& value) const;
-        [[nodiscard]] auto FocusVisualSecondaryThickness() const;
-        auto FocusVisualSecondaryThickness(Windows::UI::Xaml::Thickness const& value) const;
-        [[nodiscard]] auto FocusVisualPrimaryThickness() const;
-        auto FocusVisualPrimaryThickness(Windows::UI::Xaml::Thickness const& value) const;
-        [[nodiscard]] auto FocusVisualSecondaryBrush() const;
-        auto FocusVisualSecondaryBrush(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto FocusVisualPrimaryBrush() const;
-        auto FocusVisualPrimaryBrush(Windows::UI::Xaml::Media::Brush const& value) const;
-        [[nodiscard]] auto AllowFocusWhenDisabled() const;
-        auto AllowFocusWhenDisabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AllowFocusOnInteraction() const;
+        WINRT_IMPL_AUTO(void) AllowFocusOnInteraction(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Thickness) FocusVisualMargin() const;
+        WINRT_IMPL_AUTO(void) FocusVisualMargin(Windows::UI::Xaml::Thickness const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Thickness) FocusVisualSecondaryThickness() const;
+        WINRT_IMPL_AUTO(void) FocusVisualSecondaryThickness(Windows::UI::Xaml::Thickness const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Thickness) FocusVisualPrimaryThickness() const;
+        WINRT_IMPL_AUTO(void) FocusVisualPrimaryThickness(Windows::UI::Xaml::Thickness const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) FocusVisualSecondaryBrush() const;
+        WINRT_IMPL_AUTO(void) FocusVisualSecondaryBrush(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Brush) FocusVisualPrimaryBrush() const;
+        WINRT_IMPL_AUTO(void) FocusVisualPrimaryBrush(Windows::UI::Xaml::Media::Brush const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AllowFocusWhenDisabled() const;
+        WINRT_IMPL_AUTO(void) AllowFocusWhenDisabled(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::IFrameworkElement4>
     {
@@ -4453,11 +4457,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IFrameworkElement6
     {
-        [[nodiscard]] auto ActualTheme() const;
-        auto ActualThemeChanged(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::FrameworkElement, Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::ElementTheme) ActualTheme() const;
+        WINRT_IMPL_AUTO(winrt::event_token) ActualThemeChanged(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::FrameworkElement, Windows::Foundation::IInspectable> const& handler) const;
         using ActualThemeChanged_revoker = impl::event_revoker<Windows::UI::Xaml::IFrameworkElement6, &impl::abi_t<Windows::UI::Xaml::IFrameworkElement6>::remove_ActualThemeChanged>;
         [[nodiscard]] ActualThemeChanged_revoker ActualThemeChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::FrameworkElement, Windows::Foundation::IInspectable> const& handler) const;
-        auto ActualThemeChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) ActualThemeChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::Xaml::IFrameworkElement6>
     {
@@ -4466,11 +4470,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IFrameworkElement7
     {
-        [[nodiscard]] auto IsLoaded() const;
-        auto EffectiveViewportChanged(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::FrameworkElement, Windows::UI::Xaml::EffectiveViewportChangedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsLoaded() const;
+        WINRT_IMPL_AUTO(winrt::event_token) EffectiveViewportChanged(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::FrameworkElement, Windows::UI::Xaml::EffectiveViewportChangedEventArgs> const& handler) const;
         using EffectiveViewportChanged_revoker = impl::event_revoker<Windows::UI::Xaml::IFrameworkElement7, &impl::abi_t<Windows::UI::Xaml::IFrameworkElement7>::remove_EffectiveViewportChanged>;
         [[nodiscard]] EffectiveViewportChanged_revoker EffectiveViewportChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::FrameworkElement, Windows::UI::Xaml::EffectiveViewportChangedEventArgs> const& handler) const;
-        auto EffectiveViewportChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) EffectiveViewportChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::Xaml::IFrameworkElement7>
     {
@@ -4479,7 +4483,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IFrameworkElementFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::FrameworkElement) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::IFrameworkElementFactory>
     {
@@ -4488,9 +4492,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IFrameworkElementOverrides
     {
-        auto MeasureOverride(Windows::Foundation::Size const& availableSize) const;
-        auto ArrangeOverride(Windows::Foundation::Size const& finalSize) const;
-        auto OnApplyTemplate() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Size) MeasureOverride(Windows::Foundation::Size const& availableSize) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Size) ArrangeOverride(Windows::Foundation::Size const& finalSize) const;
+        WINRT_IMPL_AUTO(void) OnApplyTemplate() const;
     };
     template <> struct consume<Windows::UI::Xaml::IFrameworkElementOverrides>
     {
@@ -4499,7 +4503,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IFrameworkElementOverrides2
     {
-        auto GoToElementStateCore(param::hstring const& stateName, bool useTransitions) const;
+        WINRT_IMPL_AUTO(bool) GoToElementStateCore(param::hstring const& stateName, bool useTransitions) const;
     };
     template <> struct consume<Windows::UI::Xaml::IFrameworkElementOverrides2>
     {
@@ -4508,7 +4512,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IFrameworkElementProtected7
     {
-        auto InvalidateViewport() const;
+        WINRT_IMPL_AUTO(void) InvalidateViewport() const;
     };
     template <> struct consume<Windows::UI::Xaml::IFrameworkElementProtected7>
     {
@@ -4517,23 +4521,23 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IFrameworkElementStatics
     {
-        [[nodiscard]] auto TagProperty() const;
-        [[nodiscard]] auto LanguageProperty() const;
-        [[nodiscard]] auto ActualWidthProperty() const;
-        [[nodiscard]] auto ActualHeightProperty() const;
-        [[nodiscard]] auto WidthProperty() const;
-        [[nodiscard]] auto HeightProperty() const;
-        [[nodiscard]] auto MinWidthProperty() const;
-        [[nodiscard]] auto MaxWidthProperty() const;
-        [[nodiscard]] auto MinHeightProperty() const;
-        [[nodiscard]] auto MaxHeightProperty() const;
-        [[nodiscard]] auto HorizontalAlignmentProperty() const;
-        [[nodiscard]] auto VerticalAlignmentProperty() const;
-        [[nodiscard]] auto MarginProperty() const;
-        [[nodiscard]] auto NameProperty() const;
-        [[nodiscard]] auto DataContextProperty() const;
-        [[nodiscard]] auto StyleProperty() const;
-        [[nodiscard]] auto FlowDirectionProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) TagProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) LanguageProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ActualWidthProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ActualHeightProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) WidthProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) HeightProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) MinWidthProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) MaxWidthProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) MinHeightProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) MaxHeightProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) HorizontalAlignmentProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) VerticalAlignmentProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) MarginProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) NameProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) DataContextProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) StyleProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) FlowDirectionProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::IFrameworkElementStatics>
     {
@@ -4542,7 +4546,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IFrameworkElementStatics2
     {
-        [[nodiscard]] auto RequestedThemeProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) RequestedThemeProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::IFrameworkElementStatics2>
     {
@@ -4551,13 +4555,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IFrameworkElementStatics4
     {
-        [[nodiscard]] auto AllowFocusOnInteractionProperty() const;
-        [[nodiscard]] auto FocusVisualMarginProperty() const;
-        [[nodiscard]] auto FocusVisualSecondaryThicknessProperty() const;
-        [[nodiscard]] auto FocusVisualPrimaryThicknessProperty() const;
-        [[nodiscard]] auto FocusVisualSecondaryBrushProperty() const;
-        [[nodiscard]] auto FocusVisualPrimaryBrushProperty() const;
-        [[nodiscard]] auto AllowFocusWhenDisabledProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) AllowFocusOnInteractionProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) FocusVisualMarginProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) FocusVisualSecondaryThicknessProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) FocusVisualPrimaryThicknessProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) FocusVisualSecondaryBrushProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) FocusVisualPrimaryBrushProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) AllowFocusWhenDisabledProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::IFrameworkElementStatics4>
     {
@@ -4566,7 +4570,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IFrameworkElementStatics5
     {
-        auto DeferTree(Windows::UI::Xaml::DependencyObject const& element) const;
+        WINRT_IMPL_AUTO(void) DeferTree(Windows::UI::Xaml::DependencyObject const& element) const;
     };
     template <> struct consume<Windows::UI::Xaml::IFrameworkElementStatics5>
     {
@@ -4575,7 +4579,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IFrameworkElementStatics6
     {
-        [[nodiscard]] auto ActualThemeProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ActualThemeProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::IFrameworkElementStatics6>
     {
@@ -4592,7 +4596,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IFrameworkTemplateFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::FrameworkTemplate) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::IFrameworkTemplateFactory>
     {
@@ -4625,13 +4629,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IGridLengthHelperStatics
     {
-        [[nodiscard]] auto Auto() const;
-        auto FromPixels(double pixels) const;
-        auto FromValueAndType(double value, Windows::UI::Xaml::GridUnitType const& type) const;
-        auto GetIsAbsolute(Windows::UI::Xaml::GridLength const& target) const;
-        auto GetIsAuto(Windows::UI::Xaml::GridLength const& target) const;
-        auto GetIsStar(Windows::UI::Xaml::GridLength const& target) const;
-        auto Equals(Windows::UI::Xaml::GridLength const& target, Windows::UI::Xaml::GridLength const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::GridLength) Auto() const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::GridLength) FromPixels(double pixels) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::GridLength) FromValueAndType(double value, Windows::UI::Xaml::GridUnitType const& type) const;
+        WINRT_IMPL_AUTO(bool) GetIsAbsolute(Windows::UI::Xaml::GridLength const& target) const;
+        WINRT_IMPL_AUTO(bool) GetIsAuto(Windows::UI::Xaml::GridLength const& target) const;
+        WINRT_IMPL_AUTO(bool) GetIsStar(Windows::UI::Xaml::GridLength const& target) const;
+        WINRT_IMPL_AUTO(bool) Equals(Windows::UI::Xaml::GridLength const& target, Windows::UI::Xaml::GridLength const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::IGridLengthHelperStatics>
     {
@@ -4640,7 +4644,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IMediaFailedRoutedEventArgs
     {
-        [[nodiscard]] auto ErrorTrace() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ErrorTrace() const;
     };
     template <> struct consume<Windows::UI::Xaml::IMediaFailedRoutedEventArgs>
     {
@@ -4657,7 +4661,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IPointHelperStatics
     {
-        auto FromCoordinates(float x, float y) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Point) FromCoordinates(float x, float y) const;
     };
     template <> struct consume<Windows::UI::Xaml::IPointHelperStatics>
     {
@@ -4666,8 +4670,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IPropertyMetadata
     {
-        [[nodiscard]] auto DefaultValue() const;
-        [[nodiscard]] auto CreateDefaultValueCallback() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) DefaultValue() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::CreateDefaultValueCallback) CreateDefaultValueCallback() const;
     };
     template <> struct consume<Windows::UI::Xaml::IPropertyMetadata>
     {
@@ -4676,8 +4680,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IPropertyMetadataFactory
     {
-        auto CreateInstanceWithDefaultValue(Windows::Foundation::IInspectable const& defaultValue, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
-        auto CreateInstanceWithDefaultValueAndCallback(Windows::Foundation::IInspectable const& defaultValue, Windows::UI::Xaml::PropertyChangedCallback const& propertyChangedCallback, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::PropertyMetadata) CreateInstanceWithDefaultValue(Windows::Foundation::IInspectable const& defaultValue, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::PropertyMetadata) CreateInstanceWithDefaultValueAndCallback(Windows::Foundation::IInspectable const& defaultValue, Windows::UI::Xaml::PropertyChangedCallback const& propertyChangedCallback, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::IPropertyMetadataFactory>
     {
@@ -4686,10 +4690,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IPropertyMetadataStatics
     {
-        auto Create(Windows::Foundation::IInspectable const& defaultValue) const;
-        auto Create(Windows::Foundation::IInspectable const& defaultValue, Windows::UI::Xaml::PropertyChangedCallback const& propertyChangedCallback) const;
-        auto Create(Windows::UI::Xaml::CreateDefaultValueCallback const& createDefaultValueCallback) const;
-        auto Create(Windows::UI::Xaml::CreateDefaultValueCallback const& createDefaultValueCallback, Windows::UI::Xaml::PropertyChangedCallback const& propertyChangedCallback) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::PropertyMetadata) Create(Windows::Foundation::IInspectable const& defaultValue) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::PropertyMetadata) Create(Windows::Foundation::IInspectable const& defaultValue, Windows::UI::Xaml::PropertyChangedCallback const& propertyChangedCallback) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::PropertyMetadata) Create(Windows::UI::Xaml::CreateDefaultValueCallback const& createDefaultValueCallback) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::PropertyMetadata) Create(Windows::UI::Xaml::CreateDefaultValueCallback const& createDefaultValueCallback, Windows::UI::Xaml::PropertyChangedCallback const& propertyChangedCallback) const;
     };
     template <> struct consume<Windows::UI::Xaml::IPropertyMetadataStatics>
     {
@@ -4698,7 +4702,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IPropertyPath
     {
-        [[nodiscard]] auto Path() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Path() const;
     };
     template <> struct consume<Windows::UI::Xaml::IPropertyPath>
     {
@@ -4707,7 +4711,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IPropertyPathFactory
     {
-        auto CreateInstance(param::hstring const& path) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::PropertyPath) CreateInstance(param::hstring const& path) const;
     };
     template <> struct consume<Windows::UI::Xaml::IPropertyPathFactory>
     {
@@ -4724,20 +4728,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IRectHelperStatics
     {
-        [[nodiscard]] auto Empty() const;
-        auto FromCoordinatesAndDimensions(float x, float y, float width, float height) const;
-        auto FromPoints(Windows::Foundation::Point const& point1, Windows::Foundation::Point const& point2) const;
-        auto FromLocationAndSize(Windows::Foundation::Point const& location, Windows::Foundation::Size const& size) const;
-        auto GetIsEmpty(Windows::Foundation::Rect const& target) const;
-        auto GetBottom(Windows::Foundation::Rect const& target) const;
-        auto GetLeft(Windows::Foundation::Rect const& target) const;
-        auto GetRight(Windows::Foundation::Rect const& target) const;
-        auto GetTop(Windows::Foundation::Rect const& target) const;
-        auto Contains(Windows::Foundation::Rect const& target, Windows::Foundation::Point const& point) const;
-        auto Equals(Windows::Foundation::Rect const& target, Windows::Foundation::Rect const& value) const;
-        auto Intersect(Windows::Foundation::Rect const& target, Windows::Foundation::Rect const& rect) const;
-        auto Union(Windows::Foundation::Rect const& target, Windows::Foundation::Point const& point) const;
-        auto Union(Windows::Foundation::Rect const& target, Windows::Foundation::Rect const& rect) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) Empty() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Rect) FromCoordinatesAndDimensions(float x, float y, float width, float height) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Rect) FromPoints(Windows::Foundation::Point const& point1, Windows::Foundation::Point const& point2) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Rect) FromLocationAndSize(Windows::Foundation::Point const& location, Windows::Foundation::Size const& size) const;
+        WINRT_IMPL_AUTO(bool) GetIsEmpty(Windows::Foundation::Rect const& target) const;
+        WINRT_IMPL_AUTO(float) GetBottom(Windows::Foundation::Rect const& target) const;
+        WINRT_IMPL_AUTO(float) GetLeft(Windows::Foundation::Rect const& target) const;
+        WINRT_IMPL_AUTO(float) GetRight(Windows::Foundation::Rect const& target) const;
+        WINRT_IMPL_AUTO(float) GetTop(Windows::Foundation::Rect const& target) const;
+        WINRT_IMPL_AUTO(bool) Contains(Windows::Foundation::Rect const& target, Windows::Foundation::Point const& point) const;
+        WINRT_IMPL_AUTO(bool) Equals(Windows::Foundation::Rect const& target, Windows::Foundation::Rect const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Rect) Intersect(Windows::Foundation::Rect const& target, Windows::Foundation::Rect const& rect) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Rect) Union(Windows::Foundation::Rect const& target, Windows::Foundation::Point const& point) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Rect) Union(Windows::Foundation::Rect const& target, Windows::Foundation::Rect const& rect) const;
     };
     template <> struct consume<Windows::UI::Xaml::IRectHelperStatics>
     {
@@ -4746,10 +4750,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IResourceDictionary
     {
-        [[nodiscard]] auto Source() const;
-        auto Source(Windows::Foundation::Uri const& value) const;
-        [[nodiscard]] auto MergedDictionaries() const;
-        [[nodiscard]] auto ThemeDictionaries() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Source() const;
+        WINRT_IMPL_AUTO(void) Source(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::UI::Xaml::ResourceDictionary>) MergedDictionaries() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMap<Windows::Foundation::IInspectable, Windows::Foundation::IInspectable>) ThemeDictionaries() const;
     };
     template <> struct consume<Windows::UI::Xaml::IResourceDictionary>
     {
@@ -4758,7 +4762,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IResourceDictionaryFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::ResourceDictionary) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::IResourceDictionaryFactory>
     {
@@ -4775,7 +4779,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IRoutedEventArgs
     {
-        [[nodiscard]] auto OriginalSource() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) OriginalSource() const;
     };
     template <> struct consume<Windows::UI::Xaml::IRoutedEventArgs>
     {
@@ -4784,7 +4788,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IRoutedEventArgsFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEventArgs) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::IRoutedEventArgsFactory>
     {
@@ -4793,8 +4797,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IScalarTransition
     {
-        [[nodiscard]] auto Duration() const;
-        auto Duration(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Duration() const;
+        WINRT_IMPL_AUTO(void) Duration(Windows::Foundation::TimeSpan const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::IScalarTransition>
     {
@@ -4803,7 +4807,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IScalarTransitionFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::ScalarTransition) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::IScalarTransitionFactory>
     {
@@ -4812,10 +4816,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_ISetter
     {
-        [[nodiscard]] auto Property() const;
-        auto Property(Windows::UI::Xaml::DependencyProperty const& value) const;
-        [[nodiscard]] auto Value() const;
-        auto Value(Windows::Foundation::IInspectable const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) Property() const;
+        WINRT_IMPL_AUTO(void) Property(Windows::UI::Xaml::DependencyProperty const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) Value() const;
+        WINRT_IMPL_AUTO(void) Value(Windows::Foundation::IInspectable const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::ISetter>
     {
@@ -4824,8 +4828,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_ISetter2
     {
-        [[nodiscard]] auto Target() const;
-        auto Target(Windows::UI::Xaml::TargetPropertyPath const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::TargetPropertyPath) Target() const;
+        WINRT_IMPL_AUTO(void) Target(Windows::UI::Xaml::TargetPropertyPath const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::ISetter2>
     {
@@ -4834,7 +4838,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_ISetterBase
     {
-        [[nodiscard]] auto IsSealed() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSealed() const;
     };
     template <> struct consume<Windows::UI::Xaml::ISetterBase>
     {
@@ -4843,7 +4847,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_ISetterBaseCollection
     {
-        [[nodiscard]] auto IsSealed() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSealed() const;
     };
     template <> struct consume<Windows::UI::Xaml::ISetterBaseCollection>
     {
@@ -4860,7 +4864,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_ISetterFactory
     {
-        auto CreateInstance(Windows::UI::Xaml::DependencyProperty const& targetProperty, Windows::Foundation::IInspectable const& value) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Setter) CreateInstance(Windows::UI::Xaml::DependencyProperty const& targetProperty, Windows::Foundation::IInspectable const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::ISetterFactory>
     {
@@ -4869,8 +4873,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_ISizeChangedEventArgs
     {
-        [[nodiscard]] auto PreviousSize() const;
-        [[nodiscard]] auto NewSize() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Size) PreviousSize() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Size) NewSize() const;
     };
     template <> struct consume<Windows::UI::Xaml::ISizeChangedEventArgs>
     {
@@ -4887,10 +4891,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_ISizeHelperStatics
     {
-        [[nodiscard]] auto Empty() const;
-        auto FromDimensions(float width, float height) const;
-        auto GetIsEmpty(Windows::Foundation::Size const& target) const;
-        auto Equals(Windows::Foundation::Size const& target, Windows::Foundation::Size const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Size) Empty() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Size) FromDimensions(float width, float height) const;
+        WINRT_IMPL_AUTO(bool) GetIsEmpty(Windows::Foundation::Size const& target) const;
+        WINRT_IMPL_AUTO(bool) Equals(Windows::Foundation::Size const& target, Windows::Foundation::Size const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::ISizeHelperStatics>
     {
@@ -4899,8 +4903,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IStateTrigger
     {
-        [[nodiscard]] auto IsActive() const;
-        auto IsActive(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsActive() const;
+        WINRT_IMPL_AUTO(void) IsActive(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::IStateTrigger>
     {
@@ -4917,7 +4921,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IStateTriggerBaseFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::StateTriggerBase) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::IStateTriggerBaseFactory>
     {
@@ -4926,7 +4930,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IStateTriggerBaseProtected
     {
-        auto SetActive(bool IsActive) const;
+        WINRT_IMPL_AUTO(void) SetActive(bool IsActive) const;
     };
     template <> struct consume<Windows::UI::Xaml::IStateTriggerBaseProtected>
     {
@@ -4935,7 +4939,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IStateTriggerStatics
     {
-        [[nodiscard]] auto IsActiveProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IsActiveProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::IStateTriggerStatics>
     {
@@ -4944,13 +4948,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IStyle
     {
-        [[nodiscard]] auto IsSealed() const;
-        [[nodiscard]] auto Setters() const;
-        [[nodiscard]] auto TargetType() const;
-        auto TargetType(Windows::UI::Xaml::Interop::TypeName const& value) const;
-        [[nodiscard]] auto BasedOn() const;
-        auto BasedOn(Windows::UI::Xaml::Style const& value) const;
-        auto Seal() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSealed() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::SetterBaseCollection) Setters() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Interop::TypeName) TargetType() const;
+        WINRT_IMPL_AUTO(void) TargetType(Windows::UI::Xaml::Interop::TypeName const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Style) BasedOn() const;
+        WINRT_IMPL_AUTO(void) BasedOn(Windows::UI::Xaml::Style const& value) const;
+        WINRT_IMPL_AUTO(void) Seal() const;
     };
     template <> struct consume<Windows::UI::Xaml::IStyle>
     {
@@ -4959,7 +4963,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IStyleFactory
     {
-        auto CreateInstance(Windows::UI::Xaml::Interop::TypeName const& targetType) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Style) CreateInstance(Windows::UI::Xaml::Interop::TypeName const& targetType) const;
     };
     template <> struct consume<Windows::UI::Xaml::IStyleFactory>
     {
@@ -4968,10 +4972,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_ITargetPropertyPath
     {
-        [[nodiscard]] auto Path() const;
-        auto Path(Windows::UI::Xaml::PropertyPath const& value) const;
-        [[nodiscard]] auto Target() const;
-        auto Target(Windows::Foundation::IInspectable const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::PropertyPath) Path() const;
+        WINRT_IMPL_AUTO(void) Path(Windows::UI::Xaml::PropertyPath const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) Target() const;
+        WINRT_IMPL_AUTO(void) Target(Windows::Foundation::IInspectable const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::ITargetPropertyPath>
     {
@@ -4980,7 +4984,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_ITargetPropertyPathFactory
     {
-        auto CreateInstance(Windows::UI::Xaml::DependencyProperty const& targetProperty) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::TargetPropertyPath) CreateInstance(Windows::UI::Xaml::DependencyProperty const& targetProperty) const;
     };
     template <> struct consume<Windows::UI::Xaml::ITargetPropertyPathFactory>
     {
@@ -4997,8 +5001,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IThicknessHelperStatics
     {
-        auto FromLengths(double left, double top, double right, double bottom) const;
-        auto FromUniformLength(double uniformLength) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Thickness) FromLengths(double left, double top, double right, double bottom) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Thickness) FromUniformLength(double uniformLength) const;
     };
     template <> struct consume<Windows::UI::Xaml::IThicknessHelperStatics>
     {
@@ -5039,152 +5043,152 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IUIElement
     {
-        [[nodiscard]] auto DesiredSize() const;
-        [[nodiscard]] auto AllowDrop() const;
-        auto AllowDrop(bool value) const;
-        [[nodiscard]] auto Opacity() const;
-        auto Opacity(double value) const;
-        [[nodiscard]] auto Clip() const;
-        auto Clip(Windows::UI::Xaml::Media::RectangleGeometry const& value) const;
-        [[nodiscard]] auto RenderTransform() const;
-        auto RenderTransform(Windows::UI::Xaml::Media::Transform const& value) const;
-        [[nodiscard]] auto Projection() const;
-        auto Projection(Windows::UI::Xaml::Media::Projection const& value) const;
-        [[nodiscard]] auto RenderTransformOrigin() const;
-        auto RenderTransformOrigin(Windows::Foundation::Point const& value) const;
-        [[nodiscard]] auto IsHitTestVisible() const;
-        auto IsHitTestVisible(bool value) const;
-        [[nodiscard]] auto Visibility() const;
-        auto Visibility(Windows::UI::Xaml::Visibility const& value) const;
-        [[nodiscard]] auto RenderSize() const;
-        [[nodiscard]] auto UseLayoutRounding() const;
-        auto UseLayoutRounding(bool value) const;
-        [[nodiscard]] auto Transitions() const;
-        auto Transitions(Windows::UI::Xaml::Media::Animation::TransitionCollection const& value) const;
-        [[nodiscard]] auto CacheMode() const;
-        auto CacheMode(Windows::UI::Xaml::Media::CacheMode const& value) const;
-        [[nodiscard]] auto IsTapEnabled() const;
-        auto IsTapEnabled(bool value) const;
-        [[nodiscard]] auto IsDoubleTapEnabled() const;
-        auto IsDoubleTapEnabled(bool value) const;
-        [[nodiscard]] auto IsRightTapEnabled() const;
-        auto IsRightTapEnabled(bool value) const;
-        [[nodiscard]] auto IsHoldingEnabled() const;
-        auto IsHoldingEnabled(bool value) const;
-        [[nodiscard]] auto ManipulationMode() const;
-        auto ManipulationMode(Windows::UI::Xaml::Input::ManipulationModes const& value) const;
-        [[nodiscard]] auto PointerCaptures() const;
-        auto KeyUp(Windows::UI::Xaml::Input::KeyEventHandler const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Size) DesiredSize() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AllowDrop() const;
+        WINRT_IMPL_AUTO(void) AllowDrop(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Opacity() const;
+        WINRT_IMPL_AUTO(void) Opacity(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::RectangleGeometry) Clip() const;
+        WINRT_IMPL_AUTO(void) Clip(Windows::UI::Xaml::Media::RectangleGeometry const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Transform) RenderTransform() const;
+        WINRT_IMPL_AUTO(void) RenderTransform(Windows::UI::Xaml::Media::Transform const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Projection) Projection() const;
+        WINRT_IMPL_AUTO(void) Projection(Windows::UI::Xaml::Media::Projection const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Point) RenderTransformOrigin() const;
+        WINRT_IMPL_AUTO(void) RenderTransformOrigin(Windows::Foundation::Point const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsHitTestVisible() const;
+        WINRT_IMPL_AUTO(void) IsHitTestVisible(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Visibility) Visibility() const;
+        WINRT_IMPL_AUTO(void) Visibility(Windows::UI::Xaml::Visibility const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Size) RenderSize() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) UseLayoutRounding() const;
+        WINRT_IMPL_AUTO(void) UseLayoutRounding(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::TransitionCollection) Transitions() const;
+        WINRT_IMPL_AUTO(void) Transitions(Windows::UI::Xaml::Media::Animation::TransitionCollection const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::CacheMode) CacheMode() const;
+        WINRT_IMPL_AUTO(void) CacheMode(Windows::UI::Xaml::Media::CacheMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsTapEnabled() const;
+        WINRT_IMPL_AUTO(void) IsTapEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDoubleTapEnabled() const;
+        WINRT_IMPL_AUTO(void) IsDoubleTapEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsRightTapEnabled() const;
+        WINRT_IMPL_AUTO(void) IsRightTapEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsHoldingEnabled() const;
+        WINRT_IMPL_AUTO(void) IsHoldingEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::ManipulationModes) ManipulationMode() const;
+        WINRT_IMPL_AUTO(void) ManipulationMode(Windows::UI::Xaml::Input::ManipulationModes const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::UI::Xaml::Input::Pointer>) PointerCaptures() const;
+        WINRT_IMPL_AUTO(winrt::event_token) KeyUp(Windows::UI::Xaml::Input::KeyEventHandler const& handler) const;
         using KeyUp_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement, &impl::abi_t<Windows::UI::Xaml::IUIElement>::remove_KeyUp>;
         [[nodiscard]] KeyUp_revoker KeyUp(auto_revoke_t, Windows::UI::Xaml::Input::KeyEventHandler const& handler) const;
-        auto KeyUp(winrt::event_token const& token) const noexcept;
-        auto KeyDown(Windows::UI::Xaml::Input::KeyEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) KeyUp(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) KeyDown(Windows::UI::Xaml::Input::KeyEventHandler const& handler) const;
         using KeyDown_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement, &impl::abi_t<Windows::UI::Xaml::IUIElement>::remove_KeyDown>;
         [[nodiscard]] KeyDown_revoker KeyDown(auto_revoke_t, Windows::UI::Xaml::Input::KeyEventHandler const& handler) const;
-        auto KeyDown(winrt::event_token const& token) const noexcept;
-        auto GotFocus(Windows::UI::Xaml::RoutedEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) KeyDown(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) GotFocus(Windows::UI::Xaml::RoutedEventHandler const& handler) const;
         using GotFocus_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement, &impl::abi_t<Windows::UI::Xaml::IUIElement>::remove_GotFocus>;
         [[nodiscard]] GotFocus_revoker GotFocus(auto_revoke_t, Windows::UI::Xaml::RoutedEventHandler const& handler) const;
-        auto GotFocus(winrt::event_token const& token) const noexcept;
-        auto LostFocus(Windows::UI::Xaml::RoutedEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) GotFocus(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) LostFocus(Windows::UI::Xaml::RoutedEventHandler const& handler) const;
         using LostFocus_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement, &impl::abi_t<Windows::UI::Xaml::IUIElement>::remove_LostFocus>;
         [[nodiscard]] LostFocus_revoker LostFocus(auto_revoke_t, Windows::UI::Xaml::RoutedEventHandler const& handler) const;
-        auto LostFocus(winrt::event_token const& token) const noexcept;
-        auto DragEnter(Windows::UI::Xaml::DragEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) LostFocus(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) DragEnter(Windows::UI::Xaml::DragEventHandler const& handler) const;
         using DragEnter_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement, &impl::abi_t<Windows::UI::Xaml::IUIElement>::remove_DragEnter>;
         [[nodiscard]] DragEnter_revoker DragEnter(auto_revoke_t, Windows::UI::Xaml::DragEventHandler const& handler) const;
-        auto DragEnter(winrt::event_token const& token) const noexcept;
-        auto DragLeave(Windows::UI::Xaml::DragEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) DragEnter(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) DragLeave(Windows::UI::Xaml::DragEventHandler const& handler) const;
         using DragLeave_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement, &impl::abi_t<Windows::UI::Xaml::IUIElement>::remove_DragLeave>;
         [[nodiscard]] DragLeave_revoker DragLeave(auto_revoke_t, Windows::UI::Xaml::DragEventHandler const& handler) const;
-        auto DragLeave(winrt::event_token const& token) const noexcept;
-        auto DragOver(Windows::UI::Xaml::DragEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) DragLeave(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) DragOver(Windows::UI::Xaml::DragEventHandler const& handler) const;
         using DragOver_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement, &impl::abi_t<Windows::UI::Xaml::IUIElement>::remove_DragOver>;
         [[nodiscard]] DragOver_revoker DragOver(auto_revoke_t, Windows::UI::Xaml::DragEventHandler const& handler) const;
-        auto DragOver(winrt::event_token const& token) const noexcept;
-        auto Drop(Windows::UI::Xaml::DragEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) DragOver(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Drop(Windows::UI::Xaml::DragEventHandler const& handler) const;
         using Drop_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement, &impl::abi_t<Windows::UI::Xaml::IUIElement>::remove_Drop>;
         [[nodiscard]] Drop_revoker Drop(auto_revoke_t, Windows::UI::Xaml::DragEventHandler const& handler) const;
-        auto Drop(winrt::event_token const& token) const noexcept;
-        auto PointerPressed(Windows::UI::Xaml::Input::PointerEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) Drop(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PointerPressed(Windows::UI::Xaml::Input::PointerEventHandler const& handler) const;
         using PointerPressed_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement, &impl::abi_t<Windows::UI::Xaml::IUIElement>::remove_PointerPressed>;
         [[nodiscard]] PointerPressed_revoker PointerPressed(auto_revoke_t, Windows::UI::Xaml::Input::PointerEventHandler const& handler) const;
-        auto PointerPressed(winrt::event_token const& token) const noexcept;
-        auto PointerMoved(Windows::UI::Xaml::Input::PointerEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) PointerPressed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PointerMoved(Windows::UI::Xaml::Input::PointerEventHandler const& handler) const;
         using PointerMoved_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement, &impl::abi_t<Windows::UI::Xaml::IUIElement>::remove_PointerMoved>;
         [[nodiscard]] PointerMoved_revoker PointerMoved(auto_revoke_t, Windows::UI::Xaml::Input::PointerEventHandler const& handler) const;
-        auto PointerMoved(winrt::event_token const& token) const noexcept;
-        auto PointerReleased(Windows::UI::Xaml::Input::PointerEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) PointerMoved(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PointerReleased(Windows::UI::Xaml::Input::PointerEventHandler const& handler) const;
         using PointerReleased_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement, &impl::abi_t<Windows::UI::Xaml::IUIElement>::remove_PointerReleased>;
         [[nodiscard]] PointerReleased_revoker PointerReleased(auto_revoke_t, Windows::UI::Xaml::Input::PointerEventHandler const& handler) const;
-        auto PointerReleased(winrt::event_token const& token) const noexcept;
-        auto PointerEntered(Windows::UI::Xaml::Input::PointerEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) PointerReleased(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PointerEntered(Windows::UI::Xaml::Input::PointerEventHandler const& handler) const;
         using PointerEntered_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement, &impl::abi_t<Windows::UI::Xaml::IUIElement>::remove_PointerEntered>;
         [[nodiscard]] PointerEntered_revoker PointerEntered(auto_revoke_t, Windows::UI::Xaml::Input::PointerEventHandler const& handler) const;
-        auto PointerEntered(winrt::event_token const& token) const noexcept;
-        auto PointerExited(Windows::UI::Xaml::Input::PointerEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) PointerEntered(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PointerExited(Windows::UI::Xaml::Input::PointerEventHandler const& handler) const;
         using PointerExited_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement, &impl::abi_t<Windows::UI::Xaml::IUIElement>::remove_PointerExited>;
         [[nodiscard]] PointerExited_revoker PointerExited(auto_revoke_t, Windows::UI::Xaml::Input::PointerEventHandler const& handler) const;
-        auto PointerExited(winrt::event_token const& token) const noexcept;
-        auto PointerCaptureLost(Windows::UI::Xaml::Input::PointerEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) PointerExited(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PointerCaptureLost(Windows::UI::Xaml::Input::PointerEventHandler const& handler) const;
         using PointerCaptureLost_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement, &impl::abi_t<Windows::UI::Xaml::IUIElement>::remove_PointerCaptureLost>;
         [[nodiscard]] PointerCaptureLost_revoker PointerCaptureLost(auto_revoke_t, Windows::UI::Xaml::Input::PointerEventHandler const& handler) const;
-        auto PointerCaptureLost(winrt::event_token const& token) const noexcept;
-        auto PointerCanceled(Windows::UI::Xaml::Input::PointerEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) PointerCaptureLost(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PointerCanceled(Windows::UI::Xaml::Input::PointerEventHandler const& handler) const;
         using PointerCanceled_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement, &impl::abi_t<Windows::UI::Xaml::IUIElement>::remove_PointerCanceled>;
         [[nodiscard]] PointerCanceled_revoker PointerCanceled(auto_revoke_t, Windows::UI::Xaml::Input::PointerEventHandler const& handler) const;
-        auto PointerCanceled(winrt::event_token const& token) const noexcept;
-        auto PointerWheelChanged(Windows::UI::Xaml::Input::PointerEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) PointerCanceled(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PointerWheelChanged(Windows::UI::Xaml::Input::PointerEventHandler const& handler) const;
         using PointerWheelChanged_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement, &impl::abi_t<Windows::UI::Xaml::IUIElement>::remove_PointerWheelChanged>;
         [[nodiscard]] PointerWheelChanged_revoker PointerWheelChanged(auto_revoke_t, Windows::UI::Xaml::Input::PointerEventHandler const& handler) const;
-        auto PointerWheelChanged(winrt::event_token const& token) const noexcept;
-        auto Tapped(Windows::UI::Xaml::Input::TappedEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) PointerWheelChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Tapped(Windows::UI::Xaml::Input::TappedEventHandler const& handler) const;
         using Tapped_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement, &impl::abi_t<Windows::UI::Xaml::IUIElement>::remove_Tapped>;
         [[nodiscard]] Tapped_revoker Tapped(auto_revoke_t, Windows::UI::Xaml::Input::TappedEventHandler const& handler) const;
-        auto Tapped(winrt::event_token const& token) const noexcept;
-        auto DoubleTapped(Windows::UI::Xaml::Input::DoubleTappedEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) Tapped(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) DoubleTapped(Windows::UI::Xaml::Input::DoubleTappedEventHandler const& handler) const;
         using DoubleTapped_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement, &impl::abi_t<Windows::UI::Xaml::IUIElement>::remove_DoubleTapped>;
         [[nodiscard]] DoubleTapped_revoker DoubleTapped(auto_revoke_t, Windows::UI::Xaml::Input::DoubleTappedEventHandler const& handler) const;
-        auto DoubleTapped(winrt::event_token const& token) const noexcept;
-        auto Holding(Windows::UI::Xaml::Input::HoldingEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) DoubleTapped(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Holding(Windows::UI::Xaml::Input::HoldingEventHandler const& handler) const;
         using Holding_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement, &impl::abi_t<Windows::UI::Xaml::IUIElement>::remove_Holding>;
         [[nodiscard]] Holding_revoker Holding(auto_revoke_t, Windows::UI::Xaml::Input::HoldingEventHandler const& handler) const;
-        auto Holding(winrt::event_token const& token) const noexcept;
-        auto RightTapped(Windows::UI::Xaml::Input::RightTappedEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) Holding(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) RightTapped(Windows::UI::Xaml::Input::RightTappedEventHandler const& handler) const;
         using RightTapped_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement, &impl::abi_t<Windows::UI::Xaml::IUIElement>::remove_RightTapped>;
         [[nodiscard]] RightTapped_revoker RightTapped(auto_revoke_t, Windows::UI::Xaml::Input::RightTappedEventHandler const& handler) const;
-        auto RightTapped(winrt::event_token const& token) const noexcept;
-        auto ManipulationStarting(Windows::UI::Xaml::Input::ManipulationStartingEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) RightTapped(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ManipulationStarting(Windows::UI::Xaml::Input::ManipulationStartingEventHandler const& handler) const;
         using ManipulationStarting_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement, &impl::abi_t<Windows::UI::Xaml::IUIElement>::remove_ManipulationStarting>;
         [[nodiscard]] ManipulationStarting_revoker ManipulationStarting(auto_revoke_t, Windows::UI::Xaml::Input::ManipulationStartingEventHandler const& handler) const;
-        auto ManipulationStarting(winrt::event_token const& token) const noexcept;
-        auto ManipulationInertiaStarting(Windows::UI::Xaml::Input::ManipulationInertiaStartingEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) ManipulationStarting(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ManipulationInertiaStarting(Windows::UI::Xaml::Input::ManipulationInertiaStartingEventHandler const& handler) const;
         using ManipulationInertiaStarting_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement, &impl::abi_t<Windows::UI::Xaml::IUIElement>::remove_ManipulationInertiaStarting>;
         [[nodiscard]] ManipulationInertiaStarting_revoker ManipulationInertiaStarting(auto_revoke_t, Windows::UI::Xaml::Input::ManipulationInertiaStartingEventHandler const& handler) const;
-        auto ManipulationInertiaStarting(winrt::event_token const& token) const noexcept;
-        auto ManipulationStarted(Windows::UI::Xaml::Input::ManipulationStartedEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) ManipulationInertiaStarting(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ManipulationStarted(Windows::UI::Xaml::Input::ManipulationStartedEventHandler const& handler) const;
         using ManipulationStarted_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement, &impl::abi_t<Windows::UI::Xaml::IUIElement>::remove_ManipulationStarted>;
         [[nodiscard]] ManipulationStarted_revoker ManipulationStarted(auto_revoke_t, Windows::UI::Xaml::Input::ManipulationStartedEventHandler const& handler) const;
-        auto ManipulationStarted(winrt::event_token const& token) const noexcept;
-        auto ManipulationDelta(Windows::UI::Xaml::Input::ManipulationDeltaEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) ManipulationStarted(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ManipulationDelta(Windows::UI::Xaml::Input::ManipulationDeltaEventHandler const& handler) const;
         using ManipulationDelta_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement, &impl::abi_t<Windows::UI::Xaml::IUIElement>::remove_ManipulationDelta>;
         [[nodiscard]] ManipulationDelta_revoker ManipulationDelta(auto_revoke_t, Windows::UI::Xaml::Input::ManipulationDeltaEventHandler const& handler) const;
-        auto ManipulationDelta(winrt::event_token const& token) const noexcept;
-        auto ManipulationCompleted(Windows::UI::Xaml::Input::ManipulationCompletedEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) ManipulationDelta(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ManipulationCompleted(Windows::UI::Xaml::Input::ManipulationCompletedEventHandler const& handler) const;
         using ManipulationCompleted_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement, &impl::abi_t<Windows::UI::Xaml::IUIElement>::remove_ManipulationCompleted>;
         [[nodiscard]] ManipulationCompleted_revoker ManipulationCompleted(auto_revoke_t, Windows::UI::Xaml::Input::ManipulationCompletedEventHandler const& handler) const;
-        auto ManipulationCompleted(winrt::event_token const& token) const noexcept;
-        auto Measure(Windows::Foundation::Size const& availableSize) const;
-        auto Arrange(Windows::Foundation::Rect const& finalRect) const;
-        auto CapturePointer(Windows::UI::Xaml::Input::Pointer const& value) const;
-        auto ReleasePointerCapture(Windows::UI::Xaml::Input::Pointer const& value) const;
-        auto ReleasePointerCaptures() const;
-        auto AddHandler(Windows::UI::Xaml::RoutedEvent const& routedEvent, Windows::Foundation::IInspectable const& handler, bool handledEventsToo) const;
-        auto RemoveHandler(Windows::UI::Xaml::RoutedEvent const& routedEvent, Windows::Foundation::IInspectable const& handler) const;
-        auto TransformToVisual(Windows::UI::Xaml::UIElement const& visual) const;
-        auto InvalidateMeasure() const;
-        auto InvalidateArrange() const;
-        auto UpdateLayout() const;
+        WINRT_IMPL_AUTO(void) ManipulationCompleted(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Measure(Windows::Foundation::Size const& availableSize) const;
+        WINRT_IMPL_AUTO(void) Arrange(Windows::Foundation::Rect const& finalRect) const;
+        WINRT_IMPL_AUTO(bool) CapturePointer(Windows::UI::Xaml::Input::Pointer const& value) const;
+        WINRT_IMPL_AUTO(void) ReleasePointerCapture(Windows::UI::Xaml::Input::Pointer const& value) const;
+        WINRT_IMPL_AUTO(void) ReleasePointerCaptures() const;
+        WINRT_IMPL_AUTO(void) AddHandler(Windows::UI::Xaml::RoutedEvent const& routedEvent, Windows::Foundation::IInspectable const& handler, bool handledEventsToo) const;
+        WINRT_IMPL_AUTO(void) RemoveHandler(Windows::UI::Xaml::RoutedEvent const& routedEvent, Windows::Foundation::IInspectable const& handler) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::GeneralTransform) TransformToVisual(Windows::UI::Xaml::UIElement const& visual) const;
+        WINRT_IMPL_AUTO(void) InvalidateMeasure() const;
+        WINRT_IMPL_AUTO(void) InvalidateArrange() const;
+        WINRT_IMPL_AUTO(void) UpdateLayout() const;
     };
     template <> struct consume<Windows::UI::Xaml::IUIElement>
     {
@@ -5193,13 +5197,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IUIElement10
     {
-        [[nodiscard]] auto ActualOffset() const;
-        [[nodiscard]] auto ActualSize() const;
-        [[nodiscard]] auto XamlRoot() const;
-        auto XamlRoot(Windows::UI::Xaml::XamlRoot const& value) const;
-        [[nodiscard]] auto UIContext() const;
-        [[nodiscard]] auto Shadow() const;
-        auto Shadow(Windows::UI::Xaml::Media::Shadow const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) ActualOffset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) ActualSize() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::XamlRoot) XamlRoot() const;
+        WINRT_IMPL_AUTO(void) XamlRoot(Windows::UI::Xaml::XamlRoot const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::UIContext) UIContext() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Shadow) Shadow() const;
+        WINRT_IMPL_AUTO(void) Shadow(Windows::UI::Xaml::Media::Shadow const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::IUIElement10>
     {
@@ -5208,9 +5212,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IUIElement2
     {
-        [[nodiscard]] auto CompositeMode() const;
-        auto CompositeMode(Windows::UI::Xaml::Media::ElementCompositeMode const& value) const;
-        auto CancelDirectManipulations() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::ElementCompositeMode) CompositeMode() const;
+        WINRT_IMPL_AUTO(void) CompositeMode(Windows::UI::Xaml::Media::ElementCompositeMode const& value) const;
+        WINRT_IMPL_AUTO(bool) CancelDirectManipulations() const;
     };
     template <> struct consume<Windows::UI::Xaml::IUIElement2>
     {
@@ -5219,19 +5223,19 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IUIElement3
     {
-        [[nodiscard]] auto Transform3D() const;
-        auto Transform3D(Windows::UI::Xaml::Media::Media3D::Transform3D const& value) const;
-        [[nodiscard]] auto CanDrag() const;
-        auto CanDrag(bool value) const;
-        auto DragStarting(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::DragStartingEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Media3D::Transform3D) Transform3D() const;
+        WINRT_IMPL_AUTO(void) Transform3D(Windows::UI::Xaml::Media::Media3D::Transform3D const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanDrag() const;
+        WINRT_IMPL_AUTO(void) CanDrag(bool value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) DragStarting(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::DragStartingEventArgs> const& handler) const;
         using DragStarting_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement3, &impl::abi_t<Windows::UI::Xaml::IUIElement3>::remove_DragStarting>;
         [[nodiscard]] DragStarting_revoker DragStarting(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::DragStartingEventArgs> const& handler) const;
-        auto DragStarting(winrt::event_token const& token) const noexcept;
-        auto DropCompleted(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::DropCompletedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) DragStarting(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) DropCompleted(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::DropCompletedEventArgs> const& handler) const;
         using DropCompleted_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement3, &impl::abi_t<Windows::UI::Xaml::IUIElement3>::remove_DropCompleted>;
         [[nodiscard]] DropCompleted_revoker DropCompleted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::DropCompletedEventArgs> const& handler) const;
-        auto DropCompleted(winrt::event_token const& token) const noexcept;
-        auto StartDragAsync(Windows::UI::Input::PointerPoint const& pointerPoint) const;
+        WINRT_IMPL_AUTO(void) DropCompleted(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::DataTransfer::DataPackageOperation>) StartDragAsync(Windows::UI::Input::PointerPoint const& pointerPoint) const;
     };
     template <> struct consume<Windows::UI::Xaml::IUIElement3>
     {
@@ -5240,36 +5244,36 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IUIElement4
     {
-        [[nodiscard]] auto ContextFlyout() const;
-        auto ContextFlyout(Windows::UI::Xaml::Controls::Primitives::FlyoutBase const& value) const;
-        [[nodiscard]] auto ExitDisplayModeOnAccessKeyInvoked() const;
-        auto ExitDisplayModeOnAccessKeyInvoked(bool value) const;
-        [[nodiscard]] auto IsAccessKeyScope() const;
-        auto IsAccessKeyScope(bool value) const;
-        [[nodiscard]] auto AccessKeyScopeOwner() const;
-        auto AccessKeyScopeOwner(Windows::UI::Xaml::DependencyObject const& value) const;
-        [[nodiscard]] auto AccessKey() const;
-        auto AccessKey(param::hstring const& value) const;
-        auto ContextRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::Input::ContextRequestedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Primitives::FlyoutBase) ContextFlyout() const;
+        WINRT_IMPL_AUTO(void) ContextFlyout(Windows::UI::Xaml::Controls::Primitives::FlyoutBase const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ExitDisplayModeOnAccessKeyInvoked() const;
+        WINRT_IMPL_AUTO(void) ExitDisplayModeOnAccessKeyInvoked(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsAccessKeyScope() const;
+        WINRT_IMPL_AUTO(void) IsAccessKeyScope(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObject) AccessKeyScopeOwner() const;
+        WINRT_IMPL_AUTO(void) AccessKeyScopeOwner(Windows::UI::Xaml::DependencyObject const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AccessKey() const;
+        WINRT_IMPL_AUTO(void) AccessKey(param::hstring const& value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) ContextRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::Input::ContextRequestedEventArgs> const& handler) const;
         using ContextRequested_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement4, &impl::abi_t<Windows::UI::Xaml::IUIElement4>::remove_ContextRequested>;
         [[nodiscard]] ContextRequested_revoker ContextRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::Input::ContextRequestedEventArgs> const& handler) const;
-        auto ContextRequested(winrt::event_token const& token) const noexcept;
-        auto ContextCanceled(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::RoutedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) ContextRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ContextCanceled(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::RoutedEventArgs> const& handler) const;
         using ContextCanceled_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement4, &impl::abi_t<Windows::UI::Xaml::IUIElement4>::remove_ContextCanceled>;
         [[nodiscard]] ContextCanceled_revoker ContextCanceled(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::RoutedEventArgs> const& handler) const;
-        auto ContextCanceled(winrt::event_token const& token) const noexcept;
-        auto AccessKeyDisplayRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::Input::AccessKeyDisplayRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) ContextCanceled(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) AccessKeyDisplayRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::Input::AccessKeyDisplayRequestedEventArgs> const& handler) const;
         using AccessKeyDisplayRequested_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement4, &impl::abi_t<Windows::UI::Xaml::IUIElement4>::remove_AccessKeyDisplayRequested>;
         [[nodiscard]] AccessKeyDisplayRequested_revoker AccessKeyDisplayRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::Input::AccessKeyDisplayRequestedEventArgs> const& handler) const;
-        auto AccessKeyDisplayRequested(winrt::event_token const& token) const noexcept;
-        auto AccessKeyDisplayDismissed(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::Input::AccessKeyDisplayDismissedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) AccessKeyDisplayRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) AccessKeyDisplayDismissed(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::Input::AccessKeyDisplayDismissedEventArgs> const& handler) const;
         using AccessKeyDisplayDismissed_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement4, &impl::abi_t<Windows::UI::Xaml::IUIElement4>::remove_AccessKeyDisplayDismissed>;
         [[nodiscard]] AccessKeyDisplayDismissed_revoker AccessKeyDisplayDismissed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::Input::AccessKeyDisplayDismissedEventArgs> const& handler) const;
-        auto AccessKeyDisplayDismissed(winrt::event_token const& token) const noexcept;
-        auto AccessKeyInvoked(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::Input::AccessKeyInvokedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) AccessKeyDisplayDismissed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) AccessKeyInvoked(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::Input::AccessKeyInvokedEventArgs> const& handler) const;
         using AccessKeyInvoked_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement4, &impl::abi_t<Windows::UI::Xaml::IUIElement4>::remove_AccessKeyInvoked>;
         [[nodiscard]] AccessKeyInvoked_revoker AccessKeyInvoked(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::Input::AccessKeyInvokedEventArgs> const& handler) const;
-        auto AccessKeyInvoked(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) AccessKeyInvoked(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::Xaml::IUIElement4>
     {
@@ -5278,41 +5282,41 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IUIElement5
     {
-        [[nodiscard]] auto Lights() const;
-        [[nodiscard]] auto KeyTipPlacementMode() const;
-        auto KeyTipPlacementMode(Windows::UI::Xaml::Input::KeyTipPlacementMode const& value) const;
-        [[nodiscard]] auto KeyTipHorizontalOffset() const;
-        auto KeyTipHorizontalOffset(double value) const;
-        [[nodiscard]] auto KeyTipVerticalOffset() const;
-        auto KeyTipVerticalOffset(double value) const;
-        [[nodiscard]] auto XYFocusKeyboardNavigation() const;
-        auto XYFocusKeyboardNavigation(Windows::UI::Xaml::Input::XYFocusKeyboardNavigationMode const& value) const;
-        [[nodiscard]] auto XYFocusUpNavigationStrategy() const;
-        auto XYFocusUpNavigationStrategy(Windows::UI::Xaml::Input::XYFocusNavigationStrategy const& value) const;
-        [[nodiscard]] auto XYFocusDownNavigationStrategy() const;
-        auto XYFocusDownNavigationStrategy(Windows::UI::Xaml::Input::XYFocusNavigationStrategy const& value) const;
-        [[nodiscard]] auto XYFocusLeftNavigationStrategy() const;
-        auto XYFocusLeftNavigationStrategy(Windows::UI::Xaml::Input::XYFocusNavigationStrategy const& value) const;
-        [[nodiscard]] auto XYFocusRightNavigationStrategy() const;
-        auto XYFocusRightNavigationStrategy(Windows::UI::Xaml::Input::XYFocusNavigationStrategy const& value) const;
-        [[nodiscard]] auto HighContrastAdjustment() const;
-        auto HighContrastAdjustment(Windows::UI::Xaml::ElementHighContrastAdjustment const& value) const;
-        [[nodiscard]] auto TabFocusNavigation() const;
-        auto TabFocusNavigation(Windows::UI::Xaml::Input::KeyboardNavigationMode const& value) const;
-        auto GettingFocus(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::Input::GettingFocusEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::UI::Xaml::Media::XamlLight>) Lights() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::KeyTipPlacementMode) KeyTipPlacementMode() const;
+        WINRT_IMPL_AUTO(void) KeyTipPlacementMode(Windows::UI::Xaml::Input::KeyTipPlacementMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) KeyTipHorizontalOffset() const;
+        WINRT_IMPL_AUTO(void) KeyTipHorizontalOffset(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) KeyTipVerticalOffset() const;
+        WINRT_IMPL_AUTO(void) KeyTipVerticalOffset(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::XYFocusKeyboardNavigationMode) XYFocusKeyboardNavigation() const;
+        WINRT_IMPL_AUTO(void) XYFocusKeyboardNavigation(Windows::UI::Xaml::Input::XYFocusKeyboardNavigationMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::XYFocusNavigationStrategy) XYFocusUpNavigationStrategy() const;
+        WINRT_IMPL_AUTO(void) XYFocusUpNavigationStrategy(Windows::UI::Xaml::Input::XYFocusNavigationStrategy const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::XYFocusNavigationStrategy) XYFocusDownNavigationStrategy() const;
+        WINRT_IMPL_AUTO(void) XYFocusDownNavigationStrategy(Windows::UI::Xaml::Input::XYFocusNavigationStrategy const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::XYFocusNavigationStrategy) XYFocusLeftNavigationStrategy() const;
+        WINRT_IMPL_AUTO(void) XYFocusLeftNavigationStrategy(Windows::UI::Xaml::Input::XYFocusNavigationStrategy const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::XYFocusNavigationStrategy) XYFocusRightNavigationStrategy() const;
+        WINRT_IMPL_AUTO(void) XYFocusRightNavigationStrategy(Windows::UI::Xaml::Input::XYFocusNavigationStrategy const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::ElementHighContrastAdjustment) HighContrastAdjustment() const;
+        WINRT_IMPL_AUTO(void) HighContrastAdjustment(Windows::UI::Xaml::ElementHighContrastAdjustment const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::KeyboardNavigationMode) TabFocusNavigation() const;
+        WINRT_IMPL_AUTO(void) TabFocusNavigation(Windows::UI::Xaml::Input::KeyboardNavigationMode const& value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) GettingFocus(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::Input::GettingFocusEventArgs> const& handler) const;
         using GettingFocus_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement5, &impl::abi_t<Windows::UI::Xaml::IUIElement5>::remove_GettingFocus>;
         [[nodiscard]] GettingFocus_revoker GettingFocus(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::Input::GettingFocusEventArgs> const& handler) const;
-        auto GettingFocus(winrt::event_token const& token) const noexcept;
-        auto LosingFocus(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::Input::LosingFocusEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) GettingFocus(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) LosingFocus(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::Input::LosingFocusEventArgs> const& handler) const;
         using LosingFocus_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement5, &impl::abi_t<Windows::UI::Xaml::IUIElement5>::remove_LosingFocus>;
         [[nodiscard]] LosingFocus_revoker LosingFocus(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::Input::LosingFocusEventArgs> const& handler) const;
-        auto LosingFocus(winrt::event_token const& token) const noexcept;
-        auto NoFocusCandidateFound(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::Input::NoFocusCandidateFoundEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) LosingFocus(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) NoFocusCandidateFound(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::Input::NoFocusCandidateFoundEventArgs> const& handler) const;
         using NoFocusCandidateFound_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement5, &impl::abi_t<Windows::UI::Xaml::IUIElement5>::remove_NoFocusCandidateFound>;
         [[nodiscard]] NoFocusCandidateFound_revoker NoFocusCandidateFound(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::Input::NoFocusCandidateFoundEventArgs> const& handler) const;
-        auto NoFocusCandidateFound(winrt::event_token const& token) const noexcept;
-        auto StartBringIntoView() const;
-        auto StartBringIntoView(Windows::UI::Xaml::BringIntoViewOptions const& options) const;
+        WINRT_IMPL_AUTO(void) NoFocusCandidateFound(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) StartBringIntoView() const;
+        WINRT_IMPL_AUTO(void) StartBringIntoView(Windows::UI::Xaml::BringIntoViewOptions const& options) const;
     };
     template <> struct consume<Windows::UI::Xaml::IUIElement5>
     {
@@ -5321,24 +5325,24 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IUIElement7
     {
-        [[nodiscard]] auto KeyboardAccelerators() const;
-        auto CharacterReceived(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::Input::CharacterReceivedRoutedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::UI::Xaml::Input::KeyboardAccelerator>) KeyboardAccelerators() const;
+        WINRT_IMPL_AUTO(winrt::event_token) CharacterReceived(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::Input::CharacterReceivedRoutedEventArgs> const& handler) const;
         using CharacterReceived_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement7, &impl::abi_t<Windows::UI::Xaml::IUIElement7>::remove_CharacterReceived>;
         [[nodiscard]] CharacterReceived_revoker CharacterReceived(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::Input::CharacterReceivedRoutedEventArgs> const& handler) const;
-        auto CharacterReceived(winrt::event_token const& token) const noexcept;
-        auto ProcessKeyboardAccelerators(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::Input::ProcessKeyboardAcceleratorEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) CharacterReceived(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ProcessKeyboardAccelerators(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::Input::ProcessKeyboardAcceleratorEventArgs> const& handler) const;
         using ProcessKeyboardAccelerators_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement7, &impl::abi_t<Windows::UI::Xaml::IUIElement7>::remove_ProcessKeyboardAccelerators>;
         [[nodiscard]] ProcessKeyboardAccelerators_revoker ProcessKeyboardAccelerators(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::Input::ProcessKeyboardAcceleratorEventArgs> const& handler) const;
-        auto ProcessKeyboardAccelerators(winrt::event_token const& token) const noexcept;
-        auto PreviewKeyDown(Windows::UI::Xaml::Input::KeyEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) ProcessKeyboardAccelerators(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PreviewKeyDown(Windows::UI::Xaml::Input::KeyEventHandler const& handler) const;
         using PreviewKeyDown_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement7, &impl::abi_t<Windows::UI::Xaml::IUIElement7>::remove_PreviewKeyDown>;
         [[nodiscard]] PreviewKeyDown_revoker PreviewKeyDown(auto_revoke_t, Windows::UI::Xaml::Input::KeyEventHandler const& handler) const;
-        auto PreviewKeyDown(winrt::event_token const& token) const noexcept;
-        auto PreviewKeyUp(Windows::UI::Xaml::Input::KeyEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) PreviewKeyDown(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PreviewKeyUp(Windows::UI::Xaml::Input::KeyEventHandler const& handler) const;
         using PreviewKeyUp_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement7, &impl::abi_t<Windows::UI::Xaml::IUIElement7>::remove_PreviewKeyUp>;
         [[nodiscard]] PreviewKeyUp_revoker PreviewKeyUp(auto_revoke_t, Windows::UI::Xaml::Input::KeyEventHandler const& handler) const;
-        auto PreviewKeyUp(winrt::event_token const& token) const noexcept;
-        auto TryInvokeKeyboardAccelerator(Windows::UI::Xaml::Input::ProcessKeyboardAcceleratorEventArgs const& args) const;
+        WINRT_IMPL_AUTO(void) PreviewKeyUp(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) TryInvokeKeyboardAccelerator(Windows::UI::Xaml::Input::ProcessKeyboardAcceleratorEventArgs const& args) const;
     };
     template <> struct consume<Windows::UI::Xaml::IUIElement7>
     {
@@ -5347,16 +5351,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IUIElement8
     {
-        [[nodiscard]] auto KeyTipTarget() const;
-        auto KeyTipTarget(Windows::UI::Xaml::DependencyObject const& value) const;
-        [[nodiscard]] auto KeyboardAcceleratorPlacementTarget() const;
-        auto KeyboardAcceleratorPlacementTarget(Windows::UI::Xaml::DependencyObject const& value) const;
-        [[nodiscard]] auto KeyboardAcceleratorPlacementMode() const;
-        auto KeyboardAcceleratorPlacementMode(Windows::UI::Xaml::Input::KeyboardAcceleratorPlacementMode const& value) const;
-        auto BringIntoViewRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::BringIntoViewRequestedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObject) KeyTipTarget() const;
+        WINRT_IMPL_AUTO(void) KeyTipTarget(Windows::UI::Xaml::DependencyObject const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObject) KeyboardAcceleratorPlacementTarget() const;
+        WINRT_IMPL_AUTO(void) KeyboardAcceleratorPlacementTarget(Windows::UI::Xaml::DependencyObject const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::KeyboardAcceleratorPlacementMode) KeyboardAcceleratorPlacementMode() const;
+        WINRT_IMPL_AUTO(void) KeyboardAcceleratorPlacementMode(Windows::UI::Xaml::Input::KeyboardAcceleratorPlacementMode const& value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) BringIntoViewRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::BringIntoViewRequestedEventArgs> const& handler) const;
         using BringIntoViewRequested_revoker = impl::event_revoker<Windows::UI::Xaml::IUIElement8, &impl::abi_t<Windows::UI::Xaml::IUIElement8>::remove_BringIntoViewRequested>;
         [[nodiscard]] BringIntoViewRequested_revoker BringIntoViewRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::UIElement, Windows::UI::Xaml::BringIntoViewRequestedEventArgs> const& handler) const;
-        auto BringIntoViewRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) BringIntoViewRequested(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::Xaml::IUIElement8>
     {
@@ -5365,30 +5369,30 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IUIElement9
     {
-        [[nodiscard]] auto CanBeScrollAnchor() const;
-        auto CanBeScrollAnchor(bool value) const;
-        [[nodiscard]] auto OpacityTransition() const;
-        auto OpacityTransition(Windows::UI::Xaml::ScalarTransition const& value) const;
-        [[nodiscard]] auto Translation() const;
-        auto Translation(Windows::Foundation::Numerics::float3 const& value) const;
-        [[nodiscard]] auto TranslationTransition() const;
-        auto TranslationTransition(Windows::UI::Xaml::Vector3Transition const& value) const;
-        [[nodiscard]] auto Rotation() const;
-        auto Rotation(float value) const;
-        [[nodiscard]] auto RotationTransition() const;
-        auto RotationTransition(Windows::UI::Xaml::ScalarTransition const& value) const;
-        [[nodiscard]] auto Scale() const;
-        auto Scale(Windows::Foundation::Numerics::float3 const& value) const;
-        [[nodiscard]] auto ScaleTransition() const;
-        auto ScaleTransition(Windows::UI::Xaml::Vector3Transition const& value) const;
-        [[nodiscard]] auto TransformMatrix() const;
-        auto TransformMatrix(Windows::Foundation::Numerics::float4x4 const& value) const;
-        [[nodiscard]] auto CenterPoint() const;
-        auto CenterPoint(Windows::Foundation::Numerics::float3 const& value) const;
-        [[nodiscard]] auto RotationAxis() const;
-        auto RotationAxis(Windows::Foundation::Numerics::float3 const& value) const;
-        auto StartAnimation(Windows::UI::Composition::ICompositionAnimationBase const& animation) const;
-        auto StopAnimation(Windows::UI::Composition::ICompositionAnimationBase const& animation) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanBeScrollAnchor() const;
+        WINRT_IMPL_AUTO(void) CanBeScrollAnchor(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::ScalarTransition) OpacityTransition() const;
+        WINRT_IMPL_AUTO(void) OpacityTransition(Windows::UI::Xaml::ScalarTransition const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) Translation() const;
+        WINRT_IMPL_AUTO(void) Translation(Windows::Foundation::Numerics::float3 const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Vector3Transition) TranslationTransition() const;
+        WINRT_IMPL_AUTO(void) TranslationTransition(Windows::UI::Xaml::Vector3Transition const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) Rotation() const;
+        WINRT_IMPL_AUTO(void) Rotation(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::ScalarTransition) RotationTransition() const;
+        WINRT_IMPL_AUTO(void) RotationTransition(Windows::UI::Xaml::ScalarTransition const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) Scale() const;
+        WINRT_IMPL_AUTO(void) Scale(Windows::Foundation::Numerics::float3 const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Vector3Transition) ScaleTransition() const;
+        WINRT_IMPL_AUTO(void) ScaleTransition(Windows::UI::Xaml::Vector3Transition const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float4x4) TransformMatrix() const;
+        WINRT_IMPL_AUTO(void) TransformMatrix(Windows::Foundation::Numerics::float4x4 const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) CenterPoint() const;
+        WINRT_IMPL_AUTO(void) CenterPoint(Windows::Foundation::Numerics::float3 const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) RotationAxis() const;
+        WINRT_IMPL_AUTO(void) RotationAxis(Windows::Foundation::Numerics::float3 const& value) const;
+        WINRT_IMPL_AUTO(void) StartAnimation(Windows::UI::Composition::ICompositionAnimationBase const& animation) const;
+        WINRT_IMPL_AUTO(void) StopAnimation(Windows::UI::Composition::ICompositionAnimationBase const& animation) const;
     };
     template <> struct consume<Windows::UI::Xaml::IUIElement9>
     {
@@ -5405,9 +5409,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IUIElementOverrides
     {
-        auto OnCreateAutomationPeer() const;
-        auto OnDisconnectVisualChildren() const;
-        auto FindSubElementsForTouchTargeting(Windows::Foundation::Point const& point, Windows::Foundation::Rect const& boundingRect) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Automation::Peers::AutomationPeer) OnCreateAutomationPeer() const;
+        WINRT_IMPL_AUTO(void) OnDisconnectVisualChildren() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IIterable<Windows::Foundation::Collections::IIterable<Windows::Foundation::Point>>) FindSubElementsForTouchTargeting(Windows::Foundation::Point const& point, Windows::Foundation::Rect const& boundingRect) const;
     };
     template <> struct consume<Windows::UI::Xaml::IUIElementOverrides>
     {
@@ -5416,8 +5420,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IUIElementOverrides7
     {
-        auto GetChildrenInTabFocusOrder() const;
-        auto OnProcessKeyboardAccelerators(Windows::UI::Xaml::Input::ProcessKeyboardAcceleratorEventArgs const& args) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IIterable<Windows::UI::Xaml::DependencyObject>) GetChildrenInTabFocusOrder() const;
+        WINRT_IMPL_AUTO(void) OnProcessKeyboardAccelerators(Windows::UI::Xaml::Input::ProcessKeyboardAcceleratorEventArgs const& args) const;
     };
     template <> struct consume<Windows::UI::Xaml::IUIElementOverrides7>
     {
@@ -5426,8 +5430,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IUIElementOverrides8
     {
-        auto OnKeyboardAcceleratorInvoked(Windows::UI::Xaml::Input::KeyboardAcceleratorInvokedEventArgs const& args) const;
-        auto OnBringIntoViewRequested(Windows::UI::Xaml::BringIntoViewRequestedEventArgs const& e) const;
+        WINRT_IMPL_AUTO(void) OnKeyboardAcceleratorInvoked(Windows::UI::Xaml::Input::KeyboardAcceleratorInvokedEventArgs const& args) const;
+        WINRT_IMPL_AUTO(void) OnBringIntoViewRequested(Windows::UI::Xaml::BringIntoViewRequestedEventArgs const& e) const;
     };
     template <> struct consume<Windows::UI::Xaml::IUIElementOverrides8>
     {
@@ -5436,7 +5440,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IUIElementOverrides9
     {
-        auto PopulatePropertyInfoOverride(param::hstring const& propertyName, Windows::UI::Composition::AnimationPropertyInfo const& animationPropertyInfo) const;
+        WINRT_IMPL_AUTO(void) PopulatePropertyInfoOverride(param::hstring const& propertyName, Windows::UI::Composition::AnimationPropertyInfo const& animationPropertyInfo) const;
     };
     template <> struct consume<Windows::UI::Xaml::IUIElementOverrides9>
     {
@@ -5445,46 +5449,46 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IUIElementStatics
     {
-        [[nodiscard]] auto KeyDownEvent() const;
-        [[nodiscard]] auto KeyUpEvent() const;
-        [[nodiscard]] auto PointerEnteredEvent() const;
-        [[nodiscard]] auto PointerPressedEvent() const;
-        [[nodiscard]] auto PointerMovedEvent() const;
-        [[nodiscard]] auto PointerReleasedEvent() const;
-        [[nodiscard]] auto PointerExitedEvent() const;
-        [[nodiscard]] auto PointerCaptureLostEvent() const;
-        [[nodiscard]] auto PointerCanceledEvent() const;
-        [[nodiscard]] auto PointerWheelChangedEvent() const;
-        [[nodiscard]] auto TappedEvent() const;
-        [[nodiscard]] auto DoubleTappedEvent() const;
-        [[nodiscard]] auto HoldingEvent() const;
-        [[nodiscard]] auto RightTappedEvent() const;
-        [[nodiscard]] auto ManipulationStartingEvent() const;
-        [[nodiscard]] auto ManipulationInertiaStartingEvent() const;
-        [[nodiscard]] auto ManipulationStartedEvent() const;
-        [[nodiscard]] auto ManipulationDeltaEvent() const;
-        [[nodiscard]] auto ManipulationCompletedEvent() const;
-        [[nodiscard]] auto DragEnterEvent() const;
-        [[nodiscard]] auto DragLeaveEvent() const;
-        [[nodiscard]] auto DragOverEvent() const;
-        [[nodiscard]] auto DropEvent() const;
-        [[nodiscard]] auto AllowDropProperty() const;
-        [[nodiscard]] auto OpacityProperty() const;
-        [[nodiscard]] auto ClipProperty() const;
-        [[nodiscard]] auto RenderTransformProperty() const;
-        [[nodiscard]] auto ProjectionProperty() const;
-        [[nodiscard]] auto RenderTransformOriginProperty() const;
-        [[nodiscard]] auto IsHitTestVisibleProperty() const;
-        [[nodiscard]] auto VisibilityProperty() const;
-        [[nodiscard]] auto UseLayoutRoundingProperty() const;
-        [[nodiscard]] auto TransitionsProperty() const;
-        [[nodiscard]] auto CacheModeProperty() const;
-        [[nodiscard]] auto IsTapEnabledProperty() const;
-        [[nodiscard]] auto IsDoubleTapEnabledProperty() const;
-        [[nodiscard]] auto IsRightTapEnabledProperty() const;
-        [[nodiscard]] auto IsHoldingEnabledProperty() const;
-        [[nodiscard]] auto ManipulationModeProperty() const;
-        [[nodiscard]] auto PointerCapturesProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) KeyDownEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) KeyUpEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) PointerEnteredEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) PointerPressedEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) PointerMovedEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) PointerReleasedEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) PointerExitedEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) PointerCaptureLostEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) PointerCanceledEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) PointerWheelChangedEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) TappedEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) DoubleTappedEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) HoldingEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) RightTappedEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) ManipulationStartingEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) ManipulationInertiaStartingEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) ManipulationStartedEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) ManipulationDeltaEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) ManipulationCompletedEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) DragEnterEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) DragLeaveEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) DragOverEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) DropEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) AllowDropProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) OpacityProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ClipProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) RenderTransformProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ProjectionProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) RenderTransformOriginProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IsHitTestVisibleProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) VisibilityProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) UseLayoutRoundingProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) TransitionsProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) CacheModeProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IsTapEnabledProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IsDoubleTapEnabledProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IsRightTapEnabledProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IsHoldingEnabledProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ManipulationModeProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) PointerCapturesProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::IUIElementStatics>
     {
@@ -5493,7 +5497,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IUIElementStatics10
     {
-        [[nodiscard]] auto ShadowProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ShadowProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::IUIElementStatics10>
     {
@@ -5502,7 +5506,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IUIElementStatics2
     {
-        [[nodiscard]] auto CompositeModeProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) CompositeModeProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::IUIElementStatics2>
     {
@@ -5511,9 +5515,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IUIElementStatics3
     {
-        [[nodiscard]] auto Transform3DProperty() const;
-        [[nodiscard]] auto CanDragProperty() const;
-        auto TryStartDirectManipulation(Windows::UI::Xaml::Input::Pointer const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) Transform3DProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) CanDragProperty() const;
+        WINRT_IMPL_AUTO(bool) TryStartDirectManipulation(Windows::UI::Xaml::Input::Pointer const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::IUIElementStatics3>
     {
@@ -5522,11 +5526,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IUIElementStatics4
     {
-        [[nodiscard]] auto ContextFlyoutProperty() const;
-        [[nodiscard]] auto ExitDisplayModeOnAccessKeyInvokedProperty() const;
-        [[nodiscard]] auto IsAccessKeyScopeProperty() const;
-        [[nodiscard]] auto AccessKeyScopeOwnerProperty() const;
-        [[nodiscard]] auto AccessKeyProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ContextFlyoutProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ExitDisplayModeOnAccessKeyInvokedProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IsAccessKeyScopeProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) AccessKeyScopeOwnerProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) AccessKeyProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::IUIElementStatics4>
     {
@@ -5535,17 +5539,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IUIElementStatics5
     {
-        [[nodiscard]] auto LightsProperty() const;
-        [[nodiscard]] auto KeyTipPlacementModeProperty() const;
-        [[nodiscard]] auto KeyTipHorizontalOffsetProperty() const;
-        [[nodiscard]] auto KeyTipVerticalOffsetProperty() const;
-        [[nodiscard]] auto XYFocusKeyboardNavigationProperty() const;
-        [[nodiscard]] auto XYFocusUpNavigationStrategyProperty() const;
-        [[nodiscard]] auto XYFocusDownNavigationStrategyProperty() const;
-        [[nodiscard]] auto XYFocusLeftNavigationStrategyProperty() const;
-        [[nodiscard]] auto XYFocusRightNavigationStrategyProperty() const;
-        [[nodiscard]] auto HighContrastAdjustmentProperty() const;
-        [[nodiscard]] auto TabFocusNavigationProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) LightsProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) KeyTipPlacementModeProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) KeyTipHorizontalOffsetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) KeyTipVerticalOffsetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) XYFocusKeyboardNavigationProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) XYFocusUpNavigationStrategyProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) XYFocusDownNavigationStrategyProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) XYFocusLeftNavigationStrategyProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) XYFocusRightNavigationStrategyProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) HighContrastAdjustmentProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) TabFocusNavigationProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::IUIElementStatics5>
     {
@@ -5554,9 +5558,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IUIElementStatics6
     {
-        [[nodiscard]] auto GettingFocusEvent() const;
-        [[nodiscard]] auto LosingFocusEvent() const;
-        [[nodiscard]] auto NoFocusCandidateFoundEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) GettingFocusEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) LosingFocusEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) NoFocusCandidateFoundEvent() const;
     };
     template <> struct consume<Windows::UI::Xaml::IUIElementStatics6>
     {
@@ -5565,9 +5569,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IUIElementStatics7
     {
-        [[nodiscard]] auto PreviewKeyDownEvent() const;
-        [[nodiscard]] auto CharacterReceivedEvent() const;
-        [[nodiscard]] auto PreviewKeyUpEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) PreviewKeyDownEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) CharacterReceivedEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) PreviewKeyUpEvent() const;
     };
     template <> struct consume<Windows::UI::Xaml::IUIElementStatics7>
     {
@@ -5576,12 +5580,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IUIElementStatics8
     {
-        [[nodiscard]] auto BringIntoViewRequestedEvent() const;
-        [[nodiscard]] auto ContextRequestedEvent() const;
-        [[nodiscard]] auto KeyTipTargetProperty() const;
-        [[nodiscard]] auto KeyboardAcceleratorPlacementTargetProperty() const;
-        [[nodiscard]] auto KeyboardAcceleratorPlacementModeProperty() const;
-        auto RegisterAsScrollPort(Windows::UI::Xaml::UIElement const& element) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) BringIntoViewRequestedEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::RoutedEvent) ContextRequestedEvent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) KeyTipTargetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) KeyboardAcceleratorPlacementTargetProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) KeyboardAcceleratorPlacementModeProperty() const;
+        WINRT_IMPL_AUTO(void) RegisterAsScrollPort(Windows::UI::Xaml::UIElement const& element) const;
     };
     template <> struct consume<Windows::UI::Xaml::IUIElementStatics8>
     {
@@ -5590,7 +5594,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IUIElementStatics9
     {
-        [[nodiscard]] auto CanBeScrollAnchorProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) CanBeScrollAnchorProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::IUIElementStatics9>
     {
@@ -5607,7 +5611,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IUIElementWeakCollectionFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::UIElementWeakCollection) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::IUIElementWeakCollectionFactory>
     {
@@ -5616,10 +5620,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IUnhandledExceptionEventArgs
     {
-        [[nodiscard]] auto Exception() const;
-        [[nodiscard]] auto Message() const;
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) Exception() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Message() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::IUnhandledExceptionEventArgs>
     {
@@ -5628,10 +5632,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IVector3Transition
     {
-        [[nodiscard]] auto Duration() const;
-        auto Duration(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto Components() const;
-        auto Components(Windows::UI::Xaml::Vector3TransitionComponents const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Duration() const;
+        WINRT_IMPL_AUTO(void) Duration(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Vector3TransitionComponents) Components() const;
+        WINRT_IMPL_AUTO(void) Components(Windows::UI::Xaml::Vector3TransitionComponents const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::IVector3Transition>
     {
@@ -5640,7 +5644,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IVector3TransitionFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Vector3Transition) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::IVector3TransitionFactory>
     {
@@ -5649,9 +5653,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IVisualState
     {
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto Storyboard() const;
-        auto Storyboard(Windows::UI::Xaml::Media::Animation::Storyboard const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::Storyboard) Storyboard() const;
+        WINRT_IMPL_AUTO(void) Storyboard(Windows::UI::Xaml::Media::Animation::Storyboard const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::IVisualState>
     {
@@ -5660,8 +5664,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IVisualState2
     {
-        [[nodiscard]] auto Setters() const;
-        [[nodiscard]] auto StateTriggers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::SetterBaseCollection) Setters() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::UI::Xaml::StateTriggerBase>) StateTriggers() const;
     };
     template <> struct consume<Windows::UI::Xaml::IVisualState2>
     {
@@ -5670,12 +5674,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IVisualStateChangedEventArgs
     {
-        [[nodiscard]] auto OldState() const;
-        auto OldState(Windows::UI::Xaml::VisualState const& value) const;
-        [[nodiscard]] auto NewState() const;
-        auto NewState(Windows::UI::Xaml::VisualState const& value) const;
-        [[nodiscard]] auto Control() const;
-        auto Control(Windows::UI::Xaml::Controls::Control const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::VisualState) OldState() const;
+        WINRT_IMPL_AUTO(void) OldState(Windows::UI::Xaml::VisualState const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::VisualState) NewState() const;
+        WINRT_IMPL_AUTO(void) NewState(Windows::UI::Xaml::VisualState const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::Control) Control() const;
+        WINRT_IMPL_AUTO(void) Control(Windows::UI::Xaml::Controls::Control const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::IVisualStateChangedEventArgs>
     {
@@ -5684,18 +5688,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IVisualStateGroup
     {
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto Transitions() const;
-        [[nodiscard]] auto States() const;
-        [[nodiscard]] auto CurrentState() const;
-        auto CurrentStateChanged(Windows::UI::Xaml::VisualStateChangedEventHandler const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::UI::Xaml::VisualTransition>) Transitions() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::UI::Xaml::VisualState>) States() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::VisualState) CurrentState() const;
+        WINRT_IMPL_AUTO(winrt::event_token) CurrentStateChanged(Windows::UI::Xaml::VisualStateChangedEventHandler const& handler) const;
         using CurrentStateChanged_revoker = impl::event_revoker<Windows::UI::Xaml::IVisualStateGroup, &impl::abi_t<Windows::UI::Xaml::IVisualStateGroup>::remove_CurrentStateChanged>;
         [[nodiscard]] CurrentStateChanged_revoker CurrentStateChanged(auto_revoke_t, Windows::UI::Xaml::VisualStateChangedEventHandler const& handler) const;
-        auto CurrentStateChanged(winrt::event_token const& token) const noexcept;
-        auto CurrentStateChanging(Windows::UI::Xaml::VisualStateChangedEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) CurrentStateChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) CurrentStateChanging(Windows::UI::Xaml::VisualStateChangedEventHandler const& handler) const;
         using CurrentStateChanging_revoker = impl::event_revoker<Windows::UI::Xaml::IVisualStateGroup, &impl::abi_t<Windows::UI::Xaml::IVisualStateGroup>::remove_CurrentStateChanging>;
         [[nodiscard]] CurrentStateChanging_revoker CurrentStateChanging(auto_revoke_t, Windows::UI::Xaml::VisualStateChangedEventHandler const& handler) const;
-        auto CurrentStateChanging(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) CurrentStateChanging(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::Xaml::IVisualStateGroup>
     {
@@ -5712,7 +5716,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IVisualStateManagerFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::VisualStateManager) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::IVisualStateManagerFactory>
     {
@@ -5721,7 +5725,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IVisualStateManagerOverrides
     {
-        auto GoToStateCore(Windows::UI::Xaml::Controls::Control const& control, Windows::UI::Xaml::FrameworkElement const& templateRoot, param::hstring const& stateName, Windows::UI::Xaml::VisualStateGroup const& group, Windows::UI::Xaml::VisualState const& state, bool useTransitions) const;
+        WINRT_IMPL_AUTO(bool) GoToStateCore(Windows::UI::Xaml::Controls::Control const& control, Windows::UI::Xaml::FrameworkElement const& templateRoot, param::hstring const& stateName, Windows::UI::Xaml::VisualStateGroup const& group, Windows::UI::Xaml::VisualState const& state, bool useTransitions) const;
     };
     template <> struct consume<Windows::UI::Xaml::IVisualStateManagerOverrides>
     {
@@ -5730,8 +5734,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IVisualStateManagerProtected
     {
-        auto RaiseCurrentStateChanging(Windows::UI::Xaml::VisualStateGroup const& stateGroup, Windows::UI::Xaml::VisualState const& oldState, Windows::UI::Xaml::VisualState const& newState, Windows::UI::Xaml::Controls::Control const& control) const;
-        auto RaiseCurrentStateChanged(Windows::UI::Xaml::VisualStateGroup const& stateGroup, Windows::UI::Xaml::VisualState const& oldState, Windows::UI::Xaml::VisualState const& newState, Windows::UI::Xaml::Controls::Control const& control) const;
+        WINRT_IMPL_AUTO(void) RaiseCurrentStateChanging(Windows::UI::Xaml::VisualStateGroup const& stateGroup, Windows::UI::Xaml::VisualState const& oldState, Windows::UI::Xaml::VisualState const& newState, Windows::UI::Xaml::Controls::Control const& control) const;
+        WINRT_IMPL_AUTO(void) RaiseCurrentStateChanged(Windows::UI::Xaml::VisualStateGroup const& stateGroup, Windows::UI::Xaml::VisualState const& oldState, Windows::UI::Xaml::VisualState const& newState, Windows::UI::Xaml::Controls::Control const& control) const;
     };
     template <> struct consume<Windows::UI::Xaml::IVisualStateManagerProtected>
     {
@@ -5740,11 +5744,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IVisualStateManagerStatics
     {
-        auto GetVisualStateGroups(Windows::UI::Xaml::FrameworkElement const& obj) const;
-        [[nodiscard]] auto CustomVisualStateManagerProperty() const;
-        auto GetCustomVisualStateManager(Windows::UI::Xaml::FrameworkElement const& obj) const;
-        auto SetCustomVisualStateManager(Windows::UI::Xaml::FrameworkElement const& obj, Windows::UI::Xaml::VisualStateManager const& value) const;
-        auto GoToState(Windows::UI::Xaml::Controls::Control const& control, param::hstring const& stateName, bool useTransitions) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::UI::Xaml::VisualStateGroup>) GetVisualStateGroups(Windows::UI::Xaml::FrameworkElement const& obj) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) CustomVisualStateManagerProperty() const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::VisualStateManager) GetCustomVisualStateManager(Windows::UI::Xaml::FrameworkElement const& obj) const;
+        WINRT_IMPL_AUTO(void) SetCustomVisualStateManager(Windows::UI::Xaml::FrameworkElement const& obj, Windows::UI::Xaml::VisualStateManager const& value) const;
+        WINRT_IMPL_AUTO(bool) GoToState(Windows::UI::Xaml::Controls::Control const& control, param::hstring const& stateName, bool useTransitions) const;
     };
     template <> struct consume<Windows::UI::Xaml::IVisualStateManagerStatics>
     {
@@ -5753,16 +5757,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IVisualTransition
     {
-        [[nodiscard]] auto GeneratedDuration() const;
-        auto GeneratedDuration(Windows::UI::Xaml::Duration const& value) const;
-        [[nodiscard]] auto GeneratedEasingFunction() const;
-        auto GeneratedEasingFunction(Windows::UI::Xaml::Media::Animation::EasingFunctionBase const& value) const;
-        [[nodiscard]] auto To() const;
-        auto To(param::hstring const& value) const;
-        [[nodiscard]] auto From() const;
-        auto From(param::hstring const& value) const;
-        [[nodiscard]] auto Storyboard() const;
-        auto Storyboard(Windows::UI::Xaml::Media::Animation::Storyboard const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Duration) GeneratedDuration() const;
+        WINRT_IMPL_AUTO(void) GeneratedDuration(Windows::UI::Xaml::Duration const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::EasingFunctionBase) GeneratedEasingFunction() const;
+        WINRT_IMPL_AUTO(void) GeneratedEasingFunction(Windows::UI::Xaml::Media::Animation::EasingFunctionBase const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) To() const;
+        WINRT_IMPL_AUTO(void) To(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) From() const;
+        WINRT_IMPL_AUTO(void) From(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Animation::Storyboard) Storyboard() const;
+        WINRT_IMPL_AUTO(void) Storyboard(Windows::UI::Xaml::Media::Animation::Storyboard const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::IVisualTransition>
     {
@@ -5771,7 +5775,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IVisualTransitionFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::VisualTransition) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::IVisualTransitionFactory>
     {
@@ -5780,30 +5784,30 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IWindow
     {
-        [[nodiscard]] auto Bounds() const;
-        [[nodiscard]] auto Visible() const;
-        [[nodiscard]] auto Content() const;
-        auto Content(Windows::UI::Xaml::UIElement const& value) const;
-        [[nodiscard]] auto CoreWindow() const;
-        [[nodiscard]] auto Dispatcher() const;
-        auto Activated(Windows::UI::Xaml::WindowActivatedEventHandler const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) Bounds() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Visible() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::UIElement) Content() const;
+        WINRT_IMPL_AUTO(void) Content(Windows::UI::Xaml::UIElement const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Core::CoreWindow) CoreWindow() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Core::CoreDispatcher) Dispatcher() const;
+        WINRT_IMPL_AUTO(winrt::event_token) Activated(Windows::UI::Xaml::WindowActivatedEventHandler const& handler) const;
         using Activated_revoker = impl::event_revoker<Windows::UI::Xaml::IWindow, &impl::abi_t<Windows::UI::Xaml::IWindow>::remove_Activated>;
         [[nodiscard]] Activated_revoker Activated(auto_revoke_t, Windows::UI::Xaml::WindowActivatedEventHandler const& handler) const;
-        auto Activated(winrt::event_token const& token) const noexcept;
-        auto Closed(Windows::UI::Xaml::WindowClosedEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) Activated(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Closed(Windows::UI::Xaml::WindowClosedEventHandler const& handler) const;
         using Closed_revoker = impl::event_revoker<Windows::UI::Xaml::IWindow, &impl::abi_t<Windows::UI::Xaml::IWindow>::remove_Closed>;
         [[nodiscard]] Closed_revoker Closed(auto_revoke_t, Windows::UI::Xaml::WindowClosedEventHandler const& handler) const;
-        auto Closed(winrt::event_token const& token) const noexcept;
-        auto SizeChanged(Windows::UI::Xaml::WindowSizeChangedEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) Closed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) SizeChanged(Windows::UI::Xaml::WindowSizeChangedEventHandler const& handler) const;
         using SizeChanged_revoker = impl::event_revoker<Windows::UI::Xaml::IWindow, &impl::abi_t<Windows::UI::Xaml::IWindow>::remove_SizeChanged>;
         [[nodiscard]] SizeChanged_revoker SizeChanged(auto_revoke_t, Windows::UI::Xaml::WindowSizeChangedEventHandler const& handler) const;
-        auto SizeChanged(winrt::event_token const& token) const noexcept;
-        auto VisibilityChanged(Windows::UI::Xaml::WindowVisibilityChangedEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) SizeChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) VisibilityChanged(Windows::UI::Xaml::WindowVisibilityChangedEventHandler const& handler) const;
         using VisibilityChanged_revoker = impl::event_revoker<Windows::UI::Xaml::IWindow, &impl::abi_t<Windows::UI::Xaml::IWindow>::remove_VisibilityChanged>;
         [[nodiscard]] VisibilityChanged_revoker VisibilityChanged(auto_revoke_t, Windows::UI::Xaml::WindowVisibilityChangedEventHandler const& handler) const;
-        auto VisibilityChanged(winrt::event_token const& token) const noexcept;
-        auto Activate() const;
-        auto Close() const;
+        WINRT_IMPL_AUTO(void) VisibilityChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Activate() const;
+        WINRT_IMPL_AUTO(void) Close() const;
     };
     template <> struct consume<Windows::UI::Xaml::IWindow>
     {
@@ -5812,7 +5816,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IWindow2
     {
-        auto SetTitleBar(Windows::UI::Xaml::UIElement const& value) const;
+        WINRT_IMPL_AUTO(void) SetTitleBar(Windows::UI::Xaml::UIElement const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::IWindow2>
     {
@@ -5821,7 +5825,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IWindow3
     {
-        [[nodiscard]] auto Compositor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::Compositor) Compositor() const;
     };
     template <> struct consume<Windows::UI::Xaml::IWindow3>
     {
@@ -5830,7 +5834,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IWindow4
     {
-        [[nodiscard]] auto UIContext() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::UIContext) UIContext() const;
     };
     template <> struct consume<Windows::UI::Xaml::IWindow4>
     {
@@ -5839,7 +5843,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IWindowCreatedEventArgs
     {
-        [[nodiscard]] auto Window() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Window) Window() const;
     };
     template <> struct consume<Windows::UI::Xaml::IWindowCreatedEventArgs>
     {
@@ -5848,7 +5852,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IWindowStatics
     {
-        [[nodiscard]] auto Current() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Window) Current() const;
     };
     template <> struct consume<Windows::UI::Xaml::IWindowStatics>
     {
@@ -5857,15 +5861,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_IXamlRoot
     {
-        [[nodiscard]] auto Content() const;
-        [[nodiscard]] auto Size() const;
-        [[nodiscard]] auto RasterizationScale() const;
-        [[nodiscard]] auto IsHostVisible() const;
-        [[nodiscard]] auto UIContext() const;
-        auto Changed(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::XamlRoot, Windows::UI::Xaml::XamlRootChangedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::UIElement) Content() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Size) Size() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) RasterizationScale() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsHostVisible() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::UIContext) UIContext() const;
+        WINRT_IMPL_AUTO(winrt::event_token) Changed(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::XamlRoot, Windows::UI::Xaml::XamlRootChangedEventArgs> const& handler) const;
         using Changed_revoker = impl::event_revoker<Windows::UI::Xaml::IXamlRoot, &impl::abi_t<Windows::UI::Xaml::IXamlRoot>::remove_Changed>;
         [[nodiscard]] Changed_revoker Changed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::XamlRoot, Windows::UI::Xaml::XamlRootChangedEventArgs> const& handler) const;
-        auto Changed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Changed(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::Xaml::IXamlRoot>
     {

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -8,6 +8,7 @@
 WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Appointments
 {
     struct Appointment;
+    struct AppointmentInvitee;
     enum class AppointmentParticipantResponse : int32_t;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation
@@ -15,7 +16,12 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
     struct Deferral;
     struct EventRegistrationToken;
     struct IAsyncAction;
+    template <typename T> struct IReference;
     template <typename TSender, typename TResult> struct TypedEventHandler;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Appointments::DataProvider
 {
@@ -78,36 +84,34 @@ namespace winrt::impl
     template <> struct category<Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarUpdateMeetingResponseRequestEventArgs>{ using type = class_category; };
     template <> struct category<Windows::ApplicationModel::Appointments::DataProvider::AppointmentDataProviderConnection>{ using type = class_category; };
     template <> struct category<Windows::ApplicationModel::Appointments::DataProvider::AppointmentDataProviderTriggerDetails>{ using type = class_category; };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarCancelMeetingRequest>{ L"Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCancelMeetingRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarCancelMeetingRequestEventArgs>{ L"Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCancelMeetingRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarCreateOrUpdateAppointmentRequest>{ L"Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCreateOrUpdateAppointmentRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs>{ L"Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarForwardMeetingRequest>{ L"Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarForwardMeetingRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarForwardMeetingRequestEventArgs>{ L"Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarForwardMeetingRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarProposeNewTimeForMeetingRequest>{ L"Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarProposeNewTimeForMeetingRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs>{ L"Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarSyncManagerSyncRequest>{ L"Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarSyncManagerSyncRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarSyncManagerSyncRequestEventArgs>{ L"Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarSyncManagerSyncRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarUpdateMeetingResponseRequest>{ L"Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarUpdateMeetingResponseRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarUpdateMeetingResponseRequestEventArgs>{ L"Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarUpdateMeetingResponseRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::AppointmentDataProviderConnection>{ L"Windows.ApplicationModel.Appointments.DataProvider.AppointmentDataProviderConnection" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::AppointmentDataProviderTriggerDetails>{ L"Windows.ApplicationModel.Appointments.DataProvider.AppointmentDataProviderTriggerDetails" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarCancelMeetingRequest>{ L"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarCancelMeetingRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarCancelMeetingRequestEventArgs>{ L"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarCancelMeetingRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarCreateOrUpdateAppointmentRequest>{ L"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarCreateOrUpdateAppointmentRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs>{ L"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarForwardMeetingRequest>{ L"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarForwardMeetingRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarForwardMeetingRequestEventArgs>{ L"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarForwardMeetingRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarProposeNewTimeForMeetingRequest>{ L"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarProposeNewTimeForMeetingRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs>{ L"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarSyncManagerSyncRequest>{ L"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarSyncManagerSyncRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarSyncManagerSyncRequestEventArgs>{ L"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarSyncManagerSyncRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarUpdateMeetingResponseRequest>{ L"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarUpdateMeetingResponseRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarUpdateMeetingResponseRequestEventArgs>{ L"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarUpdateMeetingResponseRequestEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentDataProviderConnection>{ L"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentDataProviderConnection" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentDataProviderTriggerDetails>{ L"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentDataProviderTriggerDetails" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarCancelMeetingRequest> = L"Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCancelMeetingRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarCancelMeetingRequestEventArgs> = L"Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCancelMeetingRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarCreateOrUpdateAppointmentRequest> = L"Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCreateOrUpdateAppointmentRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs> = L"Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarForwardMeetingRequest> = L"Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarForwardMeetingRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarForwardMeetingRequestEventArgs> = L"Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarForwardMeetingRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarProposeNewTimeForMeetingRequest> = L"Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarProposeNewTimeForMeetingRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs> = L"Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarSyncManagerSyncRequest> = L"Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarSyncManagerSyncRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarSyncManagerSyncRequestEventArgs> = L"Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarSyncManagerSyncRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarUpdateMeetingResponseRequest> = L"Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarUpdateMeetingResponseRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarUpdateMeetingResponseRequestEventArgs> = L"Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarUpdateMeetingResponseRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::AppointmentDataProviderConnection> = L"Windows.ApplicationModel.Appointments.DataProvider.AppointmentDataProviderConnection";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::AppointmentDataProviderTriggerDetails> = L"Windows.ApplicationModel.Appointments.DataProvider.AppointmentDataProviderTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarCancelMeetingRequest> = L"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarCancelMeetingRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarCancelMeetingRequestEventArgs> = L"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarCancelMeetingRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarCreateOrUpdateAppointmentRequest> = L"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarCreateOrUpdateAppointmentRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs> = L"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarForwardMeetingRequest> = L"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarForwardMeetingRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarForwardMeetingRequestEventArgs> = L"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarForwardMeetingRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarProposeNewTimeForMeetingRequest> = L"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarProposeNewTimeForMeetingRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs> = L"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarSyncManagerSyncRequest> = L"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarSyncManagerSyncRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarSyncManagerSyncRequestEventArgs> = L"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarSyncManagerSyncRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarUpdateMeetingResponseRequest> = L"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarUpdateMeetingResponseRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarUpdateMeetingResponseRequestEventArgs> = L"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentCalendarUpdateMeetingResponseRequestEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentDataProviderConnection> = L"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentDataProviderConnection";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentDataProviderTriggerDetails> = L"Windows.ApplicationModel.Appointments.DataProvider.IAppointmentDataProviderTriggerDetails";
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarCancelMeetingRequest>{ 0x49460F8D,0x6434,0x40D7,{ 0xAD,0x46,0x62,0x97,0x41,0x93,0x14,0xD1 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarCancelMeetingRequestEventArgs>{ 0x1A79BE16,0x7F30,0x4E35,{ 0xBE,0xEF,0x9D,0x2C,0x7B,0x6D,0xCA,0xE1 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarCreateOrUpdateAppointmentRequest>{ 0x2E62F2B2,0xCA96,0x48AC,{ 0x91,0x24,0x40,0x6B,0x19,0xFE,0xFA,0x70 } };
@@ -293,14 +297,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_DataProvider_IAppointmentCalendarCancelMeetingRequest
     {
-        [[nodiscard]] auto AppointmentCalendarLocalId() const;
-        [[nodiscard]] auto AppointmentLocalId() const;
-        [[nodiscard]] auto AppointmentOriginalStartTime() const;
-        [[nodiscard]] auto Subject() const;
-        [[nodiscard]] auto Comment() const;
-        [[nodiscard]] auto NotifyInvitees() const;
-        auto ReportCompletedAsync() const;
-        auto ReportFailedAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AppointmentCalendarLocalId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AppointmentLocalId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) AppointmentOriginalStartTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Subject() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Comment() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) NotifyInvitees() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportCompletedAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportFailedAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarCancelMeetingRequest>
     {
@@ -309,8 +313,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_DataProvider_IAppointmentCalendarCancelMeetingRequestEventArgs
     {
-        [[nodiscard]] auto Request() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarCancelMeetingRequest) Request() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarCancelMeetingRequestEventArgs>
     {
@@ -319,12 +323,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_DataProvider_IAppointmentCalendarCreateOrUpdateAppointmentRequest
     {
-        [[nodiscard]] auto AppointmentCalendarLocalId() const;
-        [[nodiscard]] auto Appointment() const;
-        [[nodiscard]] auto NotifyInvitees() const;
-        [[nodiscard]] auto ChangedProperties() const;
-        auto ReportCompletedAsync(Windows::ApplicationModel::Appointments::Appointment const& createdOrUpdatedAppointment) const;
-        auto ReportFailedAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AppointmentCalendarLocalId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::Appointment) Appointment() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) NotifyInvitees() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) ChangedProperties() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportCompletedAsync(Windows::ApplicationModel::Appointments::Appointment const& createdOrUpdatedAppointment) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportFailedAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarCreateOrUpdateAppointmentRequest>
     {
@@ -333,8 +337,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_DataProvider_IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs
     {
-        [[nodiscard]] auto Request() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarCreateOrUpdateAppointmentRequest) Request() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs>
     {
@@ -343,15 +347,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_DataProvider_IAppointmentCalendarForwardMeetingRequest
     {
-        [[nodiscard]] auto AppointmentCalendarLocalId() const;
-        [[nodiscard]] auto AppointmentLocalId() const;
-        [[nodiscard]] auto AppointmentOriginalStartTime() const;
-        [[nodiscard]] auto Invitees() const;
-        [[nodiscard]] auto Subject() const;
-        [[nodiscard]] auto ForwardHeader() const;
-        [[nodiscard]] auto Comment() const;
-        auto ReportCompletedAsync() const;
-        auto ReportFailedAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AppointmentCalendarLocalId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AppointmentLocalId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) AppointmentOriginalStartTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Appointments::AppointmentInvitee>) Invitees() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Subject() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ForwardHeader() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Comment() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportCompletedAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportFailedAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarForwardMeetingRequest>
     {
@@ -360,8 +364,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_DataProvider_IAppointmentCalendarForwardMeetingRequestEventArgs
     {
-        [[nodiscard]] auto Request() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarForwardMeetingRequest) Request() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarForwardMeetingRequestEventArgs>
     {
@@ -370,15 +374,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_DataProvider_IAppointmentCalendarProposeNewTimeForMeetingRequest
     {
-        [[nodiscard]] auto AppointmentCalendarLocalId() const;
-        [[nodiscard]] auto AppointmentLocalId() const;
-        [[nodiscard]] auto AppointmentOriginalStartTime() const;
-        [[nodiscard]] auto NewStartTime() const;
-        [[nodiscard]] auto NewDuration() const;
-        [[nodiscard]] auto Subject() const;
-        [[nodiscard]] auto Comment() const;
-        auto ReportCompletedAsync() const;
-        auto ReportFailedAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AppointmentCalendarLocalId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AppointmentLocalId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) AppointmentOriginalStartTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) NewStartTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) NewDuration() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Subject() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Comment() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportCompletedAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportFailedAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarProposeNewTimeForMeetingRequest>
     {
@@ -387,8 +391,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_DataProvider_IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs
     {
-        [[nodiscard]] auto Request() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarProposeNewTimeForMeetingRequest) Request() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs>
     {
@@ -397,9 +401,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_DataProvider_IAppointmentCalendarSyncManagerSyncRequest
     {
-        [[nodiscard]] auto AppointmentCalendarLocalId() const;
-        auto ReportCompletedAsync() const;
-        auto ReportFailedAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AppointmentCalendarLocalId() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportCompletedAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportFailedAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarSyncManagerSyncRequest>
     {
@@ -408,8 +412,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_DataProvider_IAppointmentCalendarSyncManagerSyncRequestEventArgs
     {
-        [[nodiscard]] auto Request() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarSyncManagerSyncRequest) Request() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarSyncManagerSyncRequestEventArgs>
     {
@@ -418,15 +422,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_DataProvider_IAppointmentCalendarUpdateMeetingResponseRequest
     {
-        [[nodiscard]] auto AppointmentCalendarLocalId() const;
-        [[nodiscard]] auto AppointmentLocalId() const;
-        [[nodiscard]] auto AppointmentOriginalStartTime() const;
-        [[nodiscard]] auto Response() const;
-        [[nodiscard]] auto Subject() const;
-        [[nodiscard]] auto Comment() const;
-        [[nodiscard]] auto SendUpdate() const;
-        auto ReportCompletedAsync() const;
-        auto ReportFailedAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AppointmentCalendarLocalId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AppointmentLocalId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) AppointmentOriginalStartTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::AppointmentParticipantResponse) Response() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Subject() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Comment() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) SendUpdate() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportCompletedAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportFailedAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarUpdateMeetingResponseRequest>
     {
@@ -435,8 +439,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_DataProvider_IAppointmentCalendarUpdateMeetingResponseRequestEventArgs
     {
-        [[nodiscard]] auto Request() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarUpdateMeetingResponseRequest) Request() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentCalendarUpdateMeetingResponseRequestEventArgs>
     {
@@ -445,31 +449,31 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_DataProvider_IAppointmentDataProviderConnection
     {
-        auto SyncRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Appointments::DataProvider::AppointmentDataProviderConnection, Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarSyncManagerSyncRequestEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) SyncRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Appointments::DataProvider::AppointmentDataProviderConnection, Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarSyncManagerSyncRequestEventArgs> const& handler) const;
         using SyncRequested_revoker = impl::event_revoker<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentDataProviderConnection, &impl::abi_t<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentDataProviderConnection>::remove_SyncRequested>;
         [[nodiscard]] SyncRequested_revoker SyncRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Appointments::DataProvider::AppointmentDataProviderConnection, Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarSyncManagerSyncRequestEventArgs> const& handler) const;
-        auto SyncRequested(winrt::event_token const& token) const noexcept;
-        auto CreateOrUpdateAppointmentRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Appointments::DataProvider::AppointmentDataProviderConnection, Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) SyncRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) CreateOrUpdateAppointmentRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Appointments::DataProvider::AppointmentDataProviderConnection, Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs> const& handler) const;
         using CreateOrUpdateAppointmentRequested_revoker = impl::event_revoker<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentDataProviderConnection, &impl::abi_t<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentDataProviderConnection>::remove_CreateOrUpdateAppointmentRequested>;
         [[nodiscard]] CreateOrUpdateAppointmentRequested_revoker CreateOrUpdateAppointmentRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Appointments::DataProvider::AppointmentDataProviderConnection, Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs> const& handler) const;
-        auto CreateOrUpdateAppointmentRequested(winrt::event_token const& token) const noexcept;
-        auto CancelMeetingRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Appointments::DataProvider::AppointmentDataProviderConnection, Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarCancelMeetingRequestEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) CreateOrUpdateAppointmentRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) CancelMeetingRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Appointments::DataProvider::AppointmentDataProviderConnection, Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarCancelMeetingRequestEventArgs> const& handler) const;
         using CancelMeetingRequested_revoker = impl::event_revoker<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentDataProviderConnection, &impl::abi_t<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentDataProviderConnection>::remove_CancelMeetingRequested>;
         [[nodiscard]] CancelMeetingRequested_revoker CancelMeetingRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Appointments::DataProvider::AppointmentDataProviderConnection, Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarCancelMeetingRequestEventArgs> const& handler) const;
-        auto CancelMeetingRequested(winrt::event_token const& token) const noexcept;
-        auto ForwardMeetingRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Appointments::DataProvider::AppointmentDataProviderConnection, Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarForwardMeetingRequestEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) CancelMeetingRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ForwardMeetingRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Appointments::DataProvider::AppointmentDataProviderConnection, Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarForwardMeetingRequestEventArgs> const& handler) const;
         using ForwardMeetingRequested_revoker = impl::event_revoker<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentDataProviderConnection, &impl::abi_t<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentDataProviderConnection>::remove_ForwardMeetingRequested>;
         [[nodiscard]] ForwardMeetingRequested_revoker ForwardMeetingRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Appointments::DataProvider::AppointmentDataProviderConnection, Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarForwardMeetingRequestEventArgs> const& handler) const;
-        auto ForwardMeetingRequested(winrt::event_token const& token) const noexcept;
-        auto ProposeNewTimeForMeetingRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Appointments::DataProvider::AppointmentDataProviderConnection, Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) ForwardMeetingRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ProposeNewTimeForMeetingRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Appointments::DataProvider::AppointmentDataProviderConnection, Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs> const& handler) const;
         using ProposeNewTimeForMeetingRequested_revoker = impl::event_revoker<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentDataProviderConnection, &impl::abi_t<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentDataProviderConnection>::remove_ProposeNewTimeForMeetingRequested>;
         [[nodiscard]] ProposeNewTimeForMeetingRequested_revoker ProposeNewTimeForMeetingRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Appointments::DataProvider::AppointmentDataProviderConnection, Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs> const& handler) const;
-        auto ProposeNewTimeForMeetingRequested(winrt::event_token const& token) const noexcept;
-        auto UpdateMeetingResponseRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Appointments::DataProvider::AppointmentDataProviderConnection, Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarUpdateMeetingResponseRequestEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) ProposeNewTimeForMeetingRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) UpdateMeetingResponseRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Appointments::DataProvider::AppointmentDataProviderConnection, Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarUpdateMeetingResponseRequestEventArgs> const& handler) const;
         using UpdateMeetingResponseRequested_revoker = impl::event_revoker<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentDataProviderConnection, &impl::abi_t<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentDataProviderConnection>::remove_UpdateMeetingResponseRequested>;
         [[nodiscard]] UpdateMeetingResponseRequested_revoker UpdateMeetingResponseRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Appointments::DataProvider::AppointmentDataProviderConnection, Windows::ApplicationModel::Appointments::DataProvider::AppointmentCalendarUpdateMeetingResponseRequestEventArgs> const& handler) const;
-        auto UpdateMeetingResponseRequested(winrt::event_token const& token) const noexcept;
-        auto Start() const;
+        WINRT_IMPL_AUTO(void) UpdateMeetingResponseRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Start() const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentDataProviderConnection>
     {
@@ -478,7 +482,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_DataProvider_IAppointmentDataProviderTriggerDetails
     {
-        [[nodiscard]] auto Connection() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::DataProvider::AppointmentDataProviderConnection) Connection() const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::DataProvider::IAppointmentDataProviderTriggerDetails>
     {

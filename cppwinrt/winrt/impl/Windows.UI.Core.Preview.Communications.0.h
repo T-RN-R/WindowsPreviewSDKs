@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -80,26 +80,24 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Core::Preview::Communications::PreviewSystemState>{ using type = enum_category; };
     template <> struct category<Windows::UI::Core::Preview::Communications::PreviewTeamEndMeetingKind>{ using type = enum_category; };
     template <> struct category<Windows::UI::Core::Preview::Communications::PreviewTeamViewCommand>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::PreviewTeamCleanupRequestedEventArgs>{ L"Windows.UI.Core.Preview.Communications.PreviewTeamCleanupRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::PreviewTeamCommandInvokedEventArgs>{ L"Windows.UI.Core.Preview.Communications.PreviewTeamCommandInvokedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::PreviewTeamDeviceCredentials>{ L"Windows.UI.Core.Preview.Communications.PreviewTeamDeviceCredentials" };
-    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::PreviewTeamEndMeetingRequestedEventArgs>{ L"Windows.UI.Core.Preview.Communications.PreviewTeamEndMeetingRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::PreviewTeamJoinMeetingRequestedEventArgs>{ L"Windows.UI.Core.Preview.Communications.PreviewTeamJoinMeetingRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::PreviewTeamView>{ L"Windows.UI.Core.Preview.Communications.PreviewTeamView" };
-    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::PreviewMeetingInfoDisplayKind>{ L"Windows.UI.Core.Preview.Communications.PreviewMeetingInfoDisplayKind" };
-    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::PreviewSystemState>{ L"Windows.UI.Core.Preview.Communications.PreviewSystemState" };
-    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::PreviewTeamEndMeetingKind>{ L"Windows.UI.Core.Preview.Communications.PreviewTeamEndMeetingKind" };
-    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::PreviewTeamViewCommand>{ L"Windows.UI.Core.Preview.Communications.PreviewTeamViewCommand" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::IPreviewTeamCleanupRequestedEventArgs>{ L"Windows.UI.Core.Preview.Communications.IPreviewTeamCleanupRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::IPreviewTeamCommandInvokedEventArgs>{ L"Windows.UI.Core.Preview.Communications.IPreviewTeamCommandInvokedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::IPreviewTeamDeviceCredentials>{ L"Windows.UI.Core.Preview.Communications.IPreviewTeamDeviceCredentials" };
-    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::IPreviewTeamEndMeetingRequestedEventArgs>{ L"Windows.UI.Core.Preview.Communications.IPreviewTeamEndMeetingRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::IPreviewTeamJoinMeetingRequestedEventArgs>{ L"Windows.UI.Core.Preview.Communications.IPreviewTeamJoinMeetingRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::IPreviewTeamView>{ L"Windows.UI.Core.Preview.Communications.IPreviewTeamView" };
-    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::IPreviewTeamView2>{ L"Windows.UI.Core.Preview.Communications.IPreviewTeamView2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::IPreviewTeamViewStatics>{ L"Windows.UI.Core.Preview.Communications.IPreviewTeamViewStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::PreviewTeamCleanupRequestedEventArgs> = L"Windows.UI.Core.Preview.Communications.PreviewTeamCleanupRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::PreviewTeamCommandInvokedEventArgs> = L"Windows.UI.Core.Preview.Communications.PreviewTeamCommandInvokedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::PreviewTeamDeviceCredentials> = L"Windows.UI.Core.Preview.Communications.PreviewTeamDeviceCredentials";
+    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::PreviewTeamEndMeetingRequestedEventArgs> = L"Windows.UI.Core.Preview.Communications.PreviewTeamEndMeetingRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::PreviewTeamJoinMeetingRequestedEventArgs> = L"Windows.UI.Core.Preview.Communications.PreviewTeamJoinMeetingRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::PreviewTeamView> = L"Windows.UI.Core.Preview.Communications.PreviewTeamView";
+    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::PreviewMeetingInfoDisplayKind> = L"Windows.UI.Core.Preview.Communications.PreviewMeetingInfoDisplayKind";
+    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::PreviewSystemState> = L"Windows.UI.Core.Preview.Communications.PreviewSystemState";
+    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::PreviewTeamEndMeetingKind> = L"Windows.UI.Core.Preview.Communications.PreviewTeamEndMeetingKind";
+    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::PreviewTeamViewCommand> = L"Windows.UI.Core.Preview.Communications.PreviewTeamViewCommand";
+    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::IPreviewTeamCleanupRequestedEventArgs> = L"Windows.UI.Core.Preview.Communications.IPreviewTeamCleanupRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::IPreviewTeamCommandInvokedEventArgs> = L"Windows.UI.Core.Preview.Communications.IPreviewTeamCommandInvokedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::IPreviewTeamDeviceCredentials> = L"Windows.UI.Core.Preview.Communications.IPreviewTeamDeviceCredentials";
+    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::IPreviewTeamEndMeetingRequestedEventArgs> = L"Windows.UI.Core.Preview.Communications.IPreviewTeamEndMeetingRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::IPreviewTeamJoinMeetingRequestedEventArgs> = L"Windows.UI.Core.Preview.Communications.IPreviewTeamJoinMeetingRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::IPreviewTeamView> = L"Windows.UI.Core.Preview.Communications.IPreviewTeamView";
+    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::IPreviewTeamView2> = L"Windows.UI.Core.Preview.Communications.IPreviewTeamView2";
+    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::Communications::IPreviewTeamViewStatics> = L"Windows.UI.Core.Preview.Communications.IPreviewTeamViewStatics";
     template <> inline constexpr guid guid_v<Windows::UI::Core::Preview::Communications::IPreviewTeamCleanupRequestedEventArgs>{ 0xF0190610,0x05AF,0x4250,{ 0xB9,0x6A,0xA7,0x4E,0xDE,0xF7,0x7A,0x0D } };
     template <> inline constexpr guid guid_v<Windows::UI::Core::Preview::Communications::IPreviewTeamCommandInvokedEventArgs>{ 0x661F4165,0xFE71,0x44AF,{ 0x95,0x68,0x6C,0xC7,0xCF,0x29,0xCD,0x4C } };
     template <> inline constexpr guid guid_v<Windows::UI::Core::Preview::Communications::IPreviewTeamDeviceCredentials>{ 0x8959C9B9,0x02FC,0x4D1D,{ 0x89,0x21,0xD6,0x1E,0x77,0x66,0xCB,0x89 } };
@@ -205,7 +203,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Core_Preview_Communications_IPreviewTeamCleanupRequestedEventArgs
     {
-        auto GetDeferral() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::UI::Core::Preview::Communications::IPreviewTeamCleanupRequestedEventArgs>
     {
@@ -214,7 +212,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Core_Preview_Communications_IPreviewTeamCommandInvokedEventArgs
     {
-        [[nodiscard]] auto Command() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Core::Preview::Communications::PreviewTeamViewCommand) Command() const;
     };
     template <> struct consume<Windows::UI::Core::Preview::Communications::IPreviewTeamCommandInvokedEventArgs>
     {
@@ -223,9 +221,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Core_Preview_Communications_IPreviewTeamDeviceCredentials
     {
-        [[nodiscard]] auto UserPrincipalName() const;
-        [[nodiscard]] auto DomainUserName() const;
-        [[nodiscard]] auto Password() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) UserPrincipalName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DomainUserName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Password() const;
     };
     template <> struct consume<Windows::UI::Core::Preview::Communications::IPreviewTeamDeviceCredentials>
     {
@@ -234,7 +232,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Core_Preview_Communications_IPreviewTeamEndMeetingRequestedEventArgs
     {
-        auto GetDeferral() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::UI::Core::Preview::Communications::IPreviewTeamEndMeetingRequestedEventArgs>
     {
@@ -243,8 +241,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Core_Preview_Communications_IPreviewTeamJoinMeetingRequestedEventArgs
     {
-        auto GetDeferral() const;
-        [[nodiscard]] auto MeetingUri() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) MeetingUri() const;
     };
     template <> struct consume<Windows::UI::Core::Preview::Communications::IPreviewTeamJoinMeetingRequestedEventArgs>
     {
@@ -253,52 +251,52 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Core_Preview_Communications_IPreviewTeamView
     {
-        auto SetTitle(param::hstring const& title) const;
-        auto EnterFullScreen() const;
-        auto LeaveFullScreen() const;
-        auto RequestForeground() const;
-        auto StartSharingScreen() const;
-        auto StopSharingScreen() const;
-        auto NotifyMeetingEnded(Windows::UI::Core::Preview::Communications::PreviewTeamEndMeetingKind const& kind) const;
-        auto JoinMeetingWithUri(Windows::Foundation::Uri const& meetingUri) const;
-        [[nodiscard]] auto MeetingUri() const;
-        [[nodiscard]] auto SharingScreenBounds() const;
-        [[nodiscard]] auto IsScreenSharing() const;
-        [[nodiscard]] auto IsFullScreen() const;
-        [[nodiscard]] auto SystemState() const;
-        [[nodiscard]] auto MeetingInfoDisplayType() const;
-        auto JoinMeetingRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Core::Preview::Communications::PreviewTeamView, Windows::UI::Core::Preview::Communications::PreviewTeamJoinMeetingRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) SetTitle(param::hstring const& title) const;
+        WINRT_IMPL_AUTO(void) EnterFullScreen() const;
+        WINRT_IMPL_AUTO(void) LeaveFullScreen() const;
+        WINRT_IMPL_AUTO(void) RequestForeground() const;
+        WINRT_IMPL_AUTO(void) StartSharingScreen() const;
+        WINRT_IMPL_AUTO(void) StopSharingScreen() const;
+        WINRT_IMPL_AUTO(void) NotifyMeetingEnded(Windows::UI::Core::Preview::Communications::PreviewTeamEndMeetingKind const& kind) const;
+        WINRT_IMPL_AUTO(void) JoinMeetingWithUri(Windows::Foundation::Uri const& meetingUri) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) MeetingUri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) SharingScreenBounds() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsScreenSharing() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsFullScreen() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Core::Preview::Communications::PreviewSystemState) SystemState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Core::Preview::Communications::PreviewMeetingInfoDisplayKind) MeetingInfoDisplayType() const;
+        WINRT_IMPL_AUTO(winrt::event_token) JoinMeetingRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Core::Preview::Communications::PreviewTeamView, Windows::UI::Core::Preview::Communications::PreviewTeamJoinMeetingRequestedEventArgs> const& handler) const;
         using JoinMeetingRequested_revoker = impl::event_revoker<Windows::UI::Core::Preview::Communications::IPreviewTeamView, &impl::abi_t<Windows::UI::Core::Preview::Communications::IPreviewTeamView>::remove_JoinMeetingRequested>;
         [[nodiscard]] JoinMeetingRequested_revoker JoinMeetingRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Core::Preview::Communications::PreviewTeamView, Windows::UI::Core::Preview::Communications::PreviewTeamJoinMeetingRequestedEventArgs> const& handler) const;
-        auto JoinMeetingRequested(winrt::event_token const& token) const noexcept;
-        auto EndMeetingRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Core::Preview::Communications::PreviewTeamView, Windows::UI::Core::Preview::Communications::PreviewTeamEndMeetingRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) JoinMeetingRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) EndMeetingRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Core::Preview::Communications::PreviewTeamView, Windows::UI::Core::Preview::Communications::PreviewTeamEndMeetingRequestedEventArgs> const& handler) const;
         using EndMeetingRequested_revoker = impl::event_revoker<Windows::UI::Core::Preview::Communications::IPreviewTeamView, &impl::abi_t<Windows::UI::Core::Preview::Communications::IPreviewTeamView>::remove_EndMeetingRequested>;
         [[nodiscard]] EndMeetingRequested_revoker EndMeetingRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Core::Preview::Communications::PreviewTeamView, Windows::UI::Core::Preview::Communications::PreviewTeamEndMeetingRequestedEventArgs> const& handler) const;
-        auto EndMeetingRequested(winrt::event_token const& token) const noexcept;
-        auto CleanupRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Core::Preview::Communications::PreviewTeamView, Windows::UI::Core::Preview::Communications::PreviewTeamCleanupRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) EndMeetingRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) CleanupRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Core::Preview::Communications::PreviewTeamView, Windows::UI::Core::Preview::Communications::PreviewTeamCleanupRequestedEventArgs> const& handler) const;
         using CleanupRequested_revoker = impl::event_revoker<Windows::UI::Core::Preview::Communications::IPreviewTeamView, &impl::abi_t<Windows::UI::Core::Preview::Communications::IPreviewTeamView>::remove_CleanupRequested>;
         [[nodiscard]] CleanupRequested_revoker CleanupRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Core::Preview::Communications::PreviewTeamView, Windows::UI::Core::Preview::Communications::PreviewTeamCleanupRequestedEventArgs> const& handler) const;
-        auto CleanupRequested(winrt::event_token const& token) const noexcept;
-        auto SharingScreenBoundsChanged(Windows::Foundation::TypedEventHandler<Windows::UI::Core::Preview::Communications::PreviewTeamView, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) CleanupRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) SharingScreenBoundsChanged(Windows::Foundation::TypedEventHandler<Windows::UI::Core::Preview::Communications::PreviewTeamView, Windows::Foundation::IInspectable> const& handler) const;
         using SharingScreenBoundsChanged_revoker = impl::event_revoker<Windows::UI::Core::Preview::Communications::IPreviewTeamView, &impl::abi_t<Windows::UI::Core::Preview::Communications::IPreviewTeamView>::remove_SharingScreenBoundsChanged>;
         [[nodiscard]] SharingScreenBoundsChanged_revoker SharingScreenBoundsChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Core::Preview::Communications::PreviewTeamView, Windows::Foundation::IInspectable> const& handler) const;
-        auto SharingScreenBoundsChanged(winrt::event_token const& token) const noexcept;
-        auto IsScreenSharingChanged(Windows::Foundation::TypedEventHandler<Windows::UI::Core::Preview::Communications::PreviewTeamView, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) SharingScreenBoundsChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) IsScreenSharingChanged(Windows::Foundation::TypedEventHandler<Windows::UI::Core::Preview::Communications::PreviewTeamView, Windows::Foundation::IInspectable> const& handler) const;
         using IsScreenSharingChanged_revoker = impl::event_revoker<Windows::UI::Core::Preview::Communications::IPreviewTeamView, &impl::abi_t<Windows::UI::Core::Preview::Communications::IPreviewTeamView>::remove_IsScreenSharingChanged>;
         [[nodiscard]] IsScreenSharingChanged_revoker IsScreenSharingChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Core::Preview::Communications::PreviewTeamView, Windows::Foundation::IInspectable> const& handler) const;
-        auto IsScreenSharingChanged(winrt::event_token const& token) const noexcept;
-        auto IsFullScreenChanged(Windows::Foundation::TypedEventHandler<Windows::UI::Core::Preview::Communications::PreviewTeamView, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) IsScreenSharingChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) IsFullScreenChanged(Windows::Foundation::TypedEventHandler<Windows::UI::Core::Preview::Communications::PreviewTeamView, Windows::Foundation::IInspectable> const& handler) const;
         using IsFullScreenChanged_revoker = impl::event_revoker<Windows::UI::Core::Preview::Communications::IPreviewTeamView, &impl::abi_t<Windows::UI::Core::Preview::Communications::IPreviewTeamView>::remove_IsFullScreenChanged>;
         [[nodiscard]] IsFullScreenChanged_revoker IsFullScreenChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Core::Preview::Communications::PreviewTeamView, Windows::Foundation::IInspectable> const& handler) const;
-        auto IsFullScreenChanged(winrt::event_token const& token) const noexcept;
-        auto CommandInvoked(Windows::Foundation::TypedEventHandler<Windows::UI::Core::Preview::Communications::PreviewTeamView, Windows::UI::Core::Preview::Communications::PreviewTeamCommandInvokedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) IsFullScreenChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) CommandInvoked(Windows::Foundation::TypedEventHandler<Windows::UI::Core::Preview::Communications::PreviewTeamView, Windows::UI::Core::Preview::Communications::PreviewTeamCommandInvokedEventArgs> const& handler) const;
         using CommandInvoked_revoker = impl::event_revoker<Windows::UI::Core::Preview::Communications::IPreviewTeamView, &impl::abi_t<Windows::UI::Core::Preview::Communications::IPreviewTeamView>::remove_CommandInvoked>;
         [[nodiscard]] CommandInvoked_revoker CommandInvoked(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Core::Preview::Communications::PreviewTeamView, Windows::UI::Core::Preview::Communications::PreviewTeamCommandInvokedEventArgs> const& handler) const;
-        auto CommandInvoked(winrt::event_token const& token) const noexcept;
-        auto SystemStateChanged(Windows::Foundation::TypedEventHandler<Windows::UI::Core::Preview::Communications::PreviewTeamView, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) CommandInvoked(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) SystemStateChanged(Windows::Foundation::TypedEventHandler<Windows::UI::Core::Preview::Communications::PreviewTeamView, Windows::Foundation::IInspectable> const& handler) const;
         using SystemStateChanged_revoker = impl::event_revoker<Windows::UI::Core::Preview::Communications::IPreviewTeamView, &impl::abi_t<Windows::UI::Core::Preview::Communications::IPreviewTeamView>::remove_SystemStateChanged>;
         [[nodiscard]] SystemStateChanged_revoker SystemStateChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Core::Preview::Communications::PreviewTeamView, Windows::Foundation::IInspectable> const& handler) const;
-        auto SystemStateChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) SystemStateChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::Core::Preview::Communications::IPreviewTeamView>
     {
@@ -307,7 +305,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Core_Preview_Communications_IPreviewTeamView2
     {
-        auto SetButtonLabel(param::hstring const& label) const;
+        WINRT_IMPL_AUTO(void) SetButtonLabel(param::hstring const& label) const;
     };
     template <> struct consume<Windows::UI::Core::Preview::Communications::IPreviewTeamView2>
     {
@@ -316,7 +314,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Core_Preview_Communications_IPreviewTeamViewStatics
     {
-        auto GetForCurrentView() const;
+        WINRT_IMPL_AUTO(Windows::UI::Core::Preview::Communications::PreviewTeamView) GetForCurrentView() const;
     };
     template <> struct consume<Windows::UI::Core::Preview::Communications::IPreviewTeamViewStatics>
     {

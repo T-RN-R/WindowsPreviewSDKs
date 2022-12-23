@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -80,18 +80,16 @@ namespace winrt::impl
     template <> struct category<Windows::Foundation::Metadata::MarshalingType>{ using type = enum_category; };
     template <> struct category<Windows::Foundation::Metadata::Platform>{ using type = enum_category; };
     template <> struct category<Windows::Foundation::Metadata::ThreadingModel>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Metadata::ApiInformation>{ L"Windows.Foundation.Metadata.ApiInformation" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Metadata::AttributeTargets>{ L"Windows.Foundation.Metadata.AttributeTargets" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Metadata::CompositionType>{ L"Windows.Foundation.Metadata.CompositionType" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Metadata::DeprecationType>{ L"Windows.Foundation.Metadata.DeprecationType" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Metadata::FeatureStage>{ L"Windows.Foundation.Metadata.FeatureStage" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Metadata::GCPressureAmount>{ L"Windows.Foundation.Metadata.GCPressureAmount" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Metadata::MarshalingType>{ L"Windows.Foundation.Metadata.MarshalingType" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Metadata::Platform>{ L"Windows.Foundation.Metadata.Platform" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Metadata::ThreadingModel>{ L"Windows.Foundation.Metadata.ThreadingModel" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Foundation::Metadata::IApiInformationStatics>{ L"Windows.Foundation.Metadata.IApiInformationStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Foundation::Metadata::ApiInformation> = L"Windows.Foundation.Metadata.ApiInformation";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Metadata::AttributeTargets> = L"Windows.Foundation.Metadata.AttributeTargets";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Metadata::CompositionType> = L"Windows.Foundation.Metadata.CompositionType";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Metadata::DeprecationType> = L"Windows.Foundation.Metadata.DeprecationType";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Metadata::FeatureStage> = L"Windows.Foundation.Metadata.FeatureStage";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Metadata::GCPressureAmount> = L"Windows.Foundation.Metadata.GCPressureAmount";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Metadata::MarshalingType> = L"Windows.Foundation.Metadata.MarshalingType";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Metadata::Platform> = L"Windows.Foundation.Metadata.Platform";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Metadata::ThreadingModel> = L"Windows.Foundation.Metadata.ThreadingModel";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Metadata::IApiInformationStatics> = L"Windows.Foundation.Metadata.IApiInformationStatics";
     template <> inline constexpr guid guid_v<Windows::Foundation::Metadata::IApiInformationStatics>{ 0x997439FE,0xF681,0x4A11,{ 0xB4,0x16,0xC1,0x3A,0x47,0xE8,0xBA,0x36 } };
     template <> struct abi<Windows::Foundation::Metadata::IApiInformationStatics>
     {
@@ -112,16 +110,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_Metadata_IApiInformationStatics
     {
-        auto IsTypePresent(param::hstring const& typeName) const;
-        auto IsMethodPresent(param::hstring const& typeName, param::hstring const& methodName) const;
-        auto IsMethodPresent(param::hstring const& typeName, param::hstring const& methodName, uint32_t inputParameterCount) const;
-        auto IsEventPresent(param::hstring const& typeName, param::hstring const& eventName) const;
-        auto IsPropertyPresent(param::hstring const& typeName, param::hstring const& propertyName) const;
-        auto IsReadOnlyPropertyPresent(param::hstring const& typeName, param::hstring const& propertyName) const;
-        auto IsWriteablePropertyPresent(param::hstring const& typeName, param::hstring const& propertyName) const;
-        auto IsEnumNamedValuePresent(param::hstring const& enumTypeName, param::hstring const& valueName) const;
-        auto IsApiContractPresent(param::hstring const& contractName, uint16_t majorVersion) const;
-        auto IsApiContractPresent(param::hstring const& contractName, uint16_t majorVersion, uint16_t minorVersion) const;
+        WINRT_IMPL_AUTO(bool) IsTypePresent(param::hstring const& typeName) const;
+        WINRT_IMPL_AUTO(bool) IsMethodPresent(param::hstring const& typeName, param::hstring const& methodName) const;
+        WINRT_IMPL_AUTO(bool) IsMethodPresent(param::hstring const& typeName, param::hstring const& methodName, uint32_t inputParameterCount) const;
+        WINRT_IMPL_AUTO(bool) IsEventPresent(param::hstring const& typeName, param::hstring const& eventName) const;
+        WINRT_IMPL_AUTO(bool) IsPropertyPresent(param::hstring const& typeName, param::hstring const& propertyName) const;
+        WINRT_IMPL_AUTO(bool) IsReadOnlyPropertyPresent(param::hstring const& typeName, param::hstring const& propertyName) const;
+        WINRT_IMPL_AUTO(bool) IsWriteablePropertyPresent(param::hstring const& typeName, param::hstring const& propertyName) const;
+        WINRT_IMPL_AUTO(bool) IsEnumNamedValuePresent(param::hstring const& enumTypeName, param::hstring const& valueName) const;
+        WINRT_IMPL_AUTO(bool) IsApiContractPresent(param::hstring const& contractName, uint16_t majorVersion) const;
+        WINRT_IMPL_AUTO(bool) IsApiContractPresent(param::hstring const& contractName, uint16_t majorVersion, uint16_t minorVersion) const;
     };
     template <> struct consume<Windows::Foundation::Metadata::IApiInformationStatics>
     {

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -96,34 +96,32 @@ namespace winrt::impl
     template <> struct category<Windows::Devices::Lights::Effects::LampArrayEffectCompletionBehavior>{ using type = enum_category; };
     template <> struct category<Windows::Devices::Lights::Effects::LampArrayEffectStartMode>{ using type = enum_category; };
     template <> struct category<Windows::Devices::Lights::Effects::LampArrayRepetitionMode>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::LampArrayBitmapEffect>{ L"Windows.Devices.Lights.Effects.LampArrayBitmapEffect" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::LampArrayBitmapRequestedEventArgs>{ L"Windows.Devices.Lights.Effects.LampArrayBitmapRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::LampArrayBlinkEffect>{ L"Windows.Devices.Lights.Effects.LampArrayBlinkEffect" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::LampArrayColorRampEffect>{ L"Windows.Devices.Lights.Effects.LampArrayColorRampEffect" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::LampArrayCustomEffect>{ L"Windows.Devices.Lights.Effects.LampArrayCustomEffect" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::LampArrayEffectPlaylist>{ L"Windows.Devices.Lights.Effects.LampArrayEffectPlaylist" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::LampArraySolidEffect>{ L"Windows.Devices.Lights.Effects.LampArraySolidEffect" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::LampArrayUpdateRequestedEventArgs>{ L"Windows.Devices.Lights.Effects.LampArrayUpdateRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::LampArrayEffectCompletionBehavior>{ L"Windows.Devices.Lights.Effects.LampArrayEffectCompletionBehavior" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::LampArrayEffectStartMode>{ L"Windows.Devices.Lights.Effects.LampArrayEffectStartMode" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::LampArrayRepetitionMode>{ L"Windows.Devices.Lights.Effects.LampArrayRepetitionMode" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArrayBitmapEffect>{ L"Windows.Devices.Lights.Effects.ILampArrayBitmapEffect" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArrayBitmapEffectFactory>{ L"Windows.Devices.Lights.Effects.ILampArrayBitmapEffectFactory" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArrayBitmapRequestedEventArgs>{ L"Windows.Devices.Lights.Effects.ILampArrayBitmapRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArrayBlinkEffect>{ L"Windows.Devices.Lights.Effects.ILampArrayBlinkEffect" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArrayBlinkEffectFactory>{ L"Windows.Devices.Lights.Effects.ILampArrayBlinkEffectFactory" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArrayColorRampEffect>{ L"Windows.Devices.Lights.Effects.ILampArrayColorRampEffect" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArrayColorRampEffectFactory>{ L"Windows.Devices.Lights.Effects.ILampArrayColorRampEffectFactory" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArrayCustomEffect>{ L"Windows.Devices.Lights.Effects.ILampArrayCustomEffect" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArrayCustomEffectFactory>{ L"Windows.Devices.Lights.Effects.ILampArrayCustomEffectFactory" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArrayEffect>{ L"Windows.Devices.Lights.Effects.ILampArrayEffect" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArrayEffectPlaylist>{ L"Windows.Devices.Lights.Effects.ILampArrayEffectPlaylist" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArrayEffectPlaylistStatics>{ L"Windows.Devices.Lights.Effects.ILampArrayEffectPlaylistStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArraySolidEffect>{ L"Windows.Devices.Lights.Effects.ILampArraySolidEffect" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArraySolidEffectFactory>{ L"Windows.Devices.Lights.Effects.ILampArraySolidEffectFactory" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArrayUpdateRequestedEventArgs>{ L"Windows.Devices.Lights.Effects.ILampArrayUpdateRequestedEventArgs" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::LampArrayBitmapEffect> = L"Windows.Devices.Lights.Effects.LampArrayBitmapEffect";
+    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::LampArrayBitmapRequestedEventArgs> = L"Windows.Devices.Lights.Effects.LampArrayBitmapRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::LampArrayBlinkEffect> = L"Windows.Devices.Lights.Effects.LampArrayBlinkEffect";
+    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::LampArrayColorRampEffect> = L"Windows.Devices.Lights.Effects.LampArrayColorRampEffect";
+    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::LampArrayCustomEffect> = L"Windows.Devices.Lights.Effects.LampArrayCustomEffect";
+    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::LampArrayEffectPlaylist> = L"Windows.Devices.Lights.Effects.LampArrayEffectPlaylist";
+    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::LampArraySolidEffect> = L"Windows.Devices.Lights.Effects.LampArraySolidEffect";
+    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::LampArrayUpdateRequestedEventArgs> = L"Windows.Devices.Lights.Effects.LampArrayUpdateRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::LampArrayEffectCompletionBehavior> = L"Windows.Devices.Lights.Effects.LampArrayEffectCompletionBehavior";
+    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::LampArrayEffectStartMode> = L"Windows.Devices.Lights.Effects.LampArrayEffectStartMode";
+    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::LampArrayRepetitionMode> = L"Windows.Devices.Lights.Effects.LampArrayRepetitionMode";
+    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArrayBitmapEffect> = L"Windows.Devices.Lights.Effects.ILampArrayBitmapEffect";
+    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArrayBitmapEffectFactory> = L"Windows.Devices.Lights.Effects.ILampArrayBitmapEffectFactory";
+    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArrayBitmapRequestedEventArgs> = L"Windows.Devices.Lights.Effects.ILampArrayBitmapRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArrayBlinkEffect> = L"Windows.Devices.Lights.Effects.ILampArrayBlinkEffect";
+    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArrayBlinkEffectFactory> = L"Windows.Devices.Lights.Effects.ILampArrayBlinkEffectFactory";
+    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArrayColorRampEffect> = L"Windows.Devices.Lights.Effects.ILampArrayColorRampEffect";
+    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArrayColorRampEffectFactory> = L"Windows.Devices.Lights.Effects.ILampArrayColorRampEffectFactory";
+    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArrayCustomEffect> = L"Windows.Devices.Lights.Effects.ILampArrayCustomEffect";
+    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArrayCustomEffectFactory> = L"Windows.Devices.Lights.Effects.ILampArrayCustomEffectFactory";
+    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArrayEffect> = L"Windows.Devices.Lights.Effects.ILampArrayEffect";
+    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArrayEffectPlaylist> = L"Windows.Devices.Lights.Effects.ILampArrayEffectPlaylist";
+    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArrayEffectPlaylistStatics> = L"Windows.Devices.Lights.Effects.ILampArrayEffectPlaylistStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArraySolidEffect> = L"Windows.Devices.Lights.Effects.ILampArraySolidEffect";
+    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArraySolidEffectFactory> = L"Windows.Devices.Lights.Effects.ILampArraySolidEffectFactory";
+    template <> inline constexpr auto& name_v<Windows::Devices::Lights::Effects::ILampArrayUpdateRequestedEventArgs> = L"Windows.Devices.Lights.Effects.ILampArrayUpdateRequestedEventArgs";
     template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArrayBitmapEffect>{ 0x3238E065,0xD877,0x4627,{ 0x89,0xE5,0x2A,0x88,0xF7,0x05,0x2F,0xA6 } };
     template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArrayBitmapEffectFactory>{ 0x13608090,0xE336,0x4C8F,{ 0x90,0x53,0xA9,0x24,0x07,0xCA,0x7B,0x1D } };
     template <> inline constexpr guid guid_v<Windows::Devices::Lights::Effects::ILampArrayBitmapRequestedEventArgs>{ 0xC8B4AF9E,0xFE63,0x4D51,{ 0xBA,0xBD,0x61,0x9D,0xEF,0xB4,0x54,0xBA } };
@@ -315,17 +313,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Lights_Effects_ILampArrayBitmapEffect
     {
-        [[nodiscard]] auto Duration() const;
-        auto Duration(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto StartDelay() const;
-        auto StartDelay(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto UpdateInterval() const;
-        auto UpdateInterval(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto SuggestedBitmapSize() const;
-        auto BitmapRequested(Windows::Foundation::TypedEventHandler<Windows::Devices::Lights::Effects::LampArrayBitmapEffect, Windows::Devices::Lights::Effects::LampArrayBitmapRequestedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Duration() const;
+        WINRT_IMPL_AUTO(void) Duration(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) StartDelay() const;
+        WINRT_IMPL_AUTO(void) StartDelay(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) UpdateInterval() const;
+        WINRT_IMPL_AUTO(void) UpdateInterval(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Size) SuggestedBitmapSize() const;
+        WINRT_IMPL_AUTO(winrt::event_token) BitmapRequested(Windows::Foundation::TypedEventHandler<Windows::Devices::Lights::Effects::LampArrayBitmapEffect, Windows::Devices::Lights::Effects::LampArrayBitmapRequestedEventArgs> const& handler) const;
         using BitmapRequested_revoker = impl::event_revoker<Windows::Devices::Lights::Effects::ILampArrayBitmapEffect, &impl::abi_t<Windows::Devices::Lights::Effects::ILampArrayBitmapEffect>::remove_BitmapRequested>;
         [[nodiscard]] BitmapRequested_revoker BitmapRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Lights::Effects::LampArrayBitmapEffect, Windows::Devices::Lights::Effects::LampArrayBitmapRequestedEventArgs> const& handler) const;
-        auto BitmapRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) BitmapRequested(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Devices::Lights::Effects::ILampArrayBitmapEffect>
     {
@@ -334,7 +332,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Lights_Effects_ILampArrayBitmapEffectFactory
     {
-        auto CreateInstance(Windows::Devices::Lights::LampArray const& lampArray, array_view<int32_t const> lampIndexes) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Lights::Effects::LampArrayBitmapEffect) CreateInstance(Windows::Devices::Lights::LampArray const& lampArray, array_view<int32_t const> lampIndexes) const;
     };
     template <> struct consume<Windows::Devices::Lights::Effects::ILampArrayBitmapEffectFactory>
     {
@@ -343,8 +341,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Lights_Effects_ILampArrayBitmapRequestedEventArgs
     {
-        [[nodiscard]] auto SinceStarted() const;
-        auto UpdateBitmap(Windows::Graphics::Imaging::SoftwareBitmap const& bitmap) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) SinceStarted() const;
+        WINRT_IMPL_AUTO(void) UpdateBitmap(Windows::Graphics::Imaging::SoftwareBitmap const& bitmap) const;
     };
     template <> struct consume<Windows::Devices::Lights::Effects::ILampArrayBitmapRequestedEventArgs>
     {
@@ -353,22 +351,22 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Lights_Effects_ILampArrayBlinkEffect
     {
-        [[nodiscard]] auto Color() const;
-        auto Color(Windows::UI::Color const& value) const;
-        [[nodiscard]] auto AttackDuration() const;
-        auto AttackDuration(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto SustainDuration() const;
-        auto SustainDuration(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto DecayDuration() const;
-        auto DecayDuration(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto RepetitionDelay() const;
-        auto RepetitionDelay(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto StartDelay() const;
-        auto StartDelay(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto Occurrences() const;
-        auto Occurrences(int32_t value) const;
-        [[nodiscard]] auto RepetitionMode() const;
-        auto RepetitionMode(Windows::Devices::Lights::Effects::LampArrayRepetitionMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Color) Color() const;
+        WINRT_IMPL_AUTO(void) Color(Windows::UI::Color const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) AttackDuration() const;
+        WINRT_IMPL_AUTO(void) AttackDuration(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) SustainDuration() const;
+        WINRT_IMPL_AUTO(void) SustainDuration(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) DecayDuration() const;
+        WINRT_IMPL_AUTO(void) DecayDuration(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) RepetitionDelay() const;
+        WINRT_IMPL_AUTO(void) RepetitionDelay(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) StartDelay() const;
+        WINRT_IMPL_AUTO(void) StartDelay(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Occurrences() const;
+        WINRT_IMPL_AUTO(void) Occurrences(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Lights::Effects::LampArrayRepetitionMode) RepetitionMode() const;
+        WINRT_IMPL_AUTO(void) RepetitionMode(Windows::Devices::Lights::Effects::LampArrayRepetitionMode const& value) const;
     };
     template <> struct consume<Windows::Devices::Lights::Effects::ILampArrayBlinkEffect>
     {
@@ -377,7 +375,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Lights_Effects_ILampArrayBlinkEffectFactory
     {
-        auto CreateInstance(Windows::Devices::Lights::LampArray const& lampArray, array_view<int32_t const> lampIndexes) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Lights::Effects::LampArrayBlinkEffect) CreateInstance(Windows::Devices::Lights::LampArray const& lampArray, array_view<int32_t const> lampIndexes) const;
     };
     template <> struct consume<Windows::Devices::Lights::Effects::ILampArrayBlinkEffectFactory>
     {
@@ -386,14 +384,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Lights_Effects_ILampArrayColorRampEffect
     {
-        [[nodiscard]] auto Color() const;
-        auto Color(Windows::UI::Color const& value) const;
-        [[nodiscard]] auto RampDuration() const;
-        auto RampDuration(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto StartDelay() const;
-        auto StartDelay(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto CompletionBehavior() const;
-        auto CompletionBehavior(Windows::Devices::Lights::Effects::LampArrayEffectCompletionBehavior const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Color) Color() const;
+        WINRT_IMPL_AUTO(void) Color(Windows::UI::Color const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) RampDuration() const;
+        WINRT_IMPL_AUTO(void) RampDuration(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) StartDelay() const;
+        WINRT_IMPL_AUTO(void) StartDelay(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Lights::Effects::LampArrayEffectCompletionBehavior) CompletionBehavior() const;
+        WINRT_IMPL_AUTO(void) CompletionBehavior(Windows::Devices::Lights::Effects::LampArrayEffectCompletionBehavior const& value) const;
     };
     template <> struct consume<Windows::Devices::Lights::Effects::ILampArrayColorRampEffect>
     {
@@ -402,7 +400,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Lights_Effects_ILampArrayColorRampEffectFactory
     {
-        auto CreateInstance(Windows::Devices::Lights::LampArray const& lampArray, array_view<int32_t const> lampIndexes) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Lights::Effects::LampArrayColorRampEffect) CreateInstance(Windows::Devices::Lights::LampArray const& lampArray, array_view<int32_t const> lampIndexes) const;
     };
     template <> struct consume<Windows::Devices::Lights::Effects::ILampArrayColorRampEffectFactory>
     {
@@ -411,14 +409,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Lights_Effects_ILampArrayCustomEffect
     {
-        [[nodiscard]] auto Duration() const;
-        auto Duration(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto UpdateInterval() const;
-        auto UpdateInterval(Windows::Foundation::TimeSpan const& value) const;
-        auto UpdateRequested(Windows::Foundation::TypedEventHandler<Windows::Devices::Lights::Effects::LampArrayCustomEffect, Windows::Devices::Lights::Effects::LampArrayUpdateRequestedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Duration() const;
+        WINRT_IMPL_AUTO(void) Duration(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) UpdateInterval() const;
+        WINRT_IMPL_AUTO(void) UpdateInterval(Windows::Foundation::TimeSpan const& value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) UpdateRequested(Windows::Foundation::TypedEventHandler<Windows::Devices::Lights::Effects::LampArrayCustomEffect, Windows::Devices::Lights::Effects::LampArrayUpdateRequestedEventArgs> const& handler) const;
         using UpdateRequested_revoker = impl::event_revoker<Windows::Devices::Lights::Effects::ILampArrayCustomEffect, &impl::abi_t<Windows::Devices::Lights::Effects::ILampArrayCustomEffect>::remove_UpdateRequested>;
         [[nodiscard]] UpdateRequested_revoker UpdateRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Lights::Effects::LampArrayCustomEffect, Windows::Devices::Lights::Effects::LampArrayUpdateRequestedEventArgs> const& handler) const;
-        auto UpdateRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) UpdateRequested(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Devices::Lights::Effects::ILampArrayCustomEffect>
     {
@@ -427,7 +425,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Lights_Effects_ILampArrayCustomEffectFactory
     {
-        auto CreateInstance(Windows::Devices::Lights::LampArray const& lampArray, array_view<int32_t const> lampIndexes) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Lights::Effects::LampArrayCustomEffect) CreateInstance(Windows::Devices::Lights::LampArray const& lampArray, array_view<int32_t const> lampIndexes) const;
     };
     template <> struct consume<Windows::Devices::Lights::Effects::ILampArrayCustomEffectFactory>
     {
@@ -436,8 +434,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Lights_Effects_ILampArrayEffect
     {
-        [[nodiscard]] auto ZIndex() const;
-        auto ZIndex(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) ZIndex() const;
+        WINRT_IMPL_AUTO(void) ZIndex(int32_t value) const;
     };
     template <> struct consume<Windows::Devices::Lights::Effects::ILampArrayEffect>
     {
@@ -446,17 +444,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Lights_Effects_ILampArrayEffectPlaylist
     {
-        auto Append(Windows::Devices::Lights::Effects::ILampArrayEffect const& effect) const;
-        auto OverrideZIndex(int32_t zIndex) const;
-        auto Start() const;
-        auto Stop() const;
-        auto Pause() const;
-        [[nodiscard]] auto EffectStartMode() const;
-        auto EffectStartMode(Windows::Devices::Lights::Effects::LampArrayEffectStartMode const& value) const;
-        [[nodiscard]] auto Occurrences() const;
-        auto Occurrences(int32_t value) const;
-        [[nodiscard]] auto RepetitionMode() const;
-        auto RepetitionMode(Windows::Devices::Lights::Effects::LampArrayRepetitionMode const& value) const;
+        WINRT_IMPL_AUTO(void) Append(Windows::Devices::Lights::Effects::ILampArrayEffect const& effect) const;
+        WINRT_IMPL_AUTO(void) OverrideZIndex(int32_t zIndex) const;
+        WINRT_IMPL_AUTO(void) Start() const;
+        WINRT_IMPL_AUTO(void) Stop() const;
+        WINRT_IMPL_AUTO(void) Pause() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Lights::Effects::LampArrayEffectStartMode) EffectStartMode() const;
+        WINRT_IMPL_AUTO(void) EffectStartMode(Windows::Devices::Lights::Effects::LampArrayEffectStartMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Occurrences() const;
+        WINRT_IMPL_AUTO(void) Occurrences(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Lights::Effects::LampArrayRepetitionMode) RepetitionMode() const;
+        WINRT_IMPL_AUTO(void) RepetitionMode(Windows::Devices::Lights::Effects::LampArrayRepetitionMode const& value) const;
     };
     template <> struct consume<Windows::Devices::Lights::Effects::ILampArrayEffectPlaylist>
     {
@@ -465,9 +463,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Lights_Effects_ILampArrayEffectPlaylistStatics
     {
-        auto StartAll(param::iterable<Windows::Devices::Lights::Effects::LampArrayEffectPlaylist> const& value) const;
-        auto StopAll(param::iterable<Windows::Devices::Lights::Effects::LampArrayEffectPlaylist> const& value) const;
-        auto PauseAll(param::iterable<Windows::Devices::Lights::Effects::LampArrayEffectPlaylist> const& value) const;
+        WINRT_IMPL_AUTO(void) StartAll(param::iterable<Windows::Devices::Lights::Effects::LampArrayEffectPlaylist> const& value) const;
+        WINRT_IMPL_AUTO(void) StopAll(param::iterable<Windows::Devices::Lights::Effects::LampArrayEffectPlaylist> const& value) const;
+        WINRT_IMPL_AUTO(void) PauseAll(param::iterable<Windows::Devices::Lights::Effects::LampArrayEffectPlaylist> const& value) const;
     };
     template <> struct consume<Windows::Devices::Lights::Effects::ILampArrayEffectPlaylistStatics>
     {
@@ -476,14 +474,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Lights_Effects_ILampArraySolidEffect
     {
-        [[nodiscard]] auto Color() const;
-        auto Color(Windows::UI::Color const& value) const;
-        [[nodiscard]] auto Duration() const;
-        auto Duration(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto StartDelay() const;
-        auto StartDelay(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto CompletionBehavior() const;
-        auto CompletionBehavior(Windows::Devices::Lights::Effects::LampArrayEffectCompletionBehavior const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Color) Color() const;
+        WINRT_IMPL_AUTO(void) Color(Windows::UI::Color const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Duration() const;
+        WINRT_IMPL_AUTO(void) Duration(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) StartDelay() const;
+        WINRT_IMPL_AUTO(void) StartDelay(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Lights::Effects::LampArrayEffectCompletionBehavior) CompletionBehavior() const;
+        WINRT_IMPL_AUTO(void) CompletionBehavior(Windows::Devices::Lights::Effects::LampArrayEffectCompletionBehavior const& value) const;
     };
     template <> struct consume<Windows::Devices::Lights::Effects::ILampArraySolidEffect>
     {
@@ -492,7 +490,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Lights_Effects_ILampArraySolidEffectFactory
     {
-        auto CreateInstance(Windows::Devices::Lights::LampArray const& lampArray, array_view<int32_t const> lampIndexes) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Lights::Effects::LampArraySolidEffect) CreateInstance(Windows::Devices::Lights::LampArray const& lampArray, array_view<int32_t const> lampIndexes) const;
     };
     template <> struct consume<Windows::Devices::Lights::Effects::ILampArraySolidEffectFactory>
     {
@@ -501,11 +499,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Lights_Effects_ILampArrayUpdateRequestedEventArgs
     {
-        [[nodiscard]] auto SinceStarted() const;
-        auto SetColor(Windows::UI::Color const& desiredColor) const;
-        auto SetColorForIndex(int32_t lampIndex, Windows::UI::Color const& desiredColor) const;
-        auto SetSingleColorForIndices(Windows::UI::Color const& desiredColor, array_view<int32_t const> lampIndexes) const;
-        auto SetColorsForIndices(array_view<Windows::UI::Color const> desiredColors, array_view<int32_t const> lampIndexes) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) SinceStarted() const;
+        WINRT_IMPL_AUTO(void) SetColor(Windows::UI::Color const& desiredColor) const;
+        WINRT_IMPL_AUTO(void) SetColorForIndex(int32_t lampIndex, Windows::UI::Color const& desiredColor) const;
+        WINRT_IMPL_AUTO(void) SetSingleColorForIndices(Windows::UI::Color const& desiredColor, array_view<int32_t const> lampIndexes) const;
+        WINRT_IMPL_AUTO(void) SetColorsForIndices(array_view<Windows::UI::Color const> desiredColors, array_view<int32_t const> lampIndexes) const;
     };
     template <> struct consume<Windows::Devices::Lights::Effects::ILampArrayUpdateRequestedEventArgs>
     {

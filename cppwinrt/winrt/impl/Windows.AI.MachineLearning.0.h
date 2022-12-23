@@ -1,15 +1,21 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
 #ifndef WINRT_Windows_AI_MachineLearning_0_H
 #define WINRT_Windows_AI_MachineLearning_0_H
+WINRT_EXPORT namespace winrt::Windows::Foundation
+{
+    template <typename TResult> struct IAsyncOperation;
+}
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
+    template <typename K, typename V> struct IMapView;
     template <typename K, typename V> struct IMap;
     struct IPropertySet;
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Graphics
 {
@@ -251,97 +257,95 @@ namespace winrt::impl
     template <> struct category<Windows::AI::MachineLearning::LearningModelDeviceKind>{ using type = enum_category; };
     template <> struct category<Windows::AI::MachineLearning::LearningModelFeatureKind>{ using type = enum_category; };
     template <> struct category<Windows::AI::MachineLearning::TensorKind>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ImageFeatureDescriptor>{ L"Windows.AI.MachineLearning.ImageFeatureDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ImageFeatureValue>{ L"Windows.AI.MachineLearning.ImageFeatureValue" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::LearningModel>{ L"Windows.AI.MachineLearning.LearningModel" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::LearningModelBinding>{ L"Windows.AI.MachineLearning.LearningModelBinding" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::LearningModelDevice>{ L"Windows.AI.MachineLearning.LearningModelDevice" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::LearningModelEvaluationResult>{ L"Windows.AI.MachineLearning.LearningModelEvaluationResult" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::LearningModelSession>{ L"Windows.AI.MachineLearning.LearningModelSession" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::LearningModelSessionOptions>{ L"Windows.AI.MachineLearning.LearningModelSessionOptions" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::MapFeatureDescriptor>{ L"Windows.AI.MachineLearning.MapFeatureDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::SequenceFeatureDescriptor>{ L"Windows.AI.MachineLearning.SequenceFeatureDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::TensorBoolean>{ L"Windows.AI.MachineLearning.TensorBoolean" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::TensorDouble>{ L"Windows.AI.MachineLearning.TensorDouble" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::TensorFeatureDescriptor>{ L"Windows.AI.MachineLearning.TensorFeatureDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::TensorFloat>{ L"Windows.AI.MachineLearning.TensorFloat" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::TensorFloat16Bit>{ L"Windows.AI.MachineLearning.TensorFloat16Bit" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::TensorInt16Bit>{ L"Windows.AI.MachineLearning.TensorInt16Bit" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::TensorInt32Bit>{ L"Windows.AI.MachineLearning.TensorInt32Bit" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::TensorInt64Bit>{ L"Windows.AI.MachineLearning.TensorInt64Bit" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::TensorInt8Bit>{ L"Windows.AI.MachineLearning.TensorInt8Bit" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::TensorString>{ L"Windows.AI.MachineLearning.TensorString" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::TensorUInt16Bit>{ L"Windows.AI.MachineLearning.TensorUInt16Bit" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::TensorUInt32Bit>{ L"Windows.AI.MachineLearning.TensorUInt32Bit" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::TensorUInt64Bit>{ L"Windows.AI.MachineLearning.TensorUInt64Bit" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::TensorUInt8Bit>{ L"Windows.AI.MachineLearning.TensorUInt8Bit" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::LearningModelDeviceKind>{ L"Windows.AI.MachineLearning.LearningModelDeviceKind" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::LearningModelFeatureKind>{ L"Windows.AI.MachineLearning.LearningModelFeatureKind" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::TensorKind>{ L"Windows.AI.MachineLearning.TensorKind" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::IImageFeatureDescriptor>{ L"Windows.AI.MachineLearning.IImageFeatureDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::IImageFeatureValue>{ L"Windows.AI.MachineLearning.IImageFeatureValue" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::IImageFeatureValueStatics>{ L"Windows.AI.MachineLearning.IImageFeatureValueStatics" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModel>{ L"Windows.AI.MachineLearning.ILearningModel" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModelBinding>{ L"Windows.AI.MachineLearning.ILearningModelBinding" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModelBindingFactory>{ L"Windows.AI.MachineLearning.ILearningModelBindingFactory" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModelDevice>{ L"Windows.AI.MachineLearning.ILearningModelDevice" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModelDeviceFactory>{ L"Windows.AI.MachineLearning.ILearningModelDeviceFactory" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModelDeviceStatics>{ L"Windows.AI.MachineLearning.ILearningModelDeviceStatics" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModelEvaluationResult>{ L"Windows.AI.MachineLearning.ILearningModelEvaluationResult" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModelFeatureDescriptor>{ L"Windows.AI.MachineLearning.ILearningModelFeatureDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModelFeatureValue>{ L"Windows.AI.MachineLearning.ILearningModelFeatureValue" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModelOperatorProvider>{ L"Windows.AI.MachineLearning.ILearningModelOperatorProvider" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModelSession>{ L"Windows.AI.MachineLearning.ILearningModelSession" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModelSessionFactory>{ L"Windows.AI.MachineLearning.ILearningModelSessionFactory" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModelSessionFactory2>{ L"Windows.AI.MachineLearning.ILearningModelSessionFactory2" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModelSessionOptions>{ L"Windows.AI.MachineLearning.ILearningModelSessionOptions" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModelSessionOptions2>{ L"Windows.AI.MachineLearning.ILearningModelSessionOptions2" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModelStatics>{ L"Windows.AI.MachineLearning.ILearningModelStatics" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::IMapFeatureDescriptor>{ L"Windows.AI.MachineLearning.IMapFeatureDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ISequenceFeatureDescriptor>{ L"Windows.AI.MachineLearning.ISequenceFeatureDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensor>{ L"Windows.AI.MachineLearning.ITensor" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorBoolean>{ L"Windows.AI.MachineLearning.ITensorBoolean" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorBooleanStatics>{ L"Windows.AI.MachineLearning.ITensorBooleanStatics" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorBooleanStatics2>{ L"Windows.AI.MachineLearning.ITensorBooleanStatics2" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorDouble>{ L"Windows.AI.MachineLearning.ITensorDouble" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorDoubleStatics>{ L"Windows.AI.MachineLearning.ITensorDoubleStatics" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorDoubleStatics2>{ L"Windows.AI.MachineLearning.ITensorDoubleStatics2" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorFeatureDescriptor>{ L"Windows.AI.MachineLearning.ITensorFeatureDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorFloat>{ L"Windows.AI.MachineLearning.ITensorFloat" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorFloat16Bit>{ L"Windows.AI.MachineLearning.ITensorFloat16Bit" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorFloat16BitStatics>{ L"Windows.AI.MachineLearning.ITensorFloat16BitStatics" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorFloat16BitStatics2>{ L"Windows.AI.MachineLearning.ITensorFloat16BitStatics2" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorFloatStatics>{ L"Windows.AI.MachineLearning.ITensorFloatStatics" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorFloatStatics2>{ L"Windows.AI.MachineLearning.ITensorFloatStatics2" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorInt16Bit>{ L"Windows.AI.MachineLearning.ITensorInt16Bit" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorInt16BitStatics>{ L"Windows.AI.MachineLearning.ITensorInt16BitStatics" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorInt16BitStatics2>{ L"Windows.AI.MachineLearning.ITensorInt16BitStatics2" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorInt32Bit>{ L"Windows.AI.MachineLearning.ITensorInt32Bit" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorInt32BitStatics>{ L"Windows.AI.MachineLearning.ITensorInt32BitStatics" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorInt32BitStatics2>{ L"Windows.AI.MachineLearning.ITensorInt32BitStatics2" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorInt64Bit>{ L"Windows.AI.MachineLearning.ITensorInt64Bit" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorInt64BitStatics>{ L"Windows.AI.MachineLearning.ITensorInt64BitStatics" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorInt64BitStatics2>{ L"Windows.AI.MachineLearning.ITensorInt64BitStatics2" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorInt8Bit>{ L"Windows.AI.MachineLearning.ITensorInt8Bit" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorInt8BitStatics>{ L"Windows.AI.MachineLearning.ITensorInt8BitStatics" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorInt8BitStatics2>{ L"Windows.AI.MachineLearning.ITensorInt8BitStatics2" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorString>{ L"Windows.AI.MachineLearning.ITensorString" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorStringStatics>{ L"Windows.AI.MachineLearning.ITensorStringStatics" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorStringStatics2>{ L"Windows.AI.MachineLearning.ITensorStringStatics2" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorUInt16Bit>{ L"Windows.AI.MachineLearning.ITensorUInt16Bit" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorUInt16BitStatics>{ L"Windows.AI.MachineLearning.ITensorUInt16BitStatics" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorUInt16BitStatics2>{ L"Windows.AI.MachineLearning.ITensorUInt16BitStatics2" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorUInt32Bit>{ L"Windows.AI.MachineLearning.ITensorUInt32Bit" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorUInt32BitStatics>{ L"Windows.AI.MachineLearning.ITensorUInt32BitStatics" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorUInt32BitStatics2>{ L"Windows.AI.MachineLearning.ITensorUInt32BitStatics2" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorUInt64Bit>{ L"Windows.AI.MachineLearning.ITensorUInt64Bit" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorUInt64BitStatics>{ L"Windows.AI.MachineLearning.ITensorUInt64BitStatics" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorUInt64BitStatics2>{ L"Windows.AI.MachineLearning.ITensorUInt64BitStatics2" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorUInt8Bit>{ L"Windows.AI.MachineLearning.ITensorUInt8Bit" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorUInt8BitStatics>{ L"Windows.AI.MachineLearning.ITensorUInt8BitStatics" };
-    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorUInt8BitStatics2>{ L"Windows.AI.MachineLearning.ITensorUInt8BitStatics2" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ImageFeatureDescriptor> = L"Windows.AI.MachineLearning.ImageFeatureDescriptor";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ImageFeatureValue> = L"Windows.AI.MachineLearning.ImageFeatureValue";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::LearningModel> = L"Windows.AI.MachineLearning.LearningModel";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::LearningModelBinding> = L"Windows.AI.MachineLearning.LearningModelBinding";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::LearningModelDevice> = L"Windows.AI.MachineLearning.LearningModelDevice";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::LearningModelEvaluationResult> = L"Windows.AI.MachineLearning.LearningModelEvaluationResult";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::LearningModelSession> = L"Windows.AI.MachineLearning.LearningModelSession";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::LearningModelSessionOptions> = L"Windows.AI.MachineLearning.LearningModelSessionOptions";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::MapFeatureDescriptor> = L"Windows.AI.MachineLearning.MapFeatureDescriptor";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::SequenceFeatureDescriptor> = L"Windows.AI.MachineLearning.SequenceFeatureDescriptor";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::TensorBoolean> = L"Windows.AI.MachineLearning.TensorBoolean";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::TensorDouble> = L"Windows.AI.MachineLearning.TensorDouble";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::TensorFeatureDescriptor> = L"Windows.AI.MachineLearning.TensorFeatureDescriptor";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::TensorFloat> = L"Windows.AI.MachineLearning.TensorFloat";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::TensorFloat16Bit> = L"Windows.AI.MachineLearning.TensorFloat16Bit";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::TensorInt16Bit> = L"Windows.AI.MachineLearning.TensorInt16Bit";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::TensorInt32Bit> = L"Windows.AI.MachineLearning.TensorInt32Bit";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::TensorInt64Bit> = L"Windows.AI.MachineLearning.TensorInt64Bit";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::TensorInt8Bit> = L"Windows.AI.MachineLearning.TensorInt8Bit";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::TensorString> = L"Windows.AI.MachineLearning.TensorString";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::TensorUInt16Bit> = L"Windows.AI.MachineLearning.TensorUInt16Bit";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::TensorUInt32Bit> = L"Windows.AI.MachineLearning.TensorUInt32Bit";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::TensorUInt64Bit> = L"Windows.AI.MachineLearning.TensorUInt64Bit";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::TensorUInt8Bit> = L"Windows.AI.MachineLearning.TensorUInt8Bit";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::LearningModelDeviceKind> = L"Windows.AI.MachineLearning.LearningModelDeviceKind";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::LearningModelFeatureKind> = L"Windows.AI.MachineLearning.LearningModelFeatureKind";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::TensorKind> = L"Windows.AI.MachineLearning.TensorKind";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::IImageFeatureDescriptor> = L"Windows.AI.MachineLearning.IImageFeatureDescriptor";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::IImageFeatureValue> = L"Windows.AI.MachineLearning.IImageFeatureValue";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::IImageFeatureValueStatics> = L"Windows.AI.MachineLearning.IImageFeatureValueStatics";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModel> = L"Windows.AI.MachineLearning.ILearningModel";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModelBinding> = L"Windows.AI.MachineLearning.ILearningModelBinding";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModelBindingFactory> = L"Windows.AI.MachineLearning.ILearningModelBindingFactory";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModelDevice> = L"Windows.AI.MachineLearning.ILearningModelDevice";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModelDeviceFactory> = L"Windows.AI.MachineLearning.ILearningModelDeviceFactory";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModelDeviceStatics> = L"Windows.AI.MachineLearning.ILearningModelDeviceStatics";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModelEvaluationResult> = L"Windows.AI.MachineLearning.ILearningModelEvaluationResult";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModelFeatureDescriptor> = L"Windows.AI.MachineLearning.ILearningModelFeatureDescriptor";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModelFeatureValue> = L"Windows.AI.MachineLearning.ILearningModelFeatureValue";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModelOperatorProvider> = L"Windows.AI.MachineLearning.ILearningModelOperatorProvider";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModelSession> = L"Windows.AI.MachineLearning.ILearningModelSession";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModelSessionFactory> = L"Windows.AI.MachineLearning.ILearningModelSessionFactory";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModelSessionFactory2> = L"Windows.AI.MachineLearning.ILearningModelSessionFactory2";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModelSessionOptions> = L"Windows.AI.MachineLearning.ILearningModelSessionOptions";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModelSessionOptions2> = L"Windows.AI.MachineLearning.ILearningModelSessionOptions2";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ILearningModelStatics> = L"Windows.AI.MachineLearning.ILearningModelStatics";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::IMapFeatureDescriptor> = L"Windows.AI.MachineLearning.IMapFeatureDescriptor";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ISequenceFeatureDescriptor> = L"Windows.AI.MachineLearning.ISequenceFeatureDescriptor";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensor> = L"Windows.AI.MachineLearning.ITensor";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorBoolean> = L"Windows.AI.MachineLearning.ITensorBoolean";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorBooleanStatics> = L"Windows.AI.MachineLearning.ITensorBooleanStatics";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorBooleanStatics2> = L"Windows.AI.MachineLearning.ITensorBooleanStatics2";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorDouble> = L"Windows.AI.MachineLearning.ITensorDouble";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorDoubleStatics> = L"Windows.AI.MachineLearning.ITensorDoubleStatics";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorDoubleStatics2> = L"Windows.AI.MachineLearning.ITensorDoubleStatics2";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorFeatureDescriptor> = L"Windows.AI.MachineLearning.ITensorFeatureDescriptor";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorFloat> = L"Windows.AI.MachineLearning.ITensorFloat";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorFloat16Bit> = L"Windows.AI.MachineLearning.ITensorFloat16Bit";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorFloat16BitStatics> = L"Windows.AI.MachineLearning.ITensorFloat16BitStatics";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorFloat16BitStatics2> = L"Windows.AI.MachineLearning.ITensorFloat16BitStatics2";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorFloatStatics> = L"Windows.AI.MachineLearning.ITensorFloatStatics";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorFloatStatics2> = L"Windows.AI.MachineLearning.ITensorFloatStatics2";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorInt16Bit> = L"Windows.AI.MachineLearning.ITensorInt16Bit";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorInt16BitStatics> = L"Windows.AI.MachineLearning.ITensorInt16BitStatics";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorInt16BitStatics2> = L"Windows.AI.MachineLearning.ITensorInt16BitStatics2";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorInt32Bit> = L"Windows.AI.MachineLearning.ITensorInt32Bit";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorInt32BitStatics> = L"Windows.AI.MachineLearning.ITensorInt32BitStatics";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorInt32BitStatics2> = L"Windows.AI.MachineLearning.ITensorInt32BitStatics2";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorInt64Bit> = L"Windows.AI.MachineLearning.ITensorInt64Bit";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorInt64BitStatics> = L"Windows.AI.MachineLearning.ITensorInt64BitStatics";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorInt64BitStatics2> = L"Windows.AI.MachineLearning.ITensorInt64BitStatics2";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorInt8Bit> = L"Windows.AI.MachineLearning.ITensorInt8Bit";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorInt8BitStatics> = L"Windows.AI.MachineLearning.ITensorInt8BitStatics";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorInt8BitStatics2> = L"Windows.AI.MachineLearning.ITensorInt8BitStatics2";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorString> = L"Windows.AI.MachineLearning.ITensorString";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorStringStatics> = L"Windows.AI.MachineLearning.ITensorStringStatics";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorStringStatics2> = L"Windows.AI.MachineLearning.ITensorStringStatics2";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorUInt16Bit> = L"Windows.AI.MachineLearning.ITensorUInt16Bit";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorUInt16BitStatics> = L"Windows.AI.MachineLearning.ITensorUInt16BitStatics";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorUInt16BitStatics2> = L"Windows.AI.MachineLearning.ITensorUInt16BitStatics2";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorUInt32Bit> = L"Windows.AI.MachineLearning.ITensorUInt32Bit";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorUInt32BitStatics> = L"Windows.AI.MachineLearning.ITensorUInt32BitStatics";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorUInt32BitStatics2> = L"Windows.AI.MachineLearning.ITensorUInt32BitStatics2";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorUInt64Bit> = L"Windows.AI.MachineLearning.ITensorUInt64Bit";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorUInt64BitStatics> = L"Windows.AI.MachineLearning.ITensorUInt64BitStatics";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorUInt64BitStatics2> = L"Windows.AI.MachineLearning.ITensorUInt64BitStatics2";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorUInt8Bit> = L"Windows.AI.MachineLearning.ITensorUInt8Bit";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorUInt8BitStatics> = L"Windows.AI.MachineLearning.ITensorUInt8BitStatics";
+    template <> inline constexpr auto& name_v<Windows::AI::MachineLearning::ITensorUInt8BitStatics2> = L"Windows.AI.MachineLearning.ITensorUInt8BitStatics2";
     template <> inline constexpr guid guid_v<Windows::AI::MachineLearning::IImageFeatureDescriptor>{ 0x365585A5,0x171A,0x4A2A,{ 0x98,0x5F,0x26,0x51,0x59,0xD3,0x89,0x5A } };
     template <> inline constexpr guid guid_v<Windows::AI::MachineLearning::IImageFeatureValue>{ 0xF0414FD9,0xC9AA,0x4405,{ 0xB7,0xFB,0x94,0xF8,0x7C,0x8A,0x30,0x37 } };
     template <> inline constexpr guid guid_v<Windows::AI::MachineLearning::IImageFeatureValueStatics>{ 0x1BC317FD,0x23CB,0x4610,{ 0xB0,0x85,0xC8,0xE1,0xC8,0x7E,0xBA,0xA0 } };
@@ -953,10 +957,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_IImageFeatureDescriptor
     {
-        [[nodiscard]] auto BitmapPixelFormat() const;
-        [[nodiscard]] auto BitmapAlphaMode() const;
-        [[nodiscard]] auto Width() const;
-        [[nodiscard]] auto Height() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Imaging::BitmapPixelFormat) BitmapPixelFormat() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Imaging::BitmapAlphaMode) BitmapAlphaMode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Width() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Height() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::IImageFeatureDescriptor>
     {
@@ -965,7 +969,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_IImageFeatureValue
     {
-        [[nodiscard]] auto VideoFrame() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::VideoFrame) VideoFrame() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::IImageFeatureValue>
     {
@@ -974,7 +978,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_IImageFeatureValueStatics
     {
-        auto CreateFromVideoFrame(Windows::Media::VideoFrame const& image) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::ImageFeatureValue) CreateFromVideoFrame(Windows::Media::VideoFrame const& image) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::IImageFeatureValueStatics>
     {
@@ -983,14 +987,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ILearningModel
     {
-        [[nodiscard]] auto Author() const;
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto Domain() const;
-        [[nodiscard]] auto Description() const;
-        [[nodiscard]] auto Version() const;
-        [[nodiscard]] auto Metadata() const;
-        [[nodiscard]] auto InputFeatures() const;
-        [[nodiscard]] auto OutputFeatures() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Author() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Domain() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int64_t) Version() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, hstring>) Metadata() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::AI::MachineLearning::ILearningModelFeatureDescriptor>) InputFeatures() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::AI::MachineLearning::ILearningModelFeatureDescriptor>) OutputFeatures() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ILearningModel>
     {
@@ -999,9 +1003,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ILearningModelBinding
     {
-        auto Bind(param::hstring const& name, Windows::Foundation::IInspectable const& value) const;
-        auto Bind(param::hstring const& name, Windows::Foundation::IInspectable const& value, Windows::Foundation::Collections::IPropertySet const& props) const;
-        auto Clear() const;
+        WINRT_IMPL_AUTO(void) Bind(param::hstring const& name, Windows::Foundation::IInspectable const& value) const;
+        WINRT_IMPL_AUTO(void) Bind(param::hstring const& name, Windows::Foundation::IInspectable const& value, Windows::Foundation::Collections::IPropertySet const& props) const;
+        WINRT_IMPL_AUTO(void) Clear() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ILearningModelBinding>
     {
@@ -1010,7 +1014,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ILearningModelBindingFactory
     {
-        auto CreateFromSession(Windows::AI::MachineLearning::LearningModelSession const& session) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::LearningModelBinding) CreateFromSession(Windows::AI::MachineLearning::LearningModelSession const& session) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ILearningModelBindingFactory>
     {
@@ -1019,8 +1023,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ILearningModelDevice
     {
-        [[nodiscard]] auto AdapterId() const;
-        [[nodiscard]] auto Direct3D11Device() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::DisplayAdapterId) AdapterId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::DirectX::Direct3D11::IDirect3DDevice) Direct3D11Device() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ILearningModelDevice>
     {
@@ -1029,7 +1033,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ILearningModelDeviceFactory
     {
-        auto Create(Windows::AI::MachineLearning::LearningModelDeviceKind const& deviceKind) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::LearningModelDevice) Create(Windows::AI::MachineLearning::LearningModelDeviceKind const& deviceKind) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ILearningModelDeviceFactory>
     {
@@ -1038,7 +1042,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ILearningModelDeviceStatics
     {
-        auto CreateFromDirect3D11Device(Windows::Graphics::DirectX::Direct3D11::IDirect3DDevice const& device) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::LearningModelDevice) CreateFromDirect3D11Device(Windows::Graphics::DirectX::Direct3D11::IDirect3DDevice const& device) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ILearningModelDeviceStatics>
     {
@@ -1047,10 +1051,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ILearningModelEvaluationResult
     {
-        [[nodiscard]] auto CorrelationId() const;
-        [[nodiscard]] auto ErrorStatus() const;
-        [[nodiscard]] auto Succeeded() const;
-        [[nodiscard]] auto Outputs() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CorrelationId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) ErrorStatus() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Succeeded() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>) Outputs() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ILearningModelEvaluationResult>
     {
@@ -1059,10 +1063,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ILearningModelFeatureDescriptor
     {
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto Description() const;
-        [[nodiscard]] auto Kind() const;
-        [[nodiscard]] auto IsRequired() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::AI::MachineLearning::LearningModelFeatureKind) Kind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsRequired() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ILearningModelFeatureDescriptor>
     {
@@ -1071,7 +1075,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ILearningModelFeatureValue
     {
-        [[nodiscard]] auto Kind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::AI::MachineLearning::LearningModelFeatureKind) Kind() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ILearningModelFeatureValue>
     {
@@ -1088,13 +1092,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ILearningModelSession
     {
-        [[nodiscard]] auto Model() const;
-        [[nodiscard]] auto Device() const;
-        [[nodiscard]] auto EvaluationProperties() const;
-        auto EvaluateAsync(Windows::AI::MachineLearning::LearningModelBinding const& bindings, param::hstring const& correlationId) const;
-        auto EvaluateFeaturesAsync(param::map<hstring, Windows::Foundation::IInspectable> const& features, param::hstring const& correlationId) const;
-        auto Evaluate(Windows::AI::MachineLearning::LearningModelBinding const& bindings, param::hstring const& correlationId) const;
-        auto EvaluateFeatures(param::map<hstring, Windows::Foundation::IInspectable> const& features, param::hstring const& correlationId) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::AI::MachineLearning::LearningModel) Model() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::AI::MachineLearning::LearningModelDevice) Device() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IPropertySet) EvaluationProperties() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::AI::MachineLearning::LearningModelEvaluationResult>) EvaluateAsync(Windows::AI::MachineLearning::LearningModelBinding const& bindings, param::hstring const& correlationId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::AI::MachineLearning::LearningModelEvaluationResult>) EvaluateFeaturesAsync(param::map<hstring, Windows::Foundation::IInspectable> const& features, param::hstring const& correlationId) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::LearningModelEvaluationResult) Evaluate(Windows::AI::MachineLearning::LearningModelBinding const& bindings, param::hstring const& correlationId) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::LearningModelEvaluationResult) EvaluateFeatures(param::map<hstring, Windows::Foundation::IInspectable> const& features, param::hstring const& correlationId) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ILearningModelSession>
     {
@@ -1103,8 +1107,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ILearningModelSessionFactory
     {
-        auto CreateFromModel(Windows::AI::MachineLearning::LearningModel const& model) const;
-        auto CreateFromModelOnDevice(Windows::AI::MachineLearning::LearningModel const& model, Windows::AI::MachineLearning::LearningModelDevice const& deviceToRunOn) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::LearningModelSession) CreateFromModel(Windows::AI::MachineLearning::LearningModel const& model) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::LearningModelSession) CreateFromModelOnDevice(Windows::AI::MachineLearning::LearningModel const& model, Windows::AI::MachineLearning::LearningModelDevice const& deviceToRunOn) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ILearningModelSessionFactory>
     {
@@ -1113,7 +1117,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ILearningModelSessionFactory2
     {
-        auto CreateFromModelOnDeviceWithSessionOptions(Windows::AI::MachineLearning::LearningModel const& model, Windows::AI::MachineLearning::LearningModelDevice const& deviceToRunOn, Windows::AI::MachineLearning::LearningModelSessionOptions const& learningModelSessionOptions) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::LearningModelSession) CreateFromModelOnDeviceWithSessionOptions(Windows::AI::MachineLearning::LearningModel const& model, Windows::AI::MachineLearning::LearningModelDevice const& deviceToRunOn, Windows::AI::MachineLearning::LearningModelSessionOptions const& learningModelSessionOptions) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ILearningModelSessionFactory2>
     {
@@ -1122,8 +1126,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ILearningModelSessionOptions
     {
-        [[nodiscard]] auto BatchSizeOverride() const;
-        auto BatchSizeOverride(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) BatchSizeOverride() const;
+        WINRT_IMPL_AUTO(void) BatchSizeOverride(uint32_t value) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ILearningModelSessionOptions>
     {
@@ -1132,8 +1136,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ILearningModelSessionOptions2
     {
-        [[nodiscard]] auto CloseModelOnSessionCreation() const;
-        auto CloseModelOnSessionCreation(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CloseModelOnSessionCreation() const;
+        WINRT_IMPL_AUTO(void) CloseModelOnSessionCreation(bool value) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ILearningModelSessionOptions2>
     {
@@ -1142,14 +1146,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ILearningModelStatics
     {
-        auto LoadFromStorageFileAsync(Windows::Storage::IStorageFile const& modelFile) const;
-        auto LoadFromStreamAsync(Windows::Storage::Streams::IRandomAccessStreamReference const& modelStream) const;
-        auto LoadFromFilePath(param::hstring const& filePath) const;
-        auto LoadFromStream(Windows::Storage::Streams::IRandomAccessStreamReference const& modelStream) const;
-        auto LoadFromStorageFileAsync(Windows::Storage::IStorageFile const& modelFile, Windows::AI::MachineLearning::ILearningModelOperatorProvider const& operatorProvider) const;
-        auto LoadFromStreamAsync(Windows::Storage::Streams::IRandomAccessStreamReference const& modelStream, Windows::AI::MachineLearning::ILearningModelOperatorProvider const& operatorProvider) const;
-        auto LoadFromFilePath(param::hstring const& filePath, Windows::AI::MachineLearning::ILearningModelOperatorProvider const& operatorProvider) const;
-        auto LoadFromStream(Windows::Storage::Streams::IRandomAccessStreamReference const& modelStream, Windows::AI::MachineLearning::ILearningModelOperatorProvider const& operatorProvider) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::AI::MachineLearning::LearningModel>) LoadFromStorageFileAsync(Windows::Storage::IStorageFile const& modelFile) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::AI::MachineLearning::LearningModel>) LoadFromStreamAsync(Windows::Storage::Streams::IRandomAccessStreamReference const& modelStream) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::LearningModel) LoadFromFilePath(param::hstring const& filePath) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::LearningModel) LoadFromStream(Windows::Storage::Streams::IRandomAccessStreamReference const& modelStream) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::AI::MachineLearning::LearningModel>) LoadFromStorageFileAsync(Windows::Storage::IStorageFile const& modelFile, Windows::AI::MachineLearning::ILearningModelOperatorProvider const& operatorProvider) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::AI::MachineLearning::LearningModel>) LoadFromStreamAsync(Windows::Storage::Streams::IRandomAccessStreamReference const& modelStream, Windows::AI::MachineLearning::ILearningModelOperatorProvider const& operatorProvider) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::LearningModel) LoadFromFilePath(param::hstring const& filePath, Windows::AI::MachineLearning::ILearningModelOperatorProvider const& operatorProvider) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::LearningModel) LoadFromStream(Windows::Storage::Streams::IRandomAccessStreamReference const& modelStream, Windows::AI::MachineLearning::ILearningModelOperatorProvider const& operatorProvider) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ILearningModelStatics>
     {
@@ -1158,8 +1162,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_IMapFeatureDescriptor
     {
-        [[nodiscard]] auto KeyKind() const;
-        [[nodiscard]] auto ValueDescriptor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorKind) KeyKind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::AI::MachineLearning::ILearningModelFeatureDescriptor) ValueDescriptor() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::IMapFeatureDescriptor>
     {
@@ -1168,7 +1172,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ISequenceFeatureDescriptor
     {
-        [[nodiscard]] auto ElementDescriptor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::AI::MachineLearning::ILearningModelFeatureDescriptor) ElementDescriptor() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ISequenceFeatureDescriptor>
     {
@@ -1177,8 +1181,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensor
     {
-        [[nodiscard]] auto TensorKind() const;
-        [[nodiscard]] auto Shape() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorKind) TensorKind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<int64_t>) Shape() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensor>
     {
@@ -1187,7 +1191,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorBoolean
     {
-        auto GetAsVectorView() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<bool>) GetAsVectorView() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorBoolean>
     {
@@ -1196,10 +1200,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorBooleanStatics
     {
-        auto Create() const;
-        auto Create(param::iterable<int64_t> const& shape) const;
-        auto CreateFromArray(param::iterable<int64_t> const& shape, array_view<bool const> data) const;
-        auto CreateFromIterable(param::iterable<int64_t> const& shape, param::iterable<bool> const& data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorBoolean) Create() const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorBoolean) Create(param::iterable<int64_t> const& shape) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorBoolean) CreateFromArray(param::iterable<int64_t> const& shape, array_view<bool const> data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorBoolean) CreateFromIterable(param::iterable<int64_t> const& shape, param::iterable<bool> const& data) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorBooleanStatics>
     {
@@ -1208,8 +1212,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorBooleanStatics2
     {
-        auto CreateFromShapeArrayAndDataArray(array_view<int64_t const> shape, array_view<bool const> data) const;
-        auto CreateFromBuffer(array_view<int64_t const> shape, Windows::Storage::Streams::IBuffer const& buffer) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorBoolean) CreateFromShapeArrayAndDataArray(array_view<int64_t const> shape, array_view<bool const> data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorBoolean) CreateFromBuffer(array_view<int64_t const> shape, Windows::Storage::Streams::IBuffer const& buffer) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorBooleanStatics2>
     {
@@ -1218,7 +1222,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorDouble
     {
-        auto GetAsVectorView() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<double>) GetAsVectorView() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorDouble>
     {
@@ -1227,10 +1231,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorDoubleStatics
     {
-        auto Create() const;
-        auto Create(param::iterable<int64_t> const& shape) const;
-        auto CreateFromArray(param::iterable<int64_t> const& shape, array_view<double const> data) const;
-        auto CreateFromIterable(param::iterable<int64_t> const& shape, param::iterable<double> const& data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorDouble) Create() const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorDouble) Create(param::iterable<int64_t> const& shape) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorDouble) CreateFromArray(param::iterable<int64_t> const& shape, array_view<double const> data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorDouble) CreateFromIterable(param::iterable<int64_t> const& shape, param::iterable<double> const& data) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorDoubleStatics>
     {
@@ -1239,8 +1243,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorDoubleStatics2
     {
-        auto CreateFromShapeArrayAndDataArray(array_view<int64_t const> shape, array_view<double const> data) const;
-        auto CreateFromBuffer(array_view<int64_t const> shape, Windows::Storage::Streams::IBuffer const& buffer) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorDouble) CreateFromShapeArrayAndDataArray(array_view<int64_t const> shape, array_view<double const> data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorDouble) CreateFromBuffer(array_view<int64_t const> shape, Windows::Storage::Streams::IBuffer const& buffer) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorDoubleStatics2>
     {
@@ -1249,8 +1253,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorFeatureDescriptor
     {
-        [[nodiscard]] auto TensorKind() const;
-        [[nodiscard]] auto Shape() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorKind) TensorKind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<int64_t>) Shape() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorFeatureDescriptor>
     {
@@ -1259,7 +1263,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorFloat
     {
-        auto GetAsVectorView() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<float>) GetAsVectorView() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorFloat>
     {
@@ -1268,7 +1272,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorFloat16Bit
     {
-        auto GetAsVectorView() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<float>) GetAsVectorView() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorFloat16Bit>
     {
@@ -1277,10 +1281,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorFloat16BitStatics
     {
-        auto Create() const;
-        auto Create(param::iterable<int64_t> const& shape) const;
-        auto CreateFromArray(param::iterable<int64_t> const& shape, array_view<float const> data) const;
-        auto CreateFromIterable(param::iterable<int64_t> const& shape, param::iterable<float> const& data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorFloat16Bit) Create() const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorFloat16Bit) Create(param::iterable<int64_t> const& shape) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorFloat16Bit) CreateFromArray(param::iterable<int64_t> const& shape, array_view<float const> data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorFloat16Bit) CreateFromIterable(param::iterable<int64_t> const& shape, param::iterable<float> const& data) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorFloat16BitStatics>
     {
@@ -1289,8 +1293,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorFloat16BitStatics2
     {
-        auto CreateFromShapeArrayAndDataArray(array_view<int64_t const> shape, array_view<float const> data) const;
-        auto CreateFromBuffer(array_view<int64_t const> shape, Windows::Storage::Streams::IBuffer const& buffer) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorFloat16Bit) CreateFromShapeArrayAndDataArray(array_view<int64_t const> shape, array_view<float const> data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorFloat16Bit) CreateFromBuffer(array_view<int64_t const> shape, Windows::Storage::Streams::IBuffer const& buffer) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorFloat16BitStatics2>
     {
@@ -1299,10 +1303,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorFloatStatics
     {
-        auto Create() const;
-        auto Create(param::iterable<int64_t> const& shape) const;
-        auto CreateFromArray(param::iterable<int64_t> const& shape, array_view<float const> data) const;
-        auto CreateFromIterable(param::iterable<int64_t> const& shape, param::iterable<float> const& data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorFloat) Create() const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorFloat) Create(param::iterable<int64_t> const& shape) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorFloat) CreateFromArray(param::iterable<int64_t> const& shape, array_view<float const> data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorFloat) CreateFromIterable(param::iterable<int64_t> const& shape, param::iterable<float> const& data) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorFloatStatics>
     {
@@ -1311,8 +1315,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorFloatStatics2
     {
-        auto CreateFromShapeArrayAndDataArray(array_view<int64_t const> shape, array_view<float const> data) const;
-        auto CreateFromBuffer(array_view<int64_t const> shape, Windows::Storage::Streams::IBuffer const& buffer) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorFloat) CreateFromShapeArrayAndDataArray(array_view<int64_t const> shape, array_view<float const> data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorFloat) CreateFromBuffer(array_view<int64_t const> shape, Windows::Storage::Streams::IBuffer const& buffer) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorFloatStatics2>
     {
@@ -1321,7 +1325,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorInt16Bit
     {
-        auto GetAsVectorView() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<int16_t>) GetAsVectorView() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorInt16Bit>
     {
@@ -1330,10 +1334,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorInt16BitStatics
     {
-        auto Create() const;
-        auto Create(param::iterable<int64_t> const& shape) const;
-        auto CreateFromArray(param::iterable<int64_t> const& shape, array_view<int16_t const> data) const;
-        auto CreateFromIterable(param::iterable<int64_t> const& shape, param::iterable<int16_t> const& data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorInt16Bit) Create() const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorInt16Bit) Create(param::iterable<int64_t> const& shape) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorInt16Bit) CreateFromArray(param::iterable<int64_t> const& shape, array_view<int16_t const> data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorInt16Bit) CreateFromIterable(param::iterable<int64_t> const& shape, param::iterable<int16_t> const& data) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorInt16BitStatics>
     {
@@ -1342,8 +1346,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorInt16BitStatics2
     {
-        auto CreateFromShapeArrayAndDataArray(array_view<int64_t const> shape, array_view<int16_t const> data) const;
-        auto CreateFromBuffer(array_view<int64_t const> shape, Windows::Storage::Streams::IBuffer const& buffer) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorInt16Bit) CreateFromShapeArrayAndDataArray(array_view<int64_t const> shape, array_view<int16_t const> data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorInt16Bit) CreateFromBuffer(array_view<int64_t const> shape, Windows::Storage::Streams::IBuffer const& buffer) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorInt16BitStatics2>
     {
@@ -1352,7 +1356,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorInt32Bit
     {
-        auto GetAsVectorView() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<int32_t>) GetAsVectorView() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorInt32Bit>
     {
@@ -1361,10 +1365,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorInt32BitStatics
     {
-        auto Create() const;
-        auto Create(param::iterable<int64_t> const& shape) const;
-        auto CreateFromArray(param::iterable<int64_t> const& shape, array_view<int32_t const> data) const;
-        auto CreateFromIterable(param::iterable<int64_t> const& shape, param::iterable<int32_t> const& data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorInt32Bit) Create() const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorInt32Bit) Create(param::iterable<int64_t> const& shape) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorInt32Bit) CreateFromArray(param::iterable<int64_t> const& shape, array_view<int32_t const> data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorInt32Bit) CreateFromIterable(param::iterable<int64_t> const& shape, param::iterable<int32_t> const& data) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorInt32BitStatics>
     {
@@ -1373,8 +1377,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorInt32BitStatics2
     {
-        auto CreateFromShapeArrayAndDataArray(array_view<int64_t const> shape, array_view<int32_t const> data) const;
-        auto CreateFromBuffer(array_view<int64_t const> shape, Windows::Storage::Streams::IBuffer const& buffer) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorInt32Bit) CreateFromShapeArrayAndDataArray(array_view<int64_t const> shape, array_view<int32_t const> data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorInt32Bit) CreateFromBuffer(array_view<int64_t const> shape, Windows::Storage::Streams::IBuffer const& buffer) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorInt32BitStatics2>
     {
@@ -1383,7 +1387,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorInt64Bit
     {
-        auto GetAsVectorView() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<int64_t>) GetAsVectorView() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorInt64Bit>
     {
@@ -1392,10 +1396,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorInt64BitStatics
     {
-        auto Create() const;
-        auto Create(param::iterable<int64_t> const& shape) const;
-        auto CreateFromArray(param::iterable<int64_t> const& shape, array_view<int64_t const> data) const;
-        auto CreateFromIterable(param::iterable<int64_t> const& shape, param::iterable<int64_t> const& data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorInt64Bit) Create() const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorInt64Bit) Create(param::iterable<int64_t> const& shape) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorInt64Bit) CreateFromArray(param::iterable<int64_t> const& shape, array_view<int64_t const> data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorInt64Bit) CreateFromIterable(param::iterable<int64_t> const& shape, param::iterable<int64_t> const& data) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorInt64BitStatics>
     {
@@ -1404,8 +1408,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorInt64BitStatics2
     {
-        auto CreateFromShapeArrayAndDataArray(array_view<int64_t const> shape, array_view<int64_t const> data) const;
-        auto CreateFromBuffer(array_view<int64_t const> shape, Windows::Storage::Streams::IBuffer const& buffer) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorInt64Bit) CreateFromShapeArrayAndDataArray(array_view<int64_t const> shape, array_view<int64_t const> data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorInt64Bit) CreateFromBuffer(array_view<int64_t const> shape, Windows::Storage::Streams::IBuffer const& buffer) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorInt64BitStatics2>
     {
@@ -1414,7 +1418,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorInt8Bit
     {
-        auto GetAsVectorView() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<uint8_t>) GetAsVectorView() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorInt8Bit>
     {
@@ -1423,10 +1427,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorInt8BitStatics
     {
-        auto Create() const;
-        auto Create(param::iterable<int64_t> const& shape) const;
-        auto CreateFromArray(param::iterable<int64_t> const& shape, array_view<uint8_t const> data) const;
-        auto CreateFromIterable(param::iterable<int64_t> const& shape, param::iterable<uint8_t> const& data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorInt8Bit) Create() const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorInt8Bit) Create(param::iterable<int64_t> const& shape) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorInt8Bit) CreateFromArray(param::iterable<int64_t> const& shape, array_view<uint8_t const> data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorInt8Bit) CreateFromIterable(param::iterable<int64_t> const& shape, param::iterable<uint8_t> const& data) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorInt8BitStatics>
     {
@@ -1435,8 +1439,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorInt8BitStatics2
     {
-        auto CreateFromShapeArrayAndDataArray(array_view<int64_t const> shape, array_view<uint8_t const> data) const;
-        auto CreateFromBuffer(array_view<int64_t const> shape, Windows::Storage::Streams::IBuffer const& buffer) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorInt8Bit) CreateFromShapeArrayAndDataArray(array_view<int64_t const> shape, array_view<uint8_t const> data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorInt8Bit) CreateFromBuffer(array_view<int64_t const> shape, Windows::Storage::Streams::IBuffer const& buffer) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorInt8BitStatics2>
     {
@@ -1445,7 +1449,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorString
     {
-        auto GetAsVectorView() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) GetAsVectorView() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorString>
     {
@@ -1454,10 +1458,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorStringStatics
     {
-        auto Create() const;
-        auto Create(param::iterable<int64_t> const& shape) const;
-        auto CreateFromArray(param::iterable<int64_t> const& shape, array_view<hstring const> data) const;
-        auto CreateFromIterable(param::iterable<int64_t> const& shape, param::iterable<hstring> const& data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorString) Create() const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorString) Create(param::iterable<int64_t> const& shape) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorString) CreateFromArray(param::iterable<int64_t> const& shape, array_view<hstring const> data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorString) CreateFromIterable(param::iterable<int64_t> const& shape, param::iterable<hstring> const& data) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorStringStatics>
     {
@@ -1466,7 +1470,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorStringStatics2
     {
-        auto CreateFromShapeArrayAndDataArray(array_view<int64_t const> shape, array_view<hstring const> data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorString) CreateFromShapeArrayAndDataArray(array_view<int64_t const> shape, array_view<hstring const> data) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorStringStatics2>
     {
@@ -1475,7 +1479,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorUInt16Bit
     {
-        auto GetAsVectorView() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<uint16_t>) GetAsVectorView() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorUInt16Bit>
     {
@@ -1484,10 +1488,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorUInt16BitStatics
     {
-        auto Create() const;
-        auto Create(param::iterable<int64_t> const& shape) const;
-        auto CreateFromArray(param::iterable<int64_t> const& shape, array_view<uint16_t const> data) const;
-        auto CreateFromIterable(param::iterable<int64_t> const& shape, param::iterable<uint16_t> const& data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorUInt16Bit) Create() const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorUInt16Bit) Create(param::iterable<int64_t> const& shape) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorUInt16Bit) CreateFromArray(param::iterable<int64_t> const& shape, array_view<uint16_t const> data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorUInt16Bit) CreateFromIterable(param::iterable<int64_t> const& shape, param::iterable<uint16_t> const& data) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorUInt16BitStatics>
     {
@@ -1496,8 +1500,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorUInt16BitStatics2
     {
-        auto CreateFromShapeArrayAndDataArray(array_view<int64_t const> shape, array_view<uint16_t const> data) const;
-        auto CreateFromBuffer(array_view<int64_t const> shape, Windows::Storage::Streams::IBuffer const& buffer) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorUInt16Bit) CreateFromShapeArrayAndDataArray(array_view<int64_t const> shape, array_view<uint16_t const> data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorUInt16Bit) CreateFromBuffer(array_view<int64_t const> shape, Windows::Storage::Streams::IBuffer const& buffer) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorUInt16BitStatics2>
     {
@@ -1506,7 +1510,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorUInt32Bit
     {
-        auto GetAsVectorView() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<uint32_t>) GetAsVectorView() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorUInt32Bit>
     {
@@ -1515,10 +1519,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorUInt32BitStatics
     {
-        auto Create() const;
-        auto Create(param::iterable<int64_t> const& shape) const;
-        auto CreateFromArray(param::iterable<int64_t> const& shape, array_view<uint32_t const> data) const;
-        auto CreateFromIterable(param::iterable<int64_t> const& shape, param::iterable<uint32_t> const& data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorUInt32Bit) Create() const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorUInt32Bit) Create(param::iterable<int64_t> const& shape) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorUInt32Bit) CreateFromArray(param::iterable<int64_t> const& shape, array_view<uint32_t const> data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorUInt32Bit) CreateFromIterable(param::iterable<int64_t> const& shape, param::iterable<uint32_t> const& data) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorUInt32BitStatics>
     {
@@ -1527,8 +1531,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorUInt32BitStatics2
     {
-        auto CreateFromShapeArrayAndDataArray(array_view<int64_t const> shape, array_view<uint32_t const> data) const;
-        auto CreateFromBuffer(array_view<int64_t const> shape, Windows::Storage::Streams::IBuffer const& buffer) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorUInt32Bit) CreateFromShapeArrayAndDataArray(array_view<int64_t const> shape, array_view<uint32_t const> data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorUInt32Bit) CreateFromBuffer(array_view<int64_t const> shape, Windows::Storage::Streams::IBuffer const& buffer) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorUInt32BitStatics2>
     {
@@ -1537,7 +1541,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorUInt64Bit
     {
-        auto GetAsVectorView() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<uint64_t>) GetAsVectorView() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorUInt64Bit>
     {
@@ -1546,10 +1550,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorUInt64BitStatics
     {
-        auto Create() const;
-        auto Create(param::iterable<int64_t> const& shape) const;
-        auto CreateFromArray(param::iterable<int64_t> const& shape, array_view<uint64_t const> data) const;
-        auto CreateFromIterable(param::iterable<int64_t> const& shape, param::iterable<uint64_t> const& data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorUInt64Bit) Create() const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorUInt64Bit) Create(param::iterable<int64_t> const& shape) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorUInt64Bit) CreateFromArray(param::iterable<int64_t> const& shape, array_view<uint64_t const> data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorUInt64Bit) CreateFromIterable(param::iterable<int64_t> const& shape, param::iterable<uint64_t> const& data) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorUInt64BitStatics>
     {
@@ -1558,8 +1562,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorUInt64BitStatics2
     {
-        auto CreateFromShapeArrayAndDataArray(array_view<int64_t const> shape, array_view<uint64_t const> data) const;
-        auto CreateFromBuffer(array_view<int64_t const> shape, Windows::Storage::Streams::IBuffer const& buffer) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorUInt64Bit) CreateFromShapeArrayAndDataArray(array_view<int64_t const> shape, array_view<uint64_t const> data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorUInt64Bit) CreateFromBuffer(array_view<int64_t const> shape, Windows::Storage::Streams::IBuffer const& buffer) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorUInt64BitStatics2>
     {
@@ -1568,7 +1572,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorUInt8Bit
     {
-        auto GetAsVectorView() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<uint8_t>) GetAsVectorView() const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorUInt8Bit>
     {
@@ -1577,10 +1581,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorUInt8BitStatics
     {
-        auto Create() const;
-        auto Create(param::iterable<int64_t> const& shape) const;
-        auto CreateFromArray(param::iterable<int64_t> const& shape, array_view<uint8_t const> data) const;
-        auto CreateFromIterable(param::iterable<int64_t> const& shape, param::iterable<uint8_t> const& data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorUInt8Bit) Create() const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorUInt8Bit) Create(param::iterable<int64_t> const& shape) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorUInt8Bit) CreateFromArray(param::iterable<int64_t> const& shape, array_view<uint8_t const> data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorUInt8Bit) CreateFromIterable(param::iterable<int64_t> const& shape, param::iterable<uint8_t> const& data) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorUInt8BitStatics>
     {
@@ -1589,8 +1593,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_AI_MachineLearning_ITensorUInt8BitStatics2
     {
-        auto CreateFromShapeArrayAndDataArray(array_view<int64_t const> shape, array_view<uint8_t const> data) const;
-        auto CreateFromBuffer(array_view<int64_t const> shape, Windows::Storage::Streams::IBuffer const& buffer) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorUInt8Bit) CreateFromShapeArrayAndDataArray(array_view<int64_t const> shape, array_view<uint8_t const> data) const;
+        WINRT_IMPL_AUTO(Windows::AI::MachineLearning::TensorUInt8Bit) CreateFromBuffer(array_view<int64_t const> shape, Windows::Storage::Streams::IBuffer const& buffer) const;
     };
     template <> struct consume<Windows::AI::MachineLearning::ITensorUInt8BitStatics2>
     {

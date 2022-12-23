@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -122,13 +122,13 @@ WINRT_EXPORT namespace winrt::Windows::Devices::Sms
     {
         SmsFilterRule(std::nullptr_t) noexcept {}
         SmsFilterRule(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Devices::Sms::ISmsFilterRule(ptr, take_ownership_from_abi) {}
-        SmsFilterRule(Windows::Devices::Sms::SmsMessageType const& messageType);
+        explicit SmsFilterRule(Windows::Devices::Sms::SmsMessageType const& messageType);
     };
     struct __declspec(empty_bases) SmsFilterRules : Windows::Devices::Sms::ISmsFilterRules
     {
         SmsFilterRules(std::nullptr_t) noexcept {}
         SmsFilterRules(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Devices::Sms::ISmsFilterRules(ptr, take_ownership_from_abi) {}
-        SmsFilterRules(Windows::Devices::Sms::SmsFilterActionType const& actionType);
+        explicit SmsFilterRules(Windows::Devices::Sms::SmsFilterActionType const& actionType);
     };
     struct __declspec(empty_bases) SmsMessageReceivedEventArgs : Windows::Devices::Sms::ISmsMessageReceivedEventArgs
     {

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -13,7 +13,14 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
     template <typename T> struct IReference;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename K, typename V> struct IMapView;
+    template <typename T> struct IVectorView;
+    template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage
 {
@@ -65,23 +72,21 @@ namespace winrt::impl
     template <> struct category<Windows::Gaming::Preview::GamesEnumeration::GameListEntryLaunchableState>{ using type = enum_category; };
     template <> struct category<Windows::Gaming::Preview::GamesEnumeration::GameListChangedEventHandler>{ using type = delegate_category; };
     template <> struct category<Windows::Gaming::Preview::GamesEnumeration::GameListRemovedEventHandler>{ using type = delegate_category; };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::GameList>{ L"Windows.Gaming.Preview.GamesEnumeration.GameList" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::GameListEntry>{ L"Windows.Gaming.Preview.GamesEnumeration.GameListEntry" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::GameModeConfiguration>{ L"Windows.Gaming.Preview.GamesEnumeration.GameModeConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::GameModeUserConfiguration>{ L"Windows.Gaming.Preview.GamesEnumeration.GameModeUserConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::GameListCategory>{ L"Windows.Gaming.Preview.GamesEnumeration.GameListCategory" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::GameListEntryLaunchableState>{ L"Windows.Gaming.Preview.GamesEnumeration.GameListEntryLaunchableState" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::IGameListEntry>{ L"Windows.Gaming.Preview.GamesEnumeration.IGameListEntry" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::IGameListEntry2>{ L"Windows.Gaming.Preview.GamesEnumeration.IGameListEntry2" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::IGameListStatics>{ L"Windows.Gaming.Preview.GamesEnumeration.IGameListStatics" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::IGameListStatics2>{ L"Windows.Gaming.Preview.GamesEnumeration.IGameListStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::IGameModeConfiguration>{ L"Windows.Gaming.Preview.GamesEnumeration.IGameModeConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::IGameModeUserConfiguration>{ L"Windows.Gaming.Preview.GamesEnumeration.IGameModeUserConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::IGameModeUserConfigurationStatics>{ L"Windows.Gaming.Preview.GamesEnumeration.IGameModeUserConfigurationStatics" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::GameListChangedEventHandler>{ L"Windows.Gaming.Preview.GamesEnumeration.GameListChangedEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::GameListRemovedEventHandler>{ L"Windows.Gaming.Preview.GamesEnumeration.GameListRemovedEventHandler" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::GameList> = L"Windows.Gaming.Preview.GamesEnumeration.GameList";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::GameListEntry> = L"Windows.Gaming.Preview.GamesEnumeration.GameListEntry";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::GameModeConfiguration> = L"Windows.Gaming.Preview.GamesEnumeration.GameModeConfiguration";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::GameModeUserConfiguration> = L"Windows.Gaming.Preview.GamesEnumeration.GameModeUserConfiguration";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::GameListCategory> = L"Windows.Gaming.Preview.GamesEnumeration.GameListCategory";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::GameListEntryLaunchableState> = L"Windows.Gaming.Preview.GamesEnumeration.GameListEntryLaunchableState";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::IGameListEntry> = L"Windows.Gaming.Preview.GamesEnumeration.IGameListEntry";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::IGameListEntry2> = L"Windows.Gaming.Preview.GamesEnumeration.IGameListEntry2";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::IGameListStatics> = L"Windows.Gaming.Preview.GamesEnumeration.IGameListStatics";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::IGameListStatics2> = L"Windows.Gaming.Preview.GamesEnumeration.IGameListStatics2";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::IGameModeConfiguration> = L"Windows.Gaming.Preview.GamesEnumeration.IGameModeConfiguration";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::IGameModeUserConfiguration> = L"Windows.Gaming.Preview.GamesEnumeration.IGameModeUserConfiguration";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::IGameModeUserConfigurationStatics> = L"Windows.Gaming.Preview.GamesEnumeration.IGameModeUserConfigurationStatics";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::GameListChangedEventHandler> = L"Windows.Gaming.Preview.GamesEnumeration.GameListChangedEventHandler";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Preview::GamesEnumeration::GameListRemovedEventHandler> = L"Windows.Gaming.Preview.GamesEnumeration.GameListRemovedEventHandler";
     template <> inline constexpr guid guid_v<Windows::Gaming::Preview::GamesEnumeration::IGameListEntry>{ 0x735924D3,0x811F,0x4494,{ 0xB6,0x9C,0xC6,0x41,0xA0,0xC6,0x15,0x43 } };
     template <> inline constexpr guid guid_v<Windows::Gaming::Preview::GamesEnumeration::IGameListEntry2>{ 0xD84A8F8B,0x8749,0x4A25,{ 0x90,0xD3,0xF6,0xC5,0xA4,0x27,0x88,0x6D } };
     template <> inline constexpr guid guid_v<Windows::Gaming::Preview::GamesEnumeration::IGameListStatics>{ 0x2DDD0F6F,0x9C66,0x4B05,{ 0x94,0x5C,0xD6,0xED,0x78,0x49,0x1B,0x8C } };
@@ -197,11 +202,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_Preview_GamesEnumeration_IGameListEntry
     {
-        [[nodiscard]] auto DisplayInfo() const;
-        auto LaunchAsync() const;
-        [[nodiscard]] auto Category() const;
-        [[nodiscard]] auto Properties() const;
-        auto SetCategoryAsync(Windows::Gaming::Preview::GamesEnumeration::GameListCategory const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::AppDisplayInfo) DisplayInfo() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) LaunchAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Gaming::Preview::GamesEnumeration::GameListCategory) Category() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>) Properties() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetCategoryAsync(Windows::Gaming::Preview::GamesEnumeration::GameListCategory const& value) const;
     };
     template <> struct consume<Windows::Gaming::Preview::GamesEnumeration::IGameListEntry>
     {
@@ -210,14 +215,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_Preview_GamesEnumeration_IGameListEntry2
     {
-        [[nodiscard]] auto LaunchableState() const;
-        [[nodiscard]] auto LauncherExecutable() const;
-        [[nodiscard]] auto LaunchParameters() const;
-        auto SetLauncherExecutableFileAsync(Windows::Storage::IStorageFile const& executableFile) const;
-        auto SetLauncherExecutableFileAsync(Windows::Storage::IStorageFile const& executableFile, param::hstring const& launchParams) const;
-        [[nodiscard]] auto TitleId() const;
-        auto SetTitleIdAsync(param::hstring const& id) const;
-        [[nodiscard]] auto GameModeConfiguration() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Gaming::Preview::GamesEnumeration::GameListEntryLaunchableState) LaunchableState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::IStorageFile) LauncherExecutable() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) LaunchParameters() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetLauncherExecutableFileAsync(Windows::Storage::IStorageFile const& executableFile) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetLauncherExecutableFileAsync(Windows::Storage::IStorageFile const& executableFile, param::hstring const& launchParams) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TitleId() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetTitleIdAsync(param::hstring const& id) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Gaming::Preview::GamesEnumeration::GameModeConfiguration) GameModeConfiguration() const;
     };
     template <> struct consume<Windows::Gaming::Preview::GamesEnumeration::IGameListEntry2>
     {
@@ -226,20 +231,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_Preview_GamesEnumeration_IGameListStatics
     {
-        auto FindAllAsync() const;
-        auto FindAllAsync(param::hstring const& packageFamilyName) const;
-        auto GameAdded(Windows::Gaming::Preview::GamesEnumeration::GameListChangedEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Gaming::Preview::GamesEnumeration::GameListEntry>>) FindAllAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Gaming::Preview::GamesEnumeration::GameListEntry>>) FindAllAsync(param::hstring const& packageFamilyName) const;
+        WINRT_IMPL_AUTO(winrt::event_token) GameAdded(Windows::Gaming::Preview::GamesEnumeration::GameListChangedEventHandler const& handler) const;
         using GameAdded_revoker = impl::event_revoker<Windows::Gaming::Preview::GamesEnumeration::IGameListStatics, &impl::abi_t<Windows::Gaming::Preview::GamesEnumeration::IGameListStatics>::remove_GameAdded>;
         [[nodiscard]] GameAdded_revoker GameAdded(auto_revoke_t, Windows::Gaming::Preview::GamesEnumeration::GameListChangedEventHandler const& handler) const;
-        auto GameAdded(winrt::event_token const& token) const noexcept;
-        auto GameRemoved(Windows::Gaming::Preview::GamesEnumeration::GameListRemovedEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) GameAdded(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) GameRemoved(Windows::Gaming::Preview::GamesEnumeration::GameListRemovedEventHandler const& handler) const;
         using GameRemoved_revoker = impl::event_revoker<Windows::Gaming::Preview::GamesEnumeration::IGameListStatics, &impl::abi_t<Windows::Gaming::Preview::GamesEnumeration::IGameListStatics>::remove_GameRemoved>;
         [[nodiscard]] GameRemoved_revoker GameRemoved(auto_revoke_t, Windows::Gaming::Preview::GamesEnumeration::GameListRemovedEventHandler const& handler) const;
-        auto GameRemoved(winrt::event_token const& token) const noexcept;
-        auto GameUpdated(Windows::Gaming::Preview::GamesEnumeration::GameListChangedEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) GameRemoved(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) GameUpdated(Windows::Gaming::Preview::GamesEnumeration::GameListChangedEventHandler const& handler) const;
         using GameUpdated_revoker = impl::event_revoker<Windows::Gaming::Preview::GamesEnumeration::IGameListStatics, &impl::abi_t<Windows::Gaming::Preview::GamesEnumeration::IGameListStatics>::remove_GameUpdated>;
         [[nodiscard]] GameUpdated_revoker GameUpdated(auto_revoke_t, Windows::Gaming::Preview::GamesEnumeration::GameListChangedEventHandler const& handler) const;
-        auto GameUpdated(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) GameUpdated(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Gaming::Preview::GamesEnumeration::IGameListStatics>
     {
@@ -248,8 +253,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_Preview_GamesEnumeration_IGameListStatics2
     {
-        auto MergeEntriesAsync(Windows::Gaming::Preview::GamesEnumeration::GameListEntry const& left, Windows::Gaming::Preview::GamesEnumeration::GameListEntry const& right) const;
-        auto UnmergeEntryAsync(Windows::Gaming::Preview::GamesEnumeration::GameListEntry const& mergedEntry) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Gaming::Preview::GamesEnumeration::GameListEntry>) MergeEntriesAsync(Windows::Gaming::Preview::GamesEnumeration::GameListEntry const& left, Windows::Gaming::Preview::GamesEnumeration::GameListEntry const& right) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Gaming::Preview::GamesEnumeration::GameListEntry>>) UnmergeEntryAsync(Windows::Gaming::Preview::GamesEnumeration::GameListEntry const& mergedEntry) const;
     };
     template <> struct consume<Windows::Gaming::Preview::GamesEnumeration::IGameListStatics2>
     {
@@ -258,24 +263,24 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_Preview_GamesEnumeration_IGameModeConfiguration
     {
-        [[nodiscard]] auto IsEnabled() const;
-        auto IsEnabled(bool value) const;
-        [[nodiscard]] auto RelatedProcessNames() const;
-        [[nodiscard]] auto PercentGpuTimeAllocatedToGame() const;
-        auto PercentGpuTimeAllocatedToGame(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto PercentGpuMemoryAllocatedToGame() const;
-        auto PercentGpuMemoryAllocatedToGame(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto PercentGpuMemoryAllocatedToSystemCompositor() const;
-        auto PercentGpuMemoryAllocatedToSystemCompositor(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto MaxCpuCount() const;
-        auto MaxCpuCount(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto CpuExclusivityMaskLow() const;
-        auto CpuExclusivityMaskLow(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto CpuExclusivityMaskHigh() const;
-        auto CpuExclusivityMaskHigh(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto AffinitizeToExclusiveCpus() const;
-        auto AffinitizeToExclusiveCpus(bool value) const;
-        auto SaveAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsEnabled() const;
+        WINRT_IMPL_AUTO(void) IsEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) RelatedProcessNames() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) PercentGpuTimeAllocatedToGame() const;
+        WINRT_IMPL_AUTO(void) PercentGpuTimeAllocatedToGame(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) PercentGpuMemoryAllocatedToGame() const;
+        WINRT_IMPL_AUTO(void) PercentGpuMemoryAllocatedToGame(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) PercentGpuMemoryAllocatedToSystemCompositor() const;
+        WINRT_IMPL_AUTO(void) PercentGpuMemoryAllocatedToSystemCompositor(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) MaxCpuCount() const;
+        WINRT_IMPL_AUTO(void) MaxCpuCount(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) CpuExclusivityMaskLow() const;
+        WINRT_IMPL_AUTO(void) CpuExclusivityMaskLow(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) CpuExclusivityMaskHigh() const;
+        WINRT_IMPL_AUTO(void) CpuExclusivityMaskHigh(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AffinitizeToExclusiveCpus() const;
+        WINRT_IMPL_AUTO(void) AffinitizeToExclusiveCpus(bool value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SaveAsync() const;
     };
     template <> struct consume<Windows::Gaming::Preview::GamesEnumeration::IGameModeConfiguration>
     {
@@ -284,8 +289,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_Preview_GamesEnumeration_IGameModeUserConfiguration
     {
-        [[nodiscard]] auto GamingRelatedProcessNames() const;
-        auto SaveAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) GamingRelatedProcessNames() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SaveAsync() const;
     };
     template <> struct consume<Windows::Gaming::Preview::GamesEnumeration::IGameModeUserConfiguration>
     {
@@ -294,7 +299,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_Preview_GamesEnumeration_IGameModeUserConfigurationStatics
     {
-        auto GetDefault() const;
+        WINRT_IMPL_AUTO(Windows::Gaming::Preview::GamesEnumeration::GameModeUserConfiguration) GetDefault() const;
     };
     template <> struct consume<Windows::Gaming::Preview::GamesEnumeration::IGameModeUserConfigurationStatics>
     {

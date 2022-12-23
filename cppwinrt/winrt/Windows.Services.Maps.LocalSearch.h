@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_Services_Maps_LocalSearch_H
 #define WINRT_Windows_Services_Maps_LocalSearch_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.Services.Maps.h"
 #include "winrt/impl/Windows.Devices.Geolocation.2.h"
 #include "winrt/impl/Windows.Foundation.2.h"
@@ -16,169 +16,169 @@ static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatche
 #include "winrt/impl/Windows.Services.Maps.LocalSearch.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_Services_Maps_LocalSearch_ILocalCategoriesStatics<D>::BankAndCreditUnions() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Services_Maps_LocalSearch_ILocalCategoriesStatics<D>::BankAndCreditUnions() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::LocalSearch::ILocalCategoriesStatics)->get_BankAndCreditUnions(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Maps_LocalSearch_ILocalCategoriesStatics<D>::EatDrink() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Services_Maps_LocalSearch_ILocalCategoriesStatics<D>::EatDrink() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::LocalSearch::ILocalCategoriesStatics)->get_EatDrink(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Maps_LocalSearch_ILocalCategoriesStatics<D>::Hospitals() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Services_Maps_LocalSearch_ILocalCategoriesStatics<D>::Hospitals() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::LocalSearch::ILocalCategoriesStatics)->get_Hospitals(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Maps_LocalSearch_ILocalCategoriesStatics<D>::HotelsAndMotels() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Services_Maps_LocalSearch_ILocalCategoriesStatics<D>::HotelsAndMotels() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::LocalSearch::ILocalCategoriesStatics)->get_HotelsAndMotels(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Maps_LocalSearch_ILocalCategoriesStatics<D>::All() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Services_Maps_LocalSearch_ILocalCategoriesStatics<D>::All() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::LocalSearch::ILocalCategoriesStatics)->get_All(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Maps_LocalSearch_ILocalCategoriesStatics<D>::Parking() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Services_Maps_LocalSearch_ILocalCategoriesStatics<D>::Parking() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::LocalSearch::ILocalCategoriesStatics)->get_Parking(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Maps_LocalSearch_ILocalCategoriesStatics<D>::SeeDo() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Services_Maps_LocalSearch_ILocalCategoriesStatics<D>::SeeDo() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::LocalSearch::ILocalCategoriesStatics)->get_SeeDo(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Maps_LocalSearch_ILocalCategoriesStatics<D>::Shop() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Services_Maps_LocalSearch_ILocalCategoriesStatics<D>::Shop() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::LocalSearch::ILocalCategoriesStatics)->get_Shop(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Maps_LocalSearch_ILocalLocation<D>::Address() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Services::Maps::MapAddress) consume_Windows_Services_Maps_LocalSearch_ILocalLocation<D>::Address() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::LocalSearch::ILocalLocation)->get_Address(&value));
         return Windows::Services::Maps::MapAddress{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Maps_LocalSearch_ILocalLocation<D>::Identifier() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Services_Maps_LocalSearch_ILocalLocation<D>::Identifier() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::LocalSearch::ILocalLocation)->get_Identifier(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Maps_LocalSearch_ILocalLocation<D>::Description() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Services_Maps_LocalSearch_ILocalLocation<D>::Description() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::LocalSearch::ILocalLocation)->get_Description(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Maps_LocalSearch_ILocalLocation<D>::DisplayName() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Services_Maps_LocalSearch_ILocalLocation<D>::DisplayName() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::LocalSearch::ILocalLocation)->get_DisplayName(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Maps_LocalSearch_ILocalLocation<D>::Point() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Geolocation::Geopoint) consume_Windows_Services_Maps_LocalSearch_ILocalLocation<D>::Point() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::LocalSearch::ILocalLocation)->get_Point(&value));
         return Windows::Devices::Geolocation::Geopoint{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Maps_LocalSearch_ILocalLocation<D>::PhoneNumber() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Services_Maps_LocalSearch_ILocalLocation<D>::PhoneNumber() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::LocalSearch::ILocalLocation)->get_PhoneNumber(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Maps_LocalSearch_ILocalLocation<D>::DataAttribution() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Services_Maps_LocalSearch_ILocalLocation<D>::DataAttribution() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::LocalSearch::ILocalLocation)->get_DataAttribution(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Maps_LocalSearch_ILocalLocation2<D>::Category() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Services_Maps_LocalSearch_ILocalLocation2<D>::Category() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::LocalSearch::ILocalLocation2)->get_Category(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Maps_LocalSearch_ILocalLocation2<D>::RatingInfo() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Services::Maps::LocalSearch::LocalLocationRatingInfo) consume_Windows_Services_Maps_LocalSearch_ILocalLocation2<D>::RatingInfo() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::LocalSearch::ILocalLocation2)->get_RatingInfo(&value));
         return Windows::Services::Maps::LocalSearch::LocalLocationRatingInfo{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Maps_LocalSearch_ILocalLocation2<D>::HoursOfOperation() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Services::Maps::LocalSearch::LocalLocationHoursOfOperationItem>) consume_Windows_Services_Maps_LocalSearch_ILocalLocation2<D>::HoursOfOperation() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::LocalSearch::ILocalLocation2)->get_HoursOfOperation(&value));
         return Windows::Foundation::Collections::IVectorView<Windows::Services::Maps::LocalSearch::LocalLocationHoursOfOperationItem>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Maps_LocalSearch_ILocalLocationFinderResult<D>::LocalLocations() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Services::Maps::LocalSearch::LocalLocation>) consume_Windows_Services_Maps_LocalSearch_ILocalLocationFinderResult<D>::LocalLocations() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::LocalSearch::ILocalLocationFinderResult)->get_LocalLocations(&value));
         return Windows::Foundation::Collections::IVectorView<Windows::Services::Maps::LocalSearch::LocalLocation>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Maps_LocalSearch_ILocalLocationFinderResult<D>::Status() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Services::Maps::LocalSearch::LocalLocationFinderStatus) consume_Windows_Services_Maps_LocalSearch_ILocalLocationFinderResult<D>::Status() const
     {
-        Windows::Services::Maps::LocalSearch::LocalLocationFinderStatus value;
+        Windows::Services::Maps::LocalSearch::LocalLocationFinderStatus value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::LocalSearch::ILocalLocationFinderResult)->get_Status(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Services_Maps_LocalSearch_ILocalLocationFinderStatics<D>::FindLocalLocationsAsync(param::hstring const& searchTerm, Windows::Devices::Geolocation::Geocircle const& searchArea, param::hstring const& localCategory, uint32_t maxResults) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Services::Maps::LocalSearch::LocalLocationFinderResult>) consume_Windows_Services_Maps_LocalSearch_ILocalLocationFinderStatics<D>::FindLocalLocationsAsync(param::hstring const& searchTerm, Windows::Devices::Geolocation::Geocircle const& searchArea, param::hstring const& localCategory, uint32_t maxResults) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::LocalSearch::ILocalLocationFinderStatics)->FindLocalLocationsAsync(*(void**)(&searchTerm), *(void**)(&searchArea), *(void**)(&localCategory), maxResults, &result));
         return Windows::Foundation::IAsyncOperation<Windows::Services::Maps::LocalSearch::LocalLocationFinderResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Maps_LocalSearch_ILocalLocationHoursOfOperationItem<D>::Day() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Globalization::DayOfWeek) consume_Windows_Services_Maps_LocalSearch_ILocalLocationHoursOfOperationItem<D>::Day() const
     {
-        Windows::Globalization::DayOfWeek value;
+        Windows::Globalization::DayOfWeek value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::LocalSearch::ILocalLocationHoursOfOperationItem)->get_Day(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Services_Maps_LocalSearch_ILocalLocationHoursOfOperationItem<D>::Start() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) consume_Windows_Services_Maps_LocalSearch_ILocalLocationHoursOfOperationItem<D>::Start() const
     {
-        Windows::Foundation::TimeSpan value;
+        Windows::Foundation::TimeSpan value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::LocalSearch::ILocalLocationHoursOfOperationItem)->get_Start(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Services_Maps_LocalSearch_ILocalLocationHoursOfOperationItem<D>::Span() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) consume_Windows_Services_Maps_LocalSearch_ILocalLocationHoursOfOperationItem<D>::Span() const
     {
-        Windows::Foundation::TimeSpan value;
+        Windows::Foundation::TimeSpan value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::LocalSearch::ILocalLocationHoursOfOperationItem)->get_Span(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Services_Maps_LocalSearch_ILocalLocationRatingInfo<D>::AggregateRating() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) consume_Windows_Services_Maps_LocalSearch_ILocalLocationRatingInfo<D>::AggregateRating() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::LocalSearch::ILocalLocationRatingInfo)->get_AggregateRating(&value));
         return Windows::Foundation::IReference<double>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Maps_LocalSearch_ILocalLocationRatingInfo<D>::RatingCount() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) consume_Windows_Services_Maps_LocalSearch_ILocalLocationRatingInfo<D>::RatingCount() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::LocalSearch::ILocalLocationRatingInfo)->get_RatingCount(&value));
         return Windows::Foundation::IReference<int32_t>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Maps_LocalSearch_ILocalLocationRatingInfo<D>::ProviderIdentifier() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Services_Maps_LocalSearch_ILocalLocationRatingInfo<D>::ProviderIdentifier() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::LocalSearch::ILocalLocationRatingInfo)->get_ProviderIdentifier(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Services_Maps_LocalSearch_IPlaceInfoHelperStatics<D>::CreateFromLocalLocation(Windows::Services::Maps::LocalSearch::LocalLocation const& location) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Services::Maps::PlaceInfo) consume_Windows_Services_Maps_LocalSearch_IPlaceInfoHelperStatics<D>::CreateFromLocalLocation(Windows::Services::Maps::LocalSearch::LocalLocation const& location) const
     {
         void* resultValue{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Services::Maps::LocalSearch::IPlaceInfoHelperStatics)->CreateFromLocalLocation(*(void**)(&location), &resultValue));

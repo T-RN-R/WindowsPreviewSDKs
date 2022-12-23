@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -58,12 +58,14 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct Deferral;
     struct EventRegistrationToken;
+    template <typename T> struct IReference;
     struct Rect;
     template <typename TSender, typename TResult> struct TypedEventHandler;
     struct Uri;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
+    template <typename T> struct IVectorView;
     struct ValueSet;
 }
 WINRT_EXPORT namespace winrt::Windows::Media::SpeechRecognition
@@ -80,6 +82,7 @@ WINRT_EXPORT namespace winrt::Windows::Security::Authentication::Web::Provider
 }
 WINRT_EXPORT namespace winrt::Windows::Storage
 {
+    struct IStorageItem;
     struct StorageFile;
     struct StorageFolder;
 }
@@ -100,6 +103,10 @@ WINRT_EXPORT namespace winrt::Windows::System
 {
     struct ProtocolForResultsOperation;
     struct User;
+}
+WINRT_EXPORT namespace winrt::Windows::UI::Notifications
+{
+    struct ShownTileNotification;
 }
 WINRT_EXPORT namespace winrt::Windows::UI::ViewManagement
 {
@@ -385,121 +392,119 @@ namespace winrt::impl
     template <> struct category<Windows::ApplicationModel::Activation::WebAuthenticationBrokerContinuationEventArgs>{ using type = class_category; };
     template <> struct category<Windows::ApplicationModel::Activation::ActivationKind>{ using type = enum_category; };
     template <> struct category<Windows::ApplicationModel::Activation::ApplicationExecutionState>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::AppointmentsProviderAddAppointmentActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.AppointmentsProviderAddAppointmentActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::AppointmentsProviderRemoveAppointmentActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.AppointmentsProviderRemoveAppointmentActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::AppointmentsProviderReplaceAppointmentActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.AppointmentsProviderReplaceAppointmentActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::AppointmentsProviderShowAppointmentDetailsActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.AppointmentsProviderShowAppointmentDetailsActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::AppointmentsProviderShowTimeFrameActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.AppointmentsProviderShowTimeFrameActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::BackgroundActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.BackgroundActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::BarcodeScannerPreviewActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.BarcodeScannerPreviewActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::CachedFileUpdaterActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.CachedFileUpdaterActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::CameraSettingsActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.CameraSettingsActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::CommandLineActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.CommandLineActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::CommandLineActivationOperation>{ L"Windows.ApplicationModel.Activation.CommandLineActivationOperation" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ContactCallActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.ContactCallActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ContactMapActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.ContactMapActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ContactMessageActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.ContactMessageActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ContactPanelActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.ContactPanelActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ContactPickerActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.ContactPickerActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ContactPostActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.ContactPostActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ContactVideoCallActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.ContactVideoCallActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::DeviceActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.DeviceActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::DevicePairingActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.DevicePairingActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::DialReceiverActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.DialReceiverActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::FileActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.FileActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::FileOpenPickerActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.FileOpenPickerActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::FileOpenPickerContinuationEventArgs>{ L"Windows.ApplicationModel.Activation.FileOpenPickerContinuationEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::FileSavePickerActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.FileSavePickerActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::FileSavePickerContinuationEventArgs>{ L"Windows.ApplicationModel.Activation.FileSavePickerContinuationEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::FolderPickerContinuationEventArgs>{ L"Windows.ApplicationModel.Activation.FolderPickerContinuationEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::LaunchActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.LaunchActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::LockScreenActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.LockScreenActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::LockScreenCallActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.LockScreenCallActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::LockScreenComponentActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.LockScreenComponentActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::PickerReturnedActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.PickerReturnedActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::Print3DWorkflowActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.Print3DWorkflowActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::PrintTaskSettingsActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.PrintTaskSettingsActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ProtocolActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ProtocolForResultsActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.ProtocolForResultsActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::RestrictedLaunchActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.RestrictedLaunchActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::SearchActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.SearchActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ShareTargetActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.ShareTargetActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::SplashScreen>{ L"Windows.ApplicationModel.Activation.SplashScreen" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::StartupTaskActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.StartupTaskActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::TileActivatedInfo>{ L"Windows.ApplicationModel.Activation.TileActivatedInfo" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ToastNotificationActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.ToastNotificationActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::UserDataAccountProviderActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.UserDataAccountProviderActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::VoiceCommandActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.VoiceCommandActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::WalletActionActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.WalletActionActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::WebAccountProviderActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.WebAccountProviderActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::WebAuthenticationBrokerContinuationEventArgs>{ L"Windows.ApplicationModel.Activation.WebAuthenticationBrokerContinuationEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ActivationKind>{ L"Windows.ApplicationModel.Activation.ActivationKind" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ApplicationExecutionState>{ L"Windows.ApplicationModel.Activation.ApplicationExecutionState" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IActivatedEventArgsWithUser>{ L"Windows.ApplicationModel.Activation.IActivatedEventArgsWithUser" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IApplicationViewActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IAppointmentsProviderActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IAppointmentsProviderAddAppointmentActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IAppointmentsProviderRemoveAppointmentActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IAppointmentsProviderReplaceAppointmentActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IAppointmentsProviderShowTimeFrameActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IBackgroundActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IBackgroundActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IBarcodeScannerPreviewActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.ICachedFileUpdaterActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.ICameraSettingsActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ICommandLineActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.ICommandLineActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ICommandLineActivationOperation>{ L"Windows.ApplicationModel.Activation.ICommandLineActivationOperation" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IContactActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IContactActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IContactCallActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IContactCallActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IContactMapActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IContactMapActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IContactMessageActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IContactMessageActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IContactPanelActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IContactPanelActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IContactPickerActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IContactPickerActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IContactPostActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IContactPostActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IContactVideoCallActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IContactsProviderActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IContactsProviderActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IContinuationActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IContinuationActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IDeviceActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IDeviceActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IDevicePairingActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IDevicePairingActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IDialReceiverActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IDialReceiverActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IFileActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IFileActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IFileActivatedEventArgsWithCallerPackageFamilyName>{ L"Windows.ApplicationModel.Activation.IFileActivatedEventArgsWithCallerPackageFamilyName" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IFileActivatedEventArgsWithNeighboringFiles>{ L"Windows.ApplicationModel.Activation.IFileActivatedEventArgsWithNeighboringFiles" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IFileOpenPickerActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs2>{ L"Windows.ApplicationModel.Activation.IFileOpenPickerActivatedEventArgs2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs>{ L"Windows.ApplicationModel.Activation.IFileOpenPickerContinuationEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IFileSavePickerActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs2>{ L"Windows.ApplicationModel.Activation.IFileSavePickerActivatedEventArgs2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs>{ L"Windows.ApplicationModel.Activation.IFileSavePickerContinuationEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IFolderPickerContinuationEventArgs>{ L"Windows.ApplicationModel.Activation.IFolderPickerContinuationEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ILaunchActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.ILaunchActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ILaunchActivatedEventArgs2>{ L"Windows.ApplicationModel.Activation.ILaunchActivatedEventArgs2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ILockScreenActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.ILockScreenActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.ILockScreenCallActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IPickerReturnedActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IPickerReturnedActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IPrelaunchActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IPrelaunchActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IPrint3DWorkflowActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IPrintTaskSettingsActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IProtocolActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IProtocolActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>{ L"Windows.ApplicationModel.Activation.IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IProtocolForResultsActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IRestrictedLaunchActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ISearchActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.ISearchActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ISearchActivatedEventArgsWithLinguisticDetails>{ L"Windows.ApplicationModel.Activation.ISearchActivatedEventArgsWithLinguisticDetails" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IShareTargetActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IShareTargetActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ISplashScreen>{ L"Windows.ApplicationModel.Activation.ISplashScreen" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IStartupTaskActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IStartupTaskActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ITileActivatedInfo>{ L"Windows.ApplicationModel.Activation.ITileActivatedInfo" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IToastNotificationActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IToastNotificationActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IUserDataAccountProviderActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IViewSwitcherProvider>{ L"Windows.ApplicationModel.Activation.IViewSwitcherProvider" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IVoiceCommandActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IWalletActionActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IWalletActionActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs>{ L"Windows.ApplicationModel.Activation.IWebAccountProviderActivatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs>{ L"Windows.ApplicationModel.Activation.IWebAuthenticationBrokerContinuationEventArgs" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::AppointmentsProviderAddAppointmentActivatedEventArgs> = L"Windows.ApplicationModel.Activation.AppointmentsProviderAddAppointmentActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::AppointmentsProviderRemoveAppointmentActivatedEventArgs> = L"Windows.ApplicationModel.Activation.AppointmentsProviderRemoveAppointmentActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::AppointmentsProviderReplaceAppointmentActivatedEventArgs> = L"Windows.ApplicationModel.Activation.AppointmentsProviderReplaceAppointmentActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> = L"Windows.ApplicationModel.Activation.AppointmentsProviderShowAppointmentDetailsActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::AppointmentsProviderShowTimeFrameActivatedEventArgs> = L"Windows.ApplicationModel.Activation.AppointmentsProviderShowTimeFrameActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::BackgroundActivatedEventArgs> = L"Windows.ApplicationModel.Activation.BackgroundActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::BarcodeScannerPreviewActivatedEventArgs> = L"Windows.ApplicationModel.Activation.BarcodeScannerPreviewActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::CachedFileUpdaterActivatedEventArgs> = L"Windows.ApplicationModel.Activation.CachedFileUpdaterActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::CameraSettingsActivatedEventArgs> = L"Windows.ApplicationModel.Activation.CameraSettingsActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::CommandLineActivatedEventArgs> = L"Windows.ApplicationModel.Activation.CommandLineActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::CommandLineActivationOperation> = L"Windows.ApplicationModel.Activation.CommandLineActivationOperation";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ContactCallActivatedEventArgs> = L"Windows.ApplicationModel.Activation.ContactCallActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ContactMapActivatedEventArgs> = L"Windows.ApplicationModel.Activation.ContactMapActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ContactMessageActivatedEventArgs> = L"Windows.ApplicationModel.Activation.ContactMessageActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ContactPanelActivatedEventArgs> = L"Windows.ApplicationModel.Activation.ContactPanelActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ContactPickerActivatedEventArgs> = L"Windows.ApplicationModel.Activation.ContactPickerActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ContactPostActivatedEventArgs> = L"Windows.ApplicationModel.Activation.ContactPostActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ContactVideoCallActivatedEventArgs> = L"Windows.ApplicationModel.Activation.ContactVideoCallActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::DeviceActivatedEventArgs> = L"Windows.ApplicationModel.Activation.DeviceActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::DevicePairingActivatedEventArgs> = L"Windows.ApplicationModel.Activation.DevicePairingActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::DialReceiverActivatedEventArgs> = L"Windows.ApplicationModel.Activation.DialReceiverActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::FileActivatedEventArgs> = L"Windows.ApplicationModel.Activation.FileActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::FileOpenPickerActivatedEventArgs> = L"Windows.ApplicationModel.Activation.FileOpenPickerActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::FileOpenPickerContinuationEventArgs> = L"Windows.ApplicationModel.Activation.FileOpenPickerContinuationEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::FileSavePickerActivatedEventArgs> = L"Windows.ApplicationModel.Activation.FileSavePickerActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::FileSavePickerContinuationEventArgs> = L"Windows.ApplicationModel.Activation.FileSavePickerContinuationEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::FolderPickerContinuationEventArgs> = L"Windows.ApplicationModel.Activation.FolderPickerContinuationEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::LaunchActivatedEventArgs> = L"Windows.ApplicationModel.Activation.LaunchActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::LockScreenActivatedEventArgs> = L"Windows.ApplicationModel.Activation.LockScreenActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::LockScreenCallActivatedEventArgs> = L"Windows.ApplicationModel.Activation.LockScreenCallActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::LockScreenComponentActivatedEventArgs> = L"Windows.ApplicationModel.Activation.LockScreenComponentActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::PickerReturnedActivatedEventArgs> = L"Windows.ApplicationModel.Activation.PickerReturnedActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::Print3DWorkflowActivatedEventArgs> = L"Windows.ApplicationModel.Activation.Print3DWorkflowActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::PrintTaskSettingsActivatedEventArgs> = L"Windows.ApplicationModel.Activation.PrintTaskSettingsActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ProtocolActivatedEventArgs> = L"Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ProtocolForResultsActivatedEventArgs> = L"Windows.ApplicationModel.Activation.ProtocolForResultsActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::RestrictedLaunchActivatedEventArgs> = L"Windows.ApplicationModel.Activation.RestrictedLaunchActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::SearchActivatedEventArgs> = L"Windows.ApplicationModel.Activation.SearchActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ShareTargetActivatedEventArgs> = L"Windows.ApplicationModel.Activation.ShareTargetActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::SplashScreen> = L"Windows.ApplicationModel.Activation.SplashScreen";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::StartupTaskActivatedEventArgs> = L"Windows.ApplicationModel.Activation.StartupTaskActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::TileActivatedInfo> = L"Windows.ApplicationModel.Activation.TileActivatedInfo";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ToastNotificationActivatedEventArgs> = L"Windows.ApplicationModel.Activation.ToastNotificationActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::UserDataAccountProviderActivatedEventArgs> = L"Windows.ApplicationModel.Activation.UserDataAccountProviderActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::VoiceCommandActivatedEventArgs> = L"Windows.ApplicationModel.Activation.VoiceCommandActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::WalletActionActivatedEventArgs> = L"Windows.ApplicationModel.Activation.WalletActionActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::WebAccountProviderActivatedEventArgs> = L"Windows.ApplicationModel.Activation.WebAccountProviderActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::WebAuthenticationBrokerContinuationEventArgs> = L"Windows.ApplicationModel.Activation.WebAuthenticationBrokerContinuationEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ActivationKind> = L"Windows.ApplicationModel.Activation.ActivationKind";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ApplicationExecutionState> = L"Windows.ApplicationModel.Activation.ApplicationExecutionState";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IActivatedEventArgsWithUser> = L"Windows.ApplicationModel.Activation.IActivatedEventArgsWithUser";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IApplicationViewActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IApplicationViewActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IAppointmentsProviderActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IAppointmentsProviderAddAppointmentActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IAppointmentsProviderRemoveAppointmentActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IAppointmentsProviderReplaceAppointmentActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IAppointmentsProviderShowTimeFrameActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IBackgroundActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IBackgroundActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IBarcodeScannerPreviewActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs> = L"Windows.ApplicationModel.Activation.ICachedFileUpdaterActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs> = L"Windows.ApplicationModel.Activation.ICameraSettingsActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ICommandLineActivatedEventArgs> = L"Windows.ApplicationModel.Activation.ICommandLineActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ICommandLineActivationOperation> = L"Windows.ApplicationModel.Activation.ICommandLineActivationOperation";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IContactActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IContactActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IContactCallActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IContactCallActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IContactMapActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IContactMapActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IContactMessageActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IContactMessageActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IContactPanelActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IContactPanelActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IContactPickerActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IContactPickerActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IContactPostActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IContactPostActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IContactVideoCallActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IContactsProviderActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IContactsProviderActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IContinuationActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IContinuationActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IDeviceActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IDeviceActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IDevicePairingActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IDevicePairingActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IDialReceiverActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IDialReceiverActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IFileActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IFileActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IFileActivatedEventArgsWithCallerPackageFamilyName> = L"Windows.ApplicationModel.Activation.IFileActivatedEventArgsWithCallerPackageFamilyName";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IFileActivatedEventArgsWithNeighboringFiles> = L"Windows.ApplicationModel.Activation.IFileActivatedEventArgsWithNeighboringFiles";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IFileOpenPickerActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs2> = L"Windows.ApplicationModel.Activation.IFileOpenPickerActivatedEventArgs2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs> = L"Windows.ApplicationModel.Activation.IFileOpenPickerContinuationEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IFileSavePickerActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs2> = L"Windows.ApplicationModel.Activation.IFileSavePickerActivatedEventArgs2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs> = L"Windows.ApplicationModel.Activation.IFileSavePickerContinuationEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IFolderPickerContinuationEventArgs> = L"Windows.ApplicationModel.Activation.IFolderPickerContinuationEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ILaunchActivatedEventArgs> = L"Windows.ApplicationModel.Activation.ILaunchActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ILaunchActivatedEventArgs2> = L"Windows.ApplicationModel.Activation.ILaunchActivatedEventArgs2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ILockScreenActivatedEventArgs> = L"Windows.ApplicationModel.Activation.ILockScreenActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs> = L"Windows.ApplicationModel.Activation.ILockScreenCallActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IPickerReturnedActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IPickerReturnedActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IPrelaunchActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IPrelaunchActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IPrint3DWorkflowActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IPrintTaskSettingsActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IProtocolActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IProtocolActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> = L"Windows.ApplicationModel.Activation.IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IProtocolForResultsActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IRestrictedLaunchActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ISearchActivatedEventArgs> = L"Windows.ApplicationModel.Activation.ISearchActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ISearchActivatedEventArgsWithLinguisticDetails> = L"Windows.ApplicationModel.Activation.ISearchActivatedEventArgsWithLinguisticDetails";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IShareTargetActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IShareTargetActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ISplashScreen> = L"Windows.ApplicationModel.Activation.ISplashScreen";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IStartupTaskActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IStartupTaskActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::ITileActivatedInfo> = L"Windows.ApplicationModel.Activation.ITileActivatedInfo";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IToastNotificationActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IToastNotificationActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IUserDataAccountProviderActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IViewSwitcherProvider> = L"Windows.ApplicationModel.Activation.IViewSwitcherProvider";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IVoiceCommandActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IWalletActionActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IWalletActionActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IWebAccountProviderActivatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs> = L"Windows.ApplicationModel.Activation.IWebAuthenticationBrokerContinuationEventArgs";
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Activation::IActivatedEventArgs>{ 0xCF651713,0xCD08,0x4FD8,{ 0xB6,0x97,0xA2,0x81,0xB6,0x54,0x4E,0x2E } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Activation::IActivatedEventArgsWithUser>{ 0x1CF09B9E,0x9962,0x4936,{ 0x80,0xFF,0xAF,0xC8,0xE8,0xAE,0x5C,0x8C } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>{ 0x930CEF4B,0xB829,0x40FC,{ 0x88,0xF4,0x85,0x13,0xE8,0xA6,0x47,0x38 } };
@@ -1086,9 +1091,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IActivatedEventArgs
     {
-        [[nodiscard]] auto Kind() const;
-        [[nodiscard]] auto PreviousExecutionState() const;
-        [[nodiscard]] auto SplashScreen() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Activation::ActivationKind) Kind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Activation::ApplicationExecutionState) PreviousExecutionState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Activation::SplashScreen) SplashScreen() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IActivatedEventArgs>
     {
@@ -1097,7 +1102,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IActivatedEventArgsWithUser
     {
-        [[nodiscard]] auto User() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::User) User() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IActivatedEventArgsWithUser>
     {
@@ -1106,7 +1111,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IApplicationViewActivatedEventArgs
     {
-        [[nodiscard]] auto CurrentlyShownApplicationViewId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) CurrentlyShownApplicationViewId() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IApplicationViewActivatedEventArgs>
     {
@@ -1115,7 +1120,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IAppointmentsProviderActivatedEventArgs
     {
-        [[nodiscard]] auto Verb() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Verb() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs>
     {
@@ -1124,7 +1129,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IAppointmentsProviderAddAppointmentActivatedEventArgs
     {
-        [[nodiscard]] auto AddAppointmentOperation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::AppointmentsProvider::AddAppointmentOperation) AddAppointmentOperation() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs>
     {
@@ -1133,7 +1138,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IAppointmentsProviderRemoveAppointmentActivatedEventArgs
     {
-        [[nodiscard]] auto RemoveAppointmentOperation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::AppointmentsProvider::RemoveAppointmentOperation) RemoveAppointmentOperation() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs>
     {
@@ -1142,7 +1147,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IAppointmentsProviderReplaceAppointmentActivatedEventArgs
     {
-        [[nodiscard]] auto ReplaceAppointmentOperation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::AppointmentsProvider::ReplaceAppointmentOperation) ReplaceAppointmentOperation() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs>
     {
@@ -1151,9 +1156,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs
     {
-        [[nodiscard]] auto InstanceStartDate() const;
-        [[nodiscard]] auto LocalId() const;
-        [[nodiscard]] auto RoamingId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) InstanceStartDate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) LocalId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RoamingId() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs>
     {
@@ -1162,8 +1167,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IAppointmentsProviderShowTimeFrameActivatedEventArgs
     {
-        [[nodiscard]] auto TimeToShow() const;
-        [[nodiscard]] auto Duration() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) TimeToShow() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Duration() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs>
     {
@@ -1172,7 +1177,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IBackgroundActivatedEventArgs
     {
-        [[nodiscard]] auto TaskInstance() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Background::IBackgroundTaskInstance) TaskInstance() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IBackgroundActivatedEventArgs>
     {
@@ -1181,7 +1186,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IBarcodeScannerPreviewActivatedEventArgs
     {
-        [[nodiscard]] auto ConnectionId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ConnectionId() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs>
     {
@@ -1190,7 +1195,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_ICachedFileUpdaterActivatedEventArgs
     {
-        [[nodiscard]] auto CachedFileUpdaterUI() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Provider::CachedFileUpdaterUI) CachedFileUpdaterUI() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs>
     {
@@ -1199,8 +1204,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_ICameraSettingsActivatedEventArgs
     {
-        [[nodiscard]] auto VideoDeviceController() const;
-        [[nodiscard]] auto VideoDeviceExtension() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) VideoDeviceController() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) VideoDeviceExtension() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs>
     {
@@ -1209,7 +1214,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_ICommandLineActivatedEventArgs
     {
-        [[nodiscard]] auto Operation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Activation::CommandLineActivationOperation) Operation() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::ICommandLineActivatedEventArgs>
     {
@@ -1218,11 +1223,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_ICommandLineActivationOperation
     {
-        [[nodiscard]] auto Arguments() const;
-        [[nodiscard]] auto CurrentDirectoryPath() const;
-        auto ExitCode(int32_t value) const;
-        [[nodiscard]] auto ExitCode() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Arguments() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CurrentDirectoryPath() const;
+        WINRT_IMPL_AUTO(void) ExitCode(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) ExitCode() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::ICommandLineActivationOperation>
     {
@@ -1231,7 +1236,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IContactActivatedEventArgs
     {
-        [[nodiscard]] auto Verb() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Verb() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IContactActivatedEventArgs>
     {
@@ -1240,9 +1245,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IContactCallActivatedEventArgs
     {
-        [[nodiscard]] auto ServiceId() const;
-        [[nodiscard]] auto ServiceUserId() const;
-        [[nodiscard]] auto Contact() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ServiceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ServiceUserId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::Contact) Contact() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IContactCallActivatedEventArgs>
     {
@@ -1251,8 +1256,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IContactMapActivatedEventArgs
     {
-        [[nodiscard]] auto Address() const;
-        [[nodiscard]] auto Contact() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactAddress) Address() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::Contact) Contact() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IContactMapActivatedEventArgs>
     {
@@ -1261,9 +1266,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IContactMessageActivatedEventArgs
     {
-        [[nodiscard]] auto ServiceId() const;
-        [[nodiscard]] auto ServiceUserId() const;
-        [[nodiscard]] auto Contact() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ServiceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ServiceUserId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::Contact) Contact() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IContactMessageActivatedEventArgs>
     {
@@ -1272,8 +1277,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IContactPanelActivatedEventArgs
     {
-        [[nodiscard]] auto ContactPanel() const;
-        [[nodiscard]] auto Contact() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactPanel) ContactPanel() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::Contact) Contact() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IContactPanelActivatedEventArgs>
     {
@@ -1282,7 +1287,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IContactPickerActivatedEventArgs
     {
-        [[nodiscard]] auto ContactPickerUI() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::Provider::ContactPickerUI) ContactPickerUI() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IContactPickerActivatedEventArgs>
     {
@@ -1291,9 +1296,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IContactPostActivatedEventArgs
     {
-        [[nodiscard]] auto ServiceId() const;
-        [[nodiscard]] auto ServiceUserId() const;
-        [[nodiscard]] auto Contact() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ServiceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ServiceUserId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::Contact) Contact() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IContactPostActivatedEventArgs>
     {
@@ -1302,9 +1307,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IContactVideoCallActivatedEventArgs
     {
-        [[nodiscard]] auto ServiceId() const;
-        [[nodiscard]] auto ServiceUserId() const;
-        [[nodiscard]] auto Contact() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ServiceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ServiceUserId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::Contact) Contact() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs>
     {
@@ -1313,7 +1318,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IContactsProviderActivatedEventArgs
     {
-        [[nodiscard]] auto Verb() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Verb() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IContactsProviderActivatedEventArgs>
     {
@@ -1322,7 +1327,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IContinuationActivatedEventArgs
     {
-        [[nodiscard]] auto ContinuationData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::ValueSet) ContinuationData() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IContinuationActivatedEventArgs>
     {
@@ -1331,8 +1336,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IDeviceActivatedEventArgs
     {
-        [[nodiscard]] auto DeviceInformationId() const;
-        [[nodiscard]] auto Verb() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceInformationId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Verb() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IDeviceActivatedEventArgs>
     {
@@ -1341,7 +1346,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IDevicePairingActivatedEventArgs
     {
-        [[nodiscard]] auto DeviceInformation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Enumeration::DeviceInformation) DeviceInformation() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IDevicePairingActivatedEventArgs>
     {
@@ -1350,7 +1355,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IDialReceiverActivatedEventArgs
     {
-        [[nodiscard]] auto AppName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AppName() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IDialReceiverActivatedEventArgs>
     {
@@ -1359,8 +1364,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IFileActivatedEventArgs
     {
-        [[nodiscard]] auto Files() const;
-        [[nodiscard]] auto Verb() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Storage::IStorageItem>) Files() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Verb() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IFileActivatedEventArgs>
     {
@@ -1369,7 +1374,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IFileActivatedEventArgsWithCallerPackageFamilyName
     {
-        [[nodiscard]] auto CallerPackageFamilyName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CallerPackageFamilyName() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IFileActivatedEventArgsWithCallerPackageFamilyName>
     {
@@ -1378,7 +1383,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IFileActivatedEventArgsWithNeighboringFiles
     {
-        [[nodiscard]] auto NeighboringFilesQuery() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Search::StorageFileQueryResult) NeighboringFilesQuery() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IFileActivatedEventArgsWithNeighboringFiles>
     {
@@ -1387,7 +1392,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IFileOpenPickerActivatedEventArgs
     {
-        [[nodiscard]] auto FileOpenPickerUI() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Pickers::Provider::FileOpenPickerUI) FileOpenPickerUI() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs>
     {
@@ -1396,7 +1401,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IFileOpenPickerActivatedEventArgs2
     {
-        [[nodiscard]] auto CallerPackageFamilyName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CallerPackageFamilyName() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs2>
     {
@@ -1405,7 +1410,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IFileOpenPickerContinuationEventArgs
     {
-        [[nodiscard]] auto Files() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Storage::StorageFile>) Files() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs>
     {
@@ -1414,7 +1419,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IFileSavePickerActivatedEventArgs
     {
-        [[nodiscard]] auto FileSavePickerUI() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Pickers::Provider::FileSavePickerUI) FileSavePickerUI() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs>
     {
@@ -1423,8 +1428,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IFileSavePickerActivatedEventArgs2
     {
-        [[nodiscard]] auto CallerPackageFamilyName() const;
-        [[nodiscard]] auto EnterpriseId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CallerPackageFamilyName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EnterpriseId() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs2>
     {
@@ -1433,7 +1438,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IFileSavePickerContinuationEventArgs
     {
-        [[nodiscard]] auto File() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::StorageFile) File() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs>
     {
@@ -1442,7 +1447,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IFolderPickerContinuationEventArgs
     {
-        [[nodiscard]] auto Folder() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::StorageFolder) Folder() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IFolderPickerContinuationEventArgs>
     {
@@ -1451,8 +1456,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_ILaunchActivatedEventArgs
     {
-        [[nodiscard]] auto Arguments() const;
-        [[nodiscard]] auto TileId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Arguments() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TileId() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::ILaunchActivatedEventArgs>
     {
@@ -1461,7 +1466,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_ILaunchActivatedEventArgs2
     {
-        [[nodiscard]] auto TileActivatedInfo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Activation::TileActivatedInfo) TileActivatedInfo() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::ILaunchActivatedEventArgs2>
     {
@@ -1470,7 +1475,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_ILockScreenActivatedEventArgs
     {
-        [[nodiscard]] auto Info() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) Info() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::ILockScreenActivatedEventArgs>
     {
@@ -1479,7 +1484,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_ILockScreenCallActivatedEventArgs
     {
-        [[nodiscard]] auto CallUI() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Calls::LockScreenCallUI) CallUI() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs>
     {
@@ -1488,7 +1493,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IPickerReturnedActivatedEventArgs
     {
-        [[nodiscard]] auto PickerOperationId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PickerOperationId() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IPickerReturnedActivatedEventArgs>
     {
@@ -1497,7 +1502,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IPrelaunchActivatedEventArgs
     {
-        [[nodiscard]] auto PrelaunchActivated() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) PrelaunchActivated() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IPrelaunchActivatedEventArgs>
     {
@@ -1506,7 +1511,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IPrint3DWorkflowActivatedEventArgs
     {
-        [[nodiscard]] auto Workflow() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Printers::Extensions::Print3DWorkflow) Workflow() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs>
     {
@@ -1515,7 +1520,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IPrintTaskSettingsActivatedEventArgs
     {
-        [[nodiscard]] auto Configuration() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Printers::Extensions::PrintTaskConfiguration) Configuration() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs>
     {
@@ -1524,7 +1529,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IProtocolActivatedEventArgs
     {
-        [[nodiscard]] auto Uri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Uri() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IProtocolActivatedEventArgs>
     {
@@ -1533,8 +1538,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData
     {
-        [[nodiscard]] auto CallerPackageFamilyName() const;
-        [[nodiscard]] auto Data() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CallerPackageFamilyName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::ValueSet) Data() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>
     {
@@ -1543,7 +1548,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IProtocolForResultsActivatedEventArgs
     {
-        [[nodiscard]] auto ProtocolForResultsOperation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::ProtocolForResultsOperation) ProtocolForResultsOperation() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs>
     {
@@ -1552,7 +1557,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IRestrictedLaunchActivatedEventArgs
     {
-        [[nodiscard]] auto SharedContext() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) SharedContext() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs>
     {
@@ -1561,8 +1566,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_ISearchActivatedEventArgs
     {
-        [[nodiscard]] auto QueryText() const;
-        [[nodiscard]] auto Language() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) QueryText() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Language() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::ISearchActivatedEventArgs>
     {
@@ -1571,7 +1576,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_ISearchActivatedEventArgsWithLinguisticDetails
     {
-        [[nodiscard]] auto LinguisticDetails() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Search::SearchPaneQueryLinguisticDetails) LinguisticDetails() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::ISearchActivatedEventArgsWithLinguisticDetails>
     {
@@ -1580,7 +1585,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IShareTargetActivatedEventArgs
     {
-        [[nodiscard]] auto ShareOperation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::DataTransfer::ShareTarget::ShareOperation) ShareOperation() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IShareTargetActivatedEventArgs>
     {
@@ -1589,11 +1594,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_ISplashScreen
     {
-        [[nodiscard]] auto ImageLocation() const;
-        auto Dismissed(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Activation::SplashScreen, Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) ImageLocation() const;
+        WINRT_IMPL_AUTO(winrt::event_token) Dismissed(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Activation::SplashScreen, Windows::Foundation::IInspectable> const& handler) const;
         using Dismissed_revoker = impl::event_revoker<Windows::ApplicationModel::Activation::ISplashScreen, &impl::abi_t<Windows::ApplicationModel::Activation::ISplashScreen>::remove_Dismissed>;
         [[nodiscard]] Dismissed_revoker Dismissed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Activation::SplashScreen, Windows::Foundation::IInspectable> const& handler) const;
-        auto Dismissed(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(void) Dismissed(winrt::event_token const& cookie) const noexcept;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::ISplashScreen>
     {
@@ -1602,7 +1607,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IStartupTaskActivatedEventArgs
     {
-        [[nodiscard]] auto TaskId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TaskId() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IStartupTaskActivatedEventArgs>
     {
@@ -1611,7 +1616,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_ITileActivatedInfo
     {
-        [[nodiscard]] auto RecentlyShownNotifications() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::UI::Notifications::ShownTileNotification>) RecentlyShownNotifications() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::ITileActivatedInfo>
     {
@@ -1620,8 +1625,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IToastNotificationActivatedEventArgs
     {
-        [[nodiscard]] auto Argument() const;
-        [[nodiscard]] auto UserInput() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Argument() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::ValueSet) UserInput() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IToastNotificationActivatedEventArgs>
     {
@@ -1630,7 +1635,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IUserDataAccountProviderActivatedEventArgs
     {
-        [[nodiscard]] auto Operation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::UserDataAccounts::Provider::IUserDataAccountProviderOperation) Operation() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs>
     {
@@ -1639,7 +1644,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IViewSwitcherProvider
     {
-        [[nodiscard]] auto ViewSwitcher() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::ViewManagement::ActivationViewSwitcher) ViewSwitcher() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IViewSwitcherProvider>
     {
@@ -1648,7 +1653,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IVoiceCommandActivatedEventArgs
     {
-        [[nodiscard]] auto Result() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::SpeechRecognition::SpeechRecognitionResult) Result() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs>
     {
@@ -1657,9 +1662,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IWalletActionActivatedEventArgs
     {
-        [[nodiscard]] auto ItemId() const;
-        [[nodiscard]] auto ActionKind() const;
-        [[nodiscard]] auto ActionId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ItemId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Wallet::WalletActionKind) ActionKind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ActionId() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IWalletActionActivatedEventArgs>
     {
@@ -1668,7 +1673,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IWebAccountProviderActivatedEventArgs
     {
-        [[nodiscard]] auto Operation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Authentication::Web::Provider::IWebAccountProviderOperation) Operation() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs>
     {
@@ -1677,7 +1682,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IWebAuthenticationBrokerContinuationEventArgs
     {
-        [[nodiscard]] auto WebAuthenticationResult() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Authentication::Web::WebAuthenticationResult) WebAuthenticationResult() const;
     };
     template <> struct consume<Windows::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs>
     {

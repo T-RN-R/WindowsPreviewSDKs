@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -24,11 +24,9 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Input::Inking::Preview::IPalmRejectionDelayZonePreview>{ using type = interface_category; };
     template <> struct category<Windows::UI::Input::Inking::Preview::IPalmRejectionDelayZonePreviewStatics>{ using type = interface_category; };
     template <> struct category<Windows::UI::Input::Inking::Preview::PalmRejectionDelayZonePreview>{ using type = class_category; };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Preview::PalmRejectionDelayZonePreview>{ L"Windows.UI.Input.Inking.Preview.PalmRejectionDelayZonePreview" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Preview::IPalmRejectionDelayZonePreview>{ L"Windows.UI.Input.Inking.Preview.IPalmRejectionDelayZonePreview" };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Preview::IPalmRejectionDelayZonePreviewStatics>{ L"Windows.UI.Input.Inking.Preview.IPalmRejectionDelayZonePreviewStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Preview::PalmRejectionDelayZonePreview> = L"Windows.UI.Input.Inking.Preview.PalmRejectionDelayZonePreview";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Preview::IPalmRejectionDelayZonePreview> = L"Windows.UI.Input.Inking.Preview.IPalmRejectionDelayZonePreview";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::Preview::IPalmRejectionDelayZonePreviewStatics> = L"Windows.UI.Input.Inking.Preview.IPalmRejectionDelayZonePreviewStatics";
     template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::Preview::IPalmRejectionDelayZonePreview>{ 0x62B496CB,0x539D,0x5343,{ 0xA6,0x5F,0x41,0xF5,0x30,0x0E,0xC7,0x0C } };
     template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::Preview::IPalmRejectionDelayZonePreviewStatics>{ 0xCDEF5EE0,0x93D0,0x53A9,{ 0x8F,0x0E,0x9A,0x37,0x9F,0x8F,0x75,0x30 } };
     template <> struct default_interface<Windows::UI::Input::Inking::Preview::PalmRejectionDelayZonePreview>{ using type = Windows::UI::Input::Inking::Preview::IPalmRejectionDelayZonePreview; };
@@ -57,8 +55,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Input_Inking_Preview_IPalmRejectionDelayZonePreviewStatics
     {
-        auto CreateForVisual(Windows::UI::Composition::Visual const& inputPanelVisual, Windows::Foundation::Rect const& inputPanelRect) const;
-        auto CreateForVisual(Windows::UI::Composition::Visual const& inputPanelVisual, Windows::Foundation::Rect const& inputPanelRect, Windows::UI::Composition::Visual const& viewportVisual, Windows::Foundation::Rect const& viewportRect) const;
+        WINRT_IMPL_AUTO(Windows::UI::Input::Inking::Preview::PalmRejectionDelayZonePreview) CreateForVisual(Windows::UI::Composition::Visual const& inputPanelVisual, Windows::Foundation::Rect const& inputPanelRect) const;
+        WINRT_IMPL_AUTO(Windows::UI::Input::Inking::Preview::PalmRejectionDelayZonePreview) CreateForVisual(Windows::UI::Composition::Visual const& inputPanelVisual, Windows::Foundation::Rect const& inputPanelRect, Windows::UI::Composition::Visual const& viewportVisual, Windows::Foundation::Rect const& viewportRect) const;
     };
     template <> struct consume<Windows::UI::Input::Inking::Preview::IPalmRejectionDelayZonePreviewStatics>
     {

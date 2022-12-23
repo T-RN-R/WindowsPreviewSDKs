@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_Security_DataProtection_H
 #define WINRT_Windows_Security_DataProtection_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Storage.2.h"
 #include "winrt/impl/Windows.Storage.Streams.2.h"
@@ -14,57 +14,57 @@ static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatche
 #include "winrt/impl/Windows.Security.DataProtection.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_Security_DataProtection_IUserDataAvailabilityStateChangedEventArgs<D>::GetDeferral() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Deferral) consume_Windows_Security_DataProtection_IUserDataAvailabilityStateChangedEventArgs<D>::GetDeferral() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::DataProtection::IUserDataAvailabilityStateChangedEventArgs)->GetDeferral(&result));
         return Windows::Foundation::Deferral{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_DataProtection_IUserDataBufferUnprotectResult<D>::Status() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::DataProtection::UserDataBufferUnprotectStatus) consume_Windows_Security_DataProtection_IUserDataBufferUnprotectResult<D>::Status() const
     {
-        Windows::Security::DataProtection::UserDataBufferUnprotectStatus value;
+        Windows::Security::DataProtection::UserDataBufferUnprotectStatus value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::DataProtection::IUserDataBufferUnprotectResult)->get_Status(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_DataProtection_IUserDataBufferUnprotectResult<D>::UnprotectedBuffer() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) consume_Windows_Security_DataProtection_IUserDataBufferUnprotectResult<D>::UnprotectedBuffer() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::DataProtection::IUserDataBufferUnprotectResult)->get_UnprotectedBuffer(&value));
         return Windows::Storage::Streams::IBuffer{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_DataProtection_IUserDataProtectionManager<D>::ProtectStorageItemAsync(Windows::Storage::IStorageItem const& storageItem, Windows::Security::DataProtection::UserDataAvailability const& availability) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::DataProtection::UserDataStorageItemProtectionStatus>) consume_Windows_Security_DataProtection_IUserDataProtectionManager<D>::ProtectStorageItemAsync(Windows::Storage::IStorageItem const& storageItem, Windows::Security::DataProtection::UserDataAvailability const& availability) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::DataProtection::IUserDataProtectionManager)->ProtectStorageItemAsync(*(void**)(&storageItem), static_cast<int32_t>(availability), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::DataProtection::UserDataStorageItemProtectionStatus>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_DataProtection_IUserDataProtectionManager<D>::GetStorageItemProtectionInfoAsync(Windows::Storage::IStorageItem const& storageItem) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::DataProtection::UserDataStorageItemProtectionInfo>) consume_Windows_Security_DataProtection_IUserDataProtectionManager<D>::GetStorageItemProtectionInfoAsync(Windows::Storage::IStorageItem const& storageItem) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::DataProtection::IUserDataProtectionManager)->GetStorageItemProtectionInfoAsync(*(void**)(&storageItem), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::DataProtection::UserDataStorageItemProtectionInfo>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_DataProtection_IUserDataProtectionManager<D>::ProtectBufferAsync(Windows::Storage::Streams::IBuffer const& unprotectedBuffer, Windows::Security::DataProtection::UserDataAvailability const& availability) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::IBuffer>) consume_Windows_Security_DataProtection_IUserDataProtectionManager<D>::ProtectBufferAsync(Windows::Storage::Streams::IBuffer const& unprotectedBuffer, Windows::Security::DataProtection::UserDataAvailability const& availability) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::DataProtection::IUserDataProtectionManager)->ProtectBufferAsync(*(void**)(&unprotectedBuffer), static_cast<int32_t>(availability), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::IBuffer>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_DataProtection_IUserDataProtectionManager<D>::UnprotectBufferAsync(Windows::Storage::Streams::IBuffer const& protectedBuffer) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::DataProtection::UserDataBufferUnprotectResult>) consume_Windows_Security_DataProtection_IUserDataProtectionManager<D>::UnprotectBufferAsync(Windows::Storage::Streams::IBuffer const& protectedBuffer) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::DataProtection::IUserDataProtectionManager)->UnprotectBufferAsync(*(void**)(&protectedBuffer), &result));
         return Windows::Foundation::IAsyncOperation<Windows::Security::DataProtection::UserDataBufferUnprotectResult>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_DataProtection_IUserDataProtectionManager<D>::IsContinuedDataAvailabilityExpected(Windows::Security::DataProtection::UserDataAvailability const& availability) const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Security_DataProtection_IUserDataProtectionManager<D>::IsContinuedDataAvailabilityExpected(Windows::Security::DataProtection::UserDataAvailability const& availability) const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::DataProtection::IUserDataProtectionManager)->IsContinuedDataAvailabilityExpected(static_cast<int32_t>(availability), &value));
         return value;
     }
-    template <typename D> auto consume_Windows_Security_DataProtection_IUserDataProtectionManager<D>::DataAvailabilityStateChanged(Windows::Foundation::TypedEventHandler<Windows::Security::DataProtection::UserDataProtectionManager, Windows::Security::DataProtection::UserDataAvailabilityStateChangedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Security_DataProtection_IUserDataProtectionManager<D>::DataAvailabilityStateChanged(Windows::Foundation::TypedEventHandler<Windows::Security::DataProtection::UserDataProtectionManager, Windows::Security::DataProtection::UserDataAvailabilityStateChangedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::DataProtection::IUserDataProtectionManager)->add_DataAvailabilityStateChanged(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -72,25 +72,25 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, DataAvailabilityStateChanged_revoker>(this, DataAvailabilityStateChanged(handler));
     }
-    template <typename D> auto consume_Windows_Security_DataProtection_IUserDataProtectionManager<D>::DataAvailabilityStateChanged(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_DataProtection_IUserDataProtectionManager<D>::DataAvailabilityStateChanged(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Security::DataProtection::IUserDataProtectionManager)->remove_DataAvailabilityStateChanged(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Security_DataProtection_IUserDataProtectionManagerStatics<D>::TryGetDefault() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::DataProtection::UserDataProtectionManager) consume_Windows_Security_DataProtection_IUserDataProtectionManagerStatics<D>::TryGetDefault() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::DataProtection::IUserDataProtectionManagerStatics)->TryGetDefault(&result));
         return Windows::Security::DataProtection::UserDataProtectionManager{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_DataProtection_IUserDataProtectionManagerStatics<D>::TryGetForUser(Windows::System::User const& user) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::DataProtection::UserDataProtectionManager) consume_Windows_Security_DataProtection_IUserDataProtectionManagerStatics<D>::TryGetForUser(Windows::System::User const& user) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::DataProtection::IUserDataProtectionManagerStatics)->TryGetForUser(*(void**)(&user), &result));
         return Windows::Security::DataProtection::UserDataProtectionManager{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Security_DataProtection_IUserDataStorageItemProtectionInfo<D>::Availability() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::DataProtection::UserDataAvailability) consume_Windows_Security_DataProtection_IUserDataStorageItemProtectionInfo<D>::Availability() const
     {
-        Windows::Security::DataProtection::UserDataAvailability value;
+        Windows::Security::DataProtection::UserDataAvailability value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::DataProtection::IUserDataStorageItemProtectionInfo)->get_Availability(reinterpret_cast<int32_t*>(&value)));
         return value;
     }

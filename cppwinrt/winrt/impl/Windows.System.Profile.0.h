@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -9,10 +9,13 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     template <typename T> struct EventHandler;
     struct EventRegistrationToken;
+    template <typename TResult> struct IAsyncOperation;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
+    template <typename K, typename V> struct IMapView;
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage::Streams
 {
@@ -120,44 +123,42 @@ namespace winrt::impl
     template <> struct category<Windows::System::Profile::SystemIdentificationSource>{ using type = enum_category; };
     template <> struct category<Windows::System::Profile::SystemOutOfBoxExperienceState>{ using type = enum_category; };
     template <> struct category<Windows::System::Profile::UnsupportedAppRequirementReasons>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::AnalyticsInfo>{ L"Windows.System.Profile.AnalyticsInfo" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::AnalyticsVersionInfo>{ L"Windows.System.Profile.AnalyticsVersionInfo" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::AppApplicability>{ L"Windows.System.Profile.AppApplicability" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::EducationSettings>{ L"Windows.System.Profile.EducationSettings" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::HardwareIdentification>{ L"Windows.System.Profile.HardwareIdentification" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::HardwareToken>{ L"Windows.System.Profile.HardwareToken" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::KnownRetailInfoProperties>{ L"Windows.System.Profile.KnownRetailInfoProperties" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::PlatformDiagnosticsAndUsageDataSettings>{ L"Windows.System.Profile.PlatformDiagnosticsAndUsageDataSettings" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::RetailInfo>{ L"Windows.System.Profile.RetailInfo" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::SharedModeSettings>{ L"Windows.System.Profile.SharedModeSettings" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::SystemIdentification>{ L"Windows.System.Profile.SystemIdentification" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::SystemIdentificationInfo>{ L"Windows.System.Profile.SystemIdentificationInfo" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::SystemSetupInfo>{ L"Windows.System.Profile.SystemSetupInfo" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::UnsupportedAppRequirement>{ L"Windows.System.Profile.UnsupportedAppRequirement" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::WindowsIntegrityPolicy>{ L"Windows.System.Profile.WindowsIntegrityPolicy" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::PlatformDataCollectionLevel>{ L"Windows.System.Profile.PlatformDataCollectionLevel" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::SystemIdentificationSource>{ L"Windows.System.Profile.SystemIdentificationSource" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::SystemOutOfBoxExperienceState>{ L"Windows.System.Profile.SystemOutOfBoxExperienceState" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::UnsupportedAppRequirementReasons>{ L"Windows.System.Profile.UnsupportedAppRequirementReasons" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::System::Profile::IAnalyticsInfoStatics>{ L"Windows.System.Profile.IAnalyticsInfoStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::IAnalyticsInfoStatics2>{ L"Windows.System.Profile.IAnalyticsInfoStatics2" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::IAnalyticsVersionInfo>{ L"Windows.System.Profile.IAnalyticsVersionInfo" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::IAppApplicabilityStatics>{ L"Windows.System.Profile.IAppApplicabilityStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::IEducationSettingsStatics>{ L"Windows.System.Profile.IEducationSettingsStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::IHardwareIdentificationStatics>{ L"Windows.System.Profile.IHardwareIdentificationStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::IHardwareToken>{ L"Windows.System.Profile.IHardwareToken" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::IKnownRetailInfoPropertiesStatics>{ L"Windows.System.Profile.IKnownRetailInfoPropertiesStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::IPlatformDiagnosticsAndUsageDataSettingsStatics>{ L"Windows.System.Profile.IPlatformDiagnosticsAndUsageDataSettingsStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::IRetailInfoStatics>{ L"Windows.System.Profile.IRetailInfoStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::ISharedModeSettingsStatics>{ L"Windows.System.Profile.ISharedModeSettingsStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::ISharedModeSettingsStatics2>{ L"Windows.System.Profile.ISharedModeSettingsStatics2" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::ISystemIdentificationInfo>{ L"Windows.System.Profile.ISystemIdentificationInfo" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::ISystemIdentificationStatics>{ L"Windows.System.Profile.ISystemIdentificationStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::ISystemSetupInfoStatics>{ L"Windows.System.Profile.ISystemSetupInfoStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::IUnsupportedAppRequirement>{ L"Windows.System.Profile.IUnsupportedAppRequirement" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::IWindowsIntegrityPolicyStatics>{ L"Windows.System.Profile.IWindowsIntegrityPolicyStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::System::Profile::AnalyticsInfo> = L"Windows.System.Profile.AnalyticsInfo";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::AnalyticsVersionInfo> = L"Windows.System.Profile.AnalyticsVersionInfo";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::AppApplicability> = L"Windows.System.Profile.AppApplicability";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::EducationSettings> = L"Windows.System.Profile.EducationSettings";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::HardwareIdentification> = L"Windows.System.Profile.HardwareIdentification";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::HardwareToken> = L"Windows.System.Profile.HardwareToken";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::KnownRetailInfoProperties> = L"Windows.System.Profile.KnownRetailInfoProperties";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::PlatformDiagnosticsAndUsageDataSettings> = L"Windows.System.Profile.PlatformDiagnosticsAndUsageDataSettings";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::RetailInfo> = L"Windows.System.Profile.RetailInfo";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::SharedModeSettings> = L"Windows.System.Profile.SharedModeSettings";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::SystemIdentification> = L"Windows.System.Profile.SystemIdentification";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::SystemIdentificationInfo> = L"Windows.System.Profile.SystemIdentificationInfo";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::SystemSetupInfo> = L"Windows.System.Profile.SystemSetupInfo";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::UnsupportedAppRequirement> = L"Windows.System.Profile.UnsupportedAppRequirement";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::WindowsIntegrityPolicy> = L"Windows.System.Profile.WindowsIntegrityPolicy";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::PlatformDataCollectionLevel> = L"Windows.System.Profile.PlatformDataCollectionLevel";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::SystemIdentificationSource> = L"Windows.System.Profile.SystemIdentificationSource";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::SystemOutOfBoxExperienceState> = L"Windows.System.Profile.SystemOutOfBoxExperienceState";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::UnsupportedAppRequirementReasons> = L"Windows.System.Profile.UnsupportedAppRequirementReasons";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::IAnalyticsInfoStatics> = L"Windows.System.Profile.IAnalyticsInfoStatics";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::IAnalyticsInfoStatics2> = L"Windows.System.Profile.IAnalyticsInfoStatics2";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::IAnalyticsVersionInfo> = L"Windows.System.Profile.IAnalyticsVersionInfo";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::IAppApplicabilityStatics> = L"Windows.System.Profile.IAppApplicabilityStatics";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::IEducationSettingsStatics> = L"Windows.System.Profile.IEducationSettingsStatics";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::IHardwareIdentificationStatics> = L"Windows.System.Profile.IHardwareIdentificationStatics";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::IHardwareToken> = L"Windows.System.Profile.IHardwareToken";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::IKnownRetailInfoPropertiesStatics> = L"Windows.System.Profile.IKnownRetailInfoPropertiesStatics";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::IPlatformDiagnosticsAndUsageDataSettingsStatics> = L"Windows.System.Profile.IPlatformDiagnosticsAndUsageDataSettingsStatics";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::IRetailInfoStatics> = L"Windows.System.Profile.IRetailInfoStatics";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::ISharedModeSettingsStatics> = L"Windows.System.Profile.ISharedModeSettingsStatics";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::ISharedModeSettingsStatics2> = L"Windows.System.Profile.ISharedModeSettingsStatics2";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::ISystemIdentificationInfo> = L"Windows.System.Profile.ISystemIdentificationInfo";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::ISystemIdentificationStatics> = L"Windows.System.Profile.ISystemIdentificationStatics";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::ISystemSetupInfoStatics> = L"Windows.System.Profile.ISystemSetupInfoStatics";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::IUnsupportedAppRequirement> = L"Windows.System.Profile.IUnsupportedAppRequirement";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::IWindowsIntegrityPolicyStatics> = L"Windows.System.Profile.IWindowsIntegrityPolicyStatics";
     template <> inline constexpr guid guid_v<Windows::System::Profile::IAnalyticsInfoStatics>{ 0x1D5EE066,0x188D,0x5BA9,{ 0x43,0x87,0xAC,0xAE,0xB0,0xE7,0xE3,0x05 } };
     template <> inline constexpr guid guid_v<Windows::System::Profile::IAnalyticsInfoStatics2>{ 0x101704EA,0xA7F9,0x46D2,{ 0xAB,0x94,0x01,0x68,0x65,0xAF,0xDB,0x25 } };
     template <> inline constexpr guid guid_v<Windows::System::Profile::IAnalyticsVersionInfo>{ 0x926130B8,0x9955,0x4C74,{ 0xBD,0xC1,0x7C,0xD0,0xDE,0xCF,0x9B,0x03 } };
@@ -340,8 +341,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Profile_IAnalyticsInfoStatics
     {
-        [[nodiscard]] auto VersionInfo() const;
-        [[nodiscard]] auto DeviceForm() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::Profile::AnalyticsVersionInfo) VersionInfo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceForm() const;
     };
     template <> struct consume<Windows::System::Profile::IAnalyticsInfoStatics>
     {
@@ -350,7 +351,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Profile_IAnalyticsInfoStatics2
     {
-        auto GetSystemPropertiesAsync(param::async_iterable<hstring> const& attributeNames) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IMapView<hstring, hstring>>) GetSystemPropertiesAsync(param::async_iterable<hstring> const& attributeNames) const;
     };
     template <> struct consume<Windows::System::Profile::IAnalyticsInfoStatics2>
     {
@@ -359,8 +360,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Profile_IAnalyticsVersionInfo
     {
-        [[nodiscard]] auto DeviceFamily() const;
-        [[nodiscard]] auto DeviceFamilyVersion() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceFamily() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceFamilyVersion() const;
     };
     template <> struct consume<Windows::System::Profile::IAnalyticsVersionInfo>
     {
@@ -369,7 +370,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Profile_IAppApplicabilityStatics
     {
-        auto GetUnsupportedAppRequirements(param::iterable<hstring> const& capabilities) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::System::Profile::UnsupportedAppRequirement>) GetUnsupportedAppRequirements(param::iterable<hstring> const& capabilities) const;
     };
     template <> struct consume<Windows::System::Profile::IAppApplicabilityStatics>
     {
@@ -378,7 +379,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Profile_IEducationSettingsStatics
     {
-        [[nodiscard]] auto IsEducationEnvironment() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsEducationEnvironment() const;
     };
     template <> struct consume<Windows::System::Profile::IEducationSettingsStatics>
     {
@@ -387,7 +388,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Profile_IHardwareIdentificationStatics
     {
-        auto GetPackageSpecificToken(Windows::Storage::Streams::IBuffer const& nonce) const;
+        WINRT_IMPL_AUTO(Windows::System::Profile::HardwareToken) GetPackageSpecificToken(Windows::Storage::Streams::IBuffer const& nonce) const;
     };
     template <> struct consume<Windows::System::Profile::IHardwareIdentificationStatics>
     {
@@ -396,9 +397,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Profile_IHardwareToken
     {
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto Signature() const;
-        [[nodiscard]] auto Certificate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) Signature() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) Certificate() const;
     };
     template <> struct consume<Windows::System::Profile::IHardwareToken>
     {
@@ -407,28 +408,28 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Profile_IKnownRetailInfoPropertiesStatics
     {
-        [[nodiscard]] auto RetailAccessCode() const;
-        [[nodiscard]] auto ManufacturerName() const;
-        [[nodiscard]] auto ModelName() const;
-        [[nodiscard]] auto DisplayModelName() const;
-        [[nodiscard]] auto Price() const;
-        [[nodiscard]] auto IsFeatured() const;
-        [[nodiscard]] auto FormFactor() const;
-        [[nodiscard]] auto ScreenSize() const;
-        [[nodiscard]] auto Weight() const;
-        [[nodiscard]] auto DisplayDescription() const;
-        [[nodiscard]] auto BatteryLifeDescription() const;
-        [[nodiscard]] auto ProcessorDescription() const;
-        [[nodiscard]] auto Memory() const;
-        [[nodiscard]] auto StorageDescription() const;
-        [[nodiscard]] auto GraphicsDescription() const;
-        [[nodiscard]] auto FrontCameraDescription() const;
-        [[nodiscard]] auto RearCameraDescription() const;
-        [[nodiscard]] auto HasNfc() const;
-        [[nodiscard]] auto HasSdSlot() const;
-        [[nodiscard]] auto HasOpticalDrive() const;
-        [[nodiscard]] auto IsOfficeInstalled() const;
-        [[nodiscard]] auto WindowsEdition() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RetailAccessCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ManufacturerName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ModelName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayModelName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Price() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) IsFeatured() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FormFactor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ScreenSize() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Weight() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayDescription() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BatteryLifeDescription() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ProcessorDescription() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Memory() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) StorageDescription() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) GraphicsDescription() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FrontCameraDescription() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RearCameraDescription() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) HasNfc() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) HasSdSlot() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) HasOpticalDrive() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) IsOfficeInstalled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WindowsEdition() const;
     };
     template <> struct consume<Windows::System::Profile::IKnownRetailInfoPropertiesStatics>
     {
@@ -437,12 +438,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Profile_IPlatformDiagnosticsAndUsageDataSettingsStatics
     {
-        [[nodiscard]] auto CollectionLevel() const;
-        auto CollectionLevelChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::Profile::PlatformDataCollectionLevel) CollectionLevel() const;
+        WINRT_IMPL_AUTO(winrt::event_token) CollectionLevelChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using CollectionLevelChanged_revoker = impl::event_revoker<Windows::System::Profile::IPlatformDiagnosticsAndUsageDataSettingsStatics, &impl::abi_t<Windows::System::Profile::IPlatformDiagnosticsAndUsageDataSettingsStatics>::remove_CollectionLevelChanged>;
         [[nodiscard]] CollectionLevelChanged_revoker CollectionLevelChanged(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto CollectionLevelChanged(winrt::event_token const& token) const noexcept;
-        auto CanCollectDiagnostics(Windows::System::Profile::PlatformDataCollectionLevel const& level) const;
+        WINRT_IMPL_AUTO(void) CollectionLevelChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(bool) CanCollectDiagnostics(Windows::System::Profile::PlatformDataCollectionLevel const& level) const;
     };
     template <> struct consume<Windows::System::Profile::IPlatformDiagnosticsAndUsageDataSettingsStatics>
     {
@@ -451,8 +452,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Profile_IRetailInfoStatics
     {
-        [[nodiscard]] auto IsDemoModeEnabled() const;
-        [[nodiscard]] auto Properties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDemoModeEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>) Properties() const;
     };
     template <> struct consume<Windows::System::Profile::IRetailInfoStatics>
     {
@@ -461,7 +462,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Profile_ISharedModeSettingsStatics
     {
-        [[nodiscard]] auto IsEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsEnabled() const;
     };
     template <> struct consume<Windows::System::Profile::ISharedModeSettingsStatics>
     {
@@ -470,7 +471,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Profile_ISharedModeSettingsStatics2
     {
-        [[nodiscard]] auto ShouldAvoidLocalStorage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ShouldAvoidLocalStorage() const;
     };
     template <> struct consume<Windows::System::Profile::ISharedModeSettingsStatics2>
     {
@@ -479,8 +480,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Profile_ISystemIdentificationInfo
     {
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto Source() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::Profile::SystemIdentificationSource) Source() const;
     };
     template <> struct consume<Windows::System::Profile::ISystemIdentificationInfo>
     {
@@ -489,8 +490,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Profile_ISystemIdentificationStatics
     {
-        auto GetSystemIdForPublisher() const;
-        auto GetSystemIdForUser(Windows::System::User const& user) const;
+        WINRT_IMPL_AUTO(Windows::System::Profile::SystemIdentificationInfo) GetSystemIdForPublisher() const;
+        WINRT_IMPL_AUTO(Windows::System::Profile::SystemIdentificationInfo) GetSystemIdForUser(Windows::System::User const& user) const;
     };
     template <> struct consume<Windows::System::Profile::ISystemIdentificationStatics>
     {
@@ -499,11 +500,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Profile_ISystemSetupInfoStatics
     {
-        [[nodiscard]] auto OutOfBoxExperienceState() const;
-        auto OutOfBoxExperienceStateChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::Profile::SystemOutOfBoxExperienceState) OutOfBoxExperienceState() const;
+        WINRT_IMPL_AUTO(winrt::event_token) OutOfBoxExperienceStateChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using OutOfBoxExperienceStateChanged_revoker = impl::event_revoker<Windows::System::Profile::ISystemSetupInfoStatics, &impl::abi_t<Windows::System::Profile::ISystemSetupInfoStatics>::remove_OutOfBoxExperienceStateChanged>;
         [[nodiscard]] OutOfBoxExperienceStateChanged_revoker OutOfBoxExperienceStateChanged(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto OutOfBoxExperienceStateChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) OutOfBoxExperienceStateChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::System::Profile::ISystemSetupInfoStatics>
     {
@@ -512,8 +513,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Profile_IUnsupportedAppRequirement
     {
-        [[nodiscard]] auto Requirement() const;
-        [[nodiscard]] auto Reasons() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Requirement() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::Profile::UnsupportedAppRequirementReasons) Reasons() const;
     };
     template <> struct consume<Windows::System::Profile::IUnsupportedAppRequirement>
     {
@@ -522,14 +523,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Profile_IWindowsIntegrityPolicyStatics
     {
-        [[nodiscard]] auto IsEnabled() const;
-        [[nodiscard]] auto IsEnabledForTrial() const;
-        [[nodiscard]] auto CanDisable() const;
-        [[nodiscard]] auto IsDisableSupported() const;
-        auto PolicyChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsEnabledForTrial() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanDisable() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDisableSupported() const;
+        WINRT_IMPL_AUTO(winrt::event_token) PolicyChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using PolicyChanged_revoker = impl::event_revoker<Windows::System::Profile::IWindowsIntegrityPolicyStatics, &impl::abi_t<Windows::System::Profile::IWindowsIntegrityPolicyStatics>::remove_PolicyChanged>;
         [[nodiscard]] PolicyChanged_revoker PolicyChanged(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto PolicyChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) PolicyChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::System::Profile::IWindowsIntegrityPolicyStatics>
     {

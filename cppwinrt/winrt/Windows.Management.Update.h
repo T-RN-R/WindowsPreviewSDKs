@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,48 +6,48 @@
 #ifndef WINRT_Windows_Management_Update_H
 #define WINRT_Windows_Management_Update_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.Management.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
 #include "winrt/impl/Windows.Management.Update.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_Management_Update_IPreviewBuildsManager<D>::ArePreviewBuildsAllowed() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Management_Update_IPreviewBuildsManager<D>::ArePreviewBuildsAllowed() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Management::Update::IPreviewBuildsManager)->get_ArePreviewBuildsAllowed(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Management_Update_IPreviewBuildsManager<D>::ArePreviewBuildsAllowed(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Management_Update_IPreviewBuildsManager<D>::ArePreviewBuildsAllowed(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Management::Update::IPreviewBuildsManager)->put_ArePreviewBuildsAllowed(value));
     }
-    template <typename D> auto consume_Windows_Management_Update_IPreviewBuildsManager<D>::GetCurrentState() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Management::Update::PreviewBuildsState) consume_Windows_Management_Update_IPreviewBuildsManager<D>::GetCurrentState() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Management::Update::IPreviewBuildsManager)->GetCurrentState(&result));
         return Windows::Management::Update::PreviewBuildsState{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Management_Update_IPreviewBuildsManager<D>::SyncAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_Management_Update_IPreviewBuildsManager<D>::SyncAsync() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Management::Update::IPreviewBuildsManager)->SyncAsync(&result));
         return Windows::Foundation::IAsyncOperation<bool>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Management_Update_IPreviewBuildsManagerStatics<D>::GetDefault() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Management::Update::PreviewBuildsManager) consume_Windows_Management_Update_IPreviewBuildsManagerStatics<D>::GetDefault() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Management::Update::IPreviewBuildsManagerStatics)->GetDefault(&value));
         return Windows::Management::Update::PreviewBuildsManager{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Management_Update_IPreviewBuildsManagerStatics<D>::IsSupported() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Management_Update_IPreviewBuildsManagerStatics<D>::IsSupported() const
     {
-        bool result;
+        bool result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Management::Update::IPreviewBuildsManagerStatics)->IsSupported(&result));
         return result;
     }
-    template <typename D> auto consume_Windows_Management_Update_IPreviewBuildsState<D>::Properties() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::ValueSet) consume_Windows_Management_Update_IPreviewBuildsState<D>::Properties() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Management::Update::IPreviewBuildsState)->get_Properties(&value));

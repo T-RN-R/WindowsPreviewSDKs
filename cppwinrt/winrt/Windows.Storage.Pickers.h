@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_Storage_Pickers_H
 #define WINRT_Windows_Storage_Pickers_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.Storage.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
@@ -15,275 +15,275 @@ static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatche
 #include "winrt/impl/Windows.Storage.Pickers.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileOpenPicker<D>::ViewMode() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Pickers::PickerViewMode) consume_Windows_Storage_Pickers_IFileOpenPicker<D>::ViewMode() const
     {
-        Windows::Storage::Pickers::PickerViewMode value;
+        Windows::Storage::Pickers::PickerViewMode value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileOpenPicker)->get_ViewMode(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileOpenPicker<D>::ViewMode(Windows::Storage::Pickers::PickerViewMode const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Storage_Pickers_IFileOpenPicker<D>::ViewMode(Windows::Storage::Pickers::PickerViewMode const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileOpenPicker)->put_ViewMode(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileOpenPicker<D>::SettingsIdentifier() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Storage_Pickers_IFileOpenPicker<D>::SettingsIdentifier() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileOpenPicker)->get_SettingsIdentifier(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileOpenPicker<D>::SettingsIdentifier(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Storage_Pickers_IFileOpenPicker<D>::SettingsIdentifier(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileOpenPicker)->put_SettingsIdentifier(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileOpenPicker<D>::SuggestedStartLocation() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Pickers::PickerLocationId) consume_Windows_Storage_Pickers_IFileOpenPicker<D>::SuggestedStartLocation() const
     {
-        Windows::Storage::Pickers::PickerLocationId value;
+        Windows::Storage::Pickers::PickerLocationId value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileOpenPicker)->get_SuggestedStartLocation(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileOpenPicker<D>::SuggestedStartLocation(Windows::Storage::Pickers::PickerLocationId const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Storage_Pickers_IFileOpenPicker<D>::SuggestedStartLocation(Windows::Storage::Pickers::PickerLocationId const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileOpenPicker)->put_SuggestedStartLocation(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileOpenPicker<D>::CommitButtonText() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Storage_Pickers_IFileOpenPicker<D>::CommitButtonText() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileOpenPicker)->get_CommitButtonText(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileOpenPicker<D>::CommitButtonText(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Storage_Pickers_IFileOpenPicker<D>::CommitButtonText(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileOpenPicker)->put_CommitButtonText(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileOpenPicker<D>::FileTypeFilter() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) consume_Windows_Storage_Pickers_IFileOpenPicker<D>::FileTypeFilter() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileOpenPicker)->get_FileTypeFilter(&value));
         return Windows::Foundation::Collections::IVector<hstring>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileOpenPicker<D>::PickSingleFileAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::StorageFile>) consume_Windows_Storage_Pickers_IFileOpenPicker<D>::PickSingleFileAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileOpenPicker)->PickSingleFileAsync(&operation));
         return Windows::Foundation::IAsyncOperation<Windows::Storage::StorageFile>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileOpenPicker<D>::PickMultipleFilesAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Storage::StorageFile>>) consume_Windows_Storage_Pickers_IFileOpenPicker<D>::PickMultipleFilesAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileOpenPicker)->PickMultipleFilesAsync(&operation));
         return Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Storage::StorageFile>>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileOpenPicker2<D>::ContinuationData() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::ValueSet) consume_Windows_Storage_Pickers_IFileOpenPicker2<D>::ContinuationData() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileOpenPicker2)->get_ContinuationData(&value));
         return Windows::Foundation::Collections::ValueSet{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileOpenPicker2<D>::PickSingleFileAndContinue() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Storage_Pickers_IFileOpenPicker2<D>::PickSingleFileAndContinue() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileOpenPicker2)->PickSingleFileAndContinue());
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileOpenPicker2<D>::PickMultipleFilesAndContinue() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Storage_Pickers_IFileOpenPicker2<D>::PickMultipleFilesAndContinue() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileOpenPicker2)->PickMultipleFilesAndContinue());
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileOpenPicker3<D>::User() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::System::User) consume_Windows_Storage_Pickers_IFileOpenPicker3<D>::User() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileOpenPicker3)->get_User(&value));
         return Windows::System::User{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileOpenPickerStatics<D>::ResumePickSingleFileAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::StorageFile>) consume_Windows_Storage_Pickers_IFileOpenPickerStatics<D>::ResumePickSingleFileAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileOpenPickerStatics)->ResumePickSingleFileAsync(&operation));
         return Windows::Foundation::IAsyncOperation<Windows::Storage::StorageFile>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileOpenPickerStatics2<D>::CreateForUser(Windows::System::User const& user) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Pickers::FileOpenPicker) consume_Windows_Storage_Pickers_IFileOpenPickerStatics2<D>::CreateForUser(Windows::System::User const& user) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileOpenPickerStatics2)->CreateForUser(*(void**)(&user), &result));
         return Windows::Storage::Pickers::FileOpenPicker{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileOpenPickerWithOperationId<D>::PickSingleFileAsync(param::hstring const& pickerOperationId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::StorageFile>) consume_Windows_Storage_Pickers_IFileOpenPickerWithOperationId<D>::PickSingleFileAsync(param::hstring const& pickerOperationId) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileOpenPickerWithOperationId)->PickSingleFileAsync(*(void**)(&pickerOperationId), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::Storage::StorageFile>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileSavePicker<D>::SettingsIdentifier() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Storage_Pickers_IFileSavePicker<D>::SettingsIdentifier() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileSavePicker)->get_SettingsIdentifier(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileSavePicker<D>::SettingsIdentifier(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Storage_Pickers_IFileSavePicker<D>::SettingsIdentifier(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileSavePicker)->put_SettingsIdentifier(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileSavePicker<D>::SuggestedStartLocation() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Pickers::PickerLocationId) consume_Windows_Storage_Pickers_IFileSavePicker<D>::SuggestedStartLocation() const
     {
-        Windows::Storage::Pickers::PickerLocationId value;
+        Windows::Storage::Pickers::PickerLocationId value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileSavePicker)->get_SuggestedStartLocation(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileSavePicker<D>::SuggestedStartLocation(Windows::Storage::Pickers::PickerLocationId const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Storage_Pickers_IFileSavePicker<D>::SuggestedStartLocation(Windows::Storage::Pickers::PickerLocationId const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileSavePicker)->put_SuggestedStartLocation(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileSavePicker<D>::CommitButtonText() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Storage_Pickers_IFileSavePicker<D>::CommitButtonText() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileSavePicker)->get_CommitButtonText(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileSavePicker<D>::CommitButtonText(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Storage_Pickers_IFileSavePicker<D>::CommitButtonText(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileSavePicker)->put_CommitButtonText(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileSavePicker<D>::FileTypeChoices() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMap<hstring, Windows::Foundation::Collections::IVector<hstring>>) consume_Windows_Storage_Pickers_IFileSavePicker<D>::FileTypeChoices() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileSavePicker)->get_FileTypeChoices(&value));
         return Windows::Foundation::Collections::IMap<hstring, Windows::Foundation::Collections::IVector<hstring>>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileSavePicker<D>::DefaultFileExtension() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Storage_Pickers_IFileSavePicker<D>::DefaultFileExtension() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileSavePicker)->get_DefaultFileExtension(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileSavePicker<D>::DefaultFileExtension(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Storage_Pickers_IFileSavePicker<D>::DefaultFileExtension(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileSavePicker)->put_DefaultFileExtension(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileSavePicker<D>::SuggestedSaveFile() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::StorageFile) consume_Windows_Storage_Pickers_IFileSavePicker<D>::SuggestedSaveFile() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileSavePicker)->get_SuggestedSaveFile(&value));
         return Windows::Storage::StorageFile{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileSavePicker<D>::SuggestedSaveFile(Windows::Storage::StorageFile const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Storage_Pickers_IFileSavePicker<D>::SuggestedSaveFile(Windows::Storage::StorageFile const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileSavePicker)->put_SuggestedSaveFile(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileSavePicker<D>::SuggestedFileName() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Storage_Pickers_IFileSavePicker<D>::SuggestedFileName() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileSavePicker)->get_SuggestedFileName(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileSavePicker<D>::SuggestedFileName(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Storage_Pickers_IFileSavePicker<D>::SuggestedFileName(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileSavePicker)->put_SuggestedFileName(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileSavePicker<D>::PickSaveFileAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::StorageFile>) consume_Windows_Storage_Pickers_IFileSavePicker<D>::PickSaveFileAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileSavePicker)->PickSaveFileAsync(&operation));
         return Windows::Foundation::IAsyncOperation<Windows::Storage::StorageFile>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileSavePicker2<D>::ContinuationData() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::ValueSet) consume_Windows_Storage_Pickers_IFileSavePicker2<D>::ContinuationData() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileSavePicker2)->get_ContinuationData(&value));
         return Windows::Foundation::Collections::ValueSet{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileSavePicker2<D>::PickSaveFileAndContinue() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Storage_Pickers_IFileSavePicker2<D>::PickSaveFileAndContinue() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileSavePicker2)->PickSaveFileAndContinue());
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileSavePicker3<D>::EnterpriseId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Storage_Pickers_IFileSavePicker3<D>::EnterpriseId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileSavePicker3)->get_EnterpriseId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileSavePicker3<D>::EnterpriseId(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Storage_Pickers_IFileSavePicker3<D>::EnterpriseId(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileSavePicker3)->put_EnterpriseId(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileSavePicker4<D>::User() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::System::User) consume_Windows_Storage_Pickers_IFileSavePicker4<D>::User() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileSavePicker4)->get_User(&value));
         return Windows::System::User{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFileSavePickerStatics<D>::CreateForUser(Windows::System::User const& user) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Pickers::FileSavePicker) consume_Windows_Storage_Pickers_IFileSavePickerStatics<D>::CreateForUser(Windows::System::User const& user) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFileSavePickerStatics)->CreateForUser(*(void**)(&user), &result));
         return Windows::Storage::Pickers::FileSavePicker{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFolderPicker<D>::ViewMode() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Pickers::PickerViewMode) consume_Windows_Storage_Pickers_IFolderPicker<D>::ViewMode() const
     {
-        Windows::Storage::Pickers::PickerViewMode value;
+        Windows::Storage::Pickers::PickerViewMode value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFolderPicker)->get_ViewMode(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFolderPicker<D>::ViewMode(Windows::Storage::Pickers::PickerViewMode const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Storage_Pickers_IFolderPicker<D>::ViewMode(Windows::Storage::Pickers::PickerViewMode const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFolderPicker)->put_ViewMode(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFolderPicker<D>::SettingsIdentifier() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Storage_Pickers_IFolderPicker<D>::SettingsIdentifier() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFolderPicker)->get_SettingsIdentifier(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFolderPicker<D>::SettingsIdentifier(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Storage_Pickers_IFolderPicker<D>::SettingsIdentifier(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFolderPicker)->put_SettingsIdentifier(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFolderPicker<D>::SuggestedStartLocation() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Pickers::PickerLocationId) consume_Windows_Storage_Pickers_IFolderPicker<D>::SuggestedStartLocation() const
     {
-        Windows::Storage::Pickers::PickerLocationId value;
+        Windows::Storage::Pickers::PickerLocationId value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFolderPicker)->get_SuggestedStartLocation(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFolderPicker<D>::SuggestedStartLocation(Windows::Storage::Pickers::PickerLocationId const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Storage_Pickers_IFolderPicker<D>::SuggestedStartLocation(Windows::Storage::Pickers::PickerLocationId const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFolderPicker)->put_SuggestedStartLocation(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFolderPicker<D>::CommitButtonText() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Storage_Pickers_IFolderPicker<D>::CommitButtonText() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFolderPicker)->get_CommitButtonText(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFolderPicker<D>::CommitButtonText(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Storage_Pickers_IFolderPicker<D>::CommitButtonText(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFolderPicker)->put_CommitButtonText(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFolderPicker<D>::FileTypeFilter() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) consume_Windows_Storage_Pickers_IFolderPicker<D>::FileTypeFilter() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFolderPicker)->get_FileTypeFilter(&value));
         return Windows::Foundation::Collections::IVector<hstring>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFolderPicker<D>::PickSingleFolderAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::StorageFolder>) consume_Windows_Storage_Pickers_IFolderPicker<D>::PickSingleFolderAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFolderPicker)->PickSingleFolderAsync(&operation));
         return Windows::Foundation::IAsyncOperation<Windows::Storage::StorageFolder>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFolderPicker2<D>::ContinuationData() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::ValueSet) consume_Windows_Storage_Pickers_IFolderPicker2<D>::ContinuationData() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFolderPicker2)->get_ContinuationData(&value));
         return Windows::Foundation::Collections::ValueSet{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFolderPicker2<D>::PickFolderAndContinue() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Storage_Pickers_IFolderPicker2<D>::PickFolderAndContinue() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFolderPicker2)->PickFolderAndContinue());
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFolderPicker3<D>::User() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::System::User) consume_Windows_Storage_Pickers_IFolderPicker3<D>::User() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFolderPicker3)->get_User(&value));
         return Windows::System::User{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Storage_Pickers_IFolderPickerStatics<D>::CreateForUser(Windows::System::User const& user) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Pickers::FolderPicker) consume_Windows_Storage_Pickers_IFolderPickerStatics<D>::CreateForUser(Windows::System::User const& user) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Storage::Pickers::IFolderPickerStatics)->CreateForUser(*(void**)(&user), &result));

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -16,6 +16,11 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
     struct EventRegistrationToken;
     template <typename T> struct IReference;
     template <typename TSender, typename TResult> struct TypedEventHandler;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
+    template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage::Streams
 {
@@ -134,44 +139,42 @@ namespace winrt::impl
     template <> struct category<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementType>{ using type = enum_category; };
     template <> struct category<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementWatcherStatus>{ using type = enum_category; };
     template <> struct category<Windows::Devices::Bluetooth::Advertisement::BluetoothLEScanningMode>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisement>{ L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisement" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementBytePattern>{ L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementBytePattern" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementDataSection>{ L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataSection" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementDataTypes>{ L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataTypes" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter>{ L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementFilter" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPublisher>{ L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisher" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPublisherStatusChangedEventArgs>{ L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisherStatusChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementReceivedEventArgs>{ L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementReceivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementWatcher>{ L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcher" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementWatcherStoppedEventArgs>{ L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcherStoppedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEManufacturerData>{ L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEManufacturerData" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFlags>{ L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementFlags" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPublisherStatus>{ L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisherStatus" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementType>{ L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementType" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementWatcherStatus>{ L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcherStatus" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEScanningMode>{ L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEScanningMode" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisement>{ L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisement" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementBytePattern>{ L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementBytePattern" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementBytePatternFactory>{ L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementBytePatternFactory" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementDataSection>{ L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementDataSection" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementDataSectionFactory>{ L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementDataSectionFactory" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementDataTypesStatics>{ L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementDataTypesStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementFilter>{ L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementFilter" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementPublisher>{ L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementPublisher" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementPublisher2>{ L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementPublisher2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementPublisherFactory>{ L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementPublisherFactory" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementPublisherStatusChangedEventArgs>{ L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementPublisherStatusChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2>{ L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementReceivedEventArgs>{ L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementReceivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementReceivedEventArgs2>{ L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementReceivedEventArgs2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementWatcher>{ L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementWatcher" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementWatcher2>{ L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementWatcher2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementWatcherFactory>{ L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementWatcherFactory" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementWatcherStoppedEventArgs>{ L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementWatcherStoppedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEManufacturerData>{ L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEManufacturerData" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEManufacturerDataFactory>{ L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEManufacturerDataFactory" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisement> = L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisement";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementBytePattern> = L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementBytePattern";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementDataSection> = L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataSection";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementDataTypes> = L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataTypes";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter> = L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementFilter";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPublisher> = L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisher";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPublisherStatusChangedEventArgs> = L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisherStatusChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementReceivedEventArgs> = L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementReceivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementWatcher> = L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcher";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementWatcherStoppedEventArgs> = L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcherStoppedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEManufacturerData> = L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEManufacturerData";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFlags> = L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementFlags";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPublisherStatus> = L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisherStatus";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementType> = L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementType";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementWatcherStatus> = L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcherStatus";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::BluetoothLEScanningMode> = L"Windows.Devices.Bluetooth.Advertisement.BluetoothLEScanningMode";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisement> = L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisement";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementBytePattern> = L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementBytePattern";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementBytePatternFactory> = L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementBytePatternFactory";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementDataSection> = L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementDataSection";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementDataSectionFactory> = L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementDataSectionFactory";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementDataTypesStatics> = L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementDataTypesStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementFilter> = L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementFilter";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementPublisher> = L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementPublisher";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementPublisher2> = L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementPublisher2";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementPublisherFactory> = L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementPublisherFactory";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementPublisherStatusChangedEventArgs> = L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementPublisherStatusChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2> = L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementReceivedEventArgs> = L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementReceivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementReceivedEventArgs2> = L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementReceivedEventArgs2";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementWatcher> = L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementWatcher";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementWatcher2> = L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementWatcher2";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementWatcherFactory> = L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementWatcherFactory";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementWatcherStoppedEventArgs> = L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEAdvertisementWatcherStoppedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEManufacturerData> = L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEManufacturerData";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEManufacturerDataFactory> = L"Windows.Devices.Bluetooth.Advertisement.IBluetoothLEManufacturerDataFactory";
     template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisement>{ 0x066FB2B7,0x33D1,0x4E7D,{ 0x83,0x67,0xCF,0x81,0xD0,0xF7,0x96,0x53 } };
     template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementBytePattern>{ 0xFBFAD7F2,0xB9C5,0x4A08,{ 0xBC,0x51,0x50,0x2F,0x8E,0xF6,0x8A,0x79 } };
     template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementBytePatternFactory>{ 0xC2E24D73,0xFD5C,0x4EC3,{ 0xBE,0x2A,0x9C,0xA6,0xFA,0x11,0xB7,0xBD } };
@@ -427,15 +430,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_Advertisement_IBluetoothLEAdvertisement
     {
-        [[nodiscard]] auto Flags() const;
-        auto Flags(Windows::Foundation::IReference<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFlags> const& value) const;
-        [[nodiscard]] auto LocalName() const;
-        auto LocalName(param::hstring const& value) const;
-        [[nodiscard]] auto ServiceUuids() const;
-        [[nodiscard]] auto ManufacturerData() const;
-        [[nodiscard]] auto DataSections() const;
-        auto GetManufacturerDataByCompanyId(uint16_t companyId) const;
-        auto GetSectionsByType(uint8_t type) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFlags>) Flags() const;
+        WINRT_IMPL_AUTO(void) Flags(Windows::Foundation::IReference<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFlags> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) LocalName() const;
+        WINRT_IMPL_AUTO(void) LocalName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<winrt::guid>) ServiceUuids() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Devices::Bluetooth::Advertisement::BluetoothLEManufacturerData>) ManufacturerData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementDataSection>) DataSections() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Bluetooth::Advertisement::BluetoothLEManufacturerData>) GetManufacturerDataByCompanyId(uint16_t companyId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementDataSection>) GetSectionsByType(uint8_t type) const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisement>
     {
@@ -444,12 +447,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_Advertisement_IBluetoothLEAdvertisementBytePattern
     {
-        [[nodiscard]] auto DataType() const;
-        auto DataType(uint8_t value) const;
-        [[nodiscard]] auto Offset() const;
-        auto Offset(int16_t value) const;
-        [[nodiscard]] auto Data() const;
-        auto Data(Windows::Storage::Streams::IBuffer const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) DataType() const;
+        WINRT_IMPL_AUTO(void) DataType(uint8_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int16_t) Offset() const;
+        WINRT_IMPL_AUTO(void) Offset(int16_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) Data() const;
+        WINRT_IMPL_AUTO(void) Data(Windows::Storage::Streams::IBuffer const& value) const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementBytePattern>
     {
@@ -458,7 +461,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_Advertisement_IBluetoothLEAdvertisementBytePatternFactory
     {
-        auto Create(uint8_t dataType, int16_t offset, Windows::Storage::Streams::IBuffer const& data) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementBytePattern) Create(uint8_t dataType, int16_t offset, Windows::Storage::Streams::IBuffer const& data) const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementBytePatternFactory>
     {
@@ -467,10 +470,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_Advertisement_IBluetoothLEAdvertisementDataSection
     {
-        [[nodiscard]] auto DataType() const;
-        auto DataType(uint8_t value) const;
-        [[nodiscard]] auto Data() const;
-        auto Data(Windows::Storage::Streams::IBuffer const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) DataType() const;
+        WINRT_IMPL_AUTO(void) DataType(uint8_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) Data() const;
+        WINRT_IMPL_AUTO(void) Data(Windows::Storage::Streams::IBuffer const& value) const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementDataSection>
     {
@@ -479,7 +482,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_Advertisement_IBluetoothLEAdvertisementDataSectionFactory
     {
-        auto Create(uint8_t dataType, Windows::Storage::Streams::IBuffer const& data) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementDataSection) Create(uint8_t dataType, Windows::Storage::Streams::IBuffer const& data) const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementDataSectionFactory>
     {
@@ -488,28 +491,28 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_Advertisement_IBluetoothLEAdvertisementDataTypesStatics
     {
-        [[nodiscard]] auto Flags() const;
-        [[nodiscard]] auto IncompleteService16BitUuids() const;
-        [[nodiscard]] auto CompleteService16BitUuids() const;
-        [[nodiscard]] auto IncompleteService32BitUuids() const;
-        [[nodiscard]] auto CompleteService32BitUuids() const;
-        [[nodiscard]] auto IncompleteService128BitUuids() const;
-        [[nodiscard]] auto CompleteService128BitUuids() const;
-        [[nodiscard]] auto ShortenedLocalName() const;
-        [[nodiscard]] auto CompleteLocalName() const;
-        [[nodiscard]] auto TxPowerLevel() const;
-        [[nodiscard]] auto SlaveConnectionIntervalRange() const;
-        [[nodiscard]] auto ServiceSolicitation16BitUuids() const;
-        [[nodiscard]] auto ServiceSolicitation32BitUuids() const;
-        [[nodiscard]] auto ServiceSolicitation128BitUuids() const;
-        [[nodiscard]] auto ServiceData16BitUuids() const;
-        [[nodiscard]] auto ServiceData32BitUuids() const;
-        [[nodiscard]] auto ServiceData128BitUuids() const;
-        [[nodiscard]] auto PublicTargetAddress() const;
-        [[nodiscard]] auto RandomTargetAddress() const;
-        [[nodiscard]] auto Appearance() const;
-        [[nodiscard]] auto AdvertisingInterval() const;
-        [[nodiscard]] auto ManufacturerSpecificData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) Flags() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) IncompleteService16BitUuids() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) CompleteService16BitUuids() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) IncompleteService32BitUuids() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) CompleteService32BitUuids() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) IncompleteService128BitUuids() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) CompleteService128BitUuids() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) ShortenedLocalName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) CompleteLocalName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) TxPowerLevel() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) SlaveConnectionIntervalRange() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) ServiceSolicitation16BitUuids() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) ServiceSolicitation32BitUuids() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) ServiceSolicitation128BitUuids() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) ServiceData16BitUuids() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) ServiceData32BitUuids() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) ServiceData128BitUuids() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) PublicTargetAddress() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) RandomTargetAddress() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) Appearance() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) AdvertisingInterval() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) ManufacturerSpecificData() const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementDataTypesStatics>
     {
@@ -518,9 +521,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_Advertisement_IBluetoothLEAdvertisementFilter
     {
-        [[nodiscard]] auto Advertisement() const;
-        auto Advertisement(Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisement const& value) const;
-        [[nodiscard]] auto BytePatterns() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisement) Advertisement() const;
+        WINRT_IMPL_AUTO(void) Advertisement(Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisement const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementBytePattern>) BytePatterns() const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementFilter>
     {
@@ -529,14 +532,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_Advertisement_IBluetoothLEAdvertisementPublisher
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto Advertisement() const;
-        auto Start() const;
-        auto Stop() const;
-        auto StatusChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPublisher, Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPublisherStatusChangedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPublisherStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisement) Advertisement() const;
+        WINRT_IMPL_AUTO(void) Start() const;
+        WINRT_IMPL_AUTO(void) Stop() const;
+        WINRT_IMPL_AUTO(winrt::event_token) StatusChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPublisher, Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPublisherStatusChangedEventArgs> const& handler) const;
         using StatusChanged_revoker = impl::event_revoker<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementPublisher, &impl::abi_t<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementPublisher>::remove_StatusChanged>;
         [[nodiscard]] StatusChanged_revoker StatusChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPublisher, Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPublisherStatusChangedEventArgs> const& handler) const;
-        auto StatusChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) StatusChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementPublisher>
     {
@@ -545,14 +548,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_Advertisement_IBluetoothLEAdvertisementPublisher2
     {
-        [[nodiscard]] auto PreferredTransmitPowerLevelInDBm() const;
-        auto PreferredTransmitPowerLevelInDBm(Windows::Foundation::IReference<int16_t> const& value) const;
-        [[nodiscard]] auto UseExtendedAdvertisement() const;
-        auto UseExtendedAdvertisement(bool value) const;
-        [[nodiscard]] auto IsAnonymous() const;
-        auto IsAnonymous(bool value) const;
-        [[nodiscard]] auto IncludeTransmitPowerLevel() const;
-        auto IncludeTransmitPowerLevel(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int16_t>) PreferredTransmitPowerLevelInDBm() const;
+        WINRT_IMPL_AUTO(void) PreferredTransmitPowerLevelInDBm(Windows::Foundation::IReference<int16_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) UseExtendedAdvertisement() const;
+        WINRT_IMPL_AUTO(void) UseExtendedAdvertisement(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsAnonymous() const;
+        WINRT_IMPL_AUTO(void) IsAnonymous(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IncludeTransmitPowerLevel() const;
+        WINRT_IMPL_AUTO(void) IncludeTransmitPowerLevel(bool value) const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementPublisher2>
     {
@@ -561,7 +564,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_Advertisement_IBluetoothLEAdvertisementPublisherFactory
     {
-        auto Create(Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisement const& advertisement) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPublisher) Create(Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisement const& advertisement) const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementPublisherFactory>
     {
@@ -570,8 +573,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_Advertisement_IBluetoothLEAdvertisementPublisherStatusChangedEventArgs
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto Error() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPublisherStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::BluetoothError) Error() const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementPublisherStatusChangedEventArgs>
     {
@@ -580,7 +583,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_Advertisement_IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2
     {
-        [[nodiscard]] auto SelectedTransmitPowerLevelInDBm() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int16_t>) SelectedTransmitPowerLevelInDBm() const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2>
     {
@@ -589,11 +592,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_Advertisement_IBluetoothLEAdvertisementReceivedEventArgs
     {
-        [[nodiscard]] auto RawSignalStrengthInDBm() const;
-        [[nodiscard]] auto BluetoothAddress() const;
-        [[nodiscard]] auto AdvertisementType() const;
-        [[nodiscard]] auto Timestamp() const;
-        [[nodiscard]] auto Advertisement() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int16_t) RawSignalStrengthInDBm() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) BluetoothAddress() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementType) AdvertisementType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) Timestamp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisement) Advertisement() const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementReceivedEventArgs>
     {
@@ -602,13 +605,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_Advertisement_IBluetoothLEAdvertisementReceivedEventArgs2
     {
-        [[nodiscard]] auto BluetoothAddressType() const;
-        [[nodiscard]] auto TransmitPowerLevelInDBm() const;
-        [[nodiscard]] auto IsAnonymous() const;
-        [[nodiscard]] auto IsConnectable() const;
-        [[nodiscard]] auto IsScannable() const;
-        [[nodiscard]] auto IsDirected() const;
-        [[nodiscard]] auto IsScanResponse() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::BluetoothAddressType) BluetoothAddressType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int16_t>) TransmitPowerLevelInDBm() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsAnonymous() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsConnectable() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsScannable() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDirected() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsScanResponse() const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementReceivedEventArgs2>
     {
@@ -617,27 +620,27 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_Advertisement_IBluetoothLEAdvertisementWatcher
     {
-        [[nodiscard]] auto MinSamplingInterval() const;
-        [[nodiscard]] auto MaxSamplingInterval() const;
-        [[nodiscard]] auto MinOutOfRangeTimeout() const;
-        [[nodiscard]] auto MaxOutOfRangeTimeout() const;
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto ScanningMode() const;
-        auto ScanningMode(Windows::Devices::Bluetooth::Advertisement::BluetoothLEScanningMode const& value) const;
-        [[nodiscard]] auto SignalStrengthFilter() const;
-        auto SignalStrengthFilter(Windows::Devices::Bluetooth::BluetoothSignalStrengthFilter const& value) const;
-        [[nodiscard]] auto AdvertisementFilter() const;
-        auto AdvertisementFilter(Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter const& value) const;
-        auto Start() const;
-        auto Stop() const;
-        auto Received(Windows::Foundation::TypedEventHandler<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementWatcher, Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementReceivedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) MinSamplingInterval() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) MaxSamplingInterval() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) MinOutOfRangeTimeout() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) MaxOutOfRangeTimeout() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementWatcherStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::Advertisement::BluetoothLEScanningMode) ScanningMode() const;
+        WINRT_IMPL_AUTO(void) ScanningMode(Windows::Devices::Bluetooth::Advertisement::BluetoothLEScanningMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::BluetoothSignalStrengthFilter) SignalStrengthFilter() const;
+        WINRT_IMPL_AUTO(void) SignalStrengthFilter(Windows::Devices::Bluetooth::BluetoothSignalStrengthFilter const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter) AdvertisementFilter() const;
+        WINRT_IMPL_AUTO(void) AdvertisementFilter(Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter const& value) const;
+        WINRT_IMPL_AUTO(void) Start() const;
+        WINRT_IMPL_AUTO(void) Stop() const;
+        WINRT_IMPL_AUTO(winrt::event_token) Received(Windows::Foundation::TypedEventHandler<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementWatcher, Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementReceivedEventArgs> const& handler) const;
         using Received_revoker = impl::event_revoker<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementWatcher, &impl::abi_t<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementWatcher>::remove_Received>;
         [[nodiscard]] Received_revoker Received(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementWatcher, Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementReceivedEventArgs> const& handler) const;
-        auto Received(winrt::event_token const& token) const noexcept;
-        auto Stopped(Windows::Foundation::TypedEventHandler<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementWatcher, Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementWatcherStoppedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) Received(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Stopped(Windows::Foundation::TypedEventHandler<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementWatcher, Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementWatcherStoppedEventArgs> const& handler) const;
         using Stopped_revoker = impl::event_revoker<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementWatcher, &impl::abi_t<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementWatcher>::remove_Stopped>;
         [[nodiscard]] Stopped_revoker Stopped(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementWatcher, Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementWatcherStoppedEventArgs> const& handler) const;
-        auto Stopped(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Stopped(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementWatcher>
     {
@@ -646,8 +649,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_Advertisement_IBluetoothLEAdvertisementWatcher2
     {
-        [[nodiscard]] auto AllowExtendedAdvertisements() const;
-        auto AllowExtendedAdvertisements(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AllowExtendedAdvertisements() const;
+        WINRT_IMPL_AUTO(void) AllowExtendedAdvertisements(bool value) const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementWatcher2>
     {
@@ -656,7 +659,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_Advertisement_IBluetoothLEAdvertisementWatcherFactory
     {
-        auto Create(Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter const& advertisementFilter) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementWatcher) Create(Windows::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter const& advertisementFilter) const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementWatcherFactory>
     {
@@ -665,7 +668,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_Advertisement_IBluetoothLEAdvertisementWatcherStoppedEventArgs
     {
-        [[nodiscard]] auto Error() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::BluetoothError) Error() const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEAdvertisementWatcherStoppedEventArgs>
     {
@@ -674,10 +677,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_Advertisement_IBluetoothLEManufacturerData
     {
-        [[nodiscard]] auto CompanyId() const;
-        auto CompanyId(uint16_t value) const;
-        [[nodiscard]] auto Data() const;
-        auto Data(Windows::Storage::Streams::IBuffer const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) CompanyId() const;
+        WINRT_IMPL_AUTO(void) CompanyId(uint16_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) Data() const;
+        WINRT_IMPL_AUTO(void) Data(Windows::Storage::Streams::IBuffer const& value) const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEManufacturerData>
     {
@@ -686,7 +689,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_Advertisement_IBluetoothLEManufacturerDataFactory
     {
-        auto Create(uint16_t companyId, Windows::Storage::Streams::IBuffer const& data) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::Advertisement::BluetoothLEManufacturerData) Create(uint16_t companyId, Windows::Storage::Streams::IBuffer const& data) const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::Advertisement::IBluetoothLEManufacturerDataFactory>
     {

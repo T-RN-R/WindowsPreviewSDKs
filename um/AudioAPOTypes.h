@@ -85,6 +85,13 @@ typedef struct APO_CONNECTION_PROPERTY
     UINT32 u32Signature;
 } APO_CONNECTION_PROPERTY;
 
+// This structure defines V2 of the APO_CONNECTION_PROPERTY.
+typedef struct APO_CONNECTION_PROPERTY_V2
+{
+    APO_CONNECTION_PROPERTY   property;
+    UINT64                    u64QPCTime;
+} APO_CONNECTION_PROPERTY_V2;
+
 #ifndef _AUDIO_CURVE_TYPE_
 #define _AUDIO_CURVE_TYPE_
 typedef enum {

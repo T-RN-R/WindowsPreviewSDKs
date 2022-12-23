@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -87,34 +87,32 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Xaml::Markup::XamlReader>{ using type = class_category; };
     template <> struct category<Windows::UI::Xaml::Markup::XamlBinaryWriterErrorInformation>{ using type = struct_category<uint32_t, uint32_t, uint32_t>; };
     template <> struct category<Windows::UI::Xaml::Markup::XmlnsDefinition>{ using type = struct_category<hstring, hstring>; };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::MarkupExtension>{ L"Windows.UI.Xaml.Markup.MarkupExtension" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::XamlBinaryWriter>{ L"Windows.UI.Xaml.Markup.XamlBinaryWriter" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::XamlBindingHelper>{ L"Windows.UI.Xaml.Markup.XamlBindingHelper" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::XamlMarkupHelper>{ L"Windows.UI.Xaml.Markup.XamlMarkupHelper" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::XamlReader>{ L"Windows.UI.Xaml.Markup.XamlReader" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::XamlBinaryWriterErrorInformation>{ L"Windows.UI.Xaml.Markup.XamlBinaryWriterErrorInformation" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::XmlnsDefinition>{ L"Windows.UI.Xaml.Markup.XmlnsDefinition" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IComponentConnector>{ L"Windows.UI.Xaml.Markup.IComponentConnector" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IComponentConnector2>{ L"Windows.UI.Xaml.Markup.IComponentConnector2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IDataTemplateComponent>{ L"Windows.UI.Xaml.Markup.IDataTemplateComponent" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IMarkupExtension>{ L"Windows.UI.Xaml.Markup.IMarkupExtension" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IMarkupExtensionFactory>{ L"Windows.UI.Xaml.Markup.IMarkupExtensionFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IMarkupExtensionOverrides>{ L"Windows.UI.Xaml.Markup.IMarkupExtensionOverrides" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IXamlBinaryWriter>{ L"Windows.UI.Xaml.Markup.IXamlBinaryWriter" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IXamlBinaryWriterStatics>{ L"Windows.UI.Xaml.Markup.IXamlBinaryWriterStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IXamlBindScopeDiagnostics>{ L"Windows.UI.Xaml.Markup.IXamlBindScopeDiagnostics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IXamlBindingHelper>{ L"Windows.UI.Xaml.Markup.IXamlBindingHelper" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IXamlBindingHelperStatics>{ L"Windows.UI.Xaml.Markup.IXamlBindingHelperStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IXamlMarkupHelper>{ L"Windows.UI.Xaml.Markup.IXamlMarkupHelper" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IXamlMarkupHelperStatics>{ L"Windows.UI.Xaml.Markup.IXamlMarkupHelperStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IXamlMember>{ L"Windows.UI.Xaml.Markup.IXamlMember" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IXamlMetadataProvider>{ L"Windows.UI.Xaml.Markup.IXamlMetadataProvider" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IXamlReader>{ L"Windows.UI.Xaml.Markup.IXamlReader" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IXamlReaderStatics>{ L"Windows.UI.Xaml.Markup.IXamlReaderStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IXamlType>{ L"Windows.UI.Xaml.Markup.IXamlType" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IXamlType2>{ L"Windows.UI.Xaml.Markup.IXamlType2" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::MarkupExtension> = L"Windows.UI.Xaml.Markup.MarkupExtension";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::XamlBinaryWriter> = L"Windows.UI.Xaml.Markup.XamlBinaryWriter";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::XamlBindingHelper> = L"Windows.UI.Xaml.Markup.XamlBindingHelper";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::XamlMarkupHelper> = L"Windows.UI.Xaml.Markup.XamlMarkupHelper";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::XamlReader> = L"Windows.UI.Xaml.Markup.XamlReader";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::XamlBinaryWriterErrorInformation> = L"Windows.UI.Xaml.Markup.XamlBinaryWriterErrorInformation";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::XmlnsDefinition> = L"Windows.UI.Xaml.Markup.XmlnsDefinition";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IComponentConnector> = L"Windows.UI.Xaml.Markup.IComponentConnector";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IComponentConnector2> = L"Windows.UI.Xaml.Markup.IComponentConnector2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IDataTemplateComponent> = L"Windows.UI.Xaml.Markup.IDataTemplateComponent";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IMarkupExtension> = L"Windows.UI.Xaml.Markup.IMarkupExtension";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IMarkupExtensionFactory> = L"Windows.UI.Xaml.Markup.IMarkupExtensionFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IMarkupExtensionOverrides> = L"Windows.UI.Xaml.Markup.IMarkupExtensionOverrides";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IXamlBinaryWriter> = L"Windows.UI.Xaml.Markup.IXamlBinaryWriter";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IXamlBinaryWriterStatics> = L"Windows.UI.Xaml.Markup.IXamlBinaryWriterStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IXamlBindScopeDiagnostics> = L"Windows.UI.Xaml.Markup.IXamlBindScopeDiagnostics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IXamlBindingHelper> = L"Windows.UI.Xaml.Markup.IXamlBindingHelper";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IXamlBindingHelperStatics> = L"Windows.UI.Xaml.Markup.IXamlBindingHelperStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IXamlMarkupHelper> = L"Windows.UI.Xaml.Markup.IXamlMarkupHelper";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IXamlMarkupHelperStatics> = L"Windows.UI.Xaml.Markup.IXamlMarkupHelperStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IXamlMember> = L"Windows.UI.Xaml.Markup.IXamlMember";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IXamlMetadataProvider> = L"Windows.UI.Xaml.Markup.IXamlMetadataProvider";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IXamlReader> = L"Windows.UI.Xaml.Markup.IXamlReader";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IXamlReaderStatics> = L"Windows.UI.Xaml.Markup.IXamlReaderStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IXamlType> = L"Windows.UI.Xaml.Markup.IXamlType";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Markup::IXamlType2> = L"Windows.UI.Xaml.Markup.IXamlType2";
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Markup::IComponentConnector>{ 0xF6790987,0xE6E5,0x47F2,{ 0x92,0xC6,0xEC,0xCC,0xE4,0xBA,0x15,0x9A } };
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Markup::IComponentConnector2>{ 0xDC8F368B,0xECCC,0x498E,{ 0xB1,0x39,0x91,0x14,0x22,0x54,0xD7,0xAE } };
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Markup::IDataTemplateComponent>{ 0x08429DC8,0x8AB0,0x4747,{ 0xAA,0x9A,0xFE,0xAD,0xFC,0x8D,0xA8,0xE1 } };
@@ -320,7 +318,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Markup_IComponentConnector
     {
-        auto Connect(int32_t connectionId, Windows::Foundation::IInspectable const& target) const;
+        WINRT_IMPL_AUTO(void) Connect(int32_t connectionId, Windows::Foundation::IInspectable const& target) const;
     };
     template <> struct consume<Windows::UI::Xaml::Markup::IComponentConnector>
     {
@@ -329,7 +327,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Markup_IComponentConnector2
     {
-        auto GetBindingConnector(int32_t connectionId, Windows::Foundation::IInspectable const& target) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Markup::IComponentConnector) GetBindingConnector(int32_t connectionId, Windows::Foundation::IInspectable const& target) const;
     };
     template <> struct consume<Windows::UI::Xaml::Markup::IComponentConnector2>
     {
@@ -338,8 +336,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Markup_IDataTemplateComponent
     {
-        auto Recycle() const;
-        auto ProcessBindings(Windows::Foundation::IInspectable const& item, int32_t itemIndex, int32_t phase, int32_t& nextPhase) const;
+        WINRT_IMPL_AUTO(void) Recycle() const;
+        WINRT_IMPL_AUTO(void) ProcessBindings(Windows::Foundation::IInspectable const& item, int32_t itemIndex, int32_t phase, int32_t& nextPhase) const;
     };
     template <> struct consume<Windows::UI::Xaml::Markup::IDataTemplateComponent>
     {
@@ -356,7 +354,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Markup_IMarkupExtensionFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Markup::MarkupExtension) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Markup::IMarkupExtensionFactory>
     {
@@ -365,7 +363,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Markup_IMarkupExtensionOverrides
     {
-        auto ProvideValue() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) ProvideValue() const;
     };
     template <> struct consume<Windows::UI::Xaml::Markup::IMarkupExtensionOverrides>
     {
@@ -382,7 +380,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Markup_IXamlBinaryWriterStatics
     {
-        auto Write(param::vector<Windows::Storage::Streams::IRandomAccessStream> const& inputStreams, param::vector<Windows::Storage::Streams::IRandomAccessStream> const& outputStreams, Windows::UI::Xaml::Markup::IXamlMetadataProvider const& xamlMetadataProvider) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Markup::XamlBinaryWriterErrorInformation) Write(param::vector<Windows::Storage::Streams::IRandomAccessStream> const& inputStreams, param::vector<Windows::Storage::Streams::IRandomAccessStream> const& outputStreams, Windows::UI::Xaml::Markup::IXamlMetadataProvider const& xamlMetadataProvider) const;
     };
     template <> struct consume<Windows::UI::Xaml::Markup::IXamlBinaryWriterStatics>
     {
@@ -391,7 +389,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Markup_IXamlBindScopeDiagnostics
     {
-        auto Disable(int32_t lineNumber, int32_t columnNumber) const;
+        WINRT_IMPL_AUTO(void) Disable(int32_t lineNumber, int32_t columnNumber) const;
     };
     template <> struct consume<Windows::UI::Xaml::Markup::IXamlBindScopeDiagnostics>
     {
@@ -408,29 +406,29 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Markup_IXamlBindingHelperStatics
     {
-        [[nodiscard]] auto DataTemplateComponentProperty() const;
-        auto GetDataTemplateComponent(Windows::UI::Xaml::DependencyObject const& element) const;
-        auto SetDataTemplateComponent(Windows::UI::Xaml::DependencyObject const& element, Windows::UI::Xaml::Markup::IDataTemplateComponent const& value) const;
-        auto SuspendRendering(Windows::UI::Xaml::UIElement const& target) const;
-        auto ResumeRendering(Windows::UI::Xaml::UIElement const& target) const;
-        auto ConvertValue(Windows::UI::Xaml::Interop::TypeName const& type, Windows::Foundation::IInspectable const& value) const;
-        auto SetPropertyFromString(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, param::hstring const& value) const;
-        auto SetPropertyFromBoolean(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, bool value) const;
-        auto SetPropertyFromChar16(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, char16_t value) const;
-        auto SetPropertyFromDateTime(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, Windows::Foundation::DateTime const& value) const;
-        auto SetPropertyFromDouble(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, double value) const;
-        auto SetPropertyFromInt32(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, int32_t value) const;
-        auto SetPropertyFromUInt32(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, uint32_t value) const;
-        auto SetPropertyFromInt64(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, int64_t value) const;
-        auto SetPropertyFromUInt64(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, uint64_t value) const;
-        auto SetPropertyFromSingle(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, float value) const;
-        auto SetPropertyFromPoint(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, Windows::Foundation::Point const& value) const;
-        auto SetPropertyFromRect(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, Windows::Foundation::Rect const& value) const;
-        auto SetPropertyFromSize(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, Windows::Foundation::Size const& value) const;
-        auto SetPropertyFromTimeSpan(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, Windows::Foundation::TimeSpan const& value) const;
-        auto SetPropertyFromByte(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, uint8_t value) const;
-        auto SetPropertyFromUri(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, Windows::Foundation::Uri const& value) const;
-        auto SetPropertyFromObject(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, Windows::Foundation::IInspectable const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) DataTemplateComponentProperty() const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Markup::IDataTemplateComponent) GetDataTemplateComponent(Windows::UI::Xaml::DependencyObject const& element) const;
+        WINRT_IMPL_AUTO(void) SetDataTemplateComponent(Windows::UI::Xaml::DependencyObject const& element, Windows::UI::Xaml::Markup::IDataTemplateComponent const& value) const;
+        WINRT_IMPL_AUTO(void) SuspendRendering(Windows::UI::Xaml::UIElement const& target) const;
+        WINRT_IMPL_AUTO(void) ResumeRendering(Windows::UI::Xaml::UIElement const& target) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) ConvertValue(Windows::UI::Xaml::Interop::TypeName const& type, Windows::Foundation::IInspectable const& value) const;
+        WINRT_IMPL_AUTO(void) SetPropertyFromString(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, param::hstring const& value) const;
+        WINRT_IMPL_AUTO(void) SetPropertyFromBoolean(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, bool value) const;
+        WINRT_IMPL_AUTO(void) SetPropertyFromChar16(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, char16_t value) const;
+        WINRT_IMPL_AUTO(void) SetPropertyFromDateTime(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, Windows::Foundation::DateTime const& value) const;
+        WINRT_IMPL_AUTO(void) SetPropertyFromDouble(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, double value) const;
+        WINRT_IMPL_AUTO(void) SetPropertyFromInt32(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, int32_t value) const;
+        WINRT_IMPL_AUTO(void) SetPropertyFromUInt32(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, uint32_t value) const;
+        WINRT_IMPL_AUTO(void) SetPropertyFromInt64(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, int64_t value) const;
+        WINRT_IMPL_AUTO(void) SetPropertyFromUInt64(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, uint64_t value) const;
+        WINRT_IMPL_AUTO(void) SetPropertyFromSingle(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, float value) const;
+        WINRT_IMPL_AUTO(void) SetPropertyFromPoint(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, Windows::Foundation::Point const& value) const;
+        WINRT_IMPL_AUTO(void) SetPropertyFromRect(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, Windows::Foundation::Rect const& value) const;
+        WINRT_IMPL_AUTO(void) SetPropertyFromSize(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, Windows::Foundation::Size const& value) const;
+        WINRT_IMPL_AUTO(void) SetPropertyFromTimeSpan(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, Windows::Foundation::TimeSpan const& value) const;
+        WINRT_IMPL_AUTO(void) SetPropertyFromByte(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, uint8_t value) const;
+        WINRT_IMPL_AUTO(void) SetPropertyFromUri(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, Windows::Foundation::Uri const& value) const;
+        WINRT_IMPL_AUTO(void) SetPropertyFromObject(Windows::Foundation::IInspectable const& dependencyObject, Windows::UI::Xaml::DependencyProperty const& propertyToSet, Windows::Foundation::IInspectable const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Markup::IXamlBindingHelperStatics>
     {
@@ -447,7 +445,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Markup_IXamlMarkupHelperStatics
     {
-        auto UnloadObject(Windows::UI::Xaml::DependencyObject const& element) const;
+        WINRT_IMPL_AUTO(void) UnloadObject(Windows::UI::Xaml::DependencyObject const& element) const;
     };
     template <> struct consume<Windows::UI::Xaml::Markup::IXamlMarkupHelperStatics>
     {
@@ -456,14 +454,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Markup_IXamlMember
     {
-        [[nodiscard]] auto IsAttachable() const;
-        [[nodiscard]] auto IsDependencyProperty() const;
-        [[nodiscard]] auto IsReadOnly() const;
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto TargetType() const;
-        [[nodiscard]] auto Type() const;
-        auto GetValue(Windows::Foundation::IInspectable const& instance) const;
-        auto SetValue(Windows::Foundation::IInspectable const& instance, Windows::Foundation::IInspectable const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsAttachable() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDependencyProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsReadOnly() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Markup::IXamlType) TargetType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Markup::IXamlType) Type() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) GetValue(Windows::Foundation::IInspectable const& instance) const;
+        WINRT_IMPL_AUTO(void) SetValue(Windows::Foundation::IInspectable const& instance, Windows::Foundation::IInspectable const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Markup::IXamlMember>
     {
@@ -472,9 +470,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Markup_IXamlMetadataProvider
     {
-        auto GetXamlType(Windows::UI::Xaml::Interop::TypeName const& type) const;
-        auto GetXamlType(param::hstring const& fullName) const;
-        auto GetXmlnsDefinitions() const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Markup::IXamlType) GetXamlType(Windows::UI::Xaml::Interop::TypeName const& type) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Markup::IXamlType) GetXamlType(param::hstring const& fullName) const;
+        WINRT_IMPL_AUTO(com_array<Windows::UI::Xaml::Markup::XmlnsDefinition>) GetXmlnsDefinitions() const;
     };
     template <> struct consume<Windows::UI::Xaml::Markup::IXamlMetadataProvider>
     {
@@ -491,8 +489,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Markup_IXamlReaderStatics
     {
-        auto Load(param::hstring const& xaml) const;
-        auto LoadWithInitialTemplateValidation(param::hstring const& xaml) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) Load(param::hstring const& xaml) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) LoadWithInitialTemplateValidation(param::hstring const& xaml) const;
     };
     template <> struct consume<Windows::UI::Xaml::Markup::IXamlReaderStatics>
     {
@@ -501,24 +499,24 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Markup_IXamlType
     {
-        [[nodiscard]] auto BaseType() const;
-        [[nodiscard]] auto ContentProperty() const;
-        [[nodiscard]] auto FullName() const;
-        [[nodiscard]] auto IsArray() const;
-        [[nodiscard]] auto IsCollection() const;
-        [[nodiscard]] auto IsConstructible() const;
-        [[nodiscard]] auto IsDictionary() const;
-        [[nodiscard]] auto IsMarkupExtension() const;
-        [[nodiscard]] auto IsBindable() const;
-        [[nodiscard]] auto ItemType() const;
-        [[nodiscard]] auto KeyType() const;
-        [[nodiscard]] auto UnderlyingType() const;
-        auto ActivateInstance() const;
-        auto CreateFromString(param::hstring const& value) const;
-        auto GetMember(param::hstring const& name) const;
-        auto AddToVector(Windows::Foundation::IInspectable const& instance, Windows::Foundation::IInspectable const& value) const;
-        auto AddToMap(Windows::Foundation::IInspectable const& instance, Windows::Foundation::IInspectable const& key, Windows::Foundation::IInspectable const& value) const;
-        auto RunInitializer() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Markup::IXamlType) BaseType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Markup::IXamlMember) ContentProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FullName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsArray() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsCollection() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsConstructible() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDictionary() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsMarkupExtension() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsBindable() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Markup::IXamlType) ItemType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Markup::IXamlType) KeyType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Interop::TypeName) UnderlyingType() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) ActivateInstance() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateFromString(param::hstring const& value) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Markup::IXamlMember) GetMember(param::hstring const& name) const;
+        WINRT_IMPL_AUTO(void) AddToVector(Windows::Foundation::IInspectable const& instance, Windows::Foundation::IInspectable const& value) const;
+        WINRT_IMPL_AUTO(void) AddToMap(Windows::Foundation::IInspectable const& instance, Windows::Foundation::IInspectable const& key, Windows::Foundation::IInspectable const& value) const;
+        WINRT_IMPL_AUTO(void) RunInitializer() const;
     };
     template <> struct consume<Windows::UI::Xaml::Markup::IXamlType>
     {
@@ -527,7 +525,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Markup_IXamlType2
     {
-        [[nodiscard]] auto BoxedType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Markup::IXamlType) BoxedType() const;
     };
     template <> struct consume<Windows::UI::Xaml::Markup::IXamlType2>
     {

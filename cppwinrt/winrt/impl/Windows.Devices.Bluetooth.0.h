@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -8,25 +8,42 @@
 WINRT_EXPORT namespace winrt::Windows::Devices::Bluetooth::GenericAttributeProfile
 {
     struct GattDeviceService;
+    struct GattDeviceServicesResult;
 }
 WINRT_EXPORT namespace winrt::Windows::Devices::Bluetooth::Rfcomm
 {
+    struct RfcommDeviceService;
+    struct RfcommDeviceServicesResult;
     struct RfcommServiceId;
 }
 WINRT_EXPORT namespace winrt::Windows::Devices::Enumeration
 {
     struct DeviceAccessInformation;
+    enum class DeviceAccessStatus : int32_t;
     struct DeviceInformation;
+}
+WINRT_EXPORT namespace winrt::Windows::Devices::Radios
+{
+    struct Radio;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
+    template <typename TResult> struct IAsyncOperation;
     template <typename T> struct IReference;
     template <typename TSender, typename TResult> struct TypedEventHandler;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Networking
 {
     struct HostName;
+}
+WINRT_EXPORT namespace winrt::Windows::Storage::Streams
+{
+    struct IBuffer;
 }
 WINRT_EXPORT namespace winrt::Windows::Devices::Bluetooth
 {
@@ -245,53 +262,51 @@ namespace winrt::impl
     template <> struct category<Windows::Devices::Bluetooth::BluetoothMajorClass>{ using type = enum_category; };
     template <> struct category<Windows::Devices::Bluetooth::BluetoothMinorClass>{ using type = enum_category; };
     template <> struct category<Windows::Devices::Bluetooth::BluetoothServiceCapabilities>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothAdapter>{ L"Windows.Devices.Bluetooth.BluetoothAdapter" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothClassOfDevice>{ L"Windows.Devices.Bluetooth.BluetoothClassOfDevice" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothDevice>{ L"Windows.Devices.Bluetooth.BluetoothDevice" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothDeviceId>{ L"Windows.Devices.Bluetooth.BluetoothDeviceId" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothLEAppearance>{ L"Windows.Devices.Bluetooth.BluetoothLEAppearance" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothLEAppearanceCategories>{ L"Windows.Devices.Bluetooth.BluetoothLEAppearanceCategories" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothLEAppearanceSubcategories>{ L"Windows.Devices.Bluetooth.BluetoothLEAppearanceSubcategories" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothLEDevice>{ L"Windows.Devices.Bluetooth.BluetoothLEDevice" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothSignalStrengthFilter>{ L"Windows.Devices.Bluetooth.BluetoothSignalStrengthFilter" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothUuidHelper>{ L"Windows.Devices.Bluetooth.BluetoothUuidHelper" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothAddressType>{ L"Windows.Devices.Bluetooth.BluetoothAddressType" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothCacheMode>{ L"Windows.Devices.Bluetooth.BluetoothCacheMode" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothConnectionStatus>{ L"Windows.Devices.Bluetooth.BluetoothConnectionStatus" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothError>{ L"Windows.Devices.Bluetooth.BluetoothError" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothMajorClass>{ L"Windows.Devices.Bluetooth.BluetoothMajorClass" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothMinorClass>{ L"Windows.Devices.Bluetooth.BluetoothMinorClass" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothServiceCapabilities>{ L"Windows.Devices.Bluetooth.BluetoothServiceCapabilities" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothAdapter>{ L"Windows.Devices.Bluetooth.IBluetoothAdapter" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothAdapter2>{ L"Windows.Devices.Bluetooth.IBluetoothAdapter2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothAdapter3>{ L"Windows.Devices.Bluetooth.IBluetoothAdapter3" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothAdapterStatics>{ L"Windows.Devices.Bluetooth.IBluetoothAdapterStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothClassOfDevice>{ L"Windows.Devices.Bluetooth.IBluetoothClassOfDevice" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothClassOfDeviceStatics>{ L"Windows.Devices.Bluetooth.IBluetoothClassOfDeviceStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothDevice>{ L"Windows.Devices.Bluetooth.IBluetoothDevice" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothDevice2>{ L"Windows.Devices.Bluetooth.IBluetoothDevice2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothDevice3>{ L"Windows.Devices.Bluetooth.IBluetoothDevice3" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothDevice4>{ L"Windows.Devices.Bluetooth.IBluetoothDevice4" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothDevice5>{ L"Windows.Devices.Bluetooth.IBluetoothDevice5" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothDeviceId>{ L"Windows.Devices.Bluetooth.IBluetoothDeviceId" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothDeviceIdStatics>{ L"Windows.Devices.Bluetooth.IBluetoothDeviceIdStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothDeviceStatics>{ L"Windows.Devices.Bluetooth.IBluetoothDeviceStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothDeviceStatics2>{ L"Windows.Devices.Bluetooth.IBluetoothDeviceStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothLEAppearance>{ L"Windows.Devices.Bluetooth.IBluetoothLEAppearance" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothLEAppearanceCategoriesStatics>{ L"Windows.Devices.Bluetooth.IBluetoothLEAppearanceCategoriesStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothLEAppearanceStatics>{ L"Windows.Devices.Bluetooth.IBluetoothLEAppearanceStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothLEAppearanceSubcategoriesStatics>{ L"Windows.Devices.Bluetooth.IBluetoothLEAppearanceSubcategoriesStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothLEDevice>{ L"Windows.Devices.Bluetooth.IBluetoothLEDevice" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothLEDevice2>{ L"Windows.Devices.Bluetooth.IBluetoothLEDevice2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothLEDevice3>{ L"Windows.Devices.Bluetooth.IBluetoothLEDevice3" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothLEDevice4>{ L"Windows.Devices.Bluetooth.IBluetoothLEDevice4" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothLEDevice5>{ L"Windows.Devices.Bluetooth.IBluetoothLEDevice5" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothLEDeviceStatics>{ L"Windows.Devices.Bluetooth.IBluetoothLEDeviceStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothLEDeviceStatics2>{ L"Windows.Devices.Bluetooth.IBluetoothLEDeviceStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothSignalStrengthFilter>{ L"Windows.Devices.Bluetooth.IBluetoothSignalStrengthFilter" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothUuidHelperStatics>{ L"Windows.Devices.Bluetooth.IBluetoothUuidHelperStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothAdapter> = L"Windows.Devices.Bluetooth.BluetoothAdapter";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothClassOfDevice> = L"Windows.Devices.Bluetooth.BluetoothClassOfDevice";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothDevice> = L"Windows.Devices.Bluetooth.BluetoothDevice";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothDeviceId> = L"Windows.Devices.Bluetooth.BluetoothDeviceId";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothLEAppearance> = L"Windows.Devices.Bluetooth.BluetoothLEAppearance";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothLEAppearanceCategories> = L"Windows.Devices.Bluetooth.BluetoothLEAppearanceCategories";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothLEAppearanceSubcategories> = L"Windows.Devices.Bluetooth.BluetoothLEAppearanceSubcategories";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothLEDevice> = L"Windows.Devices.Bluetooth.BluetoothLEDevice";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothSignalStrengthFilter> = L"Windows.Devices.Bluetooth.BluetoothSignalStrengthFilter";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothUuidHelper> = L"Windows.Devices.Bluetooth.BluetoothUuidHelper";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothAddressType> = L"Windows.Devices.Bluetooth.BluetoothAddressType";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothCacheMode> = L"Windows.Devices.Bluetooth.BluetoothCacheMode";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothConnectionStatus> = L"Windows.Devices.Bluetooth.BluetoothConnectionStatus";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothError> = L"Windows.Devices.Bluetooth.BluetoothError";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothMajorClass> = L"Windows.Devices.Bluetooth.BluetoothMajorClass";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothMinorClass> = L"Windows.Devices.Bluetooth.BluetoothMinorClass";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::BluetoothServiceCapabilities> = L"Windows.Devices.Bluetooth.BluetoothServiceCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothAdapter> = L"Windows.Devices.Bluetooth.IBluetoothAdapter";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothAdapter2> = L"Windows.Devices.Bluetooth.IBluetoothAdapter2";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothAdapter3> = L"Windows.Devices.Bluetooth.IBluetoothAdapter3";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothAdapterStatics> = L"Windows.Devices.Bluetooth.IBluetoothAdapterStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothClassOfDevice> = L"Windows.Devices.Bluetooth.IBluetoothClassOfDevice";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothClassOfDeviceStatics> = L"Windows.Devices.Bluetooth.IBluetoothClassOfDeviceStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothDevice> = L"Windows.Devices.Bluetooth.IBluetoothDevice";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothDevice2> = L"Windows.Devices.Bluetooth.IBluetoothDevice2";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothDevice3> = L"Windows.Devices.Bluetooth.IBluetoothDevice3";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothDevice4> = L"Windows.Devices.Bluetooth.IBluetoothDevice4";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothDevice5> = L"Windows.Devices.Bluetooth.IBluetoothDevice5";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothDeviceId> = L"Windows.Devices.Bluetooth.IBluetoothDeviceId";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothDeviceIdStatics> = L"Windows.Devices.Bluetooth.IBluetoothDeviceIdStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothDeviceStatics> = L"Windows.Devices.Bluetooth.IBluetoothDeviceStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothDeviceStatics2> = L"Windows.Devices.Bluetooth.IBluetoothDeviceStatics2";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothLEAppearance> = L"Windows.Devices.Bluetooth.IBluetoothLEAppearance";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothLEAppearanceCategoriesStatics> = L"Windows.Devices.Bluetooth.IBluetoothLEAppearanceCategoriesStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothLEAppearanceStatics> = L"Windows.Devices.Bluetooth.IBluetoothLEAppearanceStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothLEAppearanceSubcategoriesStatics> = L"Windows.Devices.Bluetooth.IBluetoothLEAppearanceSubcategoriesStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothLEDevice> = L"Windows.Devices.Bluetooth.IBluetoothLEDevice";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothLEDevice2> = L"Windows.Devices.Bluetooth.IBluetoothLEDevice2";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothLEDevice3> = L"Windows.Devices.Bluetooth.IBluetoothLEDevice3";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothLEDevice4> = L"Windows.Devices.Bluetooth.IBluetoothLEDevice4";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothLEDevice5> = L"Windows.Devices.Bluetooth.IBluetoothLEDevice5";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothLEDeviceStatics> = L"Windows.Devices.Bluetooth.IBluetoothLEDeviceStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothLEDeviceStatics2> = L"Windows.Devices.Bluetooth.IBluetoothLEDeviceStatics2";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothSignalStrengthFilter> = L"Windows.Devices.Bluetooth.IBluetoothSignalStrengthFilter";
+    template <> inline constexpr auto& name_v<Windows::Devices::Bluetooth::IBluetoothUuidHelperStatics> = L"Windows.Devices.Bluetooth.IBluetoothUuidHelperStatics";
     template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::IBluetoothAdapter>{ 0x7974F04C,0x5F7A,0x4A34,{ 0x92,0x25,0xA8,0x55,0xF8,0x4B,0x1A,0x8B } };
     template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::IBluetoothAdapter2>{ 0xAC94CECC,0x24D5,0x41B3,{ 0x91,0x6D,0x10,0x97,0xC5,0x0B,0x10,0x2B } };
     template <> inline constexpr guid guid_v<Windows::Devices::Bluetooth::IBluetoothAdapter3>{ 0x8F8624E0,0xCBA9,0x5211,{ 0x9F,0x89,0x3A,0xAC,0x62,0xB4,0xC6,0xB8 } };
@@ -653,14 +668,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_IBluetoothAdapter
     {
-        [[nodiscard]] auto DeviceId() const;
-        [[nodiscard]] auto BluetoothAddress() const;
-        [[nodiscard]] auto IsClassicSupported() const;
-        [[nodiscard]] auto IsLowEnergySupported() const;
-        [[nodiscard]] auto IsPeripheralRoleSupported() const;
-        [[nodiscard]] auto IsCentralRoleSupported() const;
-        [[nodiscard]] auto IsAdvertisementOffloadSupported() const;
-        auto GetRadioAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) BluetoothAddress() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsClassicSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsLowEnergySupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPeripheralRoleSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsCentralRoleSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsAdvertisementOffloadSupported() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Radios::Radio>) GetRadioAsync() const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::IBluetoothAdapter>
     {
@@ -669,8 +684,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_IBluetoothAdapter2
     {
-        [[nodiscard]] auto AreClassicSecureConnectionsSupported() const;
-        [[nodiscard]] auto AreLowEnergySecureConnectionsSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AreClassicSecureConnectionsSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AreLowEnergySecureConnectionsSupported() const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::IBluetoothAdapter2>
     {
@@ -679,8 +694,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_IBluetoothAdapter3
     {
-        [[nodiscard]] auto IsExtendedAdvertisingSupported() const;
-        [[nodiscard]] auto MaxAdvertisementDataLength() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsExtendedAdvertisingSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxAdvertisementDataLength() const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::IBluetoothAdapter3>
     {
@@ -689,9 +704,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_IBluetoothAdapterStatics
     {
-        auto GetDeviceSelector() const;
-        auto FromIdAsync(param::hstring const& deviceId) const;
-        auto GetDefaultAsync() const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Bluetooth::BluetoothAdapter>) FromIdAsync(param::hstring const& deviceId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Bluetooth::BluetoothAdapter>) GetDefaultAsync() const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::IBluetoothAdapterStatics>
     {
@@ -700,10 +715,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_IBluetoothClassOfDevice
     {
-        [[nodiscard]] auto RawValue() const;
-        [[nodiscard]] auto MajorClass() const;
-        [[nodiscard]] auto MinorClass() const;
-        [[nodiscard]] auto ServiceCapabilities() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) RawValue() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::BluetoothMajorClass) MajorClass() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::BluetoothMinorClass) MinorClass() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::BluetoothServiceCapabilities) ServiceCapabilities() const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::IBluetoothClassOfDevice>
     {
@@ -712,8 +727,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_IBluetoothClassOfDeviceStatics
     {
-        auto FromRawValue(uint32_t rawValue) const;
-        auto FromParts(Windows::Devices::Bluetooth::BluetoothMajorClass const& majorClass, Windows::Devices::Bluetooth::BluetoothMinorClass const& minorClass, Windows::Devices::Bluetooth::BluetoothServiceCapabilities const& serviceCapabilities) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::BluetoothClassOfDevice) FromRawValue(uint32_t rawValue) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::BluetoothClassOfDevice) FromParts(Windows::Devices::Bluetooth::BluetoothMajorClass const& majorClass, Windows::Devices::Bluetooth::BluetoothMinorClass const& minorClass, Windows::Devices::Bluetooth::BluetoothServiceCapabilities const& serviceCapabilities) const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::IBluetoothClassOfDeviceStatics>
     {
@@ -722,26 +737,26 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_IBluetoothDevice
     {
-        [[nodiscard]] auto DeviceId() const;
-        [[nodiscard]] auto HostName() const;
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto ClassOfDevice() const;
-        [[nodiscard]] auto SdpRecords() const;
-        [[nodiscard]] auto RfcommServices() const;
-        [[nodiscard]] auto ConnectionStatus() const;
-        [[nodiscard]] auto BluetoothAddress() const;
-        auto NameChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Bluetooth::BluetoothDevice, Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::HostName) HostName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::BluetoothClassOfDevice) ClassOfDevice() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Storage::Streams::IBuffer>) SdpRecords() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Bluetooth::Rfcomm::RfcommDeviceService>) RfcommServices() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::BluetoothConnectionStatus) ConnectionStatus() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) BluetoothAddress() const;
+        WINRT_IMPL_AUTO(winrt::event_token) NameChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Bluetooth::BluetoothDevice, Windows::Foundation::IInspectable> const& handler) const;
         using NameChanged_revoker = impl::event_revoker<Windows::Devices::Bluetooth::IBluetoothDevice, &impl::abi_t<Windows::Devices::Bluetooth::IBluetoothDevice>::remove_NameChanged>;
         [[nodiscard]] NameChanged_revoker NameChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Bluetooth::BluetoothDevice, Windows::Foundation::IInspectable> const& handler) const;
-        auto NameChanged(winrt::event_token const& token) const noexcept;
-        auto SdpRecordsChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Bluetooth::BluetoothDevice, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) NameChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) SdpRecordsChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Bluetooth::BluetoothDevice, Windows::Foundation::IInspectable> const& handler) const;
         using SdpRecordsChanged_revoker = impl::event_revoker<Windows::Devices::Bluetooth::IBluetoothDevice, &impl::abi_t<Windows::Devices::Bluetooth::IBluetoothDevice>::remove_SdpRecordsChanged>;
         [[nodiscard]] SdpRecordsChanged_revoker SdpRecordsChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Bluetooth::BluetoothDevice, Windows::Foundation::IInspectable> const& handler) const;
-        auto SdpRecordsChanged(winrt::event_token const& token) const noexcept;
-        auto ConnectionStatusChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Bluetooth::BluetoothDevice, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) SdpRecordsChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ConnectionStatusChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Bluetooth::BluetoothDevice, Windows::Foundation::IInspectable> const& handler) const;
         using ConnectionStatusChanged_revoker = impl::event_revoker<Windows::Devices::Bluetooth::IBluetoothDevice, &impl::abi_t<Windows::Devices::Bluetooth::IBluetoothDevice>::remove_ConnectionStatusChanged>;
         [[nodiscard]] ConnectionStatusChanged_revoker ConnectionStatusChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Bluetooth::BluetoothDevice, Windows::Foundation::IInspectable> const& handler) const;
-        auto ConnectionStatusChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) ConnectionStatusChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Devices::Bluetooth::IBluetoothDevice>
     {
@@ -750,7 +765,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_IBluetoothDevice2
     {
-        [[nodiscard]] auto DeviceInformation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Enumeration::DeviceInformation) DeviceInformation() const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::IBluetoothDevice2>
     {
@@ -759,12 +774,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_IBluetoothDevice3
     {
-        [[nodiscard]] auto DeviceAccessInformation() const;
-        auto RequestAccessAsync() const;
-        auto GetRfcommServicesAsync() const;
-        auto GetRfcommServicesAsync(Windows::Devices::Bluetooth::BluetoothCacheMode const& cacheMode) const;
-        auto GetRfcommServicesForIdAsync(Windows::Devices::Bluetooth::Rfcomm::RfcommServiceId const& serviceId) const;
-        auto GetRfcommServicesForIdAsync(Windows::Devices::Bluetooth::Rfcomm::RfcommServiceId const& serviceId, Windows::Devices::Bluetooth::BluetoothCacheMode const& cacheMode) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Enumeration::DeviceAccessInformation) DeviceAccessInformation() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Enumeration::DeviceAccessStatus>) RequestAccessAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Bluetooth::Rfcomm::RfcommDeviceServicesResult>) GetRfcommServicesAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Bluetooth::Rfcomm::RfcommDeviceServicesResult>) GetRfcommServicesAsync(Windows::Devices::Bluetooth::BluetoothCacheMode const& cacheMode) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Bluetooth::Rfcomm::RfcommDeviceServicesResult>) GetRfcommServicesForIdAsync(Windows::Devices::Bluetooth::Rfcomm::RfcommServiceId const& serviceId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Bluetooth::Rfcomm::RfcommDeviceServicesResult>) GetRfcommServicesForIdAsync(Windows::Devices::Bluetooth::Rfcomm::RfcommServiceId const& serviceId, Windows::Devices::Bluetooth::BluetoothCacheMode const& cacheMode) const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::IBluetoothDevice3>
     {
@@ -773,7 +788,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_IBluetoothDevice4
     {
-        [[nodiscard]] auto BluetoothDeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::BluetoothDeviceId) BluetoothDeviceId() const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::IBluetoothDevice4>
     {
@@ -782,7 +797,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_IBluetoothDevice5
     {
-        [[nodiscard]] auto WasSecureConnectionUsedForPairing() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) WasSecureConnectionUsedForPairing() const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::IBluetoothDevice5>
     {
@@ -791,9 +806,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_IBluetoothDeviceId
     {
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto IsClassicDevice() const;
-        [[nodiscard]] auto IsLowEnergyDevice() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsClassicDevice() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsLowEnergyDevice() const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::IBluetoothDeviceId>
     {
@@ -802,7 +817,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_IBluetoothDeviceIdStatics
     {
-        auto FromId(param::hstring const& deviceId) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::BluetoothDeviceId) FromId(param::hstring const& deviceId) const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::IBluetoothDeviceIdStatics>
     {
@@ -811,10 +826,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_IBluetoothDeviceStatics
     {
-        auto FromIdAsync(param::hstring const& deviceId) const;
-        auto FromHostNameAsync(Windows::Networking::HostName const& hostName) const;
-        auto FromBluetoothAddressAsync(uint64_t address) const;
-        auto GetDeviceSelector() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Bluetooth::BluetoothDevice>) FromIdAsync(param::hstring const& deviceId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Bluetooth::BluetoothDevice>) FromHostNameAsync(Windows::Networking::HostName const& hostName) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Bluetooth::BluetoothDevice>) FromBluetoothAddressAsync(uint64_t address) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector() const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::IBluetoothDeviceStatics>
     {
@@ -823,11 +838,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_IBluetoothDeviceStatics2
     {
-        auto GetDeviceSelectorFromPairingState(bool pairingState) const;
-        auto GetDeviceSelectorFromConnectionStatus(Windows::Devices::Bluetooth::BluetoothConnectionStatus const& connectionStatus) const;
-        auto GetDeviceSelectorFromDeviceName(param::hstring const& deviceName) const;
-        auto GetDeviceSelectorFromBluetoothAddress(uint64_t bluetoothAddress) const;
-        auto GetDeviceSelectorFromClassOfDevice(Windows::Devices::Bluetooth::BluetoothClassOfDevice const& classOfDevice) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelectorFromPairingState(bool pairingState) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelectorFromConnectionStatus(Windows::Devices::Bluetooth::BluetoothConnectionStatus const& connectionStatus) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelectorFromDeviceName(param::hstring const& deviceName) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelectorFromBluetoothAddress(uint64_t bluetoothAddress) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelectorFromClassOfDevice(Windows::Devices::Bluetooth::BluetoothClassOfDevice const& classOfDevice) const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::IBluetoothDeviceStatics2>
     {
@@ -836,9 +851,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_IBluetoothLEAppearance
     {
-        [[nodiscard]] auto RawValue() const;
-        [[nodiscard]] auto Category() const;
-        [[nodiscard]] auto SubCategory() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) RawValue() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) Category() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) SubCategory() const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::IBluetoothLEAppearance>
     {
@@ -847,28 +862,28 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_IBluetoothLEAppearanceCategoriesStatics
     {
-        [[nodiscard]] auto Uncategorized() const;
-        [[nodiscard]] auto Phone() const;
-        [[nodiscard]] auto Computer() const;
-        [[nodiscard]] auto Watch() const;
-        [[nodiscard]] auto Clock() const;
-        [[nodiscard]] auto Display() const;
-        [[nodiscard]] auto RemoteControl() const;
-        [[nodiscard]] auto EyeGlasses() const;
-        [[nodiscard]] auto Tag() const;
-        [[nodiscard]] auto Keyring() const;
-        [[nodiscard]] auto MediaPlayer() const;
-        [[nodiscard]] auto BarcodeScanner() const;
-        [[nodiscard]] auto Thermometer() const;
-        [[nodiscard]] auto HeartRate() const;
-        [[nodiscard]] auto BloodPressure() const;
-        [[nodiscard]] auto HumanInterfaceDevice() const;
-        [[nodiscard]] auto GlucoseMeter() const;
-        [[nodiscard]] auto RunningWalking() const;
-        [[nodiscard]] auto Cycling() const;
-        [[nodiscard]] auto PulseOximeter() const;
-        [[nodiscard]] auto WeightScale() const;
-        [[nodiscard]] auto OutdoorSportActivity() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) Uncategorized() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) Phone() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) Computer() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) Watch() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) Clock() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) Display() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) RemoteControl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) EyeGlasses() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) Tag() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) Keyring() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) MediaPlayer() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) BarcodeScanner() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) Thermometer() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) HeartRate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) BloodPressure() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) HumanInterfaceDevice() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) GlucoseMeter() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) RunningWalking() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) Cycling() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) PulseOximeter() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) WeightScale() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) OutdoorSportActivity() const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::IBluetoothLEAppearanceCategoriesStatics>
     {
@@ -877,8 +892,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_IBluetoothLEAppearanceStatics
     {
-        auto FromRawValue(uint16_t rawValue) const;
-        auto FromParts(uint16_t appearanceCategory, uint16_t appearanceSubCategory) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::BluetoothLEAppearance) FromRawValue(uint16_t rawValue) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::BluetoothLEAppearance) FromParts(uint16_t appearanceCategory, uint16_t appearanceSubCategory) const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::IBluetoothLEAppearanceStatics>
     {
@@ -887,34 +902,34 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_IBluetoothLEAppearanceSubcategoriesStatics
     {
-        [[nodiscard]] auto Generic() const;
-        [[nodiscard]] auto SportsWatch() const;
-        [[nodiscard]] auto ThermometerEar() const;
-        [[nodiscard]] auto HeartRateBelt() const;
-        [[nodiscard]] auto BloodPressureArm() const;
-        [[nodiscard]] auto BloodPressureWrist() const;
-        [[nodiscard]] auto Keyboard() const;
-        [[nodiscard]] auto Mouse() const;
-        [[nodiscard]] auto Joystick() const;
-        [[nodiscard]] auto Gamepad() const;
-        [[nodiscard]] auto DigitizerTablet() const;
-        [[nodiscard]] auto CardReader() const;
-        [[nodiscard]] auto DigitalPen() const;
-        [[nodiscard]] auto BarcodeScanner() const;
-        [[nodiscard]] auto RunningWalkingInShoe() const;
-        [[nodiscard]] auto RunningWalkingOnShoe() const;
-        [[nodiscard]] auto RunningWalkingOnHip() const;
-        [[nodiscard]] auto CyclingComputer() const;
-        [[nodiscard]] auto CyclingSpeedSensor() const;
-        [[nodiscard]] auto CyclingCadenceSensor() const;
-        [[nodiscard]] auto CyclingPowerSensor() const;
-        [[nodiscard]] auto CyclingSpeedCadenceSensor() const;
-        [[nodiscard]] auto OximeterFingertip() const;
-        [[nodiscard]] auto OximeterWristWorn() const;
-        [[nodiscard]] auto LocationDisplay() const;
-        [[nodiscard]] auto LocationNavigationDisplay() const;
-        [[nodiscard]] auto LocationPod() const;
-        [[nodiscard]] auto LocationNavigationPod() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) Generic() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) SportsWatch() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) ThermometerEar() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) HeartRateBelt() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) BloodPressureArm() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) BloodPressureWrist() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) Keyboard() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) Mouse() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) Joystick() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) Gamepad() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) DigitizerTablet() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) CardReader() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) DigitalPen() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) BarcodeScanner() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) RunningWalkingInShoe() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) RunningWalkingOnShoe() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) RunningWalkingOnHip() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) CyclingComputer() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) CyclingSpeedSensor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) CyclingCadenceSensor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) CyclingPowerSensor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) CyclingSpeedCadenceSensor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) OximeterFingertip() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) OximeterWristWorn() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) LocationDisplay() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) LocationNavigationDisplay() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) LocationPod() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) LocationNavigationPod() const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::IBluetoothLEAppearanceSubcategoriesStatics>
     {
@@ -923,24 +938,24 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_IBluetoothLEDevice
     {
-        [[nodiscard]] auto DeviceId() const;
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto GattServices() const;
-        [[nodiscard]] auto ConnectionStatus() const;
-        [[nodiscard]] auto BluetoothAddress() const;
-        auto GetGattService(winrt::guid const& serviceUuid) const;
-        auto NameChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Bluetooth::BluetoothLEDevice, Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Bluetooth::GenericAttributeProfile::GattDeviceService>) GattServices() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::BluetoothConnectionStatus) ConnectionStatus() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) BluetoothAddress() const;
+        WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::GenericAttributeProfile::GattDeviceService) GetGattService(winrt::guid const& serviceUuid) const;
+        WINRT_IMPL_AUTO(winrt::event_token) NameChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Bluetooth::BluetoothLEDevice, Windows::Foundation::IInspectable> const& handler) const;
         using NameChanged_revoker = impl::event_revoker<Windows::Devices::Bluetooth::IBluetoothLEDevice, &impl::abi_t<Windows::Devices::Bluetooth::IBluetoothLEDevice>::remove_NameChanged>;
         [[nodiscard]] NameChanged_revoker NameChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Bluetooth::BluetoothLEDevice, Windows::Foundation::IInspectable> const& handler) const;
-        auto NameChanged(winrt::event_token const& token) const noexcept;
-        auto GattServicesChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Bluetooth::BluetoothLEDevice, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) NameChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) GattServicesChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Bluetooth::BluetoothLEDevice, Windows::Foundation::IInspectable> const& handler) const;
         using GattServicesChanged_revoker = impl::event_revoker<Windows::Devices::Bluetooth::IBluetoothLEDevice, &impl::abi_t<Windows::Devices::Bluetooth::IBluetoothLEDevice>::remove_GattServicesChanged>;
         [[nodiscard]] GattServicesChanged_revoker GattServicesChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Bluetooth::BluetoothLEDevice, Windows::Foundation::IInspectable> const& handler) const;
-        auto GattServicesChanged(winrt::event_token const& token) const noexcept;
-        auto ConnectionStatusChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Bluetooth::BluetoothLEDevice, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) GattServicesChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ConnectionStatusChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Bluetooth::BluetoothLEDevice, Windows::Foundation::IInspectable> const& handler) const;
         using ConnectionStatusChanged_revoker = impl::event_revoker<Windows::Devices::Bluetooth::IBluetoothLEDevice, &impl::abi_t<Windows::Devices::Bluetooth::IBluetoothLEDevice>::remove_ConnectionStatusChanged>;
         [[nodiscard]] ConnectionStatusChanged_revoker ConnectionStatusChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Bluetooth::BluetoothLEDevice, Windows::Foundation::IInspectable> const& handler) const;
-        auto ConnectionStatusChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) ConnectionStatusChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Devices::Bluetooth::IBluetoothLEDevice>
     {
@@ -949,9 +964,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_IBluetoothLEDevice2
     {
-        [[nodiscard]] auto DeviceInformation() const;
-        [[nodiscard]] auto Appearance() const;
-        [[nodiscard]] auto BluetoothAddressType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Enumeration::DeviceInformation) DeviceInformation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::BluetoothLEAppearance) Appearance() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::BluetoothAddressType) BluetoothAddressType() const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::IBluetoothLEDevice2>
     {
@@ -960,12 +975,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_IBluetoothLEDevice3
     {
-        [[nodiscard]] auto DeviceAccessInformation() const;
-        auto RequestAccessAsync() const;
-        auto GetGattServicesAsync() const;
-        auto GetGattServicesAsync(Windows::Devices::Bluetooth::BluetoothCacheMode const& cacheMode) const;
-        auto GetGattServicesForUuidAsync(winrt::guid const& serviceUuid) const;
-        auto GetGattServicesForUuidAsync(winrt::guid const& serviceUuid, Windows::Devices::Bluetooth::BluetoothCacheMode const& cacheMode) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Enumeration::DeviceAccessInformation) DeviceAccessInformation() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Enumeration::DeviceAccessStatus>) RequestAccessAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Bluetooth::GenericAttributeProfile::GattDeviceServicesResult>) GetGattServicesAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Bluetooth::GenericAttributeProfile::GattDeviceServicesResult>) GetGattServicesAsync(Windows::Devices::Bluetooth::BluetoothCacheMode const& cacheMode) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Bluetooth::GenericAttributeProfile::GattDeviceServicesResult>) GetGattServicesForUuidAsync(winrt::guid const& serviceUuid) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Bluetooth::GenericAttributeProfile::GattDeviceServicesResult>) GetGattServicesForUuidAsync(winrt::guid const& serviceUuid, Windows::Devices::Bluetooth::BluetoothCacheMode const& cacheMode) const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::IBluetoothLEDevice3>
     {
@@ -974,7 +989,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_IBluetoothLEDevice4
     {
-        [[nodiscard]] auto BluetoothDeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Bluetooth::BluetoothDeviceId) BluetoothDeviceId() const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::IBluetoothLEDevice4>
     {
@@ -983,7 +998,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_IBluetoothLEDevice5
     {
-        [[nodiscard]] auto WasSecureConnectionUsedForPairing() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) WasSecureConnectionUsedForPairing() const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::IBluetoothLEDevice5>
     {
@@ -992,9 +1007,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_IBluetoothLEDeviceStatics
     {
-        auto FromIdAsync(param::hstring const& deviceId) const;
-        auto FromBluetoothAddressAsync(uint64_t bluetoothAddress) const;
-        auto GetDeviceSelector() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Bluetooth::BluetoothLEDevice>) FromIdAsync(param::hstring const& deviceId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Bluetooth::BluetoothLEDevice>) FromBluetoothAddressAsync(uint64_t bluetoothAddress) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector() const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::IBluetoothLEDeviceStatics>
     {
@@ -1003,13 +1018,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_IBluetoothLEDeviceStatics2
     {
-        auto GetDeviceSelectorFromPairingState(bool pairingState) const;
-        auto GetDeviceSelectorFromConnectionStatus(Windows::Devices::Bluetooth::BluetoothConnectionStatus const& connectionStatus) const;
-        auto GetDeviceSelectorFromDeviceName(param::hstring const& deviceName) const;
-        auto GetDeviceSelectorFromBluetoothAddress(uint64_t bluetoothAddress) const;
-        auto GetDeviceSelectorFromBluetoothAddress(uint64_t bluetoothAddress, Windows::Devices::Bluetooth::BluetoothAddressType const& bluetoothAddressType) const;
-        auto GetDeviceSelectorFromAppearance(Windows::Devices::Bluetooth::BluetoothLEAppearance const& appearance) const;
-        auto FromBluetoothAddressAsync(uint64_t bluetoothAddress, Windows::Devices::Bluetooth::BluetoothAddressType const& bluetoothAddressType) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelectorFromPairingState(bool pairingState) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelectorFromConnectionStatus(Windows::Devices::Bluetooth::BluetoothConnectionStatus const& connectionStatus) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelectorFromDeviceName(param::hstring const& deviceName) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelectorFromBluetoothAddress(uint64_t bluetoothAddress) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelectorFromBluetoothAddress(uint64_t bluetoothAddress, Windows::Devices::Bluetooth::BluetoothAddressType const& bluetoothAddressType) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelectorFromAppearance(Windows::Devices::Bluetooth::BluetoothLEAppearance const& appearance) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Bluetooth::BluetoothLEDevice>) FromBluetoothAddressAsync(uint64_t bluetoothAddress, Windows::Devices::Bluetooth::BluetoothAddressType const& bluetoothAddressType) const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::IBluetoothLEDeviceStatics2>
     {
@@ -1018,14 +1033,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_IBluetoothSignalStrengthFilter
     {
-        [[nodiscard]] auto InRangeThresholdInDBm() const;
-        auto InRangeThresholdInDBm(Windows::Foundation::IReference<int16_t> const& value) const;
-        [[nodiscard]] auto OutOfRangeThresholdInDBm() const;
-        auto OutOfRangeThresholdInDBm(Windows::Foundation::IReference<int16_t> const& value) const;
-        [[nodiscard]] auto OutOfRangeTimeout() const;
-        auto OutOfRangeTimeout(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
-        [[nodiscard]] auto SamplingInterval() const;
-        auto SamplingInterval(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int16_t>) InRangeThresholdInDBm() const;
+        WINRT_IMPL_AUTO(void) InRangeThresholdInDBm(Windows::Foundation::IReference<int16_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int16_t>) OutOfRangeThresholdInDBm() const;
+        WINRT_IMPL_AUTO(void) OutOfRangeThresholdInDBm(Windows::Foundation::IReference<int16_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) OutOfRangeTimeout() const;
+        WINRT_IMPL_AUTO(void) OutOfRangeTimeout(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) SamplingInterval() const;
+        WINRT_IMPL_AUTO(void) SamplingInterval(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::IBluetoothSignalStrengthFilter>
     {
@@ -1034,8 +1049,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Bluetooth_IBluetoothUuidHelperStatics
     {
-        auto FromShortId(uint32_t shortId) const;
-        auto TryGetShortId(winrt::guid const& uuid) const;
+        WINRT_IMPL_AUTO(winrt::guid) FromShortId(uint32_t shortId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint32_t>) TryGetShortId(winrt::guid const& uuid) const;
     };
     template <> struct consume<Windows::Devices::Bluetooth::IBluetoothUuidHelperStatics>
     {

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -21,8 +21,6 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::DataTransfer::DragDrop
 namespace winrt::impl
 {
     template <> struct category<Windows::ApplicationModel::DataTransfer::DragDrop::DragDropModifiers>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::DragDropModifiers>{ L"Windows.ApplicationModel.DataTransfer.DragDrop.DragDropModifiers" };
-#ifndef WINRT_LEAN_AND_MEAN
-#endif
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::DataTransfer::DragDrop::DragDropModifiers> = L"Windows.ApplicationModel.DataTransfer.DragDrop.DragDropModifiers";
 }
 #endif

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -144,7 +144,7 @@ WINRT_EXPORT namespace winrt::Windows::Perception::Spatial
     {
         SpatialEntity(std::nullptr_t) noexcept {}
         SpatialEntity(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Perception::Spatial::ISpatialEntity(ptr, take_ownership_from_abi) {}
-        SpatialEntity(Windows::Perception::Spatial::SpatialAnchor const& spatialAnchor);
+        explicit SpatialEntity(Windows::Perception::Spatial::SpatialAnchor const& spatialAnchor);
         SpatialEntity(Windows::Perception::Spatial::SpatialAnchor const& spatialAnchor, Windows::Foundation::Collections::ValueSet const& propertySet);
     };
     struct __declspec(empty_bases) SpatialEntityAddedEventArgs : Windows::Perception::Spatial::ISpatialEntityAddedEventArgs

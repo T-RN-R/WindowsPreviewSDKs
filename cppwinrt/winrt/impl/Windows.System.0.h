@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -16,6 +16,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
     struct EventRegistrationToken;
     struct HResult;
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
     template <typename T> struct IReference;
     struct Point;
     struct Rect;
@@ -25,13 +26,16 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
+    struct IPropertySet;
     template <typename T> struct IVectorView;
+    template <typename T> struct IVector;
     struct ValueSet;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage
 {
     struct IStorageFile;
     struct IStorageFolder;
+    struct IStorageItem;
     struct StorageFile;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage::Search
@@ -42,6 +46,11 @@ WINRT_EXPORT namespace winrt::Windows::Storage::Streams
 {
     struct IInputStream;
     struct IOutputStream;
+    struct IRandomAccessStreamReference;
+}
+WINRT_EXPORT namespace winrt::Windows::System::Diagnostics
+{
+    struct ProcessDiagnosticInfo;
 }
 WINRT_EXPORT namespace winrt::Windows::System::RemoteSystems
 {
@@ -658,152 +667,150 @@ namespace winrt::impl
     template <> struct category<Windows::System::VirtualKey>{ using type = enum_category; };
     template <> struct category<Windows::System::VirtualKeyModifiers>{ using type = enum_category; };
     template <> struct category<Windows::System::DispatcherQueueHandler>{ using type = delegate_category; };
-    template <> inline constexpr auto& name_v<Windows::System::AppActivationResult>{ L"Windows.System.AppActivationResult" };
-    template <> inline constexpr auto& name_v<Windows::System::AppDiagnosticInfo>{ L"Windows.System.AppDiagnosticInfo" };
-    template <> inline constexpr auto& name_v<Windows::System::AppDiagnosticInfoWatcher>{ L"Windows.System.AppDiagnosticInfoWatcher" };
-    template <> inline constexpr auto& name_v<Windows::System::AppDiagnosticInfoWatcherEventArgs>{ L"Windows.System.AppDiagnosticInfoWatcherEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::System::AppExecutionStateChangeResult>{ L"Windows.System.AppExecutionStateChangeResult" };
-    template <> inline constexpr auto& name_v<Windows::System::AppMemoryReport>{ L"Windows.System.AppMemoryReport" };
-    template <> inline constexpr auto& name_v<Windows::System::AppMemoryUsageLimitChangingEventArgs>{ L"Windows.System.AppMemoryUsageLimitChangingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::System::AppResourceGroupBackgroundTaskReport>{ L"Windows.System.AppResourceGroupBackgroundTaskReport" };
-    template <> inline constexpr auto& name_v<Windows::System::AppResourceGroupInfo>{ L"Windows.System.AppResourceGroupInfo" };
-    template <> inline constexpr auto& name_v<Windows::System::AppResourceGroupInfoWatcher>{ L"Windows.System.AppResourceGroupInfoWatcher" };
-    template <> inline constexpr auto& name_v<Windows::System::AppResourceGroupInfoWatcherEventArgs>{ L"Windows.System.AppResourceGroupInfoWatcherEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::System::AppResourceGroupInfoWatcherExecutionStateChangedEventArgs>{ L"Windows.System.AppResourceGroupInfoWatcherExecutionStateChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::System::AppResourceGroupMemoryReport>{ L"Windows.System.AppResourceGroupMemoryReport" };
-    template <> inline constexpr auto& name_v<Windows::System::AppResourceGroupStateReport>{ L"Windows.System.AppResourceGroupStateReport" };
-    template <> inline constexpr auto& name_v<Windows::System::AppUriHandlerHost>{ L"Windows.System.AppUriHandlerHost" };
-    template <> inline constexpr auto& name_v<Windows::System::AppUriHandlerRegistration>{ L"Windows.System.AppUriHandlerRegistration" };
-    template <> inline constexpr auto& name_v<Windows::System::AppUriHandlerRegistrationManager>{ L"Windows.System.AppUriHandlerRegistrationManager" };
-    template <> inline constexpr auto& name_v<Windows::System::DateTimeSettings>{ L"Windows.System.DateTimeSettings" };
-    template <> inline constexpr auto& name_v<Windows::System::DispatcherQueue>{ L"Windows.System.DispatcherQueue" };
-    template <> inline constexpr auto& name_v<Windows::System::DispatcherQueueController>{ L"Windows.System.DispatcherQueueController" };
-    template <> inline constexpr auto& name_v<Windows::System::DispatcherQueueShutdownStartingEventArgs>{ L"Windows.System.DispatcherQueueShutdownStartingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::System::DispatcherQueueTimer>{ L"Windows.System.DispatcherQueueTimer" };
-    template <> inline constexpr auto& name_v<Windows::System::FolderLauncherOptions>{ L"Windows.System.FolderLauncherOptions" };
-    template <> inline constexpr auto& name_v<Windows::System::KnownUserProperties>{ L"Windows.System.KnownUserProperties" };
-    template <> inline constexpr auto& name_v<Windows::System::LaunchUriResult>{ L"Windows.System.LaunchUriResult" };
-    template <> inline constexpr auto& name_v<Windows::System::Launcher>{ L"Windows.System.Launcher" };
-    template <> inline constexpr auto& name_v<Windows::System::LauncherOptions>{ L"Windows.System.LauncherOptions" };
-    template <> inline constexpr auto& name_v<Windows::System::LauncherUIOptions>{ L"Windows.System.LauncherUIOptions" };
-    template <> inline constexpr auto& name_v<Windows::System::MemoryManager>{ L"Windows.System.MemoryManager" };
-    template <> inline constexpr auto& name_v<Windows::System::ProcessLauncher>{ L"Windows.System.ProcessLauncher" };
-    template <> inline constexpr auto& name_v<Windows::System::ProcessLauncherOptions>{ L"Windows.System.ProcessLauncherOptions" };
-    template <> inline constexpr auto& name_v<Windows::System::ProcessLauncherResult>{ L"Windows.System.ProcessLauncherResult" };
-    template <> inline constexpr auto& name_v<Windows::System::ProcessMemoryReport>{ L"Windows.System.ProcessMemoryReport" };
-    template <> inline constexpr auto& name_v<Windows::System::ProtocolForResultsOperation>{ L"Windows.System.ProtocolForResultsOperation" };
-    template <> inline constexpr auto& name_v<Windows::System::RemoteLauncher>{ L"Windows.System.RemoteLauncher" };
-    template <> inline constexpr auto& name_v<Windows::System::RemoteLauncherOptions>{ L"Windows.System.RemoteLauncherOptions" };
-    template <> inline constexpr auto& name_v<Windows::System::ShutdownManager>{ L"Windows.System.ShutdownManager" };
-    template <> inline constexpr auto& name_v<Windows::System::TimeZoneSettings>{ L"Windows.System.TimeZoneSettings" };
-    template <> inline constexpr auto& name_v<Windows::System::User>{ L"Windows.System.User" };
-    template <> inline constexpr auto& name_v<Windows::System::UserAuthenticationStatusChangeDeferral>{ L"Windows.System.UserAuthenticationStatusChangeDeferral" };
-    template <> inline constexpr auto& name_v<Windows::System::UserAuthenticationStatusChangingEventArgs>{ L"Windows.System.UserAuthenticationStatusChangingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::System::UserChangedEventArgs>{ L"Windows.System.UserChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::System::UserDeviceAssociation>{ L"Windows.System.UserDeviceAssociation" };
-    template <> inline constexpr auto& name_v<Windows::System::UserDeviceAssociationChangedEventArgs>{ L"Windows.System.UserDeviceAssociationChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::System::UserPicker>{ L"Windows.System.UserPicker" };
-    template <> inline constexpr auto& name_v<Windows::System::UserWatcher>{ L"Windows.System.UserWatcher" };
-    template <> inline constexpr auto& name_v<Windows::System::AppDiagnosticInfoWatcherStatus>{ L"Windows.System.AppDiagnosticInfoWatcherStatus" };
-    template <> inline constexpr auto& name_v<Windows::System::AppMemoryUsageLevel>{ L"Windows.System.AppMemoryUsageLevel" };
-    template <> inline constexpr auto& name_v<Windows::System::AppResourceGroupEnergyQuotaState>{ L"Windows.System.AppResourceGroupEnergyQuotaState" };
-    template <> inline constexpr auto& name_v<Windows::System::AppResourceGroupExecutionState>{ L"Windows.System.AppResourceGroupExecutionState" };
-    template <> inline constexpr auto& name_v<Windows::System::AppResourceGroupInfoWatcherStatus>{ L"Windows.System.AppResourceGroupInfoWatcherStatus" };
-    template <> inline constexpr auto& name_v<Windows::System::AutoUpdateTimeZoneStatus>{ L"Windows.System.AutoUpdateTimeZoneStatus" };
-    template <> inline constexpr auto& name_v<Windows::System::DiagnosticAccessStatus>{ L"Windows.System.DiagnosticAccessStatus" };
-    template <> inline constexpr auto& name_v<Windows::System::DispatcherQueuePriority>{ L"Windows.System.DispatcherQueuePriority" };
-    template <> inline constexpr auto& name_v<Windows::System::LaunchFileStatus>{ L"Windows.System.LaunchFileStatus" };
-    template <> inline constexpr auto& name_v<Windows::System::LaunchQuerySupportStatus>{ L"Windows.System.LaunchQuerySupportStatus" };
-    template <> inline constexpr auto& name_v<Windows::System::LaunchQuerySupportType>{ L"Windows.System.LaunchQuerySupportType" };
-    template <> inline constexpr auto& name_v<Windows::System::LaunchUriStatus>{ L"Windows.System.LaunchUriStatus" };
-    template <> inline constexpr auto& name_v<Windows::System::PowerState>{ L"Windows.System.PowerState" };
-    template <> inline constexpr auto& name_v<Windows::System::ProcessorArchitecture>{ L"Windows.System.ProcessorArchitecture" };
-    template <> inline constexpr auto& name_v<Windows::System::RemoteLaunchUriStatus>{ L"Windows.System.RemoteLaunchUriStatus" };
-    template <> inline constexpr auto& name_v<Windows::System::ShutdownKind>{ L"Windows.System.ShutdownKind" };
-    template <> inline constexpr auto& name_v<Windows::System::UserAuthenticationStatus>{ L"Windows.System.UserAuthenticationStatus" };
-    template <> inline constexpr auto& name_v<Windows::System::UserPictureSize>{ L"Windows.System.UserPictureSize" };
-    template <> inline constexpr auto& name_v<Windows::System::UserType>{ L"Windows.System.UserType" };
-    template <> inline constexpr auto& name_v<Windows::System::UserWatcherStatus>{ L"Windows.System.UserWatcherStatus" };
-    template <> inline constexpr auto& name_v<Windows::System::UserWatcherUpdateKind>{ L"Windows.System.UserWatcherUpdateKind" };
-    template <> inline constexpr auto& name_v<Windows::System::VirtualKey>{ L"Windows.System.VirtualKey" };
-    template <> inline constexpr auto& name_v<Windows::System::VirtualKeyModifiers>{ L"Windows.System.VirtualKeyModifiers" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::System::IAppActivationResult>{ L"Windows.System.IAppActivationResult" };
-    template <> inline constexpr auto& name_v<Windows::System::IAppDiagnosticInfo>{ L"Windows.System.IAppDiagnosticInfo" };
-    template <> inline constexpr auto& name_v<Windows::System::IAppDiagnosticInfo2>{ L"Windows.System.IAppDiagnosticInfo2" };
-    template <> inline constexpr auto& name_v<Windows::System::IAppDiagnosticInfo3>{ L"Windows.System.IAppDiagnosticInfo3" };
-    template <> inline constexpr auto& name_v<Windows::System::IAppDiagnosticInfoStatics>{ L"Windows.System.IAppDiagnosticInfoStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::IAppDiagnosticInfoStatics2>{ L"Windows.System.IAppDiagnosticInfoStatics2" };
-    template <> inline constexpr auto& name_v<Windows::System::IAppDiagnosticInfoWatcher>{ L"Windows.System.IAppDiagnosticInfoWatcher" };
-    template <> inline constexpr auto& name_v<Windows::System::IAppDiagnosticInfoWatcherEventArgs>{ L"Windows.System.IAppDiagnosticInfoWatcherEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::System::IAppExecutionStateChangeResult>{ L"Windows.System.IAppExecutionStateChangeResult" };
-    template <> inline constexpr auto& name_v<Windows::System::IAppMemoryReport>{ L"Windows.System.IAppMemoryReport" };
-    template <> inline constexpr auto& name_v<Windows::System::IAppMemoryReport2>{ L"Windows.System.IAppMemoryReport2" };
-    template <> inline constexpr auto& name_v<Windows::System::IAppMemoryUsageLimitChangingEventArgs>{ L"Windows.System.IAppMemoryUsageLimitChangingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::System::IAppResourceGroupBackgroundTaskReport>{ L"Windows.System.IAppResourceGroupBackgroundTaskReport" };
-    template <> inline constexpr auto& name_v<Windows::System::IAppResourceGroupInfo>{ L"Windows.System.IAppResourceGroupInfo" };
-    template <> inline constexpr auto& name_v<Windows::System::IAppResourceGroupInfo2>{ L"Windows.System.IAppResourceGroupInfo2" };
-    template <> inline constexpr auto& name_v<Windows::System::IAppResourceGroupInfoWatcher>{ L"Windows.System.IAppResourceGroupInfoWatcher" };
-    template <> inline constexpr auto& name_v<Windows::System::IAppResourceGroupInfoWatcherEventArgs>{ L"Windows.System.IAppResourceGroupInfoWatcherEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::System::IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs>{ L"Windows.System.IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::System::IAppResourceGroupMemoryReport>{ L"Windows.System.IAppResourceGroupMemoryReport" };
-    template <> inline constexpr auto& name_v<Windows::System::IAppResourceGroupStateReport>{ L"Windows.System.IAppResourceGroupStateReport" };
-    template <> inline constexpr auto& name_v<Windows::System::IAppUriHandlerHost>{ L"Windows.System.IAppUriHandlerHost" };
-    template <> inline constexpr auto& name_v<Windows::System::IAppUriHandlerHostFactory>{ L"Windows.System.IAppUriHandlerHostFactory" };
-    template <> inline constexpr auto& name_v<Windows::System::IAppUriHandlerRegistration>{ L"Windows.System.IAppUriHandlerRegistration" };
-    template <> inline constexpr auto& name_v<Windows::System::IAppUriHandlerRegistrationManager>{ L"Windows.System.IAppUriHandlerRegistrationManager" };
-    template <> inline constexpr auto& name_v<Windows::System::IAppUriHandlerRegistrationManagerStatics>{ L"Windows.System.IAppUriHandlerRegistrationManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::IDateTimeSettingsStatics>{ L"Windows.System.IDateTimeSettingsStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::IDispatcherQueue>{ L"Windows.System.IDispatcherQueue" };
-    template <> inline constexpr auto& name_v<Windows::System::IDispatcherQueue2>{ L"Windows.System.IDispatcherQueue2" };
-    template <> inline constexpr auto& name_v<Windows::System::IDispatcherQueueController>{ L"Windows.System.IDispatcherQueueController" };
-    template <> inline constexpr auto& name_v<Windows::System::IDispatcherQueueControllerStatics>{ L"Windows.System.IDispatcherQueueControllerStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::IDispatcherQueueShutdownStartingEventArgs>{ L"Windows.System.IDispatcherQueueShutdownStartingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::System::IDispatcherQueueStatics>{ L"Windows.System.IDispatcherQueueStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::IDispatcherQueueTimer>{ L"Windows.System.IDispatcherQueueTimer" };
-    template <> inline constexpr auto& name_v<Windows::System::IFolderLauncherOptions>{ L"Windows.System.IFolderLauncherOptions" };
-    template <> inline constexpr auto& name_v<Windows::System::IKnownUserPropertiesStatics>{ L"Windows.System.IKnownUserPropertiesStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::ILaunchUriResult>{ L"Windows.System.ILaunchUriResult" };
-    template <> inline constexpr auto& name_v<Windows::System::ILauncherOptions>{ L"Windows.System.ILauncherOptions" };
-    template <> inline constexpr auto& name_v<Windows::System::ILauncherOptions2>{ L"Windows.System.ILauncherOptions2" };
-    template <> inline constexpr auto& name_v<Windows::System::ILauncherOptions3>{ L"Windows.System.ILauncherOptions3" };
-    template <> inline constexpr auto& name_v<Windows::System::ILauncherOptions4>{ L"Windows.System.ILauncherOptions4" };
-    template <> inline constexpr auto& name_v<Windows::System::ILauncherStatics>{ L"Windows.System.ILauncherStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::ILauncherStatics2>{ L"Windows.System.ILauncherStatics2" };
-    template <> inline constexpr auto& name_v<Windows::System::ILauncherStatics3>{ L"Windows.System.ILauncherStatics3" };
-    template <> inline constexpr auto& name_v<Windows::System::ILauncherStatics4>{ L"Windows.System.ILauncherStatics4" };
-    template <> inline constexpr auto& name_v<Windows::System::ILauncherStatics5>{ L"Windows.System.ILauncherStatics5" };
-    template <> inline constexpr auto& name_v<Windows::System::ILauncherUIOptions>{ L"Windows.System.ILauncherUIOptions" };
-    template <> inline constexpr auto& name_v<Windows::System::ILauncherViewOptions>{ L"Windows.System.ILauncherViewOptions" };
-    template <> inline constexpr auto& name_v<Windows::System::IMemoryManagerStatics>{ L"Windows.System.IMemoryManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::IMemoryManagerStatics2>{ L"Windows.System.IMemoryManagerStatics2" };
-    template <> inline constexpr auto& name_v<Windows::System::IMemoryManagerStatics3>{ L"Windows.System.IMemoryManagerStatics3" };
-    template <> inline constexpr auto& name_v<Windows::System::IMemoryManagerStatics4>{ L"Windows.System.IMemoryManagerStatics4" };
-    template <> inline constexpr auto& name_v<Windows::System::IProcessLauncherOptions>{ L"Windows.System.IProcessLauncherOptions" };
-    template <> inline constexpr auto& name_v<Windows::System::IProcessLauncherResult>{ L"Windows.System.IProcessLauncherResult" };
-    template <> inline constexpr auto& name_v<Windows::System::IProcessLauncherStatics>{ L"Windows.System.IProcessLauncherStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::IProcessMemoryReport>{ L"Windows.System.IProcessMemoryReport" };
-    template <> inline constexpr auto& name_v<Windows::System::IProtocolForResultsOperation>{ L"Windows.System.IProtocolForResultsOperation" };
-    template <> inline constexpr auto& name_v<Windows::System::IRemoteLauncherOptions>{ L"Windows.System.IRemoteLauncherOptions" };
-    template <> inline constexpr auto& name_v<Windows::System::IRemoteLauncherStatics>{ L"Windows.System.IRemoteLauncherStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::IShutdownManagerStatics>{ L"Windows.System.IShutdownManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::IShutdownManagerStatics2>{ L"Windows.System.IShutdownManagerStatics2" };
-    template <> inline constexpr auto& name_v<Windows::System::ITimeZoneSettingsStatics>{ L"Windows.System.ITimeZoneSettingsStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::ITimeZoneSettingsStatics2>{ L"Windows.System.ITimeZoneSettingsStatics2" };
-    template <> inline constexpr auto& name_v<Windows::System::IUser>{ L"Windows.System.IUser" };
-    template <> inline constexpr auto& name_v<Windows::System::IUserAuthenticationStatusChangeDeferral>{ L"Windows.System.IUserAuthenticationStatusChangeDeferral" };
-    template <> inline constexpr auto& name_v<Windows::System::IUserAuthenticationStatusChangingEventArgs>{ L"Windows.System.IUserAuthenticationStatusChangingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::System::IUserChangedEventArgs>{ L"Windows.System.IUserChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::System::IUserChangedEventArgs2>{ L"Windows.System.IUserChangedEventArgs2" };
-    template <> inline constexpr auto& name_v<Windows::System::IUserDeviceAssociationChangedEventArgs>{ L"Windows.System.IUserDeviceAssociationChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::System::IUserDeviceAssociationStatics>{ L"Windows.System.IUserDeviceAssociationStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::IUserPicker>{ L"Windows.System.IUserPicker" };
-    template <> inline constexpr auto& name_v<Windows::System::IUserPickerStatics>{ L"Windows.System.IUserPickerStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::IUserStatics>{ L"Windows.System.IUserStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::IUserStatics2>{ L"Windows.System.IUserStatics2" };
-    template <> inline constexpr auto& name_v<Windows::System::IUserWatcher>{ L"Windows.System.IUserWatcher" };
-    template <> inline constexpr auto& name_v<Windows::System::DispatcherQueueHandler>{ L"Windows.System.DispatcherQueueHandler" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::System::AppActivationResult> = L"Windows.System.AppActivationResult";
+    template <> inline constexpr auto& name_v<Windows::System::AppDiagnosticInfo> = L"Windows.System.AppDiagnosticInfo";
+    template <> inline constexpr auto& name_v<Windows::System::AppDiagnosticInfoWatcher> = L"Windows.System.AppDiagnosticInfoWatcher";
+    template <> inline constexpr auto& name_v<Windows::System::AppDiagnosticInfoWatcherEventArgs> = L"Windows.System.AppDiagnosticInfoWatcherEventArgs";
+    template <> inline constexpr auto& name_v<Windows::System::AppExecutionStateChangeResult> = L"Windows.System.AppExecutionStateChangeResult";
+    template <> inline constexpr auto& name_v<Windows::System::AppMemoryReport> = L"Windows.System.AppMemoryReport";
+    template <> inline constexpr auto& name_v<Windows::System::AppMemoryUsageLimitChangingEventArgs> = L"Windows.System.AppMemoryUsageLimitChangingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::System::AppResourceGroupBackgroundTaskReport> = L"Windows.System.AppResourceGroupBackgroundTaskReport";
+    template <> inline constexpr auto& name_v<Windows::System::AppResourceGroupInfo> = L"Windows.System.AppResourceGroupInfo";
+    template <> inline constexpr auto& name_v<Windows::System::AppResourceGroupInfoWatcher> = L"Windows.System.AppResourceGroupInfoWatcher";
+    template <> inline constexpr auto& name_v<Windows::System::AppResourceGroupInfoWatcherEventArgs> = L"Windows.System.AppResourceGroupInfoWatcherEventArgs";
+    template <> inline constexpr auto& name_v<Windows::System::AppResourceGroupInfoWatcherExecutionStateChangedEventArgs> = L"Windows.System.AppResourceGroupInfoWatcherExecutionStateChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::System::AppResourceGroupMemoryReport> = L"Windows.System.AppResourceGroupMemoryReport";
+    template <> inline constexpr auto& name_v<Windows::System::AppResourceGroupStateReport> = L"Windows.System.AppResourceGroupStateReport";
+    template <> inline constexpr auto& name_v<Windows::System::AppUriHandlerHost> = L"Windows.System.AppUriHandlerHost";
+    template <> inline constexpr auto& name_v<Windows::System::AppUriHandlerRegistration> = L"Windows.System.AppUriHandlerRegistration";
+    template <> inline constexpr auto& name_v<Windows::System::AppUriHandlerRegistrationManager> = L"Windows.System.AppUriHandlerRegistrationManager";
+    template <> inline constexpr auto& name_v<Windows::System::DateTimeSettings> = L"Windows.System.DateTimeSettings";
+    template <> inline constexpr auto& name_v<Windows::System::DispatcherQueue> = L"Windows.System.DispatcherQueue";
+    template <> inline constexpr auto& name_v<Windows::System::DispatcherQueueController> = L"Windows.System.DispatcherQueueController";
+    template <> inline constexpr auto& name_v<Windows::System::DispatcherQueueShutdownStartingEventArgs> = L"Windows.System.DispatcherQueueShutdownStartingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::System::DispatcherQueueTimer> = L"Windows.System.DispatcherQueueTimer";
+    template <> inline constexpr auto& name_v<Windows::System::FolderLauncherOptions> = L"Windows.System.FolderLauncherOptions";
+    template <> inline constexpr auto& name_v<Windows::System::KnownUserProperties> = L"Windows.System.KnownUserProperties";
+    template <> inline constexpr auto& name_v<Windows::System::LaunchUriResult> = L"Windows.System.LaunchUriResult";
+    template <> inline constexpr auto& name_v<Windows::System::Launcher> = L"Windows.System.Launcher";
+    template <> inline constexpr auto& name_v<Windows::System::LauncherOptions> = L"Windows.System.LauncherOptions";
+    template <> inline constexpr auto& name_v<Windows::System::LauncherUIOptions> = L"Windows.System.LauncherUIOptions";
+    template <> inline constexpr auto& name_v<Windows::System::MemoryManager> = L"Windows.System.MemoryManager";
+    template <> inline constexpr auto& name_v<Windows::System::ProcessLauncher> = L"Windows.System.ProcessLauncher";
+    template <> inline constexpr auto& name_v<Windows::System::ProcessLauncherOptions> = L"Windows.System.ProcessLauncherOptions";
+    template <> inline constexpr auto& name_v<Windows::System::ProcessLauncherResult> = L"Windows.System.ProcessLauncherResult";
+    template <> inline constexpr auto& name_v<Windows::System::ProcessMemoryReport> = L"Windows.System.ProcessMemoryReport";
+    template <> inline constexpr auto& name_v<Windows::System::ProtocolForResultsOperation> = L"Windows.System.ProtocolForResultsOperation";
+    template <> inline constexpr auto& name_v<Windows::System::RemoteLauncher> = L"Windows.System.RemoteLauncher";
+    template <> inline constexpr auto& name_v<Windows::System::RemoteLauncherOptions> = L"Windows.System.RemoteLauncherOptions";
+    template <> inline constexpr auto& name_v<Windows::System::ShutdownManager> = L"Windows.System.ShutdownManager";
+    template <> inline constexpr auto& name_v<Windows::System::TimeZoneSettings> = L"Windows.System.TimeZoneSettings";
+    template <> inline constexpr auto& name_v<Windows::System::User> = L"Windows.System.User";
+    template <> inline constexpr auto& name_v<Windows::System::UserAuthenticationStatusChangeDeferral> = L"Windows.System.UserAuthenticationStatusChangeDeferral";
+    template <> inline constexpr auto& name_v<Windows::System::UserAuthenticationStatusChangingEventArgs> = L"Windows.System.UserAuthenticationStatusChangingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::System::UserChangedEventArgs> = L"Windows.System.UserChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::System::UserDeviceAssociation> = L"Windows.System.UserDeviceAssociation";
+    template <> inline constexpr auto& name_v<Windows::System::UserDeviceAssociationChangedEventArgs> = L"Windows.System.UserDeviceAssociationChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::System::UserPicker> = L"Windows.System.UserPicker";
+    template <> inline constexpr auto& name_v<Windows::System::UserWatcher> = L"Windows.System.UserWatcher";
+    template <> inline constexpr auto& name_v<Windows::System::AppDiagnosticInfoWatcherStatus> = L"Windows.System.AppDiagnosticInfoWatcherStatus";
+    template <> inline constexpr auto& name_v<Windows::System::AppMemoryUsageLevel> = L"Windows.System.AppMemoryUsageLevel";
+    template <> inline constexpr auto& name_v<Windows::System::AppResourceGroupEnergyQuotaState> = L"Windows.System.AppResourceGroupEnergyQuotaState";
+    template <> inline constexpr auto& name_v<Windows::System::AppResourceGroupExecutionState> = L"Windows.System.AppResourceGroupExecutionState";
+    template <> inline constexpr auto& name_v<Windows::System::AppResourceGroupInfoWatcherStatus> = L"Windows.System.AppResourceGroupInfoWatcherStatus";
+    template <> inline constexpr auto& name_v<Windows::System::AutoUpdateTimeZoneStatus> = L"Windows.System.AutoUpdateTimeZoneStatus";
+    template <> inline constexpr auto& name_v<Windows::System::DiagnosticAccessStatus> = L"Windows.System.DiagnosticAccessStatus";
+    template <> inline constexpr auto& name_v<Windows::System::DispatcherQueuePriority> = L"Windows.System.DispatcherQueuePriority";
+    template <> inline constexpr auto& name_v<Windows::System::LaunchFileStatus> = L"Windows.System.LaunchFileStatus";
+    template <> inline constexpr auto& name_v<Windows::System::LaunchQuerySupportStatus> = L"Windows.System.LaunchQuerySupportStatus";
+    template <> inline constexpr auto& name_v<Windows::System::LaunchQuerySupportType> = L"Windows.System.LaunchQuerySupportType";
+    template <> inline constexpr auto& name_v<Windows::System::LaunchUriStatus> = L"Windows.System.LaunchUriStatus";
+    template <> inline constexpr auto& name_v<Windows::System::PowerState> = L"Windows.System.PowerState";
+    template <> inline constexpr auto& name_v<Windows::System::ProcessorArchitecture> = L"Windows.System.ProcessorArchitecture";
+    template <> inline constexpr auto& name_v<Windows::System::RemoteLaunchUriStatus> = L"Windows.System.RemoteLaunchUriStatus";
+    template <> inline constexpr auto& name_v<Windows::System::ShutdownKind> = L"Windows.System.ShutdownKind";
+    template <> inline constexpr auto& name_v<Windows::System::UserAuthenticationStatus> = L"Windows.System.UserAuthenticationStatus";
+    template <> inline constexpr auto& name_v<Windows::System::UserPictureSize> = L"Windows.System.UserPictureSize";
+    template <> inline constexpr auto& name_v<Windows::System::UserType> = L"Windows.System.UserType";
+    template <> inline constexpr auto& name_v<Windows::System::UserWatcherStatus> = L"Windows.System.UserWatcherStatus";
+    template <> inline constexpr auto& name_v<Windows::System::UserWatcherUpdateKind> = L"Windows.System.UserWatcherUpdateKind";
+    template <> inline constexpr auto& name_v<Windows::System::VirtualKey> = L"Windows.System.VirtualKey";
+    template <> inline constexpr auto& name_v<Windows::System::VirtualKeyModifiers> = L"Windows.System.VirtualKeyModifiers";
+    template <> inline constexpr auto& name_v<Windows::System::IAppActivationResult> = L"Windows.System.IAppActivationResult";
+    template <> inline constexpr auto& name_v<Windows::System::IAppDiagnosticInfo> = L"Windows.System.IAppDiagnosticInfo";
+    template <> inline constexpr auto& name_v<Windows::System::IAppDiagnosticInfo2> = L"Windows.System.IAppDiagnosticInfo2";
+    template <> inline constexpr auto& name_v<Windows::System::IAppDiagnosticInfo3> = L"Windows.System.IAppDiagnosticInfo3";
+    template <> inline constexpr auto& name_v<Windows::System::IAppDiagnosticInfoStatics> = L"Windows.System.IAppDiagnosticInfoStatics";
+    template <> inline constexpr auto& name_v<Windows::System::IAppDiagnosticInfoStatics2> = L"Windows.System.IAppDiagnosticInfoStatics2";
+    template <> inline constexpr auto& name_v<Windows::System::IAppDiagnosticInfoWatcher> = L"Windows.System.IAppDiagnosticInfoWatcher";
+    template <> inline constexpr auto& name_v<Windows::System::IAppDiagnosticInfoWatcherEventArgs> = L"Windows.System.IAppDiagnosticInfoWatcherEventArgs";
+    template <> inline constexpr auto& name_v<Windows::System::IAppExecutionStateChangeResult> = L"Windows.System.IAppExecutionStateChangeResult";
+    template <> inline constexpr auto& name_v<Windows::System::IAppMemoryReport> = L"Windows.System.IAppMemoryReport";
+    template <> inline constexpr auto& name_v<Windows::System::IAppMemoryReport2> = L"Windows.System.IAppMemoryReport2";
+    template <> inline constexpr auto& name_v<Windows::System::IAppMemoryUsageLimitChangingEventArgs> = L"Windows.System.IAppMemoryUsageLimitChangingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::System::IAppResourceGroupBackgroundTaskReport> = L"Windows.System.IAppResourceGroupBackgroundTaskReport";
+    template <> inline constexpr auto& name_v<Windows::System::IAppResourceGroupInfo> = L"Windows.System.IAppResourceGroupInfo";
+    template <> inline constexpr auto& name_v<Windows::System::IAppResourceGroupInfo2> = L"Windows.System.IAppResourceGroupInfo2";
+    template <> inline constexpr auto& name_v<Windows::System::IAppResourceGroupInfoWatcher> = L"Windows.System.IAppResourceGroupInfoWatcher";
+    template <> inline constexpr auto& name_v<Windows::System::IAppResourceGroupInfoWatcherEventArgs> = L"Windows.System.IAppResourceGroupInfoWatcherEventArgs";
+    template <> inline constexpr auto& name_v<Windows::System::IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs> = L"Windows.System.IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::System::IAppResourceGroupMemoryReport> = L"Windows.System.IAppResourceGroupMemoryReport";
+    template <> inline constexpr auto& name_v<Windows::System::IAppResourceGroupStateReport> = L"Windows.System.IAppResourceGroupStateReport";
+    template <> inline constexpr auto& name_v<Windows::System::IAppUriHandlerHost> = L"Windows.System.IAppUriHandlerHost";
+    template <> inline constexpr auto& name_v<Windows::System::IAppUriHandlerHostFactory> = L"Windows.System.IAppUriHandlerHostFactory";
+    template <> inline constexpr auto& name_v<Windows::System::IAppUriHandlerRegistration> = L"Windows.System.IAppUriHandlerRegistration";
+    template <> inline constexpr auto& name_v<Windows::System::IAppUriHandlerRegistrationManager> = L"Windows.System.IAppUriHandlerRegistrationManager";
+    template <> inline constexpr auto& name_v<Windows::System::IAppUriHandlerRegistrationManagerStatics> = L"Windows.System.IAppUriHandlerRegistrationManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::System::IDateTimeSettingsStatics> = L"Windows.System.IDateTimeSettingsStatics";
+    template <> inline constexpr auto& name_v<Windows::System::IDispatcherQueue> = L"Windows.System.IDispatcherQueue";
+    template <> inline constexpr auto& name_v<Windows::System::IDispatcherQueue2> = L"Windows.System.IDispatcherQueue2";
+    template <> inline constexpr auto& name_v<Windows::System::IDispatcherQueueController> = L"Windows.System.IDispatcherQueueController";
+    template <> inline constexpr auto& name_v<Windows::System::IDispatcherQueueControllerStatics> = L"Windows.System.IDispatcherQueueControllerStatics";
+    template <> inline constexpr auto& name_v<Windows::System::IDispatcherQueueShutdownStartingEventArgs> = L"Windows.System.IDispatcherQueueShutdownStartingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::System::IDispatcherQueueStatics> = L"Windows.System.IDispatcherQueueStatics";
+    template <> inline constexpr auto& name_v<Windows::System::IDispatcherQueueTimer> = L"Windows.System.IDispatcherQueueTimer";
+    template <> inline constexpr auto& name_v<Windows::System::IFolderLauncherOptions> = L"Windows.System.IFolderLauncherOptions";
+    template <> inline constexpr auto& name_v<Windows::System::IKnownUserPropertiesStatics> = L"Windows.System.IKnownUserPropertiesStatics";
+    template <> inline constexpr auto& name_v<Windows::System::ILaunchUriResult> = L"Windows.System.ILaunchUriResult";
+    template <> inline constexpr auto& name_v<Windows::System::ILauncherOptions> = L"Windows.System.ILauncherOptions";
+    template <> inline constexpr auto& name_v<Windows::System::ILauncherOptions2> = L"Windows.System.ILauncherOptions2";
+    template <> inline constexpr auto& name_v<Windows::System::ILauncherOptions3> = L"Windows.System.ILauncherOptions3";
+    template <> inline constexpr auto& name_v<Windows::System::ILauncherOptions4> = L"Windows.System.ILauncherOptions4";
+    template <> inline constexpr auto& name_v<Windows::System::ILauncherStatics> = L"Windows.System.ILauncherStatics";
+    template <> inline constexpr auto& name_v<Windows::System::ILauncherStatics2> = L"Windows.System.ILauncherStatics2";
+    template <> inline constexpr auto& name_v<Windows::System::ILauncherStatics3> = L"Windows.System.ILauncherStatics3";
+    template <> inline constexpr auto& name_v<Windows::System::ILauncherStatics4> = L"Windows.System.ILauncherStatics4";
+    template <> inline constexpr auto& name_v<Windows::System::ILauncherStatics5> = L"Windows.System.ILauncherStatics5";
+    template <> inline constexpr auto& name_v<Windows::System::ILauncherUIOptions> = L"Windows.System.ILauncherUIOptions";
+    template <> inline constexpr auto& name_v<Windows::System::ILauncherViewOptions> = L"Windows.System.ILauncherViewOptions";
+    template <> inline constexpr auto& name_v<Windows::System::IMemoryManagerStatics> = L"Windows.System.IMemoryManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::System::IMemoryManagerStatics2> = L"Windows.System.IMemoryManagerStatics2";
+    template <> inline constexpr auto& name_v<Windows::System::IMemoryManagerStatics3> = L"Windows.System.IMemoryManagerStatics3";
+    template <> inline constexpr auto& name_v<Windows::System::IMemoryManagerStatics4> = L"Windows.System.IMemoryManagerStatics4";
+    template <> inline constexpr auto& name_v<Windows::System::IProcessLauncherOptions> = L"Windows.System.IProcessLauncherOptions";
+    template <> inline constexpr auto& name_v<Windows::System::IProcessLauncherResult> = L"Windows.System.IProcessLauncherResult";
+    template <> inline constexpr auto& name_v<Windows::System::IProcessLauncherStatics> = L"Windows.System.IProcessLauncherStatics";
+    template <> inline constexpr auto& name_v<Windows::System::IProcessMemoryReport> = L"Windows.System.IProcessMemoryReport";
+    template <> inline constexpr auto& name_v<Windows::System::IProtocolForResultsOperation> = L"Windows.System.IProtocolForResultsOperation";
+    template <> inline constexpr auto& name_v<Windows::System::IRemoteLauncherOptions> = L"Windows.System.IRemoteLauncherOptions";
+    template <> inline constexpr auto& name_v<Windows::System::IRemoteLauncherStatics> = L"Windows.System.IRemoteLauncherStatics";
+    template <> inline constexpr auto& name_v<Windows::System::IShutdownManagerStatics> = L"Windows.System.IShutdownManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::System::IShutdownManagerStatics2> = L"Windows.System.IShutdownManagerStatics2";
+    template <> inline constexpr auto& name_v<Windows::System::ITimeZoneSettingsStatics> = L"Windows.System.ITimeZoneSettingsStatics";
+    template <> inline constexpr auto& name_v<Windows::System::ITimeZoneSettingsStatics2> = L"Windows.System.ITimeZoneSettingsStatics2";
+    template <> inline constexpr auto& name_v<Windows::System::IUser> = L"Windows.System.IUser";
+    template <> inline constexpr auto& name_v<Windows::System::IUserAuthenticationStatusChangeDeferral> = L"Windows.System.IUserAuthenticationStatusChangeDeferral";
+    template <> inline constexpr auto& name_v<Windows::System::IUserAuthenticationStatusChangingEventArgs> = L"Windows.System.IUserAuthenticationStatusChangingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::System::IUserChangedEventArgs> = L"Windows.System.IUserChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::System::IUserChangedEventArgs2> = L"Windows.System.IUserChangedEventArgs2";
+    template <> inline constexpr auto& name_v<Windows::System::IUserDeviceAssociationChangedEventArgs> = L"Windows.System.IUserDeviceAssociationChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::System::IUserDeviceAssociationStatics> = L"Windows.System.IUserDeviceAssociationStatics";
+    template <> inline constexpr auto& name_v<Windows::System::IUserPicker> = L"Windows.System.IUserPicker";
+    template <> inline constexpr auto& name_v<Windows::System::IUserPickerStatics> = L"Windows.System.IUserPickerStatics";
+    template <> inline constexpr auto& name_v<Windows::System::IUserStatics> = L"Windows.System.IUserStatics";
+    template <> inline constexpr auto& name_v<Windows::System::IUserStatics2> = L"Windows.System.IUserStatics2";
+    template <> inline constexpr auto& name_v<Windows::System::IUserWatcher> = L"Windows.System.IUserWatcher";
+    template <> inline constexpr auto& name_v<Windows::System::DispatcherQueueHandler> = L"Windows.System.DispatcherQueueHandler";
     template <> inline constexpr guid guid_v<Windows::System::IAppActivationResult>{ 0x6B528900,0xF46E,0x4EB0,{ 0xAA,0x6C,0x38,0xAF,0x55,0x7C,0xF9,0xED } };
     template <> inline constexpr guid guid_v<Windows::System::IAppDiagnosticInfo>{ 0xE348A69A,0x8889,0x4CA3,{ 0xBE,0x07,0xD5,0xFF,0xFF,0x5F,0x08,0x04 } };
     template <> inline constexpr guid guid_v<Windows::System::IAppDiagnosticInfo2>{ 0xDF46FBD7,0x191A,0x446C,{ 0x94,0x73,0x8F,0xBC,0x23,0x74,0xA3,0x54 } };
@@ -1632,8 +1639,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IAppActivationResult
     {
-        [[nodiscard]] auto ExtendedError() const;
-        [[nodiscard]] auto AppResourceGroupInfo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::AppResourceGroupInfo) AppResourceGroupInfo() const;
     };
     template <> struct consume<Windows::System::IAppActivationResult>
     {
@@ -1642,7 +1649,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IAppDiagnosticInfo
     {
-        [[nodiscard]] auto AppInfo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::AppInfo) AppInfo() const;
     };
     template <> struct consume<Windows::System::IAppDiagnosticInfo>
     {
@@ -1651,8 +1658,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IAppDiagnosticInfo2
     {
-        auto GetResourceGroups() const;
-        auto CreateResourceGroupWatcher() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::System::AppResourceGroupInfo>) GetResourceGroups() const;
+        WINRT_IMPL_AUTO(Windows::System::AppResourceGroupInfoWatcher) CreateResourceGroupWatcher() const;
     };
     template <> struct consume<Windows::System::IAppDiagnosticInfo2>
     {
@@ -1661,7 +1668,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IAppDiagnosticInfo3
     {
-        auto LaunchAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::System::AppActivationResult>) LaunchAsync() const;
     };
     template <> struct consume<Windows::System::IAppDiagnosticInfo3>
     {
@@ -1670,7 +1677,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IAppDiagnosticInfoStatics
     {
-        auto RequestInfoAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVector<Windows::System::AppDiagnosticInfo>>) RequestInfoAsync() const;
     };
     template <> struct consume<Windows::System::IAppDiagnosticInfoStatics>
     {
@@ -1679,11 +1686,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IAppDiagnosticInfoStatics2
     {
-        auto CreateWatcher() const;
-        auto RequestAccessAsync() const;
-        auto RequestInfoForPackageAsync(param::hstring const& packageFamilyName) const;
-        auto RequestInfoForAppAsync() const;
-        auto RequestInfoForAppAsync(param::hstring const& appUserModelId) const;
+        WINRT_IMPL_AUTO(Windows::System::AppDiagnosticInfoWatcher) CreateWatcher() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::System::DiagnosticAccessStatus>) RequestAccessAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVector<Windows::System::AppDiagnosticInfo>>) RequestInfoForPackageAsync(param::hstring const& packageFamilyName) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVector<Windows::System::AppDiagnosticInfo>>) RequestInfoForAppAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVector<Windows::System::AppDiagnosticInfo>>) RequestInfoForAppAsync(param::hstring const& appUserModelId) const;
     };
     template <> struct consume<Windows::System::IAppDiagnosticInfoStatics2>
     {
@@ -1692,25 +1699,25 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IAppDiagnosticInfoWatcher
     {
-        auto Added(Windows::Foundation::TypedEventHandler<Windows::System::AppDiagnosticInfoWatcher, Windows::System::AppDiagnosticInfoWatcherEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Added(Windows::Foundation::TypedEventHandler<Windows::System::AppDiagnosticInfoWatcher, Windows::System::AppDiagnosticInfoWatcherEventArgs> const& handler) const;
         using Added_revoker = impl::event_revoker<Windows::System::IAppDiagnosticInfoWatcher, &impl::abi_t<Windows::System::IAppDiagnosticInfoWatcher>::remove_Added>;
         [[nodiscard]] Added_revoker Added(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::System::AppDiagnosticInfoWatcher, Windows::System::AppDiagnosticInfoWatcherEventArgs> const& handler) const;
-        auto Added(winrt::event_token const& token) const noexcept;
-        auto Removed(Windows::Foundation::TypedEventHandler<Windows::System::AppDiagnosticInfoWatcher, Windows::System::AppDiagnosticInfoWatcherEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) Added(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Removed(Windows::Foundation::TypedEventHandler<Windows::System::AppDiagnosticInfoWatcher, Windows::System::AppDiagnosticInfoWatcherEventArgs> const& handler) const;
         using Removed_revoker = impl::event_revoker<Windows::System::IAppDiagnosticInfoWatcher, &impl::abi_t<Windows::System::IAppDiagnosticInfoWatcher>::remove_Removed>;
         [[nodiscard]] Removed_revoker Removed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::System::AppDiagnosticInfoWatcher, Windows::System::AppDiagnosticInfoWatcherEventArgs> const& handler) const;
-        auto Removed(winrt::event_token const& token) const noexcept;
-        auto EnumerationCompleted(Windows::Foundation::TypedEventHandler<Windows::System::AppDiagnosticInfoWatcher, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) Removed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) EnumerationCompleted(Windows::Foundation::TypedEventHandler<Windows::System::AppDiagnosticInfoWatcher, Windows::Foundation::IInspectable> const& handler) const;
         using EnumerationCompleted_revoker = impl::event_revoker<Windows::System::IAppDiagnosticInfoWatcher, &impl::abi_t<Windows::System::IAppDiagnosticInfoWatcher>::remove_EnumerationCompleted>;
         [[nodiscard]] EnumerationCompleted_revoker EnumerationCompleted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::System::AppDiagnosticInfoWatcher, Windows::Foundation::IInspectable> const& handler) const;
-        auto EnumerationCompleted(winrt::event_token const& token) const noexcept;
-        auto Stopped(Windows::Foundation::TypedEventHandler<Windows::System::AppDiagnosticInfoWatcher, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) EnumerationCompleted(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Stopped(Windows::Foundation::TypedEventHandler<Windows::System::AppDiagnosticInfoWatcher, Windows::Foundation::IInspectable> const& handler) const;
         using Stopped_revoker = impl::event_revoker<Windows::System::IAppDiagnosticInfoWatcher, &impl::abi_t<Windows::System::IAppDiagnosticInfoWatcher>::remove_Stopped>;
         [[nodiscard]] Stopped_revoker Stopped(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::System::AppDiagnosticInfoWatcher, Windows::Foundation::IInspectable> const& handler) const;
-        auto Stopped(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto Status() const;
-        auto Start() const;
-        auto Stop() const;
+        WINRT_IMPL_AUTO(void) Stopped(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::AppDiagnosticInfoWatcherStatus) Status() const;
+        WINRT_IMPL_AUTO(void) Start() const;
+        WINRT_IMPL_AUTO(void) Stop() const;
     };
     template <> struct consume<Windows::System::IAppDiagnosticInfoWatcher>
     {
@@ -1719,7 +1726,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IAppDiagnosticInfoWatcherEventArgs
     {
-        [[nodiscard]] auto AppDiagnosticInfo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::AppDiagnosticInfo) AppDiagnosticInfo() const;
     };
     template <> struct consume<Windows::System::IAppDiagnosticInfoWatcherEventArgs>
     {
@@ -1728,7 +1735,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IAppExecutionStateChangeResult
     {
-        [[nodiscard]] auto ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
     };
     template <> struct consume<Windows::System::IAppExecutionStateChangeResult>
     {
@@ -1737,10 +1744,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IAppMemoryReport
     {
-        [[nodiscard]] auto PrivateCommitUsage() const;
-        [[nodiscard]] auto PeakPrivateCommitUsage() const;
-        [[nodiscard]] auto TotalCommitUsage() const;
-        [[nodiscard]] auto TotalCommitLimit() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) PrivateCommitUsage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) PeakPrivateCommitUsage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) TotalCommitUsage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) TotalCommitLimit() const;
     };
     template <> struct consume<Windows::System::IAppMemoryReport>
     {
@@ -1749,7 +1756,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IAppMemoryReport2
     {
-        [[nodiscard]] auto ExpectedTotalCommitLimit() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) ExpectedTotalCommitLimit() const;
     };
     template <> struct consume<Windows::System::IAppMemoryReport2>
     {
@@ -1758,8 +1765,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IAppMemoryUsageLimitChangingEventArgs
     {
-        [[nodiscard]] auto OldLimit() const;
-        [[nodiscard]] auto NewLimit() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) OldLimit() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) NewLimit() const;
     };
     template <> struct consume<Windows::System::IAppMemoryUsageLimitChangingEventArgs>
     {
@@ -1768,10 +1775,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IAppResourceGroupBackgroundTaskReport
     {
-        [[nodiscard]] auto TaskId() const;
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto Trigger() const;
-        [[nodiscard]] auto EntryPoint() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) TaskId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Trigger() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EntryPoint() const;
     };
     template <> struct consume<Windows::System::IAppResourceGroupBackgroundTaskReport>
     {
@@ -1780,12 +1787,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IAppResourceGroupInfo
     {
-        [[nodiscard]] auto InstanceId() const;
-        [[nodiscard]] auto IsShared() const;
-        auto GetBackgroundTaskReports() const;
-        auto GetMemoryReport() const;
-        auto GetProcessDiagnosticInfos() const;
-        auto GetStateReport() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) InstanceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsShared() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::System::AppResourceGroupBackgroundTaskReport>) GetBackgroundTaskReports() const;
+        WINRT_IMPL_AUTO(Windows::System::AppResourceGroupMemoryReport) GetMemoryReport() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::System::Diagnostics::ProcessDiagnosticInfo>) GetProcessDiagnosticInfos() const;
+        WINRT_IMPL_AUTO(Windows::System::AppResourceGroupStateReport) GetStateReport() const;
     };
     template <> struct consume<Windows::System::IAppResourceGroupInfo>
     {
@@ -1794,9 +1801,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IAppResourceGroupInfo2
     {
-        auto StartSuspendAsync() const;
-        auto StartResumeAsync() const;
-        auto StartTerminateAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::System::AppExecutionStateChangeResult>) StartSuspendAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::System::AppExecutionStateChangeResult>) StartResumeAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::System::AppExecutionStateChangeResult>) StartTerminateAsync() const;
     };
     template <> struct consume<Windows::System::IAppResourceGroupInfo2>
     {
@@ -1805,29 +1812,29 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IAppResourceGroupInfoWatcher
     {
-        auto Added(Windows::Foundation::TypedEventHandler<Windows::System::AppResourceGroupInfoWatcher, Windows::System::AppResourceGroupInfoWatcherEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Added(Windows::Foundation::TypedEventHandler<Windows::System::AppResourceGroupInfoWatcher, Windows::System::AppResourceGroupInfoWatcherEventArgs> const& handler) const;
         using Added_revoker = impl::event_revoker<Windows::System::IAppResourceGroupInfoWatcher, &impl::abi_t<Windows::System::IAppResourceGroupInfoWatcher>::remove_Added>;
         [[nodiscard]] Added_revoker Added(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::System::AppResourceGroupInfoWatcher, Windows::System::AppResourceGroupInfoWatcherEventArgs> const& handler) const;
-        auto Added(winrt::event_token const& token) const noexcept;
-        auto Removed(Windows::Foundation::TypedEventHandler<Windows::System::AppResourceGroupInfoWatcher, Windows::System::AppResourceGroupInfoWatcherEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) Added(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Removed(Windows::Foundation::TypedEventHandler<Windows::System::AppResourceGroupInfoWatcher, Windows::System::AppResourceGroupInfoWatcherEventArgs> const& handler) const;
         using Removed_revoker = impl::event_revoker<Windows::System::IAppResourceGroupInfoWatcher, &impl::abi_t<Windows::System::IAppResourceGroupInfoWatcher>::remove_Removed>;
         [[nodiscard]] Removed_revoker Removed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::System::AppResourceGroupInfoWatcher, Windows::System::AppResourceGroupInfoWatcherEventArgs> const& handler) const;
-        auto Removed(winrt::event_token const& token) const noexcept;
-        auto EnumerationCompleted(Windows::Foundation::TypedEventHandler<Windows::System::AppResourceGroupInfoWatcher, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) Removed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) EnumerationCompleted(Windows::Foundation::TypedEventHandler<Windows::System::AppResourceGroupInfoWatcher, Windows::Foundation::IInspectable> const& handler) const;
         using EnumerationCompleted_revoker = impl::event_revoker<Windows::System::IAppResourceGroupInfoWatcher, &impl::abi_t<Windows::System::IAppResourceGroupInfoWatcher>::remove_EnumerationCompleted>;
         [[nodiscard]] EnumerationCompleted_revoker EnumerationCompleted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::System::AppResourceGroupInfoWatcher, Windows::Foundation::IInspectable> const& handler) const;
-        auto EnumerationCompleted(winrt::event_token const& token) const noexcept;
-        auto Stopped(Windows::Foundation::TypedEventHandler<Windows::System::AppResourceGroupInfoWatcher, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) EnumerationCompleted(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Stopped(Windows::Foundation::TypedEventHandler<Windows::System::AppResourceGroupInfoWatcher, Windows::Foundation::IInspectable> const& handler) const;
         using Stopped_revoker = impl::event_revoker<Windows::System::IAppResourceGroupInfoWatcher, &impl::abi_t<Windows::System::IAppResourceGroupInfoWatcher>::remove_Stopped>;
         [[nodiscard]] Stopped_revoker Stopped(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::System::AppResourceGroupInfoWatcher, Windows::Foundation::IInspectable> const& handler) const;
-        auto Stopped(winrt::event_token const& token) const noexcept;
-        auto ExecutionStateChanged(Windows::Foundation::TypedEventHandler<Windows::System::AppResourceGroupInfoWatcher, Windows::System::AppResourceGroupInfoWatcherExecutionStateChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) Stopped(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ExecutionStateChanged(Windows::Foundation::TypedEventHandler<Windows::System::AppResourceGroupInfoWatcher, Windows::System::AppResourceGroupInfoWatcherExecutionStateChangedEventArgs> const& handler) const;
         using ExecutionStateChanged_revoker = impl::event_revoker<Windows::System::IAppResourceGroupInfoWatcher, &impl::abi_t<Windows::System::IAppResourceGroupInfoWatcher>::remove_ExecutionStateChanged>;
         [[nodiscard]] ExecutionStateChanged_revoker ExecutionStateChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::System::AppResourceGroupInfoWatcher, Windows::System::AppResourceGroupInfoWatcherExecutionStateChangedEventArgs> const& handler) const;
-        auto ExecutionStateChanged(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto Status() const;
-        auto Start() const;
-        auto Stop() const;
+        WINRT_IMPL_AUTO(void) ExecutionStateChanged(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::AppResourceGroupInfoWatcherStatus) Status() const;
+        WINRT_IMPL_AUTO(void) Start() const;
+        WINRT_IMPL_AUTO(void) Stop() const;
     };
     template <> struct consume<Windows::System::IAppResourceGroupInfoWatcher>
     {
@@ -1836,8 +1843,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IAppResourceGroupInfoWatcherEventArgs
     {
-        [[nodiscard]] auto AppDiagnosticInfos() const;
-        [[nodiscard]] auto AppResourceGroupInfo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::System::AppDiagnosticInfo>) AppDiagnosticInfos() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::AppResourceGroupInfo) AppResourceGroupInfo() const;
     };
     template <> struct consume<Windows::System::IAppResourceGroupInfoWatcherEventArgs>
     {
@@ -1846,8 +1853,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs
     {
-        [[nodiscard]] auto AppDiagnosticInfos() const;
-        [[nodiscard]] auto AppResourceGroupInfo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::System::AppDiagnosticInfo>) AppDiagnosticInfos() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::AppResourceGroupInfo) AppResourceGroupInfo() const;
     };
     template <> struct consume<Windows::System::IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs>
     {
@@ -1856,10 +1863,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IAppResourceGroupMemoryReport
     {
-        [[nodiscard]] auto CommitUsageLimit() const;
-        [[nodiscard]] auto CommitUsageLevel() const;
-        [[nodiscard]] auto PrivateCommitUsage() const;
-        [[nodiscard]] auto TotalCommitUsage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) CommitUsageLimit() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::AppMemoryUsageLevel) CommitUsageLevel() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) PrivateCommitUsage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) TotalCommitUsage() const;
     };
     template <> struct consume<Windows::System::IAppResourceGroupMemoryReport>
     {
@@ -1868,8 +1875,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IAppResourceGroupStateReport
     {
-        [[nodiscard]] auto ExecutionState() const;
-        [[nodiscard]] auto EnergyQuotaState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::AppResourceGroupExecutionState) ExecutionState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::AppResourceGroupEnergyQuotaState) EnergyQuotaState() const;
     };
     template <> struct consume<Windows::System::IAppResourceGroupStateReport>
     {
@@ -1878,8 +1885,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IAppUriHandlerHost
     {
-        [[nodiscard]] auto Name() const;
-        auto Name(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        WINRT_IMPL_AUTO(void) Name(param::hstring const& value) const;
     };
     template <> struct consume<Windows::System::IAppUriHandlerHost>
     {
@@ -1888,7 +1895,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IAppUriHandlerHostFactory
     {
-        auto CreateInstance(param::hstring const& name) const;
+        WINRT_IMPL_AUTO(Windows::System::AppUriHandlerHost) CreateInstance(param::hstring const& name) const;
     };
     template <> struct consume<Windows::System::IAppUriHandlerHostFactory>
     {
@@ -1897,10 +1904,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IAppUriHandlerRegistration
     {
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto User() const;
-        auto GetAppAddedHostsAsync() const;
-        auto SetAppAddedHostsAsync(param::async_iterable<Windows::System::AppUriHandlerHost> const& hosts) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::User) User() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVector<Windows::System::AppUriHandlerHost>>) GetAppAddedHostsAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetAppAddedHostsAsync(param::async_iterable<Windows::System::AppUriHandlerHost> const& hosts) const;
     };
     template <> struct consume<Windows::System::IAppUriHandlerRegistration>
     {
@@ -1909,8 +1916,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IAppUriHandlerRegistrationManager
     {
-        [[nodiscard]] auto User() const;
-        auto TryGetRegistration(param::hstring const& name) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::User) User() const;
+        WINRT_IMPL_AUTO(Windows::System::AppUriHandlerRegistration) TryGetRegistration(param::hstring const& name) const;
     };
     template <> struct consume<Windows::System::IAppUriHandlerRegistrationManager>
     {
@@ -1919,8 +1926,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IAppUriHandlerRegistrationManagerStatics
     {
-        auto GetDefault() const;
-        auto GetForUser(Windows::System::User const& user) const;
+        WINRT_IMPL_AUTO(Windows::System::AppUriHandlerRegistrationManager) GetDefault() const;
+        WINRT_IMPL_AUTO(Windows::System::AppUriHandlerRegistrationManager) GetForUser(Windows::System::User const& user) const;
     };
     template <> struct consume<Windows::System::IAppUriHandlerRegistrationManagerStatics>
     {
@@ -1929,7 +1936,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IDateTimeSettingsStatics
     {
-        auto SetSystemDateTime(Windows::Foundation::DateTime const& utcDateTime) const;
+        WINRT_IMPL_AUTO(void) SetSystemDateTime(Windows::Foundation::DateTime const& utcDateTime) const;
     };
     template <> struct consume<Windows::System::IDateTimeSettingsStatics>
     {
@@ -1938,17 +1945,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IDispatcherQueue
     {
-        auto CreateTimer() const;
-        auto TryEnqueue(Windows::System::DispatcherQueueHandler const& callback) const;
-        auto TryEnqueue(Windows::System::DispatcherQueuePriority const& priority, Windows::System::DispatcherQueueHandler const& callback) const;
-        auto ShutdownStarting(Windows::Foundation::TypedEventHandler<Windows::System::DispatcherQueue, Windows::System::DispatcherQueueShutdownStartingEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(Windows::System::DispatcherQueueTimer) CreateTimer() const;
+        WINRT_IMPL_AUTO(bool) TryEnqueue(Windows::System::DispatcherQueueHandler const& callback) const;
+        WINRT_IMPL_AUTO(bool) TryEnqueue(Windows::System::DispatcherQueuePriority const& priority, Windows::System::DispatcherQueueHandler const& callback) const;
+        WINRT_IMPL_AUTO(winrt::event_token) ShutdownStarting(Windows::Foundation::TypedEventHandler<Windows::System::DispatcherQueue, Windows::System::DispatcherQueueShutdownStartingEventArgs> const& handler) const;
         using ShutdownStarting_revoker = impl::event_revoker<Windows::System::IDispatcherQueue, &impl::abi_t<Windows::System::IDispatcherQueue>::remove_ShutdownStarting>;
         [[nodiscard]] ShutdownStarting_revoker ShutdownStarting(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::System::DispatcherQueue, Windows::System::DispatcherQueueShutdownStartingEventArgs> const& handler) const;
-        auto ShutdownStarting(winrt::event_token const& token) const noexcept;
-        auto ShutdownCompleted(Windows::Foundation::TypedEventHandler<Windows::System::DispatcherQueue, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) ShutdownStarting(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ShutdownCompleted(Windows::Foundation::TypedEventHandler<Windows::System::DispatcherQueue, Windows::Foundation::IInspectable> const& handler) const;
         using ShutdownCompleted_revoker = impl::event_revoker<Windows::System::IDispatcherQueue, &impl::abi_t<Windows::System::IDispatcherQueue>::remove_ShutdownCompleted>;
         [[nodiscard]] ShutdownCompleted_revoker ShutdownCompleted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::System::DispatcherQueue, Windows::Foundation::IInspectable> const& handler) const;
-        auto ShutdownCompleted(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) ShutdownCompleted(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::System::IDispatcherQueue>
     {
@@ -1957,7 +1964,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IDispatcherQueue2
     {
-        [[nodiscard]] auto HasThreadAccess() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) HasThreadAccess() const;
     };
     template <> struct consume<Windows::System::IDispatcherQueue2>
     {
@@ -1966,8 +1973,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IDispatcherQueueController
     {
-        [[nodiscard]] auto DispatcherQueue() const;
-        auto ShutdownQueueAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::DispatcherQueue) DispatcherQueue() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ShutdownQueueAsync() const;
     };
     template <> struct consume<Windows::System::IDispatcherQueueController>
     {
@@ -1976,7 +1983,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IDispatcherQueueControllerStatics
     {
-        auto CreateOnDedicatedThread() const;
+        WINRT_IMPL_AUTO(Windows::System::DispatcherQueueController) CreateOnDedicatedThread() const;
     };
     template <> struct consume<Windows::System::IDispatcherQueueControllerStatics>
     {
@@ -1985,7 +1992,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IDispatcherQueueShutdownStartingEventArgs
     {
-        auto GetDeferral() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::System::IDispatcherQueueShutdownStartingEventArgs>
     {
@@ -1994,7 +2001,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IDispatcherQueueStatics
     {
-        auto GetForCurrentThread() const;
+        WINRT_IMPL_AUTO(Windows::System::DispatcherQueue) GetForCurrentThread() const;
     };
     template <> struct consume<Windows::System::IDispatcherQueueStatics>
     {
@@ -2003,17 +2010,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IDispatcherQueueTimer
     {
-        [[nodiscard]] auto Interval() const;
-        auto Interval(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto IsRunning() const;
-        [[nodiscard]] auto IsRepeating() const;
-        auto IsRepeating(bool value) const;
-        auto Start() const;
-        auto Stop() const;
-        auto Tick(Windows::Foundation::TypedEventHandler<Windows::System::DispatcherQueueTimer, Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Interval() const;
+        WINRT_IMPL_AUTO(void) Interval(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsRunning() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsRepeating() const;
+        WINRT_IMPL_AUTO(void) IsRepeating(bool value) const;
+        WINRT_IMPL_AUTO(void) Start() const;
+        WINRT_IMPL_AUTO(void) Stop() const;
+        WINRT_IMPL_AUTO(winrt::event_token) Tick(Windows::Foundation::TypedEventHandler<Windows::System::DispatcherQueueTimer, Windows::Foundation::IInspectable> const& handler) const;
         using Tick_revoker = impl::event_revoker<Windows::System::IDispatcherQueueTimer, &impl::abi_t<Windows::System::IDispatcherQueueTimer>::remove_Tick>;
         [[nodiscard]] Tick_revoker Tick(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::System::DispatcherQueueTimer, Windows::Foundation::IInspectable> const& handler) const;
-        auto Tick(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Tick(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::System::IDispatcherQueueTimer>
     {
@@ -2022,7 +2029,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IFolderLauncherOptions
     {
-        [[nodiscard]] auto ItemsToSelect() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Storage::IStorageItem>) ItemsToSelect() const;
     };
     template <> struct consume<Windows::System::IFolderLauncherOptions>
     {
@@ -2031,15 +2038,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IKnownUserPropertiesStatics
     {
-        [[nodiscard]] auto DisplayName() const;
-        [[nodiscard]] auto FirstName() const;
-        [[nodiscard]] auto LastName() const;
-        [[nodiscard]] auto ProviderName() const;
-        [[nodiscard]] auto AccountName() const;
-        [[nodiscard]] auto GuestHost() const;
-        [[nodiscard]] auto PrincipalName() const;
-        [[nodiscard]] auto DomainName() const;
-        [[nodiscard]] auto SessionInitiationProtocolUri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FirstName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) LastName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ProviderName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AccountName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) GuestHost() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PrincipalName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DomainName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SessionInitiationProtocolUri() const;
     };
     template <> struct consume<Windows::System::IKnownUserPropertiesStatics>
     {
@@ -2048,8 +2055,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_ILaunchUriResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto Result() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::LaunchUriStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::ValueSet) Result() const;
     };
     template <> struct consume<Windows::System::ILaunchUriResult>
     {
@@ -2058,19 +2065,19 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_ILauncherOptions
     {
-        [[nodiscard]] auto TreatAsUntrusted() const;
-        auto TreatAsUntrusted(bool value) const;
-        [[nodiscard]] auto DisplayApplicationPicker() const;
-        auto DisplayApplicationPicker(bool value) const;
-        [[nodiscard]] auto UI() const;
-        [[nodiscard]] auto PreferredApplicationPackageFamilyName() const;
-        auto PreferredApplicationPackageFamilyName(param::hstring const& value) const;
-        [[nodiscard]] auto PreferredApplicationDisplayName() const;
-        auto PreferredApplicationDisplayName(param::hstring const& value) const;
-        [[nodiscard]] auto FallbackUri() const;
-        auto FallbackUri(Windows::Foundation::Uri const& value) const;
-        [[nodiscard]] auto ContentType() const;
-        auto ContentType(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) TreatAsUntrusted() const;
+        WINRT_IMPL_AUTO(void) TreatAsUntrusted(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) DisplayApplicationPicker() const;
+        WINRT_IMPL_AUTO(void) DisplayApplicationPicker(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::LauncherUIOptions) UI() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PreferredApplicationPackageFamilyName() const;
+        WINRT_IMPL_AUTO(void) PreferredApplicationPackageFamilyName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PreferredApplicationDisplayName() const;
+        WINRT_IMPL_AUTO(void) PreferredApplicationDisplayName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) FallbackUri() const;
+        WINRT_IMPL_AUTO(void) FallbackUri(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ContentType() const;
+        WINRT_IMPL_AUTO(void) ContentType(param::hstring const& value) const;
     };
     template <> struct consume<Windows::System::ILauncherOptions>
     {
@@ -2079,10 +2086,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_ILauncherOptions2
     {
-        [[nodiscard]] auto TargetApplicationPackageFamilyName() const;
-        auto TargetApplicationPackageFamilyName(param::hstring const& value) const;
-        [[nodiscard]] auto NeighboringFilesQuery() const;
-        auto NeighboringFilesQuery(Windows::Storage::Search::StorageFileQueryResult const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TargetApplicationPackageFamilyName() const;
+        WINRT_IMPL_AUTO(void) TargetApplicationPackageFamilyName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Search::StorageFileQueryResult) NeighboringFilesQuery() const;
+        WINRT_IMPL_AUTO(void) NeighboringFilesQuery(Windows::Storage::Search::StorageFileQueryResult const& value) const;
     };
     template <> struct consume<Windows::System::ILauncherOptions2>
     {
@@ -2091,8 +2098,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_ILauncherOptions3
     {
-        [[nodiscard]] auto IgnoreAppUriHandlers() const;
-        auto IgnoreAppUriHandlers(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IgnoreAppUriHandlers() const;
+        WINRT_IMPL_AUTO(void) IgnoreAppUriHandlers(bool value) const;
     };
     template <> struct consume<Windows::System::ILauncherOptions3>
     {
@@ -2101,8 +2108,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_ILauncherOptions4
     {
-        [[nodiscard]] auto LimitPickerToCurrentAppAndAppUriHandlers() const;
-        auto LimitPickerToCurrentAppAndAppUriHandlers(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) LimitPickerToCurrentAppAndAppUriHandlers() const;
+        WINRT_IMPL_AUTO(void) LimitPickerToCurrentAppAndAppUriHandlers(bool value) const;
     };
     template <> struct consume<Windows::System::ILauncherOptions4>
     {
@@ -2111,10 +2118,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_ILauncherStatics
     {
-        auto LaunchFileAsync(Windows::Storage::IStorageFile const& file) const;
-        auto LaunchFileAsync(Windows::Storage::IStorageFile const& file, Windows::System::LauncherOptions const& options) const;
-        auto LaunchUriAsync(Windows::Foundation::Uri const& uri) const;
-        auto LaunchUriAsync(Windows::Foundation::Uri const& uri, Windows::System::LauncherOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) LaunchFileAsync(Windows::Storage::IStorageFile const& file) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) LaunchFileAsync(Windows::Storage::IStorageFile const& file, Windows::System::LauncherOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) LaunchUriAsync(Windows::Foundation::Uri const& uri) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) LaunchUriAsync(Windows::Foundation::Uri const& uri, Windows::System::LauncherOptions const& options) const;
     };
     template <> struct consume<Windows::System::ILauncherStatics>
     {
@@ -2123,16 +2130,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_ILauncherStatics2
     {
-        auto LaunchUriForResultsAsync(Windows::Foundation::Uri const& uri, Windows::System::LauncherOptions const& options) const;
-        auto LaunchUriForResultsAsync(Windows::Foundation::Uri const& uri, Windows::System::LauncherOptions const& options, Windows::Foundation::Collections::ValueSet const& inputData) const;
-        auto LaunchUriAsync(Windows::Foundation::Uri const& uri, Windows::System::LauncherOptions const& options, Windows::Foundation::Collections::ValueSet const& inputData) const;
-        auto QueryUriSupportAsync(Windows::Foundation::Uri const& uri, Windows::System::LaunchQuerySupportType const& launchQuerySupportType) const;
-        auto QueryUriSupportAsync(Windows::Foundation::Uri const& uri, Windows::System::LaunchQuerySupportType const& launchQuerySupportType, param::hstring const& packageFamilyName) const;
-        auto QueryFileSupportAsync(Windows::Storage::StorageFile const& file) const;
-        auto QueryFileSupportAsync(Windows::Storage::StorageFile const& file, param::hstring const& packageFamilyName) const;
-        auto FindUriSchemeHandlersAsync(param::hstring const& scheme) const;
-        auto FindUriSchemeHandlersAsync(param::hstring const& scheme, Windows::System::LaunchQuerySupportType const& launchQuerySupportType) const;
-        auto FindFileHandlersAsync(param::hstring const& extension) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::System::LaunchUriResult>) LaunchUriForResultsAsync(Windows::Foundation::Uri const& uri, Windows::System::LauncherOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::System::LaunchUriResult>) LaunchUriForResultsAsync(Windows::Foundation::Uri const& uri, Windows::System::LauncherOptions const& options, Windows::Foundation::Collections::ValueSet const& inputData) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) LaunchUriAsync(Windows::Foundation::Uri const& uri, Windows::System::LauncherOptions const& options, Windows::Foundation::Collections::ValueSet const& inputData) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::System::LaunchQuerySupportStatus>) QueryUriSupportAsync(Windows::Foundation::Uri const& uri, Windows::System::LaunchQuerySupportType const& launchQuerySupportType) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::System::LaunchQuerySupportStatus>) QueryUriSupportAsync(Windows::Foundation::Uri const& uri, Windows::System::LaunchQuerySupportType const& launchQuerySupportType, param::hstring const& packageFamilyName) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::System::LaunchQuerySupportStatus>) QueryFileSupportAsync(Windows::Storage::StorageFile const& file) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::System::LaunchQuerySupportStatus>) QueryFileSupportAsync(Windows::Storage::StorageFile const& file, param::hstring const& packageFamilyName) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::AppInfo>>) FindUriSchemeHandlersAsync(param::hstring const& scheme) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::AppInfo>>) FindUriSchemeHandlersAsync(param::hstring const& scheme, Windows::System::LaunchQuerySupportType const& launchQuerySupportType) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::AppInfo>>) FindFileHandlersAsync(param::hstring const& extension) const;
     };
     template <> struct consume<Windows::System::ILauncherStatics2>
     {
@@ -2141,8 +2148,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_ILauncherStatics3
     {
-        auto LaunchFolderAsync(Windows::Storage::IStorageFolder const& folder) const;
-        auto LaunchFolderAsync(Windows::Storage::IStorageFolder const& folder, Windows::System::FolderLauncherOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) LaunchFolderAsync(Windows::Storage::IStorageFolder const& folder) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) LaunchFolderAsync(Windows::Storage::IStorageFolder const& folder, Windows::System::FolderLauncherOptions const& options) const;
     };
     template <> struct consume<Windows::System::ILauncherStatics3>
     {
@@ -2151,14 +2158,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_ILauncherStatics4
     {
-        auto QueryAppUriSupportAsync(Windows::Foundation::Uri const& uri) const;
-        auto QueryAppUriSupportAsync(Windows::Foundation::Uri const& uri, param::hstring const& packageFamilyName) const;
-        auto FindAppUriHandlersAsync(Windows::Foundation::Uri const& uri) const;
-        auto LaunchUriForUserAsync(Windows::System::User const& user, Windows::Foundation::Uri const& uri) const;
-        auto LaunchUriForUserAsync(Windows::System::User const& user, Windows::Foundation::Uri const& uri, Windows::System::LauncherOptions const& options) const;
-        auto LaunchUriForUserAsync(Windows::System::User const& user, Windows::Foundation::Uri const& uri, Windows::System::LauncherOptions const& options, Windows::Foundation::Collections::ValueSet const& inputData) const;
-        auto LaunchUriForResultsForUserAsync(Windows::System::User const& user, Windows::Foundation::Uri const& uri, Windows::System::LauncherOptions const& options) const;
-        auto LaunchUriForResultsForUserAsync(Windows::System::User const& user, Windows::Foundation::Uri const& uri, Windows::System::LauncherOptions const& options, Windows::Foundation::Collections::ValueSet const& inputData) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::System::LaunchQuerySupportStatus>) QueryAppUriSupportAsync(Windows::Foundation::Uri const& uri) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::System::LaunchQuerySupportStatus>) QueryAppUriSupportAsync(Windows::Foundation::Uri const& uri, param::hstring const& packageFamilyName) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::AppInfo>>) FindAppUriHandlersAsync(Windows::Foundation::Uri const& uri) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::System::LaunchUriStatus>) LaunchUriForUserAsync(Windows::System::User const& user, Windows::Foundation::Uri const& uri) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::System::LaunchUriStatus>) LaunchUriForUserAsync(Windows::System::User const& user, Windows::Foundation::Uri const& uri, Windows::System::LauncherOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::System::LaunchUriStatus>) LaunchUriForUserAsync(Windows::System::User const& user, Windows::Foundation::Uri const& uri, Windows::System::LauncherOptions const& options, Windows::Foundation::Collections::ValueSet const& inputData) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::System::LaunchUriResult>) LaunchUriForResultsForUserAsync(Windows::System::User const& user, Windows::Foundation::Uri const& uri, Windows::System::LauncherOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::System::LaunchUriResult>) LaunchUriForResultsForUserAsync(Windows::System::User const& user, Windows::Foundation::Uri const& uri, Windows::System::LauncherOptions const& options, Windows::Foundation::Collections::ValueSet const& inputData) const;
     };
     template <> struct consume<Windows::System::ILauncherStatics4>
     {
@@ -2167,10 +2174,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_ILauncherStatics5
     {
-        auto LaunchFolderPathAsync(param::hstring const& path) const;
-        auto LaunchFolderPathAsync(param::hstring const& path, Windows::System::FolderLauncherOptions const& options) const;
-        auto LaunchFolderPathForUserAsync(Windows::System::User const& user, param::hstring const& path) const;
-        auto LaunchFolderPathForUserAsync(Windows::System::User const& user, param::hstring const& path, Windows::System::FolderLauncherOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) LaunchFolderPathAsync(param::hstring const& path) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) LaunchFolderPathAsync(param::hstring const& path, Windows::System::FolderLauncherOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) LaunchFolderPathForUserAsync(Windows::System::User const& user, param::hstring const& path) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) LaunchFolderPathForUserAsync(Windows::System::User const& user, param::hstring const& path, Windows::System::FolderLauncherOptions const& options) const;
     };
     template <> struct consume<Windows::System::ILauncherStatics5>
     {
@@ -2179,12 +2186,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_ILauncherUIOptions
     {
-        [[nodiscard]] auto InvocationPoint() const;
-        auto InvocationPoint(Windows::Foundation::IReference<Windows::Foundation::Point> const& value) const;
-        [[nodiscard]] auto SelectionRect() const;
-        auto SelectionRect(Windows::Foundation::IReference<Windows::Foundation::Rect> const& value) const;
-        [[nodiscard]] auto PreferredPlacement() const;
-        auto PreferredPlacement(Windows::UI::Popups::Placement const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::Point>) InvocationPoint() const;
+        WINRT_IMPL_AUTO(void) InvocationPoint(Windows::Foundation::IReference<Windows::Foundation::Point> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::Rect>) SelectionRect() const;
+        WINRT_IMPL_AUTO(void) SelectionRect(Windows::Foundation::IReference<Windows::Foundation::Rect> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Popups::Placement) PreferredPlacement() const;
+        WINRT_IMPL_AUTO(void) PreferredPlacement(Windows::UI::Popups::Placement const& value) const;
     };
     template <> struct consume<Windows::System::ILauncherUIOptions>
     {
@@ -2193,8 +2200,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_ILauncherViewOptions
     {
-        [[nodiscard]] auto DesiredRemainingView() const;
-        auto DesiredRemainingView(Windows::UI::ViewManagement::ViewSizePreference const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::ViewManagement::ViewSizePreference) DesiredRemainingView() const;
+        WINRT_IMPL_AUTO(void) DesiredRemainingView(Windows::UI::ViewManagement::ViewSizePreference const& value) const;
     };
     template <> struct consume<Windows::System::ILauncherViewOptions>
     {
@@ -2203,21 +2210,21 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IMemoryManagerStatics
     {
-        [[nodiscard]] auto AppMemoryUsage() const;
-        [[nodiscard]] auto AppMemoryUsageLimit() const;
-        [[nodiscard]] auto AppMemoryUsageLevel() const;
-        auto AppMemoryUsageIncreased(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) AppMemoryUsage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) AppMemoryUsageLimit() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::AppMemoryUsageLevel) AppMemoryUsageLevel() const;
+        WINRT_IMPL_AUTO(winrt::event_token) AppMemoryUsageIncreased(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using AppMemoryUsageIncreased_revoker = impl::event_revoker<Windows::System::IMemoryManagerStatics, &impl::abi_t<Windows::System::IMemoryManagerStatics>::remove_AppMemoryUsageIncreased>;
         [[nodiscard]] AppMemoryUsageIncreased_revoker AppMemoryUsageIncreased(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto AppMemoryUsageIncreased(winrt::event_token const& token) const noexcept;
-        auto AppMemoryUsageDecreased(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) AppMemoryUsageIncreased(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) AppMemoryUsageDecreased(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using AppMemoryUsageDecreased_revoker = impl::event_revoker<Windows::System::IMemoryManagerStatics, &impl::abi_t<Windows::System::IMemoryManagerStatics>::remove_AppMemoryUsageDecreased>;
         [[nodiscard]] AppMemoryUsageDecreased_revoker AppMemoryUsageDecreased(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto AppMemoryUsageDecreased(winrt::event_token const& token) const noexcept;
-        auto AppMemoryUsageLimitChanging(Windows::Foundation::EventHandler<Windows::System::AppMemoryUsageLimitChangingEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) AppMemoryUsageDecreased(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) AppMemoryUsageLimitChanging(Windows::Foundation::EventHandler<Windows::System::AppMemoryUsageLimitChangingEventArgs> const& handler) const;
         using AppMemoryUsageLimitChanging_revoker = impl::event_revoker<Windows::System::IMemoryManagerStatics, &impl::abi_t<Windows::System::IMemoryManagerStatics>::remove_AppMemoryUsageLimitChanging>;
         [[nodiscard]] AppMemoryUsageLimitChanging_revoker AppMemoryUsageLimitChanging(auto_revoke_t, Windows::Foundation::EventHandler<Windows::System::AppMemoryUsageLimitChangingEventArgs> const& handler) const;
-        auto AppMemoryUsageLimitChanging(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) AppMemoryUsageLimitChanging(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::System::IMemoryManagerStatics>
     {
@@ -2226,8 +2233,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IMemoryManagerStatics2
     {
-        auto GetAppMemoryReport() const;
-        auto GetProcessMemoryReport() const;
+        WINRT_IMPL_AUTO(Windows::System::AppMemoryReport) GetAppMemoryReport() const;
+        WINRT_IMPL_AUTO(Windows::System::ProcessMemoryReport) GetProcessMemoryReport() const;
     };
     template <> struct consume<Windows::System::IMemoryManagerStatics2>
     {
@@ -2236,7 +2243,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IMemoryManagerStatics3
     {
-        auto TrySetAppMemoryUsageLimit(uint64_t value) const;
+        WINRT_IMPL_AUTO(bool) TrySetAppMemoryUsageLimit(uint64_t value) const;
     };
     template <> struct consume<Windows::System::IMemoryManagerStatics3>
     {
@@ -2245,7 +2252,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IMemoryManagerStatics4
     {
-        [[nodiscard]] auto ExpectedAppMemoryUsageLimit() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) ExpectedAppMemoryUsageLimit() const;
     };
     template <> struct consume<Windows::System::IMemoryManagerStatics4>
     {
@@ -2254,14 +2261,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IProcessLauncherOptions
     {
-        [[nodiscard]] auto StandardInput() const;
-        auto StandardInput(Windows::Storage::Streams::IInputStream const& value) const;
-        [[nodiscard]] auto StandardOutput() const;
-        auto StandardOutput(Windows::Storage::Streams::IOutputStream const& value) const;
-        [[nodiscard]] auto StandardError() const;
-        auto StandardError(Windows::Storage::Streams::IOutputStream const& value) const;
-        [[nodiscard]] auto WorkingDirectory() const;
-        auto WorkingDirectory(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IInputStream) StandardInput() const;
+        WINRT_IMPL_AUTO(void) StandardInput(Windows::Storage::Streams::IInputStream const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IOutputStream) StandardOutput() const;
+        WINRT_IMPL_AUTO(void) StandardOutput(Windows::Storage::Streams::IOutputStream const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IOutputStream) StandardError() const;
+        WINRT_IMPL_AUTO(void) StandardError(Windows::Storage::Streams::IOutputStream const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WorkingDirectory() const;
+        WINRT_IMPL_AUTO(void) WorkingDirectory(param::hstring const& value) const;
     };
     template <> struct consume<Windows::System::IProcessLauncherOptions>
     {
@@ -2270,7 +2277,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IProcessLauncherResult
     {
-        [[nodiscard]] auto ExitCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ExitCode() const;
     };
     template <> struct consume<Windows::System::IProcessLauncherResult>
     {
@@ -2279,8 +2286,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IProcessLauncherStatics
     {
-        auto RunToCompletionAsync(param::hstring const& fileName, param::hstring const& args) const;
-        auto RunToCompletionAsync(param::hstring const& fileName, param::hstring const& args, Windows::System::ProcessLauncherOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::System::ProcessLauncherResult>) RunToCompletionAsync(param::hstring const& fileName, param::hstring const& args) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::System::ProcessLauncherResult>) RunToCompletionAsync(param::hstring const& fileName, param::hstring const& args, Windows::System::ProcessLauncherOptions const& options) const;
     };
     template <> struct consume<Windows::System::IProcessLauncherStatics>
     {
@@ -2289,8 +2296,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IProcessMemoryReport
     {
-        [[nodiscard]] auto PrivateWorkingSetUsage() const;
-        [[nodiscard]] auto TotalWorkingSetUsage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) PrivateWorkingSetUsage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) TotalWorkingSetUsage() const;
     };
     template <> struct consume<Windows::System::IProcessMemoryReport>
     {
@@ -2299,7 +2306,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IProtocolForResultsOperation
     {
-        auto ReportCompleted(Windows::Foundation::Collections::ValueSet const& data) const;
+        WINRT_IMPL_AUTO(void) ReportCompleted(Windows::Foundation::Collections::ValueSet const& data) const;
     };
     template <> struct consume<Windows::System::IProtocolForResultsOperation>
     {
@@ -2308,9 +2315,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IRemoteLauncherOptions
     {
-        [[nodiscard]] auto FallbackUri() const;
-        auto FallbackUri(Windows::Foundation::Uri const& value) const;
-        [[nodiscard]] auto PreferredAppIds() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) FallbackUri() const;
+        WINRT_IMPL_AUTO(void) FallbackUri(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) PreferredAppIds() const;
     };
     template <> struct consume<Windows::System::IRemoteLauncherOptions>
     {
@@ -2319,9 +2326,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IRemoteLauncherStatics
     {
-        auto LaunchUriAsync(Windows::System::RemoteSystems::RemoteSystemConnectionRequest const& remoteSystemConnectionRequest, Windows::Foundation::Uri const& uri) const;
-        auto LaunchUriAsync(Windows::System::RemoteSystems::RemoteSystemConnectionRequest const& remoteSystemConnectionRequest, Windows::Foundation::Uri const& uri, Windows::System::RemoteLauncherOptions const& options) const;
-        auto LaunchUriAsync(Windows::System::RemoteSystems::RemoteSystemConnectionRequest const& remoteSystemConnectionRequest, Windows::Foundation::Uri const& uri, Windows::System::RemoteLauncherOptions const& options, Windows::Foundation::Collections::ValueSet const& inputData) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::System::RemoteLaunchUriStatus>) LaunchUriAsync(Windows::System::RemoteSystems::RemoteSystemConnectionRequest const& remoteSystemConnectionRequest, Windows::Foundation::Uri const& uri) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::System::RemoteLaunchUriStatus>) LaunchUriAsync(Windows::System::RemoteSystems::RemoteSystemConnectionRequest const& remoteSystemConnectionRequest, Windows::Foundation::Uri const& uri, Windows::System::RemoteLauncherOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::System::RemoteLaunchUriStatus>) LaunchUriAsync(Windows::System::RemoteSystems::RemoteSystemConnectionRequest const& remoteSystemConnectionRequest, Windows::Foundation::Uri const& uri, Windows::System::RemoteLauncherOptions const& options, Windows::Foundation::Collections::ValueSet const& inputData) const;
     };
     template <> struct consume<Windows::System::IRemoteLauncherStatics>
     {
@@ -2330,8 +2337,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IShutdownManagerStatics
     {
-        auto BeginShutdown(Windows::System::ShutdownKind const& shutdownKind, Windows::Foundation::TimeSpan const& timeout) const;
-        auto CancelShutdown() const;
+        WINRT_IMPL_AUTO(void) BeginShutdown(Windows::System::ShutdownKind const& shutdownKind, Windows::Foundation::TimeSpan const& timeout) const;
+        WINRT_IMPL_AUTO(void) CancelShutdown() const;
     };
     template <> struct consume<Windows::System::IShutdownManagerStatics>
     {
@@ -2340,9 +2347,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IShutdownManagerStatics2
     {
-        auto IsPowerStateSupported(Windows::System::PowerState const& powerState) const;
-        auto EnterPowerState(Windows::System::PowerState const& powerState) const;
-        auto EnterPowerState(Windows::System::PowerState const& powerState, Windows::Foundation::TimeSpan const& wakeUpAfter) const;
+        WINRT_IMPL_AUTO(bool) IsPowerStateSupported(Windows::System::PowerState const& powerState) const;
+        WINRT_IMPL_AUTO(void) EnterPowerState(Windows::System::PowerState const& powerState) const;
+        WINRT_IMPL_AUTO(void) EnterPowerState(Windows::System::PowerState const& powerState, Windows::Foundation::TimeSpan const& wakeUpAfter) const;
     };
     template <> struct consume<Windows::System::IShutdownManagerStatics2>
     {
@@ -2351,10 +2358,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_ITimeZoneSettingsStatics
     {
-        [[nodiscard]] auto CurrentTimeZoneDisplayName() const;
-        [[nodiscard]] auto SupportedTimeZoneDisplayNames() const;
-        [[nodiscard]] auto CanChangeTimeZone() const;
-        auto ChangeTimeZoneByDisplayName(param::hstring const& timeZoneDisplayName) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CurrentTimeZoneDisplayName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) SupportedTimeZoneDisplayNames() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanChangeTimeZone() const;
+        WINRT_IMPL_AUTO(void) ChangeTimeZoneByDisplayName(param::hstring const& timeZoneDisplayName) const;
     };
     template <> struct consume<Windows::System::ITimeZoneSettingsStatics>
     {
@@ -2363,7 +2370,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_ITimeZoneSettingsStatics2
     {
-        auto AutoUpdateTimeZoneAsync(Windows::Foundation::TimeSpan const& timeout) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::System::AutoUpdateTimeZoneStatus>) AutoUpdateTimeZoneAsync(Windows::Foundation::TimeSpan const& timeout) const;
     };
     template <> struct consume<Windows::System::ITimeZoneSettingsStatics2>
     {
@@ -2372,12 +2379,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IUser
     {
-        [[nodiscard]] auto NonRoamableId() const;
-        [[nodiscard]] auto AuthenticationStatus() const;
-        [[nodiscard]] auto Type() const;
-        auto GetPropertyAsync(param::hstring const& value) const;
-        auto GetPropertiesAsync(param::async_vector_view<hstring> const& values) const;
-        auto GetPictureAsync(Windows::System::UserPictureSize const& desiredSize) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) NonRoamableId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::UserAuthenticationStatus) AuthenticationStatus() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::UserType) Type() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::IInspectable>) GetPropertyAsync(param::hstring const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IPropertySet>) GetPropertiesAsync(param::async_vector_view<hstring> const& values) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::IRandomAccessStreamReference>) GetPictureAsync(Windows::System::UserPictureSize const& desiredSize) const;
     };
     template <> struct consume<Windows::System::IUser>
     {
@@ -2386,7 +2393,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IUserAuthenticationStatusChangeDeferral
     {
-        auto Complete() const;
+        WINRT_IMPL_AUTO(void) Complete() const;
     };
     template <> struct consume<Windows::System::IUserAuthenticationStatusChangeDeferral>
     {
@@ -2395,10 +2402,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IUserAuthenticationStatusChangingEventArgs
     {
-        auto GetDeferral() const;
-        [[nodiscard]] auto User() const;
-        [[nodiscard]] auto NewStatus() const;
-        [[nodiscard]] auto CurrentStatus() const;
+        WINRT_IMPL_AUTO(Windows::System::UserAuthenticationStatusChangeDeferral) GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::User) User() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::UserAuthenticationStatus) NewStatus() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::UserAuthenticationStatus) CurrentStatus() const;
     };
     template <> struct consume<Windows::System::IUserAuthenticationStatusChangingEventArgs>
     {
@@ -2407,7 +2414,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IUserChangedEventArgs
     {
-        [[nodiscard]] auto User() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::User) User() const;
     };
     template <> struct consume<Windows::System::IUserChangedEventArgs>
     {
@@ -2416,7 +2423,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IUserChangedEventArgs2
     {
-        [[nodiscard]] auto ChangedPropertyKinds() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::System::UserWatcherUpdateKind>) ChangedPropertyKinds() const;
     };
     template <> struct consume<Windows::System::IUserChangedEventArgs2>
     {
@@ -2425,9 +2432,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IUserDeviceAssociationChangedEventArgs
     {
-        [[nodiscard]] auto DeviceId() const;
-        [[nodiscard]] auto NewUser() const;
-        [[nodiscard]] auto OldUser() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::User) NewUser() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::User) OldUser() const;
     };
     template <> struct consume<Windows::System::IUserDeviceAssociationChangedEventArgs>
     {
@@ -2436,11 +2443,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IUserDeviceAssociationStatics
     {
-        auto FindUserFromDeviceId(param::hstring const& deviceId) const;
-        auto UserDeviceAssociationChanged(Windows::Foundation::EventHandler<Windows::System::UserDeviceAssociationChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(Windows::System::User) FindUserFromDeviceId(param::hstring const& deviceId) const;
+        WINRT_IMPL_AUTO(winrt::event_token) UserDeviceAssociationChanged(Windows::Foundation::EventHandler<Windows::System::UserDeviceAssociationChangedEventArgs> const& handler) const;
         using UserDeviceAssociationChanged_revoker = impl::event_revoker<Windows::System::IUserDeviceAssociationStatics, &impl::abi_t<Windows::System::IUserDeviceAssociationStatics>::remove_UserDeviceAssociationChanged>;
         [[nodiscard]] UserDeviceAssociationChanged_revoker UserDeviceAssociationChanged(auto_revoke_t, Windows::Foundation::EventHandler<Windows::System::UserDeviceAssociationChangedEventArgs> const& handler) const;
-        auto UserDeviceAssociationChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) UserDeviceAssociationChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::System::IUserDeviceAssociationStatics>
     {
@@ -2449,11 +2456,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IUserPicker
     {
-        [[nodiscard]] auto AllowGuestAccounts() const;
-        auto AllowGuestAccounts(bool value) const;
-        [[nodiscard]] auto SuggestedSelectedUser() const;
-        auto SuggestedSelectedUser(Windows::System::User const& value) const;
-        auto PickSingleUserAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AllowGuestAccounts() const;
+        WINRT_IMPL_AUTO(void) AllowGuestAccounts(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::User) SuggestedSelectedUser() const;
+        WINRT_IMPL_AUTO(void) SuggestedSelectedUser(Windows::System::User const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::System::User>) PickSingleUserAsync() const;
     };
     template <> struct consume<Windows::System::IUserPicker>
     {
@@ -2462,7 +2469,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IUserPickerStatics
     {
-        auto IsSupported() const;
+        WINRT_IMPL_AUTO(bool) IsSupported() const;
     };
     template <> struct consume<Windows::System::IUserPickerStatics>
     {
@@ -2471,11 +2478,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IUserStatics
     {
-        auto CreateWatcher() const;
-        auto FindAllAsync() const;
-        auto FindAllAsync(Windows::System::UserType const& type) const;
-        auto FindAllAsync(Windows::System::UserType const& type, Windows::System::UserAuthenticationStatus const& status) const;
-        auto GetFromId(param::hstring const& nonRoamableId) const;
+        WINRT_IMPL_AUTO(Windows::System::UserWatcher) CreateWatcher() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::System::User>>) FindAllAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::System::User>>) FindAllAsync(Windows::System::UserType const& type) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::System::User>>) FindAllAsync(Windows::System::UserType const& type, Windows::System::UserAuthenticationStatus const& status) const;
+        WINRT_IMPL_AUTO(Windows::System::User) GetFromId(param::hstring const& nonRoamableId) const;
     };
     template <> struct consume<Windows::System::IUserStatics>
     {
@@ -2484,7 +2491,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IUserStatics2
     {
-        auto GetDefault() const;
+        WINRT_IMPL_AUTO(Windows::System::User) GetDefault() const;
     };
     template <> struct consume<Windows::System::IUserStatics2>
     {
@@ -2493,37 +2500,37 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_IUserWatcher
     {
-        [[nodiscard]] auto Status() const;
-        auto Start() const;
-        auto Stop() const;
-        auto Added(Windows::Foundation::TypedEventHandler<Windows::System::UserWatcher, Windows::System::UserChangedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::UserWatcherStatus) Status() const;
+        WINRT_IMPL_AUTO(void) Start() const;
+        WINRT_IMPL_AUTO(void) Stop() const;
+        WINRT_IMPL_AUTO(winrt::event_token) Added(Windows::Foundation::TypedEventHandler<Windows::System::UserWatcher, Windows::System::UserChangedEventArgs> const& handler) const;
         using Added_revoker = impl::event_revoker<Windows::System::IUserWatcher, &impl::abi_t<Windows::System::IUserWatcher>::remove_Added>;
         [[nodiscard]] Added_revoker Added(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::System::UserWatcher, Windows::System::UserChangedEventArgs> const& handler) const;
-        auto Added(winrt::event_token const& token) const noexcept;
-        auto Removed(Windows::Foundation::TypedEventHandler<Windows::System::UserWatcher, Windows::System::UserChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) Added(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Removed(Windows::Foundation::TypedEventHandler<Windows::System::UserWatcher, Windows::System::UserChangedEventArgs> const& handler) const;
         using Removed_revoker = impl::event_revoker<Windows::System::IUserWatcher, &impl::abi_t<Windows::System::IUserWatcher>::remove_Removed>;
         [[nodiscard]] Removed_revoker Removed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::System::UserWatcher, Windows::System::UserChangedEventArgs> const& handler) const;
-        auto Removed(winrt::event_token const& token) const noexcept;
-        auto Updated(Windows::Foundation::TypedEventHandler<Windows::System::UserWatcher, Windows::System::UserChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) Removed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Updated(Windows::Foundation::TypedEventHandler<Windows::System::UserWatcher, Windows::System::UserChangedEventArgs> const& handler) const;
         using Updated_revoker = impl::event_revoker<Windows::System::IUserWatcher, &impl::abi_t<Windows::System::IUserWatcher>::remove_Updated>;
         [[nodiscard]] Updated_revoker Updated(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::System::UserWatcher, Windows::System::UserChangedEventArgs> const& handler) const;
-        auto Updated(winrt::event_token const& token) const noexcept;
-        auto AuthenticationStatusChanged(Windows::Foundation::TypedEventHandler<Windows::System::UserWatcher, Windows::System::UserChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) Updated(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) AuthenticationStatusChanged(Windows::Foundation::TypedEventHandler<Windows::System::UserWatcher, Windows::System::UserChangedEventArgs> const& handler) const;
         using AuthenticationStatusChanged_revoker = impl::event_revoker<Windows::System::IUserWatcher, &impl::abi_t<Windows::System::IUserWatcher>::remove_AuthenticationStatusChanged>;
         [[nodiscard]] AuthenticationStatusChanged_revoker AuthenticationStatusChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::System::UserWatcher, Windows::System::UserChangedEventArgs> const& handler) const;
-        auto AuthenticationStatusChanged(winrt::event_token const& token) const noexcept;
-        auto AuthenticationStatusChanging(Windows::Foundation::TypedEventHandler<Windows::System::UserWatcher, Windows::System::UserAuthenticationStatusChangingEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) AuthenticationStatusChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) AuthenticationStatusChanging(Windows::Foundation::TypedEventHandler<Windows::System::UserWatcher, Windows::System::UserAuthenticationStatusChangingEventArgs> const& handler) const;
         using AuthenticationStatusChanging_revoker = impl::event_revoker<Windows::System::IUserWatcher, &impl::abi_t<Windows::System::IUserWatcher>::remove_AuthenticationStatusChanging>;
         [[nodiscard]] AuthenticationStatusChanging_revoker AuthenticationStatusChanging(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::System::UserWatcher, Windows::System::UserAuthenticationStatusChangingEventArgs> const& handler) const;
-        auto AuthenticationStatusChanging(winrt::event_token const& token) const noexcept;
-        auto EnumerationCompleted(Windows::Foundation::TypedEventHandler<Windows::System::UserWatcher, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) AuthenticationStatusChanging(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) EnumerationCompleted(Windows::Foundation::TypedEventHandler<Windows::System::UserWatcher, Windows::Foundation::IInspectable> const& handler) const;
         using EnumerationCompleted_revoker = impl::event_revoker<Windows::System::IUserWatcher, &impl::abi_t<Windows::System::IUserWatcher>::remove_EnumerationCompleted>;
         [[nodiscard]] EnumerationCompleted_revoker EnumerationCompleted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::System::UserWatcher, Windows::Foundation::IInspectable> const& handler) const;
-        auto EnumerationCompleted(winrt::event_token const& token) const noexcept;
-        auto Stopped(Windows::Foundation::TypedEventHandler<Windows::System::UserWatcher, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) EnumerationCompleted(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Stopped(Windows::Foundation::TypedEventHandler<Windows::System::UserWatcher, Windows::Foundation::IInspectable> const& handler) const;
         using Stopped_revoker = impl::event_revoker<Windows::System::IUserWatcher, &impl::abi_t<Windows::System::IUserWatcher>::remove_Stopped>;
         [[nodiscard]] Stopped_revoker Stopped(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::System::UserWatcher, Windows::Foundation::IInspectable> const& handler) const;
-        auto Stopped(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Stopped(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::System::IUserWatcher>
     {

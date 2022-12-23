@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -34,12 +34,10 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Input::Core::IRadialControllerIndependentInputSource2>{ using type = interface_category; };
     template <> struct category<Windows::UI::Input::Core::IRadialControllerIndependentInputSourceStatics>{ using type = interface_category; };
     template <> struct category<Windows::UI::Input::Core::RadialControllerIndependentInputSource>{ using type = class_category; };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Core::RadialControllerIndependentInputSource>{ L"Windows.UI.Input.Core.RadialControllerIndependentInputSource" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Core::IRadialControllerIndependentInputSource>{ L"Windows.UI.Input.Core.IRadialControllerIndependentInputSource" };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Core::IRadialControllerIndependentInputSource2>{ L"Windows.UI.Input.Core.IRadialControllerIndependentInputSource2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Input::Core::IRadialControllerIndependentInputSourceStatics>{ L"Windows.UI.Input.Core.IRadialControllerIndependentInputSourceStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Core::RadialControllerIndependentInputSource> = L"Windows.UI.Input.Core.RadialControllerIndependentInputSource";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Core::IRadialControllerIndependentInputSource> = L"Windows.UI.Input.Core.IRadialControllerIndependentInputSource";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Core::IRadialControllerIndependentInputSource2> = L"Windows.UI.Input.Core.IRadialControllerIndependentInputSource2";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Core::IRadialControllerIndependentInputSourceStatics> = L"Windows.UI.Input.Core.IRadialControllerIndependentInputSourceStatics";
     template <> inline constexpr guid guid_v<Windows::UI::Input::Core::IRadialControllerIndependentInputSource>{ 0x3D577EF6,0x4CEE,0x11E6,{ 0xB5,0x35,0x00,0x1B,0xDC,0x06,0xAB,0x3B } };
     template <> inline constexpr guid guid_v<Windows::UI::Input::Core::IRadialControllerIndependentInputSource2>{ 0x7073AAD8,0x35F3,0x4EEB,{ 0x87,0x51,0xBE,0x4D,0x0A,0x66,0xFA,0xF4 } };
     template <> inline constexpr guid guid_v<Windows::UI::Input::Core::IRadialControllerIndependentInputSourceStatics>{ 0x3D577EF5,0x4CEE,0x11E6,{ 0xB5,0x35,0x00,0x1B,0xDC,0x06,0xAB,0x3B } };
@@ -69,8 +67,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Input_Core_IRadialControllerIndependentInputSource
     {
-        [[nodiscard]] auto Controller() const;
-        [[nodiscard]] auto Dispatcher() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Input::RadialController) Controller() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Core::CoreDispatcher) Dispatcher() const;
     };
     template <> struct consume<Windows::UI::Input::Core::IRadialControllerIndependentInputSource>
     {
@@ -79,7 +77,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Input_Core_IRadialControllerIndependentInputSource2
     {
-        [[nodiscard]] auto DispatcherQueue() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::DispatcherQueue) DispatcherQueue() const;
     };
     template <> struct consume<Windows::UI::Input::Core::IRadialControllerIndependentInputSource2>
     {
@@ -88,7 +86,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Input_Core_IRadialControllerIndependentInputSourceStatics
     {
-        auto CreateForView(Windows::ApplicationModel::Core::CoreApplicationView const& view) const;
+        WINRT_IMPL_AUTO(Windows::UI::Input::Core::RadialControllerIndependentInputSource) CreateForView(Windows::ApplicationModel::Core::CoreApplicationView const& view) const;
     };
     template <> struct consume<Windows::UI::Input::Core::IRadialControllerIndependentInputSourceStatics>
     {

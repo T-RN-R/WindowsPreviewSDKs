@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -12,6 +12,7 @@ WINRT_EXPORT namespace winrt::Windows::Devices::Sensors
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
+    template <typename TResult> struct IAsyncOperation;
     template <typename TSender, typename TResult> struct TypedEventHandler;
 }
 WINRT_EXPORT namespace winrt::Windows::System::Preview
@@ -43,16 +44,14 @@ namespace winrt::impl
     template <> struct category<Windows::System::Preview::TwoPanelHingedDevicePosturePreviewReading>{ using type = class_category; };
     template <> struct category<Windows::System::Preview::TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs>{ using type = class_category; };
     template <> struct category<Windows::System::Preview::HingeState>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::System::Preview::TwoPanelHingedDevicePosturePreview>{ L"Windows.System.Preview.TwoPanelHingedDevicePosturePreview" };
-    template <> inline constexpr auto& name_v<Windows::System::Preview::TwoPanelHingedDevicePosturePreviewReading>{ L"Windows.System.Preview.TwoPanelHingedDevicePosturePreviewReading" };
-    template <> inline constexpr auto& name_v<Windows::System::Preview::TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs>{ L"Windows.System.Preview.TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::System::Preview::HingeState>{ L"Windows.System.Preview.HingeState" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::System::Preview::ITwoPanelHingedDevicePosturePreview>{ L"Windows.System.Preview.ITwoPanelHingedDevicePosturePreview" };
-    template <> inline constexpr auto& name_v<Windows::System::Preview::ITwoPanelHingedDevicePosturePreviewReading>{ L"Windows.System.Preview.ITwoPanelHingedDevicePosturePreviewReading" };
-    template <> inline constexpr auto& name_v<Windows::System::Preview::ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs>{ L"Windows.System.Preview.ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::System::Preview::ITwoPanelHingedDevicePosturePreviewStatics>{ L"Windows.System.Preview.ITwoPanelHingedDevicePosturePreviewStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::System::Preview::TwoPanelHingedDevicePosturePreview> = L"Windows.System.Preview.TwoPanelHingedDevicePosturePreview";
+    template <> inline constexpr auto& name_v<Windows::System::Preview::TwoPanelHingedDevicePosturePreviewReading> = L"Windows.System.Preview.TwoPanelHingedDevicePosturePreviewReading";
+    template <> inline constexpr auto& name_v<Windows::System::Preview::TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs> = L"Windows.System.Preview.TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::System::Preview::HingeState> = L"Windows.System.Preview.HingeState";
+    template <> inline constexpr auto& name_v<Windows::System::Preview::ITwoPanelHingedDevicePosturePreview> = L"Windows.System.Preview.ITwoPanelHingedDevicePosturePreview";
+    template <> inline constexpr auto& name_v<Windows::System::Preview::ITwoPanelHingedDevicePosturePreviewReading> = L"Windows.System.Preview.ITwoPanelHingedDevicePosturePreviewReading";
+    template <> inline constexpr auto& name_v<Windows::System::Preview::ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs> = L"Windows.System.Preview.ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::System::Preview::ITwoPanelHingedDevicePosturePreviewStatics> = L"Windows.System.Preview.ITwoPanelHingedDevicePosturePreviewStatics";
     template <> inline constexpr guid guid_v<Windows::System::Preview::ITwoPanelHingedDevicePosturePreview>{ 0x72245C31,0x4B39,0x42A6,{ 0x8E,0x73,0x72,0x35,0xAD,0xE1,0x68,0x53 } };
     template <> inline constexpr guid guid_v<Windows::System::Preview::ITwoPanelHingedDevicePosturePreviewReading>{ 0xA0251452,0x4AD6,0x4B38,{ 0x84,0x26,0xC5,0x9A,0x15,0x49,0x3A,0x7D } };
     template <> inline constexpr guid guid_v<Windows::System::Preview::ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs>{ 0x2D2D1BC6,0x02CE,0x474A,{ 0xA5,0x56,0xA7,0x5B,0x1C,0xF9,0x3A,0x03 } };
@@ -98,11 +97,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Preview_ITwoPanelHingedDevicePosturePreview
     {
-        auto GetCurrentPostureAsync() const;
-        auto PostureChanged(Windows::Foundation::TypedEventHandler<Windows::System::Preview::TwoPanelHingedDevicePosturePreview, Windows::System::Preview::TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::System::Preview::TwoPanelHingedDevicePosturePreviewReading>) GetCurrentPostureAsync() const;
+        WINRT_IMPL_AUTO(winrt::event_token) PostureChanged(Windows::Foundation::TypedEventHandler<Windows::System::Preview::TwoPanelHingedDevicePosturePreview, Windows::System::Preview::TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs> const& handler) const;
         using PostureChanged_revoker = impl::event_revoker<Windows::System::Preview::ITwoPanelHingedDevicePosturePreview, &impl::abi_t<Windows::System::Preview::ITwoPanelHingedDevicePosturePreview>::remove_PostureChanged>;
         [[nodiscard]] PostureChanged_revoker PostureChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::System::Preview::TwoPanelHingedDevicePosturePreview, Windows::System::Preview::TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs> const& handler) const;
-        auto PostureChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) PostureChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::System::Preview::ITwoPanelHingedDevicePosturePreview>
     {
@@ -111,12 +110,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Preview_ITwoPanelHingedDevicePosturePreviewReading
     {
-        [[nodiscard]] auto Timestamp() const;
-        [[nodiscard]] auto HingeState() const;
-        [[nodiscard]] auto Panel1Orientation() const;
-        [[nodiscard]] auto Panel1Id() const;
-        [[nodiscard]] auto Panel2Orientation() const;
-        [[nodiscard]] auto Panel2Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) Timestamp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::Preview::HingeState) HingeState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sensors::SimpleOrientation) Panel1Orientation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Panel1Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sensors::SimpleOrientation) Panel2Orientation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Panel2Id() const;
     };
     template <> struct consume<Windows::System::Preview::ITwoPanelHingedDevicePosturePreviewReading>
     {
@@ -125,7 +124,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Preview_ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs
     {
-        [[nodiscard]] auto Reading() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::Preview::TwoPanelHingedDevicePosturePreviewReading) Reading() const;
     };
     template <> struct consume<Windows::System::Preview::ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs>
     {
@@ -134,7 +133,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Preview_ITwoPanelHingedDevicePosturePreviewStatics
     {
-        auto GetDefaultAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::System::Preview::TwoPanelHingedDevicePosturePreview>) GetDefaultAsync() const;
     };
     template <> struct consume<Windows::System::Preview::ITwoPanelHingedDevicePosturePreviewStatics>
     {

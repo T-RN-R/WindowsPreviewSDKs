@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -12,9 +12,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation::Numerics
 namespace winrt::impl
 {
     template <> struct category<Windows::Foundation::Numerics::Rational>{ using type = struct_category<uint32_t, uint32_t>; };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Numerics::Rational>{ L"Windows.Foundation.Numerics.Rational" };
-#ifndef WINRT_LEAN_AND_MEAN
-#endif
+    template <> inline constexpr auto& name_v<Windows::Foundation::Numerics::Rational> = L"Windows.Foundation.Numerics.Rational";
     struct struct_Windows_Foundation_Numerics_Rational
     {
         uint32_t Numerator;

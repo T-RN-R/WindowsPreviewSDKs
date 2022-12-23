@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -15,7 +15,7 @@ WINRT_EXPORT namespace winrt::Windows::Security::Cryptography::Certificates
     {
         Certificate(std::nullptr_t) noexcept {}
         Certificate(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Security::Cryptography::Certificates::ICertificate(ptr, take_ownership_from_abi) {}
-        Certificate(Windows::Storage::Streams::IBuffer const& certBlob);
+        explicit Certificate(Windows::Storage::Streams::IBuffer const& certBlob);
     };
     struct __declspec(empty_bases) CertificateChain : Windows::Security::Cryptography::Certificates::ICertificateChain
     {
@@ -90,14 +90,14 @@ WINRT_EXPORT namespace winrt::Windows::Security::Cryptography::Certificates
     {
         CmsAttachedSignature(std::nullptr_t) noexcept {}
         CmsAttachedSignature(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Security::Cryptography::Certificates::ICmsAttachedSignature(ptr, take_ownership_from_abi) {}
-        CmsAttachedSignature(Windows::Storage::Streams::IBuffer const& inputBlob);
+        explicit CmsAttachedSignature(Windows::Storage::Streams::IBuffer const& inputBlob);
         static auto GenerateSignatureAsync(Windows::Storage::Streams::IBuffer const& data, param::async_iterable<Windows::Security::Cryptography::Certificates::CmsSignerInfo> const& signers, param::async_iterable<Windows::Security::Cryptography::Certificates::Certificate> const& certificates);
     };
     struct __declspec(empty_bases) CmsDetachedSignature : Windows::Security::Cryptography::Certificates::ICmsDetachedSignature
     {
         CmsDetachedSignature(std::nullptr_t) noexcept {}
         CmsDetachedSignature(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Security::Cryptography::Certificates::ICmsDetachedSignature(ptr, take_ownership_from_abi) {}
-        CmsDetachedSignature(Windows::Storage::Streams::IBuffer const& inputBlob);
+        explicit CmsDetachedSignature(Windows::Storage::Streams::IBuffer const& inputBlob);
         static auto GenerateSignatureAsync(Windows::Storage::Streams::IInputStream const& data, param::async_iterable<Windows::Security::Cryptography::Certificates::CmsSignerInfo> const& signers, param::async_iterable<Windows::Security::Cryptography::Certificates::Certificate> const& certificates);
     };
     struct __declspec(empty_bases) CmsSignerInfo : Windows::Security::Cryptography::Certificates::ICmsSignerInfo

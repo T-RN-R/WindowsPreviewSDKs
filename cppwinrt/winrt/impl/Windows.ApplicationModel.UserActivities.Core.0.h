@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -24,10 +24,8 @@ namespace winrt::impl
 {
     template <> struct category<Windows::ApplicationModel::UserActivities::Core::ICoreUserActivityManagerStatics>{ using type = interface_category; };
     template <> struct category<Windows::ApplicationModel::UserActivities::Core::CoreUserActivityManager>{ using type = class_category; };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserActivities::Core::CoreUserActivityManager>{ L"Windows.ApplicationModel.UserActivities.Core.CoreUserActivityManager" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserActivities::Core::ICoreUserActivityManagerStatics>{ L"Windows.ApplicationModel.UserActivities.Core.ICoreUserActivityManagerStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserActivities::Core::CoreUserActivityManager> = L"Windows.ApplicationModel.UserActivities.Core.CoreUserActivityManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserActivities::Core::ICoreUserActivityManagerStatics> = L"Windows.ApplicationModel.UserActivities.Core.ICoreUserActivityManagerStatics";
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserActivities::Core::ICoreUserActivityManagerStatics>{ 0xCA3ADB02,0xA4BE,0x4D4D,{ 0xBF,0xA8,0x67,0x95,0xF4,0x26,0x4E,0xFB } };
     template <> struct abi<Windows::ApplicationModel::UserActivities::Core::ICoreUserActivityManagerStatics>
     {
@@ -40,8 +38,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_UserActivities_Core_ICoreUserActivityManagerStatics
     {
-        auto CreateUserActivitySessionInBackground(Windows::ApplicationModel::UserActivities::UserActivity const& activity) const;
-        auto DeleteUserActivitySessionsInTimeRangeAsync(Windows::ApplicationModel::UserActivities::UserActivityChannel const& channel, Windows::Foundation::DateTime const& startTime, Windows::Foundation::DateTime const& endTime) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::UserActivities::UserActivitySession) CreateUserActivitySessionInBackground(Windows::ApplicationModel::UserActivities::UserActivity const& activity) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) DeleteUserActivitySessionsInTimeRangeAsync(Windows::ApplicationModel::UserActivities::UserActivityChannel const& channel, Windows::Foundation::DateTime const& startTime, Windows::Foundation::DateTime const& endTime) const;
     };
     template <> struct consume<Windows::ApplicationModel::UserActivities::Core::ICoreUserActivityManagerStatics>
     {

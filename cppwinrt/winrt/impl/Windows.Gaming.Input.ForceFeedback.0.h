@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -7,6 +7,7 @@
 #define WINRT_Windows_Gaming_Input_ForceFeedback_0_H
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
+    template <typename TResult> struct IAsyncOperation;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Numerics
 {
@@ -82,26 +83,24 @@ namespace winrt::impl
     template <> struct category<Windows::Gaming::Input::ForceFeedback::ForceFeedbackEffectState>{ using type = enum_category; };
     template <> struct category<Windows::Gaming::Input::ForceFeedback::ForceFeedbackLoadEffectResult>{ using type = enum_category; };
     template <> struct category<Windows::Gaming::Input::ForceFeedback::PeriodicForceEffectKind>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::ConditionForceEffect>{ L"Windows.Gaming.Input.ForceFeedback.ConditionForceEffect" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::ConstantForceEffect>{ L"Windows.Gaming.Input.ForceFeedback.ConstantForceEffect" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::ForceFeedbackMotor>{ L"Windows.Gaming.Input.ForceFeedback.ForceFeedbackMotor" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::PeriodicForceEffect>{ L"Windows.Gaming.Input.ForceFeedback.PeriodicForceEffect" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::RampForceEffect>{ L"Windows.Gaming.Input.ForceFeedback.RampForceEffect" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::ConditionForceEffectKind>{ L"Windows.Gaming.Input.ForceFeedback.ConditionForceEffectKind" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::ForceFeedbackEffectAxes>{ L"Windows.Gaming.Input.ForceFeedback.ForceFeedbackEffectAxes" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::ForceFeedbackEffectState>{ L"Windows.Gaming.Input.ForceFeedback.ForceFeedbackEffectState" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::ForceFeedbackLoadEffectResult>{ L"Windows.Gaming.Input.ForceFeedback.ForceFeedbackLoadEffectResult" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::PeriodicForceEffectKind>{ L"Windows.Gaming.Input.ForceFeedback.PeriodicForceEffectKind" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::IConditionForceEffect>{ L"Windows.Gaming.Input.ForceFeedback.IConditionForceEffect" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::IConditionForceEffectFactory>{ L"Windows.Gaming.Input.ForceFeedback.IConditionForceEffectFactory" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::IConstantForceEffect>{ L"Windows.Gaming.Input.ForceFeedback.IConstantForceEffect" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::IForceFeedbackEffect>{ L"Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::IForceFeedbackMotor>{ L"Windows.Gaming.Input.ForceFeedback.IForceFeedbackMotor" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::IPeriodicForceEffect>{ L"Windows.Gaming.Input.ForceFeedback.IPeriodicForceEffect" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::IPeriodicForceEffectFactory>{ L"Windows.Gaming.Input.ForceFeedback.IPeriodicForceEffectFactory" };
-    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::IRampForceEffect>{ L"Windows.Gaming.Input.ForceFeedback.IRampForceEffect" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::ConditionForceEffect> = L"Windows.Gaming.Input.ForceFeedback.ConditionForceEffect";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::ConstantForceEffect> = L"Windows.Gaming.Input.ForceFeedback.ConstantForceEffect";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::ForceFeedbackMotor> = L"Windows.Gaming.Input.ForceFeedback.ForceFeedbackMotor";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::PeriodicForceEffect> = L"Windows.Gaming.Input.ForceFeedback.PeriodicForceEffect";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::RampForceEffect> = L"Windows.Gaming.Input.ForceFeedback.RampForceEffect";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::ConditionForceEffectKind> = L"Windows.Gaming.Input.ForceFeedback.ConditionForceEffectKind";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::ForceFeedbackEffectAxes> = L"Windows.Gaming.Input.ForceFeedback.ForceFeedbackEffectAxes";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::ForceFeedbackEffectState> = L"Windows.Gaming.Input.ForceFeedback.ForceFeedbackEffectState";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::ForceFeedbackLoadEffectResult> = L"Windows.Gaming.Input.ForceFeedback.ForceFeedbackLoadEffectResult";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::PeriodicForceEffectKind> = L"Windows.Gaming.Input.ForceFeedback.PeriodicForceEffectKind";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::IConditionForceEffect> = L"Windows.Gaming.Input.ForceFeedback.IConditionForceEffect";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::IConditionForceEffectFactory> = L"Windows.Gaming.Input.ForceFeedback.IConditionForceEffectFactory";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::IConstantForceEffect> = L"Windows.Gaming.Input.ForceFeedback.IConstantForceEffect";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::IForceFeedbackEffect> = L"Windows.Gaming.Input.ForceFeedback.IForceFeedbackEffect";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::IForceFeedbackMotor> = L"Windows.Gaming.Input.ForceFeedback.IForceFeedbackMotor";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::IPeriodicForceEffect> = L"Windows.Gaming.Input.ForceFeedback.IPeriodicForceEffect";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::IPeriodicForceEffectFactory> = L"Windows.Gaming.Input.ForceFeedback.IPeriodicForceEffectFactory";
+    template <> inline constexpr auto& name_v<Windows::Gaming::Input::ForceFeedback::IRampForceEffect> = L"Windows.Gaming.Input.ForceFeedback.IRampForceEffect";
     template <> inline constexpr guid guid_v<Windows::Gaming::Input::ForceFeedback::IConditionForceEffect>{ 0x32D1EA68,0x3695,0x4E69,{ 0x85,0xC0,0xCD,0x19,0x44,0x18,0x91,0x40 } };
     template <> inline constexpr guid guid_v<Windows::Gaming::Input::ForceFeedback::IConditionForceEffectFactory>{ 0x91A99264,0x1810,0x4EB6,{ 0xA7,0x73,0xBF,0xD3,0xB8,0xCD,0xDB,0xAB } };
     template <> inline constexpr guid guid_v<Windows::Gaming::Input::ForceFeedback::IConstantForceEffect>{ 0x9BFA0140,0xF3C7,0x415C,{ 0xB0,0x68,0x0F,0x06,0x87,0x34,0xBC,0xE0 } };
@@ -195,8 +194,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_Input_ForceFeedback_IConditionForceEffect
     {
-        [[nodiscard]] auto Kind() const;
-        auto SetParameters(Windows::Foundation::Numerics::float3 const& direction, float positiveCoefficient, float negativeCoefficient, float maxPositiveMagnitude, float maxNegativeMagnitude, float deadZone, float bias) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Gaming::Input::ForceFeedback::ConditionForceEffectKind) Kind() const;
+        WINRT_IMPL_AUTO(void) SetParameters(Windows::Foundation::Numerics::float3 const& direction, float positiveCoefficient, float negativeCoefficient, float maxPositiveMagnitude, float maxNegativeMagnitude, float deadZone, float bias) const;
     };
     template <> struct consume<Windows::Gaming::Input::ForceFeedback::IConditionForceEffect>
     {
@@ -205,7 +204,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_Input_ForceFeedback_IConditionForceEffectFactory
     {
-        auto CreateInstance(Windows::Gaming::Input::ForceFeedback::ConditionForceEffectKind const& effectKind) const;
+        WINRT_IMPL_AUTO(Windows::Gaming::Input::ForceFeedback::ConditionForceEffect) CreateInstance(Windows::Gaming::Input::ForceFeedback::ConditionForceEffectKind const& effectKind) const;
     };
     template <> struct consume<Windows::Gaming::Input::ForceFeedback::IConditionForceEffectFactory>
     {
@@ -214,8 +213,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_Input_ForceFeedback_IConstantForceEffect
     {
-        auto SetParameters(Windows::Foundation::Numerics::float3 const& vector, Windows::Foundation::TimeSpan const& duration) const;
-        auto SetParametersWithEnvelope(Windows::Foundation::Numerics::float3 const& vector, float attackGain, float sustainGain, float releaseGain, Windows::Foundation::TimeSpan const& startDelay, Windows::Foundation::TimeSpan const& attackDuration, Windows::Foundation::TimeSpan const& sustainDuration, Windows::Foundation::TimeSpan const& releaseDuration, uint32_t repeatCount) const;
+        WINRT_IMPL_AUTO(void) SetParameters(Windows::Foundation::Numerics::float3 const& vector, Windows::Foundation::TimeSpan const& duration) const;
+        WINRT_IMPL_AUTO(void) SetParametersWithEnvelope(Windows::Foundation::Numerics::float3 const& vector, float attackGain, float sustainGain, float releaseGain, Windows::Foundation::TimeSpan const& startDelay, Windows::Foundation::TimeSpan const& attackDuration, Windows::Foundation::TimeSpan const& sustainDuration, Windows::Foundation::TimeSpan const& releaseDuration, uint32_t repeatCount) const;
     };
     template <> struct consume<Windows::Gaming::Input::ForceFeedback::IConstantForceEffect>
     {
@@ -224,11 +223,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_Input_ForceFeedback_IForceFeedbackEffect
     {
-        [[nodiscard]] auto Gain() const;
-        auto Gain(double value) const;
-        [[nodiscard]] auto State() const;
-        auto Start() const;
-        auto Stop() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Gain() const;
+        WINRT_IMPL_AUTO(void) Gain(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Gaming::Input::ForceFeedback::ForceFeedbackEffectState) State() const;
+        WINRT_IMPL_AUTO(void) Start() const;
+        WINRT_IMPL_AUTO(void) Stop() const;
     };
     template <> struct consume<Windows::Gaming::Input::ForceFeedback::IForceFeedbackEffect>
     {
@@ -237,19 +236,19 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_Input_ForceFeedback_IForceFeedbackMotor
     {
-        [[nodiscard]] auto AreEffectsPaused() const;
-        [[nodiscard]] auto MasterGain() const;
-        auto MasterGain(double value) const;
-        [[nodiscard]] auto IsEnabled() const;
-        [[nodiscard]] auto SupportedAxes() const;
-        auto LoadEffectAsync(Windows::Gaming::Input::ForceFeedback::IForceFeedbackEffect const& effect) const;
-        auto PauseAllEffects() const;
-        auto ResumeAllEffects() const;
-        auto StopAllEffects() const;
-        auto TryDisableAsync() const;
-        auto TryEnableAsync() const;
-        auto TryResetAsync() const;
-        auto TryUnloadEffectAsync(Windows::Gaming::Input::ForceFeedback::IForceFeedbackEffect const& effect) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AreEffectsPaused() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) MasterGain() const;
+        WINRT_IMPL_AUTO(void) MasterGain(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Gaming::Input::ForceFeedback::ForceFeedbackEffectAxes) SupportedAxes() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Gaming::Input::ForceFeedback::ForceFeedbackLoadEffectResult>) LoadEffectAsync(Windows::Gaming::Input::ForceFeedback::IForceFeedbackEffect const& effect) const;
+        WINRT_IMPL_AUTO(void) PauseAllEffects() const;
+        WINRT_IMPL_AUTO(void) ResumeAllEffects() const;
+        WINRT_IMPL_AUTO(void) StopAllEffects() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryDisableAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryEnableAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryResetAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryUnloadEffectAsync(Windows::Gaming::Input::ForceFeedback::IForceFeedbackEffect const& effect) const;
     };
     template <> struct consume<Windows::Gaming::Input::ForceFeedback::IForceFeedbackMotor>
     {
@@ -258,9 +257,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_Input_ForceFeedback_IPeriodicForceEffect
     {
-        [[nodiscard]] auto Kind() const;
-        auto SetParameters(Windows::Foundation::Numerics::float3 const& vector, float frequency, float phase, float bias, Windows::Foundation::TimeSpan const& duration) const;
-        auto SetParametersWithEnvelope(Windows::Foundation::Numerics::float3 const& vector, float frequency, float phase, float bias, float attackGain, float sustainGain, float releaseGain, Windows::Foundation::TimeSpan const& startDelay, Windows::Foundation::TimeSpan const& attackDuration, Windows::Foundation::TimeSpan const& sustainDuration, Windows::Foundation::TimeSpan const& releaseDuration, uint32_t repeatCount) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Gaming::Input::ForceFeedback::PeriodicForceEffectKind) Kind() const;
+        WINRT_IMPL_AUTO(void) SetParameters(Windows::Foundation::Numerics::float3 const& vector, float frequency, float phase, float bias, Windows::Foundation::TimeSpan const& duration) const;
+        WINRT_IMPL_AUTO(void) SetParametersWithEnvelope(Windows::Foundation::Numerics::float3 const& vector, float frequency, float phase, float bias, float attackGain, float sustainGain, float releaseGain, Windows::Foundation::TimeSpan const& startDelay, Windows::Foundation::TimeSpan const& attackDuration, Windows::Foundation::TimeSpan const& sustainDuration, Windows::Foundation::TimeSpan const& releaseDuration, uint32_t repeatCount) const;
     };
     template <> struct consume<Windows::Gaming::Input::ForceFeedback::IPeriodicForceEffect>
     {
@@ -269,7 +268,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_Input_ForceFeedback_IPeriodicForceEffectFactory
     {
-        auto CreateInstance(Windows::Gaming::Input::ForceFeedback::PeriodicForceEffectKind const& effectKind) const;
+        WINRT_IMPL_AUTO(Windows::Gaming::Input::ForceFeedback::PeriodicForceEffect) CreateInstance(Windows::Gaming::Input::ForceFeedback::PeriodicForceEffectKind const& effectKind) const;
     };
     template <> struct consume<Windows::Gaming::Input::ForceFeedback::IPeriodicForceEffectFactory>
     {
@@ -278,8 +277,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Gaming_Input_ForceFeedback_IRampForceEffect
     {
-        auto SetParameters(Windows::Foundation::Numerics::float3 const& startVector, Windows::Foundation::Numerics::float3 const& endVector, Windows::Foundation::TimeSpan const& duration) const;
-        auto SetParametersWithEnvelope(Windows::Foundation::Numerics::float3 const& startVector, Windows::Foundation::Numerics::float3 const& endVector, float attackGain, float sustainGain, float releaseGain, Windows::Foundation::TimeSpan const& startDelay, Windows::Foundation::TimeSpan const& attackDuration, Windows::Foundation::TimeSpan const& sustainDuration, Windows::Foundation::TimeSpan const& releaseDuration, uint32_t repeatCount) const;
+        WINRT_IMPL_AUTO(void) SetParameters(Windows::Foundation::Numerics::float3 const& startVector, Windows::Foundation::Numerics::float3 const& endVector, Windows::Foundation::TimeSpan const& duration) const;
+        WINRT_IMPL_AUTO(void) SetParametersWithEnvelope(Windows::Foundation::Numerics::float3 const& startVector, Windows::Foundation::Numerics::float3 const& endVector, float attackGain, float sustainGain, float releaseGain, Windows::Foundation::TimeSpan const& startDelay, Windows::Foundation::TimeSpan const& attackDuration, Windows::Foundation::TimeSpan const& sustainDuration, Windows::Foundation::TimeSpan const& releaseDuration, uint32_t repeatCount) const;
     };
     template <> struct consume<Windows::Gaming::Input::ForceFeedback::IRampForceEffect>
     {

@@ -90,6 +90,7 @@
       <xs:element name="Host" minOccurs="0" maxOccurs="1000">
         <xs:complexType>
           <xs:attribute name="Name" type="t:ST_DomainName" use="required"/>
+          <xs:attribute ref="uap11:Path" use="optional"/>
         </xs:complexType>
       </xs:element>
       <xs:element ref="uap5:Host" minOccurs="0" maxOccurs="1000" />

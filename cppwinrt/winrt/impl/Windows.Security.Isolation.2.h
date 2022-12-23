@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -9,6 +9,17 @@
 #include "winrt/impl/Windows.Security.Isolation.1.h"
 WINRT_EXPORT namespace winrt::Windows::Security::Isolation
 {
+    struct HostMessageReceivedCallback : Windows::Foundation::IUnknown
+    {
+        HostMessageReceivedCallback(std::nullptr_t = nullptr) noexcept {}
+        HostMessageReceivedCallback(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IUnknown(ptr, take_ownership_from_abi) {}
+        template <typename L> HostMessageReceivedCallback(L lambda);
+        template <typename F> HostMessageReceivedCallback(F* function);
+        template <typename O, typename M> HostMessageReceivedCallback(O* object, M method);
+        template <typename O, typename M> HostMessageReceivedCallback(com_ptr<O>&& object, M method);
+        template <typename O, typename M> HostMessageReceivedCallback(weak_ref<O>&& object, M method);
+        auto operator()(winrt::guid const& receiverId, param::vector_view<Windows::Foundation::IInspectable> const& message) const;
+    };
     struct MessageReceivedCallback : Windows::Foundation::IUnknown
     {
         MessageReceivedCallback(std::nullptr_t = nullptr) noexcept {}
@@ -124,6 +135,8 @@ WINRT_EXPORT namespace winrt::Windows::Security::Isolation
         IsolatedWindowsHostMessenger() = delete;
         static auto PostMessageToReceiver(winrt::guid const& receiverId, param::vector_view<Windows::Foundation::IInspectable> const& message);
         static auto GetFileId(param::hstring const& filePath);
+        static auto RegisterHostMessageReceiver(winrt::guid const& receiverId, Windows::Security::Isolation::HostMessageReceivedCallback const& hostMessageReceivedCallback);
+        static auto UnregisteHostMessageReceiver(winrt::guid const& receiverId);
     };
 }
 #endif

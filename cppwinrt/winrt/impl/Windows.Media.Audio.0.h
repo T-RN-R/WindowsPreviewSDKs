@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -14,9 +14,15 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
     struct EventRegistrationToken;
     struct HResult;
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
     struct IClosable;
     template <typename T> struct IReference;
     template <typename TSender, typename TResult> struct TypedEventHandler;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
+    template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Numerics
 {
@@ -51,6 +57,10 @@ WINRT_EXPORT namespace winrt::Windows::Media::MediaProperties
 WINRT_EXPORT namespace winrt::Windows::Media::Render
 {
     enum class AudioRenderCategory : int32_t;
+}
+WINRT_EXPORT namespace winrt::Windows::Media::Transcoding
+{
+    enum class TranscodeFailureReason : int32_t;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage
 {
@@ -371,125 +381,123 @@ namespace winrt::impl
     template <> struct category<Windows::Media::Audio::QuantumSizeSelectionMode>{ using type = enum_category; };
     template <> struct category<Windows::Media::Audio::SetDefaultSpatialAudioFormatStatus>{ using type = enum_category; };
     template <> struct category<Windows::Media::Audio::SpatialAudioModel>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioDeviceInputNode>{ L"Windows.Media.Audio.AudioDeviceInputNode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioDeviceOutputNode>{ L"Windows.Media.Audio.AudioDeviceOutputNode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioFileInputNode>{ L"Windows.Media.Audio.AudioFileInputNode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioFileOutputNode>{ L"Windows.Media.Audio.AudioFileOutputNode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioFrameCompletedEventArgs>{ L"Windows.Media.Audio.AudioFrameCompletedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioFrameInputNode>{ L"Windows.Media.Audio.AudioFrameInputNode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioFrameOutputNode>{ L"Windows.Media.Audio.AudioFrameOutputNode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioGraph>{ L"Windows.Media.Audio.AudioGraph" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioGraphBatchUpdater>{ L"Windows.Media.Audio.AudioGraphBatchUpdater" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioGraphConnection>{ L"Windows.Media.Audio.AudioGraphConnection" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioGraphSettings>{ L"Windows.Media.Audio.AudioGraphSettings" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioGraphUnrecoverableErrorOccurredEventArgs>{ L"Windows.Media.Audio.AudioGraphUnrecoverableErrorOccurredEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioNodeEmitter>{ L"Windows.Media.Audio.AudioNodeEmitter" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioNodeEmitterConeProperties>{ L"Windows.Media.Audio.AudioNodeEmitterConeProperties" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioNodeEmitterDecayModel>{ L"Windows.Media.Audio.AudioNodeEmitterDecayModel" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioNodeEmitterNaturalDecayModelProperties>{ L"Windows.Media.Audio.AudioNodeEmitterNaturalDecayModelProperties" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioNodeEmitterShape>{ L"Windows.Media.Audio.AudioNodeEmitterShape" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioNodeListener>{ L"Windows.Media.Audio.AudioNodeListener" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioPlaybackConnection>{ L"Windows.Media.Audio.AudioPlaybackConnection" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioPlaybackConnectionOpenResult>{ L"Windows.Media.Audio.AudioPlaybackConnectionOpenResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioStateMonitor>{ L"Windows.Media.Audio.AudioStateMonitor" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioSubmixNode>{ L"Windows.Media.Audio.AudioSubmixNode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::CreateAudioDeviceInputNodeResult>{ L"Windows.Media.Audio.CreateAudioDeviceInputNodeResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::CreateAudioDeviceOutputNodeResult>{ L"Windows.Media.Audio.CreateAudioDeviceOutputNodeResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::CreateAudioFileInputNodeResult>{ L"Windows.Media.Audio.CreateAudioFileInputNodeResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::CreateAudioFileOutputNodeResult>{ L"Windows.Media.Audio.CreateAudioFileOutputNodeResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::CreateAudioGraphResult>{ L"Windows.Media.Audio.CreateAudioGraphResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::CreateMediaSourceAudioInputNodeResult>{ L"Windows.Media.Audio.CreateMediaSourceAudioInputNodeResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::EchoEffectDefinition>{ L"Windows.Media.Audio.EchoEffectDefinition" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::EqualizerBand>{ L"Windows.Media.Audio.EqualizerBand" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::EqualizerEffectDefinition>{ L"Windows.Media.Audio.EqualizerEffectDefinition" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::FrameInputNodeQuantumStartedEventArgs>{ L"Windows.Media.Audio.FrameInputNodeQuantumStartedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::LimiterEffectDefinition>{ L"Windows.Media.Audio.LimiterEffectDefinition" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::MediaSourceAudioInputNode>{ L"Windows.Media.Audio.MediaSourceAudioInputNode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::ReverbEffectDefinition>{ L"Windows.Media.Audio.ReverbEffectDefinition" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::SetDefaultSpatialAudioFormatResult>{ L"Windows.Media.Audio.SetDefaultSpatialAudioFormatResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::SpatialAudioDeviceConfiguration>{ L"Windows.Media.Audio.SpatialAudioDeviceConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::SpatialAudioFormatConfiguration>{ L"Windows.Media.Audio.SpatialAudioFormatConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::SpatialAudioFormatSubtype>{ L"Windows.Media.Audio.SpatialAudioFormatSubtype" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioDeviceNodeCreationStatus>{ L"Windows.Media.Audio.AudioDeviceNodeCreationStatus" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioFileNodeCreationStatus>{ L"Windows.Media.Audio.AudioFileNodeCreationStatus" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioGraphCreationStatus>{ L"Windows.Media.Audio.AudioGraphCreationStatus" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioGraphUnrecoverableError>{ L"Windows.Media.Audio.AudioGraphUnrecoverableError" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioNodeEmitterDecayKind>{ L"Windows.Media.Audio.AudioNodeEmitterDecayKind" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioNodeEmitterSettings>{ L"Windows.Media.Audio.AudioNodeEmitterSettings" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioNodeEmitterShapeKind>{ L"Windows.Media.Audio.AudioNodeEmitterShapeKind" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioPlaybackConnectionOpenResultStatus>{ L"Windows.Media.Audio.AudioPlaybackConnectionOpenResultStatus" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioPlaybackConnectionState>{ L"Windows.Media.Audio.AudioPlaybackConnectionState" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::MediaSourceAudioInputNodeCreationStatus>{ L"Windows.Media.Audio.MediaSourceAudioInputNodeCreationStatus" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::MixedRealitySpatialAudioFormatPolicy>{ L"Windows.Media.Audio.MixedRealitySpatialAudioFormatPolicy" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::QuantumSizeSelectionMode>{ L"Windows.Media.Audio.QuantumSizeSelectionMode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::SetDefaultSpatialAudioFormatStatus>{ L"Windows.Media.Audio.SetDefaultSpatialAudioFormatStatus" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::SpatialAudioModel>{ L"Windows.Media.Audio.SpatialAudioModel" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioDeviceInputNode>{ L"Windows.Media.Audio.IAudioDeviceInputNode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioDeviceOutputNode>{ L"Windows.Media.Audio.IAudioDeviceOutputNode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioFileInputNode>{ L"Windows.Media.Audio.IAudioFileInputNode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioFileOutputNode>{ L"Windows.Media.Audio.IAudioFileOutputNode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioFrameCompletedEventArgs>{ L"Windows.Media.Audio.IAudioFrameCompletedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioFrameInputNode>{ L"Windows.Media.Audio.IAudioFrameInputNode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioFrameOutputNode>{ L"Windows.Media.Audio.IAudioFrameOutputNode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioGraph>{ L"Windows.Media.Audio.IAudioGraph" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioGraph2>{ L"Windows.Media.Audio.IAudioGraph2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioGraph3>{ L"Windows.Media.Audio.IAudioGraph3" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioGraphConnection>{ L"Windows.Media.Audio.IAudioGraphConnection" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioGraphSettings>{ L"Windows.Media.Audio.IAudioGraphSettings" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioGraphSettings2>{ L"Windows.Media.Audio.IAudioGraphSettings2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioGraphSettingsFactory>{ L"Windows.Media.Audio.IAudioGraphSettingsFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioGraphStatics>{ L"Windows.Media.Audio.IAudioGraphStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioGraphUnrecoverableErrorOccurredEventArgs>{ L"Windows.Media.Audio.IAudioGraphUnrecoverableErrorOccurredEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioInputNode>{ L"Windows.Media.Audio.IAudioInputNode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioInputNode2>{ L"Windows.Media.Audio.IAudioInputNode2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioNode>{ L"Windows.Media.Audio.IAudioNode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioNodeEmitter>{ L"Windows.Media.Audio.IAudioNodeEmitter" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioNodeEmitter2>{ L"Windows.Media.Audio.IAudioNodeEmitter2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioNodeEmitterConeProperties>{ L"Windows.Media.Audio.IAudioNodeEmitterConeProperties" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioNodeEmitterDecayModel>{ L"Windows.Media.Audio.IAudioNodeEmitterDecayModel" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioNodeEmitterDecayModelStatics>{ L"Windows.Media.Audio.IAudioNodeEmitterDecayModelStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioNodeEmitterFactory>{ L"Windows.Media.Audio.IAudioNodeEmitterFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioNodeEmitterNaturalDecayModelProperties>{ L"Windows.Media.Audio.IAudioNodeEmitterNaturalDecayModelProperties" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioNodeEmitterShape>{ L"Windows.Media.Audio.IAudioNodeEmitterShape" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioNodeEmitterShapeStatics>{ L"Windows.Media.Audio.IAudioNodeEmitterShapeStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioNodeListener>{ L"Windows.Media.Audio.IAudioNodeListener" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioNodeWithListener>{ L"Windows.Media.Audio.IAudioNodeWithListener" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioPlaybackConnection>{ L"Windows.Media.Audio.IAudioPlaybackConnection" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioPlaybackConnectionOpenResult>{ L"Windows.Media.Audio.IAudioPlaybackConnectionOpenResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioPlaybackConnectionStatics>{ L"Windows.Media.Audio.IAudioPlaybackConnectionStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioStateMonitor>{ L"Windows.Media.Audio.IAudioStateMonitor" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioStateMonitorStatics>{ L"Windows.Media.Audio.IAudioStateMonitorStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::ICreateAudioDeviceInputNodeResult>{ L"Windows.Media.Audio.ICreateAudioDeviceInputNodeResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::ICreateAudioDeviceInputNodeResult2>{ L"Windows.Media.Audio.ICreateAudioDeviceInputNodeResult2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::ICreateAudioDeviceOutputNodeResult>{ L"Windows.Media.Audio.ICreateAudioDeviceOutputNodeResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::ICreateAudioDeviceOutputNodeResult2>{ L"Windows.Media.Audio.ICreateAudioDeviceOutputNodeResult2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::ICreateAudioFileInputNodeResult>{ L"Windows.Media.Audio.ICreateAudioFileInputNodeResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::ICreateAudioFileInputNodeResult2>{ L"Windows.Media.Audio.ICreateAudioFileInputNodeResult2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::ICreateAudioFileOutputNodeResult>{ L"Windows.Media.Audio.ICreateAudioFileOutputNodeResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::ICreateAudioFileOutputNodeResult2>{ L"Windows.Media.Audio.ICreateAudioFileOutputNodeResult2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::ICreateAudioGraphResult>{ L"Windows.Media.Audio.ICreateAudioGraphResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::ICreateAudioGraphResult2>{ L"Windows.Media.Audio.ICreateAudioGraphResult2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::ICreateMediaSourceAudioInputNodeResult>{ L"Windows.Media.Audio.ICreateMediaSourceAudioInputNodeResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::ICreateMediaSourceAudioInputNodeResult2>{ L"Windows.Media.Audio.ICreateMediaSourceAudioInputNodeResult2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IEchoEffectDefinition>{ L"Windows.Media.Audio.IEchoEffectDefinition" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IEchoEffectDefinitionFactory>{ L"Windows.Media.Audio.IEchoEffectDefinitionFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IEqualizerBand>{ L"Windows.Media.Audio.IEqualizerBand" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IEqualizerEffectDefinition>{ L"Windows.Media.Audio.IEqualizerEffectDefinition" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IEqualizerEffectDefinitionFactory>{ L"Windows.Media.Audio.IEqualizerEffectDefinitionFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IFrameInputNodeQuantumStartedEventArgs>{ L"Windows.Media.Audio.IFrameInputNodeQuantumStartedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::ILimiterEffectDefinition>{ L"Windows.Media.Audio.ILimiterEffectDefinition" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::ILimiterEffectDefinitionFactory>{ L"Windows.Media.Audio.ILimiterEffectDefinitionFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IMediaSourceAudioInputNode>{ L"Windows.Media.Audio.IMediaSourceAudioInputNode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IReverbEffectDefinition>{ L"Windows.Media.Audio.IReverbEffectDefinition" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::IReverbEffectDefinitionFactory>{ L"Windows.Media.Audio.IReverbEffectDefinitionFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::ISetDefaultSpatialAudioFormatResult>{ L"Windows.Media.Audio.ISetDefaultSpatialAudioFormatResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::ISpatialAudioDeviceConfiguration>{ L"Windows.Media.Audio.ISpatialAudioDeviceConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::ISpatialAudioDeviceConfigurationStatics>{ L"Windows.Media.Audio.ISpatialAudioDeviceConfigurationStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::ISpatialAudioFormatConfiguration>{ L"Windows.Media.Audio.ISpatialAudioFormatConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::ISpatialAudioFormatConfigurationStatics>{ L"Windows.Media.Audio.ISpatialAudioFormatConfigurationStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::Audio::ISpatialAudioFormatSubtypeStatics>{ L"Windows.Media.Audio.ISpatialAudioFormatSubtypeStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioDeviceInputNode> = L"Windows.Media.Audio.AudioDeviceInputNode";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioDeviceOutputNode> = L"Windows.Media.Audio.AudioDeviceOutputNode";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioFileInputNode> = L"Windows.Media.Audio.AudioFileInputNode";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioFileOutputNode> = L"Windows.Media.Audio.AudioFileOutputNode";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioFrameCompletedEventArgs> = L"Windows.Media.Audio.AudioFrameCompletedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioFrameInputNode> = L"Windows.Media.Audio.AudioFrameInputNode";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioFrameOutputNode> = L"Windows.Media.Audio.AudioFrameOutputNode";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioGraph> = L"Windows.Media.Audio.AudioGraph";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioGraphBatchUpdater> = L"Windows.Media.Audio.AudioGraphBatchUpdater";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioGraphConnection> = L"Windows.Media.Audio.AudioGraphConnection";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioGraphSettings> = L"Windows.Media.Audio.AudioGraphSettings";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioGraphUnrecoverableErrorOccurredEventArgs> = L"Windows.Media.Audio.AudioGraphUnrecoverableErrorOccurredEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioNodeEmitter> = L"Windows.Media.Audio.AudioNodeEmitter";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioNodeEmitterConeProperties> = L"Windows.Media.Audio.AudioNodeEmitterConeProperties";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioNodeEmitterDecayModel> = L"Windows.Media.Audio.AudioNodeEmitterDecayModel";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioNodeEmitterNaturalDecayModelProperties> = L"Windows.Media.Audio.AudioNodeEmitterNaturalDecayModelProperties";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioNodeEmitterShape> = L"Windows.Media.Audio.AudioNodeEmitterShape";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioNodeListener> = L"Windows.Media.Audio.AudioNodeListener";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioPlaybackConnection> = L"Windows.Media.Audio.AudioPlaybackConnection";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioPlaybackConnectionOpenResult> = L"Windows.Media.Audio.AudioPlaybackConnectionOpenResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioStateMonitor> = L"Windows.Media.Audio.AudioStateMonitor";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioSubmixNode> = L"Windows.Media.Audio.AudioSubmixNode";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::CreateAudioDeviceInputNodeResult> = L"Windows.Media.Audio.CreateAudioDeviceInputNodeResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::CreateAudioDeviceOutputNodeResult> = L"Windows.Media.Audio.CreateAudioDeviceOutputNodeResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::CreateAudioFileInputNodeResult> = L"Windows.Media.Audio.CreateAudioFileInputNodeResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::CreateAudioFileOutputNodeResult> = L"Windows.Media.Audio.CreateAudioFileOutputNodeResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::CreateAudioGraphResult> = L"Windows.Media.Audio.CreateAudioGraphResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::CreateMediaSourceAudioInputNodeResult> = L"Windows.Media.Audio.CreateMediaSourceAudioInputNodeResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::EchoEffectDefinition> = L"Windows.Media.Audio.EchoEffectDefinition";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::EqualizerBand> = L"Windows.Media.Audio.EqualizerBand";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::EqualizerEffectDefinition> = L"Windows.Media.Audio.EqualizerEffectDefinition";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::FrameInputNodeQuantumStartedEventArgs> = L"Windows.Media.Audio.FrameInputNodeQuantumStartedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::LimiterEffectDefinition> = L"Windows.Media.Audio.LimiterEffectDefinition";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::MediaSourceAudioInputNode> = L"Windows.Media.Audio.MediaSourceAudioInputNode";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::ReverbEffectDefinition> = L"Windows.Media.Audio.ReverbEffectDefinition";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::SetDefaultSpatialAudioFormatResult> = L"Windows.Media.Audio.SetDefaultSpatialAudioFormatResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::SpatialAudioDeviceConfiguration> = L"Windows.Media.Audio.SpatialAudioDeviceConfiguration";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::SpatialAudioFormatConfiguration> = L"Windows.Media.Audio.SpatialAudioFormatConfiguration";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::SpatialAudioFormatSubtype> = L"Windows.Media.Audio.SpatialAudioFormatSubtype";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioDeviceNodeCreationStatus> = L"Windows.Media.Audio.AudioDeviceNodeCreationStatus";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioFileNodeCreationStatus> = L"Windows.Media.Audio.AudioFileNodeCreationStatus";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioGraphCreationStatus> = L"Windows.Media.Audio.AudioGraphCreationStatus";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioGraphUnrecoverableError> = L"Windows.Media.Audio.AudioGraphUnrecoverableError";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioNodeEmitterDecayKind> = L"Windows.Media.Audio.AudioNodeEmitterDecayKind";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioNodeEmitterSettings> = L"Windows.Media.Audio.AudioNodeEmitterSettings";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioNodeEmitterShapeKind> = L"Windows.Media.Audio.AudioNodeEmitterShapeKind";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioPlaybackConnectionOpenResultStatus> = L"Windows.Media.Audio.AudioPlaybackConnectionOpenResultStatus";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::AudioPlaybackConnectionState> = L"Windows.Media.Audio.AudioPlaybackConnectionState";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::MediaSourceAudioInputNodeCreationStatus> = L"Windows.Media.Audio.MediaSourceAudioInputNodeCreationStatus";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::MixedRealitySpatialAudioFormatPolicy> = L"Windows.Media.Audio.MixedRealitySpatialAudioFormatPolicy";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::QuantumSizeSelectionMode> = L"Windows.Media.Audio.QuantumSizeSelectionMode";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::SetDefaultSpatialAudioFormatStatus> = L"Windows.Media.Audio.SetDefaultSpatialAudioFormatStatus";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::SpatialAudioModel> = L"Windows.Media.Audio.SpatialAudioModel";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioDeviceInputNode> = L"Windows.Media.Audio.IAudioDeviceInputNode";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioDeviceOutputNode> = L"Windows.Media.Audio.IAudioDeviceOutputNode";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioFileInputNode> = L"Windows.Media.Audio.IAudioFileInputNode";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioFileOutputNode> = L"Windows.Media.Audio.IAudioFileOutputNode";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioFrameCompletedEventArgs> = L"Windows.Media.Audio.IAudioFrameCompletedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioFrameInputNode> = L"Windows.Media.Audio.IAudioFrameInputNode";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioFrameOutputNode> = L"Windows.Media.Audio.IAudioFrameOutputNode";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioGraph> = L"Windows.Media.Audio.IAudioGraph";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioGraph2> = L"Windows.Media.Audio.IAudioGraph2";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioGraph3> = L"Windows.Media.Audio.IAudioGraph3";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioGraphConnection> = L"Windows.Media.Audio.IAudioGraphConnection";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioGraphSettings> = L"Windows.Media.Audio.IAudioGraphSettings";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioGraphSettings2> = L"Windows.Media.Audio.IAudioGraphSettings2";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioGraphSettingsFactory> = L"Windows.Media.Audio.IAudioGraphSettingsFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioGraphStatics> = L"Windows.Media.Audio.IAudioGraphStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioGraphUnrecoverableErrorOccurredEventArgs> = L"Windows.Media.Audio.IAudioGraphUnrecoverableErrorOccurredEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioInputNode> = L"Windows.Media.Audio.IAudioInputNode";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioInputNode2> = L"Windows.Media.Audio.IAudioInputNode2";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioNode> = L"Windows.Media.Audio.IAudioNode";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioNodeEmitter> = L"Windows.Media.Audio.IAudioNodeEmitter";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioNodeEmitter2> = L"Windows.Media.Audio.IAudioNodeEmitter2";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioNodeEmitterConeProperties> = L"Windows.Media.Audio.IAudioNodeEmitterConeProperties";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioNodeEmitterDecayModel> = L"Windows.Media.Audio.IAudioNodeEmitterDecayModel";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioNodeEmitterDecayModelStatics> = L"Windows.Media.Audio.IAudioNodeEmitterDecayModelStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioNodeEmitterFactory> = L"Windows.Media.Audio.IAudioNodeEmitterFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioNodeEmitterNaturalDecayModelProperties> = L"Windows.Media.Audio.IAudioNodeEmitterNaturalDecayModelProperties";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioNodeEmitterShape> = L"Windows.Media.Audio.IAudioNodeEmitterShape";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioNodeEmitterShapeStatics> = L"Windows.Media.Audio.IAudioNodeEmitterShapeStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioNodeListener> = L"Windows.Media.Audio.IAudioNodeListener";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioNodeWithListener> = L"Windows.Media.Audio.IAudioNodeWithListener";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioPlaybackConnection> = L"Windows.Media.Audio.IAudioPlaybackConnection";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioPlaybackConnectionOpenResult> = L"Windows.Media.Audio.IAudioPlaybackConnectionOpenResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioPlaybackConnectionStatics> = L"Windows.Media.Audio.IAudioPlaybackConnectionStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioStateMonitor> = L"Windows.Media.Audio.IAudioStateMonitor";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IAudioStateMonitorStatics> = L"Windows.Media.Audio.IAudioStateMonitorStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::ICreateAudioDeviceInputNodeResult> = L"Windows.Media.Audio.ICreateAudioDeviceInputNodeResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::ICreateAudioDeviceInputNodeResult2> = L"Windows.Media.Audio.ICreateAudioDeviceInputNodeResult2";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::ICreateAudioDeviceOutputNodeResult> = L"Windows.Media.Audio.ICreateAudioDeviceOutputNodeResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::ICreateAudioDeviceOutputNodeResult2> = L"Windows.Media.Audio.ICreateAudioDeviceOutputNodeResult2";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::ICreateAudioFileInputNodeResult> = L"Windows.Media.Audio.ICreateAudioFileInputNodeResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::ICreateAudioFileInputNodeResult2> = L"Windows.Media.Audio.ICreateAudioFileInputNodeResult2";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::ICreateAudioFileOutputNodeResult> = L"Windows.Media.Audio.ICreateAudioFileOutputNodeResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::ICreateAudioFileOutputNodeResult2> = L"Windows.Media.Audio.ICreateAudioFileOutputNodeResult2";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::ICreateAudioGraphResult> = L"Windows.Media.Audio.ICreateAudioGraphResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::ICreateAudioGraphResult2> = L"Windows.Media.Audio.ICreateAudioGraphResult2";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::ICreateMediaSourceAudioInputNodeResult> = L"Windows.Media.Audio.ICreateMediaSourceAudioInputNodeResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::ICreateMediaSourceAudioInputNodeResult2> = L"Windows.Media.Audio.ICreateMediaSourceAudioInputNodeResult2";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IEchoEffectDefinition> = L"Windows.Media.Audio.IEchoEffectDefinition";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IEchoEffectDefinitionFactory> = L"Windows.Media.Audio.IEchoEffectDefinitionFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IEqualizerBand> = L"Windows.Media.Audio.IEqualizerBand";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IEqualizerEffectDefinition> = L"Windows.Media.Audio.IEqualizerEffectDefinition";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IEqualizerEffectDefinitionFactory> = L"Windows.Media.Audio.IEqualizerEffectDefinitionFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IFrameInputNodeQuantumStartedEventArgs> = L"Windows.Media.Audio.IFrameInputNodeQuantumStartedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::ILimiterEffectDefinition> = L"Windows.Media.Audio.ILimiterEffectDefinition";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::ILimiterEffectDefinitionFactory> = L"Windows.Media.Audio.ILimiterEffectDefinitionFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IMediaSourceAudioInputNode> = L"Windows.Media.Audio.IMediaSourceAudioInputNode";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IReverbEffectDefinition> = L"Windows.Media.Audio.IReverbEffectDefinition";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::IReverbEffectDefinitionFactory> = L"Windows.Media.Audio.IReverbEffectDefinitionFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::ISetDefaultSpatialAudioFormatResult> = L"Windows.Media.Audio.ISetDefaultSpatialAudioFormatResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::ISpatialAudioDeviceConfiguration> = L"Windows.Media.Audio.ISpatialAudioDeviceConfiguration";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::ISpatialAudioDeviceConfigurationStatics> = L"Windows.Media.Audio.ISpatialAudioDeviceConfigurationStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::ISpatialAudioFormatConfiguration> = L"Windows.Media.Audio.ISpatialAudioFormatConfiguration";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::ISpatialAudioFormatConfigurationStatics> = L"Windows.Media.Audio.ISpatialAudioFormatConfigurationStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::Audio::ISpatialAudioFormatSubtypeStatics> = L"Windows.Media.Audio.ISpatialAudioFormatSubtypeStatics";
     template <> inline constexpr guid guid_v<Windows::Media::Audio::IAudioDeviceInputNode>{ 0xB01B6BE1,0x6F4E,0x49E2,{ 0xAC,0x01,0x55,0x9D,0x62,0xBE,0xB3,0xA9 } };
     template <> inline constexpr guid guid_v<Windows::Media::Audio::IAudioDeviceOutputNode>{ 0x362EDBFF,0xFF1C,0x4434,{ 0x9E,0x0F,0xBD,0x2E,0xF5,0x22,0xAC,0x82 } };
     template <> inline constexpr guid guid_v<Windows::Media::Audio::IAudioFileInputNode>{ 0x905B67C8,0x6F65,0x4CD4,{ 0x88,0x90,0x46,0x94,0x84,0x3C,0x27,0x6D } };
@@ -1267,7 +1275,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioDeviceInputNode
     {
-        [[nodiscard]] auto Device() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Enumeration::DeviceInformation) Device() const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioDeviceInputNode>
     {
@@ -1276,7 +1284,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioDeviceOutputNode
     {
-        [[nodiscard]] auto Device() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Enumeration::DeviceInformation) Device() const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioDeviceOutputNode>
     {
@@ -1285,22 +1293,22 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioFileInputNode
     {
-        auto PlaybackSpeedFactor(double value) const;
-        [[nodiscard]] auto PlaybackSpeedFactor() const;
-        [[nodiscard]] auto Position() const;
-        auto Seek(Windows::Foundation::TimeSpan const& position) const;
-        [[nodiscard]] auto StartTime() const;
-        auto StartTime(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
-        [[nodiscard]] auto EndTime() const;
-        auto EndTime(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
-        [[nodiscard]] auto LoopCount() const;
-        auto LoopCount(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto Duration() const;
-        [[nodiscard]] auto SourceFile() const;
-        auto FileCompleted(Windows::Foundation::TypedEventHandler<Windows::Media::Audio::AudioFileInputNode, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) PlaybackSpeedFactor(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) PlaybackSpeedFactor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Position() const;
+        WINRT_IMPL_AUTO(void) Seek(Windows::Foundation::TimeSpan const& position) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) StartTime() const;
+        WINRT_IMPL_AUTO(void) StartTime(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) EndTime() const;
+        WINRT_IMPL_AUTO(void) EndTime(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) LoopCount() const;
+        WINRT_IMPL_AUTO(void) LoopCount(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Duration() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::StorageFile) SourceFile() const;
+        WINRT_IMPL_AUTO(winrt::event_token) FileCompleted(Windows::Foundation::TypedEventHandler<Windows::Media::Audio::AudioFileInputNode, Windows::Foundation::IInspectable> const& handler) const;
         using FileCompleted_revoker = impl::event_revoker<Windows::Media::Audio::IAudioFileInputNode, &impl::abi_t<Windows::Media::Audio::IAudioFileInputNode>::remove_FileCompleted>;
         [[nodiscard]] FileCompleted_revoker FileCompleted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Audio::AudioFileInputNode, Windows::Foundation::IInspectable> const& handler) const;
-        auto FileCompleted(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) FileCompleted(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Media::Audio::IAudioFileInputNode>
     {
@@ -1309,9 +1317,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioFileOutputNode
     {
-        [[nodiscard]] auto File() const;
-        [[nodiscard]] auto FileEncodingProfile() const;
-        auto FinalizeAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::IStorageFile) File() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::MediaProperties::MediaEncodingProfile) FileEncodingProfile() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Transcoding::TranscodeFailureReason>) FinalizeAsync() const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioFileOutputNode>
     {
@@ -1320,7 +1328,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioFrameCompletedEventArgs
     {
-        [[nodiscard]] auto Frame() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::AudioFrame) Frame() const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioFrameCompletedEventArgs>
     {
@@ -1329,19 +1337,19 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioFrameInputNode
     {
-        auto PlaybackSpeedFactor(double value) const;
-        [[nodiscard]] auto PlaybackSpeedFactor() const;
-        auto AddFrame(Windows::Media::AudioFrame const& frame) const;
-        auto DiscardQueuedFrames() const;
-        [[nodiscard]] auto QueuedSampleCount() const;
-        auto AudioFrameCompleted(Windows::Foundation::TypedEventHandler<Windows::Media::Audio::AudioFrameInputNode, Windows::Media::Audio::AudioFrameCompletedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) PlaybackSpeedFactor(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) PlaybackSpeedFactor() const;
+        WINRT_IMPL_AUTO(void) AddFrame(Windows::Media::AudioFrame const& frame) const;
+        WINRT_IMPL_AUTO(void) DiscardQueuedFrames() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) QueuedSampleCount() const;
+        WINRT_IMPL_AUTO(winrt::event_token) AudioFrameCompleted(Windows::Foundation::TypedEventHandler<Windows::Media::Audio::AudioFrameInputNode, Windows::Media::Audio::AudioFrameCompletedEventArgs> const& handler) const;
         using AudioFrameCompleted_revoker = impl::event_revoker<Windows::Media::Audio::IAudioFrameInputNode, &impl::abi_t<Windows::Media::Audio::IAudioFrameInputNode>::remove_AudioFrameCompleted>;
         [[nodiscard]] AudioFrameCompleted_revoker AudioFrameCompleted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Audio::AudioFrameInputNode, Windows::Media::Audio::AudioFrameCompletedEventArgs> const& handler) const;
-        auto AudioFrameCompleted(winrt::event_token const& token) const noexcept;
-        auto QuantumStarted(Windows::Foundation::TypedEventHandler<Windows::Media::Audio::AudioFrameInputNode, Windows::Media::Audio::FrameInputNodeQuantumStartedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) AudioFrameCompleted(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) QuantumStarted(Windows::Foundation::TypedEventHandler<Windows::Media::Audio::AudioFrameInputNode, Windows::Media::Audio::FrameInputNodeQuantumStartedEventArgs> const& handler) const;
         using QuantumStarted_revoker = impl::event_revoker<Windows::Media::Audio::IAudioFrameInputNode, &impl::abi_t<Windows::Media::Audio::IAudioFrameInputNode>::remove_QuantumStarted>;
         [[nodiscard]] QuantumStarted_revoker QuantumStarted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Audio::AudioFrameInputNode, Windows::Media::Audio::FrameInputNodeQuantumStartedEventArgs> const& handler) const;
-        auto QuantumStarted(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) QuantumStarted(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Media::Audio::IAudioFrameInputNode>
     {
@@ -1350,7 +1358,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioFrameOutputNode
     {
-        auto GetFrame() const;
+        WINRT_IMPL_AUTO(Windows::Media::AudioFrame) GetFrame() const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioFrameOutputNode>
     {
@@ -1359,40 +1367,40 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioGraph
     {
-        auto CreateFrameInputNode() const;
-        auto CreateFrameInputNode(Windows::Media::MediaProperties::AudioEncodingProperties const& encodingProperties) const;
-        auto CreateDeviceInputNodeAsync(Windows::Media::Capture::MediaCategory const& category) const;
-        auto CreateDeviceInputNodeAsync(Windows::Media::Capture::MediaCategory const& category, Windows::Media::MediaProperties::AudioEncodingProperties const& encodingProperties) const;
-        auto CreateDeviceInputNodeAsync(Windows::Media::Capture::MediaCategory const& category, Windows::Media::MediaProperties::AudioEncodingProperties const& encodingProperties, Windows::Devices::Enumeration::DeviceInformation const& device) const;
-        auto CreateFrameOutputNode() const;
-        auto CreateFrameOutputNode(Windows::Media::MediaProperties::AudioEncodingProperties const& encodingProperties) const;
-        auto CreateDeviceOutputNodeAsync() const;
-        auto CreateFileInputNodeAsync(Windows::Storage::IStorageFile const& file) const;
-        auto CreateFileOutputNodeAsync(Windows::Storage::IStorageFile const& file) const;
-        auto CreateFileOutputNodeAsync(Windows::Storage::IStorageFile const& file, Windows::Media::MediaProperties::MediaEncodingProfile const& fileEncodingProfile) const;
-        auto CreateSubmixNode() const;
-        auto CreateSubmixNode(Windows::Media::MediaProperties::AudioEncodingProperties const& encodingProperties) const;
-        auto Start() const;
-        auto Stop() const;
-        auto ResetAllNodes() const;
-        auto QuantumStarted(Windows::Foundation::TypedEventHandler<Windows::Media::Audio::AudioGraph, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::AudioFrameInputNode) CreateFrameInputNode() const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::AudioFrameInputNode) CreateFrameInputNode(Windows::Media::MediaProperties::AudioEncodingProperties const& encodingProperties) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Audio::CreateAudioDeviceInputNodeResult>) CreateDeviceInputNodeAsync(Windows::Media::Capture::MediaCategory const& category) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Audio::CreateAudioDeviceInputNodeResult>) CreateDeviceInputNodeAsync(Windows::Media::Capture::MediaCategory const& category, Windows::Media::MediaProperties::AudioEncodingProperties const& encodingProperties) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Audio::CreateAudioDeviceInputNodeResult>) CreateDeviceInputNodeAsync(Windows::Media::Capture::MediaCategory const& category, Windows::Media::MediaProperties::AudioEncodingProperties const& encodingProperties, Windows::Devices::Enumeration::DeviceInformation const& device) const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::AudioFrameOutputNode) CreateFrameOutputNode() const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::AudioFrameOutputNode) CreateFrameOutputNode(Windows::Media::MediaProperties::AudioEncodingProperties const& encodingProperties) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Audio::CreateAudioDeviceOutputNodeResult>) CreateDeviceOutputNodeAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Audio::CreateAudioFileInputNodeResult>) CreateFileInputNodeAsync(Windows::Storage::IStorageFile const& file) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Audio::CreateAudioFileOutputNodeResult>) CreateFileOutputNodeAsync(Windows::Storage::IStorageFile const& file) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Audio::CreateAudioFileOutputNodeResult>) CreateFileOutputNodeAsync(Windows::Storage::IStorageFile const& file, Windows::Media::MediaProperties::MediaEncodingProfile const& fileEncodingProfile) const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::AudioSubmixNode) CreateSubmixNode() const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::AudioSubmixNode) CreateSubmixNode(Windows::Media::MediaProperties::AudioEncodingProperties const& encodingProperties) const;
+        WINRT_IMPL_AUTO(void) Start() const;
+        WINRT_IMPL_AUTO(void) Stop() const;
+        WINRT_IMPL_AUTO(void) ResetAllNodes() const;
+        WINRT_IMPL_AUTO(winrt::event_token) QuantumStarted(Windows::Foundation::TypedEventHandler<Windows::Media::Audio::AudioGraph, Windows::Foundation::IInspectable> const& handler) const;
         using QuantumStarted_revoker = impl::event_revoker<Windows::Media::Audio::IAudioGraph, &impl::abi_t<Windows::Media::Audio::IAudioGraph>::remove_QuantumStarted>;
         [[nodiscard]] QuantumStarted_revoker QuantumStarted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Audio::AudioGraph, Windows::Foundation::IInspectable> const& handler) const;
-        auto QuantumStarted(winrt::event_token const& token) const noexcept;
-        auto QuantumProcessed(Windows::Foundation::TypedEventHandler<Windows::Media::Audio::AudioGraph, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) QuantumStarted(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) QuantumProcessed(Windows::Foundation::TypedEventHandler<Windows::Media::Audio::AudioGraph, Windows::Foundation::IInspectable> const& handler) const;
         using QuantumProcessed_revoker = impl::event_revoker<Windows::Media::Audio::IAudioGraph, &impl::abi_t<Windows::Media::Audio::IAudioGraph>::remove_QuantumProcessed>;
         [[nodiscard]] QuantumProcessed_revoker QuantumProcessed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Audio::AudioGraph, Windows::Foundation::IInspectable> const& handler) const;
-        auto QuantumProcessed(winrt::event_token const& token) const noexcept;
-        auto UnrecoverableErrorOccurred(Windows::Foundation::TypedEventHandler<Windows::Media::Audio::AudioGraph, Windows::Media::Audio::AudioGraphUnrecoverableErrorOccurredEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) QuantumProcessed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) UnrecoverableErrorOccurred(Windows::Foundation::TypedEventHandler<Windows::Media::Audio::AudioGraph, Windows::Media::Audio::AudioGraphUnrecoverableErrorOccurredEventArgs> const& handler) const;
         using UnrecoverableErrorOccurred_revoker = impl::event_revoker<Windows::Media::Audio::IAudioGraph, &impl::abi_t<Windows::Media::Audio::IAudioGraph>::remove_UnrecoverableErrorOccurred>;
         [[nodiscard]] UnrecoverableErrorOccurred_revoker UnrecoverableErrorOccurred(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Audio::AudioGraph, Windows::Media::Audio::AudioGraphUnrecoverableErrorOccurredEventArgs> const& handler) const;
-        auto UnrecoverableErrorOccurred(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto CompletedQuantumCount() const;
-        [[nodiscard]] auto EncodingProperties() const;
-        [[nodiscard]] auto LatencyInSamples() const;
-        [[nodiscard]] auto PrimaryRenderDevice() const;
-        [[nodiscard]] auto RenderDeviceAudioProcessing() const;
-        [[nodiscard]] auto SamplesPerQuantum() const;
+        WINRT_IMPL_AUTO(void) UnrecoverableErrorOccurred(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) CompletedQuantumCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::MediaProperties::AudioEncodingProperties) EncodingProperties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) LatencyInSamples() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Enumeration::DeviceInformation) PrimaryRenderDevice() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::AudioProcessing) RenderDeviceAudioProcessing() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) SamplesPerQuantum() const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioGraph>
     {
@@ -1401,11 +1409,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioGraph2
     {
-        auto CreateFrameInputNode(Windows::Media::MediaProperties::AudioEncodingProperties const& encodingProperties, Windows::Media::Audio::AudioNodeEmitter const& emitter) const;
-        auto CreateDeviceInputNodeAsync(Windows::Media::Capture::MediaCategory const& category, Windows::Media::MediaProperties::AudioEncodingProperties const& encodingProperties, Windows::Devices::Enumeration::DeviceInformation const& device, Windows::Media::Audio::AudioNodeEmitter const& emitter) const;
-        auto CreateFileInputNodeAsync(Windows::Storage::IStorageFile const& file, Windows::Media::Audio::AudioNodeEmitter const& emitter) const;
-        auto CreateSubmixNode(Windows::Media::MediaProperties::AudioEncodingProperties const& encodingProperties, Windows::Media::Audio::AudioNodeEmitter const& emitter) const;
-        auto CreateBatchUpdater() const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::AudioFrameInputNode) CreateFrameInputNode(Windows::Media::MediaProperties::AudioEncodingProperties const& encodingProperties, Windows::Media::Audio::AudioNodeEmitter const& emitter) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Audio::CreateAudioDeviceInputNodeResult>) CreateDeviceInputNodeAsync(Windows::Media::Capture::MediaCategory const& category, Windows::Media::MediaProperties::AudioEncodingProperties const& encodingProperties, Windows::Devices::Enumeration::DeviceInformation const& device, Windows::Media::Audio::AudioNodeEmitter const& emitter) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Audio::CreateAudioFileInputNodeResult>) CreateFileInputNodeAsync(Windows::Storage::IStorageFile const& file, Windows::Media::Audio::AudioNodeEmitter const& emitter) const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::AudioSubmixNode) CreateSubmixNode(Windows::Media::MediaProperties::AudioEncodingProperties const& encodingProperties, Windows::Media::Audio::AudioNodeEmitter const& emitter) const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::AudioGraphBatchUpdater) CreateBatchUpdater() const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioGraph2>
     {
@@ -1414,8 +1422,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioGraph3
     {
-        auto CreateMediaSourceAudioInputNodeAsync(Windows::Media::Core::MediaSource const& mediaSource) const;
-        auto CreateMediaSourceAudioInputNodeAsync(Windows::Media::Core::MediaSource const& mediaSource, Windows::Media::Audio::AudioNodeEmitter const& emitter) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Audio::CreateMediaSourceAudioInputNodeResult>) CreateMediaSourceAudioInputNodeAsync(Windows::Media::Core::MediaSource const& mediaSource) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Audio::CreateMediaSourceAudioInputNodeResult>) CreateMediaSourceAudioInputNodeAsync(Windows::Media::Core::MediaSource const& mediaSource, Windows::Media::Audio::AudioNodeEmitter const& emitter) const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioGraph3>
     {
@@ -1424,9 +1432,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioGraphConnection
     {
-        [[nodiscard]] auto Destination() const;
-        auto Gain(double value) const;
-        [[nodiscard]] auto Gain() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Audio::IAudioNode) Destination() const;
+        WINRT_IMPL_AUTO(void) Gain(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Gain() const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioGraphConnection>
     {
@@ -1435,18 +1443,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioGraphSettings
     {
-        [[nodiscard]] auto EncodingProperties() const;
-        auto EncodingProperties(Windows::Media::MediaProperties::AudioEncodingProperties const& value) const;
-        [[nodiscard]] auto PrimaryRenderDevice() const;
-        auto PrimaryRenderDevice(Windows::Devices::Enumeration::DeviceInformation const& value) const;
-        [[nodiscard]] auto QuantumSizeSelectionMode() const;
-        auto QuantumSizeSelectionMode(Windows::Media::Audio::QuantumSizeSelectionMode const& value) const;
-        [[nodiscard]] auto DesiredSamplesPerQuantum() const;
-        auto DesiredSamplesPerQuantum(int32_t value) const;
-        [[nodiscard]] auto AudioRenderCategory() const;
-        auto AudioRenderCategory(Windows::Media::Render::AudioRenderCategory const& value) const;
-        [[nodiscard]] auto DesiredRenderDeviceAudioProcessing() const;
-        auto DesiredRenderDeviceAudioProcessing(Windows::Media::AudioProcessing const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::MediaProperties::AudioEncodingProperties) EncodingProperties() const;
+        WINRT_IMPL_AUTO(void) EncodingProperties(Windows::Media::MediaProperties::AudioEncodingProperties const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Enumeration::DeviceInformation) PrimaryRenderDevice() const;
+        WINRT_IMPL_AUTO(void) PrimaryRenderDevice(Windows::Devices::Enumeration::DeviceInformation const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Audio::QuantumSizeSelectionMode) QuantumSizeSelectionMode() const;
+        WINRT_IMPL_AUTO(void) QuantumSizeSelectionMode(Windows::Media::Audio::QuantumSizeSelectionMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) DesiredSamplesPerQuantum() const;
+        WINRT_IMPL_AUTO(void) DesiredSamplesPerQuantum(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Render::AudioRenderCategory) AudioRenderCategory() const;
+        WINRT_IMPL_AUTO(void) AudioRenderCategory(Windows::Media::Render::AudioRenderCategory const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::AudioProcessing) DesiredRenderDeviceAudioProcessing() const;
+        WINRT_IMPL_AUTO(void) DesiredRenderDeviceAudioProcessing(Windows::Media::AudioProcessing const& value) const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioGraphSettings>
     {
@@ -1455,8 +1463,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioGraphSettings2
     {
-        auto MaxPlaybackSpeedFactor(double value) const;
-        [[nodiscard]] auto MaxPlaybackSpeedFactor() const;
+        WINRT_IMPL_AUTO(void) MaxPlaybackSpeedFactor(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) MaxPlaybackSpeedFactor() const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioGraphSettings2>
     {
@@ -1465,7 +1473,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioGraphSettingsFactory
     {
-        auto Create(Windows::Media::Render::AudioRenderCategory const& audioRenderCategory) const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::AudioGraphSettings) Create(Windows::Media::Render::AudioRenderCategory const& audioRenderCategory) const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioGraphSettingsFactory>
     {
@@ -1474,7 +1482,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioGraphStatics
     {
-        auto CreateAsync(Windows::Media::Audio::AudioGraphSettings const& settings) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Audio::CreateAudioGraphResult>) CreateAsync(Windows::Media::Audio::AudioGraphSettings const& settings) const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioGraphStatics>
     {
@@ -1483,7 +1491,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioGraphUnrecoverableErrorOccurredEventArgs
     {
-        [[nodiscard]] auto Error() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Audio::AudioGraphUnrecoverableError) Error() const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioGraphUnrecoverableErrorOccurredEventArgs>
     {
@@ -1492,10 +1500,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioInputNode
     {
-        [[nodiscard]] auto OutgoingConnections() const;
-        auto AddOutgoingConnection(Windows::Media::Audio::IAudioNode const& destination) const;
-        auto AddOutgoingConnection(Windows::Media::Audio::IAudioNode const& destination, double gain) const;
-        auto RemoveOutgoingConnection(Windows::Media::Audio::IAudioNode const& destination) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Audio::AudioGraphConnection>) OutgoingConnections() const;
+        WINRT_IMPL_AUTO(void) AddOutgoingConnection(Windows::Media::Audio::IAudioNode const& destination) const;
+        WINRT_IMPL_AUTO(void) AddOutgoingConnection(Windows::Media::Audio::IAudioNode const& destination, double gain) const;
+        WINRT_IMPL_AUTO(void) RemoveOutgoingConnection(Windows::Media::Audio::IAudioNode const& destination) const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioInputNode>
     {
@@ -1504,7 +1512,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioInputNode2
     {
-        [[nodiscard]] auto Emitter() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Audio::AudioNodeEmitter) Emitter() const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioInputNode2>
     {
@@ -1513,17 +1521,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioNode
     {
-        [[nodiscard]] auto EffectDefinitions() const;
-        auto OutgoingGain(double value) const;
-        [[nodiscard]] auto OutgoingGain() const;
-        [[nodiscard]] auto EncodingProperties() const;
-        [[nodiscard]] auto ConsumeInput() const;
-        auto ConsumeInput(bool value) const;
-        auto Start() const;
-        auto Stop() const;
-        auto Reset() const;
-        auto DisableEffectsByDefinition(Windows::Media::Effects::IAudioEffectDefinition const& definition) const;
-        auto EnableEffectsByDefinition(Windows::Media::Effects::IAudioEffectDefinition const& definition) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Media::Effects::IAudioEffectDefinition>) EffectDefinitions() const;
+        WINRT_IMPL_AUTO(void) OutgoingGain(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) OutgoingGain() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::MediaProperties::AudioEncodingProperties) EncodingProperties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ConsumeInput() const;
+        WINRT_IMPL_AUTO(void) ConsumeInput(bool value) const;
+        WINRT_IMPL_AUTO(void) Start() const;
+        WINRT_IMPL_AUTO(void) Stop() const;
+        WINRT_IMPL_AUTO(void) Reset() const;
+        WINRT_IMPL_AUTO(void) DisableEffectsByDefinition(Windows::Media::Effects::IAudioEffectDefinition const& definition) const;
+        WINRT_IMPL_AUTO(void) EnableEffectsByDefinition(Windows::Media::Effects::IAudioEffectDefinition const& definition) const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioNode>
     {
@@ -1532,21 +1540,21 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioNodeEmitter
     {
-        [[nodiscard]] auto Position() const;
-        auto Position(Windows::Foundation::Numerics::float3 const& value) const;
-        [[nodiscard]] auto Direction() const;
-        auto Direction(Windows::Foundation::Numerics::float3 const& value) const;
-        [[nodiscard]] auto Shape() const;
-        [[nodiscard]] auto DecayModel() const;
-        [[nodiscard]] auto Gain() const;
-        auto Gain(double value) const;
-        [[nodiscard]] auto DistanceScale() const;
-        auto DistanceScale(double value) const;
-        [[nodiscard]] auto DopplerScale() const;
-        auto DopplerScale(double value) const;
-        [[nodiscard]] auto DopplerVelocity() const;
-        auto DopplerVelocity(Windows::Foundation::Numerics::float3 const& value) const;
-        [[nodiscard]] auto IsDopplerDisabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) Position() const;
+        WINRT_IMPL_AUTO(void) Position(Windows::Foundation::Numerics::float3 const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) Direction() const;
+        WINRT_IMPL_AUTO(void) Direction(Windows::Foundation::Numerics::float3 const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Audio::AudioNodeEmitterShape) Shape() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Audio::AudioNodeEmitterDecayModel) DecayModel() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Gain() const;
+        WINRT_IMPL_AUTO(void) Gain(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) DistanceScale() const;
+        WINRT_IMPL_AUTO(void) DistanceScale(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) DopplerScale() const;
+        WINRT_IMPL_AUTO(void) DopplerScale(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) DopplerVelocity() const;
+        WINRT_IMPL_AUTO(void) DopplerVelocity(Windows::Foundation::Numerics::float3 const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDopplerDisabled() const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioNodeEmitter>
     {
@@ -1555,8 +1563,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioNodeEmitter2
     {
-        [[nodiscard]] auto SpatialAudioModel() const;
-        auto SpatialAudioModel(Windows::Media::Audio::SpatialAudioModel const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Audio::SpatialAudioModel) SpatialAudioModel() const;
+        WINRT_IMPL_AUTO(void) SpatialAudioModel(Windows::Media::Audio::SpatialAudioModel const& value) const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioNodeEmitter2>
     {
@@ -1565,9 +1573,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioNodeEmitterConeProperties
     {
-        [[nodiscard]] auto InnerAngle() const;
-        [[nodiscard]] auto OuterAngle() const;
-        [[nodiscard]] auto OuterAngleGain() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) InnerAngle() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) OuterAngle() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) OuterAngleGain() const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioNodeEmitterConeProperties>
     {
@@ -1576,10 +1584,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioNodeEmitterDecayModel
     {
-        [[nodiscard]] auto Kind() const;
-        [[nodiscard]] auto MinGain() const;
-        [[nodiscard]] auto MaxGain() const;
-        [[nodiscard]] auto NaturalProperties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Audio::AudioNodeEmitterDecayKind) Kind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) MinGain() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) MaxGain() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Audio::AudioNodeEmitterNaturalDecayModelProperties) NaturalProperties() const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioNodeEmitterDecayModel>
     {
@@ -1588,8 +1596,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioNodeEmitterDecayModelStatics
     {
-        auto CreateNatural(double minGain, double maxGain, double unityGainDistance, double cutoffDistance) const;
-        auto CreateCustom(double minGain, double maxGain) const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::AudioNodeEmitterDecayModel) CreateNatural(double minGain, double maxGain, double unityGainDistance, double cutoffDistance) const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::AudioNodeEmitterDecayModel) CreateCustom(double minGain, double maxGain) const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioNodeEmitterDecayModelStatics>
     {
@@ -1598,7 +1606,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioNodeEmitterFactory
     {
-        auto CreateAudioNodeEmitter(Windows::Media::Audio::AudioNodeEmitterShape const& shape, Windows::Media::Audio::AudioNodeEmitterDecayModel const& decayModel, Windows::Media::Audio::AudioNodeEmitterSettings const& settings) const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::AudioNodeEmitter) CreateAudioNodeEmitter(Windows::Media::Audio::AudioNodeEmitterShape const& shape, Windows::Media::Audio::AudioNodeEmitterDecayModel const& decayModel, Windows::Media::Audio::AudioNodeEmitterSettings const& settings) const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioNodeEmitterFactory>
     {
@@ -1607,8 +1615,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioNodeEmitterNaturalDecayModelProperties
     {
-        [[nodiscard]] auto UnityGainDistance() const;
-        [[nodiscard]] auto CutoffDistance() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) UnityGainDistance() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) CutoffDistance() const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioNodeEmitterNaturalDecayModelProperties>
     {
@@ -1617,8 +1625,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioNodeEmitterShape
     {
-        [[nodiscard]] auto Kind() const;
-        [[nodiscard]] auto ConeProperties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Audio::AudioNodeEmitterShapeKind) Kind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Audio::AudioNodeEmitterConeProperties) ConeProperties() const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioNodeEmitterShape>
     {
@@ -1627,8 +1635,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioNodeEmitterShapeStatics
     {
-        auto CreateCone(double innerAngle, double outerAngle, double outerAngleGain) const;
-        auto CreateOmnidirectional() const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::AudioNodeEmitterShape) CreateCone(double innerAngle, double outerAngle, double outerAngleGain) const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::AudioNodeEmitterShape) CreateOmnidirectional() const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioNodeEmitterShapeStatics>
     {
@@ -1637,14 +1645,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioNodeListener
     {
-        [[nodiscard]] auto Position() const;
-        auto Position(Windows::Foundation::Numerics::float3 const& value) const;
-        [[nodiscard]] auto Orientation() const;
-        auto Orientation(Windows::Foundation::Numerics::quaternion const& value) const;
-        [[nodiscard]] auto SpeedOfSound() const;
-        auto SpeedOfSound(double value) const;
-        [[nodiscard]] auto DopplerVelocity() const;
-        auto DopplerVelocity(Windows::Foundation::Numerics::float3 const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) Position() const;
+        WINRT_IMPL_AUTO(void) Position(Windows::Foundation::Numerics::float3 const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::quaternion) Orientation() const;
+        WINRT_IMPL_AUTO(void) Orientation(Windows::Foundation::Numerics::quaternion const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) SpeedOfSound() const;
+        WINRT_IMPL_AUTO(void) SpeedOfSound(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) DopplerVelocity() const;
+        WINRT_IMPL_AUTO(void) DopplerVelocity(Windows::Foundation::Numerics::float3 const& value) const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioNodeListener>
     {
@@ -1653,8 +1661,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioNodeWithListener
     {
-        auto Listener(Windows::Media::Audio::AudioNodeListener const& value) const;
-        [[nodiscard]] auto Listener() const;
+        WINRT_IMPL_AUTO(void) Listener(Windows::Media::Audio::AudioNodeListener const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Audio::AudioNodeListener) Listener() const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioNodeWithListener>
     {
@@ -1663,16 +1671,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioPlaybackConnection
     {
-        auto Start() const;
-        auto StartAsync() const;
-        [[nodiscard]] auto DeviceId() const;
-        [[nodiscard]] auto State() const;
-        auto Open() const;
-        auto OpenAsync() const;
-        auto StateChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Audio::AudioPlaybackConnection, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) Start() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) StartAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Audio::AudioPlaybackConnectionState) State() const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::AudioPlaybackConnectionOpenResult) Open() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Audio::AudioPlaybackConnectionOpenResult>) OpenAsync() const;
+        WINRT_IMPL_AUTO(winrt::event_token) StateChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Audio::AudioPlaybackConnection, Windows::Foundation::IInspectable> const& handler) const;
         using StateChanged_revoker = impl::event_revoker<Windows::Media::Audio::IAudioPlaybackConnection, &impl::abi_t<Windows::Media::Audio::IAudioPlaybackConnection>::remove_StateChanged>;
         [[nodiscard]] StateChanged_revoker StateChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Audio::AudioPlaybackConnection, Windows::Foundation::IInspectable> const& handler) const;
-        auto StateChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) StateChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Media::Audio::IAudioPlaybackConnection>
     {
@@ -1681,8 +1689,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioPlaybackConnectionOpenResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Audio::AudioPlaybackConnectionOpenResultStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioPlaybackConnectionOpenResult>
     {
@@ -1691,8 +1699,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioPlaybackConnectionStatics
     {
-        auto GetDeviceSelector() const;
-        auto TryCreateFromId(param::hstring const& id) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector() const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::AudioPlaybackConnection) TryCreateFromId(param::hstring const& id) const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioPlaybackConnectionStatics>
     {
@@ -1701,11 +1709,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioStateMonitor
     {
-        auto SoundLevelChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Audio::AudioStateMonitor, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) SoundLevelChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Audio::AudioStateMonitor, Windows::Foundation::IInspectable> const& handler) const;
         using SoundLevelChanged_revoker = impl::event_revoker<Windows::Media::Audio::IAudioStateMonitor, &impl::abi_t<Windows::Media::Audio::IAudioStateMonitor>::remove_SoundLevelChanged>;
         [[nodiscard]] SoundLevelChanged_revoker SoundLevelChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Audio::AudioStateMonitor, Windows::Foundation::IInspectable> const& handler) const;
-        auto SoundLevelChanged(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto SoundLevel() const;
+        WINRT_IMPL_AUTO(void) SoundLevelChanged(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::SoundLevel) SoundLevel() const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioStateMonitor>
     {
@@ -1714,14 +1722,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IAudioStateMonitorStatics
     {
-        auto CreateForRenderMonitoring() const;
-        auto CreateForRenderMonitoring(Windows::Media::Render::AudioRenderCategory const& category) const;
-        auto CreateForRenderMonitoring(Windows::Media::Render::AudioRenderCategory const& category, Windows::Media::Devices::AudioDeviceRole const& role) const;
-        auto CreateForRenderMonitoringWithCategoryAndDeviceId(Windows::Media::Render::AudioRenderCategory const& category, param::hstring const& deviceId) const;
-        auto CreateForCaptureMonitoring() const;
-        auto CreateForCaptureMonitoring(Windows::Media::Capture::MediaCategory const& category) const;
-        auto CreateForCaptureMonitoring(Windows::Media::Capture::MediaCategory const& category, Windows::Media::Devices::AudioDeviceRole const& role) const;
-        auto CreateForCaptureMonitoringWithCategoryAndDeviceId(Windows::Media::Capture::MediaCategory const& category, param::hstring const& deviceId) const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::AudioStateMonitor) CreateForRenderMonitoring() const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::AudioStateMonitor) CreateForRenderMonitoring(Windows::Media::Render::AudioRenderCategory const& category) const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::AudioStateMonitor) CreateForRenderMonitoring(Windows::Media::Render::AudioRenderCategory const& category, Windows::Media::Devices::AudioDeviceRole const& role) const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::AudioStateMonitor) CreateForRenderMonitoringWithCategoryAndDeviceId(Windows::Media::Render::AudioRenderCategory const& category, param::hstring const& deviceId) const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::AudioStateMonitor) CreateForCaptureMonitoring() const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::AudioStateMonitor) CreateForCaptureMonitoring(Windows::Media::Capture::MediaCategory const& category) const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::AudioStateMonitor) CreateForCaptureMonitoring(Windows::Media::Capture::MediaCategory const& category, Windows::Media::Devices::AudioDeviceRole const& role) const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::AudioStateMonitor) CreateForCaptureMonitoringWithCategoryAndDeviceId(Windows::Media::Capture::MediaCategory const& category, param::hstring const& deviceId) const;
     };
     template <> struct consume<Windows::Media::Audio::IAudioStateMonitorStatics>
     {
@@ -1730,8 +1738,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_ICreateAudioDeviceInputNodeResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto DeviceInputNode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Audio::AudioDeviceNodeCreationStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Audio::AudioDeviceInputNode) DeviceInputNode() const;
     };
     template <> struct consume<Windows::Media::Audio::ICreateAudioDeviceInputNodeResult>
     {
@@ -1740,7 +1748,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_ICreateAudioDeviceInputNodeResult2
     {
-        [[nodiscard]] auto ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
     };
     template <> struct consume<Windows::Media::Audio::ICreateAudioDeviceInputNodeResult2>
     {
@@ -1749,8 +1757,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_ICreateAudioDeviceOutputNodeResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto DeviceOutputNode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Audio::AudioDeviceNodeCreationStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Audio::AudioDeviceOutputNode) DeviceOutputNode() const;
     };
     template <> struct consume<Windows::Media::Audio::ICreateAudioDeviceOutputNodeResult>
     {
@@ -1759,7 +1767,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_ICreateAudioDeviceOutputNodeResult2
     {
-        [[nodiscard]] auto ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
     };
     template <> struct consume<Windows::Media::Audio::ICreateAudioDeviceOutputNodeResult2>
     {
@@ -1768,8 +1776,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_ICreateAudioFileInputNodeResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto FileInputNode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Audio::AudioFileNodeCreationStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Audio::AudioFileInputNode) FileInputNode() const;
     };
     template <> struct consume<Windows::Media::Audio::ICreateAudioFileInputNodeResult>
     {
@@ -1778,7 +1786,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_ICreateAudioFileInputNodeResult2
     {
-        [[nodiscard]] auto ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
     };
     template <> struct consume<Windows::Media::Audio::ICreateAudioFileInputNodeResult2>
     {
@@ -1787,8 +1795,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_ICreateAudioFileOutputNodeResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto FileOutputNode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Audio::AudioFileNodeCreationStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Audio::AudioFileOutputNode) FileOutputNode() const;
     };
     template <> struct consume<Windows::Media::Audio::ICreateAudioFileOutputNodeResult>
     {
@@ -1797,7 +1805,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_ICreateAudioFileOutputNodeResult2
     {
-        [[nodiscard]] auto ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
     };
     template <> struct consume<Windows::Media::Audio::ICreateAudioFileOutputNodeResult2>
     {
@@ -1806,8 +1814,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_ICreateAudioGraphResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto Graph() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Audio::AudioGraphCreationStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Audio::AudioGraph) Graph() const;
     };
     template <> struct consume<Windows::Media::Audio::ICreateAudioGraphResult>
     {
@@ -1816,7 +1824,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_ICreateAudioGraphResult2
     {
-        [[nodiscard]] auto ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
     };
     template <> struct consume<Windows::Media::Audio::ICreateAudioGraphResult2>
     {
@@ -1825,8 +1833,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_ICreateMediaSourceAudioInputNodeResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto Node() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Audio::MediaSourceAudioInputNodeCreationStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Audio::MediaSourceAudioInputNode) Node() const;
     };
     template <> struct consume<Windows::Media::Audio::ICreateMediaSourceAudioInputNodeResult>
     {
@@ -1835,7 +1843,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_ICreateMediaSourceAudioInputNodeResult2
     {
-        [[nodiscard]] auto ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
     };
     template <> struct consume<Windows::Media::Audio::ICreateMediaSourceAudioInputNodeResult2>
     {
@@ -1844,12 +1852,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IEchoEffectDefinition
     {
-        auto WetDryMix(double value) const;
-        [[nodiscard]] auto WetDryMix() const;
-        auto Feedback(double value) const;
-        [[nodiscard]] auto Feedback() const;
-        auto Delay(double value) const;
-        [[nodiscard]] auto Delay() const;
+        WINRT_IMPL_AUTO(void) WetDryMix(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) WetDryMix() const;
+        WINRT_IMPL_AUTO(void) Feedback(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Feedback() const;
+        WINRT_IMPL_AUTO(void) Delay(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Delay() const;
     };
     template <> struct consume<Windows::Media::Audio::IEchoEffectDefinition>
     {
@@ -1858,7 +1866,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IEchoEffectDefinitionFactory
     {
-        auto Create(Windows::Media::Audio::AudioGraph const& audioGraph) const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::EchoEffectDefinition) Create(Windows::Media::Audio::AudioGraph const& audioGraph) const;
     };
     template <> struct consume<Windows::Media::Audio::IEchoEffectDefinitionFactory>
     {
@@ -1867,12 +1875,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IEqualizerBand
     {
-        [[nodiscard]] auto Bandwidth() const;
-        auto Bandwidth(double value) const;
-        [[nodiscard]] auto FrequencyCenter() const;
-        auto FrequencyCenter(double value) const;
-        [[nodiscard]] auto Gain() const;
-        auto Gain(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Bandwidth() const;
+        WINRT_IMPL_AUTO(void) Bandwidth(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) FrequencyCenter() const;
+        WINRT_IMPL_AUTO(void) FrequencyCenter(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Gain() const;
+        WINRT_IMPL_AUTO(void) Gain(double value) const;
     };
     template <> struct consume<Windows::Media::Audio::IEqualizerBand>
     {
@@ -1881,7 +1889,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IEqualizerEffectDefinition
     {
-        [[nodiscard]] auto Bands() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Audio::EqualizerBand>) Bands() const;
     };
     template <> struct consume<Windows::Media::Audio::IEqualizerEffectDefinition>
     {
@@ -1890,7 +1898,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IEqualizerEffectDefinitionFactory
     {
-        auto Create(Windows::Media::Audio::AudioGraph const& audioGraph) const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::EqualizerEffectDefinition) Create(Windows::Media::Audio::AudioGraph const& audioGraph) const;
     };
     template <> struct consume<Windows::Media::Audio::IEqualizerEffectDefinitionFactory>
     {
@@ -1899,7 +1907,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IFrameInputNodeQuantumStartedEventArgs
     {
-        [[nodiscard]] auto RequiredSamples() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) RequiredSamples() const;
     };
     template <> struct consume<Windows::Media::Audio::IFrameInputNodeQuantumStartedEventArgs>
     {
@@ -1908,10 +1916,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_ILimiterEffectDefinition
     {
-        auto Release(uint32_t value) const;
-        [[nodiscard]] auto Release() const;
-        auto Loudness(uint32_t value) const;
-        [[nodiscard]] auto Loudness() const;
+        WINRT_IMPL_AUTO(void) Release(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Release() const;
+        WINRT_IMPL_AUTO(void) Loudness(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Loudness() const;
     };
     template <> struct consume<Windows::Media::Audio::ILimiterEffectDefinition>
     {
@@ -1920,7 +1928,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_ILimiterEffectDefinitionFactory
     {
-        auto Create(Windows::Media::Audio::AudioGraph const& audioGraph) const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::LimiterEffectDefinition) Create(Windows::Media::Audio::AudioGraph const& audioGraph) const;
     };
     template <> struct consume<Windows::Media::Audio::ILimiterEffectDefinitionFactory>
     {
@@ -1929,22 +1937,22 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IMediaSourceAudioInputNode
     {
-        auto PlaybackSpeedFactor(double value) const;
-        [[nodiscard]] auto PlaybackSpeedFactor() const;
-        [[nodiscard]] auto Position() const;
-        auto Seek(Windows::Foundation::TimeSpan const& position) const;
-        [[nodiscard]] auto StartTime() const;
-        auto StartTime(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
-        [[nodiscard]] auto EndTime() const;
-        auto EndTime(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
-        [[nodiscard]] auto LoopCount() const;
-        auto LoopCount(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto Duration() const;
-        [[nodiscard]] auto MediaSource() const;
-        auto MediaSourceCompleted(Windows::Foundation::TypedEventHandler<Windows::Media::Audio::MediaSourceAudioInputNode, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) PlaybackSpeedFactor(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) PlaybackSpeedFactor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Position() const;
+        WINRT_IMPL_AUTO(void) Seek(Windows::Foundation::TimeSpan const& position) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) StartTime() const;
+        WINRT_IMPL_AUTO(void) StartTime(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) EndTime() const;
+        WINRT_IMPL_AUTO(void) EndTime(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) LoopCount() const;
+        WINRT_IMPL_AUTO(void) LoopCount(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Duration() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::MediaSource) MediaSource() const;
+        WINRT_IMPL_AUTO(winrt::event_token) MediaSourceCompleted(Windows::Foundation::TypedEventHandler<Windows::Media::Audio::MediaSourceAudioInputNode, Windows::Foundation::IInspectable> const& handler) const;
         using MediaSourceCompleted_revoker = impl::event_revoker<Windows::Media::Audio::IMediaSourceAudioInputNode, &impl::abi_t<Windows::Media::Audio::IMediaSourceAudioInputNode>::remove_MediaSourceCompleted>;
         [[nodiscard]] MediaSourceCompleted_revoker MediaSourceCompleted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Audio::MediaSourceAudioInputNode, Windows::Foundation::IInspectable> const& handler) const;
-        auto MediaSourceCompleted(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) MediaSourceCompleted(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Media::Audio::IMediaSourceAudioInputNode>
     {
@@ -1953,52 +1961,52 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IReverbEffectDefinition
     {
-        auto WetDryMix(double value) const;
-        [[nodiscard]] auto WetDryMix() const;
-        auto ReflectionsDelay(uint32_t value) const;
-        [[nodiscard]] auto ReflectionsDelay() const;
-        auto ReverbDelay(uint8_t value) const;
-        [[nodiscard]] auto ReverbDelay() const;
-        auto RearDelay(uint8_t value) const;
-        [[nodiscard]] auto RearDelay() const;
-        auto PositionLeft(uint8_t value) const;
-        [[nodiscard]] auto PositionLeft() const;
-        auto PositionRight(uint8_t value) const;
-        [[nodiscard]] auto PositionRight() const;
-        auto PositionMatrixLeft(uint8_t value) const;
-        [[nodiscard]] auto PositionMatrixLeft() const;
-        auto PositionMatrixRight(uint8_t value) const;
-        [[nodiscard]] auto PositionMatrixRight() const;
-        auto EarlyDiffusion(uint8_t value) const;
-        [[nodiscard]] auto EarlyDiffusion() const;
-        auto LateDiffusion(uint8_t value) const;
-        [[nodiscard]] auto LateDiffusion() const;
-        auto LowEQGain(uint8_t value) const;
-        [[nodiscard]] auto LowEQGain() const;
-        auto LowEQCutoff(uint8_t value) const;
-        [[nodiscard]] auto LowEQCutoff() const;
-        auto HighEQGain(uint8_t value) const;
-        [[nodiscard]] auto HighEQGain() const;
-        auto HighEQCutoff(uint8_t value) const;
-        [[nodiscard]] auto HighEQCutoff() const;
-        auto RoomFilterFreq(double value) const;
-        [[nodiscard]] auto RoomFilterFreq() const;
-        auto RoomFilterMain(double value) const;
-        [[nodiscard]] auto RoomFilterMain() const;
-        auto RoomFilterHF(double value) const;
-        [[nodiscard]] auto RoomFilterHF() const;
-        auto ReflectionsGain(double value) const;
-        [[nodiscard]] auto ReflectionsGain() const;
-        auto ReverbGain(double value) const;
-        [[nodiscard]] auto ReverbGain() const;
-        auto DecayTime(double value) const;
-        [[nodiscard]] auto DecayTime() const;
-        auto Density(double value) const;
-        [[nodiscard]] auto Density() const;
-        auto RoomSize(double value) const;
-        [[nodiscard]] auto RoomSize() const;
-        auto DisableLateField(bool value) const;
-        [[nodiscard]] auto DisableLateField() const;
+        WINRT_IMPL_AUTO(void) WetDryMix(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) WetDryMix() const;
+        WINRT_IMPL_AUTO(void) ReflectionsDelay(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ReflectionsDelay() const;
+        WINRT_IMPL_AUTO(void) ReverbDelay(uint8_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) ReverbDelay() const;
+        WINRT_IMPL_AUTO(void) RearDelay(uint8_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) RearDelay() const;
+        WINRT_IMPL_AUTO(void) PositionLeft(uint8_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) PositionLeft() const;
+        WINRT_IMPL_AUTO(void) PositionRight(uint8_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) PositionRight() const;
+        WINRT_IMPL_AUTO(void) PositionMatrixLeft(uint8_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) PositionMatrixLeft() const;
+        WINRT_IMPL_AUTO(void) PositionMatrixRight(uint8_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) PositionMatrixRight() const;
+        WINRT_IMPL_AUTO(void) EarlyDiffusion(uint8_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) EarlyDiffusion() const;
+        WINRT_IMPL_AUTO(void) LateDiffusion(uint8_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) LateDiffusion() const;
+        WINRT_IMPL_AUTO(void) LowEQGain(uint8_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) LowEQGain() const;
+        WINRT_IMPL_AUTO(void) LowEQCutoff(uint8_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) LowEQCutoff() const;
+        WINRT_IMPL_AUTO(void) HighEQGain(uint8_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) HighEQGain() const;
+        WINRT_IMPL_AUTO(void) HighEQCutoff(uint8_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) HighEQCutoff() const;
+        WINRT_IMPL_AUTO(void) RoomFilterFreq(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) RoomFilterFreq() const;
+        WINRT_IMPL_AUTO(void) RoomFilterMain(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) RoomFilterMain() const;
+        WINRT_IMPL_AUTO(void) RoomFilterHF(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) RoomFilterHF() const;
+        WINRT_IMPL_AUTO(void) ReflectionsGain(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ReflectionsGain() const;
+        WINRT_IMPL_AUTO(void) ReverbGain(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ReverbGain() const;
+        WINRT_IMPL_AUTO(void) DecayTime(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) DecayTime() const;
+        WINRT_IMPL_AUTO(void) Density(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Density() const;
+        WINRT_IMPL_AUTO(void) RoomSize(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) RoomSize() const;
+        WINRT_IMPL_AUTO(void) DisableLateField(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) DisableLateField() const;
     };
     template <> struct consume<Windows::Media::Audio::IReverbEffectDefinition>
     {
@@ -2007,7 +2015,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_IReverbEffectDefinitionFactory
     {
-        auto Create(Windows::Media::Audio::AudioGraph const& audioGraph) const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::ReverbEffectDefinition) Create(Windows::Media::Audio::AudioGraph const& audioGraph) const;
     };
     template <> struct consume<Windows::Media::Audio::IReverbEffectDefinitionFactory>
     {
@@ -2016,7 +2024,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_ISetDefaultSpatialAudioFormatResult
     {
-        [[nodiscard]] auto Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Audio::SetDefaultSpatialAudioFormatStatus) Status() const;
     };
     template <> struct consume<Windows::Media::Audio::ISetDefaultSpatialAudioFormatResult>
     {
@@ -2025,16 +2033,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_ISpatialAudioDeviceConfiguration
     {
-        [[nodiscard]] auto DeviceId() const;
-        [[nodiscard]] auto IsSpatialAudioSupported() const;
-        auto IsSpatialAudioFormatSupported(param::hstring const& subtype) const;
-        [[nodiscard]] auto ActiveSpatialAudioFormat() const;
-        [[nodiscard]] auto DefaultSpatialAudioFormat() const;
-        auto SetDefaultSpatialAudioFormatAsync(param::hstring const& subtype) const;
-        auto ConfigurationChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Audio::SpatialAudioDeviceConfiguration, Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSpatialAudioSupported() const;
+        WINRT_IMPL_AUTO(bool) IsSpatialAudioFormatSupported(param::hstring const& subtype) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ActiveSpatialAudioFormat() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DefaultSpatialAudioFormat() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Audio::SetDefaultSpatialAudioFormatResult>) SetDefaultSpatialAudioFormatAsync(param::hstring const& subtype) const;
+        WINRT_IMPL_AUTO(winrt::event_token) ConfigurationChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Audio::SpatialAudioDeviceConfiguration, Windows::Foundation::IInspectable> const& handler) const;
         using ConfigurationChanged_revoker = impl::event_revoker<Windows::Media::Audio::ISpatialAudioDeviceConfiguration, &impl::abi_t<Windows::Media::Audio::ISpatialAudioDeviceConfiguration>::remove_ConfigurationChanged>;
         [[nodiscard]] ConfigurationChanged_revoker ConfigurationChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Audio::SpatialAudioDeviceConfiguration, Windows::Foundation::IInspectable> const& handler) const;
-        auto ConfigurationChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) ConfigurationChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Media::Audio::ISpatialAudioDeviceConfiguration>
     {
@@ -2043,7 +2051,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_ISpatialAudioDeviceConfigurationStatics
     {
-        auto GetForDeviceId(param::hstring const& deviceId) const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::SpatialAudioDeviceConfiguration) GetForDeviceId(param::hstring const& deviceId) const;
     };
     template <> struct consume<Windows::Media::Audio::ISpatialAudioDeviceConfigurationStatics>
     {
@@ -2052,10 +2060,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_ISpatialAudioFormatConfiguration
     {
-        auto ReportLicenseChangedAsync(param::hstring const& subtype) const;
-        auto ReportConfigurationChangedAsync(param::hstring const& subtype) const;
-        [[nodiscard]] auto MixedRealityExclusiveModePolicy() const;
-        auto MixedRealityExclusiveModePolicy(Windows::Media::Audio::MixedRealitySpatialAudioFormatPolicy const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportLicenseChangedAsync(param::hstring const& subtype) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReportConfigurationChangedAsync(param::hstring const& subtype) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Audio::MixedRealitySpatialAudioFormatPolicy) MixedRealityExclusiveModePolicy() const;
+        WINRT_IMPL_AUTO(void) MixedRealityExclusiveModePolicy(Windows::Media::Audio::MixedRealitySpatialAudioFormatPolicy const& value) const;
     };
     template <> struct consume<Windows::Media::Audio::ISpatialAudioFormatConfiguration>
     {
@@ -2064,7 +2072,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_ISpatialAudioFormatConfigurationStatics
     {
-        auto GetDefault() const;
+        WINRT_IMPL_AUTO(Windows::Media::Audio::SpatialAudioFormatConfiguration) GetDefault() const;
     };
     template <> struct consume<Windows::Media::Audio::ISpatialAudioFormatConfigurationStatics>
     {
@@ -2073,12 +2081,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Audio_ISpatialAudioFormatSubtypeStatics
     {
-        [[nodiscard]] auto WindowsSonic() const;
-        [[nodiscard]] auto DolbyAtmosForHeadphones() const;
-        [[nodiscard]] auto DolbyAtmosForHomeTheater() const;
-        [[nodiscard]] auto DolbyAtmosForSpeakers() const;
-        [[nodiscard]] auto DTSHeadphoneX() const;
-        [[nodiscard]] auto DTSXUltra() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) WindowsSonic() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DolbyAtmosForHeadphones() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DolbyAtmosForHomeTheater() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DolbyAtmosForSpeakers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DTSHeadphoneX() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DTSXUltra() const;
     };
     template <> struct consume<Windows::Media::Audio::ISpatialAudioFormatSubtypeStatics>
     {

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -83,7 +83,7 @@ WINRT_EXPORT namespace winrt::Windows::Media::Devices
     {
         AudioDeviceModulesManager(std::nullptr_t) noexcept {}
         AudioDeviceModulesManager(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Media::Devices::IAudioDeviceModulesManager(ptr, take_ownership_from_abi) {}
-        AudioDeviceModulesManager(param::hstring const& deviceId);
+        explicit AudioDeviceModulesManager(param::hstring const& deviceId);
     };
     struct __declspec(empty_bases) CallControl : Windows::Media::Devices::ICallControl
     {

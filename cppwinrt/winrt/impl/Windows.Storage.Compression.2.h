@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -14,14 +14,14 @@ WINRT_EXPORT namespace winrt::Windows::Storage::Compression
     {
         Compressor(std::nullptr_t) noexcept {}
         Compressor(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Storage::Compression::ICompressor(ptr, take_ownership_from_abi) {}
-        Compressor(Windows::Storage::Streams::IOutputStream const& underlyingStream);
+        explicit Compressor(Windows::Storage::Streams::IOutputStream const& underlyingStream);
         Compressor(Windows::Storage::Streams::IOutputStream const& underlyingStream, Windows::Storage::Compression::CompressAlgorithm const& algorithm, uint32_t blockSize);
     };
     struct __declspec(empty_bases) Decompressor : Windows::Storage::Compression::IDecompressor
     {
         Decompressor(std::nullptr_t) noexcept {}
         Decompressor(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Storage::Compression::IDecompressor(ptr, take_ownership_from_abi) {}
-        Decompressor(Windows::Storage::Streams::IInputStream const& underlyingStream);
+        explicit Decompressor(Windows::Storage::Streams::IInputStream const& underlyingStream);
     };
 }
 #endif

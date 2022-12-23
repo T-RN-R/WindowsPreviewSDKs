@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_Media_Control_H
 #define WINRT_Windows_Media_Control_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.Media.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
@@ -15,123 +15,123 @@ static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatche
 #include "winrt/impl/Windows.Media.Control.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::SourceAppUserModelId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::SourceAppUserModelId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSession)->get_SourceAppUserModelId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TryGetMediaPropertiesAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Control::GlobalSystemMediaTransportControlsSessionMediaProperties>) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TryGetMediaPropertiesAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSession)->TryGetMediaPropertiesAsync(&operation));
         return Windows::Foundation::IAsyncOperation<Windows::Media::Control::GlobalSystemMediaTransportControlsSessionMediaProperties>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::GetTimelineProperties() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::Control::GlobalSystemMediaTransportControlsSessionTimelineProperties) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::GetTimelineProperties() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSession)->GetTimelineProperties(&result));
         return Windows::Media::Control::GlobalSystemMediaTransportControlsSessionTimelineProperties{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::GetPlaybackInfo() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::Control::GlobalSystemMediaTransportControlsSessionPlaybackInfo) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::GetPlaybackInfo() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSession)->GetPlaybackInfo(&result));
         return Windows::Media::Control::GlobalSystemMediaTransportControlsSessionPlaybackInfo{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TryPlayAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TryPlayAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSession)->TryPlayAsync(&operation));
         return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TryPauseAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TryPauseAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSession)->TryPauseAsync(&operation));
         return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TryStopAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TryStopAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSession)->TryStopAsync(&operation));
         return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TryRecordAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TryRecordAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSession)->TryRecordAsync(&operation));
         return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TryFastForwardAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TryFastForwardAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSession)->TryFastForwardAsync(&operation));
         return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TryRewindAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TryRewindAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSession)->TryRewindAsync(&operation));
         return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TrySkipNextAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TrySkipNextAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSession)->TrySkipNextAsync(&operation));
         return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TrySkipPreviousAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TrySkipPreviousAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSession)->TrySkipPreviousAsync(&operation));
         return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TryChangeChannelUpAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TryChangeChannelUpAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSession)->TryChangeChannelUpAsync(&operation));
         return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TryChangeChannelDownAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TryChangeChannelDownAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSession)->TryChangeChannelDownAsync(&operation));
         return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TryTogglePlayPauseAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TryTogglePlayPauseAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSession)->TryTogglePlayPauseAsync(&operation));
         return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TryChangeAutoRepeatModeAsync(Windows::Media::MediaPlaybackAutoRepeatMode const& requestedAutoRepeatMode) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TryChangeAutoRepeatModeAsync(Windows::Media::MediaPlaybackAutoRepeatMode const& requestedAutoRepeatMode) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSession)->TryChangeAutoRepeatModeAsync(static_cast<int32_t>(requestedAutoRepeatMode), &operation));
         return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TryChangePlaybackRateAsync(double requestedPlaybackRate) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TryChangePlaybackRateAsync(double requestedPlaybackRate) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSession)->TryChangePlaybackRateAsync(requestedPlaybackRate, &operation));
         return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TryChangeShuffleActiveAsync(bool requestedShuffleState) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TryChangeShuffleActiveAsync(bool requestedShuffleState) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSession)->TryChangeShuffleActiveAsync(requestedShuffleState, &operation));
         return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TryChangePlaybackPositionAsync(int64_t requestedPlaybackPosition) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TryChangePlaybackPositionAsync(int64_t requestedPlaybackPosition) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSession)->TryChangePlaybackPositionAsync(requestedPlaybackPosition, &operation));
         return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TimelinePropertiesChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Control::GlobalSystemMediaTransportControlsSession, Windows::Media::Control::TimelinePropertiesChangedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TimelinePropertiesChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Control::GlobalSystemMediaTransportControlsSession, Windows::Media::Control::TimelinePropertiesChangedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSession)->add_TimelinePropertiesChanged(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -139,13 +139,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, TimelinePropertiesChanged_revoker>(this, TimelinePropertiesChanged(handler));
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TimelinePropertiesChanged(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::TimelinePropertiesChanged(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSession)->remove_TimelinePropertiesChanged(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::PlaybackInfoChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Control::GlobalSystemMediaTransportControlsSession, Windows::Media::Control::PlaybackInfoChangedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::PlaybackInfoChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Control::GlobalSystemMediaTransportControlsSession, Windows::Media::Control::PlaybackInfoChangedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSession)->add_PlaybackInfoChanged(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -153,13 +153,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, PlaybackInfoChanged_revoker>(this, PlaybackInfoChanged(handler));
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::PlaybackInfoChanged(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::PlaybackInfoChanged(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSession)->remove_PlaybackInfoChanged(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::MediaPropertiesChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Control::GlobalSystemMediaTransportControlsSession, Windows::Media::Control::MediaPropertiesChangedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::MediaPropertiesChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Control::GlobalSystemMediaTransportControlsSession, Windows::Media::Control::MediaPropertiesChangedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSession)->add_MediaPropertiesChanged(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -167,25 +167,25 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, MediaPropertiesChanged_revoker>(this, MediaPropertiesChanged(handler));
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::MediaPropertiesChanged(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSession<D>::MediaPropertiesChanged(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSession)->remove_MediaPropertiesChanged(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionManager<D>::GetCurrentSession() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::Control::GlobalSystemMediaTransportControlsSession) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionManager<D>::GetCurrentSession() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionManager)->GetCurrentSession(&result));
         return Windows::Media::Control::GlobalSystemMediaTransportControlsSession{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionManager<D>::GetSessions() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Control::GlobalSystemMediaTransportControlsSession>) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionManager<D>::GetSessions() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionManager)->GetSessions(&result));
         return Windows::Foundation::Collections::IVectorView<Windows::Media::Control::GlobalSystemMediaTransportControlsSession>{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionManager<D>::CurrentSessionChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Control::GlobalSystemMediaTransportControlsSessionManager, Windows::Media::Control::CurrentSessionChangedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionManager<D>::CurrentSessionChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Control::GlobalSystemMediaTransportControlsSessionManager, Windows::Media::Control::CurrentSessionChangedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionManager)->add_CurrentSessionChanged(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -193,13 +193,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, CurrentSessionChanged_revoker>(this, CurrentSessionChanged(handler));
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionManager<D>::CurrentSessionChanged(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionManager<D>::CurrentSessionChanged(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionManager)->remove_CurrentSessionChanged(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionManager<D>::SessionsChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Control::GlobalSystemMediaTransportControlsSessionManager, Windows::Media::Control::SessionsChangedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionManager<D>::SessionsChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Control::GlobalSystemMediaTransportControlsSessionManager, Windows::Media::Control::SessionsChangedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionManager)->add_SessionsChanged(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -207,235 +207,235 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, SessionsChanged_revoker>(this, SessionsChanged(handler));
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionManager<D>::SessionsChanged(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionManager<D>::SessionsChanged(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionManager)->remove_SessionsChanged(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionManagerStatics<D>::RequestAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Control::GlobalSystemMediaTransportControlsSessionManager>) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionManagerStatics<D>::RequestAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionManagerStatics)->RequestAsync(&operation));
         return Windows::Foundation::IAsyncOperation<Windows::Media::Control::GlobalSystemMediaTransportControlsSessionManager>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionMediaProperties<D>::Title() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionMediaProperties<D>::Title() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionMediaProperties)->get_Title(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionMediaProperties<D>::Subtitle() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionMediaProperties<D>::Subtitle() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionMediaProperties)->get_Subtitle(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionMediaProperties<D>::AlbumArtist() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionMediaProperties<D>::AlbumArtist() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionMediaProperties)->get_AlbumArtist(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionMediaProperties<D>::Artist() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionMediaProperties<D>::Artist() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionMediaProperties)->get_Artist(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionMediaProperties<D>::AlbumTitle() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionMediaProperties<D>::AlbumTitle() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionMediaProperties)->get_AlbumTitle(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionMediaProperties<D>::TrackNumber() const
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionMediaProperties<D>::TrackNumber() const
     {
-        int32_t value;
+        int32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionMediaProperties)->get_TrackNumber(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionMediaProperties<D>::Genres() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionMediaProperties<D>::Genres() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionMediaProperties)->get_Genres(&value));
         return Windows::Foundation::Collections::IVectorView<hstring>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionMediaProperties<D>::AlbumTrackCount() const
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionMediaProperties<D>::AlbumTrackCount() const
     {
-        int32_t value;
+        int32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionMediaProperties)->get_AlbumTrackCount(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionMediaProperties<D>::PlaybackType() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Media::MediaPlaybackType>) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionMediaProperties<D>::PlaybackType() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionMediaProperties)->get_PlaybackType(&value));
         return Windows::Foundation::IReference<Windows::Media::MediaPlaybackType>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionMediaProperties<D>::Thumbnail() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamReference) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionMediaProperties<D>::Thumbnail() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionMediaProperties)->get_Thumbnail(&value));
         return Windows::Storage::Streams::IRandomAccessStreamReference{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls<D>::IsPlayEnabled() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls<D>::IsPlayEnabled() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackControls)->get_IsPlayEnabled(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls<D>::IsPauseEnabled() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls<D>::IsPauseEnabled() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackControls)->get_IsPauseEnabled(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls<D>::IsStopEnabled() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls<D>::IsStopEnabled() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackControls)->get_IsStopEnabled(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls<D>::IsRecordEnabled() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls<D>::IsRecordEnabled() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackControls)->get_IsRecordEnabled(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls<D>::IsFastForwardEnabled() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls<D>::IsFastForwardEnabled() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackControls)->get_IsFastForwardEnabled(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls<D>::IsRewindEnabled() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls<D>::IsRewindEnabled() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackControls)->get_IsRewindEnabled(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls<D>::IsNextEnabled() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls<D>::IsNextEnabled() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackControls)->get_IsNextEnabled(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls<D>::IsPreviousEnabled() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls<D>::IsPreviousEnabled() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackControls)->get_IsPreviousEnabled(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls<D>::IsChannelUpEnabled() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls<D>::IsChannelUpEnabled() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackControls)->get_IsChannelUpEnabled(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls<D>::IsChannelDownEnabled() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls<D>::IsChannelDownEnabled() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackControls)->get_IsChannelDownEnabled(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls<D>::IsPlayPauseToggleEnabled() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls<D>::IsPlayPauseToggleEnabled() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackControls)->get_IsPlayPauseToggleEnabled(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls<D>::IsShuffleEnabled() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls<D>::IsShuffleEnabled() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackControls)->get_IsShuffleEnabled(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls<D>::IsRepeatEnabled() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls<D>::IsRepeatEnabled() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackControls)->get_IsRepeatEnabled(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls<D>::IsPlaybackRateEnabled() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls<D>::IsPlaybackRateEnabled() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackControls)->get_IsPlaybackRateEnabled(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls<D>::IsPlaybackPositionEnabled() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackControls<D>::IsPlaybackPositionEnabled() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackControls)->get_IsPlaybackPositionEnabled(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackInfo<D>::Controls() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::Control::GlobalSystemMediaTransportControlsSessionPlaybackControls) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackInfo<D>::Controls() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackInfo)->get_Controls(&value));
         return Windows::Media::Control::GlobalSystemMediaTransportControlsSessionPlaybackControls{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackInfo<D>::PlaybackStatus() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::Control::GlobalSystemMediaTransportControlsSessionPlaybackStatus) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackInfo<D>::PlaybackStatus() const
     {
-        Windows::Media::Control::GlobalSystemMediaTransportControlsSessionPlaybackStatus value;
+        Windows::Media::Control::GlobalSystemMediaTransportControlsSessionPlaybackStatus value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackInfo)->get_PlaybackStatus(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackInfo<D>::PlaybackType() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Media::MediaPlaybackType>) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackInfo<D>::PlaybackType() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackInfo)->get_PlaybackType(&value));
         return Windows::Foundation::IReference<Windows::Media::MediaPlaybackType>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackInfo<D>::AutoRepeatMode() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Media::MediaPlaybackAutoRepeatMode>) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackInfo<D>::AutoRepeatMode() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackInfo)->get_AutoRepeatMode(&value));
         return Windows::Foundation::IReference<Windows::Media::MediaPlaybackAutoRepeatMode>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackInfo<D>::PlaybackRate() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackInfo<D>::PlaybackRate() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackInfo)->get_PlaybackRate(&value));
         return Windows::Foundation::IReference<double>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackInfo<D>::IsShuffleActive() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IReference<bool>) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionPlaybackInfo<D>::IsShuffleActive() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionPlaybackInfo)->get_IsShuffleActive(&value));
         return Windows::Foundation::IReference<bool>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionTimelineProperties<D>::StartTime() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionTimelineProperties<D>::StartTime() const
     {
-        Windows::Foundation::TimeSpan value;
+        Windows::Foundation::TimeSpan value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionTimelineProperties)->get_StartTime(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionTimelineProperties<D>::EndTime() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionTimelineProperties<D>::EndTime() const
     {
-        Windows::Foundation::TimeSpan value;
+        Windows::Foundation::TimeSpan value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionTimelineProperties)->get_EndTime(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionTimelineProperties<D>::MinSeekTime() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionTimelineProperties<D>::MinSeekTime() const
     {
-        Windows::Foundation::TimeSpan value;
+        Windows::Foundation::TimeSpan value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionTimelineProperties)->get_MinSeekTime(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionTimelineProperties<D>::MaxSeekTime() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionTimelineProperties<D>::MaxSeekTime() const
     {
-        Windows::Foundation::TimeSpan value;
+        Windows::Foundation::TimeSpan value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionTimelineProperties)->get_MaxSeekTime(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionTimelineProperties<D>::Position() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionTimelineProperties<D>::Position() const
     {
-        Windows::Foundation::TimeSpan value;
+        Windows::Foundation::TimeSpan value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionTimelineProperties)->get_Position(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionTimelineProperties<D>::LastUpdatedTime() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::DateTime) consume_Windows_Media_Control_IGlobalSystemMediaTransportControlsSessionTimelineProperties<D>::LastUpdatedTime() const
     {
-        Windows::Foundation::DateTime value;
+        Windows::Foundation::DateTime value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::Control::IGlobalSystemMediaTransportControlsSessionTimelineProperties)->get_LastUpdatedTime(put_abi(value)));
         return value;
     }

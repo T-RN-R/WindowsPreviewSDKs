@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -9,6 +9,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
     template <typename T> struct IReference;
     struct Rect;
     template <typename TSender, typename TResult> struct TypedEventHandler;
@@ -17,6 +18,8 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
+    template <typename T> struct IVectorView;
+    template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::System
 {
@@ -277,77 +280,75 @@ namespace winrt::impl
     template <> struct category<Windows::ApplicationModel::Appointments::AppointmentWeekOfMonth>{ using type = enum_category; };
     template <> struct category<Windows::ApplicationModel::Appointments::FindAppointmentCalendarsOptions>{ using type = enum_category; };
     template <> struct category<Windows::ApplicationModel::Appointments::RecurrenceType>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::Appointment>{ L"Windows.ApplicationModel.Appointments.Appointment" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentCalendar>{ L"Windows.ApplicationModel.Appointments.AppointmentCalendar" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentCalendarSyncManager>{ L"Windows.ApplicationModel.Appointments.AppointmentCalendarSyncManager" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentConflictResult>{ L"Windows.ApplicationModel.Appointments.AppointmentConflictResult" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentException>{ L"Windows.ApplicationModel.Appointments.AppointmentException" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentInvitee>{ L"Windows.ApplicationModel.Appointments.AppointmentInvitee" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentManager>{ L"Windows.ApplicationModel.Appointments.AppointmentManager" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentManagerForUser>{ L"Windows.ApplicationModel.Appointments.AppointmentManagerForUser" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentOrganizer>{ L"Windows.ApplicationModel.Appointments.AppointmentOrganizer" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentProperties>{ L"Windows.ApplicationModel.Appointments.AppointmentProperties" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentRecurrence>{ L"Windows.ApplicationModel.Appointments.AppointmentRecurrence" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentStore>{ L"Windows.ApplicationModel.Appointments.AppointmentStore" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentStoreChange>{ L"Windows.ApplicationModel.Appointments.AppointmentStoreChange" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentStoreChangeReader>{ L"Windows.ApplicationModel.Appointments.AppointmentStoreChangeReader" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentStoreChangeTracker>{ L"Windows.ApplicationModel.Appointments.AppointmentStoreChangeTracker" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentStoreChangedDeferral>{ L"Windows.ApplicationModel.Appointments.AppointmentStoreChangedDeferral" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentStoreChangedEventArgs>{ L"Windows.ApplicationModel.Appointments.AppointmentStoreChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentStoreNotificationTriggerDetails>{ L"Windows.ApplicationModel.Appointments.AppointmentStoreNotificationTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::FindAppointmentsOptions>{ L"Windows.ApplicationModel.Appointments.FindAppointmentsOptions" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentBusyStatus>{ L"Windows.ApplicationModel.Appointments.AppointmentBusyStatus" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentCalendarOtherAppReadAccess>{ L"Windows.ApplicationModel.Appointments.AppointmentCalendarOtherAppReadAccess" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentCalendarOtherAppWriteAccess>{ L"Windows.ApplicationModel.Appointments.AppointmentCalendarOtherAppWriteAccess" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentCalendarSyncStatus>{ L"Windows.ApplicationModel.Appointments.AppointmentCalendarSyncStatus" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentConflictType>{ L"Windows.ApplicationModel.Appointments.AppointmentConflictType" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentDaysOfWeek>{ L"Windows.ApplicationModel.Appointments.AppointmentDaysOfWeek" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentDetailsKind>{ L"Windows.ApplicationModel.Appointments.AppointmentDetailsKind" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentParticipantResponse>{ L"Windows.ApplicationModel.Appointments.AppointmentParticipantResponse" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentParticipantRole>{ L"Windows.ApplicationModel.Appointments.AppointmentParticipantRole" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentRecurrenceUnit>{ L"Windows.ApplicationModel.Appointments.AppointmentRecurrenceUnit" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentSensitivity>{ L"Windows.ApplicationModel.Appointments.AppointmentSensitivity" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentStoreAccessType>{ L"Windows.ApplicationModel.Appointments.AppointmentStoreAccessType" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentStoreChangeType>{ L"Windows.ApplicationModel.Appointments.AppointmentStoreChangeType" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentSummaryCardView>{ L"Windows.ApplicationModel.Appointments.AppointmentSummaryCardView" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentWeekOfMonth>{ L"Windows.ApplicationModel.Appointments.AppointmentWeekOfMonth" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::FindAppointmentCalendarsOptions>{ L"Windows.ApplicationModel.Appointments.FindAppointmentCalendarsOptions" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::RecurrenceType>{ L"Windows.ApplicationModel.Appointments.RecurrenceType" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointment>{ L"Windows.ApplicationModel.Appointments.IAppointment" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointment2>{ L"Windows.ApplicationModel.Appointments.IAppointment2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointment3>{ L"Windows.ApplicationModel.Appointments.IAppointment3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentCalendar>{ L"Windows.ApplicationModel.Appointments.IAppointmentCalendar" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentCalendar2>{ L"Windows.ApplicationModel.Appointments.IAppointmentCalendar2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentCalendar3>{ L"Windows.ApplicationModel.Appointments.IAppointmentCalendar3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentCalendarSyncManager>{ L"Windows.ApplicationModel.Appointments.IAppointmentCalendarSyncManager" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentCalendarSyncManager2>{ L"Windows.ApplicationModel.Appointments.IAppointmentCalendarSyncManager2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentConflictResult>{ L"Windows.ApplicationModel.Appointments.IAppointmentConflictResult" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentException>{ L"Windows.ApplicationModel.Appointments.IAppointmentException" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentInvitee>{ L"Windows.ApplicationModel.Appointments.IAppointmentInvitee" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentManagerForUser>{ L"Windows.ApplicationModel.Appointments.IAppointmentManagerForUser" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentManagerStatics>{ L"Windows.ApplicationModel.Appointments.IAppointmentManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentManagerStatics2>{ L"Windows.ApplicationModel.Appointments.IAppointmentManagerStatics2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentManagerStatics3>{ L"Windows.ApplicationModel.Appointments.IAppointmentManagerStatics3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentParticipant>{ L"Windows.ApplicationModel.Appointments.IAppointmentParticipant" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentPropertiesStatics>{ L"Windows.ApplicationModel.Appointments.IAppointmentPropertiesStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentPropertiesStatics2>{ L"Windows.ApplicationModel.Appointments.IAppointmentPropertiesStatics2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentRecurrence>{ L"Windows.ApplicationModel.Appointments.IAppointmentRecurrence" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentRecurrence2>{ L"Windows.ApplicationModel.Appointments.IAppointmentRecurrence2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentRecurrence3>{ L"Windows.ApplicationModel.Appointments.IAppointmentRecurrence3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentStore>{ L"Windows.ApplicationModel.Appointments.IAppointmentStore" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentStore2>{ L"Windows.ApplicationModel.Appointments.IAppointmentStore2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentStore3>{ L"Windows.ApplicationModel.Appointments.IAppointmentStore3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentStoreChange>{ L"Windows.ApplicationModel.Appointments.IAppointmentStoreChange" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentStoreChange2>{ L"Windows.ApplicationModel.Appointments.IAppointmentStoreChange2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentStoreChangeReader>{ L"Windows.ApplicationModel.Appointments.IAppointmentStoreChangeReader" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentStoreChangeTracker>{ L"Windows.ApplicationModel.Appointments.IAppointmentStoreChangeTracker" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentStoreChangeTracker2>{ L"Windows.ApplicationModel.Appointments.IAppointmentStoreChangeTracker2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentStoreChangedDeferral>{ L"Windows.ApplicationModel.Appointments.IAppointmentStoreChangedDeferral" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentStoreChangedEventArgs>{ L"Windows.ApplicationModel.Appointments.IAppointmentStoreChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentStoreNotificationTriggerDetails>{ L"Windows.ApplicationModel.Appointments.IAppointmentStoreNotificationTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IFindAppointmentsOptions>{ L"Windows.ApplicationModel.Appointments.IFindAppointmentsOptions" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::Appointment> = L"Windows.ApplicationModel.Appointments.Appointment";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentCalendar> = L"Windows.ApplicationModel.Appointments.AppointmentCalendar";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentCalendarSyncManager> = L"Windows.ApplicationModel.Appointments.AppointmentCalendarSyncManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentConflictResult> = L"Windows.ApplicationModel.Appointments.AppointmentConflictResult";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentException> = L"Windows.ApplicationModel.Appointments.AppointmentException";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentInvitee> = L"Windows.ApplicationModel.Appointments.AppointmentInvitee";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentManager> = L"Windows.ApplicationModel.Appointments.AppointmentManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentManagerForUser> = L"Windows.ApplicationModel.Appointments.AppointmentManagerForUser";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentOrganizer> = L"Windows.ApplicationModel.Appointments.AppointmentOrganizer";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentProperties> = L"Windows.ApplicationModel.Appointments.AppointmentProperties";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentRecurrence> = L"Windows.ApplicationModel.Appointments.AppointmentRecurrence";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentStore> = L"Windows.ApplicationModel.Appointments.AppointmentStore";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentStoreChange> = L"Windows.ApplicationModel.Appointments.AppointmentStoreChange";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentStoreChangeReader> = L"Windows.ApplicationModel.Appointments.AppointmentStoreChangeReader";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentStoreChangeTracker> = L"Windows.ApplicationModel.Appointments.AppointmentStoreChangeTracker";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentStoreChangedDeferral> = L"Windows.ApplicationModel.Appointments.AppointmentStoreChangedDeferral";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentStoreChangedEventArgs> = L"Windows.ApplicationModel.Appointments.AppointmentStoreChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentStoreNotificationTriggerDetails> = L"Windows.ApplicationModel.Appointments.AppointmentStoreNotificationTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::FindAppointmentsOptions> = L"Windows.ApplicationModel.Appointments.FindAppointmentsOptions";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentBusyStatus> = L"Windows.ApplicationModel.Appointments.AppointmentBusyStatus";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentCalendarOtherAppReadAccess> = L"Windows.ApplicationModel.Appointments.AppointmentCalendarOtherAppReadAccess";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentCalendarOtherAppWriteAccess> = L"Windows.ApplicationModel.Appointments.AppointmentCalendarOtherAppWriteAccess";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentCalendarSyncStatus> = L"Windows.ApplicationModel.Appointments.AppointmentCalendarSyncStatus";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentConflictType> = L"Windows.ApplicationModel.Appointments.AppointmentConflictType";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentDaysOfWeek> = L"Windows.ApplicationModel.Appointments.AppointmentDaysOfWeek";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentDetailsKind> = L"Windows.ApplicationModel.Appointments.AppointmentDetailsKind";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentParticipantResponse> = L"Windows.ApplicationModel.Appointments.AppointmentParticipantResponse";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentParticipantRole> = L"Windows.ApplicationModel.Appointments.AppointmentParticipantRole";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentRecurrenceUnit> = L"Windows.ApplicationModel.Appointments.AppointmentRecurrenceUnit";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentSensitivity> = L"Windows.ApplicationModel.Appointments.AppointmentSensitivity";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentStoreAccessType> = L"Windows.ApplicationModel.Appointments.AppointmentStoreAccessType";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentStoreChangeType> = L"Windows.ApplicationModel.Appointments.AppointmentStoreChangeType";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentSummaryCardView> = L"Windows.ApplicationModel.Appointments.AppointmentSummaryCardView";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::AppointmentWeekOfMonth> = L"Windows.ApplicationModel.Appointments.AppointmentWeekOfMonth";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::FindAppointmentCalendarsOptions> = L"Windows.ApplicationModel.Appointments.FindAppointmentCalendarsOptions";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::RecurrenceType> = L"Windows.ApplicationModel.Appointments.RecurrenceType";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointment> = L"Windows.ApplicationModel.Appointments.IAppointment";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointment2> = L"Windows.ApplicationModel.Appointments.IAppointment2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointment3> = L"Windows.ApplicationModel.Appointments.IAppointment3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentCalendar> = L"Windows.ApplicationModel.Appointments.IAppointmentCalendar";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentCalendar2> = L"Windows.ApplicationModel.Appointments.IAppointmentCalendar2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentCalendar3> = L"Windows.ApplicationModel.Appointments.IAppointmentCalendar3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentCalendarSyncManager> = L"Windows.ApplicationModel.Appointments.IAppointmentCalendarSyncManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentCalendarSyncManager2> = L"Windows.ApplicationModel.Appointments.IAppointmentCalendarSyncManager2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentConflictResult> = L"Windows.ApplicationModel.Appointments.IAppointmentConflictResult";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentException> = L"Windows.ApplicationModel.Appointments.IAppointmentException";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentInvitee> = L"Windows.ApplicationModel.Appointments.IAppointmentInvitee";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentManagerForUser> = L"Windows.ApplicationModel.Appointments.IAppointmentManagerForUser";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentManagerStatics> = L"Windows.ApplicationModel.Appointments.IAppointmentManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentManagerStatics2> = L"Windows.ApplicationModel.Appointments.IAppointmentManagerStatics2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentManagerStatics3> = L"Windows.ApplicationModel.Appointments.IAppointmentManagerStatics3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentParticipant> = L"Windows.ApplicationModel.Appointments.IAppointmentParticipant";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentPropertiesStatics> = L"Windows.ApplicationModel.Appointments.IAppointmentPropertiesStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentPropertiesStatics2> = L"Windows.ApplicationModel.Appointments.IAppointmentPropertiesStatics2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentRecurrence> = L"Windows.ApplicationModel.Appointments.IAppointmentRecurrence";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentRecurrence2> = L"Windows.ApplicationModel.Appointments.IAppointmentRecurrence2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentRecurrence3> = L"Windows.ApplicationModel.Appointments.IAppointmentRecurrence3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentStore> = L"Windows.ApplicationModel.Appointments.IAppointmentStore";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentStore2> = L"Windows.ApplicationModel.Appointments.IAppointmentStore2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentStore3> = L"Windows.ApplicationModel.Appointments.IAppointmentStore3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentStoreChange> = L"Windows.ApplicationModel.Appointments.IAppointmentStoreChange";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentStoreChange2> = L"Windows.ApplicationModel.Appointments.IAppointmentStoreChange2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentStoreChangeReader> = L"Windows.ApplicationModel.Appointments.IAppointmentStoreChangeReader";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentStoreChangeTracker> = L"Windows.ApplicationModel.Appointments.IAppointmentStoreChangeTracker";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentStoreChangeTracker2> = L"Windows.ApplicationModel.Appointments.IAppointmentStoreChangeTracker2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentStoreChangedDeferral> = L"Windows.ApplicationModel.Appointments.IAppointmentStoreChangedDeferral";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentStoreChangedEventArgs> = L"Windows.ApplicationModel.Appointments.IAppointmentStoreChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IAppointmentStoreNotificationTriggerDetails> = L"Windows.ApplicationModel.Appointments.IAppointmentStoreNotificationTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Appointments::IFindAppointmentsOptions> = L"Windows.ApplicationModel.Appointments.IFindAppointmentsOptions";
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointment>{ 0xDD002F2F,0x2BDD,0x4076,{ 0x90,0xA3,0x22,0xC2,0x75,0x31,0x29,0x65 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointment2>{ 0x5E85983C,0x540F,0x3452,{ 0x9B,0x5C,0x0D,0xD7,0xAD,0x4C,0x65,0xA2 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Appointments::IAppointment3>{ 0xBFCC45A9,0x8961,0x4991,{ 0x93,0x4B,0xC4,0x87,0x68,0xE5,0xA9,0x6C } };
@@ -840,31 +841,31 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointment
     {
-        [[nodiscard]] auto StartTime() const;
-        auto StartTime(Windows::Foundation::DateTime const& value) const;
-        [[nodiscard]] auto Duration() const;
-        auto Duration(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto Location() const;
-        auto Location(param::hstring const& value) const;
-        [[nodiscard]] auto Subject() const;
-        auto Subject(param::hstring const& value) const;
-        [[nodiscard]] auto Details() const;
-        auto Details(param::hstring const& value) const;
-        [[nodiscard]] auto Reminder() const;
-        auto Reminder(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
-        [[nodiscard]] auto Organizer() const;
-        auto Organizer(Windows::ApplicationModel::Appointments::AppointmentOrganizer const& value) const;
-        [[nodiscard]] auto Invitees() const;
-        [[nodiscard]] auto Recurrence() const;
-        auto Recurrence(Windows::ApplicationModel::Appointments::AppointmentRecurrence const& value) const;
-        [[nodiscard]] auto BusyStatus() const;
-        auto BusyStatus(Windows::ApplicationModel::Appointments::AppointmentBusyStatus const& value) const;
-        [[nodiscard]] auto AllDay() const;
-        auto AllDay(bool value) const;
-        [[nodiscard]] auto Sensitivity() const;
-        auto Sensitivity(Windows::ApplicationModel::Appointments::AppointmentSensitivity const& value) const;
-        [[nodiscard]] auto Uri() const;
-        auto Uri(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) StartTime() const;
+        WINRT_IMPL_AUTO(void) StartTime(Windows::Foundation::DateTime const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Duration() const;
+        WINRT_IMPL_AUTO(void) Duration(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Location() const;
+        WINRT_IMPL_AUTO(void) Location(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Subject() const;
+        WINRT_IMPL_AUTO(void) Subject(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Details() const;
+        WINRT_IMPL_AUTO(void) Details(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) Reminder() const;
+        WINRT_IMPL_AUTO(void) Reminder(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::AppointmentOrganizer) Organizer() const;
+        WINRT_IMPL_AUTO(void) Organizer(Windows::ApplicationModel::Appointments::AppointmentOrganizer const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::ApplicationModel::Appointments::AppointmentInvitee>) Invitees() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::AppointmentRecurrence) Recurrence() const;
+        WINRT_IMPL_AUTO(void) Recurrence(Windows::ApplicationModel::Appointments::AppointmentRecurrence const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::AppointmentBusyStatus) BusyStatus() const;
+        WINRT_IMPL_AUTO(void) BusyStatus(Windows::ApplicationModel::Appointments::AppointmentBusyStatus const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AllDay() const;
+        WINRT_IMPL_AUTO(void) AllDay(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::AppointmentSensitivity) Sensitivity() const;
+        WINRT_IMPL_AUTO(void) Sensitivity(Windows::ApplicationModel::Appointments::AppointmentSensitivity const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Uri() const;
+        WINRT_IMPL_AUTO(void) Uri(Windows::Foundation::Uri const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointment>
     {
@@ -873,26 +874,26 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointment2
     {
-        [[nodiscard]] auto LocalId() const;
-        [[nodiscard]] auto CalendarId() const;
-        [[nodiscard]] auto RoamingId() const;
-        auto RoamingId(param::hstring const& value) const;
-        [[nodiscard]] auto OriginalStartTime() const;
-        [[nodiscard]] auto IsResponseRequested() const;
-        auto IsResponseRequested(bool value) const;
-        [[nodiscard]] auto AllowNewTimeProposal() const;
-        auto AllowNewTimeProposal(bool value) const;
-        [[nodiscard]] auto OnlineMeetingLink() const;
-        auto OnlineMeetingLink(param::hstring const& value) const;
-        [[nodiscard]] auto ReplyTime() const;
-        auto ReplyTime(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const;
-        [[nodiscard]] auto UserResponse() const;
-        auto UserResponse(Windows::ApplicationModel::Appointments::AppointmentParticipantResponse const& value) const;
-        [[nodiscard]] auto HasInvitees() const;
-        [[nodiscard]] auto IsCanceledMeeting() const;
-        auto IsCanceledMeeting(bool value) const;
-        [[nodiscard]] auto IsOrganizedByUser() const;
-        auto IsOrganizedByUser(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) LocalId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CalendarId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RoamingId() const;
+        WINRT_IMPL_AUTO(void) RoamingId(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) OriginalStartTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsResponseRequested() const;
+        WINRT_IMPL_AUTO(void) IsResponseRequested(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AllowNewTimeProposal() const;
+        WINRT_IMPL_AUTO(void) AllowNewTimeProposal(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) OnlineMeetingLink() const;
+        WINRT_IMPL_AUTO(void) OnlineMeetingLink(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) ReplyTime() const;
+        WINRT_IMPL_AUTO(void) ReplyTime(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::AppointmentParticipantResponse) UserResponse() const;
+        WINRT_IMPL_AUTO(void) UserResponse(Windows::ApplicationModel::Appointments::AppointmentParticipantResponse const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) HasInvitees() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsCanceledMeeting() const;
+        WINRT_IMPL_AUTO(void) IsCanceledMeeting(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsOrganizedByUser() const;
+        WINRT_IMPL_AUTO(void) IsOrganizedByUser(bool value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointment2>
     {
@@ -901,11 +902,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointment3
     {
-        [[nodiscard]] auto ChangeNumber() const;
-        [[nodiscard]] auto RemoteChangeNumber() const;
-        auto RemoteChangeNumber(uint64_t value) const;
-        [[nodiscard]] auto DetailsKind() const;
-        auto DetailsKind(Windows::ApplicationModel::Appointments::AppointmentDetailsKind const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) ChangeNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) RemoteChangeNumber() const;
+        WINRT_IMPL_AUTO(void) RemoteChangeNumber(uint64_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::AppointmentDetailsKind) DetailsKind() const;
+        WINRT_IMPL_AUTO(void) DetailsKind(Windows::ApplicationModel::Appointments::AppointmentDetailsKind const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointment3>
     {
@@ -914,32 +915,32 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointmentCalendar
     {
-        [[nodiscard]] auto DisplayColor() const;
-        [[nodiscard]] auto DisplayName() const;
-        auto DisplayName(param::hstring const& value) const;
-        [[nodiscard]] auto LocalId() const;
-        [[nodiscard]] auto IsHidden() const;
-        [[nodiscard]] auto OtherAppReadAccess() const;
-        auto OtherAppReadAccess(Windows::ApplicationModel::Appointments::AppointmentCalendarOtherAppReadAccess const& value) const;
-        [[nodiscard]] auto OtherAppWriteAccess() const;
-        auto OtherAppWriteAccess(Windows::ApplicationModel::Appointments::AppointmentCalendarOtherAppWriteAccess const& value) const;
-        [[nodiscard]] auto SourceDisplayName() const;
-        [[nodiscard]] auto SummaryCardView() const;
-        auto SummaryCardView(Windows::ApplicationModel::Appointments::AppointmentSummaryCardView const& value) const;
-        auto FindAppointmentsAsync(Windows::Foundation::DateTime const& rangeStart, Windows::Foundation::TimeSpan const& rangeLength) const;
-        auto FindAppointmentsAsync(Windows::Foundation::DateTime const& rangeStart, Windows::Foundation::TimeSpan const& rangeLength, Windows::ApplicationModel::Appointments::FindAppointmentsOptions const& options) const;
-        auto FindExceptionsFromMasterAsync(param::hstring const& masterLocalId) const;
-        auto FindAllInstancesAsync(param::hstring const& masterLocalId, Windows::Foundation::DateTime const& rangeStart, Windows::Foundation::TimeSpan const& rangeLength) const;
-        auto FindAllInstancesAsync(param::hstring const& masterLocalId, Windows::Foundation::DateTime const& rangeStart, Windows::Foundation::TimeSpan const& rangeLength, Windows::ApplicationModel::Appointments::FindAppointmentsOptions const& pOptions) const;
-        auto GetAppointmentAsync(param::hstring const& localId) const;
-        auto GetAppointmentInstanceAsync(param::hstring const& localId, Windows::Foundation::DateTime const& instanceStartTime) const;
-        auto FindUnexpandedAppointmentsAsync() const;
-        auto FindUnexpandedAppointmentsAsync(Windows::ApplicationModel::Appointments::FindAppointmentsOptions const& options) const;
-        auto DeleteAsync() const;
-        auto SaveAsync() const;
-        auto DeleteAppointmentAsync(param::hstring const& localId) const;
-        auto DeleteAppointmentInstanceAsync(param::hstring const& localId, Windows::Foundation::DateTime const& instanceStartTime) const;
-        auto SaveAppointmentAsync(Windows::ApplicationModel::Appointments::Appointment const& pAppointment) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Color) DisplayColor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        WINRT_IMPL_AUTO(void) DisplayName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) LocalId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsHidden() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::AppointmentCalendarOtherAppReadAccess) OtherAppReadAccess() const;
+        WINRT_IMPL_AUTO(void) OtherAppReadAccess(Windows::ApplicationModel::Appointments::AppointmentCalendarOtherAppReadAccess const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::AppointmentCalendarOtherAppWriteAccess) OtherAppWriteAccess() const;
+        WINRT_IMPL_AUTO(void) OtherAppWriteAccess(Windows::ApplicationModel::Appointments::AppointmentCalendarOtherAppWriteAccess const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SourceDisplayName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::AppointmentSummaryCardView) SummaryCardView() const;
+        WINRT_IMPL_AUTO(void) SummaryCardView(Windows::ApplicationModel::Appointments::AppointmentSummaryCardView const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Appointments::Appointment>>) FindAppointmentsAsync(Windows::Foundation::DateTime const& rangeStart, Windows::Foundation::TimeSpan const& rangeLength) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Appointments::Appointment>>) FindAppointmentsAsync(Windows::Foundation::DateTime const& rangeStart, Windows::Foundation::TimeSpan const& rangeLength, Windows::ApplicationModel::Appointments::FindAppointmentsOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Appointments::AppointmentException>>) FindExceptionsFromMasterAsync(param::hstring const& masterLocalId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Appointments::Appointment>>) FindAllInstancesAsync(param::hstring const& masterLocalId, Windows::Foundation::DateTime const& rangeStart, Windows::Foundation::TimeSpan const& rangeLength) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Appointments::Appointment>>) FindAllInstancesAsync(param::hstring const& masterLocalId, Windows::Foundation::DateTime const& rangeStart, Windows::Foundation::TimeSpan const& rangeLength, Windows::ApplicationModel::Appointments::FindAppointmentsOptions const& pOptions) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Appointments::Appointment>) GetAppointmentAsync(param::hstring const& localId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Appointments::Appointment>) GetAppointmentInstanceAsync(param::hstring const& localId, Windows::Foundation::DateTime const& instanceStartTime) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Appointments::Appointment>>) FindUnexpandedAppointmentsAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Appointments::Appointment>>) FindUnexpandedAppointmentsAsync(Windows::ApplicationModel::Appointments::FindAppointmentsOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) DeleteAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SaveAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) DeleteAppointmentAsync(param::hstring const& localId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) DeleteAppointmentInstanceAsync(param::hstring const& localId, Windows::Foundation::DateTime const& instanceStartTime) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SaveAppointmentAsync(Windows::ApplicationModel::Appointments::Appointment const& pAppointment) const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointmentCalendar>
     {
@@ -948,31 +949,31 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointmentCalendar2
     {
-        [[nodiscard]] auto SyncManager() const;
-        [[nodiscard]] auto RemoteId() const;
-        auto RemoteId(param::hstring const& value) const;
-        auto DisplayColor(Windows::UI::Color const& value) const;
-        auto IsHidden(bool value) const;
-        [[nodiscard]] auto UserDataAccountId() const;
-        [[nodiscard]] auto CanCreateOrUpdateAppointments() const;
-        auto CanCreateOrUpdateAppointments(bool value) const;
-        [[nodiscard]] auto CanCancelMeetings() const;
-        auto CanCancelMeetings(bool value) const;
-        [[nodiscard]] auto CanForwardMeetings() const;
-        auto CanForwardMeetings(bool value) const;
-        [[nodiscard]] auto CanProposeNewTimeForMeetings() const;
-        auto CanProposeNewTimeForMeetings(bool value) const;
-        [[nodiscard]] auto CanUpdateMeetingResponses() const;
-        auto CanUpdateMeetingResponses(bool value) const;
-        [[nodiscard]] auto CanNotifyInvitees() const;
-        auto CanNotifyInvitees(bool value) const;
-        [[nodiscard]] auto MustNofityInvitees() const;
-        auto MustNofityInvitees(bool value) const;
-        auto TryCreateOrUpdateAppointmentAsync(Windows::ApplicationModel::Appointments::Appointment const& appointment, bool notifyInvitees) const;
-        auto TryCancelMeetingAsync(Windows::ApplicationModel::Appointments::Appointment const& meeting, param::hstring const& subject, param::hstring const& comment, bool notifyInvitees) const;
-        auto TryForwardMeetingAsync(Windows::ApplicationModel::Appointments::Appointment const& meeting, param::async_iterable<Windows::ApplicationModel::Appointments::AppointmentInvitee> const& invitees, param::hstring const& subject, param::hstring const& forwardHeader, param::hstring const& comment) const;
-        auto TryProposeNewTimeForMeetingAsync(Windows::ApplicationModel::Appointments::Appointment const& meeting, Windows::Foundation::DateTime const& newStartTime, Windows::Foundation::TimeSpan const& newDuration, param::hstring const& subject, param::hstring const& comment) const;
-        auto TryUpdateMeetingResponseAsync(Windows::ApplicationModel::Appointments::Appointment const& meeting, Windows::ApplicationModel::Appointments::AppointmentParticipantResponse const& response, param::hstring const& subject, param::hstring const& comment, bool sendUpdate) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::AppointmentCalendarSyncManager) SyncManager() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RemoteId() const;
+        WINRT_IMPL_AUTO(void) RemoteId(param::hstring const& value) const;
+        WINRT_IMPL_AUTO(void) DisplayColor(Windows::UI::Color const& value) const;
+        WINRT_IMPL_AUTO(void) IsHidden(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) UserDataAccountId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanCreateOrUpdateAppointments() const;
+        WINRT_IMPL_AUTO(void) CanCreateOrUpdateAppointments(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanCancelMeetings() const;
+        WINRT_IMPL_AUTO(void) CanCancelMeetings(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanForwardMeetings() const;
+        WINRT_IMPL_AUTO(void) CanForwardMeetings(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanProposeNewTimeForMeetings() const;
+        WINRT_IMPL_AUTO(void) CanProposeNewTimeForMeetings(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanUpdateMeetingResponses() const;
+        WINRT_IMPL_AUTO(void) CanUpdateMeetingResponses(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanNotifyInvitees() const;
+        WINRT_IMPL_AUTO(void) CanNotifyInvitees(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) MustNofityInvitees() const;
+        WINRT_IMPL_AUTO(void) MustNofityInvitees(bool value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryCreateOrUpdateAppointmentAsync(Windows::ApplicationModel::Appointments::Appointment const& appointment, bool notifyInvitees) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryCancelMeetingAsync(Windows::ApplicationModel::Appointments::Appointment const& meeting, param::hstring const& subject, param::hstring const& comment, bool notifyInvitees) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryForwardMeetingAsync(Windows::ApplicationModel::Appointments::Appointment const& meeting, param::async_iterable<Windows::ApplicationModel::Appointments::AppointmentInvitee> const& invitees, param::hstring const& subject, param::hstring const& forwardHeader, param::hstring const& comment) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryProposeNewTimeForMeetingAsync(Windows::ApplicationModel::Appointments::Appointment const& meeting, Windows::Foundation::DateTime const& newStartTime, Windows::Foundation::TimeSpan const& newDuration, param::hstring const& subject, param::hstring const& comment) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryUpdateMeetingResponseAsync(Windows::ApplicationModel::Appointments::Appointment const& meeting, Windows::ApplicationModel::Appointments::AppointmentParticipantResponse const& response, param::hstring const& subject, param::hstring const& comment, bool sendUpdate) const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointmentCalendar2>
     {
@@ -981,7 +982,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointmentCalendar3
     {
-        auto RegisterSyncManagerAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) RegisterSyncManagerAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointmentCalendar3>
     {
@@ -990,14 +991,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointmentCalendarSyncManager
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto LastSuccessfulSyncTime() const;
-        [[nodiscard]] auto LastAttemptedSyncTime() const;
-        auto SyncAsync() const;
-        auto SyncStatusChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Appointments::AppointmentCalendarSyncManager, Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::AppointmentCalendarSyncStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) LastSuccessfulSyncTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) LastAttemptedSyncTime() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) SyncAsync() const;
+        WINRT_IMPL_AUTO(winrt::event_token) SyncStatusChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Appointments::AppointmentCalendarSyncManager, Windows::Foundation::IInspectable> const& handler) const;
         using SyncStatusChanged_revoker = impl::event_revoker<Windows::ApplicationModel::Appointments::IAppointmentCalendarSyncManager, &impl::abi_t<Windows::ApplicationModel::Appointments::IAppointmentCalendarSyncManager>::remove_SyncStatusChanged>;
         [[nodiscard]] SyncStatusChanged_revoker SyncStatusChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Appointments::AppointmentCalendarSyncManager, Windows::Foundation::IInspectable> const& handler) const;
-        auto SyncStatusChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) SyncStatusChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointmentCalendarSyncManager>
     {
@@ -1006,9 +1007,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointmentCalendarSyncManager2
     {
-        auto Status(Windows::ApplicationModel::Appointments::AppointmentCalendarSyncStatus const& value) const;
-        auto LastSuccessfulSyncTime(Windows::Foundation::DateTime const& value) const;
-        auto LastAttemptedSyncTime(Windows::Foundation::DateTime const& value) const;
+        WINRT_IMPL_AUTO(void) Status(Windows::ApplicationModel::Appointments::AppointmentCalendarSyncStatus const& value) const;
+        WINRT_IMPL_AUTO(void) LastSuccessfulSyncTime(Windows::Foundation::DateTime const& value) const;
+        WINRT_IMPL_AUTO(void) LastAttemptedSyncTime(Windows::Foundation::DateTime const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointmentCalendarSyncManager2>
     {
@@ -1017,8 +1018,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointmentConflictResult
     {
-        [[nodiscard]] auto Type() const;
-        [[nodiscard]] auto Date() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::AppointmentConflictType) Type() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) Date() const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointmentConflictResult>
     {
@@ -1027,9 +1028,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointmentException
     {
-        [[nodiscard]] auto Appointment() const;
-        [[nodiscard]] auto ExceptionProperties() const;
-        [[nodiscard]] auto IsDeleted() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::Appointment) Appointment() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) ExceptionProperties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDeleted() const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointmentException>
     {
@@ -1038,10 +1039,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointmentInvitee
     {
-        [[nodiscard]] auto Role() const;
-        auto Role(Windows::ApplicationModel::Appointments::AppointmentParticipantRole const& value) const;
-        [[nodiscard]] auto Response() const;
-        auto Response(Windows::ApplicationModel::Appointments::AppointmentParticipantResponse const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::AppointmentParticipantRole) Role() const;
+        WINRT_IMPL_AUTO(void) Role(Windows::ApplicationModel::Appointments::AppointmentParticipantRole const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::AppointmentParticipantResponse) Response() const;
+        WINRT_IMPL_AUTO(void) Response(Windows::ApplicationModel::Appointments::AppointmentParticipantResponse const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointmentInvitee>
     {
@@ -1050,20 +1051,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointmentManagerForUser
     {
-        auto ShowAddAppointmentAsync(Windows::ApplicationModel::Appointments::Appointment const& appointment, Windows::Foundation::Rect const& selection) const;
-        auto ShowAddAppointmentAsync(Windows::ApplicationModel::Appointments::Appointment const& appointment, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement) const;
-        auto ShowReplaceAppointmentAsync(param::hstring const& appointmentId, Windows::ApplicationModel::Appointments::Appointment const& appointment, Windows::Foundation::Rect const& selection) const;
-        auto ShowReplaceAppointmentAsync(param::hstring const& appointmentId, Windows::ApplicationModel::Appointments::Appointment const& appointment, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement) const;
-        auto ShowReplaceAppointmentAsync(param::hstring const& appointmentId, Windows::ApplicationModel::Appointments::Appointment const& appointment, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement, Windows::Foundation::DateTime const& instanceStartDate) const;
-        auto ShowRemoveAppointmentAsync(param::hstring const& appointmentId, Windows::Foundation::Rect const& selection) const;
-        auto ShowRemoveAppointmentAsync(param::hstring const& appointmentId, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement) const;
-        auto ShowRemoveAppointmentAsync(param::hstring const& appointmentId, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement, Windows::Foundation::DateTime const& instanceStartDate) const;
-        auto ShowTimeFrameAsync(Windows::Foundation::DateTime const& timeToShow, Windows::Foundation::TimeSpan const& duration) const;
-        auto ShowAppointmentDetailsAsync(param::hstring const& appointmentId) const;
-        auto ShowAppointmentDetailsAsync(param::hstring const& appointmentId, Windows::Foundation::DateTime const& instanceStartDate) const;
-        auto ShowEditNewAppointmentAsync(Windows::ApplicationModel::Appointments::Appointment const& appointment) const;
-        auto RequestStoreAsync(Windows::ApplicationModel::Appointments::AppointmentStoreAccessType const& options) const;
-        [[nodiscard]] auto User() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) ShowAddAppointmentAsync(Windows::ApplicationModel::Appointments::Appointment const& appointment, Windows::Foundation::Rect const& selection) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) ShowAddAppointmentAsync(Windows::ApplicationModel::Appointments::Appointment const& appointment, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) ShowReplaceAppointmentAsync(param::hstring const& appointmentId, Windows::ApplicationModel::Appointments::Appointment const& appointment, Windows::Foundation::Rect const& selection) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) ShowReplaceAppointmentAsync(param::hstring const& appointmentId, Windows::ApplicationModel::Appointments::Appointment const& appointment, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) ShowReplaceAppointmentAsync(param::hstring const& appointmentId, Windows::ApplicationModel::Appointments::Appointment const& appointment, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement, Windows::Foundation::DateTime const& instanceStartDate) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) ShowRemoveAppointmentAsync(param::hstring const& appointmentId, Windows::Foundation::Rect const& selection) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) ShowRemoveAppointmentAsync(param::hstring const& appointmentId, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) ShowRemoveAppointmentAsync(param::hstring const& appointmentId, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement, Windows::Foundation::DateTime const& instanceStartDate) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ShowTimeFrameAsync(Windows::Foundation::DateTime const& timeToShow, Windows::Foundation::TimeSpan const& duration) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ShowAppointmentDetailsAsync(param::hstring const& appointmentId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ShowAppointmentDetailsAsync(param::hstring const& appointmentId, Windows::Foundation::DateTime const& instanceStartDate) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) ShowEditNewAppointmentAsync(Windows::ApplicationModel::Appointments::Appointment const& appointment) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Appointments::AppointmentStore>) RequestStoreAsync(Windows::ApplicationModel::Appointments::AppointmentStoreAccessType const& options) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::User) User() const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointmentManagerForUser>
     {
@@ -1072,15 +1073,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointmentManagerStatics
     {
-        auto ShowAddAppointmentAsync(Windows::ApplicationModel::Appointments::Appointment const& appointment, Windows::Foundation::Rect const& selection) const;
-        auto ShowAddAppointmentAsync(Windows::ApplicationModel::Appointments::Appointment const& appointment, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement) const;
-        auto ShowReplaceAppointmentAsync(param::hstring const& appointmentId, Windows::ApplicationModel::Appointments::Appointment const& appointment, Windows::Foundation::Rect const& selection) const;
-        auto ShowReplaceAppointmentAsync(param::hstring const& appointmentId, Windows::ApplicationModel::Appointments::Appointment const& appointment, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement) const;
-        auto ShowReplaceAppointmentAsync(param::hstring const& appointmentId, Windows::ApplicationModel::Appointments::Appointment const& appointment, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement, Windows::Foundation::DateTime const& instanceStartDate) const;
-        auto ShowRemoveAppointmentAsync(param::hstring const& appointmentId, Windows::Foundation::Rect const& selection) const;
-        auto ShowRemoveAppointmentAsync(param::hstring const& appointmentId, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement) const;
-        auto ShowRemoveAppointmentAsync(param::hstring const& appointmentId, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement, Windows::Foundation::DateTime const& instanceStartDate) const;
-        auto ShowTimeFrameAsync(Windows::Foundation::DateTime const& timeToShow, Windows::Foundation::TimeSpan const& duration) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) ShowAddAppointmentAsync(Windows::ApplicationModel::Appointments::Appointment const& appointment, Windows::Foundation::Rect const& selection) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) ShowAddAppointmentAsync(Windows::ApplicationModel::Appointments::Appointment const& appointment, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) ShowReplaceAppointmentAsync(param::hstring const& appointmentId, Windows::ApplicationModel::Appointments::Appointment const& appointment, Windows::Foundation::Rect const& selection) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) ShowReplaceAppointmentAsync(param::hstring const& appointmentId, Windows::ApplicationModel::Appointments::Appointment const& appointment, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) ShowReplaceAppointmentAsync(param::hstring const& appointmentId, Windows::ApplicationModel::Appointments::Appointment const& appointment, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement, Windows::Foundation::DateTime const& instanceStartDate) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) ShowRemoveAppointmentAsync(param::hstring const& appointmentId, Windows::Foundation::Rect const& selection) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) ShowRemoveAppointmentAsync(param::hstring const& appointmentId, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) ShowRemoveAppointmentAsync(param::hstring const& appointmentId, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement, Windows::Foundation::DateTime const& instanceStartDate) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ShowTimeFrameAsync(Windows::Foundation::DateTime const& timeToShow, Windows::Foundation::TimeSpan const& duration) const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointmentManagerStatics>
     {
@@ -1089,10 +1090,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointmentManagerStatics2
     {
-        auto ShowAppointmentDetailsAsync(param::hstring const& appointmentId) const;
-        auto ShowAppointmentDetailsAsync(param::hstring const& appointmentId, Windows::Foundation::DateTime const& instanceStartDate) const;
-        auto ShowEditNewAppointmentAsync(Windows::ApplicationModel::Appointments::Appointment const& appointment) const;
-        auto RequestStoreAsync(Windows::ApplicationModel::Appointments::AppointmentStoreAccessType const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ShowAppointmentDetailsAsync(param::hstring const& appointmentId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ShowAppointmentDetailsAsync(param::hstring const& appointmentId, Windows::Foundation::DateTime const& instanceStartDate) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) ShowEditNewAppointmentAsync(Windows::ApplicationModel::Appointments::Appointment const& appointment) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Appointments::AppointmentStore>) RequestStoreAsync(Windows::ApplicationModel::Appointments::AppointmentStoreAccessType const& options) const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointmentManagerStatics2>
     {
@@ -1101,7 +1102,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointmentManagerStatics3
     {
-        auto GetForUser(Windows::System::User const& user) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::AppointmentManagerForUser) GetForUser(Windows::System::User const& user) const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointmentManagerStatics3>
     {
@@ -1110,10 +1111,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointmentParticipant
     {
-        [[nodiscard]] auto DisplayName() const;
-        auto DisplayName(param::hstring const& value) const;
-        [[nodiscard]] auto Address() const;
-        auto Address(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        WINRT_IMPL_AUTO(void) DisplayName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Address() const;
+        WINRT_IMPL_AUTO(void) Address(param::hstring const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointmentParticipant>
     {
@@ -1122,29 +1123,29 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointmentPropertiesStatics
     {
-        [[nodiscard]] auto Subject() const;
-        [[nodiscard]] auto Location() const;
-        [[nodiscard]] auto StartTime() const;
-        [[nodiscard]] auto Duration() const;
-        [[nodiscard]] auto Reminder() const;
-        [[nodiscard]] auto BusyStatus() const;
-        [[nodiscard]] auto Sensitivity() const;
-        [[nodiscard]] auto OriginalStartTime() const;
-        [[nodiscard]] auto IsResponseRequested() const;
-        [[nodiscard]] auto AllowNewTimeProposal() const;
-        [[nodiscard]] auto AllDay() const;
-        [[nodiscard]] auto Details() const;
-        [[nodiscard]] auto OnlineMeetingLink() const;
-        [[nodiscard]] auto ReplyTime() const;
-        [[nodiscard]] auto Organizer() const;
-        [[nodiscard]] auto UserResponse() const;
-        [[nodiscard]] auto HasInvitees() const;
-        [[nodiscard]] auto IsCanceledMeeting() const;
-        [[nodiscard]] auto IsOrganizedByUser() const;
-        [[nodiscard]] auto Recurrence() const;
-        [[nodiscard]] auto Uri() const;
-        [[nodiscard]] auto Invitees() const;
-        [[nodiscard]] auto DefaultProperties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Subject() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Location() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) StartTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Duration() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Reminder() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BusyStatus() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Sensitivity() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) OriginalStartTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) IsResponseRequested() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AllowNewTimeProposal() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AllDay() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Details() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) OnlineMeetingLink() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ReplyTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Organizer() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) UserResponse() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) HasInvitees() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) IsCanceledMeeting() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) IsOrganizedByUser() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Recurrence() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Uri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Invitees() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) DefaultProperties() const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointmentPropertiesStatics>
     {
@@ -1153,9 +1154,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointmentPropertiesStatics2
     {
-        [[nodiscard]] auto ChangeNumber() const;
-        [[nodiscard]] auto RemoteChangeNumber() const;
-        [[nodiscard]] auto DetailsKind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ChangeNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RemoteChangeNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DetailsKind() const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointmentPropertiesStatics2>
     {
@@ -1164,22 +1165,22 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointmentRecurrence
     {
-        [[nodiscard]] auto Unit() const;
-        auto Unit(Windows::ApplicationModel::Appointments::AppointmentRecurrenceUnit const& value) const;
-        [[nodiscard]] auto Occurrences() const;
-        auto Occurrences(Windows::Foundation::IReference<uint32_t> const& value) const;
-        [[nodiscard]] auto Until() const;
-        auto Until(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const;
-        [[nodiscard]] auto Interval() const;
-        auto Interval(uint32_t value) const;
-        [[nodiscard]] auto DaysOfWeek() const;
-        auto DaysOfWeek(Windows::ApplicationModel::Appointments::AppointmentDaysOfWeek const& value) const;
-        [[nodiscard]] auto WeekOfMonth() const;
-        auto WeekOfMonth(Windows::ApplicationModel::Appointments::AppointmentWeekOfMonth const& value) const;
-        [[nodiscard]] auto Month() const;
-        auto Month(uint32_t value) const;
-        [[nodiscard]] auto Day() const;
-        auto Day(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::AppointmentRecurrenceUnit) Unit() const;
+        WINRT_IMPL_AUTO(void) Unit(Windows::ApplicationModel::Appointments::AppointmentRecurrenceUnit const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint32_t>) Occurrences() const;
+        WINRT_IMPL_AUTO(void) Occurrences(Windows::Foundation::IReference<uint32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) Until() const;
+        WINRT_IMPL_AUTO(void) Until(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Interval() const;
+        WINRT_IMPL_AUTO(void) Interval(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::AppointmentDaysOfWeek) DaysOfWeek() const;
+        WINRT_IMPL_AUTO(void) DaysOfWeek(Windows::ApplicationModel::Appointments::AppointmentDaysOfWeek const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::AppointmentWeekOfMonth) WeekOfMonth() const;
+        WINRT_IMPL_AUTO(void) WeekOfMonth(Windows::ApplicationModel::Appointments::AppointmentWeekOfMonth const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Month() const;
+        WINRT_IMPL_AUTO(void) Month(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Day() const;
+        WINRT_IMPL_AUTO(void) Day(uint32_t value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointmentRecurrence>
     {
@@ -1188,9 +1189,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointmentRecurrence2
     {
-        [[nodiscard]] auto RecurrenceType() const;
-        [[nodiscard]] auto TimeZone() const;
-        auto TimeZone(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::RecurrenceType) RecurrenceType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TimeZone() const;
+        WINRT_IMPL_AUTO(void) TimeZone(param::hstring const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointmentRecurrence2>
     {
@@ -1199,7 +1200,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointmentRecurrence3
     {
-        [[nodiscard]] auto CalendarIdentifier() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CalendarIdentifier() const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointmentRecurrence3>
     {
@@ -1208,27 +1209,27 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointmentStore
     {
-        [[nodiscard]] auto ChangeTracker() const;
-        auto CreateAppointmentCalendarAsync(param::hstring const& name) const;
-        auto GetAppointmentCalendarAsync(param::hstring const& calendarId) const;
-        auto GetAppointmentAsync(param::hstring const& localId) const;
-        auto GetAppointmentInstanceAsync(param::hstring const& localId, Windows::Foundation::DateTime const& instanceStartTime) const;
-        auto FindAppointmentCalendarsAsync() const;
-        auto FindAppointmentCalendarsAsync(Windows::ApplicationModel::Appointments::FindAppointmentCalendarsOptions const& options) const;
-        auto FindAppointmentsAsync(Windows::Foundation::DateTime const& rangeStart, Windows::Foundation::TimeSpan const& rangeLength) const;
-        auto FindAppointmentsAsync(Windows::Foundation::DateTime const& rangeStart, Windows::Foundation::TimeSpan const& rangeLength, Windows::ApplicationModel::Appointments::FindAppointmentsOptions const& options) const;
-        auto FindConflictAsync(Windows::ApplicationModel::Appointments::Appointment const& appointment) const;
-        auto FindConflictAsync(Windows::ApplicationModel::Appointments::Appointment const& appointment, Windows::Foundation::DateTime const& instanceStartTime) const;
-        auto MoveAppointmentAsync(Windows::ApplicationModel::Appointments::Appointment const& appointment, Windows::ApplicationModel::Appointments::AppointmentCalendar const& destinationCalendar) const;
-        auto ShowAddAppointmentAsync(Windows::ApplicationModel::Appointments::Appointment const& appointment, Windows::Foundation::Rect const& selection) const;
-        auto ShowReplaceAppointmentAsync(param::hstring const& localId, Windows::ApplicationModel::Appointments::Appointment const& appointment, Windows::Foundation::Rect const& selection) const;
-        auto ShowReplaceAppointmentAsync(param::hstring const& localId, Windows::ApplicationModel::Appointments::Appointment const& appointment, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement, Windows::Foundation::DateTime const& instanceStartDate) const;
-        auto ShowRemoveAppointmentAsync(param::hstring const& localId, Windows::Foundation::Rect const& selection) const;
-        auto ShowRemoveAppointmentAsync(param::hstring const& localId, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement, Windows::Foundation::DateTime const& instanceStartDate) const;
-        auto ShowAppointmentDetailsAsync(param::hstring const& localId) const;
-        auto ShowAppointmentDetailsAsync(param::hstring const& localId, Windows::Foundation::DateTime const& instanceStartDate) const;
-        auto ShowEditNewAppointmentAsync(Windows::ApplicationModel::Appointments::Appointment const& appointment) const;
-        auto FindLocalIdsFromRoamingIdAsync(param::hstring const& roamingId) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::AppointmentStoreChangeTracker) ChangeTracker() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Appointments::AppointmentCalendar>) CreateAppointmentCalendarAsync(param::hstring const& name) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Appointments::AppointmentCalendar>) GetAppointmentCalendarAsync(param::hstring const& calendarId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Appointments::Appointment>) GetAppointmentAsync(param::hstring const& localId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Appointments::Appointment>) GetAppointmentInstanceAsync(param::hstring const& localId, Windows::Foundation::DateTime const& instanceStartTime) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Appointments::AppointmentCalendar>>) FindAppointmentCalendarsAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Appointments::AppointmentCalendar>>) FindAppointmentCalendarsAsync(Windows::ApplicationModel::Appointments::FindAppointmentCalendarsOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Appointments::Appointment>>) FindAppointmentsAsync(Windows::Foundation::DateTime const& rangeStart, Windows::Foundation::TimeSpan const& rangeLength) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Appointments::Appointment>>) FindAppointmentsAsync(Windows::Foundation::DateTime const& rangeStart, Windows::Foundation::TimeSpan const& rangeLength, Windows::ApplicationModel::Appointments::FindAppointmentsOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Appointments::AppointmentConflictResult>) FindConflictAsync(Windows::ApplicationModel::Appointments::Appointment const& appointment) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Appointments::AppointmentConflictResult>) FindConflictAsync(Windows::ApplicationModel::Appointments::Appointment const& appointment, Windows::Foundation::DateTime const& instanceStartTime) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) MoveAppointmentAsync(Windows::ApplicationModel::Appointments::Appointment const& appointment, Windows::ApplicationModel::Appointments::AppointmentCalendar const& destinationCalendar) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) ShowAddAppointmentAsync(Windows::ApplicationModel::Appointments::Appointment const& appointment, Windows::Foundation::Rect const& selection) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) ShowReplaceAppointmentAsync(param::hstring const& localId, Windows::ApplicationModel::Appointments::Appointment const& appointment, Windows::Foundation::Rect const& selection) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) ShowReplaceAppointmentAsync(param::hstring const& localId, Windows::ApplicationModel::Appointments::Appointment const& appointment, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement, Windows::Foundation::DateTime const& instanceStartDate) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) ShowRemoveAppointmentAsync(param::hstring const& localId, Windows::Foundation::Rect const& selection) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) ShowRemoveAppointmentAsync(param::hstring const& localId, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement, Windows::Foundation::DateTime const& instanceStartDate) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ShowAppointmentDetailsAsync(param::hstring const& localId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ShowAppointmentDetailsAsync(param::hstring const& localId, Windows::Foundation::DateTime const& instanceStartDate) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) ShowEditNewAppointmentAsync(Windows::ApplicationModel::Appointments::Appointment const& appointment) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<hstring>>) FindLocalIdsFromRoamingIdAsync(param::hstring const& roamingId) const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointmentStore>
     {
@@ -1237,11 +1238,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointmentStore2
     {
-        auto StoreChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Appointments::AppointmentStore, Windows::ApplicationModel::Appointments::AppointmentStoreChangedEventArgs> const& pHandler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) StoreChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Appointments::AppointmentStore, Windows::ApplicationModel::Appointments::AppointmentStoreChangedEventArgs> const& pHandler) const;
         using StoreChanged_revoker = impl::event_revoker<Windows::ApplicationModel::Appointments::IAppointmentStore2, &impl::abi_t<Windows::ApplicationModel::Appointments::IAppointmentStore2>::remove_StoreChanged>;
         [[nodiscard]] StoreChanged_revoker StoreChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Appointments::AppointmentStore, Windows::ApplicationModel::Appointments::AppointmentStoreChangedEventArgs> const& pHandler) const;
-        auto StoreChanged(winrt::event_token const& token) const noexcept;
-        auto CreateAppointmentCalendarAsync(param::hstring const& name, param::hstring const& userDataAccountId) const;
+        WINRT_IMPL_AUTO(void) StoreChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Appointments::AppointmentCalendar>) CreateAppointmentCalendarAsync(param::hstring const& name, param::hstring const& userDataAccountId) const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointmentStore2>
     {
@@ -1250,7 +1251,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointmentStore3
     {
-        auto GetChangeTracker(param::hstring const& identity) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::AppointmentStoreChangeTracker) GetChangeTracker(param::hstring const& identity) const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointmentStore3>
     {
@@ -1259,8 +1260,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointmentStoreChange
     {
-        [[nodiscard]] auto Appointment() const;
-        [[nodiscard]] auto ChangeType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::Appointment) Appointment() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::AppointmentStoreChangeType) ChangeType() const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointmentStoreChange>
     {
@@ -1269,7 +1270,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointmentStoreChange2
     {
-        [[nodiscard]] auto AppointmentCalendar() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::AppointmentCalendar) AppointmentCalendar() const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointmentStoreChange2>
     {
@@ -1278,9 +1279,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointmentStoreChangeReader
     {
-        auto ReadBatchAsync() const;
-        auto AcceptChanges() const;
-        auto AcceptChangesThrough(Windows::ApplicationModel::Appointments::AppointmentStoreChange const& lastChangeToAccept) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Appointments::AppointmentStoreChange>>) ReadBatchAsync() const;
+        WINRT_IMPL_AUTO(void) AcceptChanges() const;
+        WINRT_IMPL_AUTO(void) AcceptChangesThrough(Windows::ApplicationModel::Appointments::AppointmentStoreChange const& lastChangeToAccept) const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointmentStoreChangeReader>
     {
@@ -1289,9 +1290,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointmentStoreChangeTracker
     {
-        auto GetChangeReader() const;
-        auto Enable() const;
-        auto Reset() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::AppointmentStoreChangeReader) GetChangeReader() const;
+        WINRT_IMPL_AUTO(void) Enable() const;
+        WINRT_IMPL_AUTO(void) Reset() const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointmentStoreChangeTracker>
     {
@@ -1300,7 +1301,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointmentStoreChangeTracker2
     {
-        [[nodiscard]] auto IsTracking() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsTracking() const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointmentStoreChangeTracker2>
     {
@@ -1309,7 +1310,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointmentStoreChangedDeferral
     {
-        auto Complete() const;
+        WINRT_IMPL_AUTO(void) Complete() const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointmentStoreChangedDeferral>
     {
@@ -1318,7 +1319,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IAppointmentStoreChangedEventArgs
     {
-        auto GetDeferral() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Appointments::AppointmentStoreChangedDeferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IAppointmentStoreChangedEventArgs>
     {
@@ -1335,12 +1336,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Appointments_IFindAppointmentsOptions
     {
-        [[nodiscard]] auto CalendarIds() const;
-        [[nodiscard]] auto FetchProperties() const;
-        [[nodiscard]] auto IncludeHidden() const;
-        auto IncludeHidden(bool value) const;
-        [[nodiscard]] auto MaxCount() const;
-        auto MaxCount(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) CalendarIds() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) FetchProperties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IncludeHidden() const;
+        WINRT_IMPL_AUTO(void) IncludeHidden(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxCount() const;
+        WINRT_IMPL_AUTO(void) MaxCount(uint32_t value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Appointments::IFindAppointmentsOptions>
     {

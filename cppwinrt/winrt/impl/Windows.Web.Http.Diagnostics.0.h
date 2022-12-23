@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -8,8 +8,13 @@
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
+    template <typename T> struct IReference;
     template <typename TSender, typename TResult> struct TypedEventHandler;
     struct Uri;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::System::Diagnostics
 {
@@ -68,22 +73,20 @@ namespace winrt::impl
     template <> struct category<Windows::Web::Http::Diagnostics::HttpDiagnosticProviderResponseReceivedEventArgs>{ using type = class_category; };
     template <> struct category<Windows::Web::Http::Diagnostics::HttpDiagnosticSourceLocation>{ using type = class_category; };
     template <> struct category<Windows::Web::Http::Diagnostics::HttpDiagnosticRequestInitiator>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::HttpDiagnosticProvider>{ L"Windows.Web.Http.Diagnostics.HttpDiagnosticProvider" };
-    template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::HttpDiagnosticProviderRequestResponseCompletedEventArgs>{ L"Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestResponseCompletedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::HttpDiagnosticProviderRequestResponseTimestamps>{ L"Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestResponseTimestamps" };
-    template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::HttpDiagnosticProviderRequestSentEventArgs>{ L"Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestSentEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::HttpDiagnosticProviderResponseReceivedEventArgs>{ L"Windows.Web.Http.Diagnostics.HttpDiagnosticProviderResponseReceivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::HttpDiagnosticSourceLocation>{ L"Windows.Web.Http.Diagnostics.HttpDiagnosticSourceLocation" };
-    template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::HttpDiagnosticRequestInitiator>{ L"Windows.Web.Http.Diagnostics.HttpDiagnosticRequestInitiator" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticProvider>{ L"Windows.Web.Http.Diagnostics.IHttpDiagnosticProvider" };
-    template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderRequestResponseCompletedEventArgs>{ L"Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestResponseCompletedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderRequestResponseTimestamps>{ L"Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestResponseTimestamps" };
-    template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderRequestSentEventArgs>{ L"Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestSentEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderResponseReceivedEventArgs>{ L"Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderResponseReceivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderStatics>{ L"Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderStatics" };
-    template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticSourceLocation>{ L"Windows.Web.Http.Diagnostics.IHttpDiagnosticSourceLocation" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::HttpDiagnosticProvider> = L"Windows.Web.Http.Diagnostics.HttpDiagnosticProvider";
+    template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::HttpDiagnosticProviderRequestResponseCompletedEventArgs> = L"Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestResponseCompletedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::HttpDiagnosticProviderRequestResponseTimestamps> = L"Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestResponseTimestamps";
+    template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::HttpDiagnosticProviderRequestSentEventArgs> = L"Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestSentEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::HttpDiagnosticProviderResponseReceivedEventArgs> = L"Windows.Web.Http.Diagnostics.HttpDiagnosticProviderResponseReceivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::HttpDiagnosticSourceLocation> = L"Windows.Web.Http.Diagnostics.HttpDiagnosticSourceLocation";
+    template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::HttpDiagnosticRequestInitiator> = L"Windows.Web.Http.Diagnostics.HttpDiagnosticRequestInitiator";
+    template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticProvider> = L"Windows.Web.Http.Diagnostics.IHttpDiagnosticProvider";
+    template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderRequestResponseCompletedEventArgs> = L"Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestResponseCompletedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderRequestResponseTimestamps> = L"Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestResponseTimestamps";
+    template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderRequestSentEventArgs> = L"Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderRequestSentEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderResponseReceivedEventArgs> = L"Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderResponseReceivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderStatics> = L"Windows.Web.Http.Diagnostics.IHttpDiagnosticProviderStatics";
+    template <> inline constexpr auto& name_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticSourceLocation> = L"Windows.Web.Http.Diagnostics.IHttpDiagnosticSourceLocation";
     template <> inline constexpr guid guid_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticProvider>{ 0xBD811501,0xA056,0x4D39,{ 0xB1,0x74,0x83,0x3B,0x7B,0x03,0xB0,0x2C } };
     template <> inline constexpr guid guid_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderRequestResponseCompletedEventArgs>{ 0x735F98EE,0x94F6,0x4532,{ 0xB2,0x6E,0x61,0xE1,0xB1,0xE4,0xEF,0xD4 } };
     template <> inline constexpr guid guid_v<Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderRequestResponseTimestamps>{ 0xE0AFDE10,0x55CF,0x4C01,{ 0x91,0xD4,0xA2,0x05,0x57,0xD8,0x49,0xF0 } };
@@ -180,20 +183,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Http_Diagnostics_IHttpDiagnosticProvider
     {
-        auto Start() const;
-        auto Stop() const;
-        auto RequestSent(Windows::Foundation::TypedEventHandler<Windows::Web::Http::Diagnostics::HttpDiagnosticProvider, Windows::Web::Http::Diagnostics::HttpDiagnosticProviderRequestSentEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) Start() const;
+        WINRT_IMPL_AUTO(void) Stop() const;
+        WINRT_IMPL_AUTO(winrt::event_token) RequestSent(Windows::Foundation::TypedEventHandler<Windows::Web::Http::Diagnostics::HttpDiagnosticProvider, Windows::Web::Http::Diagnostics::HttpDiagnosticProviderRequestSentEventArgs> const& handler) const;
         using RequestSent_revoker = impl::event_revoker<Windows::Web::Http::Diagnostics::IHttpDiagnosticProvider, &impl::abi_t<Windows::Web::Http::Diagnostics::IHttpDiagnosticProvider>::remove_RequestSent>;
         [[nodiscard]] RequestSent_revoker RequestSent(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Web::Http::Diagnostics::HttpDiagnosticProvider, Windows::Web::Http::Diagnostics::HttpDiagnosticProviderRequestSentEventArgs> const& handler) const;
-        auto RequestSent(winrt::event_token const& token) const noexcept;
-        auto ResponseReceived(Windows::Foundation::TypedEventHandler<Windows::Web::Http::Diagnostics::HttpDiagnosticProvider, Windows::Web::Http::Diagnostics::HttpDiagnosticProviderResponseReceivedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) RequestSent(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ResponseReceived(Windows::Foundation::TypedEventHandler<Windows::Web::Http::Diagnostics::HttpDiagnosticProvider, Windows::Web::Http::Diagnostics::HttpDiagnosticProviderResponseReceivedEventArgs> const& handler) const;
         using ResponseReceived_revoker = impl::event_revoker<Windows::Web::Http::Diagnostics::IHttpDiagnosticProvider, &impl::abi_t<Windows::Web::Http::Diagnostics::IHttpDiagnosticProvider>::remove_ResponseReceived>;
         [[nodiscard]] ResponseReceived_revoker ResponseReceived(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Web::Http::Diagnostics::HttpDiagnosticProvider, Windows::Web::Http::Diagnostics::HttpDiagnosticProviderResponseReceivedEventArgs> const& handler) const;
-        auto ResponseReceived(winrt::event_token const& token) const noexcept;
-        auto RequestResponseCompleted(Windows::Foundation::TypedEventHandler<Windows::Web::Http::Diagnostics::HttpDiagnosticProvider, Windows::Web::Http::Diagnostics::HttpDiagnosticProviderRequestResponseCompletedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) ResponseReceived(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) RequestResponseCompleted(Windows::Foundation::TypedEventHandler<Windows::Web::Http::Diagnostics::HttpDiagnosticProvider, Windows::Web::Http::Diagnostics::HttpDiagnosticProviderRequestResponseCompletedEventArgs> const& handler) const;
         using RequestResponseCompleted_revoker = impl::event_revoker<Windows::Web::Http::Diagnostics::IHttpDiagnosticProvider, &impl::abi_t<Windows::Web::Http::Diagnostics::IHttpDiagnosticProvider>::remove_RequestResponseCompleted>;
         [[nodiscard]] RequestResponseCompleted_revoker RequestResponseCompleted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Web::Http::Diagnostics::HttpDiagnosticProvider, Windows::Web::Http::Diagnostics::HttpDiagnosticProviderRequestResponseCompletedEventArgs> const& handler) const;
-        auto RequestResponseCompleted(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) RequestResponseCompleted(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Web::Http::Diagnostics::IHttpDiagnosticProvider>
     {
@@ -202,13 +205,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Http_Diagnostics_IHttpDiagnosticProviderRequestResponseCompletedEventArgs
     {
-        [[nodiscard]] auto ActivityId() const;
-        [[nodiscard]] auto Timestamps() const;
-        [[nodiscard]] auto RequestedUri() const;
-        [[nodiscard]] auto ProcessId() const;
-        [[nodiscard]] auto ThreadId() const;
-        [[nodiscard]] auto Initiator() const;
-        [[nodiscard]] auto SourceLocations() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) ActivityId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Http::Diagnostics::HttpDiagnosticProviderRequestResponseTimestamps) Timestamps() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) RequestedUri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ProcessId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ThreadId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Http::Diagnostics::HttpDiagnosticRequestInitiator) Initiator() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Web::Http::Diagnostics::HttpDiagnosticSourceLocation>) SourceLocations() const;
     };
     template <> struct consume<Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderRequestResponseCompletedEventArgs>
     {
@@ -217,15 +220,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Http_Diagnostics_IHttpDiagnosticProviderRequestResponseTimestamps
     {
-        [[nodiscard]] auto CacheCheckedTimestamp() const;
-        [[nodiscard]] auto ConnectionInitiatedTimestamp() const;
-        [[nodiscard]] auto NameResolvedTimestamp() const;
-        [[nodiscard]] auto SslNegotiatedTimestamp() const;
-        [[nodiscard]] auto ConnectionCompletedTimestamp() const;
-        [[nodiscard]] auto RequestSentTimestamp() const;
-        [[nodiscard]] auto RequestCompletedTimestamp() const;
-        [[nodiscard]] auto ResponseReceivedTimestamp() const;
-        [[nodiscard]] auto ResponseCompletedTimestamp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) CacheCheckedTimestamp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) ConnectionInitiatedTimestamp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) NameResolvedTimestamp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) SslNegotiatedTimestamp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) ConnectionCompletedTimestamp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) RequestSentTimestamp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) RequestCompletedTimestamp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) ResponseReceivedTimestamp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) ResponseCompletedTimestamp() const;
     };
     template <> struct consume<Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderRequestResponseTimestamps>
     {
@@ -234,13 +237,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Http_Diagnostics_IHttpDiagnosticProviderRequestSentEventArgs
     {
-        [[nodiscard]] auto Timestamp() const;
-        [[nodiscard]] auto ActivityId() const;
-        [[nodiscard]] auto Message() const;
-        [[nodiscard]] auto ProcessId() const;
-        [[nodiscard]] auto ThreadId() const;
-        [[nodiscard]] auto Initiator() const;
-        [[nodiscard]] auto SourceLocations() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) Timestamp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) ActivityId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Http::HttpRequestMessage) Message() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ProcessId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ThreadId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Http::Diagnostics::HttpDiagnosticRequestInitiator) Initiator() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Web::Http::Diagnostics::HttpDiagnosticSourceLocation>) SourceLocations() const;
     };
     template <> struct consume<Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderRequestSentEventArgs>
     {
@@ -249,9 +252,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Http_Diagnostics_IHttpDiagnosticProviderResponseReceivedEventArgs
     {
-        [[nodiscard]] auto Timestamp() const;
-        [[nodiscard]] auto ActivityId() const;
-        [[nodiscard]] auto Message() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) Timestamp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) ActivityId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Http::HttpResponseMessage) Message() const;
     };
     template <> struct consume<Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderResponseReceivedEventArgs>
     {
@@ -260,7 +263,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Http_Diagnostics_IHttpDiagnosticProviderStatics
     {
-        auto CreateFromProcessDiagnosticInfo(Windows::System::Diagnostics::ProcessDiagnosticInfo const& processDiagnosticInfo) const;
+        WINRT_IMPL_AUTO(Windows::Web::Http::Diagnostics::HttpDiagnosticProvider) CreateFromProcessDiagnosticInfo(Windows::System::Diagnostics::ProcessDiagnosticInfo const& processDiagnosticInfo) const;
     };
     template <> struct consume<Windows::Web::Http::Diagnostics::IHttpDiagnosticProviderStatics>
     {
@@ -269,9 +272,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_Http_Diagnostics_IHttpDiagnosticSourceLocation
     {
-        [[nodiscard]] auto SourceUri() const;
-        [[nodiscard]] auto LineNumber() const;
-        [[nodiscard]] auto ColumnNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) SourceUri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) LineNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) ColumnNumber() const;
     };
     template <> struct consume<Windows::Web::Http::Diagnostics::IHttpDiagnosticSourceLocation>
     {

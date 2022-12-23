@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -9,8 +9,13 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
     template <typename T> struct IReference;
     template <typename TSender, typename TResult> struct TypedEventHandler;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage::Streams
 {
@@ -169,64 +174,62 @@ namespace winrt::impl
     template <> struct category<Windows::Devices::Usb::UsbReadOptions>{ using type = enum_category; };
     template <> struct category<Windows::Devices::Usb::UsbTransferDirection>{ using type = enum_category; };
     template <> struct category<Windows::Devices::Usb::UsbWriteOptions>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbBulkInEndpointDescriptor>{ L"Windows.Devices.Usb.UsbBulkInEndpointDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbBulkInPipe>{ L"Windows.Devices.Usb.UsbBulkInPipe" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbBulkOutEndpointDescriptor>{ L"Windows.Devices.Usb.UsbBulkOutEndpointDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbBulkOutPipe>{ L"Windows.Devices.Usb.UsbBulkOutPipe" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbConfiguration>{ L"Windows.Devices.Usb.UsbConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbConfigurationDescriptor>{ L"Windows.Devices.Usb.UsbConfigurationDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbControlRequestType>{ L"Windows.Devices.Usb.UsbControlRequestType" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbDescriptor>{ L"Windows.Devices.Usb.UsbDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbDevice>{ L"Windows.Devices.Usb.UsbDevice" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbDeviceClass>{ L"Windows.Devices.Usb.UsbDeviceClass" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbDeviceClasses>{ L"Windows.Devices.Usb.UsbDeviceClasses" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbDeviceDescriptor>{ L"Windows.Devices.Usb.UsbDeviceDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbEndpointDescriptor>{ L"Windows.Devices.Usb.UsbEndpointDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbInterface>{ L"Windows.Devices.Usb.UsbInterface" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbInterfaceDescriptor>{ L"Windows.Devices.Usb.UsbInterfaceDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbInterfaceSetting>{ L"Windows.Devices.Usb.UsbInterfaceSetting" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbInterruptInEndpointDescriptor>{ L"Windows.Devices.Usb.UsbInterruptInEndpointDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbInterruptInEventArgs>{ L"Windows.Devices.Usb.UsbInterruptInEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbInterruptInPipe>{ L"Windows.Devices.Usb.UsbInterruptInPipe" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbInterruptOutEndpointDescriptor>{ L"Windows.Devices.Usb.UsbInterruptOutEndpointDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbInterruptOutPipe>{ L"Windows.Devices.Usb.UsbInterruptOutPipe" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbSetupPacket>{ L"Windows.Devices.Usb.UsbSetupPacket" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbControlRecipient>{ L"Windows.Devices.Usb.UsbControlRecipient" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbControlTransferType>{ L"Windows.Devices.Usb.UsbControlTransferType" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbEndpointType>{ L"Windows.Devices.Usb.UsbEndpointType" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbReadOptions>{ L"Windows.Devices.Usb.UsbReadOptions" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbTransferDirection>{ L"Windows.Devices.Usb.UsbTransferDirection" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbWriteOptions>{ L"Windows.Devices.Usb.UsbWriteOptions" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbBulkInEndpointDescriptor>{ L"Windows.Devices.Usb.IUsbBulkInEndpointDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbBulkInPipe>{ L"Windows.Devices.Usb.IUsbBulkInPipe" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbBulkOutEndpointDescriptor>{ L"Windows.Devices.Usb.IUsbBulkOutEndpointDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbBulkOutPipe>{ L"Windows.Devices.Usb.IUsbBulkOutPipe" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbConfiguration>{ L"Windows.Devices.Usb.IUsbConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbConfigurationDescriptor>{ L"Windows.Devices.Usb.IUsbConfigurationDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbConfigurationDescriptorStatics>{ L"Windows.Devices.Usb.IUsbConfigurationDescriptorStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbControlRequestType>{ L"Windows.Devices.Usb.IUsbControlRequestType" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbDescriptor>{ L"Windows.Devices.Usb.IUsbDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbDevice>{ L"Windows.Devices.Usb.IUsbDevice" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbDeviceClass>{ L"Windows.Devices.Usb.IUsbDeviceClass" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbDeviceClasses>{ L"Windows.Devices.Usb.IUsbDeviceClasses" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbDeviceClassesStatics>{ L"Windows.Devices.Usb.IUsbDeviceClassesStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbDeviceDescriptor>{ L"Windows.Devices.Usb.IUsbDeviceDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbDeviceStatics>{ L"Windows.Devices.Usb.IUsbDeviceStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbEndpointDescriptor>{ L"Windows.Devices.Usb.IUsbEndpointDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbEndpointDescriptorStatics>{ L"Windows.Devices.Usb.IUsbEndpointDescriptorStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbInterface>{ L"Windows.Devices.Usb.IUsbInterface" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbInterfaceDescriptor>{ L"Windows.Devices.Usb.IUsbInterfaceDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbInterfaceDescriptorStatics>{ L"Windows.Devices.Usb.IUsbInterfaceDescriptorStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbInterfaceSetting>{ L"Windows.Devices.Usb.IUsbInterfaceSetting" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbInterruptInEndpointDescriptor>{ L"Windows.Devices.Usb.IUsbInterruptInEndpointDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbInterruptInEventArgs>{ L"Windows.Devices.Usb.IUsbInterruptInEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbInterruptInPipe>{ L"Windows.Devices.Usb.IUsbInterruptInPipe" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbInterruptOutEndpointDescriptor>{ L"Windows.Devices.Usb.IUsbInterruptOutEndpointDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbInterruptOutPipe>{ L"Windows.Devices.Usb.IUsbInterruptOutPipe" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbSetupPacket>{ L"Windows.Devices.Usb.IUsbSetupPacket" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbSetupPacketFactory>{ L"Windows.Devices.Usb.IUsbSetupPacketFactory" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbBulkInEndpointDescriptor> = L"Windows.Devices.Usb.UsbBulkInEndpointDescriptor";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbBulkInPipe> = L"Windows.Devices.Usb.UsbBulkInPipe";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbBulkOutEndpointDescriptor> = L"Windows.Devices.Usb.UsbBulkOutEndpointDescriptor";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbBulkOutPipe> = L"Windows.Devices.Usb.UsbBulkOutPipe";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbConfiguration> = L"Windows.Devices.Usb.UsbConfiguration";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbConfigurationDescriptor> = L"Windows.Devices.Usb.UsbConfigurationDescriptor";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbControlRequestType> = L"Windows.Devices.Usb.UsbControlRequestType";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbDescriptor> = L"Windows.Devices.Usb.UsbDescriptor";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbDevice> = L"Windows.Devices.Usb.UsbDevice";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbDeviceClass> = L"Windows.Devices.Usb.UsbDeviceClass";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbDeviceClasses> = L"Windows.Devices.Usb.UsbDeviceClasses";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbDeviceDescriptor> = L"Windows.Devices.Usb.UsbDeviceDescriptor";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbEndpointDescriptor> = L"Windows.Devices.Usb.UsbEndpointDescriptor";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbInterface> = L"Windows.Devices.Usb.UsbInterface";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbInterfaceDescriptor> = L"Windows.Devices.Usb.UsbInterfaceDescriptor";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbInterfaceSetting> = L"Windows.Devices.Usb.UsbInterfaceSetting";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbInterruptInEndpointDescriptor> = L"Windows.Devices.Usb.UsbInterruptInEndpointDescriptor";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbInterruptInEventArgs> = L"Windows.Devices.Usb.UsbInterruptInEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbInterruptInPipe> = L"Windows.Devices.Usb.UsbInterruptInPipe";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbInterruptOutEndpointDescriptor> = L"Windows.Devices.Usb.UsbInterruptOutEndpointDescriptor";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbInterruptOutPipe> = L"Windows.Devices.Usb.UsbInterruptOutPipe";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbSetupPacket> = L"Windows.Devices.Usb.UsbSetupPacket";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbControlRecipient> = L"Windows.Devices.Usb.UsbControlRecipient";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbControlTransferType> = L"Windows.Devices.Usb.UsbControlTransferType";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbEndpointType> = L"Windows.Devices.Usb.UsbEndpointType";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbReadOptions> = L"Windows.Devices.Usb.UsbReadOptions";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbTransferDirection> = L"Windows.Devices.Usb.UsbTransferDirection";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::UsbWriteOptions> = L"Windows.Devices.Usb.UsbWriteOptions";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbBulkInEndpointDescriptor> = L"Windows.Devices.Usb.IUsbBulkInEndpointDescriptor";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbBulkInPipe> = L"Windows.Devices.Usb.IUsbBulkInPipe";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbBulkOutEndpointDescriptor> = L"Windows.Devices.Usb.IUsbBulkOutEndpointDescriptor";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbBulkOutPipe> = L"Windows.Devices.Usb.IUsbBulkOutPipe";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbConfiguration> = L"Windows.Devices.Usb.IUsbConfiguration";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbConfigurationDescriptor> = L"Windows.Devices.Usb.IUsbConfigurationDescriptor";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbConfigurationDescriptorStatics> = L"Windows.Devices.Usb.IUsbConfigurationDescriptorStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbControlRequestType> = L"Windows.Devices.Usb.IUsbControlRequestType";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbDescriptor> = L"Windows.Devices.Usb.IUsbDescriptor";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbDevice> = L"Windows.Devices.Usb.IUsbDevice";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbDeviceClass> = L"Windows.Devices.Usb.IUsbDeviceClass";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbDeviceClasses> = L"Windows.Devices.Usb.IUsbDeviceClasses";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbDeviceClassesStatics> = L"Windows.Devices.Usb.IUsbDeviceClassesStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbDeviceDescriptor> = L"Windows.Devices.Usb.IUsbDeviceDescriptor";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbDeviceStatics> = L"Windows.Devices.Usb.IUsbDeviceStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbEndpointDescriptor> = L"Windows.Devices.Usb.IUsbEndpointDescriptor";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbEndpointDescriptorStatics> = L"Windows.Devices.Usb.IUsbEndpointDescriptorStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbInterface> = L"Windows.Devices.Usb.IUsbInterface";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbInterfaceDescriptor> = L"Windows.Devices.Usb.IUsbInterfaceDescriptor";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbInterfaceDescriptorStatics> = L"Windows.Devices.Usb.IUsbInterfaceDescriptorStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbInterfaceSetting> = L"Windows.Devices.Usb.IUsbInterfaceSetting";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbInterruptInEndpointDescriptor> = L"Windows.Devices.Usb.IUsbInterruptInEndpointDescriptor";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbInterruptInEventArgs> = L"Windows.Devices.Usb.IUsbInterruptInEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbInterruptInPipe> = L"Windows.Devices.Usb.IUsbInterruptInPipe";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbInterruptOutEndpointDescriptor> = L"Windows.Devices.Usb.IUsbInterruptOutEndpointDescriptor";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbInterruptOutPipe> = L"Windows.Devices.Usb.IUsbInterruptOutPipe";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbSetupPacket> = L"Windows.Devices.Usb.IUsbSetupPacket";
+    template <> inline constexpr auto& name_v<Windows::Devices::Usb::IUsbSetupPacketFactory> = L"Windows.Devices.Usb.IUsbSetupPacketFactory";
     template <> inline constexpr guid guid_v<Windows::Devices::Usb::IUsbBulkInEndpointDescriptor>{ 0x3C6E4846,0x06CF,0x42A9,{ 0x9D,0xC2,0x97,0x1C,0x1B,0x14,0xB6,0xE3 } };
     template <> inline constexpr guid guid_v<Windows::Devices::Usb::IUsbBulkInPipe>{ 0xF01D2D3B,0x4548,0x4D50,{ 0xB3,0x26,0xD8,0x2C,0xDA,0xBE,0x12,0x20 } };
     template <> inline constexpr guid guid_v<Windows::Devices::Usb::IUsbBulkOutEndpointDescriptor>{ 0x2820847A,0xFFEE,0x4F60,{ 0x9B,0xE1,0x95,0x6C,0xAC,0x3E,0xCB,0x65 } };
@@ -579,9 +582,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Usb_IUsbBulkInEndpointDescriptor
     {
-        [[nodiscard]] auto MaxPacketSize() const;
-        [[nodiscard]] auto EndpointNumber() const;
-        [[nodiscard]] auto Pipe() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxPacketSize() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) EndpointNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbBulkInPipe) Pipe() const;
     };
     template <> struct consume<Windows::Devices::Usb::IUsbBulkInEndpointDescriptor>
     {
@@ -590,13 +593,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Usb_IUsbBulkInPipe
     {
-        [[nodiscard]] auto MaxTransferSizeBytes() const;
-        [[nodiscard]] auto EndpointDescriptor() const;
-        auto ClearStallAsync() const;
-        auto ReadOptions(Windows::Devices::Usb::UsbReadOptions const& value) const;
-        [[nodiscard]] auto ReadOptions() const;
-        auto FlushBuffer() const;
-        [[nodiscard]] auto InputStream() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxTransferSizeBytes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbBulkInEndpointDescriptor) EndpointDescriptor() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ClearStallAsync() const;
+        WINRT_IMPL_AUTO(void) ReadOptions(Windows::Devices::Usb::UsbReadOptions const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbReadOptions) ReadOptions() const;
+        WINRT_IMPL_AUTO(void) FlushBuffer() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IInputStream) InputStream() const;
     };
     template <> struct consume<Windows::Devices::Usb::IUsbBulkInPipe>
     {
@@ -605,9 +608,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Usb_IUsbBulkOutEndpointDescriptor
     {
-        [[nodiscard]] auto MaxPacketSize() const;
-        [[nodiscard]] auto EndpointNumber() const;
-        [[nodiscard]] auto Pipe() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxPacketSize() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) EndpointNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbBulkOutPipe) Pipe() const;
     };
     template <> struct consume<Windows::Devices::Usb::IUsbBulkOutEndpointDescriptor>
     {
@@ -616,11 +619,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Usb_IUsbBulkOutPipe
     {
-        [[nodiscard]] auto EndpointDescriptor() const;
-        auto ClearStallAsync() const;
-        auto WriteOptions(Windows::Devices::Usb::UsbWriteOptions const& value) const;
-        [[nodiscard]] auto WriteOptions() const;
-        [[nodiscard]] auto OutputStream() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbBulkOutEndpointDescriptor) EndpointDescriptor() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ClearStallAsync() const;
+        WINRT_IMPL_AUTO(void) WriteOptions(Windows::Devices::Usb::UsbWriteOptions const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbWriteOptions) WriteOptions() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IOutputStream) OutputStream() const;
     };
     template <> struct consume<Windows::Devices::Usb::IUsbBulkOutPipe>
     {
@@ -629,9 +632,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Usb_IUsbConfiguration
     {
-        [[nodiscard]] auto UsbInterfaces() const;
-        [[nodiscard]] auto ConfigurationDescriptor() const;
-        [[nodiscard]] auto Descriptors() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Usb::UsbInterface>) UsbInterfaces() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbConfigurationDescriptor) ConfigurationDescriptor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Usb::UsbDescriptor>) Descriptors() const;
     };
     template <> struct consume<Windows::Devices::Usb::IUsbConfiguration>
     {
@@ -640,10 +643,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Usb_IUsbConfigurationDescriptor
     {
-        [[nodiscard]] auto ConfigurationValue() const;
-        [[nodiscard]] auto MaxPowerMilliamps() const;
-        [[nodiscard]] auto SelfPowered() const;
-        [[nodiscard]] auto RemoteWakeup() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) ConfigurationValue() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxPowerMilliamps() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) SelfPowered() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) RemoteWakeup() const;
     };
     template <> struct consume<Windows::Devices::Usb::IUsbConfigurationDescriptor>
     {
@@ -652,8 +655,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Usb_IUsbConfigurationDescriptorStatics
     {
-        auto TryParse(Windows::Devices::Usb::UsbDescriptor const& descriptor, Windows::Devices::Usb::UsbConfigurationDescriptor& parsed) const;
-        auto Parse(Windows::Devices::Usb::UsbDescriptor const& descriptor) const;
+        WINRT_IMPL_AUTO(bool) TryParse(Windows::Devices::Usb::UsbDescriptor const& descriptor, Windows::Devices::Usb::UsbConfigurationDescriptor& parsed) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbConfigurationDescriptor) Parse(Windows::Devices::Usb::UsbDescriptor const& descriptor) const;
     };
     template <> struct consume<Windows::Devices::Usb::IUsbConfigurationDescriptorStatics>
     {
@@ -662,14 +665,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Usb_IUsbControlRequestType
     {
-        [[nodiscard]] auto Direction() const;
-        auto Direction(Windows::Devices::Usb::UsbTransferDirection const& value) const;
-        [[nodiscard]] auto ControlTransferType() const;
-        auto ControlTransferType(Windows::Devices::Usb::UsbControlTransferType const& value) const;
-        [[nodiscard]] auto Recipient() const;
-        auto Recipient(Windows::Devices::Usb::UsbControlRecipient const& value) const;
-        [[nodiscard]] auto AsByte() const;
-        auto AsByte(uint8_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbTransferDirection) Direction() const;
+        WINRT_IMPL_AUTO(void) Direction(Windows::Devices::Usb::UsbTransferDirection const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbControlTransferType) ControlTransferType() const;
+        WINRT_IMPL_AUTO(void) ControlTransferType(Windows::Devices::Usb::UsbControlTransferType const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbControlRecipient) Recipient() const;
+        WINRT_IMPL_AUTO(void) Recipient(Windows::Devices::Usb::UsbControlRecipient const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) AsByte() const;
+        WINRT_IMPL_AUTO(void) AsByte(uint8_t value) const;
     };
     template <> struct consume<Windows::Devices::Usb::IUsbControlRequestType>
     {
@@ -678,9 +681,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Usb_IUsbDescriptor
     {
-        [[nodiscard]] auto Length() const;
-        [[nodiscard]] auto DescriptorType() const;
-        auto ReadDescriptorBuffer(Windows::Storage::Streams::IBuffer const& buffer) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) Length() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) DescriptorType() const;
+        WINRT_IMPL_AUTO(void) ReadDescriptorBuffer(Windows::Storage::Streams::IBuffer const& buffer) const;
     };
     template <> struct consume<Windows::Devices::Usb::IUsbDescriptor>
     {
@@ -689,13 +692,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Usb_IUsbDevice
     {
-        auto SendControlOutTransferAsync(Windows::Devices::Usb::UsbSetupPacket const& setupPacket, Windows::Storage::Streams::IBuffer const& buffer) const;
-        auto SendControlOutTransferAsync(Windows::Devices::Usb::UsbSetupPacket const& setupPacket) const;
-        auto SendControlInTransferAsync(Windows::Devices::Usb::UsbSetupPacket const& setupPacket, Windows::Storage::Streams::IBuffer const& buffer) const;
-        auto SendControlInTransferAsync(Windows::Devices::Usb::UsbSetupPacket const& setupPacket) const;
-        [[nodiscard]] auto DefaultInterface() const;
-        [[nodiscard]] auto DeviceDescriptor() const;
-        [[nodiscard]] auto Configuration() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<uint32_t>) SendControlOutTransferAsync(Windows::Devices::Usb::UsbSetupPacket const& setupPacket, Windows::Storage::Streams::IBuffer const& buffer) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<uint32_t>) SendControlOutTransferAsync(Windows::Devices::Usb::UsbSetupPacket const& setupPacket) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::IBuffer>) SendControlInTransferAsync(Windows::Devices::Usb::UsbSetupPacket const& setupPacket, Windows::Storage::Streams::IBuffer const& buffer) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::IBuffer>) SendControlInTransferAsync(Windows::Devices::Usb::UsbSetupPacket const& setupPacket) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbInterface) DefaultInterface() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbDeviceDescriptor) DeviceDescriptor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbConfiguration) Configuration() const;
     };
     template <> struct consume<Windows::Devices::Usb::IUsbDevice>
     {
@@ -704,12 +707,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Usb_IUsbDeviceClass
     {
-        [[nodiscard]] auto ClassCode() const;
-        auto ClassCode(uint8_t value) const;
-        [[nodiscard]] auto SubclassCode() const;
-        auto SubclassCode(Windows::Foundation::IReference<uint8_t> const& value) const;
-        [[nodiscard]] auto ProtocolCode() const;
-        auto ProtocolCode(Windows::Foundation::IReference<uint8_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) ClassCode() const;
+        WINRT_IMPL_AUTO(void) ClassCode(uint8_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint8_t>) SubclassCode() const;
+        WINRT_IMPL_AUTO(void) SubclassCode(Windows::Foundation::IReference<uint8_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint8_t>) ProtocolCode() const;
+        WINRT_IMPL_AUTO(void) ProtocolCode(Windows::Foundation::IReference<uint8_t> const& value) const;
     };
     template <> struct consume<Windows::Devices::Usb::IUsbDeviceClass>
     {
@@ -726,15 +729,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Usb_IUsbDeviceClassesStatics
     {
-        [[nodiscard]] auto CdcControl() const;
-        [[nodiscard]] auto Physical() const;
-        [[nodiscard]] auto PersonalHealthcare() const;
-        [[nodiscard]] auto ActiveSync() const;
-        [[nodiscard]] auto PalmSync() const;
-        [[nodiscard]] auto DeviceFirmwareUpdate() const;
-        [[nodiscard]] auto Irda() const;
-        [[nodiscard]] auto Measurement() const;
-        [[nodiscard]] auto VendorSpecific() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbDeviceClass) CdcControl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbDeviceClass) Physical() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbDeviceClass) PersonalHealthcare() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbDeviceClass) ActiveSync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbDeviceClass) PalmSync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbDeviceClass) DeviceFirmwareUpdate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbDeviceClass) Irda() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbDeviceClass) Measurement() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbDeviceClass) VendorSpecific() const;
     };
     template <> struct consume<Windows::Devices::Usb::IUsbDeviceClassesStatics>
     {
@@ -743,12 +746,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Usb_IUsbDeviceDescriptor
     {
-        [[nodiscard]] auto BcdUsb() const;
-        [[nodiscard]] auto MaxPacketSize0() const;
-        [[nodiscard]] auto VendorId() const;
-        [[nodiscard]] auto ProductId() const;
-        [[nodiscard]] auto BcdDeviceRevision() const;
-        [[nodiscard]] auto NumberOfConfigurations() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) BcdUsb() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) MaxPacketSize0() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) VendorId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ProductId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) BcdDeviceRevision() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) NumberOfConfigurations() const;
     };
     template <> struct consume<Windows::Devices::Usb::IUsbDeviceDescriptor>
     {
@@ -757,11 +760,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Usb_IUsbDeviceStatics
     {
-        auto GetDeviceSelector(uint32_t vendorId, uint32_t productId, winrt::guid const& winUsbInterfaceClass) const;
-        auto GetDeviceSelector(winrt::guid const& winUsbInterfaceClass) const;
-        auto GetDeviceSelector(uint32_t vendorId, uint32_t productId) const;
-        auto GetDeviceClassSelector(Windows::Devices::Usb::UsbDeviceClass const& usbClass) const;
-        auto FromIdAsync(param::hstring const& deviceId) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector(uint32_t vendorId, uint32_t productId, winrt::guid const& winUsbInterfaceClass) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector(winrt::guid const& winUsbInterfaceClass) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector(uint32_t vendorId, uint32_t productId) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceClassSelector(Windows::Devices::Usb::UsbDeviceClass const& usbClass) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Usb::UsbDevice>) FromIdAsync(param::hstring const& deviceId) const;
     };
     template <> struct consume<Windows::Devices::Usb::IUsbDeviceStatics>
     {
@@ -770,13 +773,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Usb_IUsbEndpointDescriptor
     {
-        [[nodiscard]] auto EndpointNumber() const;
-        [[nodiscard]] auto Direction() const;
-        [[nodiscard]] auto EndpointType() const;
-        [[nodiscard]] auto AsBulkInEndpointDescriptor() const;
-        [[nodiscard]] auto AsInterruptInEndpointDescriptor() const;
-        [[nodiscard]] auto AsBulkOutEndpointDescriptor() const;
-        [[nodiscard]] auto AsInterruptOutEndpointDescriptor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) EndpointNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbTransferDirection) Direction() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbEndpointType) EndpointType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbBulkInEndpointDescriptor) AsBulkInEndpointDescriptor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbInterruptInEndpointDescriptor) AsInterruptInEndpointDescriptor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbBulkOutEndpointDescriptor) AsBulkOutEndpointDescriptor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbInterruptOutEndpointDescriptor) AsInterruptOutEndpointDescriptor() const;
     };
     template <> struct consume<Windows::Devices::Usb::IUsbEndpointDescriptor>
     {
@@ -785,8 +788,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Usb_IUsbEndpointDescriptorStatics
     {
-        auto TryParse(Windows::Devices::Usb::UsbDescriptor const& descriptor, Windows::Devices::Usb::UsbEndpointDescriptor& parsed) const;
-        auto Parse(Windows::Devices::Usb::UsbDescriptor const& descriptor) const;
+        WINRT_IMPL_AUTO(bool) TryParse(Windows::Devices::Usb::UsbDescriptor const& descriptor, Windows::Devices::Usb::UsbEndpointDescriptor& parsed) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbEndpointDescriptor) Parse(Windows::Devices::Usb::UsbDescriptor const& descriptor) const;
     };
     template <> struct consume<Windows::Devices::Usb::IUsbEndpointDescriptorStatics>
     {
@@ -795,13 +798,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Usb_IUsbInterface
     {
-        [[nodiscard]] auto BulkInPipes() const;
-        [[nodiscard]] auto InterruptInPipes() const;
-        [[nodiscard]] auto BulkOutPipes() const;
-        [[nodiscard]] auto InterruptOutPipes() const;
-        [[nodiscard]] auto InterfaceSettings() const;
-        [[nodiscard]] auto InterfaceNumber() const;
-        [[nodiscard]] auto Descriptors() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Usb::UsbBulkInPipe>) BulkInPipes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Usb::UsbInterruptInPipe>) InterruptInPipes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Usb::UsbBulkOutPipe>) BulkOutPipes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Usb::UsbInterruptOutPipe>) InterruptOutPipes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Usb::UsbInterfaceSetting>) InterfaceSettings() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) InterfaceNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Usb::UsbDescriptor>) Descriptors() const;
     };
     template <> struct consume<Windows::Devices::Usb::IUsbInterface>
     {
@@ -810,11 +813,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Usb_IUsbInterfaceDescriptor
     {
-        [[nodiscard]] auto ClassCode() const;
-        [[nodiscard]] auto SubclassCode() const;
-        [[nodiscard]] auto ProtocolCode() const;
-        [[nodiscard]] auto AlternateSettingNumber() const;
-        [[nodiscard]] auto InterfaceNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) ClassCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) SubclassCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) ProtocolCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) AlternateSettingNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) InterfaceNumber() const;
     };
     template <> struct consume<Windows::Devices::Usb::IUsbInterfaceDescriptor>
     {
@@ -823,8 +826,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Usb_IUsbInterfaceDescriptorStatics
     {
-        auto TryParse(Windows::Devices::Usb::UsbDescriptor const& descriptor, Windows::Devices::Usb::UsbInterfaceDescriptor& parsed) const;
-        auto Parse(Windows::Devices::Usb::UsbDescriptor const& descriptor) const;
+        WINRT_IMPL_AUTO(bool) TryParse(Windows::Devices::Usb::UsbDescriptor const& descriptor, Windows::Devices::Usb::UsbInterfaceDescriptor& parsed) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbInterfaceDescriptor) Parse(Windows::Devices::Usb::UsbDescriptor const& descriptor) const;
     };
     template <> struct consume<Windows::Devices::Usb::IUsbInterfaceDescriptorStatics>
     {
@@ -833,14 +836,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Usb_IUsbInterfaceSetting
     {
-        [[nodiscard]] auto BulkInEndpoints() const;
-        [[nodiscard]] auto InterruptInEndpoints() const;
-        [[nodiscard]] auto BulkOutEndpoints() const;
-        [[nodiscard]] auto InterruptOutEndpoints() const;
-        [[nodiscard]] auto Selected() const;
-        auto SelectSettingAsync() const;
-        [[nodiscard]] auto InterfaceDescriptor() const;
-        [[nodiscard]] auto Descriptors() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Usb::UsbBulkInEndpointDescriptor>) BulkInEndpoints() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Usb::UsbInterruptInEndpointDescriptor>) InterruptInEndpoints() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Usb::UsbBulkOutEndpointDescriptor>) BulkOutEndpoints() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Usb::UsbInterruptOutEndpointDescriptor>) InterruptOutEndpoints() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Selected() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SelectSettingAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbInterfaceDescriptor) InterfaceDescriptor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Usb::UsbDescriptor>) Descriptors() const;
     };
     template <> struct consume<Windows::Devices::Usb::IUsbInterfaceSetting>
     {
@@ -849,10 +852,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Usb_IUsbInterruptInEndpointDescriptor
     {
-        [[nodiscard]] auto MaxPacketSize() const;
-        [[nodiscard]] auto EndpointNumber() const;
-        [[nodiscard]] auto Interval() const;
-        [[nodiscard]] auto Pipe() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxPacketSize() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) EndpointNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Interval() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbInterruptInPipe) Pipe() const;
     };
     template <> struct consume<Windows::Devices::Usb::IUsbInterruptInEndpointDescriptor>
     {
@@ -861,7 +864,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Usb_IUsbInterruptInEventArgs
     {
-        [[nodiscard]] auto InterruptData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) InterruptData() const;
     };
     template <> struct consume<Windows::Devices::Usb::IUsbInterruptInEventArgs>
     {
@@ -870,12 +873,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Usb_IUsbInterruptInPipe
     {
-        [[nodiscard]] auto EndpointDescriptor() const;
-        auto ClearStallAsync() const;
-        auto DataReceived(Windows::Foundation::TypedEventHandler<Windows::Devices::Usb::UsbInterruptInPipe, Windows::Devices::Usb::UsbInterruptInEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbInterruptInEndpointDescriptor) EndpointDescriptor() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ClearStallAsync() const;
+        WINRT_IMPL_AUTO(winrt::event_token) DataReceived(Windows::Foundation::TypedEventHandler<Windows::Devices::Usb::UsbInterruptInPipe, Windows::Devices::Usb::UsbInterruptInEventArgs> const& handler) const;
         using DataReceived_revoker = impl::event_revoker<Windows::Devices::Usb::IUsbInterruptInPipe, &impl::abi_t<Windows::Devices::Usb::IUsbInterruptInPipe>::remove_DataReceived>;
         [[nodiscard]] DataReceived_revoker DataReceived(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Usb::UsbInterruptInPipe, Windows::Devices::Usb::UsbInterruptInEventArgs> const& handler) const;
-        auto DataReceived(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) DataReceived(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Devices::Usb::IUsbInterruptInPipe>
     {
@@ -884,10 +887,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Usb_IUsbInterruptOutEndpointDescriptor
     {
-        [[nodiscard]] auto MaxPacketSize() const;
-        [[nodiscard]] auto EndpointNumber() const;
-        [[nodiscard]] auto Interval() const;
-        [[nodiscard]] auto Pipe() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxPacketSize() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) EndpointNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Interval() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbInterruptOutPipe) Pipe() const;
     };
     template <> struct consume<Windows::Devices::Usb::IUsbInterruptOutEndpointDescriptor>
     {
@@ -896,11 +899,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Usb_IUsbInterruptOutPipe
     {
-        [[nodiscard]] auto EndpointDescriptor() const;
-        auto ClearStallAsync() const;
-        auto WriteOptions(Windows::Devices::Usb::UsbWriteOptions const& value) const;
-        [[nodiscard]] auto WriteOptions() const;
-        [[nodiscard]] auto OutputStream() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbInterruptOutEndpointDescriptor) EndpointDescriptor() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ClearStallAsync() const;
+        WINRT_IMPL_AUTO(void) WriteOptions(Windows::Devices::Usb::UsbWriteOptions const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbWriteOptions) WriteOptions() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IOutputStream) OutputStream() const;
     };
     template <> struct consume<Windows::Devices::Usb::IUsbInterruptOutPipe>
     {
@@ -909,16 +912,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Usb_IUsbSetupPacket
     {
-        [[nodiscard]] auto RequestType() const;
-        auto RequestType(Windows::Devices::Usb::UsbControlRequestType const& value) const;
-        [[nodiscard]] auto Request() const;
-        auto Request(uint8_t value) const;
-        [[nodiscard]] auto Value() const;
-        auto Value(uint32_t value) const;
-        [[nodiscard]] auto Index() const;
-        auto Index(uint32_t value) const;
-        [[nodiscard]] auto Length() const;
-        auto Length(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbControlRequestType) RequestType() const;
+        WINRT_IMPL_AUTO(void) RequestType(Windows::Devices::Usb::UsbControlRequestType const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) Request() const;
+        WINRT_IMPL_AUTO(void) Request(uint8_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Value() const;
+        WINRT_IMPL_AUTO(void) Value(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Index() const;
+        WINRT_IMPL_AUTO(void) Index(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Length() const;
+        WINRT_IMPL_AUTO(void) Length(uint32_t value) const;
     };
     template <> struct consume<Windows::Devices::Usb::IUsbSetupPacket>
     {
@@ -927,7 +930,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Usb_IUsbSetupPacketFactory
     {
-        auto CreateWithEightByteBuffer(Windows::Storage::Streams::IBuffer const& eightByteBuffer) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Usb::UsbSetupPacket) CreateWithEightByteBuffer(Windows::Storage::Streams::IBuffer const& eightByteBuffer) const;
     };
     template <> struct consume<Windows::Devices::Usb::IUsbSetupPacketFactory>
     {

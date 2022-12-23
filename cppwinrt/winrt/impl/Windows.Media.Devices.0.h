@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -13,6 +13,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
     template <typename T> struct IReference;
     struct Rect;
     template <typename TSender, typename TResult> struct TypedEventHandler;
@@ -20,6 +21,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Media::Capture
 {
@@ -464,131 +466,129 @@ namespace winrt::impl
     template <> struct category<Windows::Media::Devices::DialRequestedEventHandler>{ using type = delegate_category; };
     template <> struct category<Windows::Media::Devices::KeypadPressedEventHandler>{ using type = delegate_category; };
     template <> struct category<Windows::Media::Devices::RedialRequestedEventHandler>{ using type = delegate_category; };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::AdvancedPhotoCaptureSettings>{ L"Windows.Media.Devices.AdvancedPhotoCaptureSettings" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::AdvancedPhotoControl>{ L"Windows.Media.Devices.AdvancedPhotoControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::AudioDeviceController>{ L"Windows.Media.Devices.AudioDeviceController" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::AudioDeviceModule>{ L"Windows.Media.Devices.AudioDeviceModule" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::AudioDeviceModuleNotificationEventArgs>{ L"Windows.Media.Devices.AudioDeviceModuleNotificationEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::AudioDeviceModulesManager>{ L"Windows.Media.Devices.AudioDeviceModulesManager" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::CallControl>{ L"Windows.Media.Devices.CallControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::DefaultAudioCaptureDeviceChangedEventArgs>{ L"Windows.Media.Devices.DefaultAudioCaptureDeviceChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::DefaultAudioRenderDeviceChangedEventArgs>{ L"Windows.Media.Devices.DefaultAudioRenderDeviceChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::DialRequestedEventArgs>{ L"Windows.Media.Devices.DialRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::ExposureCompensationControl>{ L"Windows.Media.Devices.ExposureCompensationControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::ExposureControl>{ L"Windows.Media.Devices.ExposureControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::ExposurePriorityVideoControl>{ L"Windows.Media.Devices.ExposurePriorityVideoControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::FlashControl>{ L"Windows.Media.Devices.FlashControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::FocusControl>{ L"Windows.Media.Devices.FocusControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::FocusSettings>{ L"Windows.Media.Devices.FocusSettings" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::HdrVideoControl>{ L"Windows.Media.Devices.HdrVideoControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::InfraredTorchControl>{ L"Windows.Media.Devices.InfraredTorchControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IsoSpeedControl>{ L"Windows.Media.Devices.IsoSpeedControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::KeypadPressedEventArgs>{ L"Windows.Media.Devices.KeypadPressedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::LowLagPhotoControl>{ L"Windows.Media.Devices.LowLagPhotoControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::LowLagPhotoSequenceControl>{ L"Windows.Media.Devices.LowLagPhotoSequenceControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::MediaDevice>{ L"Windows.Media.Devices.MediaDevice" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::MediaDeviceControl>{ L"Windows.Media.Devices.MediaDeviceControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::MediaDeviceControlCapabilities>{ L"Windows.Media.Devices.MediaDeviceControlCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::ModuleCommandResult>{ L"Windows.Media.Devices.ModuleCommandResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::OpticalImageStabilizationControl>{ L"Windows.Media.Devices.OpticalImageStabilizationControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::PanelBasedOptimizationControl>{ L"Windows.Media.Devices.PanelBasedOptimizationControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::PhotoConfirmationControl>{ L"Windows.Media.Devices.PhotoConfirmationControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::RedialRequestedEventArgs>{ L"Windows.Media.Devices.RedialRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::RegionOfInterest>{ L"Windows.Media.Devices.RegionOfInterest" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::RegionsOfInterestControl>{ L"Windows.Media.Devices.RegionsOfInterestControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::SceneModeControl>{ L"Windows.Media.Devices.SceneModeControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::TorchControl>{ L"Windows.Media.Devices.TorchControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::VideoDeviceController>{ L"Windows.Media.Devices.VideoDeviceController" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::VideoDeviceControllerGetDevicePropertyResult>{ L"Windows.Media.Devices.VideoDeviceControllerGetDevicePropertyResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::VideoTemporalDenoisingControl>{ L"Windows.Media.Devices.VideoTemporalDenoisingControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::WhiteBalanceControl>{ L"Windows.Media.Devices.WhiteBalanceControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::ZoomControl>{ L"Windows.Media.Devices.ZoomControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::ZoomSettings>{ L"Windows.Media.Devices.ZoomSettings" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::AdvancedPhotoMode>{ L"Windows.Media.Devices.AdvancedPhotoMode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::AudioDeviceRole>{ L"Windows.Media.Devices.AudioDeviceRole" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::AutoFocusRange>{ L"Windows.Media.Devices.AutoFocusRange" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::CameraStreamState>{ L"Windows.Media.Devices.CameraStreamState" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::CaptureSceneMode>{ L"Windows.Media.Devices.CaptureSceneMode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::CaptureUse>{ L"Windows.Media.Devices.CaptureUse" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::ColorTemperaturePreset>{ L"Windows.Media.Devices.ColorTemperaturePreset" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::FocusMode>{ L"Windows.Media.Devices.FocusMode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::FocusPreset>{ L"Windows.Media.Devices.FocusPreset" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::HdrVideoMode>{ L"Windows.Media.Devices.HdrVideoMode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::InfraredTorchMode>{ L"Windows.Media.Devices.InfraredTorchMode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IsoSpeedPreset>{ L"Windows.Media.Devices.IsoSpeedPreset" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::ManualFocusDistance>{ L"Windows.Media.Devices.ManualFocusDistance" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::MediaCaptureFocusState>{ L"Windows.Media.Devices.MediaCaptureFocusState" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::MediaCaptureOptimization>{ L"Windows.Media.Devices.MediaCaptureOptimization" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::MediaCapturePauseBehavior>{ L"Windows.Media.Devices.MediaCapturePauseBehavior" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::OpticalImageStabilizationMode>{ L"Windows.Media.Devices.OpticalImageStabilizationMode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::RegionOfInterestType>{ L"Windows.Media.Devices.RegionOfInterestType" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::SendCommandStatus>{ L"Windows.Media.Devices.SendCommandStatus" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::TelephonyKey>{ L"Windows.Media.Devices.TelephonyKey" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::VideoDeviceControllerGetDevicePropertyStatus>{ L"Windows.Media.Devices.VideoDeviceControllerGetDevicePropertyStatus" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::VideoDeviceControllerSetDevicePropertyStatus>{ L"Windows.Media.Devices.VideoDeviceControllerSetDevicePropertyStatus" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::VideoTemporalDenoisingMode>{ L"Windows.Media.Devices.VideoTemporalDenoisingMode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::ZoomTransitionMode>{ L"Windows.Media.Devices.ZoomTransitionMode" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IAdvancedPhotoCaptureSettings>{ L"Windows.Media.Devices.IAdvancedPhotoCaptureSettings" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IAdvancedPhotoControl>{ L"Windows.Media.Devices.IAdvancedPhotoControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IAdvancedVideoCaptureDeviceController>{ L"Windows.Media.Devices.IAdvancedVideoCaptureDeviceController" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IAdvancedVideoCaptureDeviceController2>{ L"Windows.Media.Devices.IAdvancedVideoCaptureDeviceController2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IAdvancedVideoCaptureDeviceController3>{ L"Windows.Media.Devices.IAdvancedVideoCaptureDeviceController3" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IAdvancedVideoCaptureDeviceController4>{ L"Windows.Media.Devices.IAdvancedVideoCaptureDeviceController4" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IAdvancedVideoCaptureDeviceController5>{ L"Windows.Media.Devices.IAdvancedVideoCaptureDeviceController5" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IAdvancedVideoCaptureDeviceController6>{ L"Windows.Media.Devices.IAdvancedVideoCaptureDeviceController6" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IAdvancedVideoCaptureDeviceController7>{ L"Windows.Media.Devices.IAdvancedVideoCaptureDeviceController7" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IAdvancedVideoCaptureDeviceController8>{ L"Windows.Media.Devices.IAdvancedVideoCaptureDeviceController8" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IAudioDeviceController>{ L"Windows.Media.Devices.IAudioDeviceController" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IAudioDeviceModule>{ L"Windows.Media.Devices.IAudioDeviceModule" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IAudioDeviceModuleNotificationEventArgs>{ L"Windows.Media.Devices.IAudioDeviceModuleNotificationEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IAudioDeviceModulesManager>{ L"Windows.Media.Devices.IAudioDeviceModulesManager" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IAudioDeviceModulesManagerFactory>{ L"Windows.Media.Devices.IAudioDeviceModulesManagerFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::ICallControl>{ L"Windows.Media.Devices.ICallControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::ICallControlStatics>{ L"Windows.Media.Devices.ICallControlStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IDefaultAudioDeviceChangedEventArgs>{ L"Windows.Media.Devices.IDefaultAudioDeviceChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IDialRequestedEventArgs>{ L"Windows.Media.Devices.IDialRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IExposureCompensationControl>{ L"Windows.Media.Devices.IExposureCompensationControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IExposureControl>{ L"Windows.Media.Devices.IExposureControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IExposurePriorityVideoControl>{ L"Windows.Media.Devices.IExposurePriorityVideoControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IFlashControl>{ L"Windows.Media.Devices.IFlashControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IFlashControl2>{ L"Windows.Media.Devices.IFlashControl2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IFocusControl>{ L"Windows.Media.Devices.IFocusControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IFocusControl2>{ L"Windows.Media.Devices.IFocusControl2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IFocusSettings>{ L"Windows.Media.Devices.IFocusSettings" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IHdrVideoControl>{ L"Windows.Media.Devices.IHdrVideoControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IInfraredTorchControl>{ L"Windows.Media.Devices.IInfraredTorchControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IIsoSpeedControl>{ L"Windows.Media.Devices.IIsoSpeedControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IIsoSpeedControl2>{ L"Windows.Media.Devices.IIsoSpeedControl2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IKeypadPressedEventArgs>{ L"Windows.Media.Devices.IKeypadPressedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::ILowLagPhotoControl>{ L"Windows.Media.Devices.ILowLagPhotoControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::ILowLagPhotoSequenceControl>{ L"Windows.Media.Devices.ILowLagPhotoSequenceControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IMediaDeviceControl>{ L"Windows.Media.Devices.IMediaDeviceControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IMediaDeviceControlCapabilities>{ L"Windows.Media.Devices.IMediaDeviceControlCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IMediaDeviceController>{ L"Windows.Media.Devices.IMediaDeviceController" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IMediaDeviceStatics>{ L"Windows.Media.Devices.IMediaDeviceStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IModuleCommandResult>{ L"Windows.Media.Devices.IModuleCommandResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IOpticalImageStabilizationControl>{ L"Windows.Media.Devices.IOpticalImageStabilizationControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IPanelBasedOptimizationControl>{ L"Windows.Media.Devices.IPanelBasedOptimizationControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IPhotoConfirmationControl>{ L"Windows.Media.Devices.IPhotoConfirmationControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IRedialRequestedEventArgs>{ L"Windows.Media.Devices.IRedialRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IRegionOfInterest>{ L"Windows.Media.Devices.IRegionOfInterest" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IRegionOfInterest2>{ L"Windows.Media.Devices.IRegionOfInterest2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IRegionsOfInterestControl>{ L"Windows.Media.Devices.IRegionsOfInterestControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::ISceneModeControl>{ L"Windows.Media.Devices.ISceneModeControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::ITorchControl>{ L"Windows.Media.Devices.ITorchControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IVideoDeviceController>{ L"Windows.Media.Devices.IVideoDeviceController" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IVideoDeviceControllerGetDevicePropertyResult>{ L"Windows.Media.Devices.IVideoDeviceControllerGetDevicePropertyResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IVideoTemporalDenoisingControl>{ L"Windows.Media.Devices.IVideoTemporalDenoisingControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IWhiteBalanceControl>{ L"Windows.Media.Devices.IWhiteBalanceControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IZoomControl>{ L"Windows.Media.Devices.IZoomControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IZoomControl2>{ L"Windows.Media.Devices.IZoomControl2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::IZoomSettings>{ L"Windows.Media.Devices.IZoomSettings" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::CallControlEventHandler>{ L"Windows.Media.Devices.CallControlEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::DialRequestedEventHandler>{ L"Windows.Media.Devices.DialRequestedEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::KeypadPressedEventHandler>{ L"Windows.Media.Devices.KeypadPressedEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::RedialRequestedEventHandler>{ L"Windows.Media.Devices.RedialRequestedEventHandler" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::AdvancedPhotoCaptureSettings> = L"Windows.Media.Devices.AdvancedPhotoCaptureSettings";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::AdvancedPhotoControl> = L"Windows.Media.Devices.AdvancedPhotoControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::AudioDeviceController> = L"Windows.Media.Devices.AudioDeviceController";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::AudioDeviceModule> = L"Windows.Media.Devices.AudioDeviceModule";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::AudioDeviceModuleNotificationEventArgs> = L"Windows.Media.Devices.AudioDeviceModuleNotificationEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::AudioDeviceModulesManager> = L"Windows.Media.Devices.AudioDeviceModulesManager";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::CallControl> = L"Windows.Media.Devices.CallControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::DefaultAudioCaptureDeviceChangedEventArgs> = L"Windows.Media.Devices.DefaultAudioCaptureDeviceChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::DefaultAudioRenderDeviceChangedEventArgs> = L"Windows.Media.Devices.DefaultAudioRenderDeviceChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::DialRequestedEventArgs> = L"Windows.Media.Devices.DialRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::ExposureCompensationControl> = L"Windows.Media.Devices.ExposureCompensationControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::ExposureControl> = L"Windows.Media.Devices.ExposureControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::ExposurePriorityVideoControl> = L"Windows.Media.Devices.ExposurePriorityVideoControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::FlashControl> = L"Windows.Media.Devices.FlashControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::FocusControl> = L"Windows.Media.Devices.FocusControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::FocusSettings> = L"Windows.Media.Devices.FocusSettings";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::HdrVideoControl> = L"Windows.Media.Devices.HdrVideoControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::InfraredTorchControl> = L"Windows.Media.Devices.InfraredTorchControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IsoSpeedControl> = L"Windows.Media.Devices.IsoSpeedControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::KeypadPressedEventArgs> = L"Windows.Media.Devices.KeypadPressedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::LowLagPhotoControl> = L"Windows.Media.Devices.LowLagPhotoControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::LowLagPhotoSequenceControl> = L"Windows.Media.Devices.LowLagPhotoSequenceControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::MediaDevice> = L"Windows.Media.Devices.MediaDevice";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::MediaDeviceControl> = L"Windows.Media.Devices.MediaDeviceControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::MediaDeviceControlCapabilities> = L"Windows.Media.Devices.MediaDeviceControlCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::ModuleCommandResult> = L"Windows.Media.Devices.ModuleCommandResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::OpticalImageStabilizationControl> = L"Windows.Media.Devices.OpticalImageStabilizationControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::PanelBasedOptimizationControl> = L"Windows.Media.Devices.PanelBasedOptimizationControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::PhotoConfirmationControl> = L"Windows.Media.Devices.PhotoConfirmationControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::RedialRequestedEventArgs> = L"Windows.Media.Devices.RedialRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::RegionOfInterest> = L"Windows.Media.Devices.RegionOfInterest";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::RegionsOfInterestControl> = L"Windows.Media.Devices.RegionsOfInterestControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::SceneModeControl> = L"Windows.Media.Devices.SceneModeControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::TorchControl> = L"Windows.Media.Devices.TorchControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::VideoDeviceController> = L"Windows.Media.Devices.VideoDeviceController";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::VideoDeviceControllerGetDevicePropertyResult> = L"Windows.Media.Devices.VideoDeviceControllerGetDevicePropertyResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::VideoTemporalDenoisingControl> = L"Windows.Media.Devices.VideoTemporalDenoisingControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::WhiteBalanceControl> = L"Windows.Media.Devices.WhiteBalanceControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::ZoomControl> = L"Windows.Media.Devices.ZoomControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::ZoomSettings> = L"Windows.Media.Devices.ZoomSettings";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::AdvancedPhotoMode> = L"Windows.Media.Devices.AdvancedPhotoMode";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::AudioDeviceRole> = L"Windows.Media.Devices.AudioDeviceRole";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::AutoFocusRange> = L"Windows.Media.Devices.AutoFocusRange";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::CameraStreamState> = L"Windows.Media.Devices.CameraStreamState";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::CaptureSceneMode> = L"Windows.Media.Devices.CaptureSceneMode";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::CaptureUse> = L"Windows.Media.Devices.CaptureUse";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::ColorTemperaturePreset> = L"Windows.Media.Devices.ColorTemperaturePreset";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::FocusMode> = L"Windows.Media.Devices.FocusMode";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::FocusPreset> = L"Windows.Media.Devices.FocusPreset";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::HdrVideoMode> = L"Windows.Media.Devices.HdrVideoMode";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::InfraredTorchMode> = L"Windows.Media.Devices.InfraredTorchMode";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IsoSpeedPreset> = L"Windows.Media.Devices.IsoSpeedPreset";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::ManualFocusDistance> = L"Windows.Media.Devices.ManualFocusDistance";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::MediaCaptureFocusState> = L"Windows.Media.Devices.MediaCaptureFocusState";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::MediaCaptureOptimization> = L"Windows.Media.Devices.MediaCaptureOptimization";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::MediaCapturePauseBehavior> = L"Windows.Media.Devices.MediaCapturePauseBehavior";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::OpticalImageStabilizationMode> = L"Windows.Media.Devices.OpticalImageStabilizationMode";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::RegionOfInterestType> = L"Windows.Media.Devices.RegionOfInterestType";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::SendCommandStatus> = L"Windows.Media.Devices.SendCommandStatus";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::TelephonyKey> = L"Windows.Media.Devices.TelephonyKey";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::VideoDeviceControllerGetDevicePropertyStatus> = L"Windows.Media.Devices.VideoDeviceControllerGetDevicePropertyStatus";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::VideoDeviceControllerSetDevicePropertyStatus> = L"Windows.Media.Devices.VideoDeviceControllerSetDevicePropertyStatus";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::VideoTemporalDenoisingMode> = L"Windows.Media.Devices.VideoTemporalDenoisingMode";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::ZoomTransitionMode> = L"Windows.Media.Devices.ZoomTransitionMode";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IAdvancedPhotoCaptureSettings> = L"Windows.Media.Devices.IAdvancedPhotoCaptureSettings";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IAdvancedPhotoControl> = L"Windows.Media.Devices.IAdvancedPhotoControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IAdvancedVideoCaptureDeviceController> = L"Windows.Media.Devices.IAdvancedVideoCaptureDeviceController";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IAdvancedVideoCaptureDeviceController2> = L"Windows.Media.Devices.IAdvancedVideoCaptureDeviceController2";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IAdvancedVideoCaptureDeviceController3> = L"Windows.Media.Devices.IAdvancedVideoCaptureDeviceController3";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IAdvancedVideoCaptureDeviceController4> = L"Windows.Media.Devices.IAdvancedVideoCaptureDeviceController4";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IAdvancedVideoCaptureDeviceController5> = L"Windows.Media.Devices.IAdvancedVideoCaptureDeviceController5";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IAdvancedVideoCaptureDeviceController6> = L"Windows.Media.Devices.IAdvancedVideoCaptureDeviceController6";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IAdvancedVideoCaptureDeviceController7> = L"Windows.Media.Devices.IAdvancedVideoCaptureDeviceController7";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IAdvancedVideoCaptureDeviceController8> = L"Windows.Media.Devices.IAdvancedVideoCaptureDeviceController8";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IAudioDeviceController> = L"Windows.Media.Devices.IAudioDeviceController";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IAudioDeviceModule> = L"Windows.Media.Devices.IAudioDeviceModule";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IAudioDeviceModuleNotificationEventArgs> = L"Windows.Media.Devices.IAudioDeviceModuleNotificationEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IAudioDeviceModulesManager> = L"Windows.Media.Devices.IAudioDeviceModulesManager";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IAudioDeviceModulesManagerFactory> = L"Windows.Media.Devices.IAudioDeviceModulesManagerFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::ICallControl> = L"Windows.Media.Devices.ICallControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::ICallControlStatics> = L"Windows.Media.Devices.ICallControlStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IDefaultAudioDeviceChangedEventArgs> = L"Windows.Media.Devices.IDefaultAudioDeviceChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IDialRequestedEventArgs> = L"Windows.Media.Devices.IDialRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IExposureCompensationControl> = L"Windows.Media.Devices.IExposureCompensationControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IExposureControl> = L"Windows.Media.Devices.IExposureControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IExposurePriorityVideoControl> = L"Windows.Media.Devices.IExposurePriorityVideoControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IFlashControl> = L"Windows.Media.Devices.IFlashControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IFlashControl2> = L"Windows.Media.Devices.IFlashControl2";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IFocusControl> = L"Windows.Media.Devices.IFocusControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IFocusControl2> = L"Windows.Media.Devices.IFocusControl2";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IFocusSettings> = L"Windows.Media.Devices.IFocusSettings";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IHdrVideoControl> = L"Windows.Media.Devices.IHdrVideoControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IInfraredTorchControl> = L"Windows.Media.Devices.IInfraredTorchControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IIsoSpeedControl> = L"Windows.Media.Devices.IIsoSpeedControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IIsoSpeedControl2> = L"Windows.Media.Devices.IIsoSpeedControl2";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IKeypadPressedEventArgs> = L"Windows.Media.Devices.IKeypadPressedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::ILowLagPhotoControl> = L"Windows.Media.Devices.ILowLagPhotoControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::ILowLagPhotoSequenceControl> = L"Windows.Media.Devices.ILowLagPhotoSequenceControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IMediaDeviceControl> = L"Windows.Media.Devices.IMediaDeviceControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IMediaDeviceControlCapabilities> = L"Windows.Media.Devices.IMediaDeviceControlCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IMediaDeviceController> = L"Windows.Media.Devices.IMediaDeviceController";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IMediaDeviceStatics> = L"Windows.Media.Devices.IMediaDeviceStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IModuleCommandResult> = L"Windows.Media.Devices.IModuleCommandResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IOpticalImageStabilizationControl> = L"Windows.Media.Devices.IOpticalImageStabilizationControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IPanelBasedOptimizationControl> = L"Windows.Media.Devices.IPanelBasedOptimizationControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IPhotoConfirmationControl> = L"Windows.Media.Devices.IPhotoConfirmationControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IRedialRequestedEventArgs> = L"Windows.Media.Devices.IRedialRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IRegionOfInterest> = L"Windows.Media.Devices.IRegionOfInterest";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IRegionOfInterest2> = L"Windows.Media.Devices.IRegionOfInterest2";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IRegionsOfInterestControl> = L"Windows.Media.Devices.IRegionsOfInterestControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::ISceneModeControl> = L"Windows.Media.Devices.ISceneModeControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::ITorchControl> = L"Windows.Media.Devices.ITorchControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IVideoDeviceController> = L"Windows.Media.Devices.IVideoDeviceController";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IVideoDeviceControllerGetDevicePropertyResult> = L"Windows.Media.Devices.IVideoDeviceControllerGetDevicePropertyResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IVideoTemporalDenoisingControl> = L"Windows.Media.Devices.IVideoTemporalDenoisingControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IWhiteBalanceControl> = L"Windows.Media.Devices.IWhiteBalanceControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IZoomControl> = L"Windows.Media.Devices.IZoomControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IZoomControl2> = L"Windows.Media.Devices.IZoomControl2";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::IZoomSettings> = L"Windows.Media.Devices.IZoomSettings";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::CallControlEventHandler> = L"Windows.Media.Devices.CallControlEventHandler";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::DialRequestedEventHandler> = L"Windows.Media.Devices.DialRequestedEventHandler";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::KeypadPressedEventHandler> = L"Windows.Media.Devices.KeypadPressedEventHandler";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::RedialRequestedEventHandler> = L"Windows.Media.Devices.RedialRequestedEventHandler";
     template <> inline constexpr guid guid_v<Windows::Media::Devices::IAdvancedPhotoCaptureSettings>{ 0x08F3863A,0x0018,0x445B,{ 0x93,0xD2,0x64,0x6D,0x1C,0x5E,0xD0,0x5C } };
     template <> inline constexpr guid guid_v<Windows::Media::Devices::IAdvancedPhotoControl>{ 0xC5B15486,0x9001,0x4682,{ 0x93,0x09,0x68,0xEA,0xE0,0x08,0x0E,0xEC } };
     template <> inline constexpr guid guid_v<Windows::Media::Devices::IAdvancedVideoCaptureDeviceController>{ 0xDE6FF4D3,0x2B96,0x4583,{ 0x80,0xAB,0xB5,0xB0,0x1D,0xC6,0xA8,0xD7 } };
@@ -1348,8 +1348,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IAdvancedPhotoCaptureSettings
     {
-        [[nodiscard]] auto Mode() const;
-        auto Mode(Windows::Media::Devices::AdvancedPhotoMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::AdvancedPhotoMode) Mode() const;
+        WINRT_IMPL_AUTO(void) Mode(Windows::Media::Devices::AdvancedPhotoMode const& value) const;
     };
     template <> struct consume<Windows::Media::Devices::IAdvancedPhotoCaptureSettings>
     {
@@ -1358,10 +1358,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IAdvancedPhotoControl
     {
-        [[nodiscard]] auto Supported() const;
-        [[nodiscard]] auto SupportedModes() const;
-        [[nodiscard]] auto Mode() const;
-        auto Configure(Windows::Media::Devices::AdvancedPhotoCaptureSettings const& settings) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Supported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Devices::AdvancedPhotoMode>) SupportedModes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::AdvancedPhotoMode) Mode() const;
+        WINRT_IMPL_AUTO(void) Configure(Windows::Media::Devices::AdvancedPhotoCaptureSettings const& settings) const;
     };
     template <> struct consume<Windows::Media::Devices::IAdvancedPhotoControl>
     {
@@ -1370,8 +1370,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IAdvancedVideoCaptureDeviceController
     {
-        auto SetDeviceProperty(param::hstring const& propertyId, Windows::Foundation::IInspectable const& propertyValue) const;
-        auto GetDeviceProperty(param::hstring const& propertyId) const;
+        WINRT_IMPL_AUTO(void) SetDeviceProperty(param::hstring const& propertyId, Windows::Foundation::IInspectable const& propertyValue) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) GetDeviceProperty(param::hstring const& propertyId) const;
     };
     template <> struct consume<Windows::Media::Devices::IAdvancedVideoCaptureDeviceController>
     {
@@ -1380,19 +1380,19 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IAdvancedVideoCaptureDeviceController2
     {
-        [[nodiscard]] auto LowLagPhotoSequence() const;
-        [[nodiscard]] auto LowLagPhoto() const;
-        [[nodiscard]] auto SceneModeControl() const;
-        [[nodiscard]] auto TorchControl() const;
-        [[nodiscard]] auto FlashControl() const;
-        [[nodiscard]] auto WhiteBalanceControl() const;
-        [[nodiscard]] auto ExposureControl() const;
-        [[nodiscard]] auto FocusControl() const;
-        [[nodiscard]] auto ExposureCompensationControl() const;
-        [[nodiscard]] auto IsoSpeedControl() const;
-        [[nodiscard]] auto RegionsOfInterestControl() const;
-        [[nodiscard]] auto PrimaryUse() const;
-        auto PrimaryUse(Windows::Media::Devices::CaptureUse const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::LowLagPhotoSequenceControl) LowLagPhotoSequence() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::LowLagPhotoControl) LowLagPhoto() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::SceneModeControl) SceneModeControl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::TorchControl) TorchControl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::FlashControl) FlashControl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::WhiteBalanceControl) WhiteBalanceControl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::ExposureControl) ExposureControl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::FocusControl) FocusControl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::ExposureCompensationControl) ExposureCompensationControl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::IsoSpeedControl) IsoSpeedControl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::RegionsOfInterestControl) RegionsOfInterestControl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::CaptureUse) PrimaryUse() const;
+        WINRT_IMPL_AUTO(void) PrimaryUse(Windows::Media::Devices::CaptureUse const& value) const;
     };
     template <> struct consume<Windows::Media::Devices::IAdvancedVideoCaptureDeviceController2>
     {
@@ -1401,9 +1401,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IAdvancedVideoCaptureDeviceController3
     {
-        [[nodiscard]] auto VariablePhotoSequenceController() const;
-        [[nodiscard]] auto PhotoConfirmationControl() const;
-        [[nodiscard]] auto ZoomControl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::Core::VariablePhotoSequenceController) VariablePhotoSequenceController() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::PhotoConfirmationControl) PhotoConfirmationControl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::ZoomControl) ZoomControl() const;
     };
     template <> struct consume<Windows::Media::Devices::IAdvancedVideoCaptureDeviceController3>
     {
@@ -1412,12 +1412,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IAdvancedVideoCaptureDeviceController4
     {
-        [[nodiscard]] auto ExposurePriorityVideoControl() const;
-        [[nodiscard]] auto DesiredOptimization() const;
-        auto DesiredOptimization(Windows::Media::Devices::MediaCaptureOptimization const& value) const;
-        [[nodiscard]] auto HdrVideoControl() const;
-        [[nodiscard]] auto OpticalImageStabilizationControl() const;
-        [[nodiscard]] auto AdvancedPhotoControl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::ExposurePriorityVideoControl) ExposurePriorityVideoControl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::MediaCaptureOptimization) DesiredOptimization() const;
+        WINRT_IMPL_AUTO(void) DesiredOptimization(Windows::Media::Devices::MediaCaptureOptimization const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::HdrVideoControl) HdrVideoControl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::OpticalImageStabilizationControl) OpticalImageStabilizationControl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::AdvancedPhotoControl) AdvancedPhotoControl() const;
     };
     template <> struct consume<Windows::Media::Devices::IAdvancedVideoCaptureDeviceController4>
     {
@@ -1426,11 +1426,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IAdvancedVideoCaptureDeviceController5
     {
-        [[nodiscard]] auto Id() const;
-        auto GetDevicePropertyById(param::hstring const& propertyId, Windows::Foundation::IReference<uint32_t> const& maxPropertyValueSize) const;
-        auto SetDevicePropertyById(param::hstring const& propertyId, Windows::Foundation::IInspectable const& propertyValue) const;
-        auto GetDevicePropertyByExtendedId(array_view<uint8_t const> extendedPropertyId, Windows::Foundation::IReference<uint32_t> const& maxPropertyValueSize) const;
-        auto SetDevicePropertyByExtendedId(array_view<uint8_t const> extendedPropertyId, array_view<uint8_t const> propertyValue) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        WINRT_IMPL_AUTO(Windows::Media::Devices::VideoDeviceControllerGetDevicePropertyResult) GetDevicePropertyById(param::hstring const& propertyId, Windows::Foundation::IReference<uint32_t> const& maxPropertyValueSize) const;
+        WINRT_IMPL_AUTO(Windows::Media::Devices::VideoDeviceControllerSetDevicePropertyStatus) SetDevicePropertyById(param::hstring const& propertyId, Windows::Foundation::IInspectable const& propertyValue) const;
+        WINRT_IMPL_AUTO(Windows::Media::Devices::VideoDeviceControllerGetDevicePropertyResult) GetDevicePropertyByExtendedId(array_view<uint8_t const> extendedPropertyId, Windows::Foundation::IReference<uint32_t> const& maxPropertyValueSize) const;
+        WINRT_IMPL_AUTO(Windows::Media::Devices::VideoDeviceControllerSetDevicePropertyStatus) SetDevicePropertyByExtendedId(array_view<uint8_t const> extendedPropertyId, array_view<uint8_t const> propertyValue) const;
     };
     template <> struct consume<Windows::Media::Devices::IAdvancedVideoCaptureDeviceController5>
     {
@@ -1439,7 +1439,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IAdvancedVideoCaptureDeviceController6
     {
-        [[nodiscard]] auto VideoTemporalDenoisingControl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::VideoTemporalDenoisingControl) VideoTemporalDenoisingControl() const;
     };
     template <> struct consume<Windows::Media::Devices::IAdvancedVideoCaptureDeviceController6>
     {
@@ -1448,7 +1448,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IAdvancedVideoCaptureDeviceController7
     {
-        [[nodiscard]] auto InfraredTorchControl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::InfraredTorchControl) InfraredTorchControl() const;
     };
     template <> struct consume<Windows::Media::Devices::IAdvancedVideoCaptureDeviceController7>
     {
@@ -1457,7 +1457,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IAdvancedVideoCaptureDeviceController8
     {
-        [[nodiscard]] auto PanelBasedOptimizationControl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::PanelBasedOptimizationControl) PanelBasedOptimizationControl() const;
     };
     template <> struct consume<Windows::Media::Devices::IAdvancedVideoCaptureDeviceController8>
     {
@@ -1466,10 +1466,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IAudioDeviceController
     {
-        auto Muted(bool value) const;
-        [[nodiscard]] auto Muted() const;
-        auto VolumePercent(float value) const;
-        [[nodiscard]] auto VolumePercent() const;
+        WINRT_IMPL_AUTO(void) Muted(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Muted() const;
+        WINRT_IMPL_AUTO(void) VolumePercent(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) VolumePercent() const;
     };
     template <> struct consume<Windows::Media::Devices::IAudioDeviceController>
     {
@@ -1478,12 +1478,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IAudioDeviceModule
     {
-        [[nodiscard]] auto ClassId() const;
-        [[nodiscard]] auto DisplayName() const;
-        [[nodiscard]] auto InstanceId() const;
-        [[nodiscard]] auto MajorVersion() const;
-        [[nodiscard]] auto MinorVersion() const;
-        auto SendCommandAsync(Windows::Storage::Streams::IBuffer const& Command) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ClassId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) InstanceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MajorVersion() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MinorVersion() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Devices::ModuleCommandResult>) SendCommandAsync(Windows::Storage::Streams::IBuffer const& Command) const;
     };
     template <> struct consume<Windows::Media::Devices::IAudioDeviceModule>
     {
@@ -1492,8 +1492,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IAudioDeviceModuleNotificationEventArgs
     {
-        [[nodiscard]] auto Module() const;
-        [[nodiscard]] auto NotificationData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::AudioDeviceModule) Module() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) NotificationData() const;
     };
     template <> struct consume<Windows::Media::Devices::IAudioDeviceModuleNotificationEventArgs>
     {
@@ -1502,12 +1502,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IAudioDeviceModulesManager
     {
-        auto ModuleNotificationReceived(Windows::Foundation::TypedEventHandler<Windows::Media::Devices::AudioDeviceModulesManager, Windows::Media::Devices::AudioDeviceModuleNotificationEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) ModuleNotificationReceived(Windows::Foundation::TypedEventHandler<Windows::Media::Devices::AudioDeviceModulesManager, Windows::Media::Devices::AudioDeviceModuleNotificationEventArgs> const& handler) const;
         using ModuleNotificationReceived_revoker = impl::event_revoker<Windows::Media::Devices::IAudioDeviceModulesManager, &impl::abi_t<Windows::Media::Devices::IAudioDeviceModulesManager>::remove_ModuleNotificationReceived>;
         [[nodiscard]] ModuleNotificationReceived_revoker ModuleNotificationReceived(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Devices::AudioDeviceModulesManager, Windows::Media::Devices::AudioDeviceModuleNotificationEventArgs> const& handler) const;
-        auto ModuleNotificationReceived(winrt::event_token const& token) const noexcept;
-        auto FindAllById(param::hstring const& moduleId) const;
-        auto FindAll() const;
+        WINRT_IMPL_AUTO(void) ModuleNotificationReceived(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Devices::AudioDeviceModule>) FindAllById(param::hstring const& moduleId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Devices::AudioDeviceModule>) FindAll() const;
     };
     template <> struct consume<Windows::Media::Devices::IAudioDeviceModulesManager>
     {
@@ -1516,7 +1516,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IAudioDeviceModulesManagerFactory
     {
-        auto Create(param::hstring const& deviceId) const;
+        WINRT_IMPL_AUTO(Windows::Media::Devices::AudioDeviceModulesManager) Create(param::hstring const& deviceId) const;
     };
     template <> struct consume<Windows::Media::Devices::IAudioDeviceModulesManagerFactory>
     {
@@ -1525,35 +1525,35 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_ICallControl
     {
-        auto IndicateNewIncomingCall(bool enableRinger, param::hstring const& callerId) const;
-        auto IndicateNewOutgoingCall() const;
-        auto IndicateActiveCall(uint64_t callToken) const;
-        auto EndCall(uint64_t callToken) const;
-        [[nodiscard]] auto HasRinger() const;
-        auto AnswerRequested(Windows::Media::Devices::CallControlEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(uint64_t) IndicateNewIncomingCall(bool enableRinger, param::hstring const& callerId) const;
+        WINRT_IMPL_AUTO(uint64_t) IndicateNewOutgoingCall() const;
+        WINRT_IMPL_AUTO(void) IndicateActiveCall(uint64_t callToken) const;
+        WINRT_IMPL_AUTO(void) EndCall(uint64_t callToken) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) HasRinger() const;
+        WINRT_IMPL_AUTO(winrt::event_token) AnswerRequested(Windows::Media::Devices::CallControlEventHandler const& handler) const;
         using AnswerRequested_revoker = impl::event_revoker<Windows::Media::Devices::ICallControl, &impl::abi_t<Windows::Media::Devices::ICallControl>::remove_AnswerRequested>;
         [[nodiscard]] AnswerRequested_revoker AnswerRequested(auto_revoke_t, Windows::Media::Devices::CallControlEventHandler const& handler) const;
-        auto AnswerRequested(winrt::event_token const& token) const noexcept;
-        auto HangUpRequested(Windows::Media::Devices::CallControlEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) AnswerRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) HangUpRequested(Windows::Media::Devices::CallControlEventHandler const& handler) const;
         using HangUpRequested_revoker = impl::event_revoker<Windows::Media::Devices::ICallControl, &impl::abi_t<Windows::Media::Devices::ICallControl>::remove_HangUpRequested>;
         [[nodiscard]] HangUpRequested_revoker HangUpRequested(auto_revoke_t, Windows::Media::Devices::CallControlEventHandler const& handler) const;
-        auto HangUpRequested(winrt::event_token const& token) const noexcept;
-        auto DialRequested(Windows::Media::Devices::DialRequestedEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) HangUpRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) DialRequested(Windows::Media::Devices::DialRequestedEventHandler const& handler) const;
         using DialRequested_revoker = impl::event_revoker<Windows::Media::Devices::ICallControl, &impl::abi_t<Windows::Media::Devices::ICallControl>::remove_DialRequested>;
         [[nodiscard]] DialRequested_revoker DialRequested(auto_revoke_t, Windows::Media::Devices::DialRequestedEventHandler const& handler) const;
-        auto DialRequested(winrt::event_token const& token) const noexcept;
-        auto RedialRequested(Windows::Media::Devices::RedialRequestedEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) DialRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) RedialRequested(Windows::Media::Devices::RedialRequestedEventHandler const& handler) const;
         using RedialRequested_revoker = impl::event_revoker<Windows::Media::Devices::ICallControl, &impl::abi_t<Windows::Media::Devices::ICallControl>::remove_RedialRequested>;
         [[nodiscard]] RedialRequested_revoker RedialRequested(auto_revoke_t, Windows::Media::Devices::RedialRequestedEventHandler const& handler) const;
-        auto RedialRequested(winrt::event_token const& token) const noexcept;
-        auto KeypadPressed(Windows::Media::Devices::KeypadPressedEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) RedialRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) KeypadPressed(Windows::Media::Devices::KeypadPressedEventHandler const& handler) const;
         using KeypadPressed_revoker = impl::event_revoker<Windows::Media::Devices::ICallControl, &impl::abi_t<Windows::Media::Devices::ICallControl>::remove_KeypadPressed>;
         [[nodiscard]] KeypadPressed_revoker KeypadPressed(auto_revoke_t, Windows::Media::Devices::KeypadPressedEventHandler const& handler) const;
-        auto KeypadPressed(winrt::event_token const& token) const noexcept;
-        auto AudioTransferRequested(Windows::Media::Devices::CallControlEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) KeypadPressed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) AudioTransferRequested(Windows::Media::Devices::CallControlEventHandler const& handler) const;
         using AudioTransferRequested_revoker = impl::event_revoker<Windows::Media::Devices::ICallControl, &impl::abi_t<Windows::Media::Devices::ICallControl>::remove_AudioTransferRequested>;
         [[nodiscard]] AudioTransferRequested_revoker AudioTransferRequested(auto_revoke_t, Windows::Media::Devices::CallControlEventHandler const& handler) const;
-        auto AudioTransferRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) AudioTransferRequested(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Media::Devices::ICallControl>
     {
@@ -1562,8 +1562,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_ICallControlStatics
     {
-        auto GetDefault() const;
-        auto FromId(param::hstring const& deviceId) const;
+        WINRT_IMPL_AUTO(Windows::Media::Devices::CallControl) GetDefault() const;
+        WINRT_IMPL_AUTO(Windows::Media::Devices::CallControl) FromId(param::hstring const& deviceId) const;
     };
     template <> struct consume<Windows::Media::Devices::ICallControlStatics>
     {
@@ -1572,8 +1572,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IDefaultAudioDeviceChangedEventArgs
     {
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto Role() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::AudioDeviceRole) Role() const;
     };
     template <> struct consume<Windows::Media::Devices::IDefaultAudioDeviceChangedEventArgs>
     {
@@ -1582,8 +1582,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IDialRequestedEventArgs
     {
-        auto Handled() const;
-        [[nodiscard]] auto Contact() const;
+        WINRT_IMPL_AUTO(void) Handled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) Contact() const;
     };
     template <> struct consume<Windows::Media::Devices::IDialRequestedEventArgs>
     {
@@ -1592,12 +1592,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IExposureCompensationControl
     {
-        [[nodiscard]] auto Supported() const;
-        [[nodiscard]] auto Min() const;
-        [[nodiscard]] auto Max() const;
-        [[nodiscard]] auto Step() const;
-        [[nodiscard]] auto Value() const;
-        auto SetValueAsync(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Supported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) Min() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) Max() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) Step() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) Value() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetValueAsync(float value) const;
     };
     template <> struct consume<Windows::Media::Devices::IExposureCompensationControl>
     {
@@ -1606,14 +1606,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IExposureControl
     {
-        [[nodiscard]] auto Supported() const;
-        [[nodiscard]] auto Auto() const;
-        auto SetAutoAsync(bool value) const;
-        [[nodiscard]] auto Min() const;
-        [[nodiscard]] auto Max() const;
-        [[nodiscard]] auto Step() const;
-        [[nodiscard]] auto Value() const;
-        auto SetValueAsync(Windows::Foundation::TimeSpan const& shutterDuration) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Supported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Auto() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetAutoAsync(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Min() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Max() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Step() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Value() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetValueAsync(Windows::Foundation::TimeSpan const& shutterDuration) const;
     };
     template <> struct consume<Windows::Media::Devices::IExposureControl>
     {
@@ -1622,9 +1622,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IExposurePriorityVideoControl
     {
-        [[nodiscard]] auto Supported() const;
-        [[nodiscard]] auto Enabled() const;
-        auto Enabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Supported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Enabled() const;
+        WINRT_IMPL_AUTO(void) Enabled(bool value) const;
     };
     template <> struct consume<Windows::Media::Devices::IExposurePriorityVideoControl>
     {
@@ -1633,17 +1633,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IFlashControl
     {
-        [[nodiscard]] auto Supported() const;
-        [[nodiscard]] auto PowerSupported() const;
-        [[nodiscard]] auto RedEyeReductionSupported() const;
-        [[nodiscard]] auto Enabled() const;
-        auto Enabled(bool value) const;
-        [[nodiscard]] auto Auto() const;
-        auto Auto(bool value) const;
-        [[nodiscard]] auto RedEyeReduction() const;
-        auto RedEyeReduction(bool value) const;
-        [[nodiscard]] auto PowerPercent() const;
-        auto PowerPercent(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Supported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) PowerSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) RedEyeReductionSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Enabled() const;
+        WINRT_IMPL_AUTO(void) Enabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Auto() const;
+        WINRT_IMPL_AUTO(void) Auto(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) RedEyeReduction() const;
+        WINRT_IMPL_AUTO(void) RedEyeReduction(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) PowerPercent() const;
+        WINRT_IMPL_AUTO(void) PowerPercent(float value) const;
     };
     template <> struct consume<Windows::Media::Devices::IFlashControl>
     {
@@ -1652,9 +1652,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IFlashControl2
     {
-        [[nodiscard]] auto AssistantLightSupported() const;
-        [[nodiscard]] auto AssistantLightEnabled() const;
-        auto AssistantLightEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AssistantLightSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AssistantLightEnabled() const;
+        WINRT_IMPL_AUTO(void) AssistantLightEnabled(bool value) const;
     };
     template <> struct consume<Windows::Media::Devices::IFlashControl2>
     {
@@ -1663,17 +1663,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IFocusControl
     {
-        [[nodiscard]] auto Supported() const;
-        [[nodiscard]] auto SupportedPresets() const;
-        [[nodiscard]] auto Preset() const;
-        auto SetPresetAsync(Windows::Media::Devices::FocusPreset const& preset) const;
-        auto SetPresetAsync(Windows::Media::Devices::FocusPreset const& preset, bool completeBeforeFocus) const;
-        [[nodiscard]] auto Min() const;
-        [[nodiscard]] auto Max() const;
-        [[nodiscard]] auto Step() const;
-        [[nodiscard]] auto Value() const;
-        auto SetValueAsync(uint32_t focus) const;
-        auto FocusAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Supported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Devices::FocusPreset>) SupportedPresets() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::FocusPreset) Preset() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetPresetAsync(Windows::Media::Devices::FocusPreset const& preset) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetPresetAsync(Windows::Media::Devices::FocusPreset const& preset, bool completeBeforeFocus) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Min() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Max() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Step() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Value() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetValueAsync(uint32_t focus) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) FocusAsync() const;
     };
     template <> struct consume<Windows::Media::Devices::IFocusControl>
     {
@@ -1682,16 +1682,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IFocusControl2
     {
-        [[nodiscard]] auto FocusChangedSupported() const;
-        [[nodiscard]] auto WaitForFocusSupported() const;
-        [[nodiscard]] auto SupportedFocusModes() const;
-        [[nodiscard]] auto SupportedFocusDistances() const;
-        [[nodiscard]] auto SupportedFocusRanges() const;
-        [[nodiscard]] auto Mode() const;
-        [[nodiscard]] auto FocusState() const;
-        auto UnlockAsync() const;
-        auto LockAsync() const;
-        auto Configure(Windows::Media::Devices::FocusSettings const& settings) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) FocusChangedSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) WaitForFocusSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Devices::FocusMode>) SupportedFocusModes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Devices::ManualFocusDistance>) SupportedFocusDistances() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Devices::AutoFocusRange>) SupportedFocusRanges() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::FocusMode) Mode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::MediaCaptureFocusState) FocusState() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) UnlockAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) LockAsync() const;
+        WINRT_IMPL_AUTO(void) Configure(Windows::Media::Devices::FocusSettings const& settings) const;
     };
     template <> struct consume<Windows::Media::Devices::IFocusControl2>
     {
@@ -1700,18 +1700,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IFocusSettings
     {
-        [[nodiscard]] auto Mode() const;
-        auto Mode(Windows::Media::Devices::FocusMode const& value) const;
-        [[nodiscard]] auto AutoFocusRange() const;
-        auto AutoFocusRange(Windows::Media::Devices::AutoFocusRange const& value) const;
-        [[nodiscard]] auto Value() const;
-        auto Value(Windows::Foundation::IReference<uint32_t> const& value) const;
-        [[nodiscard]] auto Distance() const;
-        auto Distance(Windows::Foundation::IReference<Windows::Media::Devices::ManualFocusDistance> const& value) const;
-        [[nodiscard]] auto WaitForFocus() const;
-        auto WaitForFocus(bool value) const;
-        [[nodiscard]] auto DisableDriverFallback() const;
-        auto DisableDriverFallback(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::FocusMode) Mode() const;
+        WINRT_IMPL_AUTO(void) Mode(Windows::Media::Devices::FocusMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::AutoFocusRange) AutoFocusRange() const;
+        WINRT_IMPL_AUTO(void) AutoFocusRange(Windows::Media::Devices::AutoFocusRange const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint32_t>) Value() const;
+        WINRT_IMPL_AUTO(void) Value(Windows::Foundation::IReference<uint32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Media::Devices::ManualFocusDistance>) Distance() const;
+        WINRT_IMPL_AUTO(void) Distance(Windows::Foundation::IReference<Windows::Media::Devices::ManualFocusDistance> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) WaitForFocus() const;
+        WINRT_IMPL_AUTO(void) WaitForFocus(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) DisableDriverFallback() const;
+        WINRT_IMPL_AUTO(void) DisableDriverFallback(bool value) const;
     };
     template <> struct consume<Windows::Media::Devices::IFocusSettings>
     {
@@ -1720,10 +1720,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IHdrVideoControl
     {
-        [[nodiscard]] auto Supported() const;
-        [[nodiscard]] auto SupportedModes() const;
-        [[nodiscard]] auto Mode() const;
-        auto Mode(Windows::Media::Devices::HdrVideoMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Supported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Devices::HdrVideoMode>) SupportedModes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::HdrVideoMode) Mode() const;
+        WINRT_IMPL_AUTO(void) Mode(Windows::Media::Devices::HdrVideoMode const& value) const;
     };
     template <> struct consume<Windows::Media::Devices::IHdrVideoControl>
     {
@@ -1732,15 +1732,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IInfraredTorchControl
     {
-        [[nodiscard]] auto IsSupported() const;
-        [[nodiscard]] auto SupportedModes() const;
-        [[nodiscard]] auto CurrentMode() const;
-        auto CurrentMode(Windows::Media::Devices::InfraredTorchMode const& value) const;
-        [[nodiscard]] auto MinPower() const;
-        [[nodiscard]] auto MaxPower() const;
-        [[nodiscard]] auto PowerStep() const;
-        [[nodiscard]] auto Power() const;
-        auto Power(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Devices::InfraredTorchMode>) SupportedModes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::InfraredTorchMode) CurrentMode() const;
+        WINRT_IMPL_AUTO(void) CurrentMode(Windows::Media::Devices::InfraredTorchMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) MinPower() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) MaxPower() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) PowerStep() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Power() const;
+        WINRT_IMPL_AUTO(void) Power(int32_t value) const;
     };
     template <> struct consume<Windows::Media::Devices::IInfraredTorchControl>
     {
@@ -1749,10 +1749,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IIsoSpeedControl
     {
-        [[nodiscard]] auto Supported() const;
-        [[nodiscard]] auto SupportedPresets() const;
-        [[nodiscard]] auto Preset() const;
-        auto SetPresetAsync(Windows::Media::Devices::IsoSpeedPreset const& preset) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Supported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Devices::IsoSpeedPreset>) SupportedPresets() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::IsoSpeedPreset) Preset() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetPresetAsync(Windows::Media::Devices::IsoSpeedPreset const& preset) const;
     };
     template <> struct consume<Windows::Media::Devices::IIsoSpeedControl>
     {
@@ -1761,13 +1761,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IIsoSpeedControl2
     {
-        [[nodiscard]] auto Min() const;
-        [[nodiscard]] auto Max() const;
-        [[nodiscard]] auto Step() const;
-        [[nodiscard]] auto Value() const;
-        auto SetValueAsync(uint32_t isoSpeed) const;
-        [[nodiscard]] auto Auto() const;
-        auto SetAutoAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Min() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Max() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Step() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Value() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetValueAsync(uint32_t isoSpeed) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Auto() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetAutoAsync() const;
     };
     template <> struct consume<Windows::Media::Devices::IIsoSpeedControl2>
     {
@@ -1776,7 +1776,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IKeypadPressedEventArgs
     {
-        [[nodiscard]] auto TelephonyKey() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::TelephonyKey) TelephonyKey() const;
     };
     template <> struct consume<Windows::Media::Devices::IKeypadPressedEventArgs>
     {
@@ -1785,15 +1785,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_ILowLagPhotoControl
     {
-        auto GetHighestConcurrentFrameRate(Windows::Media::MediaProperties::IMediaEncodingProperties const& captureProperties) const;
-        auto GetCurrentFrameRate() const;
-        [[nodiscard]] auto ThumbnailEnabled() const;
-        auto ThumbnailEnabled(bool value) const;
-        [[nodiscard]] auto ThumbnailFormat() const;
-        auto ThumbnailFormat(Windows::Media::MediaProperties::MediaThumbnailFormat const& value) const;
-        [[nodiscard]] auto DesiredThumbnailSize() const;
-        auto DesiredThumbnailSize(uint32_t value) const;
-        [[nodiscard]] auto HardwareAcceleratedThumbnailSupported() const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::MediaRatio) GetHighestConcurrentFrameRate(Windows::Media::MediaProperties::IMediaEncodingProperties const& captureProperties) const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::MediaRatio) GetCurrentFrameRate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ThumbnailEnabled() const;
+        WINRT_IMPL_AUTO(void) ThumbnailEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::MediaProperties::MediaThumbnailFormat) ThumbnailFormat() const;
+        WINRT_IMPL_AUTO(void) ThumbnailFormat(Windows::Media::MediaProperties::MediaThumbnailFormat const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) DesiredThumbnailSize() const;
+        WINRT_IMPL_AUTO(void) DesiredThumbnailSize(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) HardwareAcceleratedThumbnailSupported() const;
     };
     template <> struct consume<Windows::Media::Devices::ILowLagPhotoControl>
     {
@@ -1802,22 +1802,22 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_ILowLagPhotoSequenceControl
     {
-        [[nodiscard]] auto Supported() const;
-        [[nodiscard]] auto MaxPastPhotos() const;
-        [[nodiscard]] auto MaxPhotosPerSecond() const;
-        [[nodiscard]] auto PastPhotoLimit() const;
-        auto PastPhotoLimit(uint32_t value) const;
-        [[nodiscard]] auto PhotosPerSecondLimit() const;
-        auto PhotosPerSecondLimit(float value) const;
-        auto GetHighestConcurrentFrameRate(Windows::Media::MediaProperties::IMediaEncodingProperties const& captureProperties) const;
-        auto GetCurrentFrameRate() const;
-        [[nodiscard]] auto ThumbnailEnabled() const;
-        auto ThumbnailEnabled(bool value) const;
-        [[nodiscard]] auto ThumbnailFormat() const;
-        auto ThumbnailFormat(Windows::Media::MediaProperties::MediaThumbnailFormat const& value) const;
-        [[nodiscard]] auto DesiredThumbnailSize() const;
-        auto DesiredThumbnailSize(uint32_t value) const;
-        [[nodiscard]] auto HardwareAcceleratedThumbnailSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Supported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxPastPhotos() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) MaxPhotosPerSecond() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) PastPhotoLimit() const;
+        WINRT_IMPL_AUTO(void) PastPhotoLimit(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) PhotosPerSecondLimit() const;
+        WINRT_IMPL_AUTO(void) PhotosPerSecondLimit(float value) const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::MediaRatio) GetHighestConcurrentFrameRate(Windows::Media::MediaProperties::IMediaEncodingProperties const& captureProperties) const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::MediaRatio) GetCurrentFrameRate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ThumbnailEnabled() const;
+        WINRT_IMPL_AUTO(void) ThumbnailEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::MediaProperties::MediaThumbnailFormat) ThumbnailFormat() const;
+        WINRT_IMPL_AUTO(void) ThumbnailFormat(Windows::Media::MediaProperties::MediaThumbnailFormat const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) DesiredThumbnailSize() const;
+        WINRT_IMPL_AUTO(void) DesiredThumbnailSize(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) HardwareAcceleratedThumbnailSupported() const;
     };
     template <> struct consume<Windows::Media::Devices::ILowLagPhotoSequenceControl>
     {
@@ -1826,11 +1826,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IMediaDeviceControl
     {
-        [[nodiscard]] auto Capabilities() const;
-        auto TryGetValue(double& value) const;
-        auto TrySetValue(double value) const;
-        auto TryGetAuto(bool& value) const;
-        auto TrySetAuto(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::MediaDeviceControlCapabilities) Capabilities() const;
+        WINRT_IMPL_AUTO(bool) TryGetValue(double& value) const;
+        WINRT_IMPL_AUTO(bool) TrySetValue(double value) const;
+        WINRT_IMPL_AUTO(bool) TryGetAuto(bool& value) const;
+        WINRT_IMPL_AUTO(bool) TrySetAuto(bool value) const;
     };
     template <> struct consume<Windows::Media::Devices::IMediaDeviceControl>
     {
@@ -1839,12 +1839,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IMediaDeviceControlCapabilities
     {
-        [[nodiscard]] auto Supported() const;
-        [[nodiscard]] auto Min() const;
-        [[nodiscard]] auto Max() const;
-        [[nodiscard]] auto Step() const;
-        [[nodiscard]] auto Default() const;
-        [[nodiscard]] auto AutoModeSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Supported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Min() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Max() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Step() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Default() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AutoModeSupported() const;
     };
     template <> struct consume<Windows::Media::Devices::IMediaDeviceControlCapabilities>
     {
@@ -1853,9 +1853,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IMediaDeviceController
     {
-        auto GetAvailableMediaStreamProperties(Windows::Media::Capture::MediaStreamType const& mediaStreamType) const;
-        auto GetMediaStreamProperties(Windows::Media::Capture::MediaStreamType const& mediaStreamType) const;
-        auto SetMediaStreamPropertiesAsync(Windows::Media::Capture::MediaStreamType const& mediaStreamType, Windows::Media::MediaProperties::IMediaEncodingProperties const& mediaEncodingProperties) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::MediaProperties::IMediaEncodingProperties>) GetAvailableMediaStreamProperties(Windows::Media::Capture::MediaStreamType const& mediaStreamType) const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::IMediaEncodingProperties) GetMediaStreamProperties(Windows::Media::Capture::MediaStreamType const& mediaStreamType) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetMediaStreamPropertiesAsync(Windows::Media::Capture::MediaStreamType const& mediaStreamType, Windows::Media::MediaProperties::IMediaEncodingProperties const& mediaEncodingProperties) const;
     };
     template <> struct consume<Windows::Media::Devices::IMediaDeviceController>
     {
@@ -1864,19 +1864,19 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IMediaDeviceStatics
     {
-        auto GetAudioCaptureSelector() const;
-        auto GetAudioRenderSelector() const;
-        auto GetVideoCaptureSelector() const;
-        auto GetDefaultAudioCaptureId(Windows::Media::Devices::AudioDeviceRole const& role) const;
-        auto GetDefaultAudioRenderId(Windows::Media::Devices::AudioDeviceRole const& role) const;
-        auto DefaultAudioCaptureDeviceChanged(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::Media::Devices::DefaultAudioCaptureDeviceChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(hstring) GetAudioCaptureSelector() const;
+        WINRT_IMPL_AUTO(hstring) GetAudioRenderSelector() const;
+        WINRT_IMPL_AUTO(hstring) GetVideoCaptureSelector() const;
+        WINRT_IMPL_AUTO(hstring) GetDefaultAudioCaptureId(Windows::Media::Devices::AudioDeviceRole const& role) const;
+        WINRT_IMPL_AUTO(hstring) GetDefaultAudioRenderId(Windows::Media::Devices::AudioDeviceRole const& role) const;
+        WINRT_IMPL_AUTO(winrt::event_token) DefaultAudioCaptureDeviceChanged(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::Media::Devices::DefaultAudioCaptureDeviceChangedEventArgs> const& handler) const;
         using DefaultAudioCaptureDeviceChanged_revoker = impl::event_revoker<Windows::Media::Devices::IMediaDeviceStatics, &impl::abi_t<Windows::Media::Devices::IMediaDeviceStatics>::remove_DefaultAudioCaptureDeviceChanged>;
         [[nodiscard]] DefaultAudioCaptureDeviceChanged_revoker DefaultAudioCaptureDeviceChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::Media::Devices::DefaultAudioCaptureDeviceChangedEventArgs> const& handler) const;
-        auto DefaultAudioCaptureDeviceChanged(winrt::event_token const& cookie) const noexcept;
-        auto DefaultAudioRenderDeviceChanged(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::Media::Devices::DefaultAudioRenderDeviceChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) DefaultAudioCaptureDeviceChanged(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) DefaultAudioRenderDeviceChanged(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::Media::Devices::DefaultAudioRenderDeviceChangedEventArgs> const& handler) const;
         using DefaultAudioRenderDeviceChanged_revoker = impl::event_revoker<Windows::Media::Devices::IMediaDeviceStatics, &impl::abi_t<Windows::Media::Devices::IMediaDeviceStatics>::remove_DefaultAudioRenderDeviceChanged>;
         [[nodiscard]] DefaultAudioRenderDeviceChanged_revoker DefaultAudioRenderDeviceChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::Media::Devices::DefaultAudioRenderDeviceChangedEventArgs> const& handler) const;
-        auto DefaultAudioRenderDeviceChanged(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(void) DefaultAudioRenderDeviceChanged(winrt::event_token const& cookie) const noexcept;
     };
     template <> struct consume<Windows::Media::Devices::IMediaDeviceStatics>
     {
@@ -1885,8 +1885,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IModuleCommandResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto Result() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::SendCommandStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) Result() const;
     };
     template <> struct consume<Windows::Media::Devices::IModuleCommandResult>
     {
@@ -1895,10 +1895,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IOpticalImageStabilizationControl
     {
-        [[nodiscard]] auto Supported() const;
-        [[nodiscard]] auto SupportedModes() const;
-        [[nodiscard]] auto Mode() const;
-        auto Mode(Windows::Media::Devices::OpticalImageStabilizationMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Supported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Devices::OpticalImageStabilizationMode>) SupportedModes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::OpticalImageStabilizationMode) Mode() const;
+        WINRT_IMPL_AUTO(void) Mode(Windows::Media::Devices::OpticalImageStabilizationMode const& value) const;
     };
     template <> struct consume<Windows::Media::Devices::IOpticalImageStabilizationControl>
     {
@@ -1907,9 +1907,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IPanelBasedOptimizationControl
     {
-        [[nodiscard]] auto IsSupported() const;
-        [[nodiscard]] auto Panel() const;
-        auto Panel(Windows::Devices::Enumeration::Panel const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Enumeration::Panel) Panel() const;
+        WINRT_IMPL_AUTO(void) Panel(Windows::Devices::Enumeration::Panel const& value) const;
     };
     template <> struct consume<Windows::Media::Devices::IPanelBasedOptimizationControl>
     {
@@ -1918,11 +1918,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IPhotoConfirmationControl
     {
-        [[nodiscard]] auto Supported() const;
-        [[nodiscard]] auto Enabled() const;
-        auto Enabled(bool value) const;
-        [[nodiscard]] auto PixelFormat() const;
-        auto PixelFormat(Windows::Media::MediaProperties::MediaPixelFormat const& format) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Supported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Enabled() const;
+        WINRT_IMPL_AUTO(void) Enabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::MediaProperties::MediaPixelFormat) PixelFormat() const;
+        WINRT_IMPL_AUTO(void) PixelFormat(Windows::Media::MediaProperties::MediaPixelFormat const& format) const;
     };
     template <> struct consume<Windows::Media::Devices::IPhotoConfirmationControl>
     {
@@ -1931,7 +1931,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IRedialRequestedEventArgs
     {
-        auto Handled() const;
+        WINRT_IMPL_AUTO(void) Handled() const;
     };
     template <> struct consume<Windows::Media::Devices::IRedialRequestedEventArgs>
     {
@@ -1940,14 +1940,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IRegionOfInterest
     {
-        [[nodiscard]] auto AutoFocusEnabled() const;
-        auto AutoFocusEnabled(bool value) const;
-        [[nodiscard]] auto AutoWhiteBalanceEnabled() const;
-        auto AutoWhiteBalanceEnabled(bool value) const;
-        [[nodiscard]] auto AutoExposureEnabled() const;
-        auto AutoExposureEnabled(bool value) const;
-        [[nodiscard]] auto Bounds() const;
-        auto Bounds(Windows::Foundation::Rect const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AutoFocusEnabled() const;
+        WINRT_IMPL_AUTO(void) AutoFocusEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AutoWhiteBalanceEnabled() const;
+        WINRT_IMPL_AUTO(void) AutoWhiteBalanceEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AutoExposureEnabled() const;
+        WINRT_IMPL_AUTO(void) AutoExposureEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) Bounds() const;
+        WINRT_IMPL_AUTO(void) Bounds(Windows::Foundation::Rect const& value) const;
     };
     template <> struct consume<Windows::Media::Devices::IRegionOfInterest>
     {
@@ -1956,12 +1956,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IRegionOfInterest2
     {
-        [[nodiscard]] auto Type() const;
-        auto Type(Windows::Media::Devices::RegionOfInterestType const& value) const;
-        [[nodiscard]] auto BoundsNormalized() const;
-        auto BoundsNormalized(bool value) const;
-        [[nodiscard]] auto Weight() const;
-        auto Weight(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::RegionOfInterestType) Type() const;
+        WINRT_IMPL_AUTO(void) Type(Windows::Media::Devices::RegionOfInterestType const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) BoundsNormalized() const;
+        WINRT_IMPL_AUTO(void) BoundsNormalized(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Weight() const;
+        WINRT_IMPL_AUTO(void) Weight(uint32_t value) const;
     };
     template <> struct consume<Windows::Media::Devices::IRegionOfInterest2>
     {
@@ -1970,13 +1970,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IRegionsOfInterestControl
     {
-        [[nodiscard]] auto MaxRegions() const;
-        auto SetRegionsAsync(param::async_iterable<Windows::Media::Devices::RegionOfInterest> const& regions) const;
-        auto SetRegionsAsync(param::async_iterable<Windows::Media::Devices::RegionOfInterest> const& regions, bool lockValues) const;
-        auto ClearRegionsAsync() const;
-        [[nodiscard]] auto AutoFocusSupported() const;
-        [[nodiscard]] auto AutoWhiteBalanceSupported() const;
-        [[nodiscard]] auto AutoExposureSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxRegions() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetRegionsAsync(param::async_iterable<Windows::Media::Devices::RegionOfInterest> const& regions) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetRegionsAsync(param::async_iterable<Windows::Media::Devices::RegionOfInterest> const& regions, bool lockValues) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ClearRegionsAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AutoFocusSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AutoWhiteBalanceSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AutoExposureSupported() const;
     };
     template <> struct consume<Windows::Media::Devices::IRegionsOfInterestControl>
     {
@@ -1985,9 +1985,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_ISceneModeControl
     {
-        [[nodiscard]] auto SupportedModes() const;
-        [[nodiscard]] auto Value() const;
-        auto SetValueAsync(Windows::Media::Devices::CaptureSceneMode const& sceneMode) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Devices::CaptureSceneMode>) SupportedModes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::CaptureSceneMode) Value() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetValueAsync(Windows::Media::Devices::CaptureSceneMode const& sceneMode) const;
     };
     template <> struct consume<Windows::Media::Devices::ISceneModeControl>
     {
@@ -1996,12 +1996,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_ITorchControl
     {
-        [[nodiscard]] auto Supported() const;
-        [[nodiscard]] auto PowerSupported() const;
-        [[nodiscard]] auto Enabled() const;
-        auto Enabled(bool value) const;
-        [[nodiscard]] auto PowerPercent() const;
-        auto PowerPercent(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Supported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) PowerSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Enabled() const;
+        WINRT_IMPL_AUTO(void) Enabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) PowerPercent() const;
+        WINRT_IMPL_AUTO(void) PowerPercent(float value) const;
     };
     template <> struct consume<Windows::Media::Devices::ITorchControl>
     {
@@ -2010,19 +2010,19 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IVideoDeviceController
     {
-        [[nodiscard]] auto Brightness() const;
-        [[nodiscard]] auto Contrast() const;
-        [[nodiscard]] auto Hue() const;
-        [[nodiscard]] auto WhiteBalance() const;
-        [[nodiscard]] auto BacklightCompensation() const;
-        [[nodiscard]] auto Pan() const;
-        [[nodiscard]] auto Tilt() const;
-        [[nodiscard]] auto Zoom() const;
-        [[nodiscard]] auto Roll() const;
-        [[nodiscard]] auto Exposure() const;
-        [[nodiscard]] auto Focus() const;
-        auto TrySetPowerlineFrequency(Windows::Media::Capture::PowerlineFrequency const& value) const;
-        auto TryGetPowerlineFrequency(Windows::Media::Capture::PowerlineFrequency& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::MediaDeviceControl) Brightness() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::MediaDeviceControl) Contrast() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::MediaDeviceControl) Hue() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::MediaDeviceControl) WhiteBalance() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::MediaDeviceControl) BacklightCompensation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::MediaDeviceControl) Pan() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::MediaDeviceControl) Tilt() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::MediaDeviceControl) Zoom() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::MediaDeviceControl) Roll() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::MediaDeviceControl) Exposure() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::MediaDeviceControl) Focus() const;
+        WINRT_IMPL_AUTO(bool) TrySetPowerlineFrequency(Windows::Media::Capture::PowerlineFrequency const& value) const;
+        WINRT_IMPL_AUTO(bool) TryGetPowerlineFrequency(Windows::Media::Capture::PowerlineFrequency& value) const;
     };
     template <> struct consume<Windows::Media::Devices::IVideoDeviceController>
     {
@@ -2031,8 +2031,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IVideoDeviceControllerGetDevicePropertyResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto Value() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::VideoDeviceControllerGetDevicePropertyStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) Value() const;
     };
     template <> struct consume<Windows::Media::Devices::IVideoDeviceControllerGetDevicePropertyResult>
     {
@@ -2041,10 +2041,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IVideoTemporalDenoisingControl
     {
-        [[nodiscard]] auto Supported() const;
-        [[nodiscard]] auto SupportedModes() const;
-        [[nodiscard]] auto Mode() const;
-        auto Mode(Windows::Media::Devices::VideoTemporalDenoisingMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Supported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Devices::VideoTemporalDenoisingMode>) SupportedModes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::VideoTemporalDenoisingMode) Mode() const;
+        WINRT_IMPL_AUTO(void) Mode(Windows::Media::Devices::VideoTemporalDenoisingMode const& value) const;
     };
     template <> struct consume<Windows::Media::Devices::IVideoTemporalDenoisingControl>
     {
@@ -2053,14 +2053,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IWhiteBalanceControl
     {
-        [[nodiscard]] auto Supported() const;
-        [[nodiscard]] auto Preset() const;
-        auto SetPresetAsync(Windows::Media::Devices::ColorTemperaturePreset const& preset) const;
-        [[nodiscard]] auto Min() const;
-        [[nodiscard]] auto Max() const;
-        [[nodiscard]] auto Step() const;
-        [[nodiscard]] auto Value() const;
-        auto SetValueAsync(uint32_t temperature) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Supported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::ColorTemperaturePreset) Preset() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetPresetAsync(Windows::Media::Devices::ColorTemperaturePreset const& preset) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Min() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Max() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Step() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Value() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetValueAsync(uint32_t temperature) const;
     };
     template <> struct consume<Windows::Media::Devices::IWhiteBalanceControl>
     {
@@ -2069,12 +2069,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IZoomControl
     {
-        [[nodiscard]] auto Supported() const;
-        [[nodiscard]] auto Min() const;
-        [[nodiscard]] auto Max() const;
-        [[nodiscard]] auto Step() const;
-        [[nodiscard]] auto Value() const;
-        auto Value(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Supported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) Min() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) Max() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) Step() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) Value() const;
+        WINRT_IMPL_AUTO(void) Value(float value) const;
     };
     template <> struct consume<Windows::Media::Devices::IZoomControl>
     {
@@ -2083,9 +2083,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IZoomControl2
     {
-        [[nodiscard]] auto SupportedModes() const;
-        [[nodiscard]] auto Mode() const;
-        auto Configure(Windows::Media::Devices::ZoomSettings const& settings) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Devices::ZoomTransitionMode>) SupportedModes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::ZoomTransitionMode) Mode() const;
+        WINRT_IMPL_AUTO(void) Configure(Windows::Media::Devices::ZoomSettings const& settings) const;
     };
     template <> struct consume<Windows::Media::Devices::IZoomControl2>
     {
@@ -2094,10 +2094,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_IZoomSettings
     {
-        [[nodiscard]] auto Mode() const;
-        auto Mode(Windows::Media::Devices::ZoomTransitionMode const& value) const;
-        [[nodiscard]] auto Value() const;
-        auto Value(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::ZoomTransitionMode) Mode() const;
+        WINRT_IMPL_AUTO(void) Mode(Windows::Media::Devices::ZoomTransitionMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) Value() const;
+        WINRT_IMPL_AUTO(void) Value(float value) const;
     };
     template <> struct consume<Windows::Media::Devices::IZoomSettings>
     {

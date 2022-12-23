@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -7,7 +7,12 @@
 #define WINRT_Windows_Web_0_H
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
+    template <typename TResult> struct IAsyncOperation;
     struct Uri;
+}
+WINRT_EXPORT namespace winrt::Windows::Storage::Streams
+{
+    struct IInputStream;
 }
 WINRT_EXPORT namespace winrt::Windows::Web
 {
@@ -79,12 +84,10 @@ namespace winrt::impl
     template <> struct category<Windows::Web::IWebErrorStatics>{ using type = interface_category; };
     template <> struct category<Windows::Web::WebError>{ using type = class_category; };
     template <> struct category<Windows::Web::WebErrorStatus>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Web::WebError>{ L"Windows.Web.WebError" };
-    template <> inline constexpr auto& name_v<Windows::Web::WebErrorStatus>{ L"Windows.Web.WebErrorStatus" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Web::IUriToStreamResolver>{ L"Windows.Web.IUriToStreamResolver" };
-    template <> inline constexpr auto& name_v<Windows::Web::IWebErrorStatics>{ L"Windows.Web.IWebErrorStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Web::WebError> = L"Windows.Web.WebError";
+    template <> inline constexpr auto& name_v<Windows::Web::WebErrorStatus> = L"Windows.Web.WebErrorStatus";
+    template <> inline constexpr auto& name_v<Windows::Web::IUriToStreamResolver> = L"Windows.Web.IUriToStreamResolver";
+    template <> inline constexpr auto& name_v<Windows::Web::IWebErrorStatics> = L"Windows.Web.IWebErrorStatics";
     template <> inline constexpr guid guid_v<Windows::Web::IUriToStreamResolver>{ 0xB0ABA86A,0x9AEB,0x4D3A,{ 0x95,0x90,0x00,0x3E,0x3C,0xA7,0xE2,0x90 } };
     template <> inline constexpr guid guid_v<Windows::Web::IWebErrorStatics>{ 0xFE616766,0xBF27,0x4064,{ 0x87,0xB7,0x65,0x63,0xBB,0x11,0xCE,0x2E } };
     template <> struct abi<Windows::Web::IUriToStreamResolver>
@@ -104,7 +107,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_IUriToStreamResolver
     {
-        auto UriToStreamAsync(Windows::Foundation::Uri const& uri) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::IInputStream>) UriToStreamAsync(Windows::Foundation::Uri const& uri) const;
     };
     template <> struct consume<Windows::Web::IUriToStreamResolver>
     {
@@ -113,7 +116,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_IWebErrorStatics
     {
-        auto GetStatus(int32_t hresult) const;
+        WINRT_IMPL_AUTO(Windows::Web::WebErrorStatus) GetStatus(int32_t hresult) const;
     };
     template <> struct consume<Windows::Web::IWebErrorStatics>
     {

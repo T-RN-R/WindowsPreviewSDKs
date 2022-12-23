@@ -1,21 +1,27 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
 #ifndef WINRT_Windows_Web_UI_0_H
 #define WINRT_Windows_Web_UI_0_H
+WINRT_EXPORT namespace winrt::Windows::ApplicationModel::DataTransfer
+{
+    struct DataPackage;
+}
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct Deferral;
     struct EventRegistrationToken;
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
     template <typename TSender, typename TResult> struct TypedEventHandler;
     struct Uri;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage::Streams
 {
@@ -121,41 +127,39 @@ namespace winrt::impl
     template <> struct category<Windows::Web::UI::WebViewControlWebResourceRequestedEventArgs>{ using type = class_category; };
     template <> struct category<Windows::Web::UI::WebViewControlPermissionState>{ using type = enum_category; };
     template <> struct category<Windows::Web::UI::WebViewControlPermissionType>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlContentLoadingEventArgs>{ L"Windows.Web.UI.WebViewControlContentLoadingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlDOMContentLoadedEventArgs>{ L"Windows.Web.UI.WebViewControlDOMContentLoadedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlDeferredPermissionRequest>{ L"Windows.Web.UI.WebViewControlDeferredPermissionRequest" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlLongRunningScriptDetectedEventArgs>{ L"Windows.Web.UI.WebViewControlLongRunningScriptDetectedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlNavigationCompletedEventArgs>{ L"Windows.Web.UI.WebViewControlNavigationCompletedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlNavigationStartingEventArgs>{ L"Windows.Web.UI.WebViewControlNavigationStartingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlNewWindowRequestedEventArgs>{ L"Windows.Web.UI.WebViewControlNewWindowRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlPermissionRequest>{ L"Windows.Web.UI.WebViewControlPermissionRequest" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlPermissionRequestedEventArgs>{ L"Windows.Web.UI.WebViewControlPermissionRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlScriptNotifyEventArgs>{ L"Windows.Web.UI.WebViewControlScriptNotifyEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlSettings>{ L"Windows.Web.UI.WebViewControlSettings" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlUnsupportedUriSchemeIdentifiedEventArgs>{ L"Windows.Web.UI.WebViewControlUnsupportedUriSchemeIdentifiedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlUnviewableContentIdentifiedEventArgs>{ L"Windows.Web.UI.WebViewControlUnviewableContentIdentifiedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlWebResourceRequestedEventArgs>{ L"Windows.Web.UI.WebViewControlWebResourceRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlPermissionState>{ L"Windows.Web.UI.WebViewControlPermissionState" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlPermissionType>{ L"Windows.Web.UI.WebViewControlPermissionType" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControl>{ L"Windows.Web.UI.IWebViewControl" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControl2>{ L"Windows.Web.UI.IWebViewControl2" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlContentLoadingEventArgs>{ L"Windows.Web.UI.IWebViewControlContentLoadingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlDOMContentLoadedEventArgs>{ L"Windows.Web.UI.IWebViewControlDOMContentLoadedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlDeferredPermissionRequest>{ L"Windows.Web.UI.IWebViewControlDeferredPermissionRequest" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlLongRunningScriptDetectedEventArgs>{ L"Windows.Web.UI.IWebViewControlLongRunningScriptDetectedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlNavigationCompletedEventArgs>{ L"Windows.Web.UI.IWebViewControlNavigationCompletedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlNavigationStartingEventArgs>{ L"Windows.Web.UI.IWebViewControlNavigationStartingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlNewWindowRequestedEventArgs>{ L"Windows.Web.UI.IWebViewControlNewWindowRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlNewWindowRequestedEventArgs2>{ L"Windows.Web.UI.IWebViewControlNewWindowRequestedEventArgs2" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlPermissionRequest>{ L"Windows.Web.UI.IWebViewControlPermissionRequest" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlPermissionRequestedEventArgs>{ L"Windows.Web.UI.IWebViewControlPermissionRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlScriptNotifyEventArgs>{ L"Windows.Web.UI.IWebViewControlScriptNotifyEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlSettings>{ L"Windows.Web.UI.IWebViewControlSettings" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs>{ L"Windows.Web.UI.IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlUnviewableContentIdentifiedEventArgs>{ L"Windows.Web.UI.IWebViewControlUnviewableContentIdentifiedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlWebResourceRequestedEventArgs>{ L"Windows.Web.UI.IWebViewControlWebResourceRequestedEventArgs" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlContentLoadingEventArgs> = L"Windows.Web.UI.WebViewControlContentLoadingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlDOMContentLoadedEventArgs> = L"Windows.Web.UI.WebViewControlDOMContentLoadedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlDeferredPermissionRequest> = L"Windows.Web.UI.WebViewControlDeferredPermissionRequest";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlLongRunningScriptDetectedEventArgs> = L"Windows.Web.UI.WebViewControlLongRunningScriptDetectedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlNavigationCompletedEventArgs> = L"Windows.Web.UI.WebViewControlNavigationCompletedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlNavigationStartingEventArgs> = L"Windows.Web.UI.WebViewControlNavigationStartingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlNewWindowRequestedEventArgs> = L"Windows.Web.UI.WebViewControlNewWindowRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlPermissionRequest> = L"Windows.Web.UI.WebViewControlPermissionRequest";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlPermissionRequestedEventArgs> = L"Windows.Web.UI.WebViewControlPermissionRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlScriptNotifyEventArgs> = L"Windows.Web.UI.WebViewControlScriptNotifyEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlSettings> = L"Windows.Web.UI.WebViewControlSettings";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlUnsupportedUriSchemeIdentifiedEventArgs> = L"Windows.Web.UI.WebViewControlUnsupportedUriSchemeIdentifiedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlUnviewableContentIdentifiedEventArgs> = L"Windows.Web.UI.WebViewControlUnviewableContentIdentifiedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlWebResourceRequestedEventArgs> = L"Windows.Web.UI.WebViewControlWebResourceRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlPermissionState> = L"Windows.Web.UI.WebViewControlPermissionState";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::WebViewControlPermissionType> = L"Windows.Web.UI.WebViewControlPermissionType";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControl> = L"Windows.Web.UI.IWebViewControl";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControl2> = L"Windows.Web.UI.IWebViewControl2";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlContentLoadingEventArgs> = L"Windows.Web.UI.IWebViewControlContentLoadingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlDOMContentLoadedEventArgs> = L"Windows.Web.UI.IWebViewControlDOMContentLoadedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlDeferredPermissionRequest> = L"Windows.Web.UI.IWebViewControlDeferredPermissionRequest";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlLongRunningScriptDetectedEventArgs> = L"Windows.Web.UI.IWebViewControlLongRunningScriptDetectedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlNavigationCompletedEventArgs> = L"Windows.Web.UI.IWebViewControlNavigationCompletedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlNavigationStartingEventArgs> = L"Windows.Web.UI.IWebViewControlNavigationStartingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlNewWindowRequestedEventArgs> = L"Windows.Web.UI.IWebViewControlNewWindowRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlNewWindowRequestedEventArgs2> = L"Windows.Web.UI.IWebViewControlNewWindowRequestedEventArgs2";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlPermissionRequest> = L"Windows.Web.UI.IWebViewControlPermissionRequest";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlPermissionRequestedEventArgs> = L"Windows.Web.UI.IWebViewControlPermissionRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlScriptNotifyEventArgs> = L"Windows.Web.UI.IWebViewControlScriptNotifyEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlSettings> = L"Windows.Web.UI.IWebViewControlSettings";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs> = L"Windows.Web.UI.IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlUnviewableContentIdentifiedEventArgs> = L"Windows.Web.UI.IWebViewControlUnviewableContentIdentifiedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Web::UI::IWebViewControlWebResourceRequestedEventArgs> = L"Windows.Web.UI.IWebViewControlWebResourceRequestedEventArgs";
     template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControl>{ 0x3F921316,0xBC70,0x4BDA,{ 0x91,0x36,0xC9,0x43,0x70,0x89,0x9F,0xAB } };
     template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControl2>{ 0x4D3C06F9,0xC8DF,0x41CC,{ 0x8B,0xD5,0x2A,0x94,0x7B,0x20,0x45,0x03 } };
     template <> inline constexpr guid guid_v<Windows::Web::UI::IWebViewControlContentLoadingEventArgs>{ 0x9A3FCCB2,0xB9BB,0x404B,{ 0xA2,0x2B,0x66,0xDC,0xCD,0x12,0x50,0xC6 } };
@@ -399,97 +403,97 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_UI_IWebViewControl
     {
-        [[nodiscard]] auto Source() const;
-        auto Source(Windows::Foundation::Uri const& source) const;
-        [[nodiscard]] auto DocumentTitle() const;
-        [[nodiscard]] auto CanGoBack() const;
-        [[nodiscard]] auto CanGoForward() const;
-        auto DefaultBackgroundColor(Windows::UI::Color const& value) const;
-        [[nodiscard]] auto DefaultBackgroundColor() const;
-        [[nodiscard]] auto ContainsFullScreenElement() const;
-        [[nodiscard]] auto Settings() const;
-        [[nodiscard]] auto DeferredPermissionRequests() const;
-        auto GoForward() const;
-        auto GoBack() const;
-        auto Refresh() const;
-        auto Stop() const;
-        auto Navigate(Windows::Foundation::Uri const& source) const;
-        auto NavigateToString(param::hstring const& text) const;
-        auto NavigateToLocalStreamUri(Windows::Foundation::Uri const& source, Windows::Web::IUriToStreamResolver const& streamResolver) const;
-        auto NavigateWithHttpRequestMessage(Windows::Web::Http::HttpRequestMessage const& requestMessage) const;
-        auto InvokeScriptAsync(param::hstring const& scriptName, param::async_iterable<hstring> const& arguments) const;
-        auto CapturePreviewToStreamAsync(Windows::Storage::Streams::IRandomAccessStream const& stream) const;
-        auto CaptureSelectedContentToDataPackageAsync() const;
-        auto BuildLocalStreamUri(param::hstring const& contentIdentifier, param::hstring const& relativePath) const;
-        auto GetDeferredPermissionRequestById(uint32_t id, Windows::Web::UI::WebViewControlDeferredPermissionRequest& result) const;
-        auto NavigationStarting(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlNavigationStartingEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Source() const;
+        WINRT_IMPL_AUTO(void) Source(Windows::Foundation::Uri const& source) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DocumentTitle() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanGoBack() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanGoForward() const;
+        WINRT_IMPL_AUTO(void) DefaultBackgroundColor(Windows::UI::Color const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Color) DefaultBackgroundColor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ContainsFullScreenElement() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::UI::WebViewControlSettings) Settings() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Web::UI::WebViewControlDeferredPermissionRequest>) DeferredPermissionRequests() const;
+        WINRT_IMPL_AUTO(void) GoForward() const;
+        WINRT_IMPL_AUTO(void) GoBack() const;
+        WINRT_IMPL_AUTO(void) Refresh() const;
+        WINRT_IMPL_AUTO(void) Stop() const;
+        WINRT_IMPL_AUTO(void) Navigate(Windows::Foundation::Uri const& source) const;
+        WINRT_IMPL_AUTO(void) NavigateToString(param::hstring const& text) const;
+        WINRT_IMPL_AUTO(void) NavigateToLocalStreamUri(Windows::Foundation::Uri const& source, Windows::Web::IUriToStreamResolver const& streamResolver) const;
+        WINRT_IMPL_AUTO(void) NavigateWithHttpRequestMessage(Windows::Web::Http::HttpRequestMessage const& requestMessage) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) InvokeScriptAsync(param::hstring const& scriptName, param::async_iterable<hstring> const& arguments) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) CapturePreviewToStreamAsync(Windows::Storage::Streams::IRandomAccessStream const& stream) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::DataTransfer::DataPackage>) CaptureSelectedContentToDataPackageAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Uri) BuildLocalStreamUri(param::hstring const& contentIdentifier, param::hstring const& relativePath) const;
+        WINRT_IMPL_AUTO(void) GetDeferredPermissionRequestById(uint32_t id, Windows::Web::UI::WebViewControlDeferredPermissionRequest& result) const;
+        WINRT_IMPL_AUTO(winrt::event_token) NavigationStarting(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlNavigationStartingEventArgs> const& handler) const;
         using NavigationStarting_revoker = impl::event_revoker<Windows::Web::UI::IWebViewControl, &impl::abi_t<Windows::Web::UI::IWebViewControl>::remove_NavigationStarting>;
         [[nodiscard]] NavigationStarting_revoker NavigationStarting(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlNavigationStartingEventArgs> const& handler) const;
-        auto NavigationStarting(winrt::event_token const& token) const noexcept;
-        auto ContentLoading(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlContentLoadingEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) NavigationStarting(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ContentLoading(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlContentLoadingEventArgs> const& handler) const;
         using ContentLoading_revoker = impl::event_revoker<Windows::Web::UI::IWebViewControl, &impl::abi_t<Windows::Web::UI::IWebViewControl>::remove_ContentLoading>;
         [[nodiscard]] ContentLoading_revoker ContentLoading(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlContentLoadingEventArgs> const& handler) const;
-        auto ContentLoading(winrt::event_token const& token) const noexcept;
-        auto DOMContentLoaded(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlDOMContentLoadedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) ContentLoading(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) DOMContentLoaded(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlDOMContentLoadedEventArgs> const& handler) const;
         using DOMContentLoaded_revoker = impl::event_revoker<Windows::Web::UI::IWebViewControl, &impl::abi_t<Windows::Web::UI::IWebViewControl>::remove_DOMContentLoaded>;
         [[nodiscard]] DOMContentLoaded_revoker DOMContentLoaded(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlDOMContentLoadedEventArgs> const& handler) const;
-        auto DOMContentLoaded(winrt::event_token const& token) const noexcept;
-        auto NavigationCompleted(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlNavigationCompletedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) DOMContentLoaded(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) NavigationCompleted(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlNavigationCompletedEventArgs> const& handler) const;
         using NavigationCompleted_revoker = impl::event_revoker<Windows::Web::UI::IWebViewControl, &impl::abi_t<Windows::Web::UI::IWebViewControl>::remove_NavigationCompleted>;
         [[nodiscard]] NavigationCompleted_revoker NavigationCompleted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlNavigationCompletedEventArgs> const& handler) const;
-        auto NavigationCompleted(winrt::event_token const& token) const noexcept;
-        auto FrameNavigationStarting(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlNavigationStartingEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) NavigationCompleted(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) FrameNavigationStarting(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlNavigationStartingEventArgs> const& handler) const;
         using FrameNavigationStarting_revoker = impl::event_revoker<Windows::Web::UI::IWebViewControl, &impl::abi_t<Windows::Web::UI::IWebViewControl>::remove_FrameNavigationStarting>;
         [[nodiscard]] FrameNavigationStarting_revoker FrameNavigationStarting(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlNavigationStartingEventArgs> const& handler) const;
-        auto FrameNavigationStarting(winrt::event_token const& token) const noexcept;
-        auto FrameContentLoading(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlContentLoadingEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) FrameNavigationStarting(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) FrameContentLoading(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlContentLoadingEventArgs> const& handler) const;
         using FrameContentLoading_revoker = impl::event_revoker<Windows::Web::UI::IWebViewControl, &impl::abi_t<Windows::Web::UI::IWebViewControl>::remove_FrameContentLoading>;
         [[nodiscard]] FrameContentLoading_revoker FrameContentLoading(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlContentLoadingEventArgs> const& handler) const;
-        auto FrameContentLoading(winrt::event_token const& token) const noexcept;
-        auto FrameDOMContentLoaded(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlDOMContentLoadedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) FrameContentLoading(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) FrameDOMContentLoaded(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlDOMContentLoadedEventArgs> const& handler) const;
         using FrameDOMContentLoaded_revoker = impl::event_revoker<Windows::Web::UI::IWebViewControl, &impl::abi_t<Windows::Web::UI::IWebViewControl>::remove_FrameDOMContentLoaded>;
         [[nodiscard]] FrameDOMContentLoaded_revoker FrameDOMContentLoaded(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlDOMContentLoadedEventArgs> const& handler) const;
-        auto FrameDOMContentLoaded(winrt::event_token const& token) const noexcept;
-        auto FrameNavigationCompleted(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlNavigationCompletedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) FrameDOMContentLoaded(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) FrameNavigationCompleted(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlNavigationCompletedEventArgs> const& handler) const;
         using FrameNavigationCompleted_revoker = impl::event_revoker<Windows::Web::UI::IWebViewControl, &impl::abi_t<Windows::Web::UI::IWebViewControl>::remove_FrameNavigationCompleted>;
         [[nodiscard]] FrameNavigationCompleted_revoker FrameNavigationCompleted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlNavigationCompletedEventArgs> const& handler) const;
-        auto FrameNavigationCompleted(winrt::event_token const& token) const noexcept;
-        auto ScriptNotify(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlScriptNotifyEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) FrameNavigationCompleted(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ScriptNotify(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlScriptNotifyEventArgs> const& handler) const;
         using ScriptNotify_revoker = impl::event_revoker<Windows::Web::UI::IWebViewControl, &impl::abi_t<Windows::Web::UI::IWebViewControl>::remove_ScriptNotify>;
         [[nodiscard]] ScriptNotify_revoker ScriptNotify(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlScriptNotifyEventArgs> const& handler) const;
-        auto ScriptNotify(winrt::event_token const& token) const noexcept;
-        auto LongRunningScriptDetected(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlLongRunningScriptDetectedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) ScriptNotify(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) LongRunningScriptDetected(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlLongRunningScriptDetectedEventArgs> const& handler) const;
         using LongRunningScriptDetected_revoker = impl::event_revoker<Windows::Web::UI::IWebViewControl, &impl::abi_t<Windows::Web::UI::IWebViewControl>::remove_LongRunningScriptDetected>;
         [[nodiscard]] LongRunningScriptDetected_revoker LongRunningScriptDetected(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlLongRunningScriptDetectedEventArgs> const& handler) const;
-        auto LongRunningScriptDetected(winrt::event_token const& token) const noexcept;
-        auto UnsafeContentWarningDisplaying(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) LongRunningScriptDetected(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) UnsafeContentWarningDisplaying(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Foundation::IInspectable> const& handler) const;
         using UnsafeContentWarningDisplaying_revoker = impl::event_revoker<Windows::Web::UI::IWebViewControl, &impl::abi_t<Windows::Web::UI::IWebViewControl>::remove_UnsafeContentWarningDisplaying>;
         [[nodiscard]] UnsafeContentWarningDisplaying_revoker UnsafeContentWarningDisplaying(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Foundation::IInspectable> const& handler) const;
-        auto UnsafeContentWarningDisplaying(winrt::event_token const& token) const noexcept;
-        auto UnviewableContentIdentified(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlUnviewableContentIdentifiedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) UnsafeContentWarningDisplaying(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) UnviewableContentIdentified(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlUnviewableContentIdentifiedEventArgs> const& handler) const;
         using UnviewableContentIdentified_revoker = impl::event_revoker<Windows::Web::UI::IWebViewControl, &impl::abi_t<Windows::Web::UI::IWebViewControl>::remove_UnviewableContentIdentified>;
         [[nodiscard]] UnviewableContentIdentified_revoker UnviewableContentIdentified(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlUnviewableContentIdentifiedEventArgs> const& handler) const;
-        auto UnviewableContentIdentified(winrt::event_token const& token) const noexcept;
-        auto PermissionRequested(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlPermissionRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) UnviewableContentIdentified(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PermissionRequested(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlPermissionRequestedEventArgs> const& handler) const;
         using PermissionRequested_revoker = impl::event_revoker<Windows::Web::UI::IWebViewControl, &impl::abi_t<Windows::Web::UI::IWebViewControl>::remove_PermissionRequested>;
         [[nodiscard]] PermissionRequested_revoker PermissionRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlPermissionRequestedEventArgs> const& handler) const;
-        auto PermissionRequested(winrt::event_token const& token) const noexcept;
-        auto UnsupportedUriSchemeIdentified(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlUnsupportedUriSchemeIdentifiedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) PermissionRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) UnsupportedUriSchemeIdentified(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlUnsupportedUriSchemeIdentifiedEventArgs> const& handler) const;
         using UnsupportedUriSchemeIdentified_revoker = impl::event_revoker<Windows::Web::UI::IWebViewControl, &impl::abi_t<Windows::Web::UI::IWebViewControl>::remove_UnsupportedUriSchemeIdentified>;
         [[nodiscard]] UnsupportedUriSchemeIdentified_revoker UnsupportedUriSchemeIdentified(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlUnsupportedUriSchemeIdentifiedEventArgs> const& handler) const;
-        auto UnsupportedUriSchemeIdentified(winrt::event_token const& token) const noexcept;
-        auto NewWindowRequested(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlNewWindowRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) UnsupportedUriSchemeIdentified(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) NewWindowRequested(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlNewWindowRequestedEventArgs> const& handler) const;
         using NewWindowRequested_revoker = impl::event_revoker<Windows::Web::UI::IWebViewControl, &impl::abi_t<Windows::Web::UI::IWebViewControl>::remove_NewWindowRequested>;
         [[nodiscard]] NewWindowRequested_revoker NewWindowRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlNewWindowRequestedEventArgs> const& handler) const;
-        auto NewWindowRequested(winrt::event_token const& token) const noexcept;
-        auto ContainsFullScreenElementChanged(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) NewWindowRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ContainsFullScreenElementChanged(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Foundation::IInspectable> const& handler) const;
         using ContainsFullScreenElementChanged_revoker = impl::event_revoker<Windows::Web::UI::IWebViewControl, &impl::abi_t<Windows::Web::UI::IWebViewControl>::remove_ContainsFullScreenElementChanged>;
         [[nodiscard]] ContainsFullScreenElementChanged_revoker ContainsFullScreenElementChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Foundation::IInspectable> const& handler) const;
-        auto ContainsFullScreenElementChanged(winrt::event_token const& token) const noexcept;
-        auto WebResourceRequested(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlWebResourceRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) ContainsFullScreenElementChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) WebResourceRequested(Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlWebResourceRequestedEventArgs> const& handler) const;
         using WebResourceRequested_revoker = impl::event_revoker<Windows::Web::UI::IWebViewControl, &impl::abi_t<Windows::Web::UI::IWebViewControl>::remove_WebResourceRequested>;
         [[nodiscard]] WebResourceRequested_revoker WebResourceRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Web::UI::IWebViewControl, Windows::Web::UI::WebViewControlWebResourceRequestedEventArgs> const& handler) const;
-        auto WebResourceRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) WebResourceRequested(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Web::UI::IWebViewControl>
     {
@@ -498,7 +502,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_UI_IWebViewControl2
     {
-        auto AddInitializeScript(param::hstring const& script) const;
+        WINRT_IMPL_AUTO(void) AddInitializeScript(param::hstring const& script) const;
     };
     template <> struct consume<Windows::Web::UI::IWebViewControl2>
     {
@@ -507,7 +511,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_UI_IWebViewControlContentLoadingEventArgs
     {
-        [[nodiscard]] auto Uri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Uri() const;
     };
     template <> struct consume<Windows::Web::UI::IWebViewControlContentLoadingEventArgs>
     {
@@ -516,7 +520,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_UI_IWebViewControlDOMContentLoadedEventArgs
     {
-        [[nodiscard]] auto Uri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Uri() const;
     };
     template <> struct consume<Windows::Web::UI::IWebViewControlDOMContentLoadedEventArgs>
     {
@@ -525,11 +529,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_UI_IWebViewControlDeferredPermissionRequest
     {
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto Uri() const;
-        [[nodiscard]] auto PermissionType() const;
-        auto Allow() const;
-        auto Deny() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Uri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::UI::WebViewControlPermissionType) PermissionType() const;
+        WINRT_IMPL_AUTO(void) Allow() const;
+        WINRT_IMPL_AUTO(void) Deny() const;
     };
     template <> struct consume<Windows::Web::UI::IWebViewControlDeferredPermissionRequest>
     {
@@ -538,9 +542,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_UI_IWebViewControlLongRunningScriptDetectedEventArgs
     {
-        [[nodiscard]] auto ExecutionTime() const;
-        [[nodiscard]] auto StopPageScriptExecution() const;
-        auto StopPageScriptExecution(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) ExecutionTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) StopPageScriptExecution() const;
+        WINRT_IMPL_AUTO(void) StopPageScriptExecution(bool value) const;
     };
     template <> struct consume<Windows::Web::UI::IWebViewControlLongRunningScriptDetectedEventArgs>
     {
@@ -549,9 +553,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_UI_IWebViewControlNavigationCompletedEventArgs
     {
-        [[nodiscard]] auto Uri() const;
-        [[nodiscard]] auto IsSuccess() const;
-        [[nodiscard]] auto WebErrorStatus() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Uri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSuccess() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::WebErrorStatus) WebErrorStatus() const;
     };
     template <> struct consume<Windows::Web::UI::IWebViewControlNavigationCompletedEventArgs>
     {
@@ -560,9 +564,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_UI_IWebViewControlNavigationStartingEventArgs
     {
-        [[nodiscard]] auto Uri() const;
-        [[nodiscard]] auto Cancel() const;
-        auto Cancel(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Uri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Cancel() const;
+        WINRT_IMPL_AUTO(void) Cancel(bool value) const;
     };
     template <> struct consume<Windows::Web::UI::IWebViewControlNavigationStartingEventArgs>
     {
@@ -571,10 +575,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_UI_IWebViewControlNewWindowRequestedEventArgs
     {
-        [[nodiscard]] auto Uri() const;
-        [[nodiscard]] auto Referrer() const;
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Uri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Referrer() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
     };
     template <> struct consume<Windows::Web::UI::IWebViewControlNewWindowRequestedEventArgs>
     {
@@ -583,9 +587,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_UI_IWebViewControlNewWindowRequestedEventArgs2
     {
-        [[nodiscard]] auto NewWindow() const;
-        auto NewWindow(Windows::Web::UI::IWebViewControl const& value) const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::UI::IWebViewControl) NewWindow() const;
+        WINRT_IMPL_AUTO(void) NewWindow(Windows::Web::UI::IWebViewControl const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::Web::UI::IWebViewControlNewWindowRequestedEventArgs2>
     {
@@ -594,13 +598,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_UI_IWebViewControlPermissionRequest
     {
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto Uri() const;
-        [[nodiscard]] auto PermissionType() const;
-        [[nodiscard]] auto State() const;
-        auto Defer() const;
-        auto Allow() const;
-        auto Deny() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Uri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::UI::WebViewControlPermissionType) PermissionType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::UI::WebViewControlPermissionState) State() const;
+        WINRT_IMPL_AUTO(void) Defer() const;
+        WINRT_IMPL_AUTO(void) Allow() const;
+        WINRT_IMPL_AUTO(void) Deny() const;
     };
     template <> struct consume<Windows::Web::UI::IWebViewControlPermissionRequest>
     {
@@ -609,7 +613,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_UI_IWebViewControlPermissionRequestedEventArgs
     {
-        [[nodiscard]] auto PermissionRequest() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::UI::WebViewControlPermissionRequest) PermissionRequest() const;
     };
     template <> struct consume<Windows::Web::UI::IWebViewControlPermissionRequestedEventArgs>
     {
@@ -618,8 +622,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_UI_IWebViewControlScriptNotifyEventArgs
     {
-        [[nodiscard]] auto Uri() const;
-        [[nodiscard]] auto Value() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Uri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Value() const;
     };
     template <> struct consume<Windows::Web::UI::IWebViewControlScriptNotifyEventArgs>
     {
@@ -628,12 +632,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_UI_IWebViewControlSettings
     {
-        auto IsJavaScriptEnabled(bool value) const;
-        [[nodiscard]] auto IsJavaScriptEnabled() const;
-        auto IsIndexedDBEnabled(bool value) const;
-        [[nodiscard]] auto IsIndexedDBEnabled() const;
-        auto IsScriptNotifyAllowed(bool value) const;
-        [[nodiscard]] auto IsScriptNotifyAllowed() const;
+        WINRT_IMPL_AUTO(void) IsJavaScriptEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsJavaScriptEnabled() const;
+        WINRT_IMPL_AUTO(void) IsIndexedDBEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsIndexedDBEnabled() const;
+        WINRT_IMPL_AUTO(void) IsScriptNotifyAllowed(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsScriptNotifyAllowed() const;
     };
     template <> struct consume<Windows::Web::UI::IWebViewControlSettings>
     {
@@ -642,9 +646,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_UI_IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs
     {
-        [[nodiscard]] auto Uri() const;
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Uri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
     };
     template <> struct consume<Windows::Web::UI::IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs>
     {
@@ -653,9 +657,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_UI_IWebViewControlUnviewableContentIdentifiedEventArgs
     {
-        [[nodiscard]] auto Uri() const;
-        [[nodiscard]] auto Referrer() const;
-        [[nodiscard]] auto MediaType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Uri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Referrer() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MediaType() const;
     };
     template <> struct consume<Windows::Web::UI::IWebViewControlUnviewableContentIdentifiedEventArgs>
     {
@@ -664,10 +668,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Web_UI_IWebViewControlWebResourceRequestedEventArgs
     {
-        auto GetDeferral() const;
-        [[nodiscard]] auto Request() const;
-        auto Response(Windows::Web::Http::HttpResponseMessage const& value) const;
-        [[nodiscard]] auto Response() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Http::HttpRequestMessage) Request() const;
+        WINRT_IMPL_AUTO(void) Response(Windows::Web::Http::HttpResponseMessage const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Web::Http::HttpResponseMessage) Response() const;
     };
     template <> struct consume<Windows::Web::UI::IWebViewControlWebResourceRequestedEventArgs>
     {

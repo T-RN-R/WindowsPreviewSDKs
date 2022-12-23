@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -13,6 +13,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Management
 {
@@ -59,17 +60,15 @@ namespace winrt::impl
     template <> struct category<Windows::Management::MdmAlertDataType>{ using type = enum_category; };
     template <> struct category<Windows::Management::MdmAlertMark>{ using type = enum_category; };
     template <> struct category<Windows::Management::MdmSessionState>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Management::MdmAlert>{ L"Windows.Management.MdmAlert" };
-    template <> inline constexpr auto& name_v<Windows::Management::MdmSession>{ L"Windows.Management.MdmSession" };
-    template <> inline constexpr auto& name_v<Windows::Management::MdmSessionManager>{ L"Windows.Management.MdmSessionManager" };
-    template <> inline constexpr auto& name_v<Windows::Management::MdmAlertDataType>{ L"Windows.Management.MdmAlertDataType" };
-    template <> inline constexpr auto& name_v<Windows::Management::MdmAlertMark>{ L"Windows.Management.MdmAlertMark" };
-    template <> inline constexpr auto& name_v<Windows::Management::MdmSessionState>{ L"Windows.Management.MdmSessionState" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Management::IMdmAlert>{ L"Windows.Management.IMdmAlert" };
-    template <> inline constexpr auto& name_v<Windows::Management::IMdmSession>{ L"Windows.Management.IMdmSession" };
-    template <> inline constexpr auto& name_v<Windows::Management::IMdmSessionManagerStatics>{ L"Windows.Management.IMdmSessionManagerStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Management::MdmAlert> = L"Windows.Management.MdmAlert";
+    template <> inline constexpr auto& name_v<Windows::Management::MdmSession> = L"Windows.Management.MdmSession";
+    template <> inline constexpr auto& name_v<Windows::Management::MdmSessionManager> = L"Windows.Management.MdmSessionManager";
+    template <> inline constexpr auto& name_v<Windows::Management::MdmAlertDataType> = L"Windows.Management.MdmAlertDataType";
+    template <> inline constexpr auto& name_v<Windows::Management::MdmAlertMark> = L"Windows.Management.MdmAlertMark";
+    template <> inline constexpr auto& name_v<Windows::Management::MdmSessionState> = L"Windows.Management.MdmSessionState";
+    template <> inline constexpr auto& name_v<Windows::Management::IMdmAlert> = L"Windows.Management.IMdmAlert";
+    template <> inline constexpr auto& name_v<Windows::Management::IMdmSession> = L"Windows.Management.IMdmSession";
+    template <> inline constexpr auto& name_v<Windows::Management::IMdmSessionManagerStatics> = L"Windows.Management.IMdmSessionManagerStatics";
     template <> inline constexpr guid guid_v<Windows::Management::IMdmAlert>{ 0xB0FBC327,0x28C1,0x4B52,{ 0xA5,0x48,0xC5,0x80,0x7C,0xAF,0x70,0xB6 } };
     template <> inline constexpr guid guid_v<Windows::Management::IMdmSession>{ 0xFE89314C,0x8F64,0x4797,{ 0xA9,0xD7,0x9D,0x88,0xF8,0x6A,0xE1,0x66 } };
     template <> inline constexpr guid guid_v<Windows::Management::IMdmSessionManagerStatics>{ 0xCF4AD959,0xF745,0x4B79,{ 0x9B,0x5C,0xDE,0x0B,0xF8,0xEF,0xE4,0x4B } };
@@ -121,19 +120,19 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Management_IMdmAlert
     {
-        [[nodiscard]] auto Data() const;
-        auto Data(param::hstring const& value) const;
-        [[nodiscard]] auto Format() const;
-        auto Format(Windows::Management::MdmAlertDataType const& value) const;
-        [[nodiscard]] auto Mark() const;
-        auto Mark(Windows::Management::MdmAlertMark const& value) const;
-        [[nodiscard]] auto Source() const;
-        auto Source(param::hstring const& value) const;
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto Target() const;
-        auto Target(param::hstring const& value) const;
-        [[nodiscard]] auto Type() const;
-        auto Type(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Data() const;
+        WINRT_IMPL_AUTO(void) Data(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Management::MdmAlertDataType) Format() const;
+        WINRT_IMPL_AUTO(void) Format(Windows::Management::MdmAlertDataType const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Management::MdmAlertMark) Mark() const;
+        WINRT_IMPL_AUTO(void) Mark(Windows::Management::MdmAlertMark const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Source() const;
+        WINRT_IMPL_AUTO(void) Source(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Target() const;
+        WINRT_IMPL_AUTO(void) Target(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Type() const;
+        WINRT_IMPL_AUTO(void) Type(param::hstring const& value) const;
     };
     template <> struct consume<Windows::Management::IMdmAlert>
     {
@@ -142,14 +141,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Management_IMdmSession
     {
-        [[nodiscard]] auto Alerts() const;
-        [[nodiscard]] auto ExtendedError() const;
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto State() const;
-        auto AttachAsync() const;
-        auto Delete() const;
-        auto StartAsync() const;
-        auto StartAsync(param::async_iterable<Windows::Management::MdmAlert> const& alerts) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Management::MdmAlert>) Alerts() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Management::MdmSessionState) State() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) AttachAsync() const;
+        WINRT_IMPL_AUTO(void) Delete() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) StartAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) StartAsync(param::async_iterable<Windows::Management::MdmAlert> const& alerts) const;
     };
     template <> struct consume<Windows::Management::IMdmSession>
     {
@@ -158,10 +157,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Management_IMdmSessionManagerStatics
     {
-        [[nodiscard]] auto SessionIds() const;
-        auto TryCreateSession() const;
-        auto DeleteSessionById(param::hstring const& sessionId) const;
-        auto GetSessionById(param::hstring const& sessionId) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) SessionIds() const;
+        WINRT_IMPL_AUTO(Windows::Management::MdmSession) TryCreateSession() const;
+        WINRT_IMPL_AUTO(void) DeleteSessionById(param::hstring const& sessionId) const;
+        WINRT_IMPL_AUTO(Windows::Management::MdmSession) GetSessionById(param::hstring const& sessionId) const;
     };
     template <> struct consume<Windows::Management::IMdmSessionManagerStatics>
     {

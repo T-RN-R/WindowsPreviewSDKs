@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -12,11 +12,13 @@ WINRT_EXPORT namespace winrt::Windows::Devices::Enumeration
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
+    template <typename TResult> struct IAsyncOperation;
     template <typename TSender, typename TResult> struct TypedEventHandler;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
+    template <typename K, typename V> struct IMapView;
     template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Devices::Enumeration::Pnp
@@ -53,17 +55,15 @@ namespace winrt::impl
     template <> struct category<Windows::Devices::Enumeration::Pnp::PnpObjectUpdate>{ using type = class_category; };
     template <> struct category<Windows::Devices::Enumeration::Pnp::PnpObjectWatcher>{ using type = class_category; };
     template <> struct category<Windows::Devices::Enumeration::Pnp::PnpObjectType>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Devices::Enumeration::Pnp::PnpObject>{ L"Windows.Devices.Enumeration.Pnp.PnpObject" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Enumeration::Pnp::PnpObjectCollection>{ L"Windows.Devices.Enumeration.Pnp.PnpObjectCollection" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Enumeration::Pnp::PnpObjectUpdate>{ L"Windows.Devices.Enumeration.Pnp.PnpObjectUpdate" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Enumeration::Pnp::PnpObjectWatcher>{ L"Windows.Devices.Enumeration.Pnp.PnpObjectWatcher" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Enumeration::Pnp::PnpObjectType>{ L"Windows.Devices.Enumeration.Pnp.PnpObjectType" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Devices::Enumeration::Pnp::IPnpObject>{ L"Windows.Devices.Enumeration.Pnp.IPnpObject" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Enumeration::Pnp::IPnpObjectStatics>{ L"Windows.Devices.Enumeration.Pnp.IPnpObjectStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Enumeration::Pnp::IPnpObjectUpdate>{ L"Windows.Devices.Enumeration.Pnp.IPnpObjectUpdate" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Enumeration::Pnp::IPnpObjectWatcher>{ L"Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Devices::Enumeration::Pnp::PnpObject> = L"Windows.Devices.Enumeration.Pnp.PnpObject";
+    template <> inline constexpr auto& name_v<Windows::Devices::Enumeration::Pnp::PnpObjectCollection> = L"Windows.Devices.Enumeration.Pnp.PnpObjectCollection";
+    template <> inline constexpr auto& name_v<Windows::Devices::Enumeration::Pnp::PnpObjectUpdate> = L"Windows.Devices.Enumeration.Pnp.PnpObjectUpdate";
+    template <> inline constexpr auto& name_v<Windows::Devices::Enumeration::Pnp::PnpObjectWatcher> = L"Windows.Devices.Enumeration.Pnp.PnpObjectWatcher";
+    template <> inline constexpr auto& name_v<Windows::Devices::Enumeration::Pnp::PnpObjectType> = L"Windows.Devices.Enumeration.Pnp.PnpObjectType";
+    template <> inline constexpr auto& name_v<Windows::Devices::Enumeration::Pnp::IPnpObject> = L"Windows.Devices.Enumeration.Pnp.IPnpObject";
+    template <> inline constexpr auto& name_v<Windows::Devices::Enumeration::Pnp::IPnpObjectStatics> = L"Windows.Devices.Enumeration.Pnp.IPnpObjectStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Enumeration::Pnp::IPnpObjectUpdate> = L"Windows.Devices.Enumeration.Pnp.IPnpObjectUpdate";
+    template <> inline constexpr auto& name_v<Windows::Devices::Enumeration::Pnp::IPnpObjectWatcher> = L"Windows.Devices.Enumeration.Pnp.IPnpObjectWatcher";
     template <> inline constexpr guid guid_v<Windows::Devices::Enumeration::Pnp::IPnpObject>{ 0x95C66258,0x733B,0x4A8F,{ 0x93,0xA3,0xDB,0x07,0x8A,0xC8,0x70,0xC1 } };
     template <> inline constexpr guid guid_v<Windows::Devices::Enumeration::Pnp::IPnpObjectStatics>{ 0xB3C32A3D,0xD168,0x4660,{ 0xBB,0xF3,0xA7,0x33,0xB1,0x4B,0x6E,0x01 } };
     template <> inline constexpr guid guid_v<Windows::Devices::Enumeration::Pnp::IPnpObjectUpdate>{ 0x6F59E812,0x001E,0x4844,{ 0xBC,0xC6,0x43,0x28,0x86,0x85,0x6A,0x17 } };
@@ -124,10 +124,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Enumeration_Pnp_IPnpObject
     {
-        [[nodiscard]] auto Type() const;
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto Properties() const;
-        auto Update(Windows::Devices::Enumeration::Pnp::PnpObjectUpdate const& updateInfo) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Enumeration::Pnp::PnpObjectType) Type() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>) Properties() const;
+        WINRT_IMPL_AUTO(void) Update(Windows::Devices::Enumeration::Pnp::PnpObjectUpdate const& updateInfo) const;
     };
     template <> struct consume<Windows::Devices::Enumeration::Pnp::IPnpObject>
     {
@@ -136,11 +136,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Enumeration_Pnp_IPnpObjectStatics
     {
-        auto CreateFromIdAsync(Windows::Devices::Enumeration::Pnp::PnpObjectType const& type, param::hstring const& id, param::async_iterable<hstring> const& requestedProperties) const;
-        auto FindAllAsync(Windows::Devices::Enumeration::Pnp::PnpObjectType const& type, param::async_iterable<hstring> const& requestedProperties) const;
-        auto FindAllAsync(Windows::Devices::Enumeration::Pnp::PnpObjectType const& type, param::async_iterable<hstring> const& requestedProperties, param::hstring const& aqsFilter) const;
-        auto CreateWatcher(Windows::Devices::Enumeration::Pnp::PnpObjectType const& type, param::iterable<hstring> const& requestedProperties) const;
-        auto CreateWatcher(Windows::Devices::Enumeration::Pnp::PnpObjectType const& type, param::iterable<hstring> const& requestedProperties, param::hstring const& aqsFilter) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Enumeration::Pnp::PnpObject>) CreateFromIdAsync(Windows::Devices::Enumeration::Pnp::PnpObjectType const& type, param::hstring const& id, param::async_iterable<hstring> const& requestedProperties) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Enumeration::Pnp::PnpObjectCollection>) FindAllAsync(Windows::Devices::Enumeration::Pnp::PnpObjectType const& type, param::async_iterable<hstring> const& requestedProperties) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Enumeration::Pnp::PnpObjectCollection>) FindAllAsync(Windows::Devices::Enumeration::Pnp::PnpObjectType const& type, param::async_iterable<hstring> const& requestedProperties, param::hstring const& aqsFilter) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Enumeration::Pnp::PnpObjectWatcher) CreateWatcher(Windows::Devices::Enumeration::Pnp::PnpObjectType const& type, param::iterable<hstring> const& requestedProperties) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Enumeration::Pnp::PnpObjectWatcher) CreateWatcher(Windows::Devices::Enumeration::Pnp::PnpObjectType const& type, param::iterable<hstring> const& requestedProperties, param::hstring const& aqsFilter) const;
     };
     template <> struct consume<Windows::Devices::Enumeration::Pnp::IPnpObjectStatics>
     {
@@ -149,9 +149,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Enumeration_Pnp_IPnpObjectUpdate
     {
-        [[nodiscard]] auto Type() const;
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto Properties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Enumeration::Pnp::PnpObjectType) Type() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMapView<hstring, Windows::Foundation::IInspectable>) Properties() const;
     };
     template <> struct consume<Windows::Devices::Enumeration::Pnp::IPnpObjectUpdate>
     {
@@ -160,29 +160,29 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Enumeration_Pnp_IPnpObjectWatcher
     {
-        auto Added(Windows::Foundation::TypedEventHandler<Windows::Devices::Enumeration::Pnp::PnpObjectWatcher, Windows::Devices::Enumeration::Pnp::PnpObject> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Added(Windows::Foundation::TypedEventHandler<Windows::Devices::Enumeration::Pnp::PnpObjectWatcher, Windows::Devices::Enumeration::Pnp::PnpObject> const& handler) const;
         using Added_revoker = impl::event_revoker<Windows::Devices::Enumeration::Pnp::IPnpObjectWatcher, &impl::abi_t<Windows::Devices::Enumeration::Pnp::IPnpObjectWatcher>::remove_Added>;
         [[nodiscard]] Added_revoker Added(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Enumeration::Pnp::PnpObjectWatcher, Windows::Devices::Enumeration::Pnp::PnpObject> const& handler) const;
-        auto Added(winrt::event_token const& token) const noexcept;
-        auto Updated(Windows::Foundation::TypedEventHandler<Windows::Devices::Enumeration::Pnp::PnpObjectWatcher, Windows::Devices::Enumeration::Pnp::PnpObjectUpdate> const& handler) const;
+        WINRT_IMPL_AUTO(void) Added(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Updated(Windows::Foundation::TypedEventHandler<Windows::Devices::Enumeration::Pnp::PnpObjectWatcher, Windows::Devices::Enumeration::Pnp::PnpObjectUpdate> const& handler) const;
         using Updated_revoker = impl::event_revoker<Windows::Devices::Enumeration::Pnp::IPnpObjectWatcher, &impl::abi_t<Windows::Devices::Enumeration::Pnp::IPnpObjectWatcher>::remove_Updated>;
         [[nodiscard]] Updated_revoker Updated(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Enumeration::Pnp::PnpObjectWatcher, Windows::Devices::Enumeration::Pnp::PnpObjectUpdate> const& handler) const;
-        auto Updated(winrt::event_token const& token) const noexcept;
-        auto Removed(Windows::Foundation::TypedEventHandler<Windows::Devices::Enumeration::Pnp::PnpObjectWatcher, Windows::Devices::Enumeration::Pnp::PnpObjectUpdate> const& handler) const;
+        WINRT_IMPL_AUTO(void) Updated(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Removed(Windows::Foundation::TypedEventHandler<Windows::Devices::Enumeration::Pnp::PnpObjectWatcher, Windows::Devices::Enumeration::Pnp::PnpObjectUpdate> const& handler) const;
         using Removed_revoker = impl::event_revoker<Windows::Devices::Enumeration::Pnp::IPnpObjectWatcher, &impl::abi_t<Windows::Devices::Enumeration::Pnp::IPnpObjectWatcher>::remove_Removed>;
         [[nodiscard]] Removed_revoker Removed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Enumeration::Pnp::PnpObjectWatcher, Windows::Devices::Enumeration::Pnp::PnpObjectUpdate> const& handler) const;
-        auto Removed(winrt::event_token const& token) const noexcept;
-        auto EnumerationCompleted(Windows::Foundation::TypedEventHandler<Windows::Devices::Enumeration::Pnp::PnpObjectWatcher, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) Removed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) EnumerationCompleted(Windows::Foundation::TypedEventHandler<Windows::Devices::Enumeration::Pnp::PnpObjectWatcher, Windows::Foundation::IInspectable> const& handler) const;
         using EnumerationCompleted_revoker = impl::event_revoker<Windows::Devices::Enumeration::Pnp::IPnpObjectWatcher, &impl::abi_t<Windows::Devices::Enumeration::Pnp::IPnpObjectWatcher>::remove_EnumerationCompleted>;
         [[nodiscard]] EnumerationCompleted_revoker EnumerationCompleted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Enumeration::Pnp::PnpObjectWatcher, Windows::Foundation::IInspectable> const& handler) const;
-        auto EnumerationCompleted(winrt::event_token const& token) const noexcept;
-        auto Stopped(Windows::Foundation::TypedEventHandler<Windows::Devices::Enumeration::Pnp::PnpObjectWatcher, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) EnumerationCompleted(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Stopped(Windows::Foundation::TypedEventHandler<Windows::Devices::Enumeration::Pnp::PnpObjectWatcher, Windows::Foundation::IInspectable> const& handler) const;
         using Stopped_revoker = impl::event_revoker<Windows::Devices::Enumeration::Pnp::IPnpObjectWatcher, &impl::abi_t<Windows::Devices::Enumeration::Pnp::IPnpObjectWatcher>::remove_Stopped>;
         [[nodiscard]] Stopped_revoker Stopped(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Enumeration::Pnp::PnpObjectWatcher, Windows::Foundation::IInspectable> const& handler) const;
-        auto Stopped(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto Status() const;
-        auto Start() const;
-        auto Stop() const;
+        WINRT_IMPL_AUTO(void) Stopped(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Enumeration::DeviceWatcherStatus) Status() const;
+        WINRT_IMPL_AUTO(void) Start() const;
+        WINRT_IMPL_AUTO(void) Stop() const;
     };
     template <> struct consume<Windows::Devices::Enumeration::Pnp::IPnpObjectWatcher>
     {

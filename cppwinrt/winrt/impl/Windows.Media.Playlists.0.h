@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -8,12 +8,18 @@
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage
 {
     struct IStorageFile;
     struct IStorageFolder;
     enum class NameCollisionOption : int32_t;
+    struct StorageFile;
 }
 WINRT_EXPORT namespace winrt::Windows::Media::Playlists
 {
@@ -33,12 +39,10 @@ namespace winrt::impl
     template <> struct category<Windows::Media::Playlists::IPlaylistStatics>{ using type = interface_category; };
     template <> struct category<Windows::Media::Playlists::Playlist>{ using type = class_category; };
     template <> struct category<Windows::Media::Playlists::PlaylistFormat>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Media::Playlists::Playlist>{ L"Windows.Media.Playlists.Playlist" };
-    template <> inline constexpr auto& name_v<Windows::Media::Playlists::PlaylistFormat>{ L"Windows.Media.Playlists.PlaylistFormat" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Media::Playlists::IPlaylist>{ L"Windows.Media.Playlists.IPlaylist" };
-    template <> inline constexpr auto& name_v<Windows::Media::Playlists::IPlaylistStatics>{ L"Windows.Media.Playlists.IPlaylistStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Media::Playlists::Playlist> = L"Windows.Media.Playlists.Playlist";
+    template <> inline constexpr auto& name_v<Windows::Media::Playlists::PlaylistFormat> = L"Windows.Media.Playlists.PlaylistFormat";
+    template <> inline constexpr auto& name_v<Windows::Media::Playlists::IPlaylist> = L"Windows.Media.Playlists.IPlaylist";
+    template <> inline constexpr auto& name_v<Windows::Media::Playlists::IPlaylistStatics> = L"Windows.Media.Playlists.IPlaylistStatics";
     template <> inline constexpr guid guid_v<Windows::Media::Playlists::IPlaylist>{ 0x803736F5,0xCF44,0x4D97,{ 0x83,0xB3,0x7A,0x08,0x9E,0x9A,0xB6,0x63 } };
     template <> inline constexpr guid guid_v<Windows::Media::Playlists::IPlaylistStatics>{ 0xC5C331CD,0x81F9,0x4FF3,{ 0x95,0xB9,0x70,0xB6,0xFF,0x04,0x6B,0x68 } };
     template <> struct default_interface<Windows::Media::Playlists::Playlist>{ using type = Windows::Media::Playlists::IPlaylist; };
@@ -62,10 +66,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Playlists_IPlaylist
     {
-        [[nodiscard]] auto Files() const;
-        auto SaveAsync() const;
-        auto SaveAsAsync(Windows::Storage::IStorageFolder const& saveLocation, param::hstring const& desiredName, Windows::Storage::NameCollisionOption const& option) const;
-        auto SaveAsAsync(Windows::Storage::IStorageFolder const& saveLocation, param::hstring const& desiredName, Windows::Storage::NameCollisionOption const& option, Windows::Media::Playlists::PlaylistFormat const& playlistFormat) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Storage::StorageFile>) Files() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SaveAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::StorageFile>) SaveAsAsync(Windows::Storage::IStorageFolder const& saveLocation, param::hstring const& desiredName, Windows::Storage::NameCollisionOption const& option) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::StorageFile>) SaveAsAsync(Windows::Storage::IStorageFolder const& saveLocation, param::hstring const& desiredName, Windows::Storage::NameCollisionOption const& option, Windows::Media::Playlists::PlaylistFormat const& playlistFormat) const;
     };
     template <> struct consume<Windows::Media::Playlists::IPlaylist>
     {
@@ -74,7 +78,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Playlists_IPlaylistStatics
     {
-        auto LoadAsync(Windows::Storage::IStorageFile const& file) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Playlists::Playlist>) LoadAsync(Windows::Storage::IStorageFile const& file) const;
     };
     template <> struct consume<Windows::Media::Playlists::IPlaylistStatics>
     {

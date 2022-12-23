@@ -1,17 +1,23 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
 #ifndef WINRT_Windows_ApplicationModel_AppService_0_H
 #define WINRT_Windows_ApplicationModel_AppService_0_H
+WINRT_EXPORT namespace winrt::Windows::ApplicationModel
+{
+    struct AppInfo;
+}
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
+    template <typename TResult> struct IAsyncOperation;
     template <typename TSender, typename TResult> struct TypedEventHandler;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
+    template <typename T> struct IVectorView;
     struct ValueSet;
 }
 WINRT_EXPORT namespace winrt::Windows::System
@@ -131,35 +137,33 @@ namespace winrt::impl
     template <> struct category<Windows::ApplicationModel::AppService::AppServiceConnectionStatus>{ using type = enum_category; };
     template <> struct category<Windows::ApplicationModel::AppService::AppServiceResponseStatus>{ using type = enum_category; };
     template <> struct category<Windows::ApplicationModel::AppService::StatelessAppServiceResponseStatus>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::AppServiceCatalog>{ L"Windows.ApplicationModel.AppService.AppServiceCatalog" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::AppServiceClosedEventArgs>{ L"Windows.ApplicationModel.AppService.AppServiceClosedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::AppServiceConnection>{ L"Windows.ApplicationModel.AppService.AppServiceConnection" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::AppServiceDeferral>{ L"Windows.ApplicationModel.AppService.AppServiceDeferral" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::AppServiceRequest>{ L"Windows.ApplicationModel.AppService.AppServiceRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::AppServiceRequestReceivedEventArgs>{ L"Windows.ApplicationModel.AppService.AppServiceRequestReceivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::AppServiceResponse>{ L"Windows.ApplicationModel.AppService.AppServiceResponse" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::AppServiceTriggerDetails>{ L"Windows.ApplicationModel.AppService.AppServiceTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::StatelessAppServiceResponse>{ L"Windows.ApplicationModel.AppService.StatelessAppServiceResponse" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::AppServiceClosedStatus>{ L"Windows.ApplicationModel.AppService.AppServiceClosedStatus" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::AppServiceConnectionStatus>{ L"Windows.ApplicationModel.AppService.AppServiceConnectionStatus" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::AppServiceResponseStatus>{ L"Windows.ApplicationModel.AppService.AppServiceResponseStatus" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::StatelessAppServiceResponseStatus>{ L"Windows.ApplicationModel.AppService.StatelessAppServiceResponseStatus" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IAppServiceCatalogStatics>{ L"Windows.ApplicationModel.AppService.IAppServiceCatalogStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IAppServiceClosedEventArgs>{ L"Windows.ApplicationModel.AppService.IAppServiceClosedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IAppServiceConnection>{ L"Windows.ApplicationModel.AppService.IAppServiceConnection" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IAppServiceConnection2>{ L"Windows.ApplicationModel.AppService.IAppServiceConnection2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IAppServiceConnectionStatics>{ L"Windows.ApplicationModel.AppService.IAppServiceConnectionStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IAppServiceDeferral>{ L"Windows.ApplicationModel.AppService.IAppServiceDeferral" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IAppServiceRequest>{ L"Windows.ApplicationModel.AppService.IAppServiceRequest" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IAppServiceRequestReceivedEventArgs>{ L"Windows.ApplicationModel.AppService.IAppServiceRequestReceivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IAppServiceResponse>{ L"Windows.ApplicationModel.AppService.IAppServiceResponse" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IAppServiceTriggerDetails>{ L"Windows.ApplicationModel.AppService.IAppServiceTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IAppServiceTriggerDetails2>{ L"Windows.ApplicationModel.AppService.IAppServiceTriggerDetails2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IAppServiceTriggerDetails3>{ L"Windows.ApplicationModel.AppService.IAppServiceTriggerDetails3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IAppServiceTriggerDetails4>{ L"Windows.ApplicationModel.AppService.IAppServiceTriggerDetails4" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IStatelessAppServiceResponse>{ L"Windows.ApplicationModel.AppService.IStatelessAppServiceResponse" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::AppServiceCatalog> = L"Windows.ApplicationModel.AppService.AppServiceCatalog";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::AppServiceClosedEventArgs> = L"Windows.ApplicationModel.AppService.AppServiceClosedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::AppServiceConnection> = L"Windows.ApplicationModel.AppService.AppServiceConnection";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::AppServiceDeferral> = L"Windows.ApplicationModel.AppService.AppServiceDeferral";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::AppServiceRequest> = L"Windows.ApplicationModel.AppService.AppServiceRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::AppServiceRequestReceivedEventArgs> = L"Windows.ApplicationModel.AppService.AppServiceRequestReceivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::AppServiceResponse> = L"Windows.ApplicationModel.AppService.AppServiceResponse";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::AppServiceTriggerDetails> = L"Windows.ApplicationModel.AppService.AppServiceTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::StatelessAppServiceResponse> = L"Windows.ApplicationModel.AppService.StatelessAppServiceResponse";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::AppServiceClosedStatus> = L"Windows.ApplicationModel.AppService.AppServiceClosedStatus";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::AppServiceConnectionStatus> = L"Windows.ApplicationModel.AppService.AppServiceConnectionStatus";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::AppServiceResponseStatus> = L"Windows.ApplicationModel.AppService.AppServiceResponseStatus";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::StatelessAppServiceResponseStatus> = L"Windows.ApplicationModel.AppService.StatelessAppServiceResponseStatus";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IAppServiceCatalogStatics> = L"Windows.ApplicationModel.AppService.IAppServiceCatalogStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IAppServiceClosedEventArgs> = L"Windows.ApplicationModel.AppService.IAppServiceClosedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IAppServiceConnection> = L"Windows.ApplicationModel.AppService.IAppServiceConnection";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IAppServiceConnection2> = L"Windows.ApplicationModel.AppService.IAppServiceConnection2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IAppServiceConnectionStatics> = L"Windows.ApplicationModel.AppService.IAppServiceConnectionStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IAppServiceDeferral> = L"Windows.ApplicationModel.AppService.IAppServiceDeferral";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IAppServiceRequest> = L"Windows.ApplicationModel.AppService.IAppServiceRequest";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IAppServiceRequestReceivedEventArgs> = L"Windows.ApplicationModel.AppService.IAppServiceRequestReceivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IAppServiceResponse> = L"Windows.ApplicationModel.AppService.IAppServiceResponse";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IAppServiceTriggerDetails> = L"Windows.ApplicationModel.AppService.IAppServiceTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IAppServiceTriggerDetails2> = L"Windows.ApplicationModel.AppService.IAppServiceTriggerDetails2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IAppServiceTriggerDetails3> = L"Windows.ApplicationModel.AppService.IAppServiceTriggerDetails3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IAppServiceTriggerDetails4> = L"Windows.ApplicationModel.AppService.IAppServiceTriggerDetails4";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::AppService::IStatelessAppServiceResponse> = L"Windows.ApplicationModel.AppService.IStatelessAppServiceResponse";
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IAppServiceCatalogStatics>{ 0xEF0D2507,0xD132,0x4C85,{ 0x83,0x95,0x3C,0x31,0xD5,0xA1,0xE9,0x41 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IAppServiceClosedEventArgs>{ 0xDE6016F6,0xCB03,0x4D35,{ 0xAC,0x8D,0xCC,0x63,0x03,0x23,0x97,0x31 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::AppService::IAppServiceConnection>{ 0x9DD474A2,0x871F,0x4D52,{ 0x89,0xA9,0x9E,0x09,0x05,0x31,0xBD,0x27 } };
@@ -300,7 +304,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_AppService_IAppServiceCatalogStatics
     {
-        auto FindAppServiceProvidersAsync(param::hstring const& appServiceName) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::AppInfo>>) FindAppServiceProvidersAsync(param::hstring const& appServiceName) const;
     };
     template <> struct consume<Windows::ApplicationModel::AppService::IAppServiceCatalogStatics>
     {
@@ -309,7 +313,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_AppService_IAppServiceClosedEventArgs
     {
-        [[nodiscard]] auto Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::AppService::AppServiceClosedStatus) Status() const;
     };
     template <> struct consume<Windows::ApplicationModel::AppService::IAppServiceClosedEventArgs>
     {
@@ -318,20 +322,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_AppService_IAppServiceConnection
     {
-        [[nodiscard]] auto AppServiceName() const;
-        auto AppServiceName(param::hstring const& value) const;
-        [[nodiscard]] auto PackageFamilyName() const;
-        auto PackageFamilyName(param::hstring const& value) const;
-        auto OpenAsync() const;
-        auto SendMessageAsync(Windows::Foundation::Collections::ValueSet const& message) const;
-        auto RequestReceived(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::AppService::AppServiceConnection, Windows::ApplicationModel::AppService::AppServiceRequestReceivedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AppServiceName() const;
+        WINRT_IMPL_AUTO(void) AppServiceName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PackageFamilyName() const;
+        WINRT_IMPL_AUTO(void) PackageFamilyName(param::hstring const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::AppService::AppServiceConnectionStatus>) OpenAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::AppService::AppServiceResponse>) SendMessageAsync(Windows::Foundation::Collections::ValueSet const& message) const;
+        WINRT_IMPL_AUTO(winrt::event_token) RequestReceived(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::AppService::AppServiceConnection, Windows::ApplicationModel::AppService::AppServiceRequestReceivedEventArgs> const& handler) const;
         using RequestReceived_revoker = impl::event_revoker<Windows::ApplicationModel::AppService::IAppServiceConnection, &impl::abi_t<Windows::ApplicationModel::AppService::IAppServiceConnection>::remove_RequestReceived>;
         [[nodiscard]] RequestReceived_revoker RequestReceived(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::AppService::AppServiceConnection, Windows::ApplicationModel::AppService::AppServiceRequestReceivedEventArgs> const& handler) const;
-        auto RequestReceived(winrt::event_token const& token) const noexcept;
-        auto ServiceClosed(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::AppService::AppServiceConnection, Windows::ApplicationModel::AppService::AppServiceClosedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) RequestReceived(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ServiceClosed(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::AppService::AppServiceConnection, Windows::ApplicationModel::AppService::AppServiceClosedEventArgs> const& handler) const;
         using ServiceClosed_revoker = impl::event_revoker<Windows::ApplicationModel::AppService::IAppServiceConnection, &impl::abi_t<Windows::ApplicationModel::AppService::IAppServiceConnection>::remove_ServiceClosed>;
         [[nodiscard]] ServiceClosed_revoker ServiceClosed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::AppService::AppServiceConnection, Windows::ApplicationModel::AppService::AppServiceClosedEventArgs> const& handler) const;
-        auto ServiceClosed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) ServiceClosed(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::ApplicationModel::AppService::IAppServiceConnection>
     {
@@ -340,9 +344,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_AppService_IAppServiceConnection2
     {
-        auto OpenRemoteAsync(Windows::System::RemoteSystems::RemoteSystemConnectionRequest const& remoteSystemConnectionRequest) const;
-        [[nodiscard]] auto User() const;
-        auto User(Windows::System::User const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::AppService::AppServiceConnectionStatus>) OpenRemoteAsync(Windows::System::RemoteSystems::RemoteSystemConnectionRequest const& remoteSystemConnectionRequest) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::User) User() const;
+        WINRT_IMPL_AUTO(void) User(Windows::System::User const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::AppService::IAppServiceConnection2>
     {
@@ -351,7 +355,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_AppService_IAppServiceConnectionStatics
     {
-        auto SendStatelessMessageAsync(Windows::ApplicationModel::AppService::AppServiceConnection const& connection, Windows::System::RemoteSystems::RemoteSystemConnectionRequest const& connectionRequest, Windows::Foundation::Collections::ValueSet const& message) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::AppService::StatelessAppServiceResponse>) SendStatelessMessageAsync(Windows::ApplicationModel::AppService::AppServiceConnection const& connection, Windows::System::RemoteSystems::RemoteSystemConnectionRequest const& connectionRequest, Windows::Foundation::Collections::ValueSet const& message) const;
     };
     template <> struct consume<Windows::ApplicationModel::AppService::IAppServiceConnectionStatics>
     {
@@ -360,7 +364,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_AppService_IAppServiceDeferral
     {
-        auto Complete() const;
+        WINRT_IMPL_AUTO(void) Complete() const;
     };
     template <> struct consume<Windows::ApplicationModel::AppService::IAppServiceDeferral>
     {
@@ -369,8 +373,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_AppService_IAppServiceRequest
     {
-        [[nodiscard]] auto Message() const;
-        auto SendResponseAsync(Windows::Foundation::Collections::ValueSet const& message) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::ValueSet) Message() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::AppService::AppServiceResponseStatus>) SendResponseAsync(Windows::Foundation::Collections::ValueSet const& message) const;
     };
     template <> struct consume<Windows::ApplicationModel::AppService::IAppServiceRequest>
     {
@@ -379,8 +383,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_AppService_IAppServiceRequestReceivedEventArgs
     {
-        [[nodiscard]] auto Request() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::AppService::AppServiceRequest) Request() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::AppService::AppServiceDeferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::AppService::IAppServiceRequestReceivedEventArgs>
     {
@@ -389,8 +393,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_AppService_IAppServiceResponse
     {
-        [[nodiscard]] auto Message() const;
-        [[nodiscard]] auto Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::ValueSet) Message() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::AppService::AppServiceResponseStatus) Status() const;
     };
     template <> struct consume<Windows::ApplicationModel::AppService::IAppServiceResponse>
     {
@@ -399,9 +403,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_AppService_IAppServiceTriggerDetails
     {
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto CallerPackageFamilyName() const;
-        [[nodiscard]] auto AppServiceConnection() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CallerPackageFamilyName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::AppService::AppServiceConnection) AppServiceConnection() const;
     };
     template <> struct consume<Windows::ApplicationModel::AppService::IAppServiceTriggerDetails>
     {
@@ -410,7 +414,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_AppService_IAppServiceTriggerDetails2
     {
-        [[nodiscard]] auto IsRemoteSystemConnection() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsRemoteSystemConnection() const;
     };
     template <> struct consume<Windows::ApplicationModel::AppService::IAppServiceTriggerDetails2>
     {
@@ -419,7 +423,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_AppService_IAppServiceTriggerDetails3
     {
-        auto CheckCallerForCapabilityAsync(param::hstring const& capabilityName) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) CheckCallerForCapabilityAsync(param::hstring const& capabilityName) const;
     };
     template <> struct consume<Windows::ApplicationModel::AppService::IAppServiceTriggerDetails3>
     {
@@ -428,7 +432,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_AppService_IAppServiceTriggerDetails4
     {
-        [[nodiscard]] auto CallerRemoteConnectionToken() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CallerRemoteConnectionToken() const;
     };
     template <> struct consume<Windows::ApplicationModel::AppService::IAppServiceTriggerDetails4>
     {
@@ -437,8 +441,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_AppService_IStatelessAppServiceResponse
     {
-        [[nodiscard]] auto Message() const;
-        [[nodiscard]] auto Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::ValueSet) Message() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::AppService::StatelessAppServiceResponseStatus) Status() const;
     };
     template <> struct consume<Windows::ApplicationModel::AppService::IStatelessAppServiceResponse>
     {

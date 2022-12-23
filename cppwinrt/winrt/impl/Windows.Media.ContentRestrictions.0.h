@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -9,6 +9,8 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     template <typename T> struct EventHandler;
     struct EventRegistrationToken;
+    template <typename TResult> struct IAsyncOperation;
+    template <typename T> struct IReference;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
@@ -57,18 +59,16 @@ namespace winrt::impl
     template <> struct category<Windows::Media::ContentRestrictions::RatedContentRestrictions>{ using type = class_category; };
     template <> struct category<Windows::Media::ContentRestrictions::ContentAccessRestrictionLevel>{ using type = enum_category; };
     template <> struct category<Windows::Media::ContentRestrictions::RatedContentCategory>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Media::ContentRestrictions::ContentRestrictionsBrowsePolicy>{ L"Windows.Media.ContentRestrictions.ContentRestrictionsBrowsePolicy" };
-    template <> inline constexpr auto& name_v<Windows::Media::ContentRestrictions::RatedContentDescription>{ L"Windows.Media.ContentRestrictions.RatedContentDescription" };
-    template <> inline constexpr auto& name_v<Windows::Media::ContentRestrictions::RatedContentRestrictions>{ L"Windows.Media.ContentRestrictions.RatedContentRestrictions" };
-    template <> inline constexpr auto& name_v<Windows::Media::ContentRestrictions::ContentAccessRestrictionLevel>{ L"Windows.Media.ContentRestrictions.ContentAccessRestrictionLevel" };
-    template <> inline constexpr auto& name_v<Windows::Media::ContentRestrictions::RatedContentCategory>{ L"Windows.Media.ContentRestrictions.RatedContentCategory" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Media::ContentRestrictions::IContentRestrictionsBrowsePolicy>{ L"Windows.Media.ContentRestrictions.IContentRestrictionsBrowsePolicy" };
-    template <> inline constexpr auto& name_v<Windows::Media::ContentRestrictions::IRatedContentDescription>{ L"Windows.Media.ContentRestrictions.IRatedContentDescription" };
-    template <> inline constexpr auto& name_v<Windows::Media::ContentRestrictions::IRatedContentDescriptionFactory>{ L"Windows.Media.ContentRestrictions.IRatedContentDescriptionFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::ContentRestrictions::IRatedContentRestrictions>{ L"Windows.Media.ContentRestrictions.IRatedContentRestrictions" };
-    template <> inline constexpr auto& name_v<Windows::Media::ContentRestrictions::IRatedContentRestrictionsFactory>{ L"Windows.Media.ContentRestrictions.IRatedContentRestrictionsFactory" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Media::ContentRestrictions::ContentRestrictionsBrowsePolicy> = L"Windows.Media.ContentRestrictions.ContentRestrictionsBrowsePolicy";
+    template <> inline constexpr auto& name_v<Windows::Media::ContentRestrictions::RatedContentDescription> = L"Windows.Media.ContentRestrictions.RatedContentDescription";
+    template <> inline constexpr auto& name_v<Windows::Media::ContentRestrictions::RatedContentRestrictions> = L"Windows.Media.ContentRestrictions.RatedContentRestrictions";
+    template <> inline constexpr auto& name_v<Windows::Media::ContentRestrictions::ContentAccessRestrictionLevel> = L"Windows.Media.ContentRestrictions.ContentAccessRestrictionLevel";
+    template <> inline constexpr auto& name_v<Windows::Media::ContentRestrictions::RatedContentCategory> = L"Windows.Media.ContentRestrictions.RatedContentCategory";
+    template <> inline constexpr auto& name_v<Windows::Media::ContentRestrictions::IContentRestrictionsBrowsePolicy> = L"Windows.Media.ContentRestrictions.IContentRestrictionsBrowsePolicy";
+    template <> inline constexpr auto& name_v<Windows::Media::ContentRestrictions::IRatedContentDescription> = L"Windows.Media.ContentRestrictions.IRatedContentDescription";
+    template <> inline constexpr auto& name_v<Windows::Media::ContentRestrictions::IRatedContentDescriptionFactory> = L"Windows.Media.ContentRestrictions.IRatedContentDescriptionFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::ContentRestrictions::IRatedContentRestrictions> = L"Windows.Media.ContentRestrictions.IRatedContentRestrictions";
+    template <> inline constexpr auto& name_v<Windows::Media::ContentRestrictions::IRatedContentRestrictionsFactory> = L"Windows.Media.ContentRestrictions.IRatedContentRestrictionsFactory";
     template <> inline constexpr guid guid_v<Windows::Media::ContentRestrictions::IContentRestrictionsBrowsePolicy>{ 0x8C0133A4,0x442E,0x461A,{ 0x87,0x57,0xFA,0xD2,0xF5,0xBD,0x37,0xE4 } };
     template <> inline constexpr guid guid_v<Windows::Media::ContentRestrictions::IRatedContentDescription>{ 0x694866DF,0x66B2,0x4DC3,{ 0x96,0xB1,0xF0,0x90,0xEE,0xDE,0xE2,0x55 } };
     template <> inline constexpr guid guid_v<Windows::Media::ContentRestrictions::IRatedContentDescriptionFactory>{ 0x2E38DF62,0x9B90,0x4FA6,{ 0x89,0xC1,0x4B,0x8D,0x2F,0xFB,0x35,0x73 } };
@@ -130,9 +130,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_ContentRestrictions_IContentRestrictionsBrowsePolicy
     {
-        [[nodiscard]] auto GeographicRegion() const;
-        [[nodiscard]] auto MaxBrowsableAgeRating() const;
-        [[nodiscard]] auto PreferredAgeRating() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) GeographicRegion() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint32_t>) MaxBrowsableAgeRating() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint32_t>) PreferredAgeRating() const;
     };
     template <> struct consume<Windows::Media::ContentRestrictions::IContentRestrictionsBrowsePolicy>
     {
@@ -141,16 +141,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_ContentRestrictions_IRatedContentDescription
     {
-        [[nodiscard]] auto Id() const;
-        auto Id(param::hstring const& value) const;
-        [[nodiscard]] auto Title() const;
-        auto Title(param::hstring const& value) const;
-        [[nodiscard]] auto Image() const;
-        auto Image(Windows::Storage::Streams::IRandomAccessStreamReference const& value) const;
-        [[nodiscard]] auto Category() const;
-        auto Category(Windows::Media::ContentRestrictions::RatedContentCategory const& value) const;
-        [[nodiscard]] auto Ratings() const;
-        auto Ratings(param::vector<hstring> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        WINRT_IMPL_AUTO(void) Id(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Title() const;
+        WINRT_IMPL_AUTO(void) Title(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamReference) Image() const;
+        WINRT_IMPL_AUTO(void) Image(Windows::Storage::Streams::IRandomAccessStreamReference const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::ContentRestrictions::RatedContentCategory) Category() const;
+        WINRT_IMPL_AUTO(void) Category(Windows::Media::ContentRestrictions::RatedContentCategory const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) Ratings() const;
+        WINRT_IMPL_AUTO(void) Ratings(param::vector<hstring> const& value) const;
     };
     template <> struct consume<Windows::Media::ContentRestrictions::IRatedContentDescription>
     {
@@ -159,7 +159,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_ContentRestrictions_IRatedContentDescriptionFactory
     {
-        auto Create(param::hstring const& id, param::hstring const& title, Windows::Media::ContentRestrictions::RatedContentCategory const& category) const;
+        WINRT_IMPL_AUTO(Windows::Media::ContentRestrictions::RatedContentDescription) Create(param::hstring const& id, param::hstring const& title, Windows::Media::ContentRestrictions::RatedContentCategory const& category) const;
     };
     template <> struct consume<Windows::Media::ContentRestrictions::IRatedContentDescriptionFactory>
     {
@@ -168,13 +168,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_ContentRestrictions_IRatedContentRestrictions
     {
-        auto GetBrowsePolicyAsync() const;
-        auto GetRestrictionLevelAsync(Windows::Media::ContentRestrictions::RatedContentDescription const& RatedContentDescription) const;
-        auto RequestContentAccessAsync(Windows::Media::ContentRestrictions::RatedContentDescription const& RatedContentDescription) const;
-        auto RestrictionsChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::ContentRestrictions::ContentRestrictionsBrowsePolicy>) GetBrowsePolicyAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::ContentRestrictions::ContentAccessRestrictionLevel>) GetRestrictionLevelAsync(Windows::Media::ContentRestrictions::RatedContentDescription const& RatedContentDescription) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) RequestContentAccessAsync(Windows::Media::ContentRestrictions::RatedContentDescription const& RatedContentDescription) const;
+        WINRT_IMPL_AUTO(winrt::event_token) RestrictionsChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using RestrictionsChanged_revoker = impl::event_revoker<Windows::Media::ContentRestrictions::IRatedContentRestrictions, &impl::abi_t<Windows::Media::ContentRestrictions::IRatedContentRestrictions>::remove_RestrictionsChanged>;
         [[nodiscard]] RestrictionsChanged_revoker RestrictionsChanged(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto RestrictionsChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) RestrictionsChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Media::ContentRestrictions::IRatedContentRestrictions>
     {
@@ -183,7 +183,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_ContentRestrictions_IRatedContentRestrictionsFactory
     {
-        auto CreateWithMaxAgeRating(uint32_t maxAgeRating) const;
+        WINRT_IMPL_AUTO(Windows::Media::ContentRestrictions::RatedContentRestrictions) CreateWithMaxAgeRating(uint32_t maxAgeRating) const;
     };
     template <> struct consume<Windows::Media::ContentRestrictions::IRatedContentRestrictionsFactory>
     {

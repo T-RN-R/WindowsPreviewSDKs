@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -10,6 +10,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
     enum class AsyncStatus : int32_t;
     template <typename T> struct EventHandler;
     struct EventRegistrationToken;
+    template <typename TResult> struct IAsyncOperation;
     struct Point;
     struct Rect;
     struct Size;
@@ -178,51 +179,49 @@ namespace winrt::impl
     template <> struct category<Windows::Foundation::Diagnostics::LoggingFieldFormat>{ using type = enum_category; };
     template <> struct category<Windows::Foundation::Diagnostics::LoggingLevel>{ using type = enum_category; };
     template <> struct category<Windows::Foundation::Diagnostics::LoggingOpcode>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::AsyncCausalityTracer>{ L"Windows.Foundation.Diagnostics.AsyncCausalityTracer" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ErrorDetails>{ L"Windows.Foundation.Diagnostics.ErrorDetails" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::FileLoggingSession>{ L"Windows.Foundation.Diagnostics.FileLoggingSession" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::LogFileGeneratedEventArgs>{ L"Windows.Foundation.Diagnostics.LogFileGeneratedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::LoggingActivity>{ L"Windows.Foundation.Diagnostics.LoggingActivity" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::LoggingChannel>{ L"Windows.Foundation.Diagnostics.LoggingChannel" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::LoggingChannelOptions>{ L"Windows.Foundation.Diagnostics.LoggingChannelOptions" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::LoggingFields>{ L"Windows.Foundation.Diagnostics.LoggingFields" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::LoggingOptions>{ L"Windows.Foundation.Diagnostics.LoggingOptions" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::LoggingSession>{ L"Windows.Foundation.Diagnostics.LoggingSession" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::RuntimeBrokerErrorSettings>{ L"Windows.Foundation.Diagnostics.RuntimeBrokerErrorSettings" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::TracingStatusChangedEventArgs>{ L"Windows.Foundation.Diagnostics.TracingStatusChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::CausalityRelation>{ L"Windows.Foundation.Diagnostics.CausalityRelation" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::CausalitySource>{ L"Windows.Foundation.Diagnostics.CausalitySource" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::CausalitySynchronousWork>{ L"Windows.Foundation.Diagnostics.CausalitySynchronousWork" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::CausalityTraceLevel>{ L"Windows.Foundation.Diagnostics.CausalityTraceLevel" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ErrorOptions>{ L"Windows.Foundation.Diagnostics.ErrorOptions" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::LoggingFieldFormat>{ L"Windows.Foundation.Diagnostics.LoggingFieldFormat" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::LoggingLevel>{ L"Windows.Foundation.Diagnostics.LoggingLevel" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::LoggingOpcode>{ L"Windows.Foundation.Diagnostics.LoggingOpcode" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::IAsyncCausalityTracerStatics>{ L"Windows.Foundation.Diagnostics.IAsyncCausalityTracerStatics" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::IErrorDetails>{ L"Windows.Foundation.Diagnostics.IErrorDetails" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::IErrorDetailsStatics>{ L"Windows.Foundation.Diagnostics.IErrorDetailsStatics" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::IErrorReportingSettings>{ L"Windows.Foundation.Diagnostics.IErrorReportingSettings" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::IFileLoggingSession>{ L"Windows.Foundation.Diagnostics.IFileLoggingSession" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::IFileLoggingSessionFactory>{ L"Windows.Foundation.Diagnostics.IFileLoggingSessionFactory" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILogFileGeneratedEventArgs>{ L"Windows.Foundation.Diagnostics.ILogFileGeneratedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingActivity>{ L"Windows.Foundation.Diagnostics.ILoggingActivity" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingActivity2>{ L"Windows.Foundation.Diagnostics.ILoggingActivity2" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingActivityFactory>{ L"Windows.Foundation.Diagnostics.ILoggingActivityFactory" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingChannel>{ L"Windows.Foundation.Diagnostics.ILoggingChannel" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingChannel2>{ L"Windows.Foundation.Diagnostics.ILoggingChannel2" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingChannelFactory>{ L"Windows.Foundation.Diagnostics.ILoggingChannelFactory" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingChannelFactory2>{ L"Windows.Foundation.Diagnostics.ILoggingChannelFactory2" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingChannelOptions>{ L"Windows.Foundation.Diagnostics.ILoggingChannelOptions" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingChannelOptionsFactory>{ L"Windows.Foundation.Diagnostics.ILoggingChannelOptionsFactory" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingFields>{ L"Windows.Foundation.Diagnostics.ILoggingFields" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingOptions>{ L"Windows.Foundation.Diagnostics.ILoggingOptions" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingOptionsFactory>{ L"Windows.Foundation.Diagnostics.ILoggingOptionsFactory" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingSession>{ L"Windows.Foundation.Diagnostics.ILoggingSession" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingSessionFactory>{ L"Windows.Foundation.Diagnostics.ILoggingSessionFactory" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingTarget>{ L"Windows.Foundation.Diagnostics.ILoggingTarget" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ITracingStatusChangedEventArgs>{ L"Windows.Foundation.Diagnostics.ITracingStatusChangedEventArgs" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::AsyncCausalityTracer> = L"Windows.Foundation.Diagnostics.AsyncCausalityTracer";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ErrorDetails> = L"Windows.Foundation.Diagnostics.ErrorDetails";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::FileLoggingSession> = L"Windows.Foundation.Diagnostics.FileLoggingSession";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::LogFileGeneratedEventArgs> = L"Windows.Foundation.Diagnostics.LogFileGeneratedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::LoggingActivity> = L"Windows.Foundation.Diagnostics.LoggingActivity";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::LoggingChannel> = L"Windows.Foundation.Diagnostics.LoggingChannel";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::LoggingChannelOptions> = L"Windows.Foundation.Diagnostics.LoggingChannelOptions";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::LoggingFields> = L"Windows.Foundation.Diagnostics.LoggingFields";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::LoggingOptions> = L"Windows.Foundation.Diagnostics.LoggingOptions";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::LoggingSession> = L"Windows.Foundation.Diagnostics.LoggingSession";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::RuntimeBrokerErrorSettings> = L"Windows.Foundation.Diagnostics.RuntimeBrokerErrorSettings";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::TracingStatusChangedEventArgs> = L"Windows.Foundation.Diagnostics.TracingStatusChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::CausalityRelation> = L"Windows.Foundation.Diagnostics.CausalityRelation";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::CausalitySource> = L"Windows.Foundation.Diagnostics.CausalitySource";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::CausalitySynchronousWork> = L"Windows.Foundation.Diagnostics.CausalitySynchronousWork";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::CausalityTraceLevel> = L"Windows.Foundation.Diagnostics.CausalityTraceLevel";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ErrorOptions> = L"Windows.Foundation.Diagnostics.ErrorOptions";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::LoggingFieldFormat> = L"Windows.Foundation.Diagnostics.LoggingFieldFormat";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::LoggingLevel> = L"Windows.Foundation.Diagnostics.LoggingLevel";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::LoggingOpcode> = L"Windows.Foundation.Diagnostics.LoggingOpcode";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::IAsyncCausalityTracerStatics> = L"Windows.Foundation.Diagnostics.IAsyncCausalityTracerStatics";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::IErrorDetails> = L"Windows.Foundation.Diagnostics.IErrorDetails";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::IErrorDetailsStatics> = L"Windows.Foundation.Diagnostics.IErrorDetailsStatics";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::IErrorReportingSettings> = L"Windows.Foundation.Diagnostics.IErrorReportingSettings";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::IFileLoggingSession> = L"Windows.Foundation.Diagnostics.IFileLoggingSession";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::IFileLoggingSessionFactory> = L"Windows.Foundation.Diagnostics.IFileLoggingSessionFactory";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILogFileGeneratedEventArgs> = L"Windows.Foundation.Diagnostics.ILogFileGeneratedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingActivity> = L"Windows.Foundation.Diagnostics.ILoggingActivity";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingActivity2> = L"Windows.Foundation.Diagnostics.ILoggingActivity2";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingActivityFactory> = L"Windows.Foundation.Diagnostics.ILoggingActivityFactory";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingChannel> = L"Windows.Foundation.Diagnostics.ILoggingChannel";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingChannel2> = L"Windows.Foundation.Diagnostics.ILoggingChannel2";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingChannelFactory> = L"Windows.Foundation.Diagnostics.ILoggingChannelFactory";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingChannelFactory2> = L"Windows.Foundation.Diagnostics.ILoggingChannelFactory2";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingChannelOptions> = L"Windows.Foundation.Diagnostics.ILoggingChannelOptions";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingChannelOptionsFactory> = L"Windows.Foundation.Diagnostics.ILoggingChannelOptionsFactory";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingFields> = L"Windows.Foundation.Diagnostics.ILoggingFields";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingOptions> = L"Windows.Foundation.Diagnostics.ILoggingOptions";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingOptionsFactory> = L"Windows.Foundation.Diagnostics.ILoggingOptionsFactory";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingSession> = L"Windows.Foundation.Diagnostics.ILoggingSession";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingSessionFactory> = L"Windows.Foundation.Diagnostics.ILoggingSessionFactory";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ILoggingTarget> = L"Windows.Foundation.Diagnostics.ILoggingTarget";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Diagnostics::ITracingStatusChangedEventArgs> = L"Windows.Foundation.Diagnostics.ITracingStatusChangedEventArgs";
     template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::IAsyncCausalityTracerStatics>{ 0x50850B26,0x267E,0x451B,{ 0xA8,0x90,0xAB,0x6A,0x37,0x02,0x45,0xEE } };
     template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::IErrorDetails>{ 0x378CBB01,0x2CC9,0x428F,{ 0x8C,0x55,0x2C,0x99,0x0D,0x46,0x3E,0x8F } };
     template <> inline constexpr guid guid_v<Windows::Foundation::Diagnostics::IErrorDetailsStatics>{ 0xB7703750,0x0B1D,0x46C8,{ 0xAA,0x0E,0x4B,0x81,0x78,0xE4,0xFC,0xE9 } };
@@ -591,15 +590,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_Diagnostics_IAsyncCausalityTracerStatics
     {
-        auto TraceOperationCreation(Windows::Foundation::Diagnostics::CausalityTraceLevel const& traceLevel, Windows::Foundation::Diagnostics::CausalitySource const& source, winrt::guid const& platformId, uint64_t operationId, param::hstring const& operationName, uint64_t relatedContext) const;
-        auto TraceOperationCompletion(Windows::Foundation::Diagnostics::CausalityTraceLevel const& traceLevel, Windows::Foundation::Diagnostics::CausalitySource const& source, winrt::guid const& platformId, uint64_t operationId, Windows::Foundation::AsyncStatus const& status) const;
-        auto TraceOperationRelation(Windows::Foundation::Diagnostics::CausalityTraceLevel const& traceLevel, Windows::Foundation::Diagnostics::CausalitySource const& source, winrt::guid const& platformId, uint64_t operationId, Windows::Foundation::Diagnostics::CausalityRelation const& relation) const;
-        auto TraceSynchronousWorkStart(Windows::Foundation::Diagnostics::CausalityTraceLevel const& traceLevel, Windows::Foundation::Diagnostics::CausalitySource const& source, winrt::guid const& platformId, uint64_t operationId, Windows::Foundation::Diagnostics::CausalitySynchronousWork const& work) const;
-        auto TraceSynchronousWorkCompletion(Windows::Foundation::Diagnostics::CausalityTraceLevel const& traceLevel, Windows::Foundation::Diagnostics::CausalitySource const& source, Windows::Foundation::Diagnostics::CausalitySynchronousWork const& work) const;
-        auto TracingStatusChanged(Windows::Foundation::EventHandler<Windows::Foundation::Diagnostics::TracingStatusChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) TraceOperationCreation(Windows::Foundation::Diagnostics::CausalityTraceLevel const& traceLevel, Windows::Foundation::Diagnostics::CausalitySource const& source, winrt::guid const& platformId, uint64_t operationId, param::hstring const& operationName, uint64_t relatedContext) const;
+        WINRT_IMPL_AUTO(void) TraceOperationCompletion(Windows::Foundation::Diagnostics::CausalityTraceLevel const& traceLevel, Windows::Foundation::Diagnostics::CausalitySource const& source, winrt::guid const& platformId, uint64_t operationId, Windows::Foundation::AsyncStatus const& status) const;
+        WINRT_IMPL_AUTO(void) TraceOperationRelation(Windows::Foundation::Diagnostics::CausalityTraceLevel const& traceLevel, Windows::Foundation::Diagnostics::CausalitySource const& source, winrt::guid const& platformId, uint64_t operationId, Windows::Foundation::Diagnostics::CausalityRelation const& relation) const;
+        WINRT_IMPL_AUTO(void) TraceSynchronousWorkStart(Windows::Foundation::Diagnostics::CausalityTraceLevel const& traceLevel, Windows::Foundation::Diagnostics::CausalitySource const& source, winrt::guid const& platformId, uint64_t operationId, Windows::Foundation::Diagnostics::CausalitySynchronousWork const& work) const;
+        WINRT_IMPL_AUTO(void) TraceSynchronousWorkCompletion(Windows::Foundation::Diagnostics::CausalityTraceLevel const& traceLevel, Windows::Foundation::Diagnostics::CausalitySource const& source, Windows::Foundation::Diagnostics::CausalitySynchronousWork const& work) const;
+        WINRT_IMPL_AUTO(winrt::event_token) TracingStatusChanged(Windows::Foundation::EventHandler<Windows::Foundation::Diagnostics::TracingStatusChangedEventArgs> const& handler) const;
         using TracingStatusChanged_revoker = impl::event_revoker<Windows::Foundation::Diagnostics::IAsyncCausalityTracerStatics, &impl::abi_t<Windows::Foundation::Diagnostics::IAsyncCausalityTracerStatics>::remove_TracingStatusChanged>;
         [[nodiscard]] TracingStatusChanged_revoker TracingStatusChanged(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::Diagnostics::TracingStatusChangedEventArgs> const& handler) const;
-        auto TracingStatusChanged(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(void) TracingStatusChanged(winrt::event_token const& cookie) const noexcept;
     };
     template <> struct consume<Windows::Foundation::Diagnostics::IAsyncCausalityTracerStatics>
     {
@@ -608,9 +607,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_Diagnostics_IErrorDetails
     {
-        [[nodiscard]] auto Description() const;
-        [[nodiscard]] auto LongDescription() const;
-        [[nodiscard]] auto HelpUri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) LongDescription() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) HelpUri() const;
     };
     template <> struct consume<Windows::Foundation::Diagnostics::IErrorDetails>
     {
@@ -619,7 +618,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_Diagnostics_IErrorDetailsStatics
     {
-        auto CreateFromHResultAsync(int32_t errorCode) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Diagnostics::ErrorDetails>) CreateFromHResultAsync(int32_t errorCode) const;
     };
     template <> struct consume<Windows::Foundation::Diagnostics::IErrorDetailsStatics>
     {
@@ -628,8 +627,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_Diagnostics_IErrorReportingSettings
     {
-        auto SetErrorOptions(Windows::Foundation::Diagnostics::ErrorOptions const& value) const;
-        auto GetErrorOptions() const;
+        WINRT_IMPL_AUTO(void) SetErrorOptions(Windows::Foundation::Diagnostics::ErrorOptions const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Diagnostics::ErrorOptions) GetErrorOptions() const;
     };
     template <> struct consume<Windows::Foundation::Diagnostics::IErrorReportingSettings>
     {
@@ -638,15 +637,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_Diagnostics_IFileLoggingSession
     {
-        [[nodiscard]] auto Name() const;
-        auto AddLoggingChannel(Windows::Foundation::Diagnostics::ILoggingChannel const& loggingChannel) const;
-        auto AddLoggingChannel(Windows::Foundation::Diagnostics::ILoggingChannel const& loggingChannel, Windows::Foundation::Diagnostics::LoggingLevel const& maxLevel) const;
-        auto RemoveLoggingChannel(Windows::Foundation::Diagnostics::ILoggingChannel const& loggingChannel) const;
-        auto CloseAndSaveToFileAsync() const;
-        auto LogFileGenerated(Windows::Foundation::TypedEventHandler<Windows::Foundation::Diagnostics::IFileLoggingSession, Windows::Foundation::Diagnostics::LogFileGeneratedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        WINRT_IMPL_AUTO(void) AddLoggingChannel(Windows::Foundation::Diagnostics::ILoggingChannel const& loggingChannel) const;
+        WINRT_IMPL_AUTO(void) AddLoggingChannel(Windows::Foundation::Diagnostics::ILoggingChannel const& loggingChannel, Windows::Foundation::Diagnostics::LoggingLevel const& maxLevel) const;
+        WINRT_IMPL_AUTO(void) RemoveLoggingChannel(Windows::Foundation::Diagnostics::ILoggingChannel const& loggingChannel) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::StorageFile>) CloseAndSaveToFileAsync() const;
+        WINRT_IMPL_AUTO(winrt::event_token) LogFileGenerated(Windows::Foundation::TypedEventHandler<Windows::Foundation::Diagnostics::IFileLoggingSession, Windows::Foundation::Diagnostics::LogFileGeneratedEventArgs> const& handler) const;
         using LogFileGenerated_revoker = impl::event_revoker<Windows::Foundation::Diagnostics::IFileLoggingSession, &impl::abi_t<Windows::Foundation::Diagnostics::IFileLoggingSession>::remove_LogFileGenerated>;
         [[nodiscard]] LogFileGenerated_revoker LogFileGenerated(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Foundation::Diagnostics::IFileLoggingSession, Windows::Foundation::Diagnostics::LogFileGeneratedEventArgs> const& handler) const;
-        auto LogFileGenerated(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) LogFileGenerated(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Foundation::Diagnostics::IFileLoggingSession>
     {
@@ -655,7 +654,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_Diagnostics_IFileLoggingSessionFactory
     {
-        auto Create(param::hstring const& name) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Diagnostics::FileLoggingSession) Create(param::hstring const& name) const;
     };
     template <> struct consume<Windows::Foundation::Diagnostics::IFileLoggingSessionFactory>
     {
@@ -664,7 +663,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_Diagnostics_ILogFileGeneratedEventArgs
     {
-        [[nodiscard]] auto File() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::StorageFile) File() const;
     };
     template <> struct consume<Windows::Foundation::Diagnostics::ILogFileGeneratedEventArgs>
     {
@@ -673,8 +672,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_Diagnostics_ILoggingActivity
     {
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) Id() const;
     };
     template <> struct consume<Windows::Foundation::Diagnostics::ILoggingActivity>
     {
@@ -683,10 +682,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_Diagnostics_ILoggingActivity2
     {
-        [[nodiscard]] auto Channel() const;
-        auto StopActivity(param::hstring const& stopEventName) const;
-        auto StopActivity(param::hstring const& stopEventName, Windows::Foundation::Diagnostics::LoggingFields const& fields) const;
-        auto StopActivity(param::hstring const& stopEventName, Windows::Foundation::Diagnostics::LoggingFields const& fields, Windows::Foundation::Diagnostics::LoggingOptions const& options) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Diagnostics::LoggingChannel) Channel() const;
+        WINRT_IMPL_AUTO(void) StopActivity(param::hstring const& stopEventName) const;
+        WINRT_IMPL_AUTO(void) StopActivity(param::hstring const& stopEventName, Windows::Foundation::Diagnostics::LoggingFields const& fields) const;
+        WINRT_IMPL_AUTO(void) StopActivity(param::hstring const& stopEventName, Windows::Foundation::Diagnostics::LoggingFields const& fields, Windows::Foundation::Diagnostics::LoggingOptions const& options) const;
     };
     template <> struct consume<Windows::Foundation::Diagnostics::ILoggingActivity2>
     {
@@ -695,8 +694,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_Diagnostics_ILoggingActivityFactory
     {
-        auto CreateLoggingActivity(param::hstring const& activityName, Windows::Foundation::Diagnostics::ILoggingChannel const& loggingChannel) const;
-        auto CreateLoggingActivityWithLevel(param::hstring const& activityName, Windows::Foundation::Diagnostics::ILoggingChannel const& loggingChannel, Windows::Foundation::Diagnostics::LoggingLevel const& level) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Diagnostics::LoggingActivity) CreateLoggingActivity(param::hstring const& activityName, Windows::Foundation::Diagnostics::ILoggingChannel const& loggingChannel) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Diagnostics::LoggingActivity) CreateLoggingActivityWithLevel(param::hstring const& activityName, Windows::Foundation::Diagnostics::ILoggingChannel const& loggingChannel, Windows::Foundation::Diagnostics::LoggingLevel const& level) const;
     };
     template <> struct consume<Windows::Foundation::Diagnostics::ILoggingActivityFactory>
     {
@@ -705,17 +704,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_Diagnostics_ILoggingChannel
     {
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto Enabled() const;
-        [[nodiscard]] auto Level() const;
-        auto LogMessage(param::hstring const& eventString) const;
-        auto LogMessage(param::hstring const& eventString, Windows::Foundation::Diagnostics::LoggingLevel const& level) const;
-        auto LogValuePair(param::hstring const& value1, int32_t value2) const;
-        auto LogValuePair(param::hstring const& value1, int32_t value2, Windows::Foundation::Diagnostics::LoggingLevel const& level) const;
-        auto LoggingEnabled(Windows::Foundation::TypedEventHandler<Windows::Foundation::Diagnostics::ILoggingChannel, Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Enabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Diagnostics::LoggingLevel) Level() const;
+        WINRT_IMPL_AUTO(void) LogMessage(param::hstring const& eventString) const;
+        WINRT_IMPL_AUTO(void) LogMessage(param::hstring const& eventString, Windows::Foundation::Diagnostics::LoggingLevel const& level) const;
+        WINRT_IMPL_AUTO(void) LogValuePair(param::hstring const& value1, int32_t value2) const;
+        WINRT_IMPL_AUTO(void) LogValuePair(param::hstring const& value1, int32_t value2, Windows::Foundation::Diagnostics::LoggingLevel const& level) const;
+        WINRT_IMPL_AUTO(winrt::event_token) LoggingEnabled(Windows::Foundation::TypedEventHandler<Windows::Foundation::Diagnostics::ILoggingChannel, Windows::Foundation::IInspectable> const& handler) const;
         using LoggingEnabled_revoker = impl::event_revoker<Windows::Foundation::Diagnostics::ILoggingChannel, &impl::abi_t<Windows::Foundation::Diagnostics::ILoggingChannel>::remove_LoggingEnabled>;
         [[nodiscard]] LoggingEnabled_revoker LoggingEnabled(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Foundation::Diagnostics::ILoggingChannel, Windows::Foundation::IInspectable> const& handler) const;
-        auto LoggingEnabled(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) LoggingEnabled(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Foundation::Diagnostics::ILoggingChannel>
     {
@@ -724,7 +723,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_Diagnostics_ILoggingChannel2
     {
-        [[nodiscard]] auto Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) Id() const;
     };
     template <> struct consume<Windows::Foundation::Diagnostics::ILoggingChannel2>
     {
@@ -733,7 +732,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_Diagnostics_ILoggingChannelFactory
     {
-        auto Create(param::hstring const& name) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Diagnostics::LoggingChannel) Create(param::hstring const& name) const;
     };
     template <> struct consume<Windows::Foundation::Diagnostics::ILoggingChannelFactory>
     {
@@ -742,8 +741,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_Diagnostics_ILoggingChannelFactory2
     {
-        auto CreateWithOptions(param::hstring const& name, Windows::Foundation::Diagnostics::LoggingChannelOptions const& options) const;
-        auto CreateWithOptionsAndId(param::hstring const& name, Windows::Foundation::Diagnostics::LoggingChannelOptions const& options, winrt::guid const& id) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Diagnostics::LoggingChannel) CreateWithOptions(param::hstring const& name, Windows::Foundation::Diagnostics::LoggingChannelOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Diagnostics::LoggingChannel) CreateWithOptionsAndId(param::hstring const& name, Windows::Foundation::Diagnostics::LoggingChannelOptions const& options, winrt::guid const& id) const;
     };
     template <> struct consume<Windows::Foundation::Diagnostics::ILoggingChannelFactory2>
     {
@@ -752,8 +751,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_Diagnostics_ILoggingChannelOptions
     {
-        [[nodiscard]] auto Group() const;
-        auto Group(winrt::guid const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) Group() const;
+        WINRT_IMPL_AUTO(void) Group(winrt::guid const& value) const;
     };
     template <> struct consume<Windows::Foundation::Diagnostics::ILoggingChannelOptions>
     {
@@ -762,7 +761,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_Diagnostics_ILoggingChannelOptionsFactory
     {
-        auto Create(winrt::guid const& group) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Diagnostics::LoggingChannelOptions) Create(winrt::guid const& group) const;
     };
     template <> struct consume<Windows::Foundation::Diagnostics::ILoggingChannelOptionsFactory>
     {
@@ -771,121 +770,121 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_Diagnostics_ILoggingFields
     {
-        auto Clear() const;
-        auto BeginStruct(param::hstring const& name) const;
-        auto BeginStruct(param::hstring const& name, int32_t tags) const;
-        auto EndStruct() const;
-        auto AddEmpty(param::hstring const& name) const;
-        auto AddEmpty(param::hstring const& name, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddEmpty(param::hstring const& name, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddUInt8(param::hstring const& name, uint8_t value) const;
-        auto AddUInt8(param::hstring const& name, uint8_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddUInt8(param::hstring const& name, uint8_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddUInt8Array(param::hstring const& name, array_view<uint8_t const> value) const;
-        auto AddUInt8Array(param::hstring const& name, array_view<uint8_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddUInt8Array(param::hstring const& name, array_view<uint8_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddInt16(param::hstring const& name, int16_t value) const;
-        auto AddInt16(param::hstring const& name, int16_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddInt16(param::hstring const& name, int16_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddInt16Array(param::hstring const& name, array_view<int16_t const> value) const;
-        auto AddInt16Array(param::hstring const& name, array_view<int16_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddInt16Array(param::hstring const& name, array_view<int16_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddUInt16(param::hstring const& name, uint16_t value) const;
-        auto AddUInt16(param::hstring const& name, uint16_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddUInt16(param::hstring const& name, uint16_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddUInt16Array(param::hstring const& name, array_view<uint16_t const> value) const;
-        auto AddUInt16Array(param::hstring const& name, array_view<uint16_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddUInt16Array(param::hstring const& name, array_view<uint16_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddInt32(param::hstring const& name, int32_t value) const;
-        auto AddInt32(param::hstring const& name, int32_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddInt32(param::hstring const& name, int32_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddInt32Array(param::hstring const& name, array_view<int32_t const> value) const;
-        auto AddInt32Array(param::hstring const& name, array_view<int32_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddInt32Array(param::hstring const& name, array_view<int32_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddUInt32(param::hstring const& name, uint32_t value) const;
-        auto AddUInt32(param::hstring const& name, uint32_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddUInt32(param::hstring const& name, uint32_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddUInt32Array(param::hstring const& name, array_view<uint32_t const> value) const;
-        auto AddUInt32Array(param::hstring const& name, array_view<uint32_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddUInt32Array(param::hstring const& name, array_view<uint32_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddInt64(param::hstring const& name, int64_t value) const;
-        auto AddInt64(param::hstring const& name, int64_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddInt64(param::hstring const& name, int64_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddInt64Array(param::hstring const& name, array_view<int64_t const> value) const;
-        auto AddInt64Array(param::hstring const& name, array_view<int64_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddInt64Array(param::hstring const& name, array_view<int64_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddUInt64(param::hstring const& name, uint64_t value) const;
-        auto AddUInt64(param::hstring const& name, uint64_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddUInt64(param::hstring const& name, uint64_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddUInt64Array(param::hstring const& name, array_view<uint64_t const> value) const;
-        auto AddUInt64Array(param::hstring const& name, array_view<uint64_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddUInt64Array(param::hstring const& name, array_view<uint64_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddSingle(param::hstring const& name, float value) const;
-        auto AddSingle(param::hstring const& name, float value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddSingle(param::hstring const& name, float value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddSingleArray(param::hstring const& name, array_view<float const> value) const;
-        auto AddSingleArray(param::hstring const& name, array_view<float const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddSingleArray(param::hstring const& name, array_view<float const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddDouble(param::hstring const& name, double value) const;
-        auto AddDouble(param::hstring const& name, double value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddDouble(param::hstring const& name, double value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddDoubleArray(param::hstring const& name, array_view<double const> value) const;
-        auto AddDoubleArray(param::hstring const& name, array_view<double const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddDoubleArray(param::hstring const& name, array_view<double const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddChar16(param::hstring const& name, char16_t value) const;
-        auto AddChar16(param::hstring const& name, char16_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddChar16(param::hstring const& name, char16_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddChar16Array(param::hstring const& name, array_view<char16_t const> value) const;
-        auto AddChar16Array(param::hstring const& name, array_view<char16_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddChar16Array(param::hstring const& name, array_view<char16_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddBoolean(param::hstring const& name, bool value) const;
-        auto AddBoolean(param::hstring const& name, bool value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddBoolean(param::hstring const& name, bool value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddBooleanArray(param::hstring const& name, array_view<bool const> value) const;
-        auto AddBooleanArray(param::hstring const& name, array_view<bool const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddBooleanArray(param::hstring const& name, array_view<bool const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddString(param::hstring const& name, param::hstring const& value) const;
-        auto AddString(param::hstring const& name, param::hstring const& value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddString(param::hstring const& name, param::hstring const& value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddStringArray(param::hstring const& name, array_view<hstring const> value) const;
-        auto AddStringArray(param::hstring const& name, array_view<hstring const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddStringArray(param::hstring const& name, array_view<hstring const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddGuid(param::hstring const& name, winrt::guid const& value) const;
-        auto AddGuid(param::hstring const& name, winrt::guid const& value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddGuid(param::hstring const& name, winrt::guid const& value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddGuidArray(param::hstring const& name, array_view<winrt::guid const> value) const;
-        auto AddGuidArray(param::hstring const& name, array_view<winrt::guid const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddGuidArray(param::hstring const& name, array_view<winrt::guid const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddDateTime(param::hstring const& name, Windows::Foundation::DateTime const& value) const;
-        auto AddDateTime(param::hstring const& name, Windows::Foundation::DateTime const& value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddDateTime(param::hstring const& name, Windows::Foundation::DateTime const& value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddDateTimeArray(param::hstring const& name, array_view<Windows::Foundation::DateTime const> value) const;
-        auto AddDateTimeArray(param::hstring const& name, array_view<Windows::Foundation::DateTime const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddDateTimeArray(param::hstring const& name, array_view<Windows::Foundation::DateTime const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddTimeSpan(param::hstring const& name, Windows::Foundation::TimeSpan const& value) const;
-        auto AddTimeSpan(param::hstring const& name, Windows::Foundation::TimeSpan const& value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddTimeSpan(param::hstring const& name, Windows::Foundation::TimeSpan const& value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddTimeSpanArray(param::hstring const& name, array_view<Windows::Foundation::TimeSpan const> value) const;
-        auto AddTimeSpanArray(param::hstring const& name, array_view<Windows::Foundation::TimeSpan const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddTimeSpanArray(param::hstring const& name, array_view<Windows::Foundation::TimeSpan const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddPoint(param::hstring const& name, Windows::Foundation::Point const& value) const;
-        auto AddPoint(param::hstring const& name, Windows::Foundation::Point const& value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddPoint(param::hstring const& name, Windows::Foundation::Point const& value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddPointArray(param::hstring const& name, array_view<Windows::Foundation::Point const> value) const;
-        auto AddPointArray(param::hstring const& name, array_view<Windows::Foundation::Point const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddPointArray(param::hstring const& name, array_view<Windows::Foundation::Point const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddSize(param::hstring const& name, Windows::Foundation::Size const& value) const;
-        auto AddSize(param::hstring const& name, Windows::Foundation::Size const& value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddSize(param::hstring const& name, Windows::Foundation::Size const& value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddSizeArray(param::hstring const& name, array_view<Windows::Foundation::Size const> value) const;
-        auto AddSizeArray(param::hstring const& name, array_view<Windows::Foundation::Size const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddSizeArray(param::hstring const& name, array_view<Windows::Foundation::Size const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddRect(param::hstring const& name, Windows::Foundation::Rect const& value) const;
-        auto AddRect(param::hstring const& name, Windows::Foundation::Rect const& value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddRect(param::hstring const& name, Windows::Foundation::Rect const& value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
-        auto AddRectArray(param::hstring const& name, array_view<Windows::Foundation::Rect const> value) const;
-        auto AddRectArray(param::hstring const& name, array_view<Windows::Foundation::Rect const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
-        auto AddRectArray(param::hstring const& name, array_view<Windows::Foundation::Rect const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) Clear() const;
+        WINRT_IMPL_AUTO(void) BeginStruct(param::hstring const& name) const;
+        WINRT_IMPL_AUTO(void) BeginStruct(param::hstring const& name, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) EndStruct() const;
+        WINRT_IMPL_AUTO(void) AddEmpty(param::hstring const& name) const;
+        WINRT_IMPL_AUTO(void) AddEmpty(param::hstring const& name, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddEmpty(param::hstring const& name, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddUInt8(param::hstring const& name, uint8_t value) const;
+        WINRT_IMPL_AUTO(void) AddUInt8(param::hstring const& name, uint8_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddUInt8(param::hstring const& name, uint8_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddUInt8Array(param::hstring const& name, array_view<uint8_t const> value) const;
+        WINRT_IMPL_AUTO(void) AddUInt8Array(param::hstring const& name, array_view<uint8_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddUInt8Array(param::hstring const& name, array_view<uint8_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddInt16(param::hstring const& name, int16_t value) const;
+        WINRT_IMPL_AUTO(void) AddInt16(param::hstring const& name, int16_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddInt16(param::hstring const& name, int16_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddInt16Array(param::hstring const& name, array_view<int16_t const> value) const;
+        WINRT_IMPL_AUTO(void) AddInt16Array(param::hstring const& name, array_view<int16_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddInt16Array(param::hstring const& name, array_view<int16_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddUInt16(param::hstring const& name, uint16_t value) const;
+        WINRT_IMPL_AUTO(void) AddUInt16(param::hstring const& name, uint16_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddUInt16(param::hstring const& name, uint16_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddUInt16Array(param::hstring const& name, array_view<uint16_t const> value) const;
+        WINRT_IMPL_AUTO(void) AddUInt16Array(param::hstring const& name, array_view<uint16_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddUInt16Array(param::hstring const& name, array_view<uint16_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddInt32(param::hstring const& name, int32_t value) const;
+        WINRT_IMPL_AUTO(void) AddInt32(param::hstring const& name, int32_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddInt32(param::hstring const& name, int32_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddInt32Array(param::hstring const& name, array_view<int32_t const> value) const;
+        WINRT_IMPL_AUTO(void) AddInt32Array(param::hstring const& name, array_view<int32_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddInt32Array(param::hstring const& name, array_view<int32_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddUInt32(param::hstring const& name, uint32_t value) const;
+        WINRT_IMPL_AUTO(void) AddUInt32(param::hstring const& name, uint32_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddUInt32(param::hstring const& name, uint32_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddUInt32Array(param::hstring const& name, array_view<uint32_t const> value) const;
+        WINRT_IMPL_AUTO(void) AddUInt32Array(param::hstring const& name, array_view<uint32_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddUInt32Array(param::hstring const& name, array_view<uint32_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddInt64(param::hstring const& name, int64_t value) const;
+        WINRT_IMPL_AUTO(void) AddInt64(param::hstring const& name, int64_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddInt64(param::hstring const& name, int64_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddInt64Array(param::hstring const& name, array_view<int64_t const> value) const;
+        WINRT_IMPL_AUTO(void) AddInt64Array(param::hstring const& name, array_view<int64_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddInt64Array(param::hstring const& name, array_view<int64_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddUInt64(param::hstring const& name, uint64_t value) const;
+        WINRT_IMPL_AUTO(void) AddUInt64(param::hstring const& name, uint64_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddUInt64(param::hstring const& name, uint64_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddUInt64Array(param::hstring const& name, array_view<uint64_t const> value) const;
+        WINRT_IMPL_AUTO(void) AddUInt64Array(param::hstring const& name, array_view<uint64_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddUInt64Array(param::hstring const& name, array_view<uint64_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddSingle(param::hstring const& name, float value) const;
+        WINRT_IMPL_AUTO(void) AddSingle(param::hstring const& name, float value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddSingle(param::hstring const& name, float value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddSingleArray(param::hstring const& name, array_view<float const> value) const;
+        WINRT_IMPL_AUTO(void) AddSingleArray(param::hstring const& name, array_view<float const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddSingleArray(param::hstring const& name, array_view<float const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddDouble(param::hstring const& name, double value) const;
+        WINRT_IMPL_AUTO(void) AddDouble(param::hstring const& name, double value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddDouble(param::hstring const& name, double value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddDoubleArray(param::hstring const& name, array_view<double const> value) const;
+        WINRT_IMPL_AUTO(void) AddDoubleArray(param::hstring const& name, array_view<double const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddDoubleArray(param::hstring const& name, array_view<double const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddChar16(param::hstring const& name, char16_t value) const;
+        WINRT_IMPL_AUTO(void) AddChar16(param::hstring const& name, char16_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddChar16(param::hstring const& name, char16_t value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddChar16Array(param::hstring const& name, array_view<char16_t const> value) const;
+        WINRT_IMPL_AUTO(void) AddChar16Array(param::hstring const& name, array_view<char16_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddChar16Array(param::hstring const& name, array_view<char16_t const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddBoolean(param::hstring const& name, bool value) const;
+        WINRT_IMPL_AUTO(void) AddBoolean(param::hstring const& name, bool value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddBoolean(param::hstring const& name, bool value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddBooleanArray(param::hstring const& name, array_view<bool const> value) const;
+        WINRT_IMPL_AUTO(void) AddBooleanArray(param::hstring const& name, array_view<bool const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddBooleanArray(param::hstring const& name, array_view<bool const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddString(param::hstring const& name, param::hstring const& value) const;
+        WINRT_IMPL_AUTO(void) AddString(param::hstring const& name, param::hstring const& value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddString(param::hstring const& name, param::hstring const& value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddStringArray(param::hstring const& name, array_view<hstring const> value) const;
+        WINRT_IMPL_AUTO(void) AddStringArray(param::hstring const& name, array_view<hstring const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddStringArray(param::hstring const& name, array_view<hstring const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddGuid(param::hstring const& name, winrt::guid const& value) const;
+        WINRT_IMPL_AUTO(void) AddGuid(param::hstring const& name, winrt::guid const& value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddGuid(param::hstring const& name, winrt::guid const& value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddGuidArray(param::hstring const& name, array_view<winrt::guid const> value) const;
+        WINRT_IMPL_AUTO(void) AddGuidArray(param::hstring const& name, array_view<winrt::guid const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddGuidArray(param::hstring const& name, array_view<winrt::guid const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddDateTime(param::hstring const& name, Windows::Foundation::DateTime const& value) const;
+        WINRT_IMPL_AUTO(void) AddDateTime(param::hstring const& name, Windows::Foundation::DateTime const& value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddDateTime(param::hstring const& name, Windows::Foundation::DateTime const& value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddDateTimeArray(param::hstring const& name, array_view<Windows::Foundation::DateTime const> value) const;
+        WINRT_IMPL_AUTO(void) AddDateTimeArray(param::hstring const& name, array_view<Windows::Foundation::DateTime const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddDateTimeArray(param::hstring const& name, array_view<Windows::Foundation::DateTime const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddTimeSpan(param::hstring const& name, Windows::Foundation::TimeSpan const& value) const;
+        WINRT_IMPL_AUTO(void) AddTimeSpan(param::hstring const& name, Windows::Foundation::TimeSpan const& value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddTimeSpan(param::hstring const& name, Windows::Foundation::TimeSpan const& value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddTimeSpanArray(param::hstring const& name, array_view<Windows::Foundation::TimeSpan const> value) const;
+        WINRT_IMPL_AUTO(void) AddTimeSpanArray(param::hstring const& name, array_view<Windows::Foundation::TimeSpan const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddTimeSpanArray(param::hstring const& name, array_view<Windows::Foundation::TimeSpan const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddPoint(param::hstring const& name, Windows::Foundation::Point const& value) const;
+        WINRT_IMPL_AUTO(void) AddPoint(param::hstring const& name, Windows::Foundation::Point const& value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddPoint(param::hstring const& name, Windows::Foundation::Point const& value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddPointArray(param::hstring const& name, array_view<Windows::Foundation::Point const> value) const;
+        WINRT_IMPL_AUTO(void) AddPointArray(param::hstring const& name, array_view<Windows::Foundation::Point const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddPointArray(param::hstring const& name, array_view<Windows::Foundation::Point const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddSize(param::hstring const& name, Windows::Foundation::Size const& value) const;
+        WINRT_IMPL_AUTO(void) AddSize(param::hstring const& name, Windows::Foundation::Size const& value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddSize(param::hstring const& name, Windows::Foundation::Size const& value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddSizeArray(param::hstring const& name, array_view<Windows::Foundation::Size const> value) const;
+        WINRT_IMPL_AUTO(void) AddSizeArray(param::hstring const& name, array_view<Windows::Foundation::Size const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddSizeArray(param::hstring const& name, array_view<Windows::Foundation::Size const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddRect(param::hstring const& name, Windows::Foundation::Rect const& value) const;
+        WINRT_IMPL_AUTO(void) AddRect(param::hstring const& name, Windows::Foundation::Rect const& value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddRect(param::hstring const& name, Windows::Foundation::Rect const& value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
+        WINRT_IMPL_AUTO(void) AddRectArray(param::hstring const& name, array_view<Windows::Foundation::Rect const> value) const;
+        WINRT_IMPL_AUTO(void) AddRectArray(param::hstring const& name, array_view<Windows::Foundation::Rect const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format) const;
+        WINRT_IMPL_AUTO(void) AddRectArray(param::hstring const& name, array_view<Windows::Foundation::Rect const> value, Windows::Foundation::Diagnostics::LoggingFieldFormat const& format, int32_t tags) const;
     };
     template <> struct consume<Windows::Foundation::Diagnostics::ILoggingFields>
     {
@@ -894,18 +893,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_Diagnostics_ILoggingOptions
     {
-        [[nodiscard]] auto Keywords() const;
-        auto Keywords(int64_t value) const;
-        [[nodiscard]] auto Tags() const;
-        auto Tags(int32_t value) const;
-        [[nodiscard]] auto Task() const;
-        auto Task(int16_t value) const;
-        [[nodiscard]] auto Opcode() const;
-        auto Opcode(Windows::Foundation::Diagnostics::LoggingOpcode const& value) const;
-        [[nodiscard]] auto ActivityId() const;
-        auto ActivityId(winrt::guid const& value) const;
-        [[nodiscard]] auto RelatedActivityId() const;
-        auto RelatedActivityId(winrt::guid const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int64_t) Keywords() const;
+        WINRT_IMPL_AUTO(void) Keywords(int64_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Tags() const;
+        WINRT_IMPL_AUTO(void) Tags(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int16_t) Task() const;
+        WINRT_IMPL_AUTO(void) Task(int16_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Diagnostics::LoggingOpcode) Opcode() const;
+        WINRT_IMPL_AUTO(void) Opcode(Windows::Foundation::Diagnostics::LoggingOpcode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) ActivityId() const;
+        WINRT_IMPL_AUTO(void) ActivityId(winrt::guid const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) RelatedActivityId() const;
+        WINRT_IMPL_AUTO(void) RelatedActivityId(winrt::guid const& value) const;
     };
     template <> struct consume<Windows::Foundation::Diagnostics::ILoggingOptions>
     {
@@ -914,7 +913,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_Diagnostics_ILoggingOptionsFactory
     {
-        auto CreateWithKeywords(int64_t keywords) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Diagnostics::LoggingOptions) CreateWithKeywords(int64_t keywords) const;
     };
     template <> struct consume<Windows::Foundation::Diagnostics::ILoggingOptionsFactory>
     {
@@ -923,11 +922,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_Diagnostics_ILoggingSession
     {
-        [[nodiscard]] auto Name() const;
-        auto SaveToFileAsync(Windows::Storage::IStorageFolder const& folder, param::hstring const& fileName) const;
-        auto AddLoggingChannel(Windows::Foundation::Diagnostics::ILoggingChannel const& loggingChannel) const;
-        auto AddLoggingChannel(Windows::Foundation::Diagnostics::ILoggingChannel const& loggingChannel, Windows::Foundation::Diagnostics::LoggingLevel const& maxLevel) const;
-        auto RemoveLoggingChannel(Windows::Foundation::Diagnostics::ILoggingChannel const& loggingChannel) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::StorageFile>) SaveToFileAsync(Windows::Storage::IStorageFolder const& folder, param::hstring const& fileName) const;
+        WINRT_IMPL_AUTO(void) AddLoggingChannel(Windows::Foundation::Diagnostics::ILoggingChannel const& loggingChannel) const;
+        WINRT_IMPL_AUTO(void) AddLoggingChannel(Windows::Foundation::Diagnostics::ILoggingChannel const& loggingChannel, Windows::Foundation::Diagnostics::LoggingLevel const& maxLevel) const;
+        WINRT_IMPL_AUTO(void) RemoveLoggingChannel(Windows::Foundation::Diagnostics::ILoggingChannel const& loggingChannel) const;
     };
     template <> struct consume<Windows::Foundation::Diagnostics::ILoggingSession>
     {
@@ -936,7 +935,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_Diagnostics_ILoggingSessionFactory
     {
-        auto Create(param::hstring const& name) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Diagnostics::LoggingSession) Create(param::hstring const& name) const;
     };
     template <> struct consume<Windows::Foundation::Diagnostics::ILoggingSessionFactory>
     {
@@ -945,17 +944,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_Diagnostics_ILoggingTarget
     {
-        auto IsEnabled() const;
-        auto IsEnabled(Windows::Foundation::Diagnostics::LoggingLevel const& level) const;
-        auto IsEnabled(Windows::Foundation::Diagnostics::LoggingLevel const& level, int64_t keywords) const;
-        auto LogEvent(param::hstring const& eventName) const;
-        auto LogEvent(param::hstring const& eventName, Windows::Foundation::Diagnostics::LoggingFields const& fields) const;
-        auto LogEvent(param::hstring const& eventName, Windows::Foundation::Diagnostics::LoggingFields const& fields, Windows::Foundation::Diagnostics::LoggingLevel const& level) const;
-        auto LogEvent(param::hstring const& eventName, Windows::Foundation::Diagnostics::LoggingFields const& fields, Windows::Foundation::Diagnostics::LoggingLevel const& level, Windows::Foundation::Diagnostics::LoggingOptions const& options) const;
-        auto StartActivity(param::hstring const& startEventName) const;
-        auto StartActivity(param::hstring const& startEventName, Windows::Foundation::Diagnostics::LoggingFields const& fields) const;
-        auto StartActivity(param::hstring const& startEventName, Windows::Foundation::Diagnostics::LoggingFields const& fields, Windows::Foundation::Diagnostics::LoggingLevel const& level) const;
-        auto StartActivity(param::hstring const& startEventName, Windows::Foundation::Diagnostics::LoggingFields const& fields, Windows::Foundation::Diagnostics::LoggingLevel const& level, Windows::Foundation::Diagnostics::LoggingOptions const& options) const;
+        WINRT_IMPL_AUTO(bool) IsEnabled() const;
+        WINRT_IMPL_AUTO(bool) IsEnabled(Windows::Foundation::Diagnostics::LoggingLevel const& level) const;
+        WINRT_IMPL_AUTO(bool) IsEnabled(Windows::Foundation::Diagnostics::LoggingLevel const& level, int64_t keywords) const;
+        WINRT_IMPL_AUTO(void) LogEvent(param::hstring const& eventName) const;
+        WINRT_IMPL_AUTO(void) LogEvent(param::hstring const& eventName, Windows::Foundation::Diagnostics::LoggingFields const& fields) const;
+        WINRT_IMPL_AUTO(void) LogEvent(param::hstring const& eventName, Windows::Foundation::Diagnostics::LoggingFields const& fields, Windows::Foundation::Diagnostics::LoggingLevel const& level) const;
+        WINRT_IMPL_AUTO(void) LogEvent(param::hstring const& eventName, Windows::Foundation::Diagnostics::LoggingFields const& fields, Windows::Foundation::Diagnostics::LoggingLevel const& level, Windows::Foundation::Diagnostics::LoggingOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Diagnostics::LoggingActivity) StartActivity(param::hstring const& startEventName) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Diagnostics::LoggingActivity) StartActivity(param::hstring const& startEventName, Windows::Foundation::Diagnostics::LoggingFields const& fields) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Diagnostics::LoggingActivity) StartActivity(param::hstring const& startEventName, Windows::Foundation::Diagnostics::LoggingFields const& fields, Windows::Foundation::Diagnostics::LoggingLevel const& level) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Diagnostics::LoggingActivity) StartActivity(param::hstring const& startEventName, Windows::Foundation::Diagnostics::LoggingFields const& fields, Windows::Foundation::Diagnostics::LoggingLevel const& level, Windows::Foundation::Diagnostics::LoggingOptions const& options) const;
     };
     template <> struct consume<Windows::Foundation::Diagnostics::ILoggingTarget>
     {
@@ -964,8 +963,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_Diagnostics_ITracingStatusChangedEventArgs
     {
-        [[nodiscard]] auto Enabled() const;
-        [[nodiscard]] auto TraceLevel() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Enabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Diagnostics::CausalityTraceLevel) TraceLevel() const;
     };
     template <> struct consume<Windows::Foundation::Diagnostics::ITracingStatusChangedEventArgs>
     {

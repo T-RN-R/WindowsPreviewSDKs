@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -14,7 +14,12 @@ WINRT_EXPORT namespace winrt::Windows::Devices::Geolocation
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
+    template <typename TResult> struct IAsyncOperation;
     template <typename TSender, typename TResult> struct TypedEventHandler;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Services::Maps::OfflineMaps
 {
@@ -59,18 +64,16 @@ namespace winrt::impl
     template <> struct category<Windows::Services::Maps::OfflineMaps::OfflineMapPackageQueryStatus>{ using type = enum_category; };
     template <> struct category<Windows::Services::Maps::OfflineMaps::OfflineMapPackageStartDownloadStatus>{ using type = enum_category; };
     template <> struct category<Windows::Services::Maps::OfflineMaps::OfflineMapPackageStatus>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Services::Maps::OfflineMaps::OfflineMapPackage>{ L"Windows.Services.Maps.OfflineMaps.OfflineMapPackage" };
-    template <> inline constexpr auto& name_v<Windows::Services::Maps::OfflineMaps::OfflineMapPackageQueryResult>{ L"Windows.Services.Maps.OfflineMaps.OfflineMapPackageQueryResult" };
-    template <> inline constexpr auto& name_v<Windows::Services::Maps::OfflineMaps::OfflineMapPackageStartDownloadResult>{ L"Windows.Services.Maps.OfflineMaps.OfflineMapPackageStartDownloadResult" };
-    template <> inline constexpr auto& name_v<Windows::Services::Maps::OfflineMaps::OfflineMapPackageQueryStatus>{ L"Windows.Services.Maps.OfflineMaps.OfflineMapPackageQueryStatus" };
-    template <> inline constexpr auto& name_v<Windows::Services::Maps::OfflineMaps::OfflineMapPackageStartDownloadStatus>{ L"Windows.Services.Maps.OfflineMaps.OfflineMapPackageStartDownloadStatus" };
-    template <> inline constexpr auto& name_v<Windows::Services::Maps::OfflineMaps::OfflineMapPackageStatus>{ L"Windows.Services.Maps.OfflineMaps.OfflineMapPackageStatus" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Services::Maps::OfflineMaps::IOfflineMapPackage>{ L"Windows.Services.Maps.OfflineMaps.IOfflineMapPackage" };
-    template <> inline constexpr auto& name_v<Windows::Services::Maps::OfflineMaps::IOfflineMapPackageQueryResult>{ L"Windows.Services.Maps.OfflineMaps.IOfflineMapPackageQueryResult" };
-    template <> inline constexpr auto& name_v<Windows::Services::Maps::OfflineMaps::IOfflineMapPackageStartDownloadResult>{ L"Windows.Services.Maps.OfflineMaps.IOfflineMapPackageStartDownloadResult" };
-    template <> inline constexpr auto& name_v<Windows::Services::Maps::OfflineMaps::IOfflineMapPackageStatics>{ L"Windows.Services.Maps.OfflineMaps.IOfflineMapPackageStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Services::Maps::OfflineMaps::OfflineMapPackage> = L"Windows.Services.Maps.OfflineMaps.OfflineMapPackage";
+    template <> inline constexpr auto& name_v<Windows::Services::Maps::OfflineMaps::OfflineMapPackageQueryResult> = L"Windows.Services.Maps.OfflineMaps.OfflineMapPackageQueryResult";
+    template <> inline constexpr auto& name_v<Windows::Services::Maps::OfflineMaps::OfflineMapPackageStartDownloadResult> = L"Windows.Services.Maps.OfflineMaps.OfflineMapPackageStartDownloadResult";
+    template <> inline constexpr auto& name_v<Windows::Services::Maps::OfflineMaps::OfflineMapPackageQueryStatus> = L"Windows.Services.Maps.OfflineMaps.OfflineMapPackageQueryStatus";
+    template <> inline constexpr auto& name_v<Windows::Services::Maps::OfflineMaps::OfflineMapPackageStartDownloadStatus> = L"Windows.Services.Maps.OfflineMaps.OfflineMapPackageStartDownloadStatus";
+    template <> inline constexpr auto& name_v<Windows::Services::Maps::OfflineMaps::OfflineMapPackageStatus> = L"Windows.Services.Maps.OfflineMaps.OfflineMapPackageStatus";
+    template <> inline constexpr auto& name_v<Windows::Services::Maps::OfflineMaps::IOfflineMapPackage> = L"Windows.Services.Maps.OfflineMaps.IOfflineMapPackage";
+    template <> inline constexpr auto& name_v<Windows::Services::Maps::OfflineMaps::IOfflineMapPackageQueryResult> = L"Windows.Services.Maps.OfflineMaps.IOfflineMapPackageQueryResult";
+    template <> inline constexpr auto& name_v<Windows::Services::Maps::OfflineMaps::IOfflineMapPackageStartDownloadResult> = L"Windows.Services.Maps.OfflineMaps.IOfflineMapPackageStartDownloadResult";
+    template <> inline constexpr auto& name_v<Windows::Services::Maps::OfflineMaps::IOfflineMapPackageStatics> = L"Windows.Services.Maps.OfflineMaps.IOfflineMapPackageStatics";
     template <> inline constexpr guid guid_v<Windows::Services::Maps::OfflineMaps::IOfflineMapPackage>{ 0xA797673B,0xA5B5,0x4144,{ 0xB5,0x25,0xE6,0x8C,0x88,0x62,0x66,0x4B } };
     template <> inline constexpr guid guid_v<Windows::Services::Maps::OfflineMaps::IOfflineMapPackageQueryResult>{ 0x55585411,0x39E1,0x4E41,{ 0xA4,0xE1,0x5F,0x48,0x72,0xBE,0xE1,0x99 } };
     template <> inline constexpr guid guid_v<Windows::Services::Maps::OfflineMaps::IOfflineMapPackageStartDownloadResult>{ 0xD965B918,0xD4D6,0x4AFE,{ 0x93,0x78,0x3E,0xC7,0x1E,0xF1,0x1C,0x3D } };
@@ -118,15 +121,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_Maps_OfflineMaps_IOfflineMapPackage
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto DisplayName() const;
-        [[nodiscard]] auto EnclosingRegionName() const;
-        [[nodiscard]] auto EstimatedSizeInBytes() const;
-        auto StatusChanged(winrt::event_token const& token) const noexcept;
-        auto StatusChanged(Windows::Foundation::TypedEventHandler<Windows::Services::Maps::OfflineMaps::OfflineMapPackage, Windows::Foundation::IInspectable> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Services::Maps::OfflineMaps::OfflineMapPackageStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EnclosingRegionName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) EstimatedSizeInBytes() const;
+        WINRT_IMPL_AUTO(void) StatusChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) StatusChanged(Windows::Foundation::TypedEventHandler<Windows::Services::Maps::OfflineMaps::OfflineMapPackage, Windows::Foundation::IInspectable> const& value) const;
         using StatusChanged_revoker = impl::event_revoker<Windows::Services::Maps::OfflineMaps::IOfflineMapPackage, &impl::abi_t<Windows::Services::Maps::OfflineMaps::IOfflineMapPackage>::remove_StatusChanged>;
         [[nodiscard]] StatusChanged_revoker StatusChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Services::Maps::OfflineMaps::OfflineMapPackage, Windows::Foundation::IInspectable> const& value) const;
-        auto RequestStartDownloadAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Services::Maps::OfflineMaps::OfflineMapPackageStartDownloadResult>) RequestStartDownloadAsync() const;
     };
     template <> struct consume<Windows::Services::Maps::OfflineMaps::IOfflineMapPackage>
     {
@@ -135,8 +138,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_Maps_OfflineMaps_IOfflineMapPackageQueryResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto Packages() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Services::Maps::OfflineMaps::OfflineMapPackageQueryStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Services::Maps::OfflineMaps::OfflineMapPackage>) Packages() const;
     };
     template <> struct consume<Windows::Services::Maps::OfflineMaps::IOfflineMapPackageQueryResult>
     {
@@ -145,7 +148,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_Maps_OfflineMaps_IOfflineMapPackageStartDownloadResult
     {
-        [[nodiscard]] auto Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Services::Maps::OfflineMaps::OfflineMapPackageStartDownloadStatus) Status() const;
     };
     template <> struct consume<Windows::Services::Maps::OfflineMaps::IOfflineMapPackageStartDownloadResult>
     {
@@ -154,9 +157,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_Maps_OfflineMaps_IOfflineMapPackageStatics
     {
-        auto FindPackagesAsync(Windows::Devices::Geolocation::Geopoint const& queryPoint) const;
-        auto FindPackagesInBoundingBoxAsync(Windows::Devices::Geolocation::GeoboundingBox const& queryBoundingBox) const;
-        auto FindPackagesInGeocircleAsync(Windows::Devices::Geolocation::Geocircle const& queryCircle) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Services::Maps::OfflineMaps::OfflineMapPackageQueryResult>) FindPackagesAsync(Windows::Devices::Geolocation::Geopoint const& queryPoint) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Services::Maps::OfflineMaps::OfflineMapPackageQueryResult>) FindPackagesInBoundingBoxAsync(Windows::Devices::Geolocation::GeoboundingBox const& queryBoundingBox) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Services::Maps::OfflineMaps::OfflineMapPackageQueryResult>) FindPackagesInGeocircleAsync(Windows::Devices::Geolocation::Geocircle const& queryCircle) const;
     };
     template <> struct consume<Windows::Services::Maps::OfflineMaps::IOfflineMapPackageStatics>
     {

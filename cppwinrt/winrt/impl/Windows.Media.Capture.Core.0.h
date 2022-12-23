@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -9,6 +9,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
     struct IAsyncAction;
+    template <typename T> struct IReference;
     template <typename TSender, typename TResult> struct TypedEventHandler;
 }
 WINRT_EXPORT namespace winrt::Windows::Media::Capture
@@ -31,13 +32,11 @@ namespace winrt::impl
     template <> struct category<Windows::Media::Capture::Core::IVariablePhotoSequenceCapture2>{ using type = interface_category; };
     template <> struct category<Windows::Media::Capture::Core::VariablePhotoCapturedEventArgs>{ using type = class_category; };
     template <> struct category<Windows::Media::Capture::Core::VariablePhotoSequenceCapture>{ using type = class_category; };
-    template <> inline constexpr auto& name_v<Windows::Media::Capture::Core::VariablePhotoCapturedEventArgs>{ L"Windows.Media.Capture.Core.VariablePhotoCapturedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Capture::Core::VariablePhotoSequenceCapture>{ L"Windows.Media.Capture.Core.VariablePhotoSequenceCapture" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Media::Capture::Core::IVariablePhotoCapturedEventArgs>{ L"Windows.Media.Capture.Core.IVariablePhotoCapturedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Capture::Core::IVariablePhotoSequenceCapture>{ L"Windows.Media.Capture.Core.IVariablePhotoSequenceCapture" };
-    template <> inline constexpr auto& name_v<Windows::Media::Capture::Core::IVariablePhotoSequenceCapture2>{ L"Windows.Media.Capture.Core.IVariablePhotoSequenceCapture2" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Media::Capture::Core::VariablePhotoCapturedEventArgs> = L"Windows.Media.Capture.Core.VariablePhotoCapturedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Capture::Core::VariablePhotoSequenceCapture> = L"Windows.Media.Capture.Core.VariablePhotoSequenceCapture";
+    template <> inline constexpr auto& name_v<Windows::Media::Capture::Core::IVariablePhotoCapturedEventArgs> = L"Windows.Media.Capture.Core.IVariablePhotoCapturedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Capture::Core::IVariablePhotoSequenceCapture> = L"Windows.Media.Capture.Core.IVariablePhotoSequenceCapture";
+    template <> inline constexpr auto& name_v<Windows::Media::Capture::Core::IVariablePhotoSequenceCapture2> = L"Windows.Media.Capture.Core.IVariablePhotoSequenceCapture2";
     template <> inline constexpr guid guid_v<Windows::Media::Capture::Core::IVariablePhotoCapturedEventArgs>{ 0xD1EB4C5C,0x1B53,0x4E4A,{ 0x8B,0x5C,0xDB,0x78,0x87,0xAC,0x94,0x9B } };
     template <> inline constexpr guid guid_v<Windows::Media::Capture::Core::IVariablePhotoSequenceCapture>{ 0xD0112D1D,0x031E,0x4041,{ 0xA6,0xD6,0xBD,0x74,0x24,0x76,0xA8,0xEE } };
     template <> inline constexpr guid guid_v<Windows::Media::Capture::Core::IVariablePhotoSequenceCapture2>{ 0xFE2C62BC,0x50B0,0x43E3,{ 0x91,0x7C,0xE3,0xB9,0x27,0x98,0x94,0x2F } };
@@ -76,10 +75,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Capture_Core_IVariablePhotoCapturedEventArgs
     {
-        [[nodiscard]] auto Frame() const;
-        [[nodiscard]] auto CaptureTimeOffset() const;
-        [[nodiscard]] auto UsedFrameControllerIndex() const;
-        [[nodiscard]] auto CapturedFrameControlValues() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Capture::CapturedFrame) Frame() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) CaptureTimeOffset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint32_t>) UsedFrameControllerIndex() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Capture::CapturedFrameControlValues) CapturedFrameControlValues() const;
     };
     template <> struct consume<Windows::Media::Capture::Core::IVariablePhotoCapturedEventArgs>
     {
@@ -88,17 +87,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Capture_Core_IVariablePhotoSequenceCapture
     {
-        auto StartAsync() const;
-        auto StopAsync() const;
-        auto FinishAsync() const;
-        auto PhotoCaptured(Windows::Foundation::TypedEventHandler<Windows::Media::Capture::Core::VariablePhotoSequenceCapture, Windows::Media::Capture::Core::VariablePhotoCapturedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) StartAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) StopAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) FinishAsync() const;
+        WINRT_IMPL_AUTO(winrt::event_token) PhotoCaptured(Windows::Foundation::TypedEventHandler<Windows::Media::Capture::Core::VariablePhotoSequenceCapture, Windows::Media::Capture::Core::VariablePhotoCapturedEventArgs> const& handler) const;
         using PhotoCaptured_revoker = impl::event_revoker<Windows::Media::Capture::Core::IVariablePhotoSequenceCapture, &impl::abi_t<Windows::Media::Capture::Core::IVariablePhotoSequenceCapture>::remove_PhotoCaptured>;
         [[nodiscard]] PhotoCaptured_revoker PhotoCaptured(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Capture::Core::VariablePhotoSequenceCapture, Windows::Media::Capture::Core::VariablePhotoCapturedEventArgs> const& handler) const;
-        auto PhotoCaptured(winrt::event_token const& token) const noexcept;
-        auto Stopped(Windows::Foundation::TypedEventHandler<Windows::Media::Capture::Core::VariablePhotoSequenceCapture, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) PhotoCaptured(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Stopped(Windows::Foundation::TypedEventHandler<Windows::Media::Capture::Core::VariablePhotoSequenceCapture, Windows::Foundation::IInspectable> const& handler) const;
         using Stopped_revoker = impl::event_revoker<Windows::Media::Capture::Core::IVariablePhotoSequenceCapture, &impl::abi_t<Windows::Media::Capture::Core::IVariablePhotoSequenceCapture>::remove_Stopped>;
         [[nodiscard]] Stopped_revoker Stopped(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Capture::Core::VariablePhotoSequenceCapture, Windows::Foundation::IInspectable> const& handler) const;
-        auto Stopped(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Stopped(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Media::Capture::Core::IVariablePhotoSequenceCapture>
     {
@@ -107,7 +106,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Capture_Core_IVariablePhotoSequenceCapture2
     {
-        auto UpdateSettingsAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) UpdateSettingsAsync() const;
     };
     template <> struct consume<Windows::Media::Capture::Core::IVariablePhotoSequenceCapture2>
     {

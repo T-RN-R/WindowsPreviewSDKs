@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -13,6 +13,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
     template <typename TSender, typename TResult> struct TypedEventHandler;
     struct Uri;
 }
@@ -139,52 +140,50 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Xaml::Media::Imaging::DecodePixelType>{ using type = enum_category; };
     template <> struct category<Windows::UI::Xaml::Media::Imaging::SvgImageSourceLoadStatus>{ using type = enum_category; };
     template <> struct category<Windows::UI::Xaml::Media::Imaging::DownloadProgressEventHandler>{ using type = delegate_category; };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::BitmapImage>{ L"Windows.UI.Xaml.Media.Imaging.BitmapImage" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::BitmapSource>{ L"Windows.UI.Xaml.Media.Imaging.BitmapSource" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::DownloadProgressEventArgs>{ L"Windows.UI.Xaml.Media.Imaging.DownloadProgressEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::RenderTargetBitmap>{ L"Windows.UI.Xaml.Media.Imaging.RenderTargetBitmap" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::SoftwareBitmapSource>{ L"Windows.UI.Xaml.Media.Imaging.SoftwareBitmapSource" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::SurfaceImageSource>{ L"Windows.UI.Xaml.Media.Imaging.SurfaceImageSource" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::SvgImageSource>{ L"Windows.UI.Xaml.Media.Imaging.SvgImageSource" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::SvgImageSourceFailedEventArgs>{ L"Windows.UI.Xaml.Media.Imaging.SvgImageSourceFailedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::SvgImageSourceOpenedEventArgs>{ L"Windows.UI.Xaml.Media.Imaging.SvgImageSourceOpenedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::VirtualSurfaceImageSource>{ L"Windows.UI.Xaml.Media.Imaging.VirtualSurfaceImageSource" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::WriteableBitmap>{ L"Windows.UI.Xaml.Media.Imaging.WriteableBitmap" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::XamlRenderingBackgroundTask>{ L"Windows.UI.Xaml.Media.Imaging.XamlRenderingBackgroundTask" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::BitmapCreateOptions>{ L"Windows.UI.Xaml.Media.Imaging.BitmapCreateOptions" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::DecodePixelType>{ L"Windows.UI.Xaml.Media.Imaging.DecodePixelType" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::SvgImageSourceLoadStatus>{ L"Windows.UI.Xaml.Media.Imaging.SvgImageSourceLoadStatus" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IBitmapImage>{ L"Windows.UI.Xaml.Media.Imaging.IBitmapImage" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IBitmapImage2>{ L"Windows.UI.Xaml.Media.Imaging.IBitmapImage2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IBitmapImage3>{ L"Windows.UI.Xaml.Media.Imaging.IBitmapImage3" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IBitmapImageFactory>{ L"Windows.UI.Xaml.Media.Imaging.IBitmapImageFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IBitmapImageStatics>{ L"Windows.UI.Xaml.Media.Imaging.IBitmapImageStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IBitmapImageStatics2>{ L"Windows.UI.Xaml.Media.Imaging.IBitmapImageStatics2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IBitmapImageStatics3>{ L"Windows.UI.Xaml.Media.Imaging.IBitmapImageStatics3" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IBitmapSource>{ L"Windows.UI.Xaml.Media.Imaging.IBitmapSource" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IBitmapSourceFactory>{ L"Windows.UI.Xaml.Media.Imaging.IBitmapSourceFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IBitmapSourceStatics>{ L"Windows.UI.Xaml.Media.Imaging.IBitmapSourceStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IDownloadProgressEventArgs>{ L"Windows.UI.Xaml.Media.Imaging.IDownloadProgressEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IRenderTargetBitmap>{ L"Windows.UI.Xaml.Media.Imaging.IRenderTargetBitmap" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IRenderTargetBitmapStatics>{ L"Windows.UI.Xaml.Media.Imaging.IRenderTargetBitmapStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::ISoftwareBitmapSource>{ L"Windows.UI.Xaml.Media.Imaging.ISoftwareBitmapSource" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::ISurfaceImageSource>{ L"Windows.UI.Xaml.Media.Imaging.ISurfaceImageSource" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::ISurfaceImageSourceFactory>{ L"Windows.UI.Xaml.Media.Imaging.ISurfaceImageSourceFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::ISvgImageSource>{ L"Windows.UI.Xaml.Media.Imaging.ISvgImageSource" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::ISvgImageSourceFactory>{ L"Windows.UI.Xaml.Media.Imaging.ISvgImageSourceFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::ISvgImageSourceFailedEventArgs>{ L"Windows.UI.Xaml.Media.Imaging.ISvgImageSourceFailedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::ISvgImageSourceOpenedEventArgs>{ L"Windows.UI.Xaml.Media.Imaging.ISvgImageSourceOpenedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::ISvgImageSourceStatics>{ L"Windows.UI.Xaml.Media.Imaging.ISvgImageSourceStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IVirtualSurfaceImageSource>{ L"Windows.UI.Xaml.Media.Imaging.IVirtualSurfaceImageSource" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IVirtualSurfaceImageSourceFactory>{ L"Windows.UI.Xaml.Media.Imaging.IVirtualSurfaceImageSourceFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IWriteableBitmap>{ L"Windows.UI.Xaml.Media.Imaging.IWriteableBitmap" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IWriteableBitmapFactory>{ L"Windows.UI.Xaml.Media.Imaging.IWriteableBitmapFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IXamlRenderingBackgroundTask>{ L"Windows.UI.Xaml.Media.Imaging.IXamlRenderingBackgroundTask" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IXamlRenderingBackgroundTaskFactory>{ L"Windows.UI.Xaml.Media.Imaging.IXamlRenderingBackgroundTaskFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IXamlRenderingBackgroundTaskOverrides>{ L"Windows.UI.Xaml.Media.Imaging.IXamlRenderingBackgroundTaskOverrides" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::DownloadProgressEventHandler>{ L"Windows.UI.Xaml.Media.Imaging.DownloadProgressEventHandler" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::BitmapImage> = L"Windows.UI.Xaml.Media.Imaging.BitmapImage";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::BitmapSource> = L"Windows.UI.Xaml.Media.Imaging.BitmapSource";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::DownloadProgressEventArgs> = L"Windows.UI.Xaml.Media.Imaging.DownloadProgressEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::RenderTargetBitmap> = L"Windows.UI.Xaml.Media.Imaging.RenderTargetBitmap";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::SoftwareBitmapSource> = L"Windows.UI.Xaml.Media.Imaging.SoftwareBitmapSource";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::SurfaceImageSource> = L"Windows.UI.Xaml.Media.Imaging.SurfaceImageSource";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::SvgImageSource> = L"Windows.UI.Xaml.Media.Imaging.SvgImageSource";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::SvgImageSourceFailedEventArgs> = L"Windows.UI.Xaml.Media.Imaging.SvgImageSourceFailedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::SvgImageSourceOpenedEventArgs> = L"Windows.UI.Xaml.Media.Imaging.SvgImageSourceOpenedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::VirtualSurfaceImageSource> = L"Windows.UI.Xaml.Media.Imaging.VirtualSurfaceImageSource";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::WriteableBitmap> = L"Windows.UI.Xaml.Media.Imaging.WriteableBitmap";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::XamlRenderingBackgroundTask> = L"Windows.UI.Xaml.Media.Imaging.XamlRenderingBackgroundTask";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::BitmapCreateOptions> = L"Windows.UI.Xaml.Media.Imaging.BitmapCreateOptions";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::DecodePixelType> = L"Windows.UI.Xaml.Media.Imaging.DecodePixelType";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::SvgImageSourceLoadStatus> = L"Windows.UI.Xaml.Media.Imaging.SvgImageSourceLoadStatus";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IBitmapImage> = L"Windows.UI.Xaml.Media.Imaging.IBitmapImage";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IBitmapImage2> = L"Windows.UI.Xaml.Media.Imaging.IBitmapImage2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IBitmapImage3> = L"Windows.UI.Xaml.Media.Imaging.IBitmapImage3";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IBitmapImageFactory> = L"Windows.UI.Xaml.Media.Imaging.IBitmapImageFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IBitmapImageStatics> = L"Windows.UI.Xaml.Media.Imaging.IBitmapImageStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IBitmapImageStatics2> = L"Windows.UI.Xaml.Media.Imaging.IBitmapImageStatics2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IBitmapImageStatics3> = L"Windows.UI.Xaml.Media.Imaging.IBitmapImageStatics3";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IBitmapSource> = L"Windows.UI.Xaml.Media.Imaging.IBitmapSource";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IBitmapSourceFactory> = L"Windows.UI.Xaml.Media.Imaging.IBitmapSourceFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IBitmapSourceStatics> = L"Windows.UI.Xaml.Media.Imaging.IBitmapSourceStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IDownloadProgressEventArgs> = L"Windows.UI.Xaml.Media.Imaging.IDownloadProgressEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IRenderTargetBitmap> = L"Windows.UI.Xaml.Media.Imaging.IRenderTargetBitmap";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IRenderTargetBitmapStatics> = L"Windows.UI.Xaml.Media.Imaging.IRenderTargetBitmapStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::ISoftwareBitmapSource> = L"Windows.UI.Xaml.Media.Imaging.ISoftwareBitmapSource";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::ISurfaceImageSource> = L"Windows.UI.Xaml.Media.Imaging.ISurfaceImageSource";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::ISurfaceImageSourceFactory> = L"Windows.UI.Xaml.Media.Imaging.ISurfaceImageSourceFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::ISvgImageSource> = L"Windows.UI.Xaml.Media.Imaging.ISvgImageSource";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::ISvgImageSourceFactory> = L"Windows.UI.Xaml.Media.Imaging.ISvgImageSourceFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::ISvgImageSourceFailedEventArgs> = L"Windows.UI.Xaml.Media.Imaging.ISvgImageSourceFailedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::ISvgImageSourceOpenedEventArgs> = L"Windows.UI.Xaml.Media.Imaging.ISvgImageSourceOpenedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::ISvgImageSourceStatics> = L"Windows.UI.Xaml.Media.Imaging.ISvgImageSourceStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IVirtualSurfaceImageSource> = L"Windows.UI.Xaml.Media.Imaging.IVirtualSurfaceImageSource";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IVirtualSurfaceImageSourceFactory> = L"Windows.UI.Xaml.Media.Imaging.IVirtualSurfaceImageSourceFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IWriteableBitmap> = L"Windows.UI.Xaml.Media.Imaging.IWriteableBitmap";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IWriteableBitmapFactory> = L"Windows.UI.Xaml.Media.Imaging.IWriteableBitmapFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IXamlRenderingBackgroundTask> = L"Windows.UI.Xaml.Media.Imaging.IXamlRenderingBackgroundTask";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IXamlRenderingBackgroundTaskFactory> = L"Windows.UI.Xaml.Media.Imaging.IXamlRenderingBackgroundTaskFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::IXamlRenderingBackgroundTaskOverrides> = L"Windows.UI.Xaml.Media.Imaging.IXamlRenderingBackgroundTaskOverrides";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Media::Imaging::DownloadProgressEventHandler> = L"Windows.UI.Xaml.Media.Imaging.DownloadProgressEventHandler";
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Media::Imaging::IBitmapImage>{ 0x31AF3271,0xE3B4,0x442D,{ 0xA3,0x41,0x4C,0x02,0x26,0xB2,0x72,0x5B } };
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Media::Imaging::IBitmapImage2>{ 0x1069C1B6,0x8C9B,0x4762,{ 0xBE,0x3D,0x75,0x9F,0x56,0x98,0xF2,0xB3 } };
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Media::Imaging::IBitmapImage3>{ 0xF1DE6F26,0x3C73,0x453F,{ 0xA7,0xBA,0x9B,0x85,0xC1,0x8B,0x37,0x33 } };
@@ -478,26 +477,26 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage
     {
-        [[nodiscard]] auto CreateOptions() const;
-        auto CreateOptions(Windows::UI::Xaml::Media::Imaging::BitmapCreateOptions const& value) const;
-        [[nodiscard]] auto UriSource() const;
-        auto UriSource(Windows::Foundation::Uri const& value) const;
-        [[nodiscard]] auto DecodePixelWidth() const;
-        auto DecodePixelWidth(int32_t value) const;
-        [[nodiscard]] auto DecodePixelHeight() const;
-        auto DecodePixelHeight(int32_t value) const;
-        auto DownloadProgress(Windows::UI::Xaml::Media::Imaging::DownloadProgressEventHandler const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Imaging::BitmapCreateOptions) CreateOptions() const;
+        WINRT_IMPL_AUTO(void) CreateOptions(Windows::UI::Xaml::Media::Imaging::BitmapCreateOptions const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) UriSource() const;
+        WINRT_IMPL_AUTO(void) UriSource(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) DecodePixelWidth() const;
+        WINRT_IMPL_AUTO(void) DecodePixelWidth(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) DecodePixelHeight() const;
+        WINRT_IMPL_AUTO(void) DecodePixelHeight(int32_t value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) DownloadProgress(Windows::UI::Xaml::Media::Imaging::DownloadProgressEventHandler const& handler) const;
         using DownloadProgress_revoker = impl::event_revoker<Windows::UI::Xaml::Media::Imaging::IBitmapImage, &impl::abi_t<Windows::UI::Xaml::Media::Imaging::IBitmapImage>::remove_DownloadProgress>;
         [[nodiscard]] DownloadProgress_revoker DownloadProgress(auto_revoke_t, Windows::UI::Xaml::Media::Imaging::DownloadProgressEventHandler const& handler) const;
-        auto DownloadProgress(winrt::event_token const& token) const noexcept;
-        auto ImageOpened(Windows::UI::Xaml::RoutedEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) DownloadProgress(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ImageOpened(Windows::UI::Xaml::RoutedEventHandler const& handler) const;
         using ImageOpened_revoker = impl::event_revoker<Windows::UI::Xaml::Media::Imaging::IBitmapImage, &impl::abi_t<Windows::UI::Xaml::Media::Imaging::IBitmapImage>::remove_ImageOpened>;
         [[nodiscard]] ImageOpened_revoker ImageOpened(auto_revoke_t, Windows::UI::Xaml::RoutedEventHandler const& handler) const;
-        auto ImageOpened(winrt::event_token const& token) const noexcept;
-        auto ImageFailed(Windows::UI::Xaml::ExceptionRoutedEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) ImageOpened(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ImageFailed(Windows::UI::Xaml::ExceptionRoutedEventHandler const& handler) const;
         using ImageFailed_revoker = impl::event_revoker<Windows::UI::Xaml::Media::Imaging::IBitmapImage, &impl::abi_t<Windows::UI::Xaml::Media::Imaging::IBitmapImage>::remove_ImageFailed>;
         [[nodiscard]] ImageFailed_revoker ImageFailed(auto_revoke_t, Windows::UI::Xaml::ExceptionRoutedEventHandler const& handler) const;
-        auto ImageFailed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) ImageFailed(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Imaging::IBitmapImage>
     {
@@ -506,8 +505,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage2
     {
-        [[nodiscard]] auto DecodePixelType() const;
-        auto DecodePixelType(Windows::UI::Xaml::Media::Imaging::DecodePixelType const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Imaging::DecodePixelType) DecodePixelType() const;
+        WINRT_IMPL_AUTO(void) DecodePixelType(Windows::UI::Xaml::Media::Imaging::DecodePixelType const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Imaging::IBitmapImage2>
     {
@@ -516,12 +515,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage3
     {
-        [[nodiscard]] auto IsAnimatedBitmap() const;
-        [[nodiscard]] auto IsPlaying() const;
-        [[nodiscard]] auto AutoPlay() const;
-        auto AutoPlay(bool value) const;
-        auto Play() const;
-        auto Stop() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsAnimatedBitmap() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPlaying() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AutoPlay() const;
+        WINRT_IMPL_AUTO(void) AutoPlay(bool value) const;
+        WINRT_IMPL_AUTO(void) Play() const;
+        WINRT_IMPL_AUTO(void) Stop() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Imaging::IBitmapImage3>
     {
@@ -530,7 +529,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Imaging_IBitmapImageFactory
     {
-        auto CreateInstanceWithUriSource(Windows::Foundation::Uri const& uriSource) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Imaging::BitmapImage) CreateInstanceWithUriSource(Windows::Foundation::Uri const& uriSource) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Imaging::IBitmapImageFactory>
     {
@@ -539,10 +538,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Imaging_IBitmapImageStatics
     {
-        [[nodiscard]] auto CreateOptionsProperty() const;
-        [[nodiscard]] auto UriSourceProperty() const;
-        [[nodiscard]] auto DecodePixelWidthProperty() const;
-        [[nodiscard]] auto DecodePixelHeightProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) CreateOptionsProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) UriSourceProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) DecodePixelWidthProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) DecodePixelHeightProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Imaging::IBitmapImageStatics>
     {
@@ -551,7 +550,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Imaging_IBitmapImageStatics2
     {
-        [[nodiscard]] auto DecodePixelTypeProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) DecodePixelTypeProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Imaging::IBitmapImageStatics2>
     {
@@ -560,9 +559,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Imaging_IBitmapImageStatics3
     {
-        [[nodiscard]] auto IsAnimatedBitmapProperty() const;
-        [[nodiscard]] auto IsPlayingProperty() const;
-        [[nodiscard]] auto AutoPlayProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IsAnimatedBitmapProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IsPlayingProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) AutoPlayProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Imaging::IBitmapImageStatics3>
     {
@@ -571,10 +570,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Imaging_IBitmapSource
     {
-        [[nodiscard]] auto PixelWidth() const;
-        [[nodiscard]] auto PixelHeight() const;
-        auto SetSource(Windows::Storage::Streams::IRandomAccessStream const& streamSource) const;
-        auto SetSourceAsync(Windows::Storage::Streams::IRandomAccessStream const& streamSource) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) PixelWidth() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) PixelHeight() const;
+        WINRT_IMPL_AUTO(void) SetSource(Windows::Storage::Streams::IRandomAccessStream const& streamSource) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetSourceAsync(Windows::Storage::Streams::IRandomAccessStream const& streamSource) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Imaging::IBitmapSource>
     {
@@ -583,7 +582,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Imaging_IBitmapSourceFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Imaging::BitmapSource) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Imaging::IBitmapSourceFactory>
     {
@@ -592,8 +591,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Imaging_IBitmapSourceStatics
     {
-        [[nodiscard]] auto PixelWidthProperty() const;
-        [[nodiscard]] auto PixelHeightProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) PixelWidthProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) PixelHeightProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Imaging::IBitmapSourceStatics>
     {
@@ -602,8 +601,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Imaging_IDownloadProgressEventArgs
     {
-        [[nodiscard]] auto Progress() const;
-        auto Progress(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Progress() const;
+        WINRT_IMPL_AUTO(void) Progress(int32_t value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Imaging::IDownloadProgressEventArgs>
     {
@@ -612,11 +611,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Imaging_IRenderTargetBitmap
     {
-        [[nodiscard]] auto PixelWidth() const;
-        [[nodiscard]] auto PixelHeight() const;
-        auto RenderAsync(Windows::UI::Xaml::UIElement const& element) const;
-        auto RenderAsync(Windows::UI::Xaml::UIElement const& element, int32_t scaledWidth, int32_t scaledHeight) const;
-        auto GetPixelsAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) PixelWidth() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) PixelHeight() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) RenderAsync(Windows::UI::Xaml::UIElement const& element) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) RenderAsync(Windows::UI::Xaml::UIElement const& element, int32_t scaledWidth, int32_t scaledHeight) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::IBuffer>) GetPixelsAsync() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Imaging::IRenderTargetBitmap>
     {
@@ -625,8 +624,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Imaging_IRenderTargetBitmapStatics
     {
-        [[nodiscard]] auto PixelWidthProperty() const;
-        [[nodiscard]] auto PixelHeightProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) PixelWidthProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) PixelHeightProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Imaging::IRenderTargetBitmapStatics>
     {
@@ -635,7 +634,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Imaging_ISoftwareBitmapSource
     {
-        auto SetBitmapAsync(Windows::Graphics::Imaging::SoftwareBitmap const& softwareBitmap) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetBitmapAsync(Windows::Graphics::Imaging::SoftwareBitmap const& softwareBitmap) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Imaging::ISoftwareBitmapSource>
     {
@@ -652,8 +651,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Imaging_ISurfaceImageSourceFactory
     {
-        auto CreateInstanceWithDimensions(int32_t pixelWidth, int32_t pixelHeight, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
-        auto CreateInstanceWithDimensionsAndOpacity(int32_t pixelWidth, int32_t pixelHeight, bool isOpaque, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Imaging::SurfaceImageSource) CreateInstanceWithDimensions(int32_t pixelWidth, int32_t pixelHeight, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Imaging::SurfaceImageSource) CreateInstanceWithDimensionsAndOpacity(int32_t pixelWidth, int32_t pixelHeight, bool isOpaque, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Imaging::ISurfaceImageSourceFactory>
     {
@@ -662,21 +661,21 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSource
     {
-        [[nodiscard]] auto UriSource() const;
-        auto UriSource(Windows::Foundation::Uri const& value) const;
-        [[nodiscard]] auto RasterizePixelWidth() const;
-        auto RasterizePixelWidth(double value) const;
-        [[nodiscard]] auto RasterizePixelHeight() const;
-        auto RasterizePixelHeight(double value) const;
-        auto Opened(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Media::Imaging::SvgImageSource, Windows::UI::Xaml::Media::Imaging::SvgImageSourceOpenedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) UriSource() const;
+        WINRT_IMPL_AUTO(void) UriSource(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) RasterizePixelWidth() const;
+        WINRT_IMPL_AUTO(void) RasterizePixelWidth(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) RasterizePixelHeight() const;
+        WINRT_IMPL_AUTO(void) RasterizePixelHeight(double value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Opened(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Media::Imaging::SvgImageSource, Windows::UI::Xaml::Media::Imaging::SvgImageSourceOpenedEventArgs> const& handler) const;
         using Opened_revoker = impl::event_revoker<Windows::UI::Xaml::Media::Imaging::ISvgImageSource, &impl::abi_t<Windows::UI::Xaml::Media::Imaging::ISvgImageSource>::remove_Opened>;
         [[nodiscard]] Opened_revoker Opened(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Media::Imaging::SvgImageSource, Windows::UI::Xaml::Media::Imaging::SvgImageSourceOpenedEventArgs> const& handler) const;
-        auto Opened(winrt::event_token const& token) const noexcept;
-        auto OpenFailed(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Media::Imaging::SvgImageSource, Windows::UI::Xaml::Media::Imaging::SvgImageSourceFailedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) Opened(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) OpenFailed(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Media::Imaging::SvgImageSource, Windows::UI::Xaml::Media::Imaging::SvgImageSourceFailedEventArgs> const& handler) const;
         using OpenFailed_revoker = impl::event_revoker<Windows::UI::Xaml::Media::Imaging::ISvgImageSource, &impl::abi_t<Windows::UI::Xaml::Media::Imaging::ISvgImageSource>::remove_OpenFailed>;
         [[nodiscard]] OpenFailed_revoker OpenFailed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Media::Imaging::SvgImageSource, Windows::UI::Xaml::Media::Imaging::SvgImageSourceFailedEventArgs> const& handler) const;
-        auto OpenFailed(winrt::event_token const& token) const noexcept;
-        auto SetSourceAsync(Windows::Storage::Streams::IRandomAccessStream const& streamSource) const;
+        WINRT_IMPL_AUTO(void) OpenFailed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::UI::Xaml::Media::Imaging::SvgImageSourceLoadStatus>) SetSourceAsync(Windows::Storage::Streams::IRandomAccessStream const& streamSource) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Imaging::ISvgImageSource>
     {
@@ -685,8 +684,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSourceFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
-        auto CreateInstanceWithUriSource(Windows::Foundation::Uri const& uriSource, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Imaging::SvgImageSource) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Imaging::SvgImageSource) CreateInstanceWithUriSource(Windows::Foundation::Uri const& uriSource, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Imaging::ISvgImageSourceFactory>
     {
@@ -695,7 +694,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSourceFailedEventArgs
     {
-        [[nodiscard]] auto Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Imaging::SvgImageSourceLoadStatus) Status() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Imaging::ISvgImageSourceFailedEventArgs>
     {
@@ -712,9 +711,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSourceStatics
     {
-        [[nodiscard]] auto UriSourceProperty() const;
-        [[nodiscard]] auto RasterizePixelWidthProperty() const;
-        [[nodiscard]] auto RasterizePixelHeightProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) UriSourceProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) RasterizePixelWidthProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) RasterizePixelHeightProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Imaging::ISvgImageSourceStatics>
     {
@@ -731,8 +730,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Imaging_IVirtualSurfaceImageSourceFactory
     {
-        auto CreateInstanceWithDimensions(int32_t pixelWidth, int32_t pixelHeight) const;
-        auto CreateInstanceWithDimensionsAndOpacity(int32_t pixelWidth, int32_t pixelHeight, bool isOpaque) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Imaging::VirtualSurfaceImageSource) CreateInstanceWithDimensions(int32_t pixelWidth, int32_t pixelHeight) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Imaging::VirtualSurfaceImageSource) CreateInstanceWithDimensionsAndOpacity(int32_t pixelWidth, int32_t pixelHeight, bool isOpaque) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Imaging::IVirtualSurfaceImageSourceFactory>
     {
@@ -741,8 +740,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Imaging_IWriteableBitmap
     {
-        [[nodiscard]] auto PixelBuffer() const;
-        auto Invalidate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) PixelBuffer() const;
+        WINRT_IMPL_AUTO(void) Invalidate() const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Imaging::IWriteableBitmap>
     {
@@ -751,7 +750,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Imaging_IWriteableBitmapFactory
     {
-        auto CreateInstanceWithDimensions(int32_t pixelWidth, int32_t pixelHeight) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Imaging::WriteableBitmap) CreateInstanceWithDimensions(int32_t pixelWidth, int32_t pixelHeight) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Imaging::IWriteableBitmapFactory>
     {
@@ -768,7 +767,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Imaging_IXamlRenderingBackgroundTaskFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Imaging::XamlRenderingBackgroundTask) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Imaging::IXamlRenderingBackgroundTaskFactory>
     {
@@ -777,7 +776,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Media_Imaging_IXamlRenderingBackgroundTaskOverrides
     {
-        auto OnRun(Windows::ApplicationModel::Background::IBackgroundTaskInstance const& taskInstance) const;
+        WINRT_IMPL_AUTO(void) OnRun(Windows::ApplicationModel::Background::IBackgroundTaskInstance const& taskInstance) const;
     };
     template <> struct consume<Windows::UI::Xaml::Media::Imaging::IXamlRenderingBackgroundTaskOverrides>
     {

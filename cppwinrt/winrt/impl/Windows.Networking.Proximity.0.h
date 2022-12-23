@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -8,8 +8,14 @@
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
+    template <typename TResult> struct IAsyncOperation;
     template <typename TSender, typename TResult> struct TypedEventHandler;
     struct Uri;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename K, typename V> struct IMap;
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Networking
 {
@@ -106,34 +112,32 @@ namespace winrt::impl
     template <> struct category<Windows::Networking::Proximity::DeviceDepartedEventHandler>{ using type = delegate_category; };
     template <> struct category<Windows::Networking::Proximity::MessageReceivedHandler>{ using type = delegate_category; };
     template <> struct category<Windows::Networking::Proximity::MessageTransmittedHandler>{ using type = delegate_category; };
-    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::ConnectionRequestedEventArgs>{ L"Windows.Networking.Proximity.ConnectionRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::PeerFinder>{ L"Windows.Networking.Proximity.PeerFinder" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::PeerInformation>{ L"Windows.Networking.Proximity.PeerInformation" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::PeerWatcher>{ L"Windows.Networking.Proximity.PeerWatcher" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::ProximityDevice>{ L"Windows.Networking.Proximity.ProximityDevice" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::ProximityMessage>{ L"Windows.Networking.Proximity.ProximityMessage" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::TriggeredConnectionStateChangedEventArgs>{ L"Windows.Networking.Proximity.TriggeredConnectionStateChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::PeerDiscoveryTypes>{ L"Windows.Networking.Proximity.PeerDiscoveryTypes" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::PeerRole>{ L"Windows.Networking.Proximity.PeerRole" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::PeerWatcherStatus>{ L"Windows.Networking.Proximity.PeerWatcherStatus" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::TriggeredConnectState>{ L"Windows.Networking.Proximity.TriggeredConnectState" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::IConnectionRequestedEventArgs>{ L"Windows.Networking.Proximity.IConnectionRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::IPeerFinderStatics>{ L"Windows.Networking.Proximity.IPeerFinderStatics" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::IPeerFinderStatics2>{ L"Windows.Networking.Proximity.IPeerFinderStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::IPeerInformation>{ L"Windows.Networking.Proximity.IPeerInformation" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::IPeerInformation3>{ L"Windows.Networking.Proximity.IPeerInformation3" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::IPeerInformationWithHostAndService>{ L"Windows.Networking.Proximity.IPeerInformationWithHostAndService" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::IPeerWatcher>{ L"Windows.Networking.Proximity.IPeerWatcher" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::IProximityDevice>{ L"Windows.Networking.Proximity.IProximityDevice" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::IProximityDeviceStatics>{ L"Windows.Networking.Proximity.IProximityDeviceStatics" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::IProximityMessage>{ L"Windows.Networking.Proximity.IProximityMessage" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::ITriggeredConnectionStateChangedEventArgs>{ L"Windows.Networking.Proximity.ITriggeredConnectionStateChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::DeviceArrivedEventHandler>{ L"Windows.Networking.Proximity.DeviceArrivedEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::DeviceDepartedEventHandler>{ L"Windows.Networking.Proximity.DeviceDepartedEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::MessageReceivedHandler>{ L"Windows.Networking.Proximity.MessageReceivedHandler" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::MessageTransmittedHandler>{ L"Windows.Networking.Proximity.MessageTransmittedHandler" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::ConnectionRequestedEventArgs> = L"Windows.Networking.Proximity.ConnectionRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::PeerFinder> = L"Windows.Networking.Proximity.PeerFinder";
+    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::PeerInformation> = L"Windows.Networking.Proximity.PeerInformation";
+    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::PeerWatcher> = L"Windows.Networking.Proximity.PeerWatcher";
+    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::ProximityDevice> = L"Windows.Networking.Proximity.ProximityDevice";
+    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::ProximityMessage> = L"Windows.Networking.Proximity.ProximityMessage";
+    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::TriggeredConnectionStateChangedEventArgs> = L"Windows.Networking.Proximity.TriggeredConnectionStateChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::PeerDiscoveryTypes> = L"Windows.Networking.Proximity.PeerDiscoveryTypes";
+    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::PeerRole> = L"Windows.Networking.Proximity.PeerRole";
+    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::PeerWatcherStatus> = L"Windows.Networking.Proximity.PeerWatcherStatus";
+    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::TriggeredConnectState> = L"Windows.Networking.Proximity.TriggeredConnectState";
+    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::IConnectionRequestedEventArgs> = L"Windows.Networking.Proximity.IConnectionRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::IPeerFinderStatics> = L"Windows.Networking.Proximity.IPeerFinderStatics";
+    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::IPeerFinderStatics2> = L"Windows.Networking.Proximity.IPeerFinderStatics2";
+    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::IPeerInformation> = L"Windows.Networking.Proximity.IPeerInformation";
+    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::IPeerInformation3> = L"Windows.Networking.Proximity.IPeerInformation3";
+    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::IPeerInformationWithHostAndService> = L"Windows.Networking.Proximity.IPeerInformationWithHostAndService";
+    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::IPeerWatcher> = L"Windows.Networking.Proximity.IPeerWatcher";
+    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::IProximityDevice> = L"Windows.Networking.Proximity.IProximityDevice";
+    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::IProximityDeviceStatics> = L"Windows.Networking.Proximity.IProximityDeviceStatics";
+    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::IProximityMessage> = L"Windows.Networking.Proximity.IProximityMessage";
+    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::ITriggeredConnectionStateChangedEventArgs> = L"Windows.Networking.Proximity.ITriggeredConnectionStateChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::DeviceArrivedEventHandler> = L"Windows.Networking.Proximity.DeviceArrivedEventHandler";
+    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::DeviceDepartedEventHandler> = L"Windows.Networking.Proximity.DeviceDepartedEventHandler";
+    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::MessageReceivedHandler> = L"Windows.Networking.Proximity.MessageReceivedHandler";
+    template <> inline constexpr auto& name_v<Windows::Networking::Proximity::MessageTransmittedHandler> = L"Windows.Networking.Proximity.MessageTransmittedHandler";
     template <> inline constexpr guid guid_v<Windows::Networking::Proximity::IConnectionRequestedEventArgs>{ 0xEB6891AE,0x4F1E,0x4C66,{ 0xBD,0x0D,0x46,0x92,0x4A,0x94,0x2E,0x08 } };
     template <> inline constexpr guid guid_v<Windows::Networking::Proximity::IPeerFinderStatics>{ 0x914B3B61,0xF6E1,0x47C4,{ 0xA1,0x4C,0x14,0x8A,0x19,0x03,0xD0,0xC6 } };
     template <> inline constexpr guid guid_v<Windows::Networking::Proximity::IPeerFinderStatics2>{ 0xD6E73C65,0xFDD0,0x4B0B,{ 0x93,0x12,0x86,0x64,0x08,0x93,0x5D,0x82 } };
@@ -321,7 +325,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Proximity_IConnectionRequestedEventArgs
     {
-        [[nodiscard]] auto PeerInformation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::Proximity::PeerInformation) PeerInformation() const;
     };
     template <> struct consume<Windows::Networking::Proximity::IConnectionRequestedEventArgs>
     {
@@ -330,29 +334,29 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Proximity_IPeerFinderStatics
     {
-        [[nodiscard]] auto AllowBluetooth() const;
-        auto AllowBluetooth(bool value) const;
-        [[nodiscard]] auto AllowInfrastructure() const;
-        auto AllowInfrastructure(bool value) const;
-        [[nodiscard]] auto AllowWiFiDirect() const;
-        auto AllowWiFiDirect(bool value) const;
-        [[nodiscard]] auto DisplayName() const;
-        auto DisplayName(param::hstring const& value) const;
-        [[nodiscard]] auto SupportedDiscoveryTypes() const;
-        [[nodiscard]] auto AlternateIdentities() const;
-        auto Start() const;
-        auto Start(param::hstring const& peerMessage) const;
-        auto Stop() const;
-        auto TriggeredConnectionStateChanged(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::Networking::Proximity::TriggeredConnectionStateChangedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AllowBluetooth() const;
+        WINRT_IMPL_AUTO(void) AllowBluetooth(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AllowInfrastructure() const;
+        WINRT_IMPL_AUTO(void) AllowInfrastructure(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AllowWiFiDirect() const;
+        WINRT_IMPL_AUTO(void) AllowWiFiDirect(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        WINRT_IMPL_AUTO(void) DisplayName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::Proximity::PeerDiscoveryTypes) SupportedDiscoveryTypes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMap<hstring, hstring>) AlternateIdentities() const;
+        WINRT_IMPL_AUTO(void) Start() const;
+        WINRT_IMPL_AUTO(void) Start(param::hstring const& peerMessage) const;
+        WINRT_IMPL_AUTO(void) Stop() const;
+        WINRT_IMPL_AUTO(winrt::event_token) TriggeredConnectionStateChanged(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::Networking::Proximity::TriggeredConnectionStateChangedEventArgs> const& handler) const;
         using TriggeredConnectionStateChanged_revoker = impl::event_revoker<Windows::Networking::Proximity::IPeerFinderStatics, &impl::abi_t<Windows::Networking::Proximity::IPeerFinderStatics>::remove_TriggeredConnectionStateChanged>;
         [[nodiscard]] TriggeredConnectionStateChanged_revoker TriggeredConnectionStateChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::Networking::Proximity::TriggeredConnectionStateChangedEventArgs> const& handler) const;
-        auto TriggeredConnectionStateChanged(winrt::event_token const& cookie) const noexcept;
-        auto ConnectionRequested(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::Networking::Proximity::ConnectionRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) TriggeredConnectionStateChanged(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ConnectionRequested(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::Networking::Proximity::ConnectionRequestedEventArgs> const& handler) const;
         using ConnectionRequested_revoker = impl::event_revoker<Windows::Networking::Proximity::IPeerFinderStatics, &impl::abi_t<Windows::Networking::Proximity::IPeerFinderStatics>::remove_ConnectionRequested>;
         [[nodiscard]] ConnectionRequested_revoker ConnectionRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::Networking::Proximity::ConnectionRequestedEventArgs> const& handler) const;
-        auto ConnectionRequested(winrt::event_token const& cookie) const noexcept;
-        auto FindAllPeersAsync() const;
-        auto ConnectAsync(Windows::Networking::Proximity::PeerInformation const& peerInformation) const;
+        WINRT_IMPL_AUTO(void) ConnectionRequested(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Networking::Proximity::PeerInformation>>) FindAllPeersAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::Sockets::StreamSocket>) ConnectAsync(Windows::Networking::Proximity::PeerInformation const& peerInformation) const;
     };
     template <> struct consume<Windows::Networking::Proximity::IPeerFinderStatics>
     {
@@ -361,11 +365,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Proximity_IPeerFinderStatics2
     {
-        [[nodiscard]] auto Role() const;
-        auto Role(Windows::Networking::Proximity::PeerRole const& value) const;
-        [[nodiscard]] auto DiscoveryData() const;
-        auto DiscoveryData(Windows::Storage::Streams::IBuffer const& value) const;
-        auto CreateWatcher() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::Proximity::PeerRole) Role() const;
+        WINRT_IMPL_AUTO(void) Role(Windows::Networking::Proximity::PeerRole const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) DiscoveryData() const;
+        WINRT_IMPL_AUTO(void) DiscoveryData(Windows::Storage::Streams::IBuffer const& value) const;
+        WINRT_IMPL_AUTO(Windows::Networking::Proximity::PeerWatcher) CreateWatcher() const;
     };
     template <> struct consume<Windows::Networking::Proximity::IPeerFinderStatics2>
     {
@@ -374,7 +378,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Proximity_IPeerInformation
     {
-        [[nodiscard]] auto DisplayName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
     };
     template <> struct consume<Windows::Networking::Proximity::IPeerInformation>
     {
@@ -383,8 +387,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Proximity_IPeerInformation3
     {
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto DiscoveryData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) DiscoveryData() const;
     };
     template <> struct consume<Windows::Networking::Proximity::IPeerInformation3>
     {
@@ -393,8 +397,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Proximity_IPeerInformationWithHostAndService
     {
-        [[nodiscard]] auto HostName() const;
-        [[nodiscard]] auto ServiceName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::HostName) HostName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ServiceName() const;
     };
     template <> struct consume<Windows::Networking::Proximity::IPeerInformationWithHostAndService>
     {
@@ -403,29 +407,29 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Proximity_IPeerWatcher
     {
-        auto Added(Windows::Foundation::TypedEventHandler<Windows::Networking::Proximity::PeerWatcher, Windows::Networking::Proximity::PeerInformation> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Added(Windows::Foundation::TypedEventHandler<Windows::Networking::Proximity::PeerWatcher, Windows::Networking::Proximity::PeerInformation> const& handler) const;
         using Added_revoker = impl::event_revoker<Windows::Networking::Proximity::IPeerWatcher, &impl::abi_t<Windows::Networking::Proximity::IPeerWatcher>::remove_Added>;
         [[nodiscard]] Added_revoker Added(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Networking::Proximity::PeerWatcher, Windows::Networking::Proximity::PeerInformation> const& handler) const;
-        auto Added(winrt::event_token const& token) const noexcept;
-        auto Removed(Windows::Foundation::TypedEventHandler<Windows::Networking::Proximity::PeerWatcher, Windows::Networking::Proximity::PeerInformation> const& handler) const;
+        WINRT_IMPL_AUTO(void) Added(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Removed(Windows::Foundation::TypedEventHandler<Windows::Networking::Proximity::PeerWatcher, Windows::Networking::Proximity::PeerInformation> const& handler) const;
         using Removed_revoker = impl::event_revoker<Windows::Networking::Proximity::IPeerWatcher, &impl::abi_t<Windows::Networking::Proximity::IPeerWatcher>::remove_Removed>;
         [[nodiscard]] Removed_revoker Removed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Networking::Proximity::PeerWatcher, Windows::Networking::Proximity::PeerInformation> const& handler) const;
-        auto Removed(winrt::event_token const& token) const noexcept;
-        auto Updated(Windows::Foundation::TypedEventHandler<Windows::Networking::Proximity::PeerWatcher, Windows::Networking::Proximity::PeerInformation> const& handler) const;
+        WINRT_IMPL_AUTO(void) Removed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Updated(Windows::Foundation::TypedEventHandler<Windows::Networking::Proximity::PeerWatcher, Windows::Networking::Proximity::PeerInformation> const& handler) const;
         using Updated_revoker = impl::event_revoker<Windows::Networking::Proximity::IPeerWatcher, &impl::abi_t<Windows::Networking::Proximity::IPeerWatcher>::remove_Updated>;
         [[nodiscard]] Updated_revoker Updated(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Networking::Proximity::PeerWatcher, Windows::Networking::Proximity::PeerInformation> const& handler) const;
-        auto Updated(winrt::event_token const& token) const noexcept;
-        auto EnumerationCompleted(Windows::Foundation::TypedEventHandler<Windows::Networking::Proximity::PeerWatcher, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) Updated(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) EnumerationCompleted(Windows::Foundation::TypedEventHandler<Windows::Networking::Proximity::PeerWatcher, Windows::Foundation::IInspectable> const& handler) const;
         using EnumerationCompleted_revoker = impl::event_revoker<Windows::Networking::Proximity::IPeerWatcher, &impl::abi_t<Windows::Networking::Proximity::IPeerWatcher>::remove_EnumerationCompleted>;
         [[nodiscard]] EnumerationCompleted_revoker EnumerationCompleted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Networking::Proximity::PeerWatcher, Windows::Foundation::IInspectable> const& handler) const;
-        auto EnumerationCompleted(winrt::event_token const& token) const noexcept;
-        auto Stopped(Windows::Foundation::TypedEventHandler<Windows::Networking::Proximity::PeerWatcher, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) EnumerationCompleted(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Stopped(Windows::Foundation::TypedEventHandler<Windows::Networking::Proximity::PeerWatcher, Windows::Foundation::IInspectable> const& handler) const;
         using Stopped_revoker = impl::event_revoker<Windows::Networking::Proximity::IPeerWatcher, &impl::abi_t<Windows::Networking::Proximity::IPeerWatcher>::remove_Stopped>;
         [[nodiscard]] Stopped_revoker Stopped(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Networking::Proximity::PeerWatcher, Windows::Foundation::IInspectable> const& handler) const;
-        auto Stopped(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto Status() const;
-        auto Start() const;
-        auto Stop() const;
+        WINRT_IMPL_AUTO(void) Stopped(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::Proximity::PeerWatcherStatus) Status() const;
+        WINRT_IMPL_AUTO(void) Start() const;
+        WINRT_IMPL_AUTO(void) Stop() const;
     };
     template <> struct consume<Windows::Networking::Proximity::IPeerWatcher>
     {
@@ -434,26 +438,26 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Proximity_IProximityDevice
     {
-        auto SubscribeForMessage(param::hstring const& messageType, Windows::Networking::Proximity::MessageReceivedHandler const& messageReceivedHandler) const;
-        auto PublishMessage(param::hstring const& messageType, param::hstring const& message) const;
-        auto PublishMessage(param::hstring const& messageType, param::hstring const& message, Windows::Networking::Proximity::MessageTransmittedHandler const& messageTransmittedHandler) const;
-        auto PublishBinaryMessage(param::hstring const& messageType, Windows::Storage::Streams::IBuffer const& message) const;
-        auto PublishBinaryMessage(param::hstring const& messageType, Windows::Storage::Streams::IBuffer const& message, Windows::Networking::Proximity::MessageTransmittedHandler const& messageTransmittedHandler) const;
-        auto PublishUriMessage(Windows::Foundation::Uri const& message) const;
-        auto PublishUriMessage(Windows::Foundation::Uri const& message, Windows::Networking::Proximity::MessageTransmittedHandler const& messageTransmittedHandler) const;
-        auto StopSubscribingForMessage(int64_t subscriptionId) const;
-        auto StopPublishingMessage(int64_t messageId) const;
-        auto DeviceArrived(Windows::Networking::Proximity::DeviceArrivedEventHandler const& arrivedHandler) const;
+        WINRT_IMPL_AUTO(int64_t) SubscribeForMessage(param::hstring const& messageType, Windows::Networking::Proximity::MessageReceivedHandler const& messageReceivedHandler) const;
+        WINRT_IMPL_AUTO(int64_t) PublishMessage(param::hstring const& messageType, param::hstring const& message) const;
+        WINRT_IMPL_AUTO(int64_t) PublishMessage(param::hstring const& messageType, param::hstring const& message, Windows::Networking::Proximity::MessageTransmittedHandler const& messageTransmittedHandler) const;
+        WINRT_IMPL_AUTO(int64_t) PublishBinaryMessage(param::hstring const& messageType, Windows::Storage::Streams::IBuffer const& message) const;
+        WINRT_IMPL_AUTO(int64_t) PublishBinaryMessage(param::hstring const& messageType, Windows::Storage::Streams::IBuffer const& message, Windows::Networking::Proximity::MessageTransmittedHandler const& messageTransmittedHandler) const;
+        WINRT_IMPL_AUTO(int64_t) PublishUriMessage(Windows::Foundation::Uri const& message) const;
+        WINRT_IMPL_AUTO(int64_t) PublishUriMessage(Windows::Foundation::Uri const& message, Windows::Networking::Proximity::MessageTransmittedHandler const& messageTransmittedHandler) const;
+        WINRT_IMPL_AUTO(void) StopSubscribingForMessage(int64_t subscriptionId) const;
+        WINRT_IMPL_AUTO(void) StopPublishingMessage(int64_t messageId) const;
+        WINRT_IMPL_AUTO(winrt::event_token) DeviceArrived(Windows::Networking::Proximity::DeviceArrivedEventHandler const& arrivedHandler) const;
         using DeviceArrived_revoker = impl::event_revoker<Windows::Networking::Proximity::IProximityDevice, &impl::abi_t<Windows::Networking::Proximity::IProximityDevice>::remove_DeviceArrived>;
         [[nodiscard]] DeviceArrived_revoker DeviceArrived(auto_revoke_t, Windows::Networking::Proximity::DeviceArrivedEventHandler const& arrivedHandler) const;
-        auto DeviceArrived(winrt::event_token const& cookie) const noexcept;
-        auto DeviceDeparted(Windows::Networking::Proximity::DeviceDepartedEventHandler const& departedHandler) const;
+        WINRT_IMPL_AUTO(void) DeviceArrived(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) DeviceDeparted(Windows::Networking::Proximity::DeviceDepartedEventHandler const& departedHandler) const;
         using DeviceDeparted_revoker = impl::event_revoker<Windows::Networking::Proximity::IProximityDevice, &impl::abi_t<Windows::Networking::Proximity::IProximityDevice>::remove_DeviceDeparted>;
         [[nodiscard]] DeviceDeparted_revoker DeviceDeparted(auto_revoke_t, Windows::Networking::Proximity::DeviceDepartedEventHandler const& departedHandler) const;
-        auto DeviceDeparted(winrt::event_token const& cookie) const noexcept;
-        [[nodiscard]] auto MaxMessageBytes() const;
-        [[nodiscard]] auto BitsPerSecond() const;
-        [[nodiscard]] auto DeviceId() const;
+        WINRT_IMPL_AUTO(void) DeviceDeparted(winrt::event_token const& cookie) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxMessageBytes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) BitsPerSecond() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
     };
     template <> struct consume<Windows::Networking::Proximity::IProximityDevice>
     {
@@ -462,9 +466,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Proximity_IProximityDeviceStatics
     {
-        auto GetDeviceSelector() const;
-        auto GetDefault() const;
-        auto FromId(param::hstring const& deviceId) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector() const;
+        WINRT_IMPL_AUTO(Windows::Networking::Proximity::ProximityDevice) GetDefault() const;
+        WINRT_IMPL_AUTO(Windows::Networking::Proximity::ProximityDevice) FromId(param::hstring const& deviceId) const;
     };
     template <> struct consume<Windows::Networking::Proximity::IProximityDeviceStatics>
     {
@@ -473,10 +477,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Proximity_IProximityMessage
     {
-        [[nodiscard]] auto MessageType() const;
-        [[nodiscard]] auto SubscriptionId() const;
-        [[nodiscard]] auto Data() const;
-        [[nodiscard]] auto DataAsString() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MessageType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int64_t) SubscriptionId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) Data() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DataAsString() const;
     };
     template <> struct consume<Windows::Networking::Proximity::IProximityMessage>
     {
@@ -485,9 +489,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Proximity_ITriggeredConnectionStateChangedEventArgs
     {
-        [[nodiscard]] auto State() const;
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto Socket() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::Proximity::TriggeredConnectState) State() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::Sockets::StreamSocket) Socket() const;
     };
     template <> struct consume<Windows::Networking::Proximity::ITriggeredConnectionStateChangedEventArgs>
     {

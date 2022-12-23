@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,81 +6,81 @@
 #ifndef WINRT_Windows_Media_ClosedCaptioning_H
 #define WINRT_Windows_Media_ClosedCaptioning_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.Media.h"
 #include "winrt/impl/Windows.UI.2.h"
 #include "winrt/impl/Windows.Media.ClosedCaptioning.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_Media_ClosedCaptioning_IClosedCaptionPropertiesStatics<D>::FontColor() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::ClosedCaptioning::ClosedCaptionColor) consume_Windows_Media_ClosedCaptioning_IClosedCaptionPropertiesStatics<D>::FontColor() const
     {
-        Windows::Media::ClosedCaptioning::ClosedCaptionColor value;
+        Windows::Media::ClosedCaptioning::ClosedCaptionColor value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::ClosedCaptioning::IClosedCaptionPropertiesStatics)->get_FontColor(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_ClosedCaptioning_IClosedCaptionPropertiesStatics<D>::ComputedFontColor() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_Media_ClosedCaptioning_IClosedCaptionPropertiesStatics<D>::ComputedFontColor() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::ClosedCaptioning::IClosedCaptionPropertiesStatics)->get_ComputedFontColor(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_ClosedCaptioning_IClosedCaptionPropertiesStatics<D>::FontOpacity() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::ClosedCaptioning::ClosedCaptionOpacity) consume_Windows_Media_ClosedCaptioning_IClosedCaptionPropertiesStatics<D>::FontOpacity() const
     {
-        Windows::Media::ClosedCaptioning::ClosedCaptionOpacity value;
+        Windows::Media::ClosedCaptioning::ClosedCaptionOpacity value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::ClosedCaptioning::IClosedCaptionPropertiesStatics)->get_FontOpacity(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_ClosedCaptioning_IClosedCaptionPropertiesStatics<D>::FontSize() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::ClosedCaptioning::ClosedCaptionSize) consume_Windows_Media_ClosedCaptioning_IClosedCaptionPropertiesStatics<D>::FontSize() const
     {
-        Windows::Media::ClosedCaptioning::ClosedCaptionSize value;
+        Windows::Media::ClosedCaptioning::ClosedCaptionSize value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::ClosedCaptioning::IClosedCaptionPropertiesStatics)->get_FontSize(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_ClosedCaptioning_IClosedCaptionPropertiesStatics<D>::FontStyle() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::ClosedCaptioning::ClosedCaptionStyle) consume_Windows_Media_ClosedCaptioning_IClosedCaptionPropertiesStatics<D>::FontStyle() const
     {
-        Windows::Media::ClosedCaptioning::ClosedCaptionStyle value;
+        Windows::Media::ClosedCaptioning::ClosedCaptionStyle value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::ClosedCaptioning::IClosedCaptionPropertiesStatics)->get_FontStyle(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_ClosedCaptioning_IClosedCaptionPropertiesStatics<D>::FontEffect() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::ClosedCaptioning::ClosedCaptionEdgeEffect) consume_Windows_Media_ClosedCaptioning_IClosedCaptionPropertiesStatics<D>::FontEffect() const
     {
-        Windows::Media::ClosedCaptioning::ClosedCaptionEdgeEffect value;
+        Windows::Media::ClosedCaptioning::ClosedCaptionEdgeEffect value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::ClosedCaptioning::IClosedCaptionPropertiesStatics)->get_FontEffect(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_ClosedCaptioning_IClosedCaptionPropertiesStatics<D>::BackgroundColor() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::ClosedCaptioning::ClosedCaptionColor) consume_Windows_Media_ClosedCaptioning_IClosedCaptionPropertiesStatics<D>::BackgroundColor() const
     {
-        Windows::Media::ClosedCaptioning::ClosedCaptionColor value;
+        Windows::Media::ClosedCaptioning::ClosedCaptionColor value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::ClosedCaptioning::IClosedCaptionPropertiesStatics)->get_BackgroundColor(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_ClosedCaptioning_IClosedCaptionPropertiesStatics<D>::ComputedBackgroundColor() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_Media_ClosedCaptioning_IClosedCaptionPropertiesStatics<D>::ComputedBackgroundColor() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::ClosedCaptioning::IClosedCaptionPropertiesStatics)->get_ComputedBackgroundColor(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_ClosedCaptioning_IClosedCaptionPropertiesStatics<D>::BackgroundOpacity() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::ClosedCaptioning::ClosedCaptionOpacity) consume_Windows_Media_ClosedCaptioning_IClosedCaptionPropertiesStatics<D>::BackgroundOpacity() const
     {
-        Windows::Media::ClosedCaptioning::ClosedCaptionOpacity value;
+        Windows::Media::ClosedCaptioning::ClosedCaptionOpacity value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::ClosedCaptioning::IClosedCaptionPropertiesStatics)->get_BackgroundOpacity(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_ClosedCaptioning_IClosedCaptionPropertiesStatics<D>::RegionColor() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::ClosedCaptioning::ClosedCaptionColor) consume_Windows_Media_ClosedCaptioning_IClosedCaptionPropertiesStatics<D>::RegionColor() const
     {
-        Windows::Media::ClosedCaptioning::ClosedCaptionColor value;
+        Windows::Media::ClosedCaptioning::ClosedCaptionColor value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::ClosedCaptioning::IClosedCaptionPropertiesStatics)->get_RegionColor(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_ClosedCaptioning_IClosedCaptionPropertiesStatics<D>::ComputedRegionColor() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Color) consume_Windows_Media_ClosedCaptioning_IClosedCaptionPropertiesStatics<D>::ComputedRegionColor() const
     {
-        Windows::UI::Color value;
+        Windows::UI::Color value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::ClosedCaptioning::IClosedCaptionPropertiesStatics)->get_ComputedRegionColor(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Media_ClosedCaptioning_IClosedCaptionPropertiesStatics<D>::RegionOpacity() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Media::ClosedCaptioning::ClosedCaptionOpacity) consume_Windows_Media_ClosedCaptioning_IClosedCaptionPropertiesStatics<D>::RegionOpacity() const
     {
-        Windows::Media::ClosedCaptioning::ClosedCaptionOpacity value;
+        Windows::Media::ClosedCaptioning::ClosedCaptionOpacity value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Media::ClosedCaptioning::IClosedCaptionPropertiesStatics)->get_RegionOpacity(reinterpret_cast<int32_t*>(&value)));
         return value;
     }

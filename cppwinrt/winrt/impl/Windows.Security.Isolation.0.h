@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -9,11 +9,14 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct HResult;
     struct IAsyncAction;
+    template <typename TResult, typename TProgress> struct IAsyncOperationWithProgress;
+    template <typename TResult> struct IAsyncOperation;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
     template <typename T> struct IVectorView;
+    template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::Security::Isolation
 {
@@ -124,6 +127,7 @@ WINRT_EXPORT namespace winrt::Windows::Security::Isolation
     struct IIsolatedWindowsEnvironmentStartProcessResult;
     struct IIsolatedWindowsEnvironmentTelemetryParameters;
     struct IIsolatedWindowsHostMessengerStatics;
+    struct IIsolatedWindowsHostMessengerStatics2;
     struct IsolatedWindowsEnvironment;
     struct IsolatedWindowsEnvironmentCreateResult;
     struct IsolatedWindowsEnvironmentFile;
@@ -141,6 +145,7 @@ WINRT_EXPORT namespace winrt::Windows::Security::Isolation
     struct IsolatedWindowsEnvironmentTelemetryParameters;
     struct IsolatedWindowsHostMessenger;
     struct IsolatedWindowsEnvironmentCreateProgress;
+    struct HostMessageReceivedCallback;
     struct MessageReceivedCallback;
 }
 namespace winrt::impl
@@ -163,6 +168,7 @@ namespace winrt::impl
     template <> struct category<Windows::Security::Isolation::IIsolatedWindowsEnvironmentStartProcessResult>{ using type = interface_category; };
     template <> struct category<Windows::Security::Isolation::IIsolatedWindowsEnvironmentTelemetryParameters>{ using type = interface_category; };
     template <> struct category<Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics2>{ using type = interface_category; };
     template <> struct category<Windows::Security::Isolation::IsolatedWindowsEnvironment>{ using type = class_category; };
     template <> struct category<Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateResult>{ using type = class_category; };
     template <> struct category<Windows::Security::Isolation::IsolatedWindowsEnvironmentFile>{ using type = class_category; };
@@ -193,58 +199,59 @@ namespace winrt::impl
     template <> struct category<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderStatus>{ using type = enum_category; };
     template <> struct category<Windows::Security::Isolation::IsolatedWindowsEnvironmentStartProcessStatus>{ using type = enum_category; };
     template <> struct category<Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateProgress>{ using type = struct_category<Windows::Security::Isolation::IsolatedWindowsEnvironmentProgressState, uint32_t>; };
+    template <> struct category<Windows::Security::Isolation::HostMessageReceivedCallback>{ using type = delegate_category; };
     template <> struct category<Windows::Security::Isolation::MessageReceivedCallback>{ using type = delegate_category; };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironment>{ L"Windows.Security.Isolation.IsolatedWindowsEnvironment" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateResult>{ L"Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateResult" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentFile>{ L"Windows.Security.Isolation.IsolatedWindowsEnvironmentFile" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentHost>{ L"Windows.Security.Isolation.IsolatedWindowsEnvironmentHost" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentLaunchFileResult>{ L"Windows.Security.Isolation.IsolatedWindowsEnvironmentLaunchFileResult" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentOptions>{ L"Windows.Security.Isolation.IsolatedWindowsEnvironmentOptions" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentOwnerRegistration>{ L"Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistration" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentOwnerRegistrationData>{ L"Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationData" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentOwnerRegistrationResult>{ L"Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationResult" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageResult>{ L"Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageResult" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentProcess>{ L"Windows.Security.Isolation.IsolatedWindowsEnvironmentProcess" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderRequestOptions>{ L"Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderRequestOptions" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderResult>{ L"Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderResult" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentStartProcessResult>{ L"Windows.Security.Isolation.IsolatedWindowsEnvironmentStartProcessResult" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters>{ L"Windows.Security.Isolation.IsolatedWindowsEnvironmentTelemetryParameters" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsHostMessenger>{ L"Windows.Security.Isolation.IsolatedWindowsHostMessenger" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentActivator>{ L"Windows.Security.Isolation.IsolatedWindowsEnvironmentActivator" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentAllowedClipboardFormats>{ L"Windows.Security.Isolation.IsolatedWindowsEnvironmentAllowedClipboardFormats" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentAvailablePrinters>{ L"Windows.Security.Isolation.IsolatedWindowsEnvironmentAvailablePrinters" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentClipboardCopyPasteDirections>{ L"Windows.Security.Isolation.IsolatedWindowsEnvironmentClipboardCopyPasteDirections" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateStatus>{ L"Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateStatus" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentHostError>{ L"Windows.Security.Isolation.IsolatedWindowsEnvironmentHostError" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentLaunchFileStatus>{ L"Windows.Security.Isolation.IsolatedWindowsEnvironmentLaunchFileStatus" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentOwnerRegistrationStatus>{ L"Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationStatus" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageStatus>{ L"Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageStatus" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentProcessState>{ L"Windows.Security.Isolation.IsolatedWindowsEnvironmentProcessState" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentProgressState>{ L"Windows.Security.Isolation.IsolatedWindowsEnvironmentProgressState" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderStatus>{ L"Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderStatus" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentStartProcessStatus>{ L"Windows.Security.Isolation.IsolatedWindowsEnvironmentStartProcessStatus" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateProgress>{ L"Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateProgress" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironment>{ L"Windows.Security.Isolation.IIsolatedWindowsEnvironment" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironment2>{ L"Windows.Security.Isolation.IIsolatedWindowsEnvironment2" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentCreateResult>{ L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentCreateResult" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentFactory>{ L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentFactory" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile>{ L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentFile" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentHostStatics>{ L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentHostStatics" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentLaunchFileResult>{ L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentLaunchFileResult" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions>{ L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOptions" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationData>{ L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOwnerRegistrationData" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationResult>{ L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOwnerRegistrationResult" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationStatics>{ L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOwnerRegistrationStatics" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentPostMessageResult>{ L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentPostMessageResult" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentProcess>{ L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentProcess" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFolderRequestOptions>{ L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFolderRequestOptions" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFolderResult>{ L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFolderResult" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentStartProcessResult>{ L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentStartProcessResult" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentTelemetryParameters>{ L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentTelemetryParameters" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics>{ L"Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics" };
-    template <> inline constexpr auto& name_v<Windows::Security::Isolation::MessageReceivedCallback>{ L"Windows.Security.Isolation.MessageReceivedCallback" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironment> = L"Windows.Security.Isolation.IsolatedWindowsEnvironment";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateResult> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateResult";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentFile> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentFile";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentHost> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentHost";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentLaunchFileResult> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentLaunchFileResult";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentOptions> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentOptions";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentOwnerRegistration> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistration";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentOwnerRegistrationData> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationData";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentOwnerRegistrationResult> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationResult";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageResult> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageResult";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentProcess> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentProcess";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderRequestOptions> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderRequestOptions";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderResult> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderResult";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentStartProcessResult> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentStartProcessResult";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentTelemetryParameters";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsHostMessenger> = L"Windows.Security.Isolation.IsolatedWindowsHostMessenger";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentActivator> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentActivator";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentAllowedClipboardFormats> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentAllowedClipboardFormats";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentAvailablePrinters> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentAvailablePrinters";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentClipboardCopyPasteDirections> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentClipboardCopyPasteDirections";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateStatus> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateStatus";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentHostError> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentHostError";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentLaunchFileStatus> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentLaunchFileStatus";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentOwnerRegistrationStatus> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationStatus";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageStatus> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageStatus";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentProcessState> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentProcessState";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentProgressState> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentProgressState";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderStatus> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderStatus";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentStartProcessStatus> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentStartProcessStatus";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateProgress> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateProgress";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironment> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironment";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironment2> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironment2";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentCreateResult> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentCreateResult";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentFactory> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentFactory";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentFile";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentHostStatics> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentHostStatics";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentLaunchFileResult> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentLaunchFileResult";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOptions";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationData> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOwnerRegistrationData";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationResult> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOwnerRegistrationResult";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationStatics> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOwnerRegistrationStatics";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentPostMessageResult> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentPostMessageResult";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentProcess> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentProcess";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFolderRequestOptions> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFolderRequestOptions";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFolderResult> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFolderResult";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentStartProcessResult> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentStartProcessResult";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentTelemetryParameters> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentTelemetryParameters";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics> = L"Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics2> = L"Windows.Security.Isolation.IIsolatedWindowsHostMessengerStatics2";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::HostMessageReceivedCallback> = L"Windows.Security.Isolation.HostMessageReceivedCallback";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::MessageReceivedCallback> = L"Windows.Security.Isolation.MessageReceivedCallback";
     template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironment>{ 0x41D24597,0xC328,0x4467,{ 0xB3,0x7F,0x4D,0xFC,0x6F,0x60,0xB6,0xBC } };
     template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironment2>{ 0x2D365F39,0x88BD,0x4AB4,{ 0x93,0xCF,0x7E,0x2B,0xCE,0xF3,0x37,0xC0 } };
     template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentCreateResult>{ 0xEF9A5E58,0xDCD7,0x45C2,{ 0x9C,0x85,0xAB,0x64,0x2A,0x71,0x5E,0x8E } };
@@ -263,6 +270,8 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentStartProcessResult>{ 0x8FA1DC2F,0x57DA,0x4BB5,{ 0x9C,0x06,0xFA,0x07,0x2D,0x20,0x32,0xE2 } };
     template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentTelemetryParameters>{ 0xEBDB3CAB,0x7A3A,0x4524,{ 0xA0,0xF4,0xF9,0x6E,0x28,0x4D,0x33,0xCD } };
     template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics>{ 0x06E444BB,0x53C0,0x4889,{ 0x8F,0xA3,0x53,0x59,0x2E,0x37,0xCF,0x21 } };
+    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics2>{ 0x55EF9EBC,0x0444,0x42AD,{ 0x83,0x2D,0x1B,0x89,0xC0,0x89,0xD1,0xCA } };
+    template <> inline constexpr guid guid_v<Windows::Security::Isolation::HostMessageReceivedCallback>{ 0xFAF26FFA,0x8CE1,0x4CC1,{ 0xB2,0x78,0x32,0x2D,0x31,0xA5,0xE4,0xA3 } };
     template <> inline constexpr guid guid_v<Windows::Security::Isolation::MessageReceivedCallback>{ 0xF5B4C8FF,0x1D9D,0x4995,{ 0x9F,0xEA,0x4D,0x15,0x25,0x7C,0x07,0x57 } };
     template <> struct default_interface<Windows::Security::Isolation::IsolatedWindowsEnvironment>{ using type = Windows::Security::Isolation::IIsolatedWindowsEnvironment; };
     template <> struct default_interface<Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateResult>{ using type = Windows::Security::Isolation::IIsolatedWindowsEnvironmentCreateResult; };
@@ -298,7 +307,6 @@ namespace winrt::impl
     {
         struct __declspec(novtable) type : inspectable_abi
         {
-            virtual int32_t __stdcall GetHostHwnd(uint64_t, uint64_t*) noexcept = 0;
             virtual int32_t __stdcall PostMessageToReceiverAsync(winrt::guid, void*, void**) noexcept = 0;
             virtual int32_t __stdcall PostMessageToReceiverWithTelemetryAsync(winrt::guid, void*, void*, void**) noexcept = 0;
         };
@@ -457,6 +465,21 @@ namespace winrt::impl
             virtual int32_t __stdcall GetFileId(void*, winrt::guid*) noexcept = 0;
         };
     };
+    template <> struct abi<Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics2>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall RegisterHostMessageReceiver(winrt::guid, void*) noexcept = 0;
+            virtual int32_t __stdcall UnregisteHostMessageReceiver(winrt::guid) noexcept = 0;
+        };
+    };
+    template <> struct abi<Windows::Security::Isolation::HostMessageReceivedCallback>
+    {
+        struct __declspec(novtable) type : unknown_abi
+        {
+            virtual int32_t __stdcall Invoke(winrt::guid, void*) noexcept = 0;
+        };
+    };
     template <> struct abi<Windows::Security::Isolation::MessageReceivedCallback>
     {
         struct __declspec(novtable) type : unknown_abi
@@ -467,17 +490,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment
     {
-        [[nodiscard]] auto Id() const;
-        auto StartProcessSilentlyAsync(param::hstring const& hostExePath, param::hstring const& arguments, Windows::Security::Isolation::IsolatedWindowsEnvironmentActivator const& activator) const;
-        auto StartProcessSilentlyAsync(param::hstring const& hostExePath, param::hstring const& arguments, Windows::Security::Isolation::IsolatedWindowsEnvironmentActivator const& activator, Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters const& telemetryParameters) const;
-        auto ShareFolderAsync(param::hstring const& hostFolder, Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderRequestOptions const& requestOptions) const;
-        auto ShareFolderAsync(param::hstring const& hostFolder, Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderRequestOptions const& requestOptions, Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters const& telemetryParameters) const;
-        auto LaunchFileWithUIAsync(param::hstring const& appExePath, param::hstring const& argumentsTemplate, param::hstring const& filePath) const;
-        auto LaunchFileWithUIAsync(param::hstring const& appExePath, param::hstring const& argumentsTemplate, param::hstring const& filePath, Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters const& telemetryParameters) const;
-        auto TerminateAsync() const;
-        auto TerminateAsync(Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters const& telemetryParameters) const;
-        auto RegisterMessageReceiver(winrt::guid const& receiverId, Windows::Security::Isolation::MessageReceivedCallback const& messageReceivedCallback) const;
-        auto UnregisterMessageReceiver(winrt::guid const& receiverId) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentStartProcessResult>) StartProcessSilentlyAsync(param::hstring const& hostExePath, param::hstring const& arguments, Windows::Security::Isolation::IsolatedWindowsEnvironmentActivator const& activator) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentStartProcessResult>) StartProcessSilentlyAsync(param::hstring const& hostExePath, param::hstring const& arguments, Windows::Security::Isolation::IsolatedWindowsEnvironmentActivator const& activator, Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters const& telemetryParameters) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderResult>) ShareFolderAsync(param::hstring const& hostFolder, Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderRequestOptions const& requestOptions) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderResult>) ShareFolderAsync(param::hstring const& hostFolder, Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderRequestOptions const& requestOptions, Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters const& telemetryParameters) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentLaunchFileResult>) LaunchFileWithUIAsync(param::hstring const& appExePath, param::hstring const& argumentsTemplate, param::hstring const& filePath) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentLaunchFileResult>) LaunchFileWithUIAsync(param::hstring const& appExePath, param::hstring const& argumentsTemplate, param::hstring const& filePath, Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters const& telemetryParameters) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) TerminateAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) TerminateAsync(Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters const& telemetryParameters) const;
+        WINRT_IMPL_AUTO(void) RegisterMessageReceiver(winrt::guid const& receiverId, Windows::Security::Isolation::MessageReceivedCallback const& messageReceivedCallback) const;
+        WINRT_IMPL_AUTO(void) UnregisterMessageReceiver(winrt::guid const& receiverId) const;
     };
     template <> struct consume<Windows::Security::Isolation::IIsolatedWindowsEnvironment>
     {
@@ -486,9 +509,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment2
     {
-        auto GetHostHwnd(uint64_t containerHwnd) const;
-        auto PostMessageToReceiverAsync(winrt::guid const& receiverId, param::async_iterable<Windows::Foundation::IInspectable> const& message) const;
-        auto PostMessageToReceiverAsync(winrt::guid const& receiverId, param::async_iterable<Windows::Foundation::IInspectable> const& message, Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters const& telemetryParameters) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageResult>) PostMessageToReceiverAsync(winrt::guid const& receiverId, param::async_iterable<Windows::Foundation::IInspectable> const& message) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageResult>) PostMessageToReceiverAsync(winrt::guid const& receiverId, param::async_iterable<Windows::Foundation::IInspectable> const& message, Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters const& telemetryParameters) const;
     };
     template <> struct consume<Windows::Security::Isolation::IIsolatedWindowsEnvironment2>
     {
@@ -497,9 +519,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentCreateResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto ExtendedError() const;
-        [[nodiscard]] auto Environment() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironment) Environment() const;
     };
     template <> struct consume<Windows::Security::Isolation::IIsolatedWindowsEnvironmentCreateResult>
     {
@@ -508,10 +530,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentFactory
     {
-        auto CreateAsync(Windows::Security::Isolation::IsolatedWindowsEnvironmentOptions const& options) const;
-        auto CreateAsync(Windows::Security::Isolation::IsolatedWindowsEnvironmentOptions const& options, Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters const& telemetryParameters) const;
-        auto GetById(param::hstring const& environmentId) const;
-        auto FindByOwnerId(param::hstring const& environmentOwnerId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateResult, Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateProgress>) CreateAsync(Windows::Security::Isolation::IsolatedWindowsEnvironmentOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateResult, Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateProgress>) CreateAsync(Windows::Security::Isolation::IsolatedWindowsEnvironmentOptions const& options, Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters const& telemetryParameters) const;
+        WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironment) GetById(param::hstring const& environmentId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Security::Isolation::IsolatedWindowsEnvironment>) FindByOwnerId(param::hstring const& environmentOwnerId) const;
     };
     template <> struct consume<Windows::Security::Isolation::IIsolatedWindowsEnvironmentFactory>
     {
@@ -520,9 +542,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentFile
     {
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto HostPath() const;
-        auto Close() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) HostPath() const;
+        WINRT_IMPL_AUTO(void) Close() const;
     };
     template <> struct consume<Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile>
     {
@@ -531,8 +553,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentHostStatics
     {
-        [[nodiscard]] auto IsReady() const;
-        [[nodiscard]] auto HostErrors() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsReady() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Security::Isolation::IsolatedWindowsEnvironmentHostError>) HostErrors() const;
     };
     template <> struct consume<Windows::Security::Isolation::IIsolatedWindowsEnvironmentHostStatics>
     {
@@ -541,9 +563,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentLaunchFileResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto ExtendedError() const;
-        [[nodiscard]] auto File() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentLaunchFileStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentFile) File() const;
     };
     template <> struct consume<Windows::Security::Isolation::IIsolatedWindowsEnvironmentLaunchFileResult>
     {
@@ -552,23 +574,23 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions
     {
-        [[nodiscard]] auto EnvironmentOwnerId() const;
-        auto EnvironmentOwnerId(param::hstring const& value) const;
-        [[nodiscard]] auto AllowedClipboardFormats() const;
-        auto AllowedClipboardFormats(Windows::Security::Isolation::IsolatedWindowsEnvironmentAllowedClipboardFormats const& value) const;
-        [[nodiscard]] auto ClipboardCopyPasteDirections() const;
-        auto ClipboardCopyPasteDirections(Windows::Security::Isolation::IsolatedWindowsEnvironmentClipboardCopyPasteDirections const& value) const;
-        [[nodiscard]] auto AvailablePrinters() const;
-        auto AvailablePrinters(Windows::Security::Isolation::IsolatedWindowsEnvironmentAvailablePrinters const& value) const;
-        [[nodiscard]] auto SharedHostFolderPath() const;
-        [[nodiscard]] auto SharedFolderNameInEnvironment() const;
-        auto ShareHostFolderForUntrustedItems(param::hstring const& SharedHostFolderPath, param::hstring const& ShareFolderNameInEnvironment) const;
-        [[nodiscard]] auto PersistUserProfile() const;
-        auto PersistUserProfile(bool value) const;
-        [[nodiscard]] auto AllowGraphicsHardwareAcceleration() const;
-        auto AllowGraphicsHardwareAcceleration(bool value) const;
-        [[nodiscard]] auto AllowCameraAndMicrophoneAccess() const;
-        auto AllowCameraAndMicrophoneAccess(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EnvironmentOwnerId() const;
+        WINRT_IMPL_AUTO(void) EnvironmentOwnerId(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentAllowedClipboardFormats) AllowedClipboardFormats() const;
+        WINRT_IMPL_AUTO(void) AllowedClipboardFormats(Windows::Security::Isolation::IsolatedWindowsEnvironmentAllowedClipboardFormats const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentClipboardCopyPasteDirections) ClipboardCopyPasteDirections() const;
+        WINRT_IMPL_AUTO(void) ClipboardCopyPasteDirections(Windows::Security::Isolation::IsolatedWindowsEnvironmentClipboardCopyPasteDirections const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentAvailablePrinters) AvailablePrinters() const;
+        WINRT_IMPL_AUTO(void) AvailablePrinters(Windows::Security::Isolation::IsolatedWindowsEnvironmentAvailablePrinters const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SharedHostFolderPath() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SharedFolderNameInEnvironment() const;
+        WINRT_IMPL_AUTO(void) ShareHostFolderForUntrustedItems(param::hstring const& SharedHostFolderPath, param::hstring const& ShareFolderNameInEnvironment) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) PersistUserProfile() const;
+        WINRT_IMPL_AUTO(void) PersistUserProfile(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AllowGraphicsHardwareAcceleration() const;
+        WINRT_IMPL_AUTO(void) AllowGraphicsHardwareAcceleration(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AllowCameraAndMicrophoneAccess() const;
+        WINRT_IMPL_AUTO(void) AllowCameraAndMicrophoneAccess(bool value) const;
     };
     template <> struct consume<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions>
     {
@@ -577,10 +599,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOwnerRegistrationData
     {
-        [[nodiscard]] auto ShareableFolders() const;
-        [[nodiscard]] auto ProcessesRunnableAsSystem() const;
-        [[nodiscard]] auto ProcessesRunnableAsUser() const;
-        [[nodiscard]] auto ActivationFileExtensions() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) ShareableFolders() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) ProcessesRunnableAsSystem() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) ProcessesRunnableAsUser() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) ActivationFileExtensions() const;
     };
     template <> struct consume<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationData>
     {
@@ -589,8 +611,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOwnerRegistrationResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentOwnerRegistrationStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
     };
     template <> struct consume<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationResult>
     {
@@ -599,8 +621,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOwnerRegistrationStatics
     {
-        auto Register(param::hstring const& ownerName, Windows::Security::Isolation::IsolatedWindowsEnvironmentOwnerRegistrationData const& ownerRegistrationData) const;
-        auto Unregister(param::hstring const& ownerName) const;
+        WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentOwnerRegistrationResult) Register(param::hstring const& ownerName, Windows::Security::Isolation::IsolatedWindowsEnvironmentOwnerRegistrationData const& ownerRegistrationData) const;
+        WINRT_IMPL_AUTO(void) Unregister(param::hstring const& ownerName) const;
     };
     template <> struct consume<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationStatics>
     {
@@ -609,8 +631,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentPostMessageResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
     };
     template <> struct consume<Windows::Security::Isolation::IIsolatedWindowsEnvironmentPostMessageResult>
     {
@@ -619,11 +641,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentProcess
     {
-        [[nodiscard]] auto State() const;
-        [[nodiscard]] auto ExitCode() const;
-        auto WaitForExit() const;
-        auto WaitForExitWithTimeout(uint32_t timeoutMilliseconds) const;
-        auto WaitForExitAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentProcessState) State() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ExitCode() const;
+        WINRT_IMPL_AUTO(void) WaitForExit() const;
+        WINRT_IMPL_AUTO(void) WaitForExitWithTimeout(uint32_t timeoutMilliseconds) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) WaitForExitAsync() const;
     };
     template <> struct consume<Windows::Security::Isolation::IIsolatedWindowsEnvironmentProcess>
     {
@@ -632,8 +654,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentShareFolderRequestOptions
     {
-        [[nodiscard]] auto AllowWrite() const;
-        auto AllowWrite(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AllowWrite() const;
+        WINRT_IMPL_AUTO(void) AllowWrite(bool value) const;
     };
     template <> struct consume<Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFolderRequestOptions>
     {
@@ -642,8 +664,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentShareFolderResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
     };
     template <> struct consume<Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFolderResult>
     {
@@ -652,9 +674,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentStartProcessResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto ExtendedError() const;
-        [[nodiscard]] auto Process() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentStartProcessStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentProcess) Process() const;
     };
     template <> struct consume<Windows::Security::Isolation::IIsolatedWindowsEnvironmentStartProcessResult>
     {
@@ -663,8 +685,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentTelemetryParameters
     {
-        [[nodiscard]] auto CorrelationId() const;
-        auto CorrelationId(winrt::guid const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) CorrelationId() const;
+        WINRT_IMPL_AUTO(void) CorrelationId(winrt::guid const& value) const;
     };
     template <> struct consume<Windows::Security::Isolation::IIsolatedWindowsEnvironmentTelemetryParameters>
     {
@@ -673,12 +695,22 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Security_Isolation_IIsolatedWindowsHostMessengerStatics
     {
-        auto PostMessageToReceiver(winrt::guid const& receiverId, param::vector_view<Windows::Foundation::IInspectable> const& message) const;
-        auto GetFileId(param::hstring const& filePath) const;
+        WINRT_IMPL_AUTO(void) PostMessageToReceiver(winrt::guid const& receiverId, param::vector_view<Windows::Foundation::IInspectable> const& message) const;
+        WINRT_IMPL_AUTO(winrt::guid) GetFileId(param::hstring const& filePath) const;
     };
     template <> struct consume<Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics>
     {
         template <typename D> using type = consume_Windows_Security_Isolation_IIsolatedWindowsHostMessengerStatics<D>;
+    };
+    template <typename D>
+    struct consume_Windows_Security_Isolation_IIsolatedWindowsHostMessengerStatics2
+    {
+        WINRT_IMPL_AUTO(void) RegisterHostMessageReceiver(winrt::guid const& receiverId, Windows::Security::Isolation::HostMessageReceivedCallback const& hostMessageReceivedCallback) const;
+        WINRT_IMPL_AUTO(void) UnregisteHostMessageReceiver(winrt::guid const& receiverId) const;
+    };
+    template <> struct consume<Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics2>
+    {
+        template <typename D> using type = consume_Windows_Security_Isolation_IIsolatedWindowsHostMessengerStatics2<D>;
     };
     struct struct_Windows_Security_Isolation_IsolatedWindowsEnvironmentCreateProgress
     {

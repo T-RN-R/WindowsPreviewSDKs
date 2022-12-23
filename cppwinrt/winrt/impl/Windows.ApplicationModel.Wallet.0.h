@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -13,8 +13,14 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
     template <typename T> struct IReference;
     template <typename TSender, typename TResult> struct TypedEventHandler;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename K, typename V> struct IMap;
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage::Streams
 {
@@ -133,34 +139,32 @@ namespace winrt::impl
     template <> struct category<Windows::ApplicationModel::Wallet::WalletDetailViewPosition>{ using type = enum_category; };
     template <> struct category<Windows::ApplicationModel::Wallet::WalletItemKind>{ using type = enum_category; };
     template <> struct category<Windows::ApplicationModel::Wallet::WalletSummaryViewPosition>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::WalletBarcode>{ L"Windows.ApplicationModel.Wallet.WalletBarcode" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::WalletItem>{ L"Windows.ApplicationModel.Wallet.WalletItem" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::WalletItemCustomProperty>{ L"Windows.ApplicationModel.Wallet.WalletItemCustomProperty" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::WalletItemStore>{ L"Windows.ApplicationModel.Wallet.WalletItemStore" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::WalletManager>{ L"Windows.ApplicationModel.Wallet.WalletManager" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::WalletRelevantLocation>{ L"Windows.ApplicationModel.Wallet.WalletRelevantLocation" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::WalletTransaction>{ L"Windows.ApplicationModel.Wallet.WalletTransaction" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::WalletVerb>{ L"Windows.ApplicationModel.Wallet.WalletVerb" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::WalletActionKind>{ L"Windows.ApplicationModel.Wallet.WalletActionKind" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::WalletBarcodeSymbology>{ L"Windows.ApplicationModel.Wallet.WalletBarcodeSymbology" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::WalletDetailViewPosition>{ L"Windows.ApplicationModel.Wallet.WalletDetailViewPosition" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::WalletItemKind>{ L"Windows.ApplicationModel.Wallet.WalletItemKind" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::WalletSummaryViewPosition>{ L"Windows.ApplicationModel.Wallet.WalletSummaryViewPosition" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::IWalletBarcode>{ L"Windows.ApplicationModel.Wallet.IWalletBarcode" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::IWalletBarcodeFactory>{ L"Windows.ApplicationModel.Wallet.IWalletBarcodeFactory" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::IWalletItem>{ L"Windows.ApplicationModel.Wallet.IWalletItem" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::IWalletItemCustomProperty>{ L"Windows.ApplicationModel.Wallet.IWalletItemCustomProperty" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::IWalletItemCustomPropertyFactory>{ L"Windows.ApplicationModel.Wallet.IWalletItemCustomPropertyFactory" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::IWalletItemFactory>{ L"Windows.ApplicationModel.Wallet.IWalletItemFactory" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::IWalletItemStore>{ L"Windows.ApplicationModel.Wallet.IWalletItemStore" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::IWalletItemStore2>{ L"Windows.ApplicationModel.Wallet.IWalletItemStore2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::IWalletManagerStatics>{ L"Windows.ApplicationModel.Wallet.IWalletManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::IWalletRelevantLocation>{ L"Windows.ApplicationModel.Wallet.IWalletRelevantLocation" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::IWalletTransaction>{ L"Windows.ApplicationModel.Wallet.IWalletTransaction" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::IWalletVerb>{ L"Windows.ApplicationModel.Wallet.IWalletVerb" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::IWalletVerbFactory>{ L"Windows.ApplicationModel.Wallet.IWalletVerbFactory" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::WalletBarcode> = L"Windows.ApplicationModel.Wallet.WalletBarcode";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::WalletItem> = L"Windows.ApplicationModel.Wallet.WalletItem";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::WalletItemCustomProperty> = L"Windows.ApplicationModel.Wallet.WalletItemCustomProperty";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::WalletItemStore> = L"Windows.ApplicationModel.Wallet.WalletItemStore";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::WalletManager> = L"Windows.ApplicationModel.Wallet.WalletManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::WalletRelevantLocation> = L"Windows.ApplicationModel.Wallet.WalletRelevantLocation";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::WalletTransaction> = L"Windows.ApplicationModel.Wallet.WalletTransaction";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::WalletVerb> = L"Windows.ApplicationModel.Wallet.WalletVerb";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::WalletActionKind> = L"Windows.ApplicationModel.Wallet.WalletActionKind";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::WalletBarcodeSymbology> = L"Windows.ApplicationModel.Wallet.WalletBarcodeSymbology";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::WalletDetailViewPosition> = L"Windows.ApplicationModel.Wallet.WalletDetailViewPosition";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::WalletItemKind> = L"Windows.ApplicationModel.Wallet.WalletItemKind";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::WalletSummaryViewPosition> = L"Windows.ApplicationModel.Wallet.WalletSummaryViewPosition";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::IWalletBarcode> = L"Windows.ApplicationModel.Wallet.IWalletBarcode";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::IWalletBarcodeFactory> = L"Windows.ApplicationModel.Wallet.IWalletBarcodeFactory";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::IWalletItem> = L"Windows.ApplicationModel.Wallet.IWalletItem";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::IWalletItemCustomProperty> = L"Windows.ApplicationModel.Wallet.IWalletItemCustomProperty";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::IWalletItemCustomPropertyFactory> = L"Windows.ApplicationModel.Wallet.IWalletItemCustomPropertyFactory";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::IWalletItemFactory> = L"Windows.ApplicationModel.Wallet.IWalletItemFactory";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::IWalletItemStore> = L"Windows.ApplicationModel.Wallet.IWalletItemStore";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::IWalletItemStore2> = L"Windows.ApplicationModel.Wallet.IWalletItemStore2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::IWalletManagerStatics> = L"Windows.ApplicationModel.Wallet.IWalletManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::IWalletRelevantLocation> = L"Windows.ApplicationModel.Wallet.IWalletRelevantLocation";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::IWalletTransaction> = L"Windows.ApplicationModel.Wallet.IWalletTransaction";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::IWalletVerb> = L"Windows.ApplicationModel.Wallet.IWalletVerb";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Wallet::IWalletVerbFactory> = L"Windows.ApplicationModel.Wallet.IWalletVerbFactory";
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::IWalletBarcode>{ 0x4F857B29,0xDE80,0x4EA4,{ 0xA1,0xCD,0x81,0xCD,0x08,0x4D,0xAC,0x27 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::IWalletBarcodeFactory>{ 0x30117161,0xED9C,0x469E,{ 0xBB,0xFD,0x30,0x6C,0x95,0xEA,0x71,0x08 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Wallet::IWalletItem>{ 0x20B54BE8,0x118D,0x4EC4,{ 0x99,0x6C,0xB9,0x63,0xE7,0xBD,0x3E,0x74 } };
@@ -363,9 +367,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Wallet_IWalletBarcode
     {
-        [[nodiscard]] auto Symbology() const;
-        [[nodiscard]] auto Value() const;
-        auto GetImageAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Wallet::WalletBarcodeSymbology) Symbology() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Value() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::IRandomAccessStreamReference>) GetImageAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Wallet::IWalletBarcode>
     {
@@ -374,8 +378,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Wallet_IWalletBarcodeFactory
     {
-        auto CreateWalletBarcode(Windows::ApplicationModel::Wallet::WalletBarcodeSymbology const& symbology, param::hstring const& value) const;
-        auto CreateCustomWalletBarcode(Windows::Storage::Streams::IRandomAccessStreamReference const& streamToBarcodeImage) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Wallet::WalletBarcode) CreateWalletBarcode(Windows::ApplicationModel::Wallet::WalletBarcodeSymbology const& symbology, param::hstring const& value) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Wallet::WalletBarcode) CreateCustomWalletBarcode(Windows::Storage::Streams::IRandomAccessStreamReference const& streamToBarcodeImage) const;
     };
     template <> struct consume<Windows::ApplicationModel::Wallet::IWalletBarcodeFactory>
     {
@@ -384,58 +388,58 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Wallet_IWalletItem
     {
-        [[nodiscard]] auto DisplayName() const;
-        auto DisplayName(param::hstring const& value) const;
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto IsAcknowledged() const;
-        auto IsAcknowledged(bool value) const;
-        [[nodiscard]] auto IssuerDisplayName() const;
-        auto IssuerDisplayName(param::hstring const& value) const;
-        [[nodiscard]] auto LastUpdated() const;
-        auto LastUpdated(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const;
-        [[nodiscard]] auto Kind() const;
-        [[nodiscard]] auto Barcode() const;
-        auto Barcode(Windows::ApplicationModel::Wallet::WalletBarcode const& value) const;
-        [[nodiscard]] auto ExpirationDate() const;
-        auto ExpirationDate(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const;
-        [[nodiscard]] auto Logo159x159() const;
-        auto Logo159x159(Windows::Storage::Streams::IRandomAccessStreamReference const& value) const;
-        [[nodiscard]] auto Logo336x336() const;
-        auto Logo336x336(Windows::Storage::Streams::IRandomAccessStreamReference const& value) const;
-        [[nodiscard]] auto Logo99x99() const;
-        auto Logo99x99(Windows::Storage::Streams::IRandomAccessStreamReference const& value) const;
-        [[nodiscard]] auto DisplayMessage() const;
-        auto DisplayMessage(param::hstring const& value) const;
-        [[nodiscard]] auto IsDisplayMessageLaunchable() const;
-        auto IsDisplayMessageLaunchable(bool value) const;
-        [[nodiscard]] auto LogoText() const;
-        auto LogoText(param::hstring const& value) const;
-        [[nodiscard]] auto HeaderColor() const;
-        auto HeaderColor(Windows::UI::Color const& value) const;
-        [[nodiscard]] auto BodyColor() const;
-        auto BodyColor(Windows::UI::Color const& value) const;
-        [[nodiscard]] auto HeaderFontColor() const;
-        auto HeaderFontColor(Windows::UI::Color const& value) const;
-        [[nodiscard]] auto BodyFontColor() const;
-        auto BodyFontColor(Windows::UI::Color const& value) const;
-        [[nodiscard]] auto HeaderBackgroundImage() const;
-        auto HeaderBackgroundImage(Windows::Storage::Streams::IRandomAccessStreamReference const& value) const;
-        [[nodiscard]] auto BodyBackgroundImage() const;
-        auto BodyBackgroundImage(Windows::Storage::Streams::IRandomAccessStreamReference const& value) const;
-        [[nodiscard]] auto LogoImage() const;
-        auto LogoImage(Windows::Storage::Streams::IRandomAccessStreamReference const& value) const;
-        [[nodiscard]] auto PromotionalImage() const;
-        auto PromotionalImage(Windows::Storage::Streams::IRandomAccessStreamReference const& value) const;
-        [[nodiscard]] auto RelevantDate() const;
-        auto RelevantDate(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const;
-        [[nodiscard]] auto RelevantDateDisplayMessage() const;
-        auto RelevantDateDisplayMessage(param::hstring const& value) const;
-        [[nodiscard]] auto TransactionHistory() const;
-        [[nodiscard]] auto RelevantLocations() const;
-        [[nodiscard]] auto IsMoreTransactionHistoryLaunchable() const;
-        auto IsMoreTransactionHistoryLaunchable(bool value) const;
-        [[nodiscard]] auto DisplayProperties() const;
-        [[nodiscard]] auto Verbs() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        WINRT_IMPL_AUTO(void) DisplayName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsAcknowledged() const;
+        WINRT_IMPL_AUTO(void) IsAcknowledged(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) IssuerDisplayName() const;
+        WINRT_IMPL_AUTO(void) IssuerDisplayName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) LastUpdated() const;
+        WINRT_IMPL_AUTO(void) LastUpdated(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Wallet::WalletItemKind) Kind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Wallet::WalletBarcode) Barcode() const;
+        WINRT_IMPL_AUTO(void) Barcode(Windows::ApplicationModel::Wallet::WalletBarcode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) ExpirationDate() const;
+        WINRT_IMPL_AUTO(void) ExpirationDate(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamReference) Logo159x159() const;
+        WINRT_IMPL_AUTO(void) Logo159x159(Windows::Storage::Streams::IRandomAccessStreamReference const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamReference) Logo336x336() const;
+        WINRT_IMPL_AUTO(void) Logo336x336(Windows::Storage::Streams::IRandomAccessStreamReference const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamReference) Logo99x99() const;
+        WINRT_IMPL_AUTO(void) Logo99x99(Windows::Storage::Streams::IRandomAccessStreamReference const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayMessage() const;
+        WINRT_IMPL_AUTO(void) DisplayMessage(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDisplayMessageLaunchable() const;
+        WINRT_IMPL_AUTO(void) IsDisplayMessageLaunchable(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) LogoText() const;
+        WINRT_IMPL_AUTO(void) LogoText(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Color) HeaderColor() const;
+        WINRT_IMPL_AUTO(void) HeaderColor(Windows::UI::Color const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Color) BodyColor() const;
+        WINRT_IMPL_AUTO(void) BodyColor(Windows::UI::Color const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Color) HeaderFontColor() const;
+        WINRT_IMPL_AUTO(void) HeaderFontColor(Windows::UI::Color const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Color) BodyFontColor() const;
+        WINRT_IMPL_AUTO(void) BodyFontColor(Windows::UI::Color const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamReference) HeaderBackgroundImage() const;
+        WINRT_IMPL_AUTO(void) HeaderBackgroundImage(Windows::Storage::Streams::IRandomAccessStreamReference const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamReference) BodyBackgroundImage() const;
+        WINRT_IMPL_AUTO(void) BodyBackgroundImage(Windows::Storage::Streams::IRandomAccessStreamReference const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamReference) LogoImage() const;
+        WINRT_IMPL_AUTO(void) LogoImage(Windows::Storage::Streams::IRandomAccessStreamReference const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamReference) PromotionalImage() const;
+        WINRT_IMPL_AUTO(void) PromotionalImage(Windows::Storage::Streams::IRandomAccessStreamReference const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) RelevantDate() const;
+        WINRT_IMPL_AUTO(void) RelevantDate(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RelevantDateDisplayMessage() const;
+        WINRT_IMPL_AUTO(void) RelevantDateDisplayMessage(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMap<hstring, Windows::ApplicationModel::Wallet::WalletTransaction>) TransactionHistory() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMap<hstring, Windows::ApplicationModel::Wallet::WalletRelevantLocation>) RelevantLocations() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsMoreTransactionHistoryLaunchable() const;
+        WINRT_IMPL_AUTO(void) IsMoreTransactionHistoryLaunchable(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMap<hstring, Windows::ApplicationModel::Wallet::WalletItemCustomProperty>) DisplayProperties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMap<hstring, Windows::ApplicationModel::Wallet::WalletVerb>) Verbs() const;
     };
     template <> struct consume<Windows::ApplicationModel::Wallet::IWalletItem>
     {
@@ -444,16 +448,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Wallet_IWalletItemCustomProperty
     {
-        [[nodiscard]] auto Name() const;
-        auto Name(param::hstring const& value) const;
-        [[nodiscard]] auto Value() const;
-        auto Value(param::hstring const& value) const;
-        [[nodiscard]] auto AutoDetectLinks() const;
-        auto AutoDetectLinks(bool value) const;
-        [[nodiscard]] auto DetailViewPosition() const;
-        auto DetailViewPosition(Windows::ApplicationModel::Wallet::WalletDetailViewPosition const& value) const;
-        [[nodiscard]] auto SummaryViewPosition() const;
-        auto SummaryViewPosition(Windows::ApplicationModel::Wallet::WalletSummaryViewPosition const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        WINRT_IMPL_AUTO(void) Name(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Value() const;
+        WINRT_IMPL_AUTO(void) Value(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AutoDetectLinks() const;
+        WINRT_IMPL_AUTO(void) AutoDetectLinks(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Wallet::WalletDetailViewPosition) DetailViewPosition() const;
+        WINRT_IMPL_AUTO(void) DetailViewPosition(Windows::ApplicationModel::Wallet::WalletDetailViewPosition const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Wallet::WalletSummaryViewPosition) SummaryViewPosition() const;
+        WINRT_IMPL_AUTO(void) SummaryViewPosition(Windows::ApplicationModel::Wallet::WalletSummaryViewPosition const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Wallet::IWalletItemCustomProperty>
     {
@@ -462,7 +466,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Wallet_IWalletItemCustomPropertyFactory
     {
-        auto CreateWalletItemCustomProperty(param::hstring const& name, param::hstring const& value) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Wallet::WalletItemCustomProperty) CreateWalletItemCustomProperty(param::hstring const& name, param::hstring const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Wallet::IWalletItemCustomPropertyFactory>
     {
@@ -471,7 +475,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Wallet_IWalletItemFactory
     {
-        auto CreateWalletItem(Windows::ApplicationModel::Wallet::WalletItemKind const& kind, param::hstring const& displayName) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Wallet::WalletItem) CreateWalletItem(Windows::ApplicationModel::Wallet::WalletItemKind const& kind, param::hstring const& displayName) const;
     };
     template <> struct consume<Windows::ApplicationModel::Wallet::IWalletItemFactory>
     {
@@ -480,16 +484,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Wallet_IWalletItemStore
     {
-        auto AddAsync(param::hstring const& id, Windows::ApplicationModel::Wallet::WalletItem const& item) const;
-        auto ClearAsync() const;
-        auto GetWalletItemAsync(param::hstring const& id) const;
-        auto GetItemsAsync() const;
-        auto GetItemsAsync(Windows::ApplicationModel::Wallet::WalletItemKind const& kind) const;
-        auto ImportItemAsync(Windows::Storage::Streams::IRandomAccessStreamReference const& stream) const;
-        auto DeleteAsync(param::hstring const& id) const;
-        auto ShowAsync() const;
-        auto ShowAsync(param::hstring const& id) const;
-        auto UpdateAsync(Windows::ApplicationModel::Wallet::WalletItem const& item) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) AddAsync(param::hstring const& id, Windows::ApplicationModel::Wallet::WalletItem const& item) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ClearAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Wallet::WalletItem>) GetWalletItemAsync(param::hstring const& id) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Wallet::WalletItem>>) GetItemsAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Wallet::WalletItem>>) GetItemsAsync(Windows::ApplicationModel::Wallet::WalletItemKind const& kind) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Wallet::WalletItem>) ImportItemAsync(Windows::Storage::Streams::IRandomAccessStreamReference const& stream) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) DeleteAsync(param::hstring const& id) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ShowAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ShowAsync(param::hstring const& id) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) UpdateAsync(Windows::ApplicationModel::Wallet::WalletItem const& item) const;
     };
     template <> struct consume<Windows::ApplicationModel::Wallet::IWalletItemStore>
     {
@@ -498,10 +502,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Wallet_IWalletItemStore2
     {
-        auto ItemsChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Wallet::WalletItemStore, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) ItemsChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Wallet::WalletItemStore, Windows::Foundation::IInspectable> const& handler) const;
         using ItemsChanged_revoker = impl::event_revoker<Windows::ApplicationModel::Wallet::IWalletItemStore2, &impl::abi_t<Windows::ApplicationModel::Wallet::IWalletItemStore2>::remove_ItemsChanged>;
         [[nodiscard]] ItemsChanged_revoker ItemsChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Wallet::WalletItemStore, Windows::Foundation::IInspectable> const& handler) const;
-        auto ItemsChanged(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(void) ItemsChanged(winrt::event_token const& cookie) const noexcept;
     };
     template <> struct consume<Windows::ApplicationModel::Wallet::IWalletItemStore2>
     {
@@ -510,7 +514,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Wallet_IWalletManagerStatics
     {
-        auto RequestStoreAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Wallet::WalletItemStore>) RequestStoreAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Wallet::IWalletManagerStatics>
     {
@@ -519,10 +523,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Wallet_IWalletRelevantLocation
     {
-        [[nodiscard]] auto Position() const;
-        auto Position(Windows::Devices::Geolocation::BasicGeoposition const& value) const;
-        [[nodiscard]] auto DisplayMessage() const;
-        auto DisplayMessage(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Geolocation::BasicGeoposition) Position() const;
+        WINRT_IMPL_AUTO(void) Position(Windows::Devices::Geolocation::BasicGeoposition const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayMessage() const;
+        WINRT_IMPL_AUTO(void) DisplayMessage(param::hstring const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Wallet::IWalletRelevantLocation>
     {
@@ -531,18 +535,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Wallet_IWalletTransaction
     {
-        [[nodiscard]] auto Description() const;
-        auto Description(param::hstring const& value) const;
-        [[nodiscard]] auto DisplayAmount() const;
-        auto DisplayAmount(param::hstring const& value) const;
-        [[nodiscard]] auto IgnoreTimeOfDay() const;
-        auto IgnoreTimeOfDay(bool value) const;
-        [[nodiscard]] auto DisplayLocation() const;
-        auto DisplayLocation(param::hstring const& value) const;
-        [[nodiscard]] auto TransactionDate() const;
-        auto TransactionDate(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const;
-        [[nodiscard]] auto IsLaunchable() const;
-        auto IsLaunchable(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
+        WINRT_IMPL_AUTO(void) Description(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayAmount() const;
+        WINRT_IMPL_AUTO(void) DisplayAmount(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IgnoreTimeOfDay() const;
+        WINRT_IMPL_AUTO(void) IgnoreTimeOfDay(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayLocation() const;
+        WINRT_IMPL_AUTO(void) DisplayLocation(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) TransactionDate() const;
+        WINRT_IMPL_AUTO(void) TransactionDate(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsLaunchable() const;
+        WINRT_IMPL_AUTO(void) IsLaunchable(bool value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Wallet::IWalletTransaction>
     {
@@ -551,8 +555,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Wallet_IWalletVerb
     {
-        [[nodiscard]] auto Name() const;
-        auto Name(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        WINRT_IMPL_AUTO(void) Name(param::hstring const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Wallet::IWalletVerb>
     {
@@ -561,7 +565,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Wallet_IWalletVerbFactory
     {
-        auto CreateWalletVerb(param::hstring const& name) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Wallet::WalletVerb) CreateWalletVerb(param::hstring const& name) const;
     };
     template <> struct consume<Windows::ApplicationModel::Wallet::IWalletVerbFactory>
     {

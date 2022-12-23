@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -9,6 +9,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
     template <typename TSender, typename TResult> struct TypedEventHandler;
     struct Uri;
 }
@@ -322,104 +323,102 @@ namespace winrt::impl
     template <> struct category<Windows::Networking::Vpn::VpnNativeProtocolType>{ using type = enum_category; };
     template <> struct category<Windows::Networking::Vpn::VpnPacketBufferStatus>{ using type = enum_category; };
     template <> struct category<Windows::Networking::Vpn::VpnRoutingPolicyType>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnAppId>{ L"Windows.Networking.Vpn.VpnAppId" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnChannel>{ L"Windows.Networking.Vpn.VpnChannel" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnChannelActivityEventArgs>{ L"Windows.Networking.Vpn.VpnChannelActivityEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnChannelActivityStateChangedArgs>{ L"Windows.Networking.Vpn.VpnChannelActivityStateChangedArgs" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnChannelConfiguration>{ L"Windows.Networking.Vpn.VpnChannelConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnCredential>{ L"Windows.Networking.Vpn.VpnCredential" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnCustomCheckBox>{ L"Windows.Networking.Vpn.VpnCustomCheckBox" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnCustomComboBox>{ L"Windows.Networking.Vpn.VpnCustomComboBox" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnCustomEditBox>{ L"Windows.Networking.Vpn.VpnCustomEditBox" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnCustomErrorBox>{ L"Windows.Networking.Vpn.VpnCustomErrorBox" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnCustomPromptBooleanInput>{ L"Windows.Networking.Vpn.VpnCustomPromptBooleanInput" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnCustomPromptOptionSelector>{ L"Windows.Networking.Vpn.VpnCustomPromptOptionSelector" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnCustomPromptText>{ L"Windows.Networking.Vpn.VpnCustomPromptText" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnCustomPromptTextInput>{ L"Windows.Networking.Vpn.VpnCustomPromptTextInput" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnCustomTextBox>{ L"Windows.Networking.Vpn.VpnCustomTextBox" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnDomainNameAssignment>{ L"Windows.Networking.Vpn.VpnDomainNameAssignment" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnDomainNameInfo>{ L"Windows.Networking.Vpn.VpnDomainNameInfo" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnInterfaceId>{ L"Windows.Networking.Vpn.VpnInterfaceId" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnManagementAgent>{ L"Windows.Networking.Vpn.VpnManagementAgent" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnNamespaceAssignment>{ L"Windows.Networking.Vpn.VpnNamespaceAssignment" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnNamespaceInfo>{ L"Windows.Networking.Vpn.VpnNamespaceInfo" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnNativeProfile>{ L"Windows.Networking.Vpn.VpnNativeProfile" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnPacketBuffer>{ L"Windows.Networking.Vpn.VpnPacketBuffer" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnPacketBufferList>{ L"Windows.Networking.Vpn.VpnPacketBufferList" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnPickedCredential>{ L"Windows.Networking.Vpn.VpnPickedCredential" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnPlugInProfile>{ L"Windows.Networking.Vpn.VpnPlugInProfile" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnRoute>{ L"Windows.Networking.Vpn.VpnRoute" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnRouteAssignment>{ L"Windows.Networking.Vpn.VpnRouteAssignment" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnSystemHealth>{ L"Windows.Networking.Vpn.VpnSystemHealth" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnTrafficFilter>{ L"Windows.Networking.Vpn.VpnTrafficFilter" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnTrafficFilterAssignment>{ L"Windows.Networking.Vpn.VpnTrafficFilterAssignment" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnAppIdType>{ L"Windows.Networking.Vpn.VpnAppIdType" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnAuthenticationMethod>{ L"Windows.Networking.Vpn.VpnAuthenticationMethod" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnChannelActivityEventType>{ L"Windows.Networking.Vpn.VpnChannelActivityEventType" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnChannelRequestCredentialsOptions>{ L"Windows.Networking.Vpn.VpnChannelRequestCredentialsOptions" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnCredentialType>{ L"Windows.Networking.Vpn.VpnCredentialType" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnDataPathType>{ L"Windows.Networking.Vpn.VpnDataPathType" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnDomainNameType>{ L"Windows.Networking.Vpn.VpnDomainNameType" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnIPProtocol>{ L"Windows.Networking.Vpn.VpnIPProtocol" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnManagementConnectionStatus>{ L"Windows.Networking.Vpn.VpnManagementConnectionStatus" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnManagementErrorStatus>{ L"Windows.Networking.Vpn.VpnManagementErrorStatus" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnNativeProtocolType>{ L"Windows.Networking.Vpn.VpnNativeProtocolType" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnPacketBufferStatus>{ L"Windows.Networking.Vpn.VpnPacketBufferStatus" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnRoutingPolicyType>{ L"Windows.Networking.Vpn.VpnRoutingPolicyType" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnAppId>{ L"Windows.Networking.Vpn.IVpnAppId" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnAppIdFactory>{ L"Windows.Networking.Vpn.IVpnAppIdFactory" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnChannel>{ L"Windows.Networking.Vpn.IVpnChannel" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnChannel2>{ L"Windows.Networking.Vpn.IVpnChannel2" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnChannel4>{ L"Windows.Networking.Vpn.IVpnChannel4" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnChannelActivityEventArgs>{ L"Windows.Networking.Vpn.IVpnChannelActivityEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnChannelActivityStateChangedArgs>{ L"Windows.Networking.Vpn.IVpnChannelActivityStateChangedArgs" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnChannelConfiguration>{ L"Windows.Networking.Vpn.IVpnChannelConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnChannelConfiguration2>{ L"Windows.Networking.Vpn.IVpnChannelConfiguration2" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnChannelStatics>{ L"Windows.Networking.Vpn.IVpnChannelStatics" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnCredential>{ L"Windows.Networking.Vpn.IVpnCredential" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnCustomCheckBox>{ L"Windows.Networking.Vpn.IVpnCustomCheckBox" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnCustomComboBox>{ L"Windows.Networking.Vpn.IVpnCustomComboBox" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnCustomEditBox>{ L"Windows.Networking.Vpn.IVpnCustomEditBox" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnCustomErrorBox>{ L"Windows.Networking.Vpn.IVpnCustomErrorBox" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnCustomPrompt>{ L"Windows.Networking.Vpn.IVpnCustomPrompt" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnCustomPromptBooleanInput>{ L"Windows.Networking.Vpn.IVpnCustomPromptBooleanInput" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnCustomPromptElement>{ L"Windows.Networking.Vpn.IVpnCustomPromptElement" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnCustomPromptOptionSelector>{ L"Windows.Networking.Vpn.IVpnCustomPromptOptionSelector" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnCustomPromptText>{ L"Windows.Networking.Vpn.IVpnCustomPromptText" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnCustomPromptTextInput>{ L"Windows.Networking.Vpn.IVpnCustomPromptTextInput" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnCustomTextBox>{ L"Windows.Networking.Vpn.IVpnCustomTextBox" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnDomainNameAssignment>{ L"Windows.Networking.Vpn.IVpnDomainNameAssignment" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnDomainNameInfo>{ L"Windows.Networking.Vpn.IVpnDomainNameInfo" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnDomainNameInfo2>{ L"Windows.Networking.Vpn.IVpnDomainNameInfo2" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnDomainNameInfoFactory>{ L"Windows.Networking.Vpn.IVpnDomainNameInfoFactory" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnInterfaceId>{ L"Windows.Networking.Vpn.IVpnInterfaceId" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnInterfaceIdFactory>{ L"Windows.Networking.Vpn.IVpnInterfaceIdFactory" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnManagementAgent>{ L"Windows.Networking.Vpn.IVpnManagementAgent" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnNamespaceAssignment>{ L"Windows.Networking.Vpn.IVpnNamespaceAssignment" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnNamespaceInfo>{ L"Windows.Networking.Vpn.IVpnNamespaceInfo" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnNamespaceInfoFactory>{ L"Windows.Networking.Vpn.IVpnNamespaceInfoFactory" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnNativeProfile>{ L"Windows.Networking.Vpn.IVpnNativeProfile" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnNativeProfile2>{ L"Windows.Networking.Vpn.IVpnNativeProfile2" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnPacketBuffer>{ L"Windows.Networking.Vpn.IVpnPacketBuffer" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnPacketBuffer2>{ L"Windows.Networking.Vpn.IVpnPacketBuffer2" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnPacketBuffer3>{ L"Windows.Networking.Vpn.IVpnPacketBuffer3" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnPacketBufferFactory>{ L"Windows.Networking.Vpn.IVpnPacketBufferFactory" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnPacketBufferList>{ L"Windows.Networking.Vpn.IVpnPacketBufferList" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnPacketBufferList2>{ L"Windows.Networking.Vpn.IVpnPacketBufferList2" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnPickedCredential>{ L"Windows.Networking.Vpn.IVpnPickedCredential" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnPlugIn>{ L"Windows.Networking.Vpn.IVpnPlugIn" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnPlugInProfile>{ L"Windows.Networking.Vpn.IVpnPlugInProfile" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnPlugInProfile2>{ L"Windows.Networking.Vpn.IVpnPlugInProfile2" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnProfile>{ L"Windows.Networking.Vpn.IVpnProfile" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnRoute>{ L"Windows.Networking.Vpn.IVpnRoute" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnRouteAssignment>{ L"Windows.Networking.Vpn.IVpnRouteAssignment" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnRouteFactory>{ L"Windows.Networking.Vpn.IVpnRouteFactory" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnSystemHealth>{ L"Windows.Networking.Vpn.IVpnSystemHealth" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnTrafficFilter>{ L"Windows.Networking.Vpn.IVpnTrafficFilter" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnTrafficFilterAssignment>{ L"Windows.Networking.Vpn.IVpnTrafficFilterAssignment" };
-    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnTrafficFilterFactory>{ L"Windows.Networking.Vpn.IVpnTrafficFilterFactory" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnAppId> = L"Windows.Networking.Vpn.VpnAppId";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnChannel> = L"Windows.Networking.Vpn.VpnChannel";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnChannelActivityEventArgs> = L"Windows.Networking.Vpn.VpnChannelActivityEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnChannelActivityStateChangedArgs> = L"Windows.Networking.Vpn.VpnChannelActivityStateChangedArgs";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnChannelConfiguration> = L"Windows.Networking.Vpn.VpnChannelConfiguration";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnCredential> = L"Windows.Networking.Vpn.VpnCredential";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnCustomCheckBox> = L"Windows.Networking.Vpn.VpnCustomCheckBox";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnCustomComboBox> = L"Windows.Networking.Vpn.VpnCustomComboBox";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnCustomEditBox> = L"Windows.Networking.Vpn.VpnCustomEditBox";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnCustomErrorBox> = L"Windows.Networking.Vpn.VpnCustomErrorBox";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnCustomPromptBooleanInput> = L"Windows.Networking.Vpn.VpnCustomPromptBooleanInput";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnCustomPromptOptionSelector> = L"Windows.Networking.Vpn.VpnCustomPromptOptionSelector";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnCustomPromptText> = L"Windows.Networking.Vpn.VpnCustomPromptText";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnCustomPromptTextInput> = L"Windows.Networking.Vpn.VpnCustomPromptTextInput";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnCustomTextBox> = L"Windows.Networking.Vpn.VpnCustomTextBox";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnDomainNameAssignment> = L"Windows.Networking.Vpn.VpnDomainNameAssignment";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnDomainNameInfo> = L"Windows.Networking.Vpn.VpnDomainNameInfo";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnInterfaceId> = L"Windows.Networking.Vpn.VpnInterfaceId";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnManagementAgent> = L"Windows.Networking.Vpn.VpnManagementAgent";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnNamespaceAssignment> = L"Windows.Networking.Vpn.VpnNamespaceAssignment";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnNamespaceInfo> = L"Windows.Networking.Vpn.VpnNamespaceInfo";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnNativeProfile> = L"Windows.Networking.Vpn.VpnNativeProfile";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnPacketBuffer> = L"Windows.Networking.Vpn.VpnPacketBuffer";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnPacketBufferList> = L"Windows.Networking.Vpn.VpnPacketBufferList";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnPickedCredential> = L"Windows.Networking.Vpn.VpnPickedCredential";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnPlugInProfile> = L"Windows.Networking.Vpn.VpnPlugInProfile";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnRoute> = L"Windows.Networking.Vpn.VpnRoute";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnRouteAssignment> = L"Windows.Networking.Vpn.VpnRouteAssignment";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnSystemHealth> = L"Windows.Networking.Vpn.VpnSystemHealth";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnTrafficFilter> = L"Windows.Networking.Vpn.VpnTrafficFilter";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnTrafficFilterAssignment> = L"Windows.Networking.Vpn.VpnTrafficFilterAssignment";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnAppIdType> = L"Windows.Networking.Vpn.VpnAppIdType";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnAuthenticationMethod> = L"Windows.Networking.Vpn.VpnAuthenticationMethod";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnChannelActivityEventType> = L"Windows.Networking.Vpn.VpnChannelActivityEventType";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnChannelRequestCredentialsOptions> = L"Windows.Networking.Vpn.VpnChannelRequestCredentialsOptions";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnCredentialType> = L"Windows.Networking.Vpn.VpnCredentialType";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnDataPathType> = L"Windows.Networking.Vpn.VpnDataPathType";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnDomainNameType> = L"Windows.Networking.Vpn.VpnDomainNameType";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnIPProtocol> = L"Windows.Networking.Vpn.VpnIPProtocol";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnManagementConnectionStatus> = L"Windows.Networking.Vpn.VpnManagementConnectionStatus";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnManagementErrorStatus> = L"Windows.Networking.Vpn.VpnManagementErrorStatus";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnNativeProtocolType> = L"Windows.Networking.Vpn.VpnNativeProtocolType";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnPacketBufferStatus> = L"Windows.Networking.Vpn.VpnPacketBufferStatus";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::VpnRoutingPolicyType> = L"Windows.Networking.Vpn.VpnRoutingPolicyType";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnAppId> = L"Windows.Networking.Vpn.IVpnAppId";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnAppIdFactory> = L"Windows.Networking.Vpn.IVpnAppIdFactory";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnChannel> = L"Windows.Networking.Vpn.IVpnChannel";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnChannel2> = L"Windows.Networking.Vpn.IVpnChannel2";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnChannel4> = L"Windows.Networking.Vpn.IVpnChannel4";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnChannelActivityEventArgs> = L"Windows.Networking.Vpn.IVpnChannelActivityEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnChannelActivityStateChangedArgs> = L"Windows.Networking.Vpn.IVpnChannelActivityStateChangedArgs";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnChannelConfiguration> = L"Windows.Networking.Vpn.IVpnChannelConfiguration";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnChannelConfiguration2> = L"Windows.Networking.Vpn.IVpnChannelConfiguration2";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnChannelStatics> = L"Windows.Networking.Vpn.IVpnChannelStatics";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnCredential> = L"Windows.Networking.Vpn.IVpnCredential";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnCustomCheckBox> = L"Windows.Networking.Vpn.IVpnCustomCheckBox";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnCustomComboBox> = L"Windows.Networking.Vpn.IVpnCustomComboBox";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnCustomEditBox> = L"Windows.Networking.Vpn.IVpnCustomEditBox";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnCustomErrorBox> = L"Windows.Networking.Vpn.IVpnCustomErrorBox";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnCustomPrompt> = L"Windows.Networking.Vpn.IVpnCustomPrompt";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnCustomPromptBooleanInput> = L"Windows.Networking.Vpn.IVpnCustomPromptBooleanInput";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnCustomPromptElement> = L"Windows.Networking.Vpn.IVpnCustomPromptElement";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnCustomPromptOptionSelector> = L"Windows.Networking.Vpn.IVpnCustomPromptOptionSelector";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnCustomPromptText> = L"Windows.Networking.Vpn.IVpnCustomPromptText";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnCustomPromptTextInput> = L"Windows.Networking.Vpn.IVpnCustomPromptTextInput";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnCustomTextBox> = L"Windows.Networking.Vpn.IVpnCustomTextBox";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnDomainNameAssignment> = L"Windows.Networking.Vpn.IVpnDomainNameAssignment";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnDomainNameInfo> = L"Windows.Networking.Vpn.IVpnDomainNameInfo";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnDomainNameInfo2> = L"Windows.Networking.Vpn.IVpnDomainNameInfo2";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnDomainNameInfoFactory> = L"Windows.Networking.Vpn.IVpnDomainNameInfoFactory";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnInterfaceId> = L"Windows.Networking.Vpn.IVpnInterfaceId";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnInterfaceIdFactory> = L"Windows.Networking.Vpn.IVpnInterfaceIdFactory";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnManagementAgent> = L"Windows.Networking.Vpn.IVpnManagementAgent";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnNamespaceAssignment> = L"Windows.Networking.Vpn.IVpnNamespaceAssignment";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnNamespaceInfo> = L"Windows.Networking.Vpn.IVpnNamespaceInfo";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnNamespaceInfoFactory> = L"Windows.Networking.Vpn.IVpnNamespaceInfoFactory";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnNativeProfile> = L"Windows.Networking.Vpn.IVpnNativeProfile";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnNativeProfile2> = L"Windows.Networking.Vpn.IVpnNativeProfile2";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnPacketBuffer> = L"Windows.Networking.Vpn.IVpnPacketBuffer";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnPacketBuffer2> = L"Windows.Networking.Vpn.IVpnPacketBuffer2";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnPacketBuffer3> = L"Windows.Networking.Vpn.IVpnPacketBuffer3";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnPacketBufferFactory> = L"Windows.Networking.Vpn.IVpnPacketBufferFactory";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnPacketBufferList> = L"Windows.Networking.Vpn.IVpnPacketBufferList";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnPacketBufferList2> = L"Windows.Networking.Vpn.IVpnPacketBufferList2";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnPickedCredential> = L"Windows.Networking.Vpn.IVpnPickedCredential";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnPlugIn> = L"Windows.Networking.Vpn.IVpnPlugIn";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnPlugInProfile> = L"Windows.Networking.Vpn.IVpnPlugInProfile";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnPlugInProfile2> = L"Windows.Networking.Vpn.IVpnPlugInProfile2";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnProfile> = L"Windows.Networking.Vpn.IVpnProfile";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnRoute> = L"Windows.Networking.Vpn.IVpnRoute";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnRouteAssignment> = L"Windows.Networking.Vpn.IVpnRouteAssignment";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnRouteFactory> = L"Windows.Networking.Vpn.IVpnRouteFactory";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnSystemHealth> = L"Windows.Networking.Vpn.IVpnSystemHealth";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnTrafficFilter> = L"Windows.Networking.Vpn.IVpnTrafficFilter";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnTrafficFilterAssignment> = L"Windows.Networking.Vpn.IVpnTrafficFilterAssignment";
+    template <> inline constexpr auto& name_v<Windows::Networking::Vpn::IVpnTrafficFilterFactory> = L"Windows.Networking.Vpn.IVpnTrafficFilterFactory";
     template <> inline constexpr guid guid_v<Windows::Networking::Vpn::IVpnAppId>{ 0x7B06A635,0x5C58,0x41D9,{ 0x94,0xA7,0xBF,0xBC,0xF1,0xD8,0xCA,0x54 } };
     template <> inline constexpr guid guid_v<Windows::Networking::Vpn::IVpnAppIdFactory>{ 0x46ADFD2A,0x0AAB,0x4FDB,{ 0x82,0x1D,0xD3,0xDD,0xC9,0x19,0x78,0x8B } };
     template <> inline constexpr guid guid_v<Windows::Networking::Vpn::IVpnChannel>{ 0x4AC78D07,0xD1A8,0x4303,{ 0xA0,0x91,0xC8,0xD2,0xE0,0x91,0x5B,0xC3 } };
@@ -1032,10 +1031,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnAppId
     {
-        [[nodiscard]] auto Type() const;
-        auto Type(Windows::Networking::Vpn::VpnAppIdType const& value) const;
-        [[nodiscard]] auto Value() const;
-        auto Value(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnAppIdType) Type() const;
+        WINRT_IMPL_AUTO(void) Type(Windows::Networking::Vpn::VpnAppIdType const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Value() const;
+        WINRT_IMPL_AUTO(void) Value(param::hstring const& value) const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnAppId>
     {
@@ -1044,7 +1043,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnAppIdFactory
     {
-        auto Create(Windows::Networking::Vpn::VpnAppIdType const& type, param::hstring const& value) const;
+        WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnAppId) Create(Windows::Networking::Vpn::VpnAppIdType const& type, param::hstring const& value) const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnAppIdFactory>
     {
@@ -1053,24 +1052,24 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnChannel
     {
-        auto AssociateTransport(Windows::Foundation::IInspectable const& mainOuterTunnelTransport, Windows::Foundation::IInspectable const& optionalOuterTunnelTransport) const;
-        auto Start(param::vector_view<Windows::Networking::HostName> const& assignedClientIPv4list, param::vector_view<Windows::Networking::HostName> const& assignedClientIPv6list, Windows::Networking::Vpn::VpnInterfaceId const& vpnInterfaceId, Windows::Networking::Vpn::VpnRouteAssignment const& routeScope, Windows::Networking::Vpn::VpnNamespaceAssignment const& namespaceScope, uint32_t mtuSize, uint32_t maxFrameSize, bool optimizeForLowCostNetwork, Windows::Foundation::IInspectable const& mainOuterTunnelTransport, Windows::Foundation::IInspectable const& optionalOuterTunnelTransport) const;
-        auto Stop() const;
-        auto RequestCredentials(Windows::Networking::Vpn::VpnCredentialType const& credType, bool isRetry, bool isSingleSignOnCredential, Windows::Security::Cryptography::Certificates::Certificate const& certificate) const;
-        auto RequestVpnPacketBuffer(Windows::Networking::Vpn::VpnDataPathType const& type, Windows::Networking::Vpn::VpnPacketBuffer& vpnPacketBuffer) const;
-        auto LogDiagnosticMessage(param::hstring const& message) const;
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto Configuration() const;
-        auto ActivityChange(Windows::Foundation::TypedEventHandler<Windows::Networking::Vpn::VpnChannel, Windows::Networking::Vpn::VpnChannelActivityEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) AssociateTransport(Windows::Foundation::IInspectable const& mainOuterTunnelTransport, Windows::Foundation::IInspectable const& optionalOuterTunnelTransport) const;
+        WINRT_IMPL_AUTO(void) Start(param::vector_view<Windows::Networking::HostName> const& assignedClientIPv4list, param::vector_view<Windows::Networking::HostName> const& assignedClientIPv6list, Windows::Networking::Vpn::VpnInterfaceId const& vpnInterfaceId, Windows::Networking::Vpn::VpnRouteAssignment const& routeScope, Windows::Networking::Vpn::VpnNamespaceAssignment const& namespaceScope, uint32_t mtuSize, uint32_t maxFrameSize, bool optimizeForLowCostNetwork, Windows::Foundation::IInspectable const& mainOuterTunnelTransport, Windows::Foundation::IInspectable const& optionalOuterTunnelTransport) const;
+        WINRT_IMPL_AUTO(void) Stop() const;
+        WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnPickedCredential) RequestCredentials(Windows::Networking::Vpn::VpnCredentialType const& credType, bool isRetry, bool isSingleSignOnCredential, Windows::Security::Cryptography::Certificates::Certificate const& certificate) const;
+        WINRT_IMPL_AUTO(void) RequestVpnPacketBuffer(Windows::Networking::Vpn::VpnDataPathType const& type, Windows::Networking::Vpn::VpnPacketBuffer& vpnPacketBuffer) const;
+        WINRT_IMPL_AUTO(void) LogDiagnosticMessage(param::hstring const& message) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnChannelConfiguration) Configuration() const;
+        WINRT_IMPL_AUTO(winrt::event_token) ActivityChange(Windows::Foundation::TypedEventHandler<Windows::Networking::Vpn::VpnChannel, Windows::Networking::Vpn::VpnChannelActivityEventArgs> const& handler) const;
         using ActivityChange_revoker = impl::event_revoker<Windows::Networking::Vpn::IVpnChannel, &impl::abi_t<Windows::Networking::Vpn::IVpnChannel>::remove_ActivityChange>;
         [[nodiscard]] ActivityChange_revoker ActivityChange(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Networking::Vpn::VpnChannel, Windows::Networking::Vpn::VpnChannelActivityEventArgs> const& handler) const;
-        auto ActivityChange(winrt::event_token const& token) const noexcept;
-        auto PlugInContext(Windows::Foundation::IInspectable const& value) const;
-        [[nodiscard]] auto PlugInContext() const;
-        [[nodiscard]] auto SystemHealth() const;
-        auto RequestCustomPrompt(param::vector_view<Windows::Networking::Vpn::IVpnCustomPrompt> const& customPrompt) const;
-        auto SetErrorMessage(param::hstring const& message) const;
-        auto SetAllowedSslTlsVersions(Windows::Foundation::IInspectable const& tunnelTransport, bool useTls12) const;
+        WINRT_IMPL_AUTO(void) ActivityChange(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) PlugInContext(Windows::Foundation::IInspectable const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) PlugInContext() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnSystemHealth) SystemHealth() const;
+        WINRT_IMPL_AUTO(void) RequestCustomPrompt(param::vector_view<Windows::Networking::Vpn::IVpnCustomPrompt> const& customPrompt) const;
+        WINRT_IMPL_AUTO(void) SetErrorMessage(param::hstring const& message) const;
+        WINRT_IMPL_AUTO(void) SetAllowedSslTlsVersions(Windows::Foundation::IInspectable const& tunnelTransport, bool useTls12) const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnChannel>
     {
@@ -1079,20 +1078,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnChannel2
     {
-        auto StartWithMainTransport(param::vector_view<Windows::Networking::HostName> const& assignedClientIPv4list, param::vector_view<Windows::Networking::HostName> const& assignedClientIPv6list, Windows::Networking::Vpn::VpnInterfaceId const& vpnInterfaceId, Windows::Networking::Vpn::VpnRouteAssignment const& assignedRoutes, Windows::Networking::Vpn::VpnDomainNameAssignment const& assignedDomainName, uint32_t mtuSize, uint32_t maxFrameSize, bool Reserved, Windows::Foundation::IInspectable const& mainOuterTunnelTransport) const;
-        auto StartExistingTransports(param::vector_view<Windows::Networking::HostName> const& assignedClientIPv4list, param::vector_view<Windows::Networking::HostName> const& assignedClientIPv6list, Windows::Networking::Vpn::VpnInterfaceId const& vpnInterfaceId, Windows::Networking::Vpn::VpnRouteAssignment const& assignedRoutes, Windows::Networking::Vpn::VpnDomainNameAssignment const& assignedDomainName, uint32_t mtuSize, uint32_t maxFrameSize, bool Reserved) const;
-        auto ActivityStateChange(Windows::Foundation::TypedEventHandler<Windows::Networking::Vpn::VpnChannel, Windows::Networking::Vpn::VpnChannelActivityStateChangedArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) StartWithMainTransport(param::vector_view<Windows::Networking::HostName> const& assignedClientIPv4list, param::vector_view<Windows::Networking::HostName> const& assignedClientIPv6list, Windows::Networking::Vpn::VpnInterfaceId const& vpnInterfaceId, Windows::Networking::Vpn::VpnRouteAssignment const& assignedRoutes, Windows::Networking::Vpn::VpnDomainNameAssignment const& assignedDomainName, uint32_t mtuSize, uint32_t maxFrameSize, bool Reserved, Windows::Foundation::IInspectable const& mainOuterTunnelTransport) const;
+        WINRT_IMPL_AUTO(void) StartExistingTransports(param::vector_view<Windows::Networking::HostName> const& assignedClientIPv4list, param::vector_view<Windows::Networking::HostName> const& assignedClientIPv6list, Windows::Networking::Vpn::VpnInterfaceId const& vpnInterfaceId, Windows::Networking::Vpn::VpnRouteAssignment const& assignedRoutes, Windows::Networking::Vpn::VpnDomainNameAssignment const& assignedDomainName, uint32_t mtuSize, uint32_t maxFrameSize, bool Reserved) const;
+        WINRT_IMPL_AUTO(winrt::event_token) ActivityStateChange(Windows::Foundation::TypedEventHandler<Windows::Networking::Vpn::VpnChannel, Windows::Networking::Vpn::VpnChannelActivityStateChangedArgs> const& handler) const;
         using ActivityStateChange_revoker = impl::event_revoker<Windows::Networking::Vpn::IVpnChannel2, &impl::abi_t<Windows::Networking::Vpn::IVpnChannel2>::remove_ActivityStateChange>;
         [[nodiscard]] ActivityStateChange_revoker ActivityStateChange(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Networking::Vpn::VpnChannel, Windows::Networking::Vpn::VpnChannelActivityStateChangedArgs> const& handler) const;
-        auto ActivityStateChange(winrt::event_token const& token) const noexcept;
-        auto GetVpnSendPacketBuffer() const;
-        auto GetVpnReceivePacketBuffer() const;
-        auto RequestCustomPromptAsync(param::async_vector_view<Windows::Networking::Vpn::IVpnCustomPromptElement> const& customPromptElement) const;
-        auto RequestCredentialsAsync(Windows::Networking::Vpn::VpnCredentialType const& credType, uint32_t credOptions, Windows::Security::Cryptography::Certificates::Certificate const& certificate) const;
-        auto RequestCredentialsAsync(Windows::Networking::Vpn::VpnCredentialType const& credType, uint32_t credOptions) const;
-        auto RequestCredentialsAsync(Windows::Networking::Vpn::VpnCredentialType const& credType) const;
-        auto TerminateConnection(param::hstring const& message) const;
-        auto StartWithTrafficFilter(param::vector_view<Windows::Networking::HostName> const& assignedClientIpv4List, param::vector_view<Windows::Networking::HostName> const& assignedClientIpv6List, Windows::Networking::Vpn::VpnInterfaceId const& vpnInterfaceId, Windows::Networking::Vpn::VpnRouteAssignment const& assignedRoutes, Windows::Networking::Vpn::VpnDomainNameAssignment const& assignedNamespace, uint32_t mtuSize, uint32_t maxFrameSize, bool reserved, Windows::Foundation::IInspectable const& mainOuterTunnelTransport, Windows::Foundation::IInspectable const& optionalOuterTunnelTransport, Windows::Networking::Vpn::VpnTrafficFilterAssignment const& assignedTrafficFilters) const;
+        WINRT_IMPL_AUTO(void) ActivityStateChange(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnPacketBuffer) GetVpnSendPacketBuffer() const;
+        WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnPacketBuffer) GetVpnReceivePacketBuffer() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) RequestCustomPromptAsync(param::async_vector_view<Windows::Networking::Vpn::IVpnCustomPromptElement> const& customPromptElement) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::Vpn::VpnCredential>) RequestCredentialsAsync(Windows::Networking::Vpn::VpnCredentialType const& credType, uint32_t credOptions, Windows::Security::Cryptography::Certificates::Certificate const& certificate) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::Vpn::VpnCredential>) RequestCredentialsAsync(Windows::Networking::Vpn::VpnCredentialType const& credType, uint32_t credOptions) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::Vpn::VpnCredential>) RequestCredentialsAsync(Windows::Networking::Vpn::VpnCredentialType const& credType) const;
+        WINRT_IMPL_AUTO(void) TerminateConnection(param::hstring const& message) const;
+        WINRT_IMPL_AUTO(void) StartWithTrafficFilter(param::vector_view<Windows::Networking::HostName> const& assignedClientIpv4List, param::vector_view<Windows::Networking::HostName> const& assignedClientIpv6List, Windows::Networking::Vpn::VpnInterfaceId const& vpnInterfaceId, Windows::Networking::Vpn::VpnRouteAssignment const& assignedRoutes, Windows::Networking::Vpn::VpnDomainNameAssignment const& assignedNamespace, uint32_t mtuSize, uint32_t maxFrameSize, bool reserved, Windows::Foundation::IInspectable const& mainOuterTunnelTransport, Windows::Foundation::IInspectable const& optionalOuterTunnelTransport, Windows::Networking::Vpn::VpnTrafficFilterAssignment const& assignedTrafficFilters) const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnChannel2>
     {
@@ -1101,12 +1100,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnChannel4
     {
-        auto AddAndAssociateTransport(Windows::Foundation::IInspectable const& transport, Windows::Foundation::IInspectable const& context) const;
-        auto StartWithTrafficFilter(param::iterable<Windows::Networking::HostName> const& assignedClientIpv4Addresses, param::iterable<Windows::Networking::HostName> const& assignedClientIpv6Addresses, Windows::Networking::Vpn::VpnInterfaceId const& vpninterfaceId, Windows::Networking::Vpn::VpnRouteAssignment const& assignedRoutes, Windows::Networking::Vpn::VpnDomainNameAssignment const& assignedNamespace, uint32_t mtuSize, uint32_t maxFrameSize, bool reserved, param::iterable<Windows::Foundation::IInspectable> const& transports, Windows::Networking::Vpn::VpnTrafficFilterAssignment const& assignedTrafficFilters) const;
-        auto ReplaceAndAssociateTransport(Windows::Foundation::IInspectable const& transport, Windows::Foundation::IInspectable const& context) const;
-        auto StartReconnectingTransport(Windows::Foundation::IInspectable const& transport, Windows::Foundation::IInspectable const& context) const;
-        auto GetSlotTypeForTransportContext(Windows::Foundation::IInspectable const& context) const;
-        [[nodiscard]] auto CurrentRequestTransportContext() const;
+        WINRT_IMPL_AUTO(void) AddAndAssociateTransport(Windows::Foundation::IInspectable const& transport, Windows::Foundation::IInspectable const& context) const;
+        WINRT_IMPL_AUTO(void) StartWithTrafficFilter(param::iterable<Windows::Networking::HostName> const& assignedClientIpv4Addresses, param::iterable<Windows::Networking::HostName> const& assignedClientIpv6Addresses, Windows::Networking::Vpn::VpnInterfaceId const& vpninterfaceId, Windows::Networking::Vpn::VpnRouteAssignment const& assignedRoutes, Windows::Networking::Vpn::VpnDomainNameAssignment const& assignedNamespace, uint32_t mtuSize, uint32_t maxFrameSize, bool reserved, param::iterable<Windows::Foundation::IInspectable> const& transports, Windows::Networking::Vpn::VpnTrafficFilterAssignment const& assignedTrafficFilters) const;
+        WINRT_IMPL_AUTO(void) ReplaceAndAssociateTransport(Windows::Foundation::IInspectable const& transport, Windows::Foundation::IInspectable const& context) const;
+        WINRT_IMPL_AUTO(void) StartReconnectingTransport(Windows::Foundation::IInspectable const& transport, Windows::Foundation::IInspectable const& context) const;
+        WINRT_IMPL_AUTO(Windows::Networking::Sockets::ControlChannelTriggerStatus) GetSlotTypeForTransportContext(Windows::Foundation::IInspectable const& context) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CurrentRequestTransportContext() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnChannel4>
     {
@@ -1115,7 +1114,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnChannelActivityEventArgs
     {
-        [[nodiscard]] auto Type() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnChannelActivityEventType) Type() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnChannelActivityEventArgs>
     {
@@ -1124,7 +1123,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnChannelActivityStateChangedArgs
     {
-        [[nodiscard]] auto ActivityState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnChannelActivityEventType) ActivityState() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnChannelActivityStateChangedArgs>
     {
@@ -1133,9 +1132,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnChannelConfiguration
     {
-        [[nodiscard]] auto ServerServiceName() const;
-        [[nodiscard]] auto ServerHostNameList() const;
-        [[nodiscard]] auto CustomField() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ServerServiceName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::HostName>) ServerHostNameList() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CustomField() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnChannelConfiguration>
     {
@@ -1144,7 +1143,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnChannelConfiguration2
     {
-        [[nodiscard]] auto ServerUris() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Foundation::Uri>) ServerUris() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnChannelConfiguration2>
     {
@@ -1153,7 +1152,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnChannelStatics
     {
-        auto ProcessEventAsync(Windows::Foundation::IInspectable const& thirdPartyPlugIn, Windows::Foundation::IInspectable const& event) const;
+        WINRT_IMPL_AUTO(void) ProcessEventAsync(Windows::Foundation::IInspectable const& thirdPartyPlugIn, Windows::Foundation::IInspectable const& event) const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnChannelStatics>
     {
@@ -1162,10 +1161,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnCredential
     {
-        [[nodiscard]] auto PasskeyCredential() const;
-        [[nodiscard]] auto CertificateCredential() const;
-        [[nodiscard]] auto AdditionalPin() const;
-        [[nodiscard]] auto OldPasswordCredential() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Credentials::PasswordCredential) PasskeyCredential() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Cryptography::Certificates::Certificate) CertificateCredential() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AdditionalPin() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Credentials::PasswordCredential) OldPasswordCredential() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnCredential>
     {
@@ -1174,9 +1173,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnCustomCheckBox
     {
-        auto InitialCheckState(bool value) const;
-        [[nodiscard]] auto InitialCheckState() const;
-        [[nodiscard]] auto Checked() const;
+        WINRT_IMPL_AUTO(void) InitialCheckState(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) InitialCheckState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Checked() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnCustomCheckBox>
     {
@@ -1185,9 +1184,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnCustomComboBox
     {
-        auto OptionsText(param::async_vector_view<hstring> const& value) const;
-        [[nodiscard]] auto OptionsText() const;
-        [[nodiscard]] auto Selected() const;
+        WINRT_IMPL_AUTO(void) OptionsText(param::async_vector_view<hstring> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) OptionsText() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Selected() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnCustomComboBox>
     {
@@ -1196,11 +1195,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnCustomEditBox
     {
-        auto DefaultText(param::hstring const& value) const;
-        [[nodiscard]] auto DefaultText() const;
-        auto NoEcho(bool value) const;
-        [[nodiscard]] auto NoEcho() const;
-        [[nodiscard]] auto Text() const;
+        WINRT_IMPL_AUTO(void) DefaultText(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DefaultText() const;
+        WINRT_IMPL_AUTO(void) NoEcho(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) NoEcho() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Text() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnCustomEditBox>
     {
@@ -1217,12 +1216,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnCustomPrompt
     {
-        auto Label(param::hstring const& value) const;
-        [[nodiscard]] auto Label() const;
-        auto Compulsory(bool value) const;
-        [[nodiscard]] auto Compulsory() const;
-        auto Bordered(bool value) const;
-        [[nodiscard]] auto Bordered() const;
+        WINRT_IMPL_AUTO(void) Label(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Label() const;
+        WINRT_IMPL_AUTO(void) Compulsory(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Compulsory() const;
+        WINRT_IMPL_AUTO(void) Bordered(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Bordered() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnCustomPrompt>
     {
@@ -1231,9 +1230,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnCustomPromptBooleanInput
     {
-        auto InitialValue(bool value) const;
-        [[nodiscard]] auto InitialValue() const;
-        [[nodiscard]] auto Value() const;
+        WINRT_IMPL_AUTO(void) InitialValue(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) InitialValue() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Value() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnCustomPromptBooleanInput>
     {
@@ -1242,12 +1241,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnCustomPromptElement
     {
-        auto DisplayName(param::hstring const& value) const;
-        [[nodiscard]] auto DisplayName() const;
-        auto Compulsory(bool value) const;
-        [[nodiscard]] auto Compulsory() const;
-        auto Emphasized(bool value) const;
-        [[nodiscard]] auto Emphasized() const;
+        WINRT_IMPL_AUTO(void) DisplayName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        WINRT_IMPL_AUTO(void) Compulsory(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Compulsory() const;
+        WINRT_IMPL_AUTO(void) Emphasized(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Emphasized() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnCustomPromptElement>
     {
@@ -1256,8 +1255,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnCustomPromptOptionSelector
     {
-        [[nodiscard]] auto Options() const;
-        [[nodiscard]] auto SelectedIndex() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) Options() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) SelectedIndex() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnCustomPromptOptionSelector>
     {
@@ -1266,8 +1265,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnCustomPromptText
     {
-        auto Text(param::hstring const& value) const;
-        [[nodiscard]] auto Text() const;
+        WINRT_IMPL_AUTO(void) Text(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Text() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnCustomPromptText>
     {
@@ -1276,11 +1275,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnCustomPromptTextInput
     {
-        auto PlaceholderText(param::hstring const& value) const;
-        [[nodiscard]] auto PlaceholderText() const;
-        auto IsTextHidden(bool value) const;
-        [[nodiscard]] auto IsTextHidden() const;
-        [[nodiscard]] auto Text() const;
+        WINRT_IMPL_AUTO(void) PlaceholderText(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PlaceholderText() const;
+        WINRT_IMPL_AUTO(void) IsTextHidden(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsTextHidden() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Text() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnCustomPromptTextInput>
     {
@@ -1289,8 +1288,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnCustomTextBox
     {
-        auto DisplayText(param::hstring const& value) const;
-        [[nodiscard]] auto DisplayText() const;
+        WINRT_IMPL_AUTO(void) DisplayText(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayText() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnCustomTextBox>
     {
@@ -1299,9 +1298,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnDomainNameAssignment
     {
-        [[nodiscard]] auto DomainNameList() const;
-        auto ProxyAutoConfigurationUri(Windows::Foundation::Uri const& value) const;
-        [[nodiscard]] auto ProxyAutoConfigurationUri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Networking::Vpn::VpnDomainNameInfo>) DomainNameList() const;
+        WINRT_IMPL_AUTO(void) ProxyAutoConfigurationUri(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) ProxyAutoConfigurationUri() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnDomainNameAssignment>
     {
@@ -1310,12 +1309,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnDomainNameInfo
     {
-        auto DomainName(Windows::Networking::HostName const& value) const;
-        [[nodiscard]] auto DomainName() const;
-        auto DomainNameType(Windows::Networking::Vpn::VpnDomainNameType const& value) const;
-        [[nodiscard]] auto DomainNameType() const;
-        [[nodiscard]] auto DnsServers() const;
-        [[nodiscard]] auto WebProxyServers() const;
+        WINRT_IMPL_AUTO(void) DomainName(Windows::Networking::HostName const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::HostName) DomainName() const;
+        WINRT_IMPL_AUTO(void) DomainNameType(Windows::Networking::Vpn::VpnDomainNameType const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnDomainNameType) DomainNameType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Networking::HostName>) DnsServers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Networking::HostName>) WebProxyServers() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnDomainNameInfo>
     {
@@ -1324,7 +1323,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnDomainNameInfo2
     {
-        [[nodiscard]] auto WebProxyUris() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Foundation::Uri>) WebProxyUris() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnDomainNameInfo2>
     {
@@ -1333,7 +1332,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnDomainNameInfoFactory
     {
-        auto CreateVpnDomainNameInfo(param::hstring const& name, Windows::Networking::Vpn::VpnDomainNameType const& nameType, param::iterable<Windows::Networking::HostName> const& dnsServerList, param::iterable<Windows::Networking::HostName> const& proxyServerList) const;
+        WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnDomainNameInfo) CreateVpnDomainNameInfo(param::hstring const& name, Windows::Networking::Vpn::VpnDomainNameType const& nameType, param::iterable<Windows::Networking::HostName> const& dnsServerList, param::iterable<Windows::Networking::HostName> const& proxyServerList) const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnDomainNameInfoFactory>
     {
@@ -1342,7 +1341,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnInterfaceId
     {
-        auto GetAddressInfo(com_array<uint8_t>& id) const;
+        WINRT_IMPL_AUTO(void) GetAddressInfo(com_array<uint8_t>& id) const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnInterfaceId>
     {
@@ -1351,7 +1350,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnInterfaceIdFactory
     {
-        auto CreateVpnInterfaceId(array_view<uint8_t const> address) const;
+        WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnInterfaceId) CreateVpnInterfaceId(array_view<uint8_t const> address) const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnInterfaceIdFactory>
     {
@@ -1360,15 +1359,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnManagementAgent
     {
-        auto AddProfileFromXmlAsync(param::hstring const& xml) const;
-        auto AddProfileFromObjectAsync(Windows::Networking::Vpn::IVpnProfile const& profile) const;
-        auto UpdateProfileFromXmlAsync(param::hstring const& xml) const;
-        auto UpdateProfileFromObjectAsync(Windows::Networking::Vpn::IVpnProfile const& profile) const;
-        auto GetProfilesAsync() const;
-        auto DeleteProfileAsync(Windows::Networking::Vpn::IVpnProfile const& profile) const;
-        auto ConnectProfileAsync(Windows::Networking::Vpn::IVpnProfile const& profile) const;
-        auto ConnectProfileWithPasswordCredentialAsync(Windows::Networking::Vpn::IVpnProfile const& profile, Windows::Security::Credentials::PasswordCredential const& passwordCredential) const;
-        auto DisconnectProfileAsync(Windows::Networking::Vpn::IVpnProfile const& profile) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::Vpn::VpnManagementErrorStatus>) AddProfileFromXmlAsync(param::hstring const& xml) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::Vpn::VpnManagementErrorStatus>) AddProfileFromObjectAsync(Windows::Networking::Vpn::IVpnProfile const& profile) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::Vpn::VpnManagementErrorStatus>) UpdateProfileFromXmlAsync(param::hstring const& xml) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::Vpn::VpnManagementErrorStatus>) UpdateProfileFromObjectAsync(Windows::Networking::Vpn::IVpnProfile const& profile) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Networking::Vpn::IVpnProfile>>) GetProfilesAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::Vpn::VpnManagementErrorStatus>) DeleteProfileAsync(Windows::Networking::Vpn::IVpnProfile const& profile) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::Vpn::VpnManagementErrorStatus>) ConnectProfileAsync(Windows::Networking::Vpn::IVpnProfile const& profile) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::Vpn::VpnManagementErrorStatus>) ConnectProfileWithPasswordCredentialAsync(Windows::Networking::Vpn::IVpnProfile const& profile, Windows::Security::Credentials::PasswordCredential const& passwordCredential) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::Vpn::VpnManagementErrorStatus>) DisconnectProfileAsync(Windows::Networking::Vpn::IVpnProfile const& profile) const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnManagementAgent>
     {
@@ -1377,10 +1376,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnNamespaceAssignment
     {
-        auto NamespaceList(param::vector<Windows::Networking::Vpn::VpnNamespaceInfo> const& value) const;
-        [[nodiscard]] auto NamespaceList() const;
-        auto ProxyAutoConfigUri(Windows::Foundation::Uri const& value) const;
-        [[nodiscard]] auto ProxyAutoConfigUri() const;
+        WINRT_IMPL_AUTO(void) NamespaceList(param::vector<Windows::Networking::Vpn::VpnNamespaceInfo> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Networking::Vpn::VpnNamespaceInfo>) NamespaceList() const;
+        WINRT_IMPL_AUTO(void) ProxyAutoConfigUri(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) ProxyAutoConfigUri() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnNamespaceAssignment>
     {
@@ -1389,12 +1388,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnNamespaceInfo
     {
-        auto Namespace(param::hstring const& value) const;
-        [[nodiscard]] auto Namespace() const;
-        auto DnsServers(param::vector<Windows::Networking::HostName> const& value) const;
-        [[nodiscard]] auto DnsServers() const;
-        auto WebProxyServers(param::vector<Windows::Networking::HostName> const& value) const;
-        [[nodiscard]] auto WebProxyServers() const;
+        WINRT_IMPL_AUTO(void) Namespace(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Namespace() const;
+        WINRT_IMPL_AUTO(void) DnsServers(param::vector<Windows::Networking::HostName> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Networking::HostName>) DnsServers() const;
+        WINRT_IMPL_AUTO(void) WebProxyServers(param::vector<Windows::Networking::HostName> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Networking::HostName>) WebProxyServers() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnNamespaceInfo>
     {
@@ -1403,7 +1402,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnNamespaceInfoFactory
     {
-        auto CreateVpnNamespaceInfo(param::hstring const& name, param::vector<Windows::Networking::HostName> const& dnsServerList, param::vector<Windows::Networking::HostName> const& proxyServerList) const;
+        WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnNamespaceInfo) CreateVpnNamespaceInfo(param::hstring const& name, param::vector<Windows::Networking::HostName> const& dnsServerList, param::vector<Windows::Networking::HostName> const& proxyServerList) const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnNamespaceInfoFactory>
     {
@@ -1412,17 +1411,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnNativeProfile
     {
-        [[nodiscard]] auto Servers() const;
-        [[nodiscard]] auto RoutingPolicyType() const;
-        auto RoutingPolicyType(Windows::Networking::Vpn::VpnRoutingPolicyType const& value) const;
-        [[nodiscard]] auto NativeProtocolType() const;
-        auto NativeProtocolType(Windows::Networking::Vpn::VpnNativeProtocolType const& value) const;
-        [[nodiscard]] auto UserAuthenticationMethod() const;
-        auto UserAuthenticationMethod(Windows::Networking::Vpn::VpnAuthenticationMethod const& value) const;
-        [[nodiscard]] auto TunnelAuthenticationMethod() const;
-        auto TunnelAuthenticationMethod(Windows::Networking::Vpn::VpnAuthenticationMethod const& value) const;
-        [[nodiscard]] auto EapConfiguration() const;
-        auto EapConfiguration(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) Servers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnRoutingPolicyType) RoutingPolicyType() const;
+        WINRT_IMPL_AUTO(void) RoutingPolicyType(Windows::Networking::Vpn::VpnRoutingPolicyType const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnNativeProtocolType) NativeProtocolType() const;
+        WINRT_IMPL_AUTO(void) NativeProtocolType(Windows::Networking::Vpn::VpnNativeProtocolType const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnAuthenticationMethod) UserAuthenticationMethod() const;
+        WINRT_IMPL_AUTO(void) UserAuthenticationMethod(Windows::Networking::Vpn::VpnAuthenticationMethod const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnAuthenticationMethod) TunnelAuthenticationMethod() const;
+        WINRT_IMPL_AUTO(void) TunnelAuthenticationMethod(Windows::Networking::Vpn::VpnAuthenticationMethod const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EapConfiguration() const;
+        WINRT_IMPL_AUTO(void) EapConfiguration(param::hstring const& value) const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnNativeProfile>
     {
@@ -1431,9 +1430,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnNativeProfile2
     {
-        [[nodiscard]] auto RequireVpnClientAppUI() const;
-        auto RequireVpnClientAppUI(bool value) const;
-        [[nodiscard]] auto ConnectionStatus() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) RequireVpnClientAppUI() const;
+        WINRT_IMPL_AUTO(void) RequireVpnClientAppUI(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnManagementConnectionStatus) ConnectionStatus() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnNativeProfile2>
     {
@@ -1442,11 +1441,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnPacketBuffer
     {
-        [[nodiscard]] auto Buffer() const;
-        auto Status(Windows::Networking::Vpn::VpnPacketBufferStatus const& value) const;
-        [[nodiscard]] auto Status() const;
-        auto TransportAffinity(uint32_t value) const;
-        [[nodiscard]] auto TransportAffinity() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::Buffer) Buffer() const;
+        WINRT_IMPL_AUTO(void) Status(Windows::Networking::Vpn::VpnPacketBufferStatus const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnPacketBufferStatus) Status() const;
+        WINRT_IMPL_AUTO(void) TransportAffinity(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) TransportAffinity() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnPacketBuffer>
     {
@@ -1455,7 +1454,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnPacketBuffer2
     {
-        [[nodiscard]] auto AppId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnAppId) AppId() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnPacketBuffer2>
     {
@@ -1464,8 +1463,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnPacketBuffer3
     {
-        auto TransportContext(Windows::Foundation::IInspectable const& value) const;
-        [[nodiscard]] auto TransportContext() const;
+        WINRT_IMPL_AUTO(void) TransportContext(Windows::Foundation::IInspectable const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) TransportContext() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnPacketBuffer3>
     {
@@ -1474,7 +1473,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnPacketBufferFactory
     {
-        auto CreateVpnPacketBuffer(Windows::Networking::Vpn::VpnPacketBuffer const& parentBuffer, uint32_t offset, uint32_t length) const;
+        WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnPacketBuffer) CreateVpnPacketBuffer(Windows::Networking::Vpn::VpnPacketBuffer const& parentBuffer, uint32_t offset, uint32_t length) const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnPacketBufferFactory>
     {
@@ -1483,14 +1482,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnPacketBufferList
     {
-        auto Append(Windows::Networking::Vpn::VpnPacketBuffer const& nextVpnPacketBuffer) const;
-        auto AddAtBegin(Windows::Networking::Vpn::VpnPacketBuffer const& nextVpnPacketBuffer) const;
-        auto RemoveAtEnd() const;
-        auto RemoveAtBegin() const;
-        auto Clear() const;
-        auto Status(Windows::Networking::Vpn::VpnPacketBufferStatus const& value) const;
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto Size() const;
+        WINRT_IMPL_AUTO(void) Append(Windows::Networking::Vpn::VpnPacketBuffer const& nextVpnPacketBuffer) const;
+        WINRT_IMPL_AUTO(void) AddAtBegin(Windows::Networking::Vpn::VpnPacketBuffer const& nextVpnPacketBuffer) const;
+        WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnPacketBuffer) RemoveAtEnd() const;
+        WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnPacketBuffer) RemoveAtBegin() const;
+        WINRT_IMPL_AUTO(void) Clear() const;
+        WINRT_IMPL_AUTO(void) Status(Windows::Networking::Vpn::VpnPacketBufferStatus const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnPacketBufferStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Size() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnPacketBufferList>
     {
@@ -1499,10 +1498,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnPacketBufferList2
     {
-        auto AddLeadingPacket(Windows::Networking::Vpn::VpnPacketBuffer const& nextVpnPacketBuffer) const;
-        auto RemoveLeadingPacket() const;
-        auto AddTrailingPacket(Windows::Networking::Vpn::VpnPacketBuffer const& nextVpnPacketBuffer) const;
-        auto RemoveTrailingPacket() const;
+        WINRT_IMPL_AUTO(void) AddLeadingPacket(Windows::Networking::Vpn::VpnPacketBuffer const& nextVpnPacketBuffer) const;
+        WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnPacketBuffer) RemoveLeadingPacket() const;
+        WINRT_IMPL_AUTO(void) AddTrailingPacket(Windows::Networking::Vpn::VpnPacketBuffer const& nextVpnPacketBuffer) const;
+        WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnPacketBuffer) RemoveTrailingPacket() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnPacketBufferList2>
     {
@@ -1511,9 +1510,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnPickedCredential
     {
-        [[nodiscard]] auto PasskeyCredential() const;
-        [[nodiscard]] auto AdditionalPin() const;
-        [[nodiscard]] auto OldPasswordCredential() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Credentials::PasswordCredential) PasskeyCredential() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AdditionalPin() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Credentials::PasswordCredential) OldPasswordCredential() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnPickedCredential>
     {
@@ -1522,11 +1521,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnPlugIn
     {
-        auto Connect(Windows::Networking::Vpn::VpnChannel const& channel) const;
-        auto Disconnect(Windows::Networking::Vpn::VpnChannel const& channel) const;
-        auto GetKeepAlivePayload(Windows::Networking::Vpn::VpnChannel const& channel, Windows::Networking::Vpn::VpnPacketBuffer& keepAlivePacket) const;
-        auto Encapsulate(Windows::Networking::Vpn::VpnChannel const& channel, Windows::Networking::Vpn::VpnPacketBufferList const& packets, Windows::Networking::Vpn::VpnPacketBufferList const& encapulatedPackets) const;
-        auto Decapsulate(Windows::Networking::Vpn::VpnChannel const& channel, Windows::Networking::Vpn::VpnPacketBuffer const& encapBuffer, Windows::Networking::Vpn::VpnPacketBufferList const& decapsulatedPackets, Windows::Networking::Vpn::VpnPacketBufferList const& controlPacketsToSend) const;
+        WINRT_IMPL_AUTO(void) Connect(Windows::Networking::Vpn::VpnChannel const& channel) const;
+        WINRT_IMPL_AUTO(void) Disconnect(Windows::Networking::Vpn::VpnChannel const& channel) const;
+        WINRT_IMPL_AUTO(void) GetKeepAlivePayload(Windows::Networking::Vpn::VpnChannel const& channel, Windows::Networking::Vpn::VpnPacketBuffer& keepAlivePacket) const;
+        WINRT_IMPL_AUTO(void) Encapsulate(Windows::Networking::Vpn::VpnChannel const& channel, Windows::Networking::Vpn::VpnPacketBufferList const& packets, Windows::Networking::Vpn::VpnPacketBufferList const& encapulatedPackets) const;
+        WINRT_IMPL_AUTO(void) Decapsulate(Windows::Networking::Vpn::VpnChannel const& channel, Windows::Networking::Vpn::VpnPacketBuffer const& encapBuffer, Windows::Networking::Vpn::VpnPacketBufferList const& decapsulatedPackets, Windows::Networking::Vpn::VpnPacketBufferList const& controlPacketsToSend) const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnPlugIn>
     {
@@ -1535,11 +1534,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnPlugInProfile
     {
-        [[nodiscard]] auto ServerUris() const;
-        [[nodiscard]] auto CustomConfiguration() const;
-        auto CustomConfiguration(param::hstring const& value) const;
-        [[nodiscard]] auto VpnPluginPackageFamilyName() const;
-        auto VpnPluginPackageFamilyName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Foundation::Uri>) ServerUris() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CustomConfiguration() const;
+        WINRT_IMPL_AUTO(void) CustomConfiguration(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VpnPluginPackageFamilyName() const;
+        WINRT_IMPL_AUTO(void) VpnPluginPackageFamilyName(param::hstring const& value) const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnPlugInProfile>
     {
@@ -1548,9 +1547,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnPlugInProfile2
     {
-        [[nodiscard]] auto RequireVpnClientAppUI() const;
-        auto RequireVpnClientAppUI(bool value) const;
-        [[nodiscard]] auto ConnectionStatus() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) RequireVpnClientAppUI() const;
+        WINRT_IMPL_AUTO(void) RequireVpnClientAppUI(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnManagementConnectionStatus) ConnectionStatus() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnPlugInProfile2>
     {
@@ -1559,16 +1558,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnProfile
     {
-        [[nodiscard]] auto ProfileName() const;
-        auto ProfileName(param::hstring const& value) const;
-        [[nodiscard]] auto AppTriggers() const;
-        [[nodiscard]] auto Routes() const;
-        [[nodiscard]] auto DomainNameInfoList() const;
-        [[nodiscard]] auto TrafficFilters() const;
-        [[nodiscard]] auto RememberCredentials() const;
-        auto RememberCredentials(bool value) const;
-        [[nodiscard]] auto AlwaysOn() const;
-        auto AlwaysOn(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ProfileName() const;
+        WINRT_IMPL_AUTO(void) ProfileName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Networking::Vpn::VpnAppId>) AppTriggers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Networking::Vpn::VpnRoute>) Routes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Networking::Vpn::VpnDomainNameInfo>) DomainNameInfoList() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Networking::Vpn::VpnTrafficFilter>) TrafficFilters() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) RememberCredentials() const;
+        WINRT_IMPL_AUTO(void) RememberCredentials(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AlwaysOn() const;
+        WINRT_IMPL_AUTO(void) AlwaysOn(bool value) const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnProfile>
     {
@@ -1577,10 +1576,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnRoute
     {
-        auto Address(Windows::Networking::HostName const& value) const;
-        [[nodiscard]] auto Address() const;
-        auto PrefixSize(uint8_t value) const;
-        [[nodiscard]] auto PrefixSize() const;
+        WINRT_IMPL_AUTO(void) Address(Windows::Networking::HostName const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::HostName) Address() const;
+        WINRT_IMPL_AUTO(void) PrefixSize(uint8_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint8_t) PrefixSize() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnRoute>
     {
@@ -1589,16 +1588,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnRouteAssignment
     {
-        auto Ipv4InclusionRoutes(param::vector<Windows::Networking::Vpn::VpnRoute> const& value) const;
-        auto Ipv6InclusionRoutes(param::vector<Windows::Networking::Vpn::VpnRoute> const& value) const;
-        [[nodiscard]] auto Ipv4InclusionRoutes() const;
-        [[nodiscard]] auto Ipv6InclusionRoutes() const;
-        auto Ipv4ExclusionRoutes(param::vector<Windows::Networking::Vpn::VpnRoute> const& value) const;
-        auto Ipv6ExclusionRoutes(param::vector<Windows::Networking::Vpn::VpnRoute> const& value) const;
-        [[nodiscard]] auto Ipv4ExclusionRoutes() const;
-        [[nodiscard]] auto Ipv6ExclusionRoutes() const;
-        auto ExcludeLocalSubnets(bool value) const;
-        [[nodiscard]] auto ExcludeLocalSubnets() const;
+        WINRT_IMPL_AUTO(void) Ipv4InclusionRoutes(param::vector<Windows::Networking::Vpn::VpnRoute> const& value) const;
+        WINRT_IMPL_AUTO(void) Ipv6InclusionRoutes(param::vector<Windows::Networking::Vpn::VpnRoute> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Networking::Vpn::VpnRoute>) Ipv4InclusionRoutes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Networking::Vpn::VpnRoute>) Ipv6InclusionRoutes() const;
+        WINRT_IMPL_AUTO(void) Ipv4ExclusionRoutes(param::vector<Windows::Networking::Vpn::VpnRoute> const& value) const;
+        WINRT_IMPL_AUTO(void) Ipv6ExclusionRoutes(param::vector<Windows::Networking::Vpn::VpnRoute> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Networking::Vpn::VpnRoute>) Ipv4ExclusionRoutes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Networking::Vpn::VpnRoute>) Ipv6ExclusionRoutes() const;
+        WINRT_IMPL_AUTO(void) ExcludeLocalSubnets(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ExcludeLocalSubnets() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnRouteAssignment>
     {
@@ -1607,7 +1606,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnRouteFactory
     {
-        auto CreateVpnRoute(Windows::Networking::HostName const& address, uint8_t prefixSize) const;
+        WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnRoute) CreateVpnRoute(Windows::Networking::HostName const& address, uint8_t prefixSize) const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnRouteFactory>
     {
@@ -1616,7 +1615,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnSystemHealth
     {
-        [[nodiscard]] auto StatementOfHealth() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::Buffer) StatementOfHealth() const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnSystemHealth>
     {
@@ -1625,17 +1624,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnTrafficFilter
     {
-        [[nodiscard]] auto AppId() const;
-        auto AppId(Windows::Networking::Vpn::VpnAppId const& value) const;
-        [[nodiscard]] auto AppClaims() const;
-        [[nodiscard]] auto Protocol() const;
-        auto Protocol(Windows::Networking::Vpn::VpnIPProtocol const& value) const;
-        [[nodiscard]] auto LocalPortRanges() const;
-        [[nodiscard]] auto RemotePortRanges() const;
-        [[nodiscard]] auto LocalAddressRanges() const;
-        [[nodiscard]] auto RemoteAddressRanges() const;
-        [[nodiscard]] auto RoutingPolicyType() const;
-        auto RoutingPolicyType(Windows::Networking::Vpn::VpnRoutingPolicyType const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnAppId) AppId() const;
+        WINRT_IMPL_AUTO(void) AppId(Windows::Networking::Vpn::VpnAppId const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) AppClaims() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnIPProtocol) Protocol() const;
+        WINRT_IMPL_AUTO(void) Protocol(Windows::Networking::Vpn::VpnIPProtocol const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) LocalPortRanges() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) RemotePortRanges() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) LocalAddressRanges() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) RemoteAddressRanges() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnRoutingPolicyType) RoutingPolicyType() const;
+        WINRT_IMPL_AUTO(void) RoutingPolicyType(Windows::Networking::Vpn::VpnRoutingPolicyType const& value) const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnTrafficFilter>
     {
@@ -1644,11 +1643,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnTrafficFilterAssignment
     {
-        [[nodiscard]] auto TrafficFilterList() const;
-        [[nodiscard]] auto AllowOutbound() const;
-        auto AllowOutbound(bool value) const;
-        [[nodiscard]] auto AllowInbound() const;
-        auto AllowInbound(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Networking::Vpn::VpnTrafficFilter>) TrafficFilterList() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AllowOutbound() const;
+        WINRT_IMPL_AUTO(void) AllowOutbound(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AllowInbound() const;
+        WINRT_IMPL_AUTO(void) AllowInbound(bool value) const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnTrafficFilterAssignment>
     {
@@ -1657,7 +1656,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_Vpn_IVpnTrafficFilterFactory
     {
-        auto Create(Windows::Networking::Vpn::VpnAppId const& appId) const;
+        WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnTrafficFilter) Create(Windows::Networking::Vpn::VpnAppId const& appId) const;
     };
     template <> struct consume<Windows::Networking::Vpn::IVpnTrafficFilterFactory>
     {

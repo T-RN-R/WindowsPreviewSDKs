@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -25,14 +25,12 @@ namespace winrt::impl
     template <> struct category<Windows::Perception::IPerceptionTimestampHelperStatics2>{ using type = interface_category; };
     template <> struct category<Windows::Perception::PerceptionTimestamp>{ using type = class_category; };
     template <> struct category<Windows::Perception::PerceptionTimestampHelper>{ using type = class_category; };
-    template <> inline constexpr auto& name_v<Windows::Perception::PerceptionTimestamp>{ L"Windows.Perception.PerceptionTimestamp" };
-    template <> inline constexpr auto& name_v<Windows::Perception::PerceptionTimestampHelper>{ L"Windows.Perception.PerceptionTimestampHelper" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Perception::IPerceptionTimestamp>{ L"Windows.Perception.IPerceptionTimestamp" };
-    template <> inline constexpr auto& name_v<Windows::Perception::IPerceptionTimestamp2>{ L"Windows.Perception.IPerceptionTimestamp2" };
-    template <> inline constexpr auto& name_v<Windows::Perception::IPerceptionTimestampHelperStatics>{ L"Windows.Perception.IPerceptionTimestampHelperStatics" };
-    template <> inline constexpr auto& name_v<Windows::Perception::IPerceptionTimestampHelperStatics2>{ L"Windows.Perception.IPerceptionTimestampHelperStatics2" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Perception::PerceptionTimestamp> = L"Windows.Perception.PerceptionTimestamp";
+    template <> inline constexpr auto& name_v<Windows::Perception::PerceptionTimestampHelper> = L"Windows.Perception.PerceptionTimestampHelper";
+    template <> inline constexpr auto& name_v<Windows::Perception::IPerceptionTimestamp> = L"Windows.Perception.IPerceptionTimestamp";
+    template <> inline constexpr auto& name_v<Windows::Perception::IPerceptionTimestamp2> = L"Windows.Perception.IPerceptionTimestamp2";
+    template <> inline constexpr auto& name_v<Windows::Perception::IPerceptionTimestampHelperStatics> = L"Windows.Perception.IPerceptionTimestampHelperStatics";
+    template <> inline constexpr auto& name_v<Windows::Perception::IPerceptionTimestampHelperStatics2> = L"Windows.Perception.IPerceptionTimestampHelperStatics2";
     template <> inline constexpr guid guid_v<Windows::Perception::IPerceptionTimestamp>{ 0x87C24804,0xA22E,0x4ADB,{ 0xBA,0x26,0xD7,0x8E,0xF6,0x39,0xBC,0xF4 } };
     template <> inline constexpr guid guid_v<Windows::Perception::IPerceptionTimestamp2>{ 0xE354B7ED,0x2BD1,0x41B7,{ 0x9E,0xD0,0x74,0xA1,0x5C,0x35,0x45,0x37 } };
     template <> inline constexpr guid guid_v<Windows::Perception::IPerceptionTimestampHelperStatics>{ 0x47A611D4,0xA9DF,0x4EDC,{ 0x85,0x5D,0xF4,0xD3,0x39,0xD9,0x67,0xAC } };
@@ -70,8 +68,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Perception_IPerceptionTimestamp
     {
-        [[nodiscard]] auto TargetTime() const;
-        [[nodiscard]] auto PredictionAmount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) TargetTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) PredictionAmount() const;
     };
     template <> struct consume<Windows::Perception::IPerceptionTimestamp>
     {
@@ -80,7 +78,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Perception_IPerceptionTimestamp2
     {
-        [[nodiscard]] auto SystemRelativeTargetTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) SystemRelativeTargetTime() const;
     };
     template <> struct consume<Windows::Perception::IPerceptionTimestamp2>
     {
@@ -89,7 +87,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Perception_IPerceptionTimestampHelperStatics
     {
-        auto FromHistoricalTargetTime(Windows::Foundation::DateTime const& targetTime) const;
+        WINRT_IMPL_AUTO(Windows::Perception::PerceptionTimestamp) FromHistoricalTargetTime(Windows::Foundation::DateTime const& targetTime) const;
     };
     template <> struct consume<Windows::Perception::IPerceptionTimestampHelperStatics>
     {
@@ -98,7 +96,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Perception_IPerceptionTimestampHelperStatics2
     {
-        auto FromSystemRelativeTargetTime(Windows::Foundation::TimeSpan const& targetTime) const;
+        WINRT_IMPL_AUTO(Windows::Perception::PerceptionTimestamp) FromSystemRelativeTargetTime(Windows::Foundation::TimeSpan const& targetTime) const;
     };
     template <> struct consume<Windows::Perception::IPerceptionTimestampHelperStatics2>
     {

@@ -2296,13 +2296,26 @@ DEFINE_MEDIATYPE_GUID( MFAudioFormat_ALAC,              WAVE_FORMAT_ALAC );
 DEFINE_MEDIATYPE_GUID( MFAudioFormat_Opus,              WAVE_FORMAT_OPUS );
 #endif
 DEFINE_MEDIATYPE_GUID( MFAudioFormat_Dolby_AC4,         WAVE_FORMAT_DOLBY_AC4 );
-DEFINE_MEDIATYPE_GUID( MFAudioFormat_Dolby_AC4_IMS,     WAVE_FORMAT_DOLBY_AC4_IMS );
 
 // These audio types are not derived from an existing wFormatTag 
 DEFINE_GUID(MFAudioFormat_Dolby_AC3, // == MEDIASUBTYPE_DOLBY_AC3 defined in ksuuids.h
 0xe06d802c, 0xdb46, 0x11cf, 0xb4, 0xd1, 0x00, 0x80, 0x05f, 0x6c, 0xbb, 0xea);
 DEFINE_GUID(MFAudioFormat_Dolby_DDPlus, // == MEDIASUBTYPE_DOLBY_DDPLUS defined in wmcodecdsp.h
 0xa7fb87af, 0x2d02, 0x42fb, 0xa4, 0xd4, 0x5, 0xcd, 0x93, 0x84, 0x3b, 0xdd);
+
+// {36b7927c-3d87-4a2a-9196-a21ad9e935e6}
+// AC-4 bitstream versions 0 and 1.
+// This audio media type is normally used as an alternate media type (the primary being MFAudioFormat_Dolby_AC4)
+// to allow a MFT to register support for only version 0 and 1 of the AC-4 bistream.
+DEFINE_GUID(MFAudioFormat_Dolby_AC4_V1,
+0x36b7927c, 0x3d87, 0x4a2a, 0x91, 0x96, 0xa2, 0x1a, 0xd9, 0xe9, 0x35, 0xe6);
+
+// {7998b2a0-17dd-49b6-8dfa-9b278552a2ac}
+// AC-4 bitstream version 2. (Supports Immersive Stereo.)
+// This audio media type is normally used as an alternate media type (the primary being MFAudioFormat_Dolby_AC4)
+// to allow a MFT to register support for only version 2 of the AC-4 bistream.
+DEFINE_GUID(MFAudioFormat_Dolby_AC4_V2,
+0x7998b2a0, 0x17dd, 0x49b6, 0x8d, 0xfa, 0x9b, 0x27, 0x85, 0x52, 0xa2, 0xac);
 
 // {9d8dccc6-d156-4fb8-979c-a85be7d21dfa}
 // This format is used for AC-4 streams that use ac4_syncframe and the optional crc

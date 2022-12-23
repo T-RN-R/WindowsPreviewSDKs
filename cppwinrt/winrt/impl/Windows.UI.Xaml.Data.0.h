@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -9,9 +9,11 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     template <typename T> struct EventHandler;
     struct EventRegistrationToken;
+    template <typename TResult> struct IAsyncOperation;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
+    template <typename T> struct IObservableVector;
     template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::UI::Xaml
@@ -139,55 +141,53 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Xaml::Data::LoadMoreItemsResult>{ using type = struct_category<uint32_t>; };
     template <> struct category<Windows::UI::Xaml::Data::CurrentChangingEventHandler>{ using type = delegate_category; };
     template <> struct category<Windows::UI::Xaml::Data::PropertyChangedEventHandler>{ using type = delegate_category; };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::Binding>{ L"Windows.UI.Xaml.Data.Binding" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::BindingBase>{ L"Windows.UI.Xaml.Data.BindingBase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::BindingExpression>{ L"Windows.UI.Xaml.Data.BindingExpression" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::BindingExpressionBase>{ L"Windows.UI.Xaml.Data.BindingExpressionBase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::BindingOperations>{ L"Windows.UI.Xaml.Data.BindingOperations" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::CollectionViewSource>{ L"Windows.UI.Xaml.Data.CollectionViewSource" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::CurrentChangingEventArgs>{ L"Windows.UI.Xaml.Data.CurrentChangingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::ItemIndexRange>{ L"Windows.UI.Xaml.Data.ItemIndexRange" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::PropertyChangedEventArgs>{ L"Windows.UI.Xaml.Data.PropertyChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::RelativeSource>{ L"Windows.UI.Xaml.Data.RelativeSource" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::BindingMode>{ L"Windows.UI.Xaml.Data.BindingMode" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::RelativeSourceMode>{ L"Windows.UI.Xaml.Data.RelativeSourceMode" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::UpdateSourceTrigger>{ L"Windows.UI.Xaml.Data.UpdateSourceTrigger" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::LoadMoreItemsResult>{ L"Windows.UI.Xaml.Data.LoadMoreItemsResult" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IBinding>{ L"Windows.UI.Xaml.Data.IBinding" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IBinding2>{ L"Windows.UI.Xaml.Data.IBinding2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IBindingBase>{ L"Windows.UI.Xaml.Data.IBindingBase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IBindingBaseFactory>{ L"Windows.UI.Xaml.Data.IBindingBaseFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IBindingExpression>{ L"Windows.UI.Xaml.Data.IBindingExpression" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IBindingExpressionBase>{ L"Windows.UI.Xaml.Data.IBindingExpressionBase" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IBindingExpressionBaseFactory>{ L"Windows.UI.Xaml.Data.IBindingExpressionBaseFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IBindingExpressionFactory>{ L"Windows.UI.Xaml.Data.IBindingExpressionFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IBindingFactory>{ L"Windows.UI.Xaml.Data.IBindingFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IBindingOperations>{ L"Windows.UI.Xaml.Data.IBindingOperations" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IBindingOperationsStatics>{ L"Windows.UI.Xaml.Data.IBindingOperationsStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::ICollectionView>{ L"Windows.UI.Xaml.Data.ICollectionView" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::ICollectionViewFactory>{ L"Windows.UI.Xaml.Data.ICollectionViewFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::ICollectionViewGroup>{ L"Windows.UI.Xaml.Data.ICollectionViewGroup" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::ICollectionViewSource>{ L"Windows.UI.Xaml.Data.ICollectionViewSource" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::ICollectionViewSourceStatics>{ L"Windows.UI.Xaml.Data.ICollectionViewSourceStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::ICurrentChangingEventArgs>{ L"Windows.UI.Xaml.Data.ICurrentChangingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::ICurrentChangingEventArgsFactory>{ L"Windows.UI.Xaml.Data.ICurrentChangingEventArgsFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::ICustomProperty>{ L"Windows.UI.Xaml.Data.ICustomProperty" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::ICustomPropertyProvider>{ L"Windows.UI.Xaml.Data.ICustomPropertyProvider" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IItemIndexRange>{ L"Windows.UI.Xaml.Data.IItemIndexRange" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IItemIndexRangeFactory>{ L"Windows.UI.Xaml.Data.IItemIndexRangeFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IItemsRangeInfo>{ L"Windows.UI.Xaml.Data.IItemsRangeInfo" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::INotifyPropertyChanged>{ L"Windows.UI.Xaml.Data.INotifyPropertyChanged" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IPropertyChangedEventArgs>{ L"Windows.UI.Xaml.Data.IPropertyChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IPropertyChangedEventArgsFactory>{ L"Windows.UI.Xaml.Data.IPropertyChangedEventArgsFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IRelativeSource>{ L"Windows.UI.Xaml.Data.IRelativeSource" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IRelativeSourceFactory>{ L"Windows.UI.Xaml.Data.IRelativeSourceFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::ISelectionInfo>{ L"Windows.UI.Xaml.Data.ISelectionInfo" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::ISupportIncrementalLoading>{ L"Windows.UI.Xaml.Data.ISupportIncrementalLoading" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IValueConverter>{ L"Windows.UI.Xaml.Data.IValueConverter" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::CurrentChangingEventHandler>{ L"Windows.UI.Xaml.Data.CurrentChangingEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::PropertyChangedEventHandler>{ L"Windows.UI.Xaml.Data.PropertyChangedEventHandler" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::Binding> = L"Windows.UI.Xaml.Data.Binding";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::BindingBase> = L"Windows.UI.Xaml.Data.BindingBase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::BindingExpression> = L"Windows.UI.Xaml.Data.BindingExpression";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::BindingExpressionBase> = L"Windows.UI.Xaml.Data.BindingExpressionBase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::BindingOperations> = L"Windows.UI.Xaml.Data.BindingOperations";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::CollectionViewSource> = L"Windows.UI.Xaml.Data.CollectionViewSource";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::CurrentChangingEventArgs> = L"Windows.UI.Xaml.Data.CurrentChangingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::ItemIndexRange> = L"Windows.UI.Xaml.Data.ItemIndexRange";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::PropertyChangedEventArgs> = L"Windows.UI.Xaml.Data.PropertyChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::RelativeSource> = L"Windows.UI.Xaml.Data.RelativeSource";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::BindingMode> = L"Windows.UI.Xaml.Data.BindingMode";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::RelativeSourceMode> = L"Windows.UI.Xaml.Data.RelativeSourceMode";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::UpdateSourceTrigger> = L"Windows.UI.Xaml.Data.UpdateSourceTrigger";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::LoadMoreItemsResult> = L"Windows.UI.Xaml.Data.LoadMoreItemsResult";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IBinding> = L"Windows.UI.Xaml.Data.IBinding";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IBinding2> = L"Windows.UI.Xaml.Data.IBinding2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IBindingBase> = L"Windows.UI.Xaml.Data.IBindingBase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IBindingBaseFactory> = L"Windows.UI.Xaml.Data.IBindingBaseFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IBindingExpression> = L"Windows.UI.Xaml.Data.IBindingExpression";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IBindingExpressionBase> = L"Windows.UI.Xaml.Data.IBindingExpressionBase";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IBindingExpressionBaseFactory> = L"Windows.UI.Xaml.Data.IBindingExpressionBaseFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IBindingExpressionFactory> = L"Windows.UI.Xaml.Data.IBindingExpressionFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IBindingFactory> = L"Windows.UI.Xaml.Data.IBindingFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IBindingOperations> = L"Windows.UI.Xaml.Data.IBindingOperations";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IBindingOperationsStatics> = L"Windows.UI.Xaml.Data.IBindingOperationsStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::ICollectionView> = L"Windows.UI.Xaml.Data.ICollectionView";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::ICollectionViewFactory> = L"Windows.UI.Xaml.Data.ICollectionViewFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::ICollectionViewGroup> = L"Windows.UI.Xaml.Data.ICollectionViewGroup";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::ICollectionViewSource> = L"Windows.UI.Xaml.Data.ICollectionViewSource";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::ICollectionViewSourceStatics> = L"Windows.UI.Xaml.Data.ICollectionViewSourceStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::ICurrentChangingEventArgs> = L"Windows.UI.Xaml.Data.ICurrentChangingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::ICurrentChangingEventArgsFactory> = L"Windows.UI.Xaml.Data.ICurrentChangingEventArgsFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::ICustomProperty> = L"Windows.UI.Xaml.Data.ICustomProperty";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::ICustomPropertyProvider> = L"Windows.UI.Xaml.Data.ICustomPropertyProvider";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IItemIndexRange> = L"Windows.UI.Xaml.Data.IItemIndexRange";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IItemIndexRangeFactory> = L"Windows.UI.Xaml.Data.IItemIndexRangeFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IItemsRangeInfo> = L"Windows.UI.Xaml.Data.IItemsRangeInfo";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::INotifyPropertyChanged> = L"Windows.UI.Xaml.Data.INotifyPropertyChanged";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IPropertyChangedEventArgs> = L"Windows.UI.Xaml.Data.IPropertyChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IPropertyChangedEventArgsFactory> = L"Windows.UI.Xaml.Data.IPropertyChangedEventArgsFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IRelativeSource> = L"Windows.UI.Xaml.Data.IRelativeSource";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IRelativeSourceFactory> = L"Windows.UI.Xaml.Data.IRelativeSourceFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::ISelectionInfo> = L"Windows.UI.Xaml.Data.ISelectionInfo";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::ISupportIncrementalLoading> = L"Windows.UI.Xaml.Data.ISupportIncrementalLoading";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::IValueConverter> = L"Windows.UI.Xaml.Data.IValueConverter";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::CurrentChangingEventHandler> = L"Windows.UI.Xaml.Data.CurrentChangingEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Data::PropertyChangedEventHandler> = L"Windows.UI.Xaml.Data.PropertyChangedEventHandler";
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Data::IBinding>{ 0x3F7A0C6B,0xD00F,0x4730,{ 0x8C,0x1D,0x48,0xE1,0x6C,0x46,0xF9,0xCA } };
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Data::IBinding2>{ 0x34F96FCB,0x0406,0x48B3,{ 0x9E,0x82,0xF3,0x33,0xEC,0x4C,0x69,0x10 } };
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Data::IBindingBase>{ 0x1589A2AB,0x3D15,0x49BC,{ 0xA4,0x47,0x8A,0x54,0x48,0xE5,0x88,0x70 } };
@@ -530,22 +530,22 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Data_IBinding
     {
-        [[nodiscard]] auto Path() const;
-        auto Path(Windows::UI::Xaml::PropertyPath const& value) const;
-        [[nodiscard]] auto Mode() const;
-        auto Mode(Windows::UI::Xaml::Data::BindingMode const& value) const;
-        [[nodiscard]] auto Source() const;
-        auto Source(Windows::Foundation::IInspectable const& value) const;
-        [[nodiscard]] auto RelativeSource() const;
-        auto RelativeSource(Windows::UI::Xaml::Data::RelativeSource const& value) const;
-        [[nodiscard]] auto ElementName() const;
-        auto ElementName(param::hstring const& value) const;
-        [[nodiscard]] auto Converter() const;
-        auto Converter(Windows::UI::Xaml::Data::IValueConverter const& value) const;
-        [[nodiscard]] auto ConverterParameter() const;
-        auto ConverterParameter(Windows::Foundation::IInspectable const& value) const;
-        [[nodiscard]] auto ConverterLanguage() const;
-        auto ConverterLanguage(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::PropertyPath) Path() const;
+        WINRT_IMPL_AUTO(void) Path(Windows::UI::Xaml::PropertyPath const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Data::BindingMode) Mode() const;
+        WINRT_IMPL_AUTO(void) Mode(Windows::UI::Xaml::Data::BindingMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) Source() const;
+        WINRT_IMPL_AUTO(void) Source(Windows::Foundation::IInspectable const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Data::RelativeSource) RelativeSource() const;
+        WINRT_IMPL_AUTO(void) RelativeSource(Windows::UI::Xaml::Data::RelativeSource const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ElementName() const;
+        WINRT_IMPL_AUTO(void) ElementName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Data::IValueConverter) Converter() const;
+        WINRT_IMPL_AUTO(void) Converter(Windows::UI::Xaml::Data::IValueConverter const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) ConverterParameter() const;
+        WINRT_IMPL_AUTO(void) ConverterParameter(Windows::Foundation::IInspectable const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ConverterLanguage() const;
+        WINRT_IMPL_AUTO(void) ConverterLanguage(param::hstring const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Data::IBinding>
     {
@@ -554,12 +554,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Data_IBinding2
     {
-        [[nodiscard]] auto FallbackValue() const;
-        auto FallbackValue(Windows::Foundation::IInspectable const& value) const;
-        [[nodiscard]] auto TargetNullValue() const;
-        auto TargetNullValue(Windows::Foundation::IInspectable const& value) const;
-        [[nodiscard]] auto UpdateSourceTrigger() const;
-        auto UpdateSourceTrigger(Windows::UI::Xaml::Data::UpdateSourceTrigger const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) FallbackValue() const;
+        WINRT_IMPL_AUTO(void) FallbackValue(Windows::Foundation::IInspectable const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) TargetNullValue() const;
+        WINRT_IMPL_AUTO(void) TargetNullValue(Windows::Foundation::IInspectable const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Data::UpdateSourceTrigger) UpdateSourceTrigger() const;
+        WINRT_IMPL_AUTO(void) UpdateSourceTrigger(Windows::UI::Xaml::Data::UpdateSourceTrigger const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Data::IBinding2>
     {
@@ -576,7 +576,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Data_IBindingBaseFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Data::BindingBase) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Data::IBindingBaseFactory>
     {
@@ -585,9 +585,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Data_IBindingExpression
     {
-        [[nodiscard]] auto DataItem() const;
-        [[nodiscard]] auto ParentBinding() const;
-        auto UpdateSource() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) DataItem() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Data::Binding) ParentBinding() const;
+        WINRT_IMPL_AUTO(void) UpdateSource() const;
     };
     template <> struct consume<Windows::UI::Xaml::Data::IBindingExpression>
     {
@@ -620,7 +620,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Data_IBindingFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Data::Binding) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Data::IBindingFactory>
     {
@@ -637,7 +637,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Data_IBindingOperationsStatics
     {
-        auto SetBinding(Windows::UI::Xaml::DependencyObject const& target, Windows::UI::Xaml::DependencyProperty const& dp, Windows::UI::Xaml::Data::BindingBase const& binding) const;
+        WINRT_IMPL_AUTO(void) SetBinding(Windows::UI::Xaml::DependencyObject const& target, Windows::UI::Xaml::DependencyProperty const& dp, Windows::UI::Xaml::Data::BindingBase const& binding) const;
     };
     template <> struct consume<Windows::UI::Xaml::Data::IBindingOperationsStatics>
     {
@@ -646,27 +646,27 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Data_ICollectionView
     {
-        [[nodiscard]] auto CurrentItem() const;
-        [[nodiscard]] auto CurrentPosition() const;
-        [[nodiscard]] auto IsCurrentAfterLast() const;
-        [[nodiscard]] auto IsCurrentBeforeFirst() const;
-        [[nodiscard]] auto CollectionGroups() const;
-        [[nodiscard]] auto HasMoreItems() const;
-        auto CurrentChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CurrentItem() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) CurrentPosition() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsCurrentAfterLast() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsCurrentBeforeFirst() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IObservableVector<Windows::Foundation::IInspectable>) CollectionGroups() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) HasMoreItems() const;
+        WINRT_IMPL_AUTO(winrt::event_token) CurrentChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using CurrentChanged_revoker = impl::event_revoker<Windows::UI::Xaml::Data::ICollectionView, &impl::abi_t<Windows::UI::Xaml::Data::ICollectionView>::remove_CurrentChanged>;
         [[nodiscard]] CurrentChanged_revoker CurrentChanged(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto CurrentChanged(winrt::event_token const& token) const noexcept;
-        auto CurrentChanging(Windows::UI::Xaml::Data::CurrentChangingEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) CurrentChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) CurrentChanging(Windows::UI::Xaml::Data::CurrentChangingEventHandler const& handler) const;
         using CurrentChanging_revoker = impl::event_revoker<Windows::UI::Xaml::Data::ICollectionView, &impl::abi_t<Windows::UI::Xaml::Data::ICollectionView>::remove_CurrentChanging>;
         [[nodiscard]] CurrentChanging_revoker CurrentChanging(auto_revoke_t, Windows::UI::Xaml::Data::CurrentChangingEventHandler const& handler) const;
-        auto CurrentChanging(winrt::event_token const& token) const noexcept;
-        auto MoveCurrentTo(Windows::Foundation::IInspectable const& item) const;
-        auto MoveCurrentToPosition(int32_t index) const;
-        auto MoveCurrentToFirst() const;
-        auto MoveCurrentToLast() const;
-        auto MoveCurrentToNext() const;
-        auto MoveCurrentToPrevious() const;
-        auto LoadMoreItemsAsync(uint32_t count) const;
+        WINRT_IMPL_AUTO(void) CurrentChanging(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(bool) MoveCurrentTo(Windows::Foundation::IInspectable const& item) const;
+        WINRT_IMPL_AUTO(bool) MoveCurrentToPosition(int32_t index) const;
+        WINRT_IMPL_AUTO(bool) MoveCurrentToFirst() const;
+        WINRT_IMPL_AUTO(bool) MoveCurrentToLast() const;
+        WINRT_IMPL_AUTO(bool) MoveCurrentToNext() const;
+        WINRT_IMPL_AUTO(bool) MoveCurrentToPrevious() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::UI::Xaml::Data::LoadMoreItemsResult>) LoadMoreItemsAsync(uint32_t count) const;
     };
     template <> struct consume<Windows::UI::Xaml::Data::ICollectionView>
     {
@@ -675,7 +675,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Data_ICollectionViewFactory
     {
-        auto CreateView() const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Data::ICollectionView) CreateView() const;
     };
     template <> struct consume<Windows::UI::Xaml::Data::ICollectionViewFactory>
     {
@@ -684,8 +684,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Data_ICollectionViewGroup
     {
-        [[nodiscard]] auto Group() const;
-        [[nodiscard]] auto GroupItems() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) Group() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IObservableVector<Windows::Foundation::IInspectable>) GroupItems() const;
     };
     template <> struct consume<Windows::UI::Xaml::Data::ICollectionViewGroup>
     {
@@ -694,13 +694,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Data_ICollectionViewSource
     {
-        [[nodiscard]] auto Source() const;
-        auto Source(Windows::Foundation::IInspectable const& value) const;
-        [[nodiscard]] auto View() const;
-        [[nodiscard]] auto IsSourceGrouped() const;
-        auto IsSourceGrouped(bool value) const;
-        [[nodiscard]] auto ItemsPath() const;
-        auto ItemsPath(Windows::UI::Xaml::PropertyPath const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) Source() const;
+        WINRT_IMPL_AUTO(void) Source(Windows::Foundation::IInspectable const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Data::ICollectionView) View() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSourceGrouped() const;
+        WINRT_IMPL_AUTO(void) IsSourceGrouped(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::PropertyPath) ItemsPath() const;
+        WINRT_IMPL_AUTO(void) ItemsPath(Windows::UI::Xaml::PropertyPath const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Data::ICollectionViewSource>
     {
@@ -709,10 +709,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Data_ICollectionViewSourceStatics
     {
-        [[nodiscard]] auto SourceProperty() const;
-        [[nodiscard]] auto ViewProperty() const;
-        [[nodiscard]] auto IsSourceGroupedProperty() const;
-        [[nodiscard]] auto ItemsPathProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) SourceProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ViewProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IsSourceGroupedProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ItemsPathProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Data::ICollectionViewSourceStatics>
     {
@@ -721,9 +721,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Data_ICurrentChangingEventArgs
     {
-        [[nodiscard]] auto Cancel() const;
-        auto Cancel(bool value) const;
-        [[nodiscard]] auto IsCancelable() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Cancel() const;
+        WINRT_IMPL_AUTO(void) Cancel(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsCancelable() const;
     };
     template <> struct consume<Windows::UI::Xaml::Data::ICurrentChangingEventArgs>
     {
@@ -732,8 +732,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Data_ICurrentChangingEventArgsFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
-        auto CreateWithCancelableParameter(bool isCancelable, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Data::CurrentChangingEventArgs) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Data::CurrentChangingEventArgs) CreateWithCancelableParameter(bool isCancelable, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Data::ICurrentChangingEventArgsFactory>
     {
@@ -742,14 +742,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Data_ICustomProperty
     {
-        [[nodiscard]] auto Type() const;
-        [[nodiscard]] auto Name() const;
-        auto GetValue(Windows::Foundation::IInspectable const& target) const;
-        auto SetValue(Windows::Foundation::IInspectable const& target, Windows::Foundation::IInspectable const& value) const;
-        auto GetIndexedValue(Windows::Foundation::IInspectable const& target, Windows::Foundation::IInspectable const& index) const;
-        auto SetIndexedValue(Windows::Foundation::IInspectable const& target, Windows::Foundation::IInspectable const& value, Windows::Foundation::IInspectable const& index) const;
-        [[nodiscard]] auto CanWrite() const;
-        [[nodiscard]] auto CanRead() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Interop::TypeName) Type() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) GetValue(Windows::Foundation::IInspectable const& target) const;
+        WINRT_IMPL_AUTO(void) SetValue(Windows::Foundation::IInspectable const& target, Windows::Foundation::IInspectable const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) GetIndexedValue(Windows::Foundation::IInspectable const& target, Windows::Foundation::IInspectable const& index) const;
+        WINRT_IMPL_AUTO(void) SetIndexedValue(Windows::Foundation::IInspectable const& target, Windows::Foundation::IInspectable const& value, Windows::Foundation::IInspectable const& index) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanWrite() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanRead() const;
     };
     template <> struct consume<Windows::UI::Xaml::Data::ICustomProperty>
     {
@@ -758,10 +758,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Data_ICustomPropertyProvider
     {
-        auto GetCustomProperty(param::hstring const& name) const;
-        auto GetIndexedProperty(param::hstring const& name, Windows::UI::Xaml::Interop::TypeName const& type) const;
-        auto GetStringRepresentation() const;
-        [[nodiscard]] auto Type() const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Data::ICustomProperty) GetCustomProperty(param::hstring const& name) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Data::ICustomProperty) GetIndexedProperty(param::hstring const& name, Windows::UI::Xaml::Interop::TypeName const& type) const;
+        WINRT_IMPL_AUTO(hstring) GetStringRepresentation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Interop::TypeName) Type() const;
     };
     template <> struct consume<Windows::UI::Xaml::Data::ICustomPropertyProvider>
     {
@@ -770,9 +770,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Data_IItemIndexRange
     {
-        [[nodiscard]] auto FirstIndex() const;
-        [[nodiscard]] auto Length() const;
-        [[nodiscard]] auto LastIndex() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) FirstIndex() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Length() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) LastIndex() const;
     };
     template <> struct consume<Windows::UI::Xaml::Data::IItemIndexRange>
     {
@@ -781,7 +781,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Data_IItemIndexRangeFactory
     {
-        auto CreateInstance(int32_t firstIndex, uint32_t length, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Data::ItemIndexRange) CreateInstance(int32_t firstIndex, uint32_t length, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Data::IItemIndexRangeFactory>
     {
@@ -790,7 +790,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Data_IItemsRangeInfo
     {
-        auto RangesChanged(Windows::UI::Xaml::Data::ItemIndexRange const& visibleRange, param::vector_view<Windows::UI::Xaml::Data::ItemIndexRange> const& trackedItems) const;
+        WINRT_IMPL_AUTO(void) RangesChanged(Windows::UI::Xaml::Data::ItemIndexRange const& visibleRange, param::vector_view<Windows::UI::Xaml::Data::ItemIndexRange> const& trackedItems) const;
     };
     template <> struct consume<Windows::UI::Xaml::Data::IItemsRangeInfo>
     {
@@ -799,10 +799,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Data_INotifyPropertyChanged
     {
-        auto PropertyChanged(Windows::UI::Xaml::Data::PropertyChangedEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) PropertyChanged(Windows::UI::Xaml::Data::PropertyChangedEventHandler const& handler) const;
         using PropertyChanged_revoker = impl::event_revoker<Windows::UI::Xaml::Data::INotifyPropertyChanged, &impl::abi_t<Windows::UI::Xaml::Data::INotifyPropertyChanged>::remove_PropertyChanged>;
         [[nodiscard]] PropertyChanged_revoker PropertyChanged(auto_revoke_t, Windows::UI::Xaml::Data::PropertyChangedEventHandler const& handler) const;
-        auto PropertyChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) PropertyChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::Xaml::Data::INotifyPropertyChanged>
     {
@@ -811,7 +811,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Data_IPropertyChangedEventArgs
     {
-        [[nodiscard]] auto PropertyName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PropertyName() const;
     };
     template <> struct consume<Windows::UI::Xaml::Data::IPropertyChangedEventArgs>
     {
@@ -820,7 +820,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Data_IPropertyChangedEventArgsFactory
     {
-        auto CreateInstance(param::hstring const& name, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Data::PropertyChangedEventArgs) CreateInstance(param::hstring const& name, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Data::IPropertyChangedEventArgsFactory>
     {
@@ -829,8 +829,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Data_IRelativeSource
     {
-        [[nodiscard]] auto Mode() const;
-        auto Mode(Windows::UI::Xaml::Data::RelativeSourceMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Data::RelativeSourceMode) Mode() const;
+        WINRT_IMPL_AUTO(void) Mode(Windows::UI::Xaml::Data::RelativeSourceMode const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Data::IRelativeSource>
     {
@@ -839,7 +839,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Data_IRelativeSourceFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Data::RelativeSource) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Data::IRelativeSourceFactory>
     {
@@ -848,10 +848,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Data_ISelectionInfo
     {
-        auto SelectRange(Windows::UI::Xaml::Data::ItemIndexRange const& itemIndexRange) const;
-        auto DeselectRange(Windows::UI::Xaml::Data::ItemIndexRange const& itemIndexRange) const;
-        auto IsSelected(int32_t index) const;
-        auto GetSelectedRanges() const;
+        WINRT_IMPL_AUTO(void) SelectRange(Windows::UI::Xaml::Data::ItemIndexRange const& itemIndexRange) const;
+        WINRT_IMPL_AUTO(void) DeselectRange(Windows::UI::Xaml::Data::ItemIndexRange const& itemIndexRange) const;
+        WINRT_IMPL_AUTO(bool) IsSelected(int32_t index) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::UI::Xaml::Data::ItemIndexRange>) GetSelectedRanges() const;
     };
     template <> struct consume<Windows::UI::Xaml::Data::ISelectionInfo>
     {
@@ -860,8 +860,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Data_ISupportIncrementalLoading
     {
-        auto LoadMoreItemsAsync(uint32_t count) const;
-        [[nodiscard]] auto HasMoreItems() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::UI::Xaml::Data::LoadMoreItemsResult>) LoadMoreItemsAsync(uint32_t count) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) HasMoreItems() const;
     };
     template <> struct consume<Windows::UI::Xaml::Data::ISupportIncrementalLoading>
     {
@@ -870,8 +870,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Data_IValueConverter
     {
-        auto Convert(Windows::Foundation::IInspectable const& value, Windows::UI::Xaml::Interop::TypeName const& targetType, Windows::Foundation::IInspectable const& parameter, param::hstring const& language) const;
-        auto ConvertBack(Windows::Foundation::IInspectable const& value, Windows::UI::Xaml::Interop::TypeName const& targetType, Windows::Foundation::IInspectable const& parameter, param::hstring const& language) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) Convert(Windows::Foundation::IInspectable const& value, Windows::UI::Xaml::Interop::TypeName const& targetType, Windows::Foundation::IInspectable const& parameter, param::hstring const& language) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) ConvertBack(Windows::Foundation::IInspectable const& value, Windows::UI::Xaml::Interop::TypeName const& targetType, Windows::Foundation::IInspectable const& parameter, param::hstring const& language) const;
     };
     template <> struct consume<Windows::UI::Xaml::Data::IValueConverter>
     {

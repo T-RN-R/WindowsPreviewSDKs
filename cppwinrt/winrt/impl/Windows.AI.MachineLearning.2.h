@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -46,13 +46,13 @@ WINRT_EXPORT namespace winrt::Windows::AI::MachineLearning
     {
         LearningModelBinding(std::nullptr_t) noexcept {}
         LearningModelBinding(void* ptr, take_ownership_from_abi_t) noexcept : Windows::AI::MachineLearning::ILearningModelBinding(ptr, take_ownership_from_abi) {}
-        LearningModelBinding(Windows::AI::MachineLearning::LearningModelSession const& session);
+        explicit LearningModelBinding(Windows::AI::MachineLearning::LearningModelSession const& session);
     };
     struct __declspec(empty_bases) LearningModelDevice : Windows::AI::MachineLearning::ILearningModelDevice
     {
         LearningModelDevice(std::nullptr_t) noexcept {}
         LearningModelDevice(void* ptr, take_ownership_from_abi_t) noexcept : Windows::AI::MachineLearning::ILearningModelDevice(ptr, take_ownership_from_abi) {}
-        LearningModelDevice(Windows::AI::MachineLearning::LearningModelDeviceKind const& deviceKind);
+        explicit LearningModelDevice(Windows::AI::MachineLearning::LearningModelDeviceKind const& deviceKind);
         static auto CreateFromDirect3D11Device(Windows::Graphics::DirectX::Direct3D11::IDirect3DDevice const& device);
     };
     struct __declspec(empty_bases) LearningModelEvaluationResult : Windows::AI::MachineLearning::ILearningModelEvaluationResult
@@ -65,7 +65,7 @@ WINRT_EXPORT namespace winrt::Windows::AI::MachineLearning
     {
         LearningModelSession(std::nullptr_t) noexcept {}
         LearningModelSession(void* ptr, take_ownership_from_abi_t) noexcept : Windows::AI::MachineLearning::ILearningModelSession(ptr, take_ownership_from_abi) {}
-        LearningModelSession(Windows::AI::MachineLearning::LearningModel const& model);
+        explicit LearningModelSession(Windows::AI::MachineLearning::LearningModel const& model);
         LearningModelSession(Windows::AI::MachineLearning::LearningModel const& model, Windows::AI::MachineLearning::LearningModelDevice const& deviceToRunOn);
         LearningModelSession(Windows::AI::MachineLearning::LearningModel const& model, Windows::AI::MachineLearning::LearningModelDevice const& deviceToRunOn, Windows::AI::MachineLearning::LearningModelSessionOptions const& learningModelSessionOptions);
     };

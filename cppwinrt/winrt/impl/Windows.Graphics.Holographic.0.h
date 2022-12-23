@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -10,9 +10,15 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
     struct Deferral;
     template <typename T> struct EventHandler;
     struct EventRegistrationToken;
+    template <typename T> struct IReference;
     struct Rect;
     struct Size;
     template <typename TSender, typename TResult> struct TypedEventHandler;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
+    template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Numerics
 {
@@ -32,6 +38,7 @@ WINRT_EXPORT namespace winrt::Windows::Perception
 }
 WINRT_EXPORT namespace winrt::Windows::Perception::Spatial
 {
+    struct SpatialBoundingFrustum;
     struct SpatialCoordinateSystem;
     struct SpatialLocator;
 }
@@ -204,75 +211,73 @@ namespace winrt::impl
     template <> struct category<Windows::Graphics::Holographic::HolographicAdapterId>{ using type = struct_category<uint32_t, int32_t>; };
     template <> struct category<Windows::Graphics::Holographic::HolographicFrameId>{ using type = struct_category<uint64_t>; };
     template <> struct category<Windows::Graphics::Holographic::HolographicStereoTransform>{ using type = struct_category<Windows::Foundation::Numerics::float4x4, Windows::Foundation::Numerics::float4x4>; };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicCamera>{ L"Windows.Graphics.Holographic.HolographicCamera" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicCameraPose>{ L"Windows.Graphics.Holographic.HolographicCameraPose" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicCameraRenderingParameters>{ L"Windows.Graphics.Holographic.HolographicCameraRenderingParameters" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicCameraViewportParameters>{ L"Windows.Graphics.Holographic.HolographicCameraViewportParameters" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicDisplay>{ L"Windows.Graphics.Holographic.HolographicDisplay" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicFrame>{ L"Windows.Graphics.Holographic.HolographicFrame" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicFramePrediction>{ L"Windows.Graphics.Holographic.HolographicFramePrediction" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicFramePresentationMonitor>{ L"Windows.Graphics.Holographic.HolographicFramePresentationMonitor" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicFramePresentationReport>{ L"Windows.Graphics.Holographic.HolographicFramePresentationReport" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicFrameRenderingReport>{ L"Windows.Graphics.Holographic.HolographicFrameRenderingReport" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicFrameScanoutMonitor>{ L"Windows.Graphics.Holographic.HolographicFrameScanoutMonitor" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicFrameScanoutReport>{ L"Windows.Graphics.Holographic.HolographicFrameScanoutReport" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicQuadLayer>{ L"Windows.Graphics.Holographic.HolographicQuadLayer" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicQuadLayerUpdateParameters>{ L"Windows.Graphics.Holographic.HolographicQuadLayerUpdateParameters" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicSpace>{ L"Windows.Graphics.Holographic.HolographicSpace" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicSpaceCameraAddedEventArgs>{ L"Windows.Graphics.Holographic.HolographicSpaceCameraAddedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicSpaceCameraRemovedEventArgs>{ L"Windows.Graphics.Holographic.HolographicSpaceCameraRemovedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicViewConfiguration>{ L"Windows.Graphics.Holographic.HolographicViewConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicDepthReprojectionMethod>{ L"Windows.Graphics.Holographic.HolographicDepthReprojectionMethod" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicFramePresentResult>{ L"Windows.Graphics.Holographic.HolographicFramePresentResult" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicFramePresentWaitBehavior>{ L"Windows.Graphics.Holographic.HolographicFramePresentWaitBehavior" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicReprojectionMode>{ L"Windows.Graphics.Holographic.HolographicReprojectionMode" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicSpaceUserPresence>{ L"Windows.Graphics.Holographic.HolographicSpaceUserPresence" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicViewConfigurationKind>{ L"Windows.Graphics.Holographic.HolographicViewConfigurationKind" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicAdapterId>{ L"Windows.Graphics.Holographic.HolographicAdapterId" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicFrameId>{ L"Windows.Graphics.Holographic.HolographicFrameId" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicStereoTransform>{ L"Windows.Graphics.Holographic.HolographicStereoTransform" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicCamera>{ L"Windows.Graphics.Holographic.IHolographicCamera" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicCamera2>{ L"Windows.Graphics.Holographic.IHolographicCamera2" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicCamera3>{ L"Windows.Graphics.Holographic.IHolographicCamera3" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicCamera4>{ L"Windows.Graphics.Holographic.IHolographicCamera4" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicCamera5>{ L"Windows.Graphics.Holographic.IHolographicCamera5" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicCamera6>{ L"Windows.Graphics.Holographic.IHolographicCamera6" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicCameraPose>{ L"Windows.Graphics.Holographic.IHolographicCameraPose" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicCameraPose2>{ L"Windows.Graphics.Holographic.IHolographicCameraPose2" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicCameraRenderingParameters>{ L"Windows.Graphics.Holographic.IHolographicCameraRenderingParameters" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicCameraRenderingParameters2>{ L"Windows.Graphics.Holographic.IHolographicCameraRenderingParameters2" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicCameraRenderingParameters3>{ L"Windows.Graphics.Holographic.IHolographicCameraRenderingParameters3" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicCameraRenderingParameters4>{ L"Windows.Graphics.Holographic.IHolographicCameraRenderingParameters4" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicCameraViewportParameters>{ L"Windows.Graphics.Holographic.IHolographicCameraViewportParameters" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicDisplay>{ L"Windows.Graphics.Holographic.IHolographicDisplay" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicDisplay2>{ L"Windows.Graphics.Holographic.IHolographicDisplay2" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicDisplay3>{ L"Windows.Graphics.Holographic.IHolographicDisplay3" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicDisplayStatics>{ L"Windows.Graphics.Holographic.IHolographicDisplayStatics" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicFrame>{ L"Windows.Graphics.Holographic.IHolographicFrame" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicFrame2>{ L"Windows.Graphics.Holographic.IHolographicFrame2" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicFrame3>{ L"Windows.Graphics.Holographic.IHolographicFrame3" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicFramePrediction>{ L"Windows.Graphics.Holographic.IHolographicFramePrediction" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicFramePresentationMonitor>{ L"Windows.Graphics.Holographic.IHolographicFramePresentationMonitor" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicFramePresentationReport>{ L"Windows.Graphics.Holographic.IHolographicFramePresentationReport" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicFrameRenderingReport>{ L"Windows.Graphics.Holographic.IHolographicFrameRenderingReport" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicFrameScanoutMonitor>{ L"Windows.Graphics.Holographic.IHolographicFrameScanoutMonitor" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicFrameScanoutReport>{ L"Windows.Graphics.Holographic.IHolographicFrameScanoutReport" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicQuadLayer>{ L"Windows.Graphics.Holographic.IHolographicQuadLayer" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicQuadLayerFactory>{ L"Windows.Graphics.Holographic.IHolographicQuadLayerFactory" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicQuadLayerUpdateParameters>{ L"Windows.Graphics.Holographic.IHolographicQuadLayerUpdateParameters" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicQuadLayerUpdateParameters2>{ L"Windows.Graphics.Holographic.IHolographicQuadLayerUpdateParameters2" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicSpace>{ L"Windows.Graphics.Holographic.IHolographicSpace" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicSpace2>{ L"Windows.Graphics.Holographic.IHolographicSpace2" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicSpace3>{ L"Windows.Graphics.Holographic.IHolographicSpace3" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicSpaceCameraAddedEventArgs>{ L"Windows.Graphics.Holographic.IHolographicSpaceCameraAddedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicSpaceCameraRemovedEventArgs>{ L"Windows.Graphics.Holographic.IHolographicSpaceCameraRemovedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicSpaceStatics>{ L"Windows.Graphics.Holographic.IHolographicSpaceStatics" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicSpaceStatics2>{ L"Windows.Graphics.Holographic.IHolographicSpaceStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicSpaceStatics3>{ L"Windows.Graphics.Holographic.IHolographicSpaceStatics3" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicViewConfiguration>{ L"Windows.Graphics.Holographic.IHolographicViewConfiguration" };
-    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicViewConfiguration2>{ L"Windows.Graphics.Holographic.IHolographicViewConfiguration2" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicCamera> = L"Windows.Graphics.Holographic.HolographicCamera";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicCameraPose> = L"Windows.Graphics.Holographic.HolographicCameraPose";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicCameraRenderingParameters> = L"Windows.Graphics.Holographic.HolographicCameraRenderingParameters";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicCameraViewportParameters> = L"Windows.Graphics.Holographic.HolographicCameraViewportParameters";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicDisplay> = L"Windows.Graphics.Holographic.HolographicDisplay";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicFrame> = L"Windows.Graphics.Holographic.HolographicFrame";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicFramePrediction> = L"Windows.Graphics.Holographic.HolographicFramePrediction";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicFramePresentationMonitor> = L"Windows.Graphics.Holographic.HolographicFramePresentationMonitor";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicFramePresentationReport> = L"Windows.Graphics.Holographic.HolographicFramePresentationReport";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicFrameRenderingReport> = L"Windows.Graphics.Holographic.HolographicFrameRenderingReport";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicFrameScanoutMonitor> = L"Windows.Graphics.Holographic.HolographicFrameScanoutMonitor";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicFrameScanoutReport> = L"Windows.Graphics.Holographic.HolographicFrameScanoutReport";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicQuadLayer> = L"Windows.Graphics.Holographic.HolographicQuadLayer";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicQuadLayerUpdateParameters> = L"Windows.Graphics.Holographic.HolographicQuadLayerUpdateParameters";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicSpace> = L"Windows.Graphics.Holographic.HolographicSpace";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicSpaceCameraAddedEventArgs> = L"Windows.Graphics.Holographic.HolographicSpaceCameraAddedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicSpaceCameraRemovedEventArgs> = L"Windows.Graphics.Holographic.HolographicSpaceCameraRemovedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicViewConfiguration> = L"Windows.Graphics.Holographic.HolographicViewConfiguration";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicDepthReprojectionMethod> = L"Windows.Graphics.Holographic.HolographicDepthReprojectionMethod";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicFramePresentResult> = L"Windows.Graphics.Holographic.HolographicFramePresentResult";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicFramePresentWaitBehavior> = L"Windows.Graphics.Holographic.HolographicFramePresentWaitBehavior";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicReprojectionMode> = L"Windows.Graphics.Holographic.HolographicReprojectionMode";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicSpaceUserPresence> = L"Windows.Graphics.Holographic.HolographicSpaceUserPresence";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicViewConfigurationKind> = L"Windows.Graphics.Holographic.HolographicViewConfigurationKind";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicAdapterId> = L"Windows.Graphics.Holographic.HolographicAdapterId";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicFrameId> = L"Windows.Graphics.Holographic.HolographicFrameId";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::HolographicStereoTransform> = L"Windows.Graphics.Holographic.HolographicStereoTransform";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicCamera> = L"Windows.Graphics.Holographic.IHolographicCamera";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicCamera2> = L"Windows.Graphics.Holographic.IHolographicCamera2";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicCamera3> = L"Windows.Graphics.Holographic.IHolographicCamera3";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicCamera4> = L"Windows.Graphics.Holographic.IHolographicCamera4";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicCamera5> = L"Windows.Graphics.Holographic.IHolographicCamera5";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicCamera6> = L"Windows.Graphics.Holographic.IHolographicCamera6";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicCameraPose> = L"Windows.Graphics.Holographic.IHolographicCameraPose";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicCameraPose2> = L"Windows.Graphics.Holographic.IHolographicCameraPose2";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicCameraRenderingParameters> = L"Windows.Graphics.Holographic.IHolographicCameraRenderingParameters";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicCameraRenderingParameters2> = L"Windows.Graphics.Holographic.IHolographicCameraRenderingParameters2";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicCameraRenderingParameters3> = L"Windows.Graphics.Holographic.IHolographicCameraRenderingParameters3";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicCameraRenderingParameters4> = L"Windows.Graphics.Holographic.IHolographicCameraRenderingParameters4";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicCameraViewportParameters> = L"Windows.Graphics.Holographic.IHolographicCameraViewportParameters";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicDisplay> = L"Windows.Graphics.Holographic.IHolographicDisplay";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicDisplay2> = L"Windows.Graphics.Holographic.IHolographicDisplay2";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicDisplay3> = L"Windows.Graphics.Holographic.IHolographicDisplay3";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicDisplayStatics> = L"Windows.Graphics.Holographic.IHolographicDisplayStatics";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicFrame> = L"Windows.Graphics.Holographic.IHolographicFrame";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicFrame2> = L"Windows.Graphics.Holographic.IHolographicFrame2";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicFrame3> = L"Windows.Graphics.Holographic.IHolographicFrame3";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicFramePrediction> = L"Windows.Graphics.Holographic.IHolographicFramePrediction";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicFramePresentationMonitor> = L"Windows.Graphics.Holographic.IHolographicFramePresentationMonitor";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicFramePresentationReport> = L"Windows.Graphics.Holographic.IHolographicFramePresentationReport";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicFrameRenderingReport> = L"Windows.Graphics.Holographic.IHolographicFrameRenderingReport";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicFrameScanoutMonitor> = L"Windows.Graphics.Holographic.IHolographicFrameScanoutMonitor";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicFrameScanoutReport> = L"Windows.Graphics.Holographic.IHolographicFrameScanoutReport";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicQuadLayer> = L"Windows.Graphics.Holographic.IHolographicQuadLayer";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicQuadLayerFactory> = L"Windows.Graphics.Holographic.IHolographicQuadLayerFactory";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicQuadLayerUpdateParameters> = L"Windows.Graphics.Holographic.IHolographicQuadLayerUpdateParameters";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicQuadLayerUpdateParameters2> = L"Windows.Graphics.Holographic.IHolographicQuadLayerUpdateParameters2";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicSpace> = L"Windows.Graphics.Holographic.IHolographicSpace";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicSpace2> = L"Windows.Graphics.Holographic.IHolographicSpace2";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicSpace3> = L"Windows.Graphics.Holographic.IHolographicSpace3";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicSpaceCameraAddedEventArgs> = L"Windows.Graphics.Holographic.IHolographicSpaceCameraAddedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicSpaceCameraRemovedEventArgs> = L"Windows.Graphics.Holographic.IHolographicSpaceCameraRemovedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicSpaceStatics> = L"Windows.Graphics.Holographic.IHolographicSpaceStatics";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicSpaceStatics2> = L"Windows.Graphics.Holographic.IHolographicSpaceStatics2";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicSpaceStatics3> = L"Windows.Graphics.Holographic.IHolographicSpaceStatics3";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicViewConfiguration> = L"Windows.Graphics.Holographic.IHolographicViewConfiguration";
+    template <> inline constexpr auto& name_v<Windows::Graphics::Holographic::IHolographicViewConfiguration2> = L"Windows.Graphics.Holographic.IHolographicViewConfiguration2";
     template <> inline constexpr guid guid_v<Windows::Graphics::Holographic::IHolographicCamera>{ 0xE4E98445,0x9BED,0x4980,{ 0x9B,0xA0,0xE8,0x76,0x80,0xD1,0xCB,0x74 } };
     template <> inline constexpr guid guid_v<Windows::Graphics::Holographic::IHolographicCamera2>{ 0xB55B9F1A,0xBA8C,0x4F84,{ 0xAD,0x79,0x2E,0x7E,0x1E,0x24,0x50,0xF3 } };
     template <> inline constexpr guid guid_v<Windows::Graphics::Holographic::IHolographicCamera3>{ 0x45AA4FB3,0x7B59,0x524E,{ 0x4A,0x3F,0x4A,0x6A,0xD6,0x65,0x04,0x77 } };
@@ -705,13 +710,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicCamera
     {
-        [[nodiscard]] auto RenderTargetSize() const;
-        [[nodiscard]] auto ViewportScaleFactor() const;
-        auto ViewportScaleFactor(double value) const;
-        [[nodiscard]] auto IsStereo() const;
-        [[nodiscard]] auto Id() const;
-        auto SetNearPlaneDistance(double value) const;
-        auto SetFarPlaneDistance(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Size) RenderTargetSize() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ViewportScaleFactor() const;
+        WINRT_IMPL_AUTO(void) ViewportScaleFactor(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStereo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Id() const;
+        WINRT_IMPL_AUTO(void) SetNearPlaneDistance(double value) const;
+        WINRT_IMPL_AUTO(void) SetFarPlaneDistance(double value) const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicCamera>
     {
@@ -720,9 +725,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicCamera2
     {
-        [[nodiscard]] auto LeftViewportParameters() const;
-        [[nodiscard]] auto RightViewportParameters() const;
-        [[nodiscard]] auto Display() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicCameraViewportParameters) LeftViewportParameters() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicCameraViewportParameters) RightViewportParameters() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicDisplay) Display() const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicCamera2>
     {
@@ -731,10 +736,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicCamera3
     {
-        [[nodiscard]] auto IsPrimaryLayerEnabled() const;
-        auto IsPrimaryLayerEnabled(bool value) const;
-        [[nodiscard]] auto MaxQuadLayerCount() const;
-        [[nodiscard]] auto QuadLayers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPrimaryLayerEnabled() const;
+        WINRT_IMPL_AUTO(void) IsPrimaryLayerEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxQuadLayerCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Graphics::Holographic::HolographicQuadLayer>) QuadLayers() const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicCamera3>
     {
@@ -743,7 +748,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicCamera4
     {
-        [[nodiscard]] auto CanOverrideViewport() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanOverrideViewport() const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicCamera4>
     {
@@ -752,9 +757,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicCamera5
     {
-        [[nodiscard]] auto IsHardwareContentProtectionSupported() const;
-        [[nodiscard]] auto IsHardwareContentProtectionEnabled() const;
-        auto IsHardwareContentProtectionEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsHardwareContentProtectionSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsHardwareContentProtectionEnabled() const;
+        WINRT_IMPL_AUTO(void) IsHardwareContentProtectionEnabled(bool value) const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicCamera5>
     {
@@ -763,7 +768,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicCamera6
     {
-        [[nodiscard]] auto ViewConfiguration() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicViewConfiguration) ViewConfiguration() const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicCamera6>
     {
@@ -772,14 +777,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicCameraPose
     {
-        [[nodiscard]] auto HolographicCamera() const;
-        [[nodiscard]] auto Viewport() const;
-        auto TryGetViewTransform(Windows::Perception::Spatial::SpatialCoordinateSystem const& coordinateSystem) const;
-        [[nodiscard]] auto ProjectionTransform() const;
-        auto TryGetCullingFrustum(Windows::Perception::Spatial::SpatialCoordinateSystem const& coordinateSystem) const;
-        auto TryGetVisibleFrustum(Windows::Perception::Spatial::SpatialCoordinateSystem const& coordinateSystem) const;
-        [[nodiscard]] auto NearPlaneDistance() const;
-        [[nodiscard]] auto FarPlaneDistance() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicCamera) HolographicCamera() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) Viewport() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Graphics::Holographic::HolographicStereoTransform>) TryGetViewTransform(Windows::Perception::Spatial::SpatialCoordinateSystem const& coordinateSystem) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicStereoTransform) ProjectionTransform() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Perception::Spatial::SpatialBoundingFrustum>) TryGetCullingFrustum(Windows::Perception::Spatial::SpatialCoordinateSystem const& coordinateSystem) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Perception::Spatial::SpatialBoundingFrustum>) TryGetVisibleFrustum(Windows::Perception::Spatial::SpatialCoordinateSystem const& coordinateSystem) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) NearPlaneDistance() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) FarPlaneDistance() const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicCameraPose>
     {
@@ -788,9 +793,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicCameraPose2
     {
-        auto OverrideViewTransform(Windows::Perception::Spatial::SpatialCoordinateSystem const& coordinateSystem, Windows::Graphics::Holographic::HolographicStereoTransform const& coordinateSystemToViewTransform) const;
-        auto OverrideProjectionTransform(Windows::Graphics::Holographic::HolographicStereoTransform const& projectionTransform) const;
-        auto OverrideViewport(Windows::Foundation::Rect const& leftViewport, Windows::Foundation::Rect const& rightViewport) const;
+        WINRT_IMPL_AUTO(void) OverrideViewTransform(Windows::Perception::Spatial::SpatialCoordinateSystem const& coordinateSystem, Windows::Graphics::Holographic::HolographicStereoTransform const& coordinateSystemToViewTransform) const;
+        WINRT_IMPL_AUTO(void) OverrideProjectionTransform(Windows::Graphics::Holographic::HolographicStereoTransform const& projectionTransform) const;
+        WINRT_IMPL_AUTO(void) OverrideViewport(Windows::Foundation::Rect const& leftViewport, Windows::Foundation::Rect const& rightViewport) const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicCameraPose2>
     {
@@ -799,11 +804,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicCameraRenderingParameters
     {
-        auto SetFocusPoint(Windows::Perception::Spatial::SpatialCoordinateSystem const& coordinateSystem, Windows::Foundation::Numerics::float3 const& position) const;
-        auto SetFocusPoint(Windows::Perception::Spatial::SpatialCoordinateSystem const& coordinateSystem, Windows::Foundation::Numerics::float3 const& position, Windows::Foundation::Numerics::float3 const& normal) const;
-        auto SetFocusPoint(Windows::Perception::Spatial::SpatialCoordinateSystem const& coordinateSystem, Windows::Foundation::Numerics::float3 const& position, Windows::Foundation::Numerics::float3 const& normal, Windows::Foundation::Numerics::float3 const& linearVelocity) const;
-        [[nodiscard]] auto Direct3D11Device() const;
-        [[nodiscard]] auto Direct3D11BackBuffer() const;
+        WINRT_IMPL_AUTO(void) SetFocusPoint(Windows::Perception::Spatial::SpatialCoordinateSystem const& coordinateSystem, Windows::Foundation::Numerics::float3 const& position) const;
+        WINRT_IMPL_AUTO(void) SetFocusPoint(Windows::Perception::Spatial::SpatialCoordinateSystem const& coordinateSystem, Windows::Foundation::Numerics::float3 const& position, Windows::Foundation::Numerics::float3 const& normal) const;
+        WINRT_IMPL_AUTO(void) SetFocusPoint(Windows::Perception::Spatial::SpatialCoordinateSystem const& coordinateSystem, Windows::Foundation::Numerics::float3 const& position, Windows::Foundation::Numerics::float3 const& normal, Windows::Foundation::Numerics::float3 const& linearVelocity) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::DirectX::Direct3D11::IDirect3DDevice) Direct3D11Device() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface) Direct3D11BackBuffer() const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicCameraRenderingParameters>
     {
@@ -812,9 +817,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicCameraRenderingParameters2
     {
-        [[nodiscard]] auto ReprojectionMode() const;
-        auto ReprojectionMode(Windows::Graphics::Holographic::HolographicReprojectionMode const& value) const;
-        auto CommitDirect3D11DepthBuffer(Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicReprojectionMode) ReprojectionMode() const;
+        WINRT_IMPL_AUTO(void) ReprojectionMode(Windows::Graphics::Holographic::HolographicReprojectionMode const& value) const;
+        WINRT_IMPL_AUTO(void) CommitDirect3D11DepthBuffer(Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface const& value) const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicCameraRenderingParameters2>
     {
@@ -823,8 +828,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicCameraRenderingParameters3
     {
-        [[nodiscard]] auto IsContentProtectionEnabled() const;
-        auto IsContentProtectionEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsContentProtectionEnabled() const;
+        WINRT_IMPL_AUTO(void) IsContentProtectionEnabled(bool value) const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicCameraRenderingParameters3>
     {
@@ -833,8 +838,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicCameraRenderingParameters4
     {
-        [[nodiscard]] auto DepthReprojectionMethod() const;
-        auto DepthReprojectionMethod(Windows::Graphics::Holographic::HolographicDepthReprojectionMethod const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicDepthReprojectionMethod) DepthReprojectionMethod() const;
+        WINRT_IMPL_AUTO(void) DepthReprojectionMethod(Windows::Graphics::Holographic::HolographicDepthReprojectionMethod const& value) const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicCameraRenderingParameters4>
     {
@@ -843,8 +848,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicCameraViewportParameters
     {
-        [[nodiscard]] auto HiddenAreaMesh() const;
-        [[nodiscard]] auto VisibleAreaMesh() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(com_array<Windows::Foundation::Numerics::float2>) HiddenAreaMesh() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(com_array<Windows::Foundation::Numerics::float2>) VisibleAreaMesh() const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicCameraViewportParameters>
     {
@@ -853,12 +858,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicDisplay
     {
-        [[nodiscard]] auto DisplayName() const;
-        [[nodiscard]] auto MaxViewportSize() const;
-        [[nodiscard]] auto IsStereo() const;
-        [[nodiscard]] auto IsOpaque() const;
-        [[nodiscard]] auto AdapterId() const;
-        [[nodiscard]] auto SpatialLocator() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Size) MaxViewportSize() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStereo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsOpaque() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicAdapterId) AdapterId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Perception::Spatial::SpatialLocator) SpatialLocator() const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicDisplay>
     {
@@ -867,7 +872,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicDisplay2
     {
-        [[nodiscard]] auto RefreshRate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) RefreshRate() const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicDisplay2>
     {
@@ -876,7 +881,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicDisplay3
     {
-        auto TryGetViewConfiguration(Windows::Graphics::Holographic::HolographicViewConfigurationKind const& kind) const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicViewConfiguration) TryGetViewConfiguration(Windows::Graphics::Holographic::HolographicViewConfigurationKind const& kind) const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicDisplay3>
     {
@@ -885,7 +890,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicDisplayStatics
     {
-        auto GetDefault() const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicDisplay) GetDefault() const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicDisplayStatics>
     {
@@ -894,15 +899,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicFrame
     {
-        [[nodiscard]] auto AddedCameras() const;
-        [[nodiscard]] auto RemovedCameras() const;
-        auto GetRenderingParameters(Windows::Graphics::Holographic::HolographicCameraPose const& cameraPose) const;
-        [[nodiscard]] auto Duration() const;
-        [[nodiscard]] auto CurrentPrediction() const;
-        auto UpdateCurrentPrediction() const;
-        auto PresentUsingCurrentPrediction() const;
-        auto PresentUsingCurrentPrediction(Windows::Graphics::Holographic::HolographicFramePresentWaitBehavior const& waitBehavior) const;
-        auto WaitForFrameToFinish() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Graphics::Holographic::HolographicCamera>) AddedCameras() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Graphics::Holographic::HolographicCamera>) RemovedCameras() const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicCameraRenderingParameters) GetRenderingParameters(Windows::Graphics::Holographic::HolographicCameraPose const& cameraPose) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Duration() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicFramePrediction) CurrentPrediction() const;
+        WINRT_IMPL_AUTO(void) UpdateCurrentPrediction() const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicFramePresentResult) PresentUsingCurrentPrediction() const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicFramePresentResult) PresentUsingCurrentPrediction(Windows::Graphics::Holographic::HolographicFramePresentWaitBehavior const& waitBehavior) const;
+        WINRT_IMPL_AUTO(void) WaitForFrameToFinish() const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicFrame>
     {
@@ -911,7 +916,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicFrame2
     {
-        auto GetQuadLayerUpdateParameters(Windows::Graphics::Holographic::HolographicQuadLayer const& layer) const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicQuadLayerUpdateParameters) GetQuadLayerUpdateParameters(Windows::Graphics::Holographic::HolographicQuadLayer const& layer) const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicFrame2>
     {
@@ -920,7 +925,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicFrame3
     {
-        [[nodiscard]] auto Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicFrameId) Id() const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicFrame3>
     {
@@ -929,8 +934,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicFramePrediction
     {
-        [[nodiscard]] auto CameraPoses() const;
-        [[nodiscard]] auto Timestamp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Graphics::Holographic::HolographicCameraPose>) CameraPoses() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Perception::PerceptionTimestamp) Timestamp() const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicFramePrediction>
     {
@@ -939,7 +944,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicFramePresentationMonitor
     {
-        auto ReadReports() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Graphics::Holographic::HolographicFramePresentationReport>) ReadReports() const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicFramePresentationMonitor>
     {
@@ -948,11 +953,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicFramePresentationReport
     {
-        [[nodiscard]] auto CompositorGpuDuration() const;
-        [[nodiscard]] auto AppGpuDuration() const;
-        [[nodiscard]] auto AppGpuOverrun() const;
-        [[nodiscard]] auto MissedPresentationOpportunityCount() const;
-        [[nodiscard]] auto PresentationCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) CompositorGpuDuration() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) AppGpuDuration() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) AppGpuOverrun() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MissedPresentationOpportunityCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) PresentationCount() const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicFramePresentationReport>
     {
@@ -961,11 +966,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicFrameRenderingReport
     {
-        [[nodiscard]] auto FrameId() const;
-        [[nodiscard]] auto MissedLatchCount() const;
-        [[nodiscard]] auto SystemRelativeFrameReadyTime() const;
-        [[nodiscard]] auto SystemRelativeActualGpuFinishTime() const;
-        [[nodiscard]] auto SystemRelativeTargetLatchTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicFrameId) FrameId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MissedLatchCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) SystemRelativeFrameReadyTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) SystemRelativeActualGpuFinishTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) SystemRelativeTargetLatchTime() const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicFrameRenderingReport>
     {
@@ -974,7 +979,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicFrameScanoutMonitor
     {
-        auto ReadReports() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Graphics::Holographic::HolographicFrameScanoutReport>) ReadReports() const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicFrameScanoutMonitor>
     {
@@ -983,11 +988,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicFrameScanoutReport
     {
-        [[nodiscard]] auto RenderingReport() const;
-        [[nodiscard]] auto MissedScanoutCount() const;
-        [[nodiscard]] auto SystemRelativeLatchTime() const;
-        [[nodiscard]] auto SystemRelativeScanoutStartTime() const;
-        [[nodiscard]] auto SystemRelativePhotonTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicFrameRenderingReport) RenderingReport() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MissedScanoutCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) SystemRelativeLatchTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) SystemRelativeScanoutStartTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) SystemRelativePhotonTime() const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicFrameScanoutReport>
     {
@@ -996,8 +1001,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicQuadLayer
     {
-        [[nodiscard]] auto PixelFormat() const;
-        [[nodiscard]] auto Size() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::DirectX::DirectXPixelFormat) PixelFormat() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Size) Size() const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicQuadLayer>
     {
@@ -1006,8 +1011,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicQuadLayerFactory
     {
-        auto Create(Windows::Foundation::Size const& size) const;
-        auto CreateWithPixelFormat(Windows::Foundation::Size const& size, Windows::Graphics::DirectX::DirectXPixelFormat const& pixelFormat) const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicQuadLayer) Create(Windows::Foundation::Size const& size) const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicQuadLayer) CreateWithPixelFormat(Windows::Foundation::Size const& size, Windows::Graphics::DirectX::DirectXPixelFormat const& pixelFormat) const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicQuadLayerFactory>
     {
@@ -1016,12 +1021,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicQuadLayerUpdateParameters
     {
-        auto AcquireBufferToUpdateContent() const;
-        auto UpdateViewport(Windows::Foundation::Rect const& value) const;
-        auto UpdateContentProtectionEnabled(bool value) const;
-        auto UpdateExtents(Windows::Foundation::Numerics::float2 const& value) const;
-        auto UpdateLocationWithStationaryMode(Windows::Perception::Spatial::SpatialCoordinateSystem const& coordinateSystem, Windows::Foundation::Numerics::float3 const& position, Windows::Foundation::Numerics::quaternion const& orientation) const;
-        auto UpdateLocationWithDisplayRelativeMode(Windows::Foundation::Numerics::float3 const& position, Windows::Foundation::Numerics::quaternion const& orientation) const;
+        WINRT_IMPL_AUTO(Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface) AcquireBufferToUpdateContent() const;
+        WINRT_IMPL_AUTO(void) UpdateViewport(Windows::Foundation::Rect const& value) const;
+        WINRT_IMPL_AUTO(void) UpdateContentProtectionEnabled(bool value) const;
+        WINRT_IMPL_AUTO(void) UpdateExtents(Windows::Foundation::Numerics::float2 const& value) const;
+        WINRT_IMPL_AUTO(void) UpdateLocationWithStationaryMode(Windows::Perception::Spatial::SpatialCoordinateSystem const& coordinateSystem, Windows::Foundation::Numerics::float3 const& position, Windows::Foundation::Numerics::quaternion const& orientation) const;
+        WINRT_IMPL_AUTO(void) UpdateLocationWithDisplayRelativeMode(Windows::Foundation::Numerics::float3 const& position, Windows::Foundation::Numerics::quaternion const& orientation) const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicQuadLayerUpdateParameters>
     {
@@ -1030,8 +1035,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicQuadLayerUpdateParameters2
     {
-        [[nodiscard]] auto CanAcquireWithHardwareProtection() const;
-        auto AcquireBufferToUpdateContentWithHardwareProtection() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanAcquireWithHardwareProtection() const;
+        WINRT_IMPL_AUTO(Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface) AcquireBufferToUpdateContentWithHardwareProtection() const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicQuadLayerUpdateParameters2>
     {
@@ -1040,17 +1045,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicSpace
     {
-        [[nodiscard]] auto PrimaryAdapterId() const;
-        auto SetDirect3D11Device(Windows::Graphics::DirectX::Direct3D11::IDirect3DDevice const& value) const;
-        auto CameraAdded(Windows::Foundation::TypedEventHandler<Windows::Graphics::Holographic::HolographicSpace, Windows::Graphics::Holographic::HolographicSpaceCameraAddedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicAdapterId) PrimaryAdapterId() const;
+        WINRT_IMPL_AUTO(void) SetDirect3D11Device(Windows::Graphics::DirectX::Direct3D11::IDirect3DDevice const& value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) CameraAdded(Windows::Foundation::TypedEventHandler<Windows::Graphics::Holographic::HolographicSpace, Windows::Graphics::Holographic::HolographicSpaceCameraAddedEventArgs> const& handler) const;
         using CameraAdded_revoker = impl::event_revoker<Windows::Graphics::Holographic::IHolographicSpace, &impl::abi_t<Windows::Graphics::Holographic::IHolographicSpace>::remove_CameraAdded>;
         [[nodiscard]] CameraAdded_revoker CameraAdded(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Graphics::Holographic::HolographicSpace, Windows::Graphics::Holographic::HolographicSpaceCameraAddedEventArgs> const& handler) const;
-        auto CameraAdded(winrt::event_token const& cookie) const noexcept;
-        auto CameraRemoved(Windows::Foundation::TypedEventHandler<Windows::Graphics::Holographic::HolographicSpace, Windows::Graphics::Holographic::HolographicSpaceCameraRemovedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) CameraAdded(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) CameraRemoved(Windows::Foundation::TypedEventHandler<Windows::Graphics::Holographic::HolographicSpace, Windows::Graphics::Holographic::HolographicSpaceCameraRemovedEventArgs> const& handler) const;
         using CameraRemoved_revoker = impl::event_revoker<Windows::Graphics::Holographic::IHolographicSpace, &impl::abi_t<Windows::Graphics::Holographic::IHolographicSpace>::remove_CameraRemoved>;
         [[nodiscard]] CameraRemoved_revoker CameraRemoved(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Graphics::Holographic::HolographicSpace, Windows::Graphics::Holographic::HolographicSpaceCameraRemovedEventArgs> const& handler) const;
-        auto CameraRemoved(winrt::event_token const& cookie) const noexcept;
-        auto CreateNextFrame() const;
+        WINRT_IMPL_AUTO(void) CameraRemoved(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicFrame) CreateNextFrame() const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicSpace>
     {
@@ -1059,14 +1064,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicSpace2
     {
-        [[nodiscard]] auto UserPresence() const;
-        auto UserPresenceChanged(Windows::Foundation::TypedEventHandler<Windows::Graphics::Holographic::HolographicSpace, Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicSpaceUserPresence) UserPresence() const;
+        WINRT_IMPL_AUTO(winrt::event_token) UserPresenceChanged(Windows::Foundation::TypedEventHandler<Windows::Graphics::Holographic::HolographicSpace, Windows::Foundation::IInspectable> const& handler) const;
         using UserPresenceChanged_revoker = impl::event_revoker<Windows::Graphics::Holographic::IHolographicSpace2, &impl::abi_t<Windows::Graphics::Holographic::IHolographicSpace2>::remove_UserPresenceChanged>;
         [[nodiscard]] UserPresenceChanged_revoker UserPresenceChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Graphics::Holographic::HolographicSpace, Windows::Foundation::IInspectable> const& handler) const;
-        auto UserPresenceChanged(winrt::event_token const& token) const noexcept;
-        auto WaitForNextFrameReady() const;
-        auto WaitForNextFrameReadyWithHeadStart(Windows::Foundation::TimeSpan const& requestedHeadStartDuration) const;
-        auto CreateFramePresentationMonitor(uint32_t maxQueuedReports) const;
+        WINRT_IMPL_AUTO(void) UserPresenceChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) WaitForNextFrameReady() const;
+        WINRT_IMPL_AUTO(void) WaitForNextFrameReadyWithHeadStart(Windows::Foundation::TimeSpan const& requestedHeadStartDuration) const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicFramePresentationMonitor) CreateFramePresentationMonitor(uint32_t maxQueuedReports) const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicSpace2>
     {
@@ -1075,7 +1080,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicSpace3
     {
-        auto CreateFrameScanoutMonitor(uint32_t maxQueuedReports) const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicFrameScanoutMonitor) CreateFrameScanoutMonitor(uint32_t maxQueuedReports) const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicSpace3>
     {
@@ -1084,8 +1089,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicSpaceCameraAddedEventArgs
     {
-        [[nodiscard]] auto Camera() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicCamera) Camera() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicSpaceCameraAddedEventArgs>
     {
@@ -1094,7 +1099,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicSpaceCameraRemovedEventArgs
     {
-        [[nodiscard]] auto Camera() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicCamera) Camera() const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicSpaceCameraRemovedEventArgs>
     {
@@ -1103,7 +1108,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicSpaceStatics
     {
-        auto CreateForCoreWindow(Windows::UI::Core::CoreWindow const& window) const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicSpace) CreateForCoreWindow(Windows::UI::Core::CoreWindow const& window) const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicSpaceStatics>
     {
@@ -1112,12 +1117,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicSpaceStatics2
     {
-        [[nodiscard]] auto IsSupported() const;
-        [[nodiscard]] auto IsAvailable() const;
-        auto IsAvailableChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsAvailable() const;
+        WINRT_IMPL_AUTO(winrt::event_token) IsAvailableChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using IsAvailableChanged_revoker = impl::event_revoker<Windows::Graphics::Holographic::IHolographicSpaceStatics2, &impl::abi_t<Windows::Graphics::Holographic::IHolographicSpaceStatics2>::remove_IsAvailableChanged>;
         [[nodiscard]] IsAvailableChanged_revoker IsAvailableChanged(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto IsAvailableChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) IsAvailableChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicSpaceStatics2>
     {
@@ -1126,7 +1131,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicSpaceStatics3
     {
-        [[nodiscard]] auto IsConfigured() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsConfigured() const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicSpaceStatics3>
     {
@@ -1135,18 +1140,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicViewConfiguration
     {
-        [[nodiscard]] auto NativeRenderTargetSize() const;
-        [[nodiscard]] auto RenderTargetSize() const;
-        auto RequestRenderTargetSize(Windows::Foundation::Size const& size) const;
-        [[nodiscard]] auto SupportedPixelFormats() const;
-        [[nodiscard]] auto PixelFormat() const;
-        auto PixelFormat(Windows::Graphics::DirectX::DirectXPixelFormat const& value) const;
-        [[nodiscard]] auto IsStereo() const;
-        [[nodiscard]] auto RefreshRate() const;
-        [[nodiscard]] auto Kind() const;
-        [[nodiscard]] auto Display() const;
-        [[nodiscard]] auto IsEnabled() const;
-        auto IsEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Size) NativeRenderTargetSize() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Size) RenderTargetSize() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Size) RequestRenderTargetSize(Windows::Foundation::Size const& size) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Graphics::DirectX::DirectXPixelFormat>) SupportedPixelFormats() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::DirectX::DirectXPixelFormat) PixelFormat() const;
+        WINRT_IMPL_AUTO(void) PixelFormat(Windows::Graphics::DirectX::DirectXPixelFormat const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStereo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) RefreshRate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicViewConfigurationKind) Kind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Holographic::HolographicDisplay) Display() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsEnabled() const;
+        WINRT_IMPL_AUTO(void) IsEnabled(bool value) const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicViewConfiguration>
     {
@@ -1155,7 +1160,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Holographic_IHolographicViewConfiguration2
     {
-        [[nodiscard]] auto SupportedDepthReprojectionMethods() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Graphics::Holographic::HolographicDepthReprojectionMethod>) SupportedDepthReprojectionMethods() const;
     };
     template <> struct consume<Windows::Graphics::Holographic::IHolographicViewConfiguration2>
     {

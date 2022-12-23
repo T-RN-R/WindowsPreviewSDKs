@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -13,7 +13,17 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
     template <typename TSender, typename TResult> struct TypedEventHandler;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
+    template <typename T> struct IVector;
+}
+WINRT_EXPORT namespace winrt::Windows::Networking
+{
+    struct EndpointPair;
 }
 WINRT_EXPORT namespace winrt::Windows::Networking::Sockets
 {
@@ -124,35 +134,33 @@ namespace winrt::impl
     template <> struct category<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSessionErrorStatus>{ using type = enum_category; };
     template <> struct category<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSessionStatus>{ using type = enum_category; };
     template <> struct category<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceStatus>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectService>{ L"Windows.Devices.WiFiDirect.Services.WiFiDirectService" };
-    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceAdvertiser>{ L"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceAdvertiser" };
-    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceAutoAcceptSessionConnectedEventArgs>{ L"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceAutoAcceptSessionConnectedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceProvisioningInfo>{ L"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceProvisioningInfo" };
-    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceRemotePortAddedEventArgs>{ L"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceRemotePortAddedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSession>{ L"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSession" };
-    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSessionDeferredEventArgs>{ L"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionDeferredEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSessionRequest>{ L"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionRequest" };
-    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSessionRequestedEventArgs>{ L"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceAdvertisementStatus>{ L"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceAdvertisementStatus" };
-    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceConfigurationMethod>{ L"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceConfigurationMethod" };
-    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceError>{ L"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceError" };
-    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceIPProtocol>{ L"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceIPProtocol" };
-    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSessionErrorStatus>{ L"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionErrorStatus" };
-    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSessionStatus>{ L"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionStatus" };
-    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceStatus>{ L"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceStatus" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectService>{ L"Windows.Devices.WiFiDirect.Services.IWiFiDirectService" };
-    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceAdvertiser>{ L"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAdvertiser" };
-    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceAdvertiserFactory>{ L"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAdvertiserFactory" };
-    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs>{ L"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceProvisioningInfo>{ L"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceProvisioningInfo" };
-    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceRemotePortAddedEventArgs>{ L"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceRemotePortAddedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceSession>{ L"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSession" };
-    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceSessionDeferredEventArgs>{ L"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSessionDeferredEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceSessionRequest>{ L"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSessionRequest" };
-    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceSessionRequestedEventArgs>{ L"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSessionRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceStatics>{ L"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectService> = L"Windows.Devices.WiFiDirect.Services.WiFiDirectService";
+    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceAdvertiser> = L"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceAdvertiser";
+    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceAutoAcceptSessionConnectedEventArgs> = L"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceAutoAcceptSessionConnectedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceProvisioningInfo> = L"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceProvisioningInfo";
+    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceRemotePortAddedEventArgs> = L"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceRemotePortAddedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSession> = L"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSession";
+    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSessionDeferredEventArgs> = L"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionDeferredEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSessionRequest> = L"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionRequest";
+    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSessionRequestedEventArgs> = L"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceAdvertisementStatus> = L"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceAdvertisementStatus";
+    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceConfigurationMethod> = L"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceConfigurationMethod";
+    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceError> = L"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceError";
+    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceIPProtocol> = L"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceIPProtocol";
+    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSessionErrorStatus> = L"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionErrorStatus";
+    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSessionStatus> = L"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceSessionStatus";
+    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceStatus> = L"Windows.Devices.WiFiDirect.Services.WiFiDirectServiceStatus";
+    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectService> = L"Windows.Devices.WiFiDirect.Services.IWiFiDirectService";
+    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceAdvertiser> = L"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAdvertiser";
+    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceAdvertiserFactory> = L"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAdvertiserFactory";
+    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs> = L"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceProvisioningInfo> = L"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceProvisioningInfo";
+    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceRemotePortAddedEventArgs> = L"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceRemotePortAddedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceSession> = L"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSession";
+    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceSessionDeferredEventArgs> = L"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSessionDeferredEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceSessionRequest> = L"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSessionRequest";
+    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceSessionRequestedEventArgs> = L"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceSessionRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceStatics> = L"Windows.Devices.WiFiDirect.Services.IWiFiDirectServiceStatics";
     template <> inline constexpr guid guid_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectService>{ 0x50AABBB8,0x5F71,0x45EC,{ 0x84,0xF1,0xA1,0xE4,0xFC,0x78,0x79,0xA3 } };
     template <> inline constexpr guid guid_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceAdvertiser>{ 0xA4AA1EE1,0x9D8F,0x4F4F,{ 0x93,0xEE,0x7D,0xDE,0xA2,0xE3,0x7F,0x46 } };
     template <> inline constexpr guid guid_v<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceAdvertiserFactory>{ 0x3106AC0D,0xB446,0x4F13,{ 0x9F,0x9A,0x8A,0xE9,0x25,0xFE,0xBA,0x2B } };
@@ -310,20 +318,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_WiFiDirect_Services_IWiFiDirectService
     {
-        [[nodiscard]] auto RemoteServiceInfo() const;
-        [[nodiscard]] auto SupportedConfigurationMethods() const;
-        [[nodiscard]] auto PreferGroupOwnerMode() const;
-        auto PreferGroupOwnerMode(bool value) const;
-        [[nodiscard]] auto SessionInfo() const;
-        auto SessionInfo(Windows::Storage::Streams::IBuffer const& value) const;
-        [[nodiscard]] auto ServiceError() const;
-        auto SessionDeferred(Windows::Foundation::TypedEventHandler<Windows::Devices::WiFiDirect::Services::WiFiDirectService, Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSessionDeferredEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) RemoteServiceInfo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceConfigurationMethod>) SupportedConfigurationMethods() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) PreferGroupOwnerMode() const;
+        WINRT_IMPL_AUTO(void) PreferGroupOwnerMode(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) SessionInfo() const;
+        WINRT_IMPL_AUTO(void) SessionInfo(Windows::Storage::Streams::IBuffer const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::WiFiDirect::Services::WiFiDirectServiceError) ServiceError() const;
+        WINRT_IMPL_AUTO(winrt::event_token) SessionDeferred(Windows::Foundation::TypedEventHandler<Windows::Devices::WiFiDirect::Services::WiFiDirectService, Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSessionDeferredEventArgs> const& handler) const;
         using SessionDeferred_revoker = impl::event_revoker<Windows::Devices::WiFiDirect::Services::IWiFiDirectService, &impl::abi_t<Windows::Devices::WiFiDirect::Services::IWiFiDirectService>::remove_SessionDeferred>;
         [[nodiscard]] SessionDeferred_revoker SessionDeferred(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::WiFiDirect::Services::WiFiDirectService, Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSessionDeferredEventArgs> const& handler) const;
-        auto SessionDeferred(winrt::event_token const& token) const noexcept;
-        auto GetProvisioningInfoAsync(Windows::Devices::WiFiDirect::Services::WiFiDirectServiceConfigurationMethod const& selectedConfigurationMethod) const;
-        auto ConnectAsync() const;
-        auto ConnectAsync(param::hstring const& pin) const;
+        WINRT_IMPL_AUTO(void) SessionDeferred(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceProvisioningInfo>) GetProvisioningInfoAsync(Windows::Devices::WiFiDirect::Services::WiFiDirectServiceConfigurationMethod const& selectedConfigurationMethod) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSession>) ConnectAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSession>) ConnectAsync(param::hstring const& pin) const;
     };
     template <> struct consume<Windows::Devices::WiFiDirect::Services::IWiFiDirectService>
     {
@@ -332,39 +340,39 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_WiFiDirect_Services_IWiFiDirectServiceAdvertiser
     {
-        [[nodiscard]] auto ServiceName() const;
-        [[nodiscard]] auto ServiceNamePrefixes() const;
-        [[nodiscard]] auto ServiceInfo() const;
-        auto ServiceInfo(Windows::Storage::Streams::IBuffer const& value) const;
-        [[nodiscard]] auto AutoAcceptSession() const;
-        auto AutoAcceptSession(bool value) const;
-        [[nodiscard]] auto PreferGroupOwnerMode() const;
-        auto PreferGroupOwnerMode(bool value) const;
-        [[nodiscard]] auto PreferredConfigurationMethods() const;
-        [[nodiscard]] auto ServiceStatus() const;
-        auto ServiceStatus(Windows::Devices::WiFiDirect::Services::WiFiDirectServiceStatus const& value) const;
-        [[nodiscard]] auto CustomServiceStatusCode() const;
-        auto CustomServiceStatusCode(uint32_t value) const;
-        [[nodiscard]] auto DeferredSessionInfo() const;
-        auto DeferredSessionInfo(Windows::Storage::Streams::IBuffer const& value) const;
-        [[nodiscard]] auto AdvertisementStatus() const;
-        [[nodiscard]] auto ServiceError() const;
-        auto SessionRequested(Windows::Foundation::TypedEventHandler<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceAdvertiser, Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSessionRequestedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ServiceName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) ServiceNamePrefixes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) ServiceInfo() const;
+        WINRT_IMPL_AUTO(void) ServiceInfo(Windows::Storage::Streams::IBuffer const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AutoAcceptSession() const;
+        WINRT_IMPL_AUTO(void) AutoAcceptSession(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) PreferGroupOwnerMode() const;
+        WINRT_IMPL_AUTO(void) PreferGroupOwnerMode(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceConfigurationMethod>) PreferredConfigurationMethods() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::WiFiDirect::Services::WiFiDirectServiceStatus) ServiceStatus() const;
+        WINRT_IMPL_AUTO(void) ServiceStatus(Windows::Devices::WiFiDirect::Services::WiFiDirectServiceStatus const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) CustomServiceStatusCode() const;
+        WINRT_IMPL_AUTO(void) CustomServiceStatusCode(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) DeferredSessionInfo() const;
+        WINRT_IMPL_AUTO(void) DeferredSessionInfo(Windows::Storage::Streams::IBuffer const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::WiFiDirect::Services::WiFiDirectServiceAdvertisementStatus) AdvertisementStatus() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::WiFiDirect::Services::WiFiDirectServiceError) ServiceError() const;
+        WINRT_IMPL_AUTO(winrt::event_token) SessionRequested(Windows::Foundation::TypedEventHandler<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceAdvertiser, Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSessionRequestedEventArgs> const& handler) const;
         using SessionRequested_revoker = impl::event_revoker<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceAdvertiser, &impl::abi_t<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceAdvertiser>::remove_SessionRequested>;
         [[nodiscard]] SessionRequested_revoker SessionRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceAdvertiser, Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSessionRequestedEventArgs> const& handler) const;
-        auto SessionRequested(winrt::event_token const& token) const noexcept;
-        auto AutoAcceptSessionConnected(Windows::Foundation::TypedEventHandler<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceAdvertiser, Windows::Devices::WiFiDirect::Services::WiFiDirectServiceAutoAcceptSessionConnectedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) SessionRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) AutoAcceptSessionConnected(Windows::Foundation::TypedEventHandler<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceAdvertiser, Windows::Devices::WiFiDirect::Services::WiFiDirectServiceAutoAcceptSessionConnectedEventArgs> const& handler) const;
         using AutoAcceptSessionConnected_revoker = impl::event_revoker<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceAdvertiser, &impl::abi_t<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceAdvertiser>::remove_AutoAcceptSessionConnected>;
         [[nodiscard]] AutoAcceptSessionConnected_revoker AutoAcceptSessionConnected(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceAdvertiser, Windows::Devices::WiFiDirect::Services::WiFiDirectServiceAutoAcceptSessionConnectedEventArgs> const& handler) const;
-        auto AutoAcceptSessionConnected(winrt::event_token const& token) const noexcept;
-        auto AdvertisementStatusChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceAdvertiser, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) AutoAcceptSessionConnected(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) AdvertisementStatusChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceAdvertiser, Windows::Foundation::IInspectable> const& handler) const;
         using AdvertisementStatusChanged_revoker = impl::event_revoker<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceAdvertiser, &impl::abi_t<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceAdvertiser>::remove_AdvertisementStatusChanged>;
         [[nodiscard]] AdvertisementStatusChanged_revoker AdvertisementStatusChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceAdvertiser, Windows::Foundation::IInspectable> const& handler) const;
-        auto AdvertisementStatusChanged(winrt::event_token const& token) const noexcept;
-        auto ConnectAsync(Windows::Devices::Enumeration::DeviceInformation const& deviceInfo) const;
-        auto ConnectAsync(Windows::Devices::Enumeration::DeviceInformation const& deviceInfo, param::hstring const& pin) const;
-        auto Start() const;
-        auto Stop() const;
+        WINRT_IMPL_AUTO(void) AdvertisementStatusChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSession>) ConnectAsync(Windows::Devices::Enumeration::DeviceInformation const& deviceInfo) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSession>) ConnectAsync(Windows::Devices::Enumeration::DeviceInformation const& deviceInfo, param::hstring const& pin) const;
+        WINRT_IMPL_AUTO(void) Start() const;
+        WINRT_IMPL_AUTO(void) Stop() const;
     };
     template <> struct consume<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceAdvertiser>
     {
@@ -373,7 +381,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_WiFiDirect_Services_IWiFiDirectServiceAdvertiserFactory
     {
-        auto CreateWiFiDirectServiceAdvertiser(param::hstring const& serviceName) const;
+        WINRT_IMPL_AUTO(Windows::Devices::WiFiDirect::Services::WiFiDirectServiceAdvertiser) CreateWiFiDirectServiceAdvertiser(param::hstring const& serviceName) const;
     };
     template <> struct consume<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceAdvertiserFactory>
     {
@@ -382,8 +390,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_WiFiDirect_Services_IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs
     {
-        [[nodiscard]] auto Session() const;
-        [[nodiscard]] auto SessionInfo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSession) Session() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) SessionInfo() const;
     };
     template <> struct consume<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs>
     {
@@ -392,8 +400,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_WiFiDirect_Services_IWiFiDirectServiceProvisioningInfo
     {
-        [[nodiscard]] auto SelectedConfigurationMethod() const;
-        [[nodiscard]] auto IsGroupFormationNeeded() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::WiFiDirect::Services::WiFiDirectServiceConfigurationMethod) SelectedConfigurationMethod() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsGroupFormationNeeded() const;
     };
     template <> struct consume<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceProvisioningInfo>
     {
@@ -402,8 +410,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_WiFiDirect_Services_IWiFiDirectServiceRemotePortAddedEventArgs
     {
-        [[nodiscard]] auto EndpointPairs() const;
-        [[nodiscard]] auto Protocol() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::EndpointPair>) EndpointPairs() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::WiFiDirect::Services::WiFiDirectServiceIPProtocol) Protocol() const;
     };
     template <> struct consume<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceRemotePortAddedEventArgs>
     {
@@ -412,24 +420,24 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_WiFiDirect_Services_IWiFiDirectServiceSession
     {
-        [[nodiscard]] auto ServiceName() const;
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto ErrorStatus() const;
-        [[nodiscard]] auto SessionId() const;
-        [[nodiscard]] auto AdvertisementId() const;
-        [[nodiscard]] auto ServiceAddress() const;
-        [[nodiscard]] auto SessionAddress() const;
-        auto GetConnectionEndpointPairs() const;
-        auto SessionStatusChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSession, Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ServiceName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSessionStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSessionErrorStatus) ErrorStatus() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) SessionId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) AdvertisementId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ServiceAddress() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SessionAddress() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::EndpointPair>) GetConnectionEndpointPairs() const;
+        WINRT_IMPL_AUTO(winrt::event_token) SessionStatusChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSession, Windows::Foundation::IInspectable> const& handler) const;
         using SessionStatusChanged_revoker = impl::event_revoker<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceSession, &impl::abi_t<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceSession>::remove_SessionStatusChanged>;
         [[nodiscard]] SessionStatusChanged_revoker SessionStatusChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSession, Windows::Foundation::IInspectable> const& handler) const;
-        auto SessionStatusChanged(winrt::event_token const& token) const noexcept;
-        auto AddStreamSocketListenerAsync(Windows::Networking::Sockets::StreamSocketListener const& value) const;
-        auto AddDatagramSocketAsync(Windows::Networking::Sockets::DatagramSocket const& value) const;
-        auto RemotePortAdded(Windows::Foundation::TypedEventHandler<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSession, Windows::Devices::WiFiDirect::Services::WiFiDirectServiceRemotePortAddedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) SessionStatusChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) AddStreamSocketListenerAsync(Windows::Networking::Sockets::StreamSocketListener const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) AddDatagramSocketAsync(Windows::Networking::Sockets::DatagramSocket const& value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) RemotePortAdded(Windows::Foundation::TypedEventHandler<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSession, Windows::Devices::WiFiDirect::Services::WiFiDirectServiceRemotePortAddedEventArgs> const& handler) const;
         using RemotePortAdded_revoker = impl::event_revoker<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceSession, &impl::abi_t<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceSession>::remove_RemotePortAdded>;
         [[nodiscard]] RemotePortAdded_revoker RemotePortAdded(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSession, Windows::Devices::WiFiDirect::Services::WiFiDirectServiceRemotePortAddedEventArgs> const& handler) const;
-        auto RemotePortAdded(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) RemotePortAdded(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceSession>
     {
@@ -438,7 +446,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_WiFiDirect_Services_IWiFiDirectServiceSessionDeferredEventArgs
     {
-        [[nodiscard]] auto DeferredSessionInfo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) DeferredSessionInfo() const;
     };
     template <> struct consume<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceSessionDeferredEventArgs>
     {
@@ -447,9 +455,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_WiFiDirect_Services_IWiFiDirectServiceSessionRequest
     {
-        [[nodiscard]] auto DeviceInformation() const;
-        [[nodiscard]] auto ProvisioningInfo() const;
-        [[nodiscard]] auto SessionInfo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Enumeration::DeviceInformation) DeviceInformation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::WiFiDirect::Services::WiFiDirectServiceProvisioningInfo) ProvisioningInfo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) SessionInfo() const;
     };
     template <> struct consume<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceSessionRequest>
     {
@@ -458,7 +466,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_WiFiDirect_Services_IWiFiDirectServiceSessionRequestedEventArgs
     {
-        auto GetSessionRequest() const;
+        WINRT_IMPL_AUTO(Windows::Devices::WiFiDirect::Services::WiFiDirectServiceSessionRequest) GetSessionRequest() const;
     };
     template <> struct consume<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceSessionRequestedEventArgs>
     {
@@ -467,9 +475,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_WiFiDirect_Services_IWiFiDirectServiceStatics
     {
-        auto GetSelector(param::hstring const& serviceName) const;
-        auto GetSelector(param::hstring const& serviceName, Windows::Storage::Streams::IBuffer const& serviceInfoFilter) const;
-        auto FromIdAsync(param::hstring const& deviceId) const;
+        WINRT_IMPL_AUTO(hstring) GetSelector(param::hstring const& serviceName) const;
+        WINRT_IMPL_AUTO(hstring) GetSelector(param::hstring const& serviceName, Windows::Storage::Streams::IBuffer const& serviceInfoFilter) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::WiFiDirect::Services::WiFiDirectService>) FromIdAsync(param::hstring const& deviceId) const;
     };
     template <> struct consume<Windows::Devices::WiFiDirect::Services::IWiFiDirectServiceStatics>
     {

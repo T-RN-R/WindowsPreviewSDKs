@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -23,12 +23,14 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
     struct Deferral;
     template <typename T> struct EventHandler;
     struct EventRegistrationToken;
+    template <typename TResult> struct IAsyncOperation;
     struct IGetActivationFactory;
     template <typename TSender, typename TResult> struct TypedEventHandler;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     struct IPropertySet;
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::System
 {
@@ -115,40 +117,38 @@ namespace winrt::impl
     template <> struct category<Windows::ApplicationModel::Core::UnhandledError>{ using type = class_category; };
     template <> struct category<Windows::ApplicationModel::Core::UnhandledErrorDetectedEventArgs>{ using type = class_category; };
     template <> struct category<Windows::ApplicationModel::Core::AppRestartFailureReason>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::AppListEntry>{ L"Windows.ApplicationModel.Core.AppListEntry" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::CoreApplication>{ L"Windows.ApplicationModel.Core.CoreApplication" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::CoreApplicationView>{ L"Windows.ApplicationModel.Core.CoreApplicationView" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::CoreApplicationViewTitleBar>{ L"Windows.ApplicationModel.Core.CoreApplicationViewTitleBar" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::HostedViewClosingEventArgs>{ L"Windows.ApplicationModel.Core.HostedViewClosingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::UnhandledError>{ L"Windows.ApplicationModel.Core.UnhandledError" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::UnhandledErrorDetectedEventArgs>{ L"Windows.ApplicationModel.Core.UnhandledErrorDetectedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::AppRestartFailureReason>{ L"Windows.ApplicationModel.Core.AppRestartFailureReason" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::IAppListEntry>{ L"Windows.ApplicationModel.Core.IAppListEntry" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::IAppListEntry2>{ L"Windows.ApplicationModel.Core.IAppListEntry2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::IAppListEntry3>{ L"Windows.ApplicationModel.Core.IAppListEntry3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::IAppListEntry4>{ L"Windows.ApplicationModel.Core.IAppListEntry4" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::ICoreApplication>{ L"Windows.ApplicationModel.Core.ICoreApplication" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::ICoreApplication2>{ L"Windows.ApplicationModel.Core.ICoreApplication2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::ICoreApplication3>{ L"Windows.ApplicationModel.Core.ICoreApplication3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::ICoreApplicationExit>{ L"Windows.ApplicationModel.Core.ICoreApplicationExit" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::ICoreApplicationUnhandledError>{ L"Windows.ApplicationModel.Core.ICoreApplicationUnhandledError" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::ICoreApplicationUseCount>{ L"Windows.ApplicationModel.Core.ICoreApplicationUseCount" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::ICoreApplicationView>{ L"Windows.ApplicationModel.Core.ICoreApplicationView" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::ICoreApplicationView2>{ L"Windows.ApplicationModel.Core.ICoreApplicationView2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::ICoreApplicationView3>{ L"Windows.ApplicationModel.Core.ICoreApplicationView3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::ICoreApplicationView5>{ L"Windows.ApplicationModel.Core.ICoreApplicationView5" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::ICoreApplicationView6>{ L"Windows.ApplicationModel.Core.ICoreApplicationView6" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::ICoreApplicationViewTitleBar>{ L"Windows.ApplicationModel.Core.ICoreApplicationViewTitleBar" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::ICoreImmersiveApplication>{ L"Windows.ApplicationModel.Core.ICoreImmersiveApplication" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::ICoreImmersiveApplication2>{ L"Windows.ApplicationModel.Core.ICoreImmersiveApplication2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::ICoreImmersiveApplication3>{ L"Windows.ApplicationModel.Core.ICoreImmersiveApplication3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::IFrameworkView>{ L"Windows.ApplicationModel.Core.IFrameworkView" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::IFrameworkViewSource>{ L"Windows.ApplicationModel.Core.IFrameworkViewSource" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::IHostedViewClosingEventArgs>{ L"Windows.ApplicationModel.Core.IHostedViewClosingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::IUnhandledError>{ L"Windows.ApplicationModel.Core.IUnhandledError" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::IUnhandledErrorDetectedEventArgs>{ L"Windows.ApplicationModel.Core.IUnhandledErrorDetectedEventArgs" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::AppListEntry> = L"Windows.ApplicationModel.Core.AppListEntry";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::CoreApplication> = L"Windows.ApplicationModel.Core.CoreApplication";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::CoreApplicationView> = L"Windows.ApplicationModel.Core.CoreApplicationView";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::CoreApplicationViewTitleBar> = L"Windows.ApplicationModel.Core.CoreApplicationViewTitleBar";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::HostedViewClosingEventArgs> = L"Windows.ApplicationModel.Core.HostedViewClosingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::UnhandledError> = L"Windows.ApplicationModel.Core.UnhandledError";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::UnhandledErrorDetectedEventArgs> = L"Windows.ApplicationModel.Core.UnhandledErrorDetectedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::AppRestartFailureReason> = L"Windows.ApplicationModel.Core.AppRestartFailureReason";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::IAppListEntry> = L"Windows.ApplicationModel.Core.IAppListEntry";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::IAppListEntry2> = L"Windows.ApplicationModel.Core.IAppListEntry2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::IAppListEntry3> = L"Windows.ApplicationModel.Core.IAppListEntry3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::IAppListEntry4> = L"Windows.ApplicationModel.Core.IAppListEntry4";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::ICoreApplication> = L"Windows.ApplicationModel.Core.ICoreApplication";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::ICoreApplication2> = L"Windows.ApplicationModel.Core.ICoreApplication2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::ICoreApplication3> = L"Windows.ApplicationModel.Core.ICoreApplication3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::ICoreApplicationExit> = L"Windows.ApplicationModel.Core.ICoreApplicationExit";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::ICoreApplicationUnhandledError> = L"Windows.ApplicationModel.Core.ICoreApplicationUnhandledError";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::ICoreApplicationUseCount> = L"Windows.ApplicationModel.Core.ICoreApplicationUseCount";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::ICoreApplicationView> = L"Windows.ApplicationModel.Core.ICoreApplicationView";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::ICoreApplicationView2> = L"Windows.ApplicationModel.Core.ICoreApplicationView2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::ICoreApplicationView3> = L"Windows.ApplicationModel.Core.ICoreApplicationView3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::ICoreApplicationView5> = L"Windows.ApplicationModel.Core.ICoreApplicationView5";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::ICoreApplicationView6> = L"Windows.ApplicationModel.Core.ICoreApplicationView6";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::ICoreApplicationViewTitleBar> = L"Windows.ApplicationModel.Core.ICoreApplicationViewTitleBar";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::ICoreImmersiveApplication> = L"Windows.ApplicationModel.Core.ICoreImmersiveApplication";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::ICoreImmersiveApplication2> = L"Windows.ApplicationModel.Core.ICoreImmersiveApplication2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::ICoreImmersiveApplication3> = L"Windows.ApplicationModel.Core.ICoreImmersiveApplication3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::IFrameworkView> = L"Windows.ApplicationModel.Core.IFrameworkView";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::IFrameworkViewSource> = L"Windows.ApplicationModel.Core.IFrameworkViewSource";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::IHostedViewClosingEventArgs> = L"Windows.ApplicationModel.Core.IHostedViewClosingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::IUnhandledError> = L"Windows.ApplicationModel.Core.IUnhandledError";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Core::IUnhandledErrorDetectedEventArgs> = L"Windows.ApplicationModel.Core.IUnhandledErrorDetectedEventArgs";
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Core::IAppListEntry>{ 0xEF00F07F,0x2108,0x490A,{ 0x87,0x7A,0x8A,0x9F,0x17,0xC2,0x5F,0xAD } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Core::IAppListEntry2>{ 0xD0A618AD,0xBF35,0x42AC,{ 0xAC,0x06,0x86,0xEE,0xEB,0x41,0xD0,0x4B } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Core::IAppListEntry3>{ 0x6099F28D,0xFC32,0x470A,{ 0xBC,0x69,0x4B,0x06,0x1A,0x76,0xEF,0x2E } };
@@ -393,8 +393,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Core_IAppListEntry
     {
-        [[nodiscard]] auto DisplayInfo() const;
-        auto LaunchAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::AppDisplayInfo) DisplayInfo() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) LaunchAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Core::IAppListEntry>
     {
@@ -403,7 +403,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Core_IAppListEntry2
     {
-        [[nodiscard]] auto AppUserModelId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AppUserModelId() const;
     };
     template <> struct consume<Windows::ApplicationModel::Core::IAppListEntry2>
     {
@@ -412,7 +412,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Core_IAppListEntry3
     {
-        auto LaunchForUserAsync(Windows::System::User const& user) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) LaunchForUserAsync(Windows::System::User const& user) const;
     };
     template <> struct consume<Windows::ApplicationModel::Core::IAppListEntry3>
     {
@@ -421,7 +421,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Core_IAppListEntry4
     {
-        [[nodiscard]] auto AppInfo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::AppInfo) AppInfo() const;
     };
     template <> struct consume<Windows::ApplicationModel::Core::IAppListEntry4>
     {
@@ -430,19 +430,19 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Core_ICoreApplication
     {
-        [[nodiscard]] auto Id() const;
-        auto Suspending(Windows::Foundation::EventHandler<Windows::ApplicationModel::SuspendingEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        WINRT_IMPL_AUTO(winrt::event_token) Suspending(Windows::Foundation::EventHandler<Windows::ApplicationModel::SuspendingEventArgs> const& handler) const;
         using Suspending_revoker = impl::event_revoker<Windows::ApplicationModel::Core::ICoreApplication, &impl::abi_t<Windows::ApplicationModel::Core::ICoreApplication>::remove_Suspending>;
         [[nodiscard]] Suspending_revoker Suspending(auto_revoke_t, Windows::Foundation::EventHandler<Windows::ApplicationModel::SuspendingEventArgs> const& handler) const;
-        auto Suspending(winrt::event_token const& token) const noexcept;
-        auto Resuming(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) Suspending(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Resuming(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using Resuming_revoker = impl::event_revoker<Windows::ApplicationModel::Core::ICoreApplication, &impl::abi_t<Windows::ApplicationModel::Core::ICoreApplication>::remove_Resuming>;
         [[nodiscard]] Resuming_revoker Resuming(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto Resuming(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto Properties() const;
-        auto GetCurrentView() const;
-        auto Run(Windows::ApplicationModel::Core::IFrameworkViewSource const& viewSource) const;
-        auto RunWithActivationFactories(Windows::Foundation::IGetActivationFactory const& activationFactoryCallback) const;
+        WINRT_IMPL_AUTO(void) Resuming(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IPropertySet) Properties() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Core::CoreApplicationView) GetCurrentView() const;
+        WINRT_IMPL_AUTO(void) Run(Windows::ApplicationModel::Core::IFrameworkViewSource const& viewSource) const;
+        WINRT_IMPL_AUTO(void) RunWithActivationFactories(Windows::Foundation::IGetActivationFactory const& activationFactoryCallback) const;
     };
     template <> struct consume<Windows::ApplicationModel::Core::ICoreApplication>
     {
@@ -451,19 +451,19 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Core_ICoreApplication2
     {
-        auto BackgroundActivated(Windows::Foundation::EventHandler<Windows::ApplicationModel::Activation::BackgroundActivatedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) BackgroundActivated(Windows::Foundation::EventHandler<Windows::ApplicationModel::Activation::BackgroundActivatedEventArgs> const& handler) const;
         using BackgroundActivated_revoker = impl::event_revoker<Windows::ApplicationModel::Core::ICoreApplication2, &impl::abi_t<Windows::ApplicationModel::Core::ICoreApplication2>::remove_BackgroundActivated>;
         [[nodiscard]] BackgroundActivated_revoker BackgroundActivated(auto_revoke_t, Windows::Foundation::EventHandler<Windows::ApplicationModel::Activation::BackgroundActivatedEventArgs> const& handler) const;
-        auto BackgroundActivated(winrt::event_token const& token) const noexcept;
-        auto LeavingBackground(Windows::Foundation::EventHandler<Windows::ApplicationModel::LeavingBackgroundEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) BackgroundActivated(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) LeavingBackground(Windows::Foundation::EventHandler<Windows::ApplicationModel::LeavingBackgroundEventArgs> const& handler) const;
         using LeavingBackground_revoker = impl::event_revoker<Windows::ApplicationModel::Core::ICoreApplication2, &impl::abi_t<Windows::ApplicationModel::Core::ICoreApplication2>::remove_LeavingBackground>;
         [[nodiscard]] LeavingBackground_revoker LeavingBackground(auto_revoke_t, Windows::Foundation::EventHandler<Windows::ApplicationModel::LeavingBackgroundEventArgs> const& handler) const;
-        auto LeavingBackground(winrt::event_token const& token) const noexcept;
-        auto EnteredBackground(Windows::Foundation::EventHandler<Windows::ApplicationModel::EnteredBackgroundEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) LeavingBackground(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) EnteredBackground(Windows::Foundation::EventHandler<Windows::ApplicationModel::EnteredBackgroundEventArgs> const& handler) const;
         using EnteredBackground_revoker = impl::event_revoker<Windows::ApplicationModel::Core::ICoreApplication2, &impl::abi_t<Windows::ApplicationModel::Core::ICoreApplication2>::remove_EnteredBackground>;
         [[nodiscard]] EnteredBackground_revoker EnteredBackground(auto_revoke_t, Windows::Foundation::EventHandler<Windows::ApplicationModel::EnteredBackgroundEventArgs> const& handler) const;
-        auto EnteredBackground(winrt::event_token const& token) const noexcept;
-        auto EnablePrelaunch(bool value) const;
+        WINRT_IMPL_AUTO(void) EnteredBackground(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) EnablePrelaunch(bool value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Core::ICoreApplication2>
     {
@@ -472,8 +472,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Core_ICoreApplication3
     {
-        auto RequestRestartAsync(param::hstring const& launchArguments) const;
-        auto RequestRestartForUserAsync(Windows::System::User const& user, param::hstring const& launchArguments) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Core::AppRestartFailureReason>) RequestRestartAsync(param::hstring const& launchArguments) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Core::AppRestartFailureReason>) RequestRestartForUserAsync(Windows::System::User const& user, param::hstring const& launchArguments) const;
     };
     template <> struct consume<Windows::ApplicationModel::Core::ICoreApplication3>
     {
@@ -482,11 +482,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Core_ICoreApplicationExit
     {
-        auto Exit() const;
-        auto Exiting(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) Exit() const;
+        WINRT_IMPL_AUTO(winrt::event_token) Exiting(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using Exiting_revoker = impl::event_revoker<Windows::ApplicationModel::Core::ICoreApplicationExit, &impl::abi_t<Windows::ApplicationModel::Core::ICoreApplicationExit>::remove_Exiting>;
         [[nodiscard]] Exiting_revoker Exiting(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto Exiting(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Exiting(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::ApplicationModel::Core::ICoreApplicationExit>
     {
@@ -495,10 +495,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Core_ICoreApplicationUnhandledError
     {
-        auto UnhandledErrorDetected(Windows::Foundation::EventHandler<Windows::ApplicationModel::Core::UnhandledErrorDetectedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) UnhandledErrorDetected(Windows::Foundation::EventHandler<Windows::ApplicationModel::Core::UnhandledErrorDetectedEventArgs> const& handler) const;
         using UnhandledErrorDetected_revoker = impl::event_revoker<Windows::ApplicationModel::Core::ICoreApplicationUnhandledError, &impl::abi_t<Windows::ApplicationModel::Core::ICoreApplicationUnhandledError>::remove_UnhandledErrorDetected>;
         [[nodiscard]] UnhandledErrorDetected_revoker UnhandledErrorDetected(auto_revoke_t, Windows::Foundation::EventHandler<Windows::ApplicationModel::Core::UnhandledErrorDetectedEventArgs> const& handler) const;
-        auto UnhandledErrorDetected(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) UnhandledErrorDetected(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::ApplicationModel::Core::ICoreApplicationUnhandledError>
     {
@@ -507,8 +507,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Core_ICoreApplicationUseCount
     {
-        auto IncrementApplicationUseCount() const;
-        auto DecrementApplicationUseCount() const;
+        WINRT_IMPL_AUTO(void) IncrementApplicationUseCount() const;
+        WINRT_IMPL_AUTO(void) DecrementApplicationUseCount() const;
     };
     template <> struct consume<Windows::ApplicationModel::Core::ICoreApplicationUseCount>
     {
@@ -517,13 +517,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Core_ICoreApplicationView
     {
-        [[nodiscard]] auto CoreWindow() const;
-        auto Activated(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Core::CoreApplicationView, Windows::ApplicationModel::Activation::IActivatedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Core::CoreWindow) CoreWindow() const;
+        WINRT_IMPL_AUTO(winrt::event_token) Activated(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Core::CoreApplicationView, Windows::ApplicationModel::Activation::IActivatedEventArgs> const& handler) const;
         using Activated_revoker = impl::event_revoker<Windows::ApplicationModel::Core::ICoreApplicationView, &impl::abi_t<Windows::ApplicationModel::Core::ICoreApplicationView>::remove_Activated>;
         [[nodiscard]] Activated_revoker Activated(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Core::CoreApplicationView, Windows::ApplicationModel::Activation::IActivatedEventArgs> const& handler) const;
-        auto Activated(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto IsMain() const;
-        [[nodiscard]] auto IsHosted() const;
+        WINRT_IMPL_AUTO(void) Activated(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsMain() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsHosted() const;
     };
     template <> struct consume<Windows::ApplicationModel::Core::ICoreApplicationView>
     {
@@ -532,7 +532,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Core_ICoreApplicationView2
     {
-        [[nodiscard]] auto Dispatcher() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Core::CoreDispatcher) Dispatcher() const;
     };
     template <> struct consume<Windows::ApplicationModel::Core::ICoreApplicationView2>
     {
@@ -541,12 +541,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Core_ICoreApplicationView3
     {
-        [[nodiscard]] auto IsComponent() const;
-        [[nodiscard]] auto TitleBar() const;
-        auto HostedViewClosing(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Core::CoreApplicationView, Windows::ApplicationModel::Core::HostedViewClosingEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsComponent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Core::CoreApplicationViewTitleBar) TitleBar() const;
+        WINRT_IMPL_AUTO(winrt::event_token) HostedViewClosing(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Core::CoreApplicationView, Windows::ApplicationModel::Core::HostedViewClosingEventArgs> const& handler) const;
         using HostedViewClosing_revoker = impl::event_revoker<Windows::ApplicationModel::Core::ICoreApplicationView3, &impl::abi_t<Windows::ApplicationModel::Core::ICoreApplicationView3>::remove_HostedViewClosing>;
         [[nodiscard]] HostedViewClosing_revoker HostedViewClosing(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Core::CoreApplicationView, Windows::ApplicationModel::Core::HostedViewClosingEventArgs> const& handler) const;
-        auto HostedViewClosing(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) HostedViewClosing(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::ApplicationModel::Core::ICoreApplicationView3>
     {
@@ -555,7 +555,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Core_ICoreApplicationView5
     {
-        [[nodiscard]] auto Properties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IPropertySet) Properties() const;
     };
     template <> struct consume<Windows::ApplicationModel::Core::ICoreApplicationView5>
     {
@@ -564,7 +564,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Core_ICoreApplicationView6
     {
-        [[nodiscard]] auto DispatcherQueue() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::DispatcherQueue) DispatcherQueue() const;
     };
     template <> struct consume<Windows::ApplicationModel::Core::ICoreApplicationView6>
     {
@@ -573,20 +573,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Core_ICoreApplicationViewTitleBar
     {
-        auto ExtendViewIntoTitleBar(bool value) const;
-        [[nodiscard]] auto ExtendViewIntoTitleBar() const;
-        [[nodiscard]] auto SystemOverlayLeftInset() const;
-        [[nodiscard]] auto SystemOverlayRightInset() const;
-        [[nodiscard]] auto Height() const;
-        auto LayoutMetricsChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Core::CoreApplicationViewTitleBar, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) ExtendViewIntoTitleBar(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ExtendViewIntoTitleBar() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) SystemOverlayLeftInset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) SystemOverlayRightInset() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Height() const;
+        WINRT_IMPL_AUTO(winrt::event_token) LayoutMetricsChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Core::CoreApplicationViewTitleBar, Windows::Foundation::IInspectable> const& handler) const;
         using LayoutMetricsChanged_revoker = impl::event_revoker<Windows::ApplicationModel::Core::ICoreApplicationViewTitleBar, &impl::abi_t<Windows::ApplicationModel::Core::ICoreApplicationViewTitleBar>::remove_LayoutMetricsChanged>;
         [[nodiscard]] LayoutMetricsChanged_revoker LayoutMetricsChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Core::CoreApplicationViewTitleBar, Windows::Foundation::IInspectable> const& handler) const;
-        auto LayoutMetricsChanged(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto IsVisible() const;
-        auto IsVisibleChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Core::CoreApplicationViewTitleBar, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) LayoutMetricsChanged(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsVisible() const;
+        WINRT_IMPL_AUTO(winrt::event_token) IsVisibleChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Core::CoreApplicationViewTitleBar, Windows::Foundation::IInspectable> const& handler) const;
         using IsVisibleChanged_revoker = impl::event_revoker<Windows::ApplicationModel::Core::ICoreApplicationViewTitleBar, &impl::abi_t<Windows::ApplicationModel::Core::ICoreApplicationViewTitleBar>::remove_IsVisibleChanged>;
         [[nodiscard]] IsVisibleChanged_revoker IsVisibleChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Core::CoreApplicationViewTitleBar, Windows::Foundation::IInspectable> const& handler) const;
-        auto IsVisibleChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) IsVisibleChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::ApplicationModel::Core::ICoreApplicationViewTitleBar>
     {
@@ -595,9 +595,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Core_ICoreImmersiveApplication
     {
-        [[nodiscard]] auto Views() const;
-        auto CreateNewView(param::hstring const& runtimeType, param::hstring const& entryPoint) const;
-        [[nodiscard]] auto MainView() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Core::CoreApplicationView>) Views() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Core::CoreApplicationView) CreateNewView(param::hstring const& runtimeType, param::hstring const& entryPoint) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Core::CoreApplicationView) MainView() const;
     };
     template <> struct consume<Windows::ApplicationModel::Core::ICoreImmersiveApplication>
     {
@@ -606,7 +606,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Core_ICoreImmersiveApplication2
     {
-        auto CreateNewView() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Core::CoreApplicationView) CreateNewView() const;
     };
     template <> struct consume<Windows::ApplicationModel::Core::ICoreImmersiveApplication2>
     {
@@ -615,7 +615,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Core_ICoreImmersiveApplication3
     {
-        auto CreateNewView(Windows::ApplicationModel::Core::IFrameworkViewSource const& viewSource) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Core::CoreApplicationView) CreateNewView(Windows::ApplicationModel::Core::IFrameworkViewSource const& viewSource) const;
     };
     template <> struct consume<Windows::ApplicationModel::Core::ICoreImmersiveApplication3>
     {
@@ -624,11 +624,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Core_IFrameworkView
     {
-        auto Initialize(Windows::ApplicationModel::Core::CoreApplicationView const& applicationView) const;
-        auto SetWindow(Windows::UI::Core::CoreWindow const& window) const;
-        auto Load(param::hstring const& entryPoint) const;
-        auto Run() const;
-        auto Uninitialize() const;
+        WINRT_IMPL_AUTO(void) Initialize(Windows::ApplicationModel::Core::CoreApplicationView const& applicationView) const;
+        WINRT_IMPL_AUTO(void) SetWindow(Windows::UI::Core::CoreWindow const& window) const;
+        WINRT_IMPL_AUTO(void) Load(param::hstring const& entryPoint) const;
+        WINRT_IMPL_AUTO(void) Run() const;
+        WINRT_IMPL_AUTO(void) Uninitialize() const;
     };
     template <> struct consume<Windows::ApplicationModel::Core::IFrameworkView>
     {
@@ -637,7 +637,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Core_IFrameworkViewSource
     {
-        auto CreateView() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Core::IFrameworkView) CreateView() const;
     };
     template <> struct consume<Windows::ApplicationModel::Core::IFrameworkViewSource>
     {
@@ -646,7 +646,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Core_IHostedViewClosingEventArgs
     {
-        auto GetDeferral() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::Core::IHostedViewClosingEventArgs>
     {
@@ -655,8 +655,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Core_IUnhandledError
     {
-        [[nodiscard]] auto Handled() const;
-        auto Propagate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Propagate() const;
     };
     template <> struct consume<Windows::ApplicationModel::Core::IUnhandledError>
     {
@@ -665,7 +665,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Core_IUnhandledErrorDetectedEventArgs
     {
-        [[nodiscard]] auto UnhandledError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Core::UnhandledError) UnhandledError() const;
     };
     template <> struct consume<Windows::ApplicationModel::Core::IUnhandledErrorDetectedEventArgs>
     {

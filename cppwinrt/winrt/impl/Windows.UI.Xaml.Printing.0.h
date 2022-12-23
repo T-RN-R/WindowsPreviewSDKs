@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -56,22 +56,20 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Xaml::Printing::AddPagesEventHandler>{ using type = delegate_category; };
     template <> struct category<Windows::UI::Xaml::Printing::GetPreviewPageEventHandler>{ using type = delegate_category; };
     template <> struct category<Windows::UI::Xaml::Printing::PaginateEventHandler>{ using type = delegate_category; };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Printing::AddPagesEventArgs>{ L"Windows.UI.Xaml.Printing.AddPagesEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Printing::GetPreviewPageEventArgs>{ L"Windows.UI.Xaml.Printing.GetPreviewPageEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Printing::PaginateEventArgs>{ L"Windows.UI.Xaml.Printing.PaginateEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Printing::PrintDocument>{ L"Windows.UI.Xaml.Printing.PrintDocument" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Printing::PreviewPageCountType>{ L"Windows.UI.Xaml.Printing.PreviewPageCountType" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Printing::IAddPagesEventArgs>{ L"Windows.UI.Xaml.Printing.IAddPagesEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Printing::IGetPreviewPageEventArgs>{ L"Windows.UI.Xaml.Printing.IGetPreviewPageEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Printing::IPaginateEventArgs>{ L"Windows.UI.Xaml.Printing.IPaginateEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Printing::IPrintDocument>{ L"Windows.UI.Xaml.Printing.IPrintDocument" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Printing::IPrintDocumentFactory>{ L"Windows.UI.Xaml.Printing.IPrintDocumentFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Printing::IPrintDocumentStatics>{ L"Windows.UI.Xaml.Printing.IPrintDocumentStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Printing::AddPagesEventHandler>{ L"Windows.UI.Xaml.Printing.AddPagesEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Printing::GetPreviewPageEventHandler>{ L"Windows.UI.Xaml.Printing.GetPreviewPageEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Printing::PaginateEventHandler>{ L"Windows.UI.Xaml.Printing.PaginateEventHandler" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Printing::AddPagesEventArgs> = L"Windows.UI.Xaml.Printing.AddPagesEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Printing::GetPreviewPageEventArgs> = L"Windows.UI.Xaml.Printing.GetPreviewPageEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Printing::PaginateEventArgs> = L"Windows.UI.Xaml.Printing.PaginateEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Printing::PrintDocument> = L"Windows.UI.Xaml.Printing.PrintDocument";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Printing::PreviewPageCountType> = L"Windows.UI.Xaml.Printing.PreviewPageCountType";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Printing::IAddPagesEventArgs> = L"Windows.UI.Xaml.Printing.IAddPagesEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Printing::IGetPreviewPageEventArgs> = L"Windows.UI.Xaml.Printing.IGetPreviewPageEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Printing::IPaginateEventArgs> = L"Windows.UI.Xaml.Printing.IPaginateEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Printing::IPrintDocument> = L"Windows.UI.Xaml.Printing.IPrintDocument";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Printing::IPrintDocumentFactory> = L"Windows.UI.Xaml.Printing.IPrintDocumentFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Printing::IPrintDocumentStatics> = L"Windows.UI.Xaml.Printing.IPrintDocumentStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Printing::AddPagesEventHandler> = L"Windows.UI.Xaml.Printing.AddPagesEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Printing::GetPreviewPageEventHandler> = L"Windows.UI.Xaml.Printing.GetPreviewPageEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Printing::PaginateEventHandler> = L"Windows.UI.Xaml.Printing.PaginateEventHandler";
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Printing::IAddPagesEventArgs>{ 0xE2E52BE5,0x056C,0x4420,{ 0x97,0x95,0xCB,0x35,0x26,0xCE,0x0C,0x20 } };
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Printing::IGetPreviewPageEventArgs>{ 0xA43D703D,0xDEA9,0x4DF6,{ 0xA7,0xED,0x35,0x04,0x9C,0xD4,0x85,0xC7 } };
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Printing::IPaginateEventArgs>{ 0xED945FD6,0x79AB,0x42B7,{ 0x93,0x0A,0x3D,0x6E,0x09,0x01,0x1D,0x21 } };
@@ -163,7 +161,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Printing_IAddPagesEventArgs
     {
-        [[nodiscard]] auto PrintTaskOptions() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTaskOptions) PrintTaskOptions() const;
     };
     template <> struct consume<Windows::UI::Xaml::Printing::IAddPagesEventArgs>
     {
@@ -172,7 +170,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Printing_IGetPreviewPageEventArgs
     {
-        [[nodiscard]] auto PageNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) PageNumber() const;
     };
     template <> struct consume<Windows::UI::Xaml::Printing::IGetPreviewPageEventArgs>
     {
@@ -181,8 +179,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Printing_IPaginateEventArgs
     {
-        [[nodiscard]] auto PrintTaskOptions() const;
-        [[nodiscard]] auto CurrentPreviewPageNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::PrintTaskOptions) PrintTaskOptions() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) CurrentPreviewPageNumber() const;
     };
     template <> struct consume<Windows::UI::Xaml::Printing::IPaginateEventArgs>
     {
@@ -191,24 +189,24 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Printing_IPrintDocument
     {
-        [[nodiscard]] auto DocumentSource() const;
-        auto Paginate(Windows::UI::Xaml::Printing::PaginateEventHandler const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Printing::IPrintDocumentSource) DocumentSource() const;
+        WINRT_IMPL_AUTO(winrt::event_token) Paginate(Windows::UI::Xaml::Printing::PaginateEventHandler const& handler) const;
         using Paginate_revoker = impl::event_revoker<Windows::UI::Xaml::Printing::IPrintDocument, &impl::abi_t<Windows::UI::Xaml::Printing::IPrintDocument>::remove_Paginate>;
         [[nodiscard]] Paginate_revoker Paginate(auto_revoke_t, Windows::UI::Xaml::Printing::PaginateEventHandler const& handler) const;
-        auto Paginate(winrt::event_token const& token) const noexcept;
-        auto GetPreviewPage(Windows::UI::Xaml::Printing::GetPreviewPageEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) Paginate(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) GetPreviewPage(Windows::UI::Xaml::Printing::GetPreviewPageEventHandler const& handler) const;
         using GetPreviewPage_revoker = impl::event_revoker<Windows::UI::Xaml::Printing::IPrintDocument, &impl::abi_t<Windows::UI::Xaml::Printing::IPrintDocument>::remove_GetPreviewPage>;
         [[nodiscard]] GetPreviewPage_revoker GetPreviewPage(auto_revoke_t, Windows::UI::Xaml::Printing::GetPreviewPageEventHandler const& handler) const;
-        auto GetPreviewPage(winrt::event_token const& token) const noexcept;
-        auto AddPages(Windows::UI::Xaml::Printing::AddPagesEventHandler const& handler) const;
+        WINRT_IMPL_AUTO(void) GetPreviewPage(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) AddPages(Windows::UI::Xaml::Printing::AddPagesEventHandler const& handler) const;
         using AddPages_revoker = impl::event_revoker<Windows::UI::Xaml::Printing::IPrintDocument, &impl::abi_t<Windows::UI::Xaml::Printing::IPrintDocument>::remove_AddPages>;
         [[nodiscard]] AddPages_revoker AddPages(auto_revoke_t, Windows::UI::Xaml::Printing::AddPagesEventHandler const& handler) const;
-        auto AddPages(winrt::event_token const& token) const noexcept;
-        auto AddPage(Windows::UI::Xaml::UIElement const& pageVisual) const;
-        auto AddPagesComplete() const;
-        auto SetPreviewPageCount(int32_t count, Windows::UI::Xaml::Printing::PreviewPageCountType const& type) const;
-        auto SetPreviewPage(int32_t pageNumber, Windows::UI::Xaml::UIElement const& pageVisual) const;
-        auto InvalidatePreview() const;
+        WINRT_IMPL_AUTO(void) AddPages(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) AddPage(Windows::UI::Xaml::UIElement const& pageVisual) const;
+        WINRT_IMPL_AUTO(void) AddPagesComplete() const;
+        WINRT_IMPL_AUTO(void) SetPreviewPageCount(int32_t count, Windows::UI::Xaml::Printing::PreviewPageCountType const& type) const;
+        WINRT_IMPL_AUTO(void) SetPreviewPage(int32_t pageNumber, Windows::UI::Xaml::UIElement const& pageVisual) const;
+        WINRT_IMPL_AUTO(void) InvalidatePreview() const;
     };
     template <> struct consume<Windows::UI::Xaml::Printing::IPrintDocument>
     {
@@ -217,7 +215,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Printing_IPrintDocumentFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Printing::PrintDocument) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Printing::IPrintDocumentFactory>
     {
@@ -226,7 +224,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Printing_IPrintDocumentStatics
     {
-        [[nodiscard]] auto DocumentSourceProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) DocumentSourceProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Printing::IPrintDocumentStatics>
     {

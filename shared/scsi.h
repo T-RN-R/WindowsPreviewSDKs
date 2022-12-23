@@ -3249,11 +3249,25 @@ typedef struct _VPD_SUPPORTED_PAGES_PAGE {
 #define LOG_PAGE_CODE_READ_ERROR_COUNTERS           0x03
 #define LOG_PAGE_CODE_LOGICAL_BLOCK_PROVISIONING    0x0C
 #define LOG_PAGE_CODE_TEMPERATURE                   0x0D
+#define LOG_PAGE_CODE_ENVIRONMENTAL_REPORTING       0x0D
 #define LOG_PAGE_CODE_STARTSTOP_CYCLE_COUNTERS      0x0E
+#define LOG_PAGE_CODE_UTILIZATION                   0x0E
 #define LOG_PAGE_CODE_SELFTEST_RESULTS              0x10
 #define LOG_PAGE_CODE_SOLID_STATE_MEDIA             0x11
 #define LOG_PAGE_CODE_BACKGROUND_SCAN_RESULTS       0x15
 #define LOG_PAGE_CODE_INFORMATIONAL_EXCEPTIONS      0x2F
+
+#define LOG_SUBPAGE_CODE_WRITE_ERROR_COUNTERS       0x00
+#define LOG_SUBPAGE_CODE_READ_ERROR_COUNTERS        0x00
+#define LOG_SUBPAGE_CODE_LOGICAL_BLOCK_PROVISIONING 0x00
+#define LOG_SUBPAGE_CODE_TEMPERATURE                0x00
+#define LOG_SUBPAGE_CODE_ENVIRONMENTAL_REPORTING    0x01
+#define LOG_SUBPAGE_CODE_STARTSTOP_CYCLE_COUNTERS   0x00
+#define LOG_SUBPAGE_CODE_UTILIZATION                0x01
+#define LOG_SUBPAGE_CODE_SELFTEST_RESULTS           0x00
+#define LOG_SUBPAGE_CODE_SOLID_STATE_MEDIA          0x00
+#define LOG_SUBPAGE_CODE_BACKGROUND_SCAN_RESULTS    0x00
+#define LOG_SUBPAGE_CODE_INFORMATIONAL_EXCEPTIONS   0x00
 
 
 #pragma pack(push, log_page, 1)
@@ -3295,9 +3309,9 @@ typedef struct _LOG_PARAMETER {
         struct _THRESHOLD_RESOURCE_COUNT {
 
             UCHAR ResourceCount[4];             // Bytes 4-7
-            UCHAR Scope : 2;                    // Byte  5, bit 0-1
-            UCHAR Reserved1 : 6;                // Byte  5, bit 2-7
-            UCHAR Reserved2[3];                 // Byte  6
+            UCHAR Scope : 2;                    // Byte  8, bit 0-1
+            UCHAR Reserved1 : 6;                // Byte  8, bit 2-7
+            UCHAR Reserved2[3];                 // Byte  9
 
         } THRESHOLD_RESOURCE_COUNT;
 
@@ -3314,6 +3328,12 @@ typedef struct _LOG_PARAMETER {
             UCHAR Week[2];                      // Bytes 8-9
 
         } DATE_OF_MANUFACTURE;
+
+        struct _WORKLOAD_UTILIZATION {
+
+            UCHAR WorkloadUtilization[2];       // Bytes 4-5
+
+        } WORKLOAD_UTILIZATION;
 
         struct _SELF_TEST_RESULTS {
 

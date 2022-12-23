@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -12,6 +12,12 @@ WINRT_EXPORT namespace winrt::Windows::Devices::Geolocation
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
+    template <typename TResult> struct IAsyncOperation;
+    template <typename T> struct IReference;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Globalization
 {
@@ -69,24 +75,22 @@ namespace winrt::impl
     template <> struct category<Windows::Services::Maps::LocalSearch::LocalLocationRatingInfo>{ using type = class_category; };
     template <> struct category<Windows::Services::Maps::LocalSearch::PlaceInfoHelper>{ using type = class_category; };
     template <> struct category<Windows::Services::Maps::LocalSearch::LocalLocationFinderStatus>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::LocalCategories>{ L"Windows.Services.Maps.LocalSearch.LocalCategories" };
-    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::LocalLocation>{ L"Windows.Services.Maps.LocalSearch.LocalLocation" };
-    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::LocalLocationFinder>{ L"Windows.Services.Maps.LocalSearch.LocalLocationFinder" };
-    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::LocalLocationFinderResult>{ L"Windows.Services.Maps.LocalSearch.LocalLocationFinderResult" };
-    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::LocalLocationHoursOfOperationItem>{ L"Windows.Services.Maps.LocalSearch.LocalLocationHoursOfOperationItem" };
-    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::LocalLocationRatingInfo>{ L"Windows.Services.Maps.LocalSearch.LocalLocationRatingInfo" };
-    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::PlaceInfoHelper>{ L"Windows.Services.Maps.LocalSearch.PlaceInfoHelper" };
-    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::LocalLocationFinderStatus>{ L"Windows.Services.Maps.LocalSearch.LocalLocationFinderStatus" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::ILocalCategoriesStatics>{ L"Windows.Services.Maps.LocalSearch.ILocalCategoriesStatics" };
-    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::ILocalLocation>{ L"Windows.Services.Maps.LocalSearch.ILocalLocation" };
-    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::ILocalLocation2>{ L"Windows.Services.Maps.LocalSearch.ILocalLocation2" };
-    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::ILocalLocationFinderResult>{ L"Windows.Services.Maps.LocalSearch.ILocalLocationFinderResult" };
-    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::ILocalLocationFinderStatics>{ L"Windows.Services.Maps.LocalSearch.ILocalLocationFinderStatics" };
-    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::ILocalLocationHoursOfOperationItem>{ L"Windows.Services.Maps.LocalSearch.ILocalLocationHoursOfOperationItem" };
-    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::ILocalLocationRatingInfo>{ L"Windows.Services.Maps.LocalSearch.ILocalLocationRatingInfo" };
-    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::IPlaceInfoHelperStatics>{ L"Windows.Services.Maps.LocalSearch.IPlaceInfoHelperStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::LocalCategories> = L"Windows.Services.Maps.LocalSearch.LocalCategories";
+    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::LocalLocation> = L"Windows.Services.Maps.LocalSearch.LocalLocation";
+    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::LocalLocationFinder> = L"Windows.Services.Maps.LocalSearch.LocalLocationFinder";
+    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::LocalLocationFinderResult> = L"Windows.Services.Maps.LocalSearch.LocalLocationFinderResult";
+    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::LocalLocationHoursOfOperationItem> = L"Windows.Services.Maps.LocalSearch.LocalLocationHoursOfOperationItem";
+    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::LocalLocationRatingInfo> = L"Windows.Services.Maps.LocalSearch.LocalLocationRatingInfo";
+    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::PlaceInfoHelper> = L"Windows.Services.Maps.LocalSearch.PlaceInfoHelper";
+    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::LocalLocationFinderStatus> = L"Windows.Services.Maps.LocalSearch.LocalLocationFinderStatus";
+    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::ILocalCategoriesStatics> = L"Windows.Services.Maps.LocalSearch.ILocalCategoriesStatics";
+    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::ILocalLocation> = L"Windows.Services.Maps.LocalSearch.ILocalLocation";
+    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::ILocalLocation2> = L"Windows.Services.Maps.LocalSearch.ILocalLocation2";
+    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::ILocalLocationFinderResult> = L"Windows.Services.Maps.LocalSearch.ILocalLocationFinderResult";
+    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::ILocalLocationFinderStatics> = L"Windows.Services.Maps.LocalSearch.ILocalLocationFinderStatics";
+    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::ILocalLocationHoursOfOperationItem> = L"Windows.Services.Maps.LocalSearch.ILocalLocationHoursOfOperationItem";
+    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::ILocalLocationRatingInfo> = L"Windows.Services.Maps.LocalSearch.ILocalLocationRatingInfo";
+    template <> inline constexpr auto& name_v<Windows::Services::Maps::LocalSearch::IPlaceInfoHelperStatics> = L"Windows.Services.Maps.LocalSearch.IPlaceInfoHelperStatics";
     template <> inline constexpr guid guid_v<Windows::Services::Maps::LocalSearch::ILocalCategoriesStatics>{ 0xF49399F5,0x8261,0x4321,{ 0x99,0x74,0xEF,0x92,0xD4,0x9A,0x8D,0xCA } };
     template <> inline constexpr guid guid_v<Windows::Services::Maps::LocalSearch::ILocalLocation>{ 0xBB0FE9AB,0x4502,0x4F2C,{ 0x94,0xA9,0x0D,0x60,0xDE,0x0E,0x21,0x63 } };
     template <> inline constexpr guid guid_v<Windows::Services::Maps::LocalSearch::ILocalLocation2>{ 0x6E9E307C,0xECB5,0x4FFC,{ 0xBB,0x8C,0xBA,0x50,0xBA,0x8C,0x2D,0xC6 } };
@@ -178,14 +182,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_Maps_LocalSearch_ILocalCategoriesStatics
     {
-        [[nodiscard]] auto BankAndCreditUnions() const;
-        [[nodiscard]] auto EatDrink() const;
-        [[nodiscard]] auto Hospitals() const;
-        [[nodiscard]] auto HotelsAndMotels() const;
-        [[nodiscard]] auto All() const;
-        [[nodiscard]] auto Parking() const;
-        [[nodiscard]] auto SeeDo() const;
-        [[nodiscard]] auto Shop() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) BankAndCreditUnions() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) EatDrink() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Hospitals() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) HotelsAndMotels() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) All() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Parking() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SeeDo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Shop() const;
     };
     template <> struct consume<Windows::Services::Maps::LocalSearch::ILocalCategoriesStatics>
     {
@@ -194,13 +198,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_Maps_LocalSearch_ILocalLocation
     {
-        [[nodiscard]] auto Address() const;
-        [[nodiscard]] auto Identifier() const;
-        [[nodiscard]] auto Description() const;
-        [[nodiscard]] auto DisplayName() const;
-        [[nodiscard]] auto Point() const;
-        [[nodiscard]] auto PhoneNumber() const;
-        [[nodiscard]] auto DataAttribution() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Services::Maps::MapAddress) Address() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Identifier() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Geolocation::Geopoint) Point() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PhoneNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DataAttribution() const;
     };
     template <> struct consume<Windows::Services::Maps::LocalSearch::ILocalLocation>
     {
@@ -209,9 +213,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_Maps_LocalSearch_ILocalLocation2
     {
-        [[nodiscard]] auto Category() const;
-        [[nodiscard]] auto RatingInfo() const;
-        [[nodiscard]] auto HoursOfOperation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Category() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Services::Maps::LocalSearch::LocalLocationRatingInfo) RatingInfo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Services::Maps::LocalSearch::LocalLocationHoursOfOperationItem>) HoursOfOperation() const;
     };
     template <> struct consume<Windows::Services::Maps::LocalSearch::ILocalLocation2>
     {
@@ -220,8 +224,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_Maps_LocalSearch_ILocalLocationFinderResult
     {
-        [[nodiscard]] auto LocalLocations() const;
-        [[nodiscard]] auto Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Services::Maps::LocalSearch::LocalLocation>) LocalLocations() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Services::Maps::LocalSearch::LocalLocationFinderStatus) Status() const;
     };
     template <> struct consume<Windows::Services::Maps::LocalSearch::ILocalLocationFinderResult>
     {
@@ -230,7 +234,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_Maps_LocalSearch_ILocalLocationFinderStatics
     {
-        auto FindLocalLocationsAsync(param::hstring const& searchTerm, Windows::Devices::Geolocation::Geocircle const& searchArea, param::hstring const& localCategory, uint32_t maxResults) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Services::Maps::LocalSearch::LocalLocationFinderResult>) FindLocalLocationsAsync(param::hstring const& searchTerm, Windows::Devices::Geolocation::Geocircle const& searchArea, param::hstring const& localCategory, uint32_t maxResults) const;
     };
     template <> struct consume<Windows::Services::Maps::LocalSearch::ILocalLocationFinderStatics>
     {
@@ -239,9 +243,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_Maps_LocalSearch_ILocalLocationHoursOfOperationItem
     {
-        [[nodiscard]] auto Day() const;
-        [[nodiscard]] auto Start() const;
-        [[nodiscard]] auto Span() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Globalization::DayOfWeek) Day() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Start() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Span() const;
     };
     template <> struct consume<Windows::Services::Maps::LocalSearch::ILocalLocationHoursOfOperationItem>
     {
@@ -250,9 +254,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_Maps_LocalSearch_ILocalLocationRatingInfo
     {
-        [[nodiscard]] auto AggregateRating() const;
-        [[nodiscard]] auto RatingCount() const;
-        [[nodiscard]] auto ProviderIdentifier() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) AggregateRating() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) RatingCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ProviderIdentifier() const;
     };
     template <> struct consume<Windows::Services::Maps::LocalSearch::ILocalLocationRatingInfo>
     {
@@ -261,7 +265,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Services_Maps_LocalSearch_IPlaceInfoHelperStatics
     {
-        auto CreateFromLocalLocation(Windows::Services::Maps::LocalSearch::LocalLocation const& location) const;
+        WINRT_IMPL_AUTO(Windows::Services::Maps::PlaceInfo) CreateFromLocalLocation(Windows::Services::Maps::LocalSearch::LocalLocation const& location) const;
     };
     template <> struct consume<Windows::Services::Maps::LocalSearch::IPlaceInfoHelperStatics>
     {

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,244 +6,245 @@
 #ifndef WINRT_Windows_UI_Shell_H
 #define WINRT_Windows_UI_Shell_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.UI.h"
 #include "winrt/impl/Windows.ApplicationModel.Core.2.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Foundation.Collections.2.h"
+#include "winrt/impl/Windows.Graphics.Imaging.2.h"
 #include "winrt/impl/Windows.Storage.Streams.2.h"
 #include "winrt/impl/Windows.UI.StartScreen.2.h"
 #include "winrt/impl/Windows.UI.WindowManagement.2.h"
 #include "winrt/impl/Windows.UI.Shell.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_UI_Shell_IAdaptiveCard<D>::ToJson() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Shell_IAdaptiveCard<D>::ToJson() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IAdaptiveCard)->ToJson(&result));
         return hstring{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Shell_IAdaptiveCardBuilderStatics<D>::CreateAdaptiveCardFromJson(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Shell::IAdaptiveCard) consume_Windows_UI_Shell_IAdaptiveCardBuilderStatics<D>::CreateAdaptiveCardFromJson(param::hstring const& value) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IAdaptiveCardBuilderStatics)->CreateAdaptiveCardFromJson(*(void**)(&value), &result));
         return Windows::UI::Shell::IAdaptiveCard{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Shell_ISecurityAppManager<D>::Register(Windows::UI::Shell::SecurityAppKind const& kind, param::hstring const& displayName, Windows::Foundation::Uri const& detailsUri, bool registerPerUser) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::guid) consume_Windows_UI_Shell_ISecurityAppManager<D>::Register(Windows::UI::Shell::SecurityAppKind const& kind, param::hstring const& displayName, Windows::Foundation::Uri const& detailsUri, bool registerPerUser) const
     {
-        winrt::guid result;
+        winrt::guid result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::ISecurityAppManager)->Register(static_cast<int32_t>(kind), *(void**)(&displayName), *(void**)(&detailsUri), registerPerUser, put_abi(result)));
         return result;
     }
-    template <typename D> auto consume_Windows_UI_Shell_ISecurityAppManager<D>::Unregister(Windows::UI::Shell::SecurityAppKind const& kind, winrt::guid const& guidRegistration) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Shell_ISecurityAppManager<D>::Unregister(Windows::UI::Shell::SecurityAppKind const& kind, winrt::guid const& guidRegistration) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::ISecurityAppManager)->Unregister(static_cast<int32_t>(kind), impl::bind_in(guidRegistration)));
     }
-    template <typename D> auto consume_Windows_UI_Shell_ISecurityAppManager<D>::UpdateState(Windows::UI::Shell::SecurityAppKind const& kind, winrt::guid const& guidRegistration, Windows::UI::Shell::SecurityAppState const& state, Windows::UI::Shell::SecurityAppSubstatus const& substatus, Windows::Foundation::Uri const& detailsUri) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Shell_ISecurityAppManager<D>::UpdateState(Windows::UI::Shell::SecurityAppKind const& kind, winrt::guid const& guidRegistration, Windows::UI::Shell::SecurityAppState const& state, Windows::UI::Shell::SecurityAppSubstatus const& substatus, Windows::Foundation::Uri const& detailsUri) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::ISecurityAppManager)->UpdateState(static_cast<int32_t>(kind), impl::bind_in(guidRegistration), static_cast<int32_t>(state), static_cast<int32_t>(substatus), *(void**)(&detailsUri)));
     }
-    template <typename D> auto consume_Windows_UI_Shell_ITaskbarManager<D>::IsSupported() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Shell_ITaskbarManager<D>::IsSupported() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::ITaskbarManager)->get_IsSupported(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Shell_ITaskbarManager<D>::IsPinningAllowed() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Shell_ITaskbarManager<D>::IsPinningAllowed() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::ITaskbarManager)->get_IsPinningAllowed(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Shell_ITaskbarManager<D>::IsCurrentAppPinnedAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_UI_Shell_ITaskbarManager<D>::IsCurrentAppPinnedAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::ITaskbarManager)->IsCurrentAppPinnedAsync(&operation));
         return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Shell_ITaskbarManager<D>::IsAppListEntryPinnedAsync(Windows::ApplicationModel::Core::AppListEntry const& appListEntry) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_UI_Shell_ITaskbarManager<D>::IsAppListEntryPinnedAsync(Windows::ApplicationModel::Core::AppListEntry const& appListEntry) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::ITaskbarManager)->IsAppListEntryPinnedAsync(*(void**)(&appListEntry), &operation));
         return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Shell_ITaskbarManager<D>::RequestPinCurrentAppAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_UI_Shell_ITaskbarManager<D>::RequestPinCurrentAppAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::ITaskbarManager)->RequestPinCurrentAppAsync(&operation));
         return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Shell_ITaskbarManager<D>::RequestPinAppListEntryAsync(Windows::ApplicationModel::Core::AppListEntry const& appListEntry) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_UI_Shell_ITaskbarManager<D>::RequestPinAppListEntryAsync(Windows::ApplicationModel::Core::AppListEntry const& appListEntry) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::ITaskbarManager)->RequestPinAppListEntryAsync(*(void**)(&appListEntry), &operation));
         return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Shell_ITaskbarManager2<D>::IsSecondaryTilePinnedAsync(param::hstring const& tileId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_UI_Shell_ITaskbarManager2<D>::IsSecondaryTilePinnedAsync(param::hstring const& tileId) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::ITaskbarManager2)->IsSecondaryTilePinnedAsync(*(void**)(&tileId), &operation));
         return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Shell_ITaskbarManager2<D>::RequestPinSecondaryTileAsync(Windows::UI::StartScreen::SecondaryTile const& secondaryTile) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_UI_Shell_ITaskbarManager2<D>::RequestPinSecondaryTileAsync(Windows::UI::StartScreen::SecondaryTile const& secondaryTile) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::ITaskbarManager2)->RequestPinSecondaryTileAsync(*(void**)(&secondaryTile), &operation));
         return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Shell_ITaskbarManager2<D>::TryUnpinSecondaryTileAsync(param::hstring const& tileId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_UI_Shell_ITaskbarManager2<D>::TryUnpinSecondaryTileAsync(param::hstring const& tileId) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::ITaskbarManager2)->TryUnpinSecondaryTileAsync(*(void**)(&tileId), &operation));
         return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Shell_ITaskbarManagerStatics<D>::GetDefault() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Shell::TaskbarManager) consume_Windows_UI_Shell_ITaskbarManagerStatics<D>::GetDefault() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::ITaskbarManagerStatics)->GetDefault(&result));
         return Windows::UI::Shell::TaskbarManager{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTab<D>::Tag() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) consume_Windows_UI_Shell_IWindowTab<D>::Tag() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTab)->get_Tag(&value));
         return Windows::Foundation::IInspectable{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTab<D>::Tag(Windows::Foundation::IInspectable const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Shell_IWindowTab<D>::Tag(Windows::Foundation::IInspectable const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTab)->put_Tag(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTab<D>::Title() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Shell_IWindowTab<D>::Title() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTab)->get_Title(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTab<D>::Title(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Shell_IWindowTab<D>::Title(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTab)->put_Title(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTab<D>::IsRequestingAttention() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Shell_IWindowTab<D>::IsRequestingAttention() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTab)->get_IsRequestingAttention(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTab<D>::IsRequestingAttention(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Shell_IWindowTab<D>::IsRequestingAttention(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTab)->put_IsRequestingAttention(value));
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTab<D>::IsUnresponsive() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Shell_IWindowTab<D>::IsUnresponsive() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTab)->get_IsUnresponsive(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTab<D>::IsUnresponsive(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Shell_IWindowTab<D>::IsUnresponsive(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTab)->put_IsUnresponsive(value));
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTab<D>::Icon() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Shell::WindowTabIcon) consume_Windows_UI_Shell_IWindowTab<D>::Icon() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTab)->get_Icon(&value));
         return Windows::UI::Shell::WindowTabIcon{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTab<D>::Icon(Windows::UI::Shell::WindowTabIcon const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Shell_IWindowTab<D>::Icon(Windows::UI::Shell::WindowTabIcon const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTab)->put_Icon(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTab<D>::TreatAsAppId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Shell_IWindowTab<D>::TreatAsAppId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTab)->get_TreatAsAppId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTab<D>::TreatAsAppId(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Shell_IWindowTab<D>::TreatAsAppId(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTab)->put_TreatAsAppId(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTab<D>::TreatAsSecondaryTileId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Shell_IWindowTab<D>::TreatAsSecondaryTileId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTab)->get_TreatAsSecondaryTileId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTab<D>::TreatAsSecondaryTileId(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Shell_IWindowTab<D>::TreatAsSecondaryTileId(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTab)->put_TreatAsSecondaryTileId(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTab<D>::Group() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Shell::WindowTabGroup) consume_Windows_UI_Shell_IWindowTab<D>::Group() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTab)->get_Group(&value));
         return Windows::UI::Shell::WindowTabGroup{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTab<D>::Group(Windows::UI::Shell::WindowTabGroup const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Shell_IWindowTab<D>::Group(Windows::UI::Shell::WindowTabGroup const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTab)->put_Group(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTabCloseRequestedEventArgs<D>::Tab() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Shell::WindowTab) consume_Windows_UI_Shell_IWindowTabCloseRequestedEventArgs<D>::Tab() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTabCloseRequestedEventArgs)->get_Tab(&value));
         return Windows::UI::Shell::WindowTab{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTabCollection<D>::MoveTab(Windows::UI::Shell::WindowTab const& tab, uint32_t index) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Shell_IWindowTabCollection<D>::MoveTab(Windows::UI::Shell::WindowTab const& tab, uint32_t index) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTabCollection)->MoveTab(*(void**)(&tab), index));
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTabGroup<D>::Title() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_UI_Shell_IWindowTabGroup<D>::Title() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTabGroup)->get_Title(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTabGroup<D>::Title(param::hstring const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Shell_IWindowTabGroup<D>::Title(param::hstring const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTabGroup)->put_Title(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTabGroup<D>::Icon() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Shell::WindowTabIcon) consume_Windows_UI_Shell_IWindowTabGroup<D>::Icon() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTabGroup)->get_Icon(&value));
         return Windows::UI::Shell::WindowTabIcon{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTabGroup<D>::Icon(Windows::UI::Shell::WindowTabIcon const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Shell_IWindowTabGroup<D>::Icon(Windows::UI::Shell::WindowTabIcon const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTabGroup)->put_Icon(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTabIconStatics<D>::CreateFromFontGlyph(param::hstring const& glyph, param::hstring const& fontFamily) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Shell::WindowTabIcon) consume_Windows_UI_Shell_IWindowTabIconStatics<D>::CreateFromFontGlyph(param::hstring const& glyph, param::hstring const& fontFamily) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTabIconStatics)->CreateFromFontGlyph(*(void**)(&glyph), *(void**)(&fontFamily), &result));
         return Windows::UI::Shell::WindowTabIcon{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTabIconStatics<D>::CreateFromFontGlyph(param::hstring const& glyph, param::hstring const& fontFamily, Windows::Foundation::Uri const& fontUri) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Shell::WindowTabIcon) consume_Windows_UI_Shell_IWindowTabIconStatics<D>::CreateFromFontGlyph(param::hstring const& glyph, param::hstring const& fontFamily, Windows::Foundation::Uri const& fontUri) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTabIconStatics)->CreateFromFontGlyphWithUri(*(void**)(&glyph), *(void**)(&fontFamily), *(void**)(&fontUri), &result));
         return Windows::UI::Shell::WindowTabIcon{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTabIconStatics<D>::CreateFromImage(Windows::Storage::Streams::IRandomAccessStreamReference const& image) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Shell::WindowTabIcon) consume_Windows_UI_Shell_IWindowTabIconStatics<D>::CreateFromImage(Windows::Storage::Streams::IRandomAccessStreamReference const& image) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTabIconStatics)->CreateFromImage(*(void**)(&image), &result));
         return Windows::UI::Shell::WindowTabIcon{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTabManager<D>::Tabs() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Shell::WindowTabCollection) consume_Windows_UI_Shell_IWindowTabManager<D>::Tabs() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTabManager)->get_Tabs(&value));
         return Windows::UI::Shell::WindowTabCollection{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTabManager<D>::SetActiveTab(Windows::UI::Shell::WindowTab const& tab) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Shell_IWindowTabManager<D>::SetActiveTab(Windows::UI::Shell::WindowTab const& tab) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTabManager)->SetActiveTab(*(void**)(&tab)));
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTabManager<D>::TabSwitchRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Shell::WindowTabManager, Windows::UI::Shell::WindowTabSwitchRequestedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Shell_IWindowTabManager<D>::TabSwitchRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Shell::WindowTabManager, Windows::UI::Shell::WindowTabSwitchRequestedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTabManager)->add_TabSwitchRequested(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -251,13 +252,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, TabSwitchRequested_revoker>(this, TabSwitchRequested(handler));
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTabManager<D>::TabSwitchRequested(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Shell_IWindowTabManager<D>::TabSwitchRequested(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTabManager)->remove_TabSwitchRequested(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTabManager<D>::TabCloseRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Shell::WindowTabManager, Windows::UI::Shell::WindowTabCloseRequestedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Shell_IWindowTabManager<D>::TabCloseRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Shell::WindowTabManager, Windows::UI::Shell::WindowTabCloseRequestedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTabManager)->add_TabCloseRequested(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -265,13 +266,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, TabCloseRequested_revoker>(this, TabCloseRequested(handler));
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTabManager<D>::TabCloseRequested(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Shell_IWindowTabManager<D>::TabCloseRequested(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTabManager)->remove_TabCloseRequested(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTabManager<D>::TabThumbnailRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Shell::WindowTabManager, Windows::UI::Shell::WindowTabThumbnailRequestedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Shell_IWindowTabManager<D>::TabThumbnailRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Shell::WindowTabManager, Windows::UI::Shell::WindowTabThumbnailRequestedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTabManager)->add_TabThumbnailRequested(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -279,55 +280,61 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, TabThumbnailRequested_revoker>(this, TabThumbnailRequested(handler));
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTabManager<D>::TabThumbnailRequested(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Shell_IWindowTabManager<D>::TabThumbnailRequested(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTabManager)->remove_TabThumbnailRequested(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTabManagerStatics<D>::GetForCurrentView() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Shell::WindowTabManager) consume_Windows_UI_Shell_IWindowTabManagerStatics<D>::GetForCurrentView() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTabManagerStatics)->GetForCurrentView(&result));
         return Windows::UI::Shell::WindowTabManager{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTabManagerStatics<D>::GetForAppWindow(Windows::UI::WindowManagement::AppWindow const& appWindow) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Shell::WindowTabManager) consume_Windows_UI_Shell_IWindowTabManagerStatics<D>::GetForAppWindow(Windows::UI::WindowManagement::AppWindow const& appWindow) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTabManagerStatics)->GetForAppWindow(*(void**)(&appWindow), &result));
         return Windows::UI::Shell::WindowTabManager{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTabSwitchRequestedEventArgs<D>::Tab() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Shell::WindowTab) consume_Windows_UI_Shell_IWindowTabSwitchRequestedEventArgs<D>::Tab() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTabSwitchRequestedEventArgs)->get_Tab(&value));
         return Windows::UI::Shell::WindowTab{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTabThumbnailRequestedEventArgs<D>::Tab() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Shell::WindowTab) consume_Windows_UI_Shell_IWindowTabThumbnailRequestedEventArgs<D>::Tab() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTabThumbnailRequestedEventArgs)->get_Tab(&value));
         return Windows::UI::Shell::WindowTab{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTabThumbnailRequestedEventArgs<D>::RequestedSize() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_UI_Shell_IWindowTabThumbnailRequestedEventArgs<D>::RequestedSize() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTabThumbnailRequestedEventArgs)->get_RequestedSize(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTabThumbnailRequestedEventArgs<D>::Image() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamReference) consume_Windows_UI_Shell_IWindowTabThumbnailRequestedEventArgs<D>::Image() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTabThumbnailRequestedEventArgs)->get_Image(&value));
         return Windows::Storage::Streams::IRandomAccessStreamReference{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTabThumbnailRequestedEventArgs<D>::Image(Windows::Storage::Streams::IRandomAccessStreamReference const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Shell_IWindowTabThumbnailRequestedEventArgs<D>::Image(Windows::Storage::Streams::IRandomAccessStreamReference const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTabThumbnailRequestedEventArgs)->put_Image(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Shell_IWindowTabThumbnailRequestedEventArgs<D>::GetDeferral() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Deferral) consume_Windows_UI_Shell_IWindowTabThumbnailRequestedEventArgs<D>::GetDeferral() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTabThumbnailRequestedEventArgs)->GetDeferral(&result));
         return Windows::Foundation::Deferral{ result, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::Graphics::Imaging::BitmapSize) consume_Windows_UI_Shell_IWindowTabThumbnailRequestedEventArgs<D>::RequestedSize_Temp() const
+    {
+        Windows::Graphics::Imaging::BitmapSize value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Shell::IWindowTabThumbnailRequestedEventArgs)->get_RequestedSize_Temp(put_abi(value)));
+        return value;
     }
     template <typename D>
     struct produce<D, Windows::UI::Shell::IAdaptiveCard> : produce_base<D, Windows::UI::Shell::IAdaptiveCard>
@@ -837,6 +844,14 @@ namespace winrt::impl
             clear_abi(result);
             typename D::abi_guard guard(this->shim());
             *result = detach_from<Windows::Foundation::Deferral>(this->shim().GetDeferral());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_RequestedSize_Temp(struct struct_Windows_Graphics_Imaging_BitmapSize* value) noexcept final try
+        {
+            zero_abi<Windows::Graphics::Imaging::BitmapSize>(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<Windows::Graphics::Imaging::BitmapSize>(this->shim().RequestedSize_Temp());
             return 0;
         }
         catch (...) { return to_hresult(); }

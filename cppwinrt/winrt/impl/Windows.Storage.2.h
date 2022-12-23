@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -197,15 +197,31 @@ WINRT_EXPORT namespace winrt::Windows::Storage
         StorageLibraryChange(std::nullptr_t) noexcept {}
         StorageLibraryChange(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Storage::IStorageLibraryChange(ptr, take_ownership_from_abi) {}
     };
-    struct __declspec(empty_bases) StorageLibraryChangeReader : Windows::Storage::IStorageLibraryChangeReader
+    struct __declspec(empty_bases) StorageLibraryChangeReader : Windows::Storage::IStorageLibraryChangeReader,
+        impl::require<StorageLibraryChangeReader, Windows::Storage::IStorageLibraryChangeReader2>
     {
         StorageLibraryChangeReader(std::nullptr_t) noexcept {}
         StorageLibraryChangeReader(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Storage::IStorageLibraryChangeReader(ptr, take_ownership_from_abi) {}
     };
-    struct __declspec(empty_bases) StorageLibraryChangeTracker : Windows::Storage::IStorageLibraryChangeTracker
+    struct __declspec(empty_bases) StorageLibraryChangeTracker : Windows::Storage::IStorageLibraryChangeTracker,
+        impl::require<StorageLibraryChangeTracker, Windows::Storage::IStorageLibraryChangeTracker2>
     {
         StorageLibraryChangeTracker(std::nullptr_t) noexcept {}
         StorageLibraryChangeTracker(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Storage::IStorageLibraryChangeTracker(ptr, take_ownership_from_abi) {}
+        using Windows::Storage::IStorageLibraryChangeTracker::Enable;
+        using impl::consume_t<StorageLibraryChangeTracker, Windows::Storage::IStorageLibraryChangeTracker2>::Enable;
+    };
+    struct __declspec(empty_bases) StorageLibraryChangeTrackerOptions : Windows::Storage::IStorageLibraryChangeTrackerOptions
+    {
+        StorageLibraryChangeTrackerOptions(std::nullptr_t) noexcept {}
+        StorageLibraryChangeTrackerOptions(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Storage::IStorageLibraryChangeTrackerOptions(ptr, take_ownership_from_abi) {}
+        StorageLibraryChangeTrackerOptions();
+    };
+    struct __declspec(empty_bases) StorageLibraryLastChangeId : Windows::Storage::IStorageLibraryLastChangeId
+    {
+        StorageLibraryLastChangeId(std::nullptr_t) noexcept {}
+        StorageLibraryLastChangeId(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Storage::IStorageLibraryLastChangeId(ptr, take_ownership_from_abi) {}
+        [[nodiscard]] static auto Unknown();
     };
     struct __declspec(empty_bases) StorageProvider : Windows::Storage::IStorageProvider,
         impl::require<StorageProvider, Windows::Storage::IStorageProvider2>

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -154,58 +154,56 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Composition::Scenes::SceneAttributeSemantic>{ using type = enum_category; };
     template <> struct category<Windows::UI::Composition::Scenes::SceneComponentType>{ using type = enum_category; };
     template <> struct category<Windows::UI::Composition::Scenes::SceneWrappingMode>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneBoundingBox>{ L"Windows.UI.Composition.Scenes.SceneBoundingBox" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneComponent>{ L"Windows.UI.Composition.Scenes.SceneComponent" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneComponentCollection>{ L"Windows.UI.Composition.Scenes.SceneComponentCollection" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneMaterial>{ L"Windows.UI.Composition.Scenes.SceneMaterial" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneMaterialInput>{ L"Windows.UI.Composition.Scenes.SceneMaterialInput" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneMesh>{ L"Windows.UI.Composition.Scenes.SceneMesh" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneMeshMaterialAttributeMap>{ L"Windows.UI.Composition.Scenes.SceneMeshMaterialAttributeMap" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneMeshRendererComponent>{ L"Windows.UI.Composition.Scenes.SceneMeshRendererComponent" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneMetallicRoughnessMaterial>{ L"Windows.UI.Composition.Scenes.SceneMetallicRoughnessMaterial" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneModelTransform>{ L"Windows.UI.Composition.Scenes.SceneModelTransform" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneNode>{ L"Windows.UI.Composition.Scenes.SceneNode" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneNodeCollection>{ L"Windows.UI.Composition.Scenes.SceneNodeCollection" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneObject>{ L"Windows.UI.Composition.Scenes.SceneObject" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ScenePbrMaterial>{ L"Windows.UI.Composition.Scenes.ScenePbrMaterial" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneRendererComponent>{ L"Windows.UI.Composition.Scenes.SceneRendererComponent" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneSurfaceMaterialInput>{ L"Windows.UI.Composition.Scenes.SceneSurfaceMaterialInput" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneVisual>{ L"Windows.UI.Composition.Scenes.SceneVisual" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneAlphaMode>{ L"Windows.UI.Composition.Scenes.SceneAlphaMode" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneAttributeSemantic>{ L"Windows.UI.Composition.Scenes.SceneAttributeSemantic" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneComponentType>{ L"Windows.UI.Composition.Scenes.SceneComponentType" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneWrappingMode>{ L"Windows.UI.Composition.Scenes.SceneWrappingMode" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneBoundingBox>{ L"Windows.UI.Composition.Scenes.ISceneBoundingBox" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneComponent>{ L"Windows.UI.Composition.Scenes.ISceneComponent" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneComponentCollection>{ L"Windows.UI.Composition.Scenes.ISceneComponentCollection" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneComponentFactory>{ L"Windows.UI.Composition.Scenes.ISceneComponentFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneMaterial>{ L"Windows.UI.Composition.Scenes.ISceneMaterial" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneMaterialFactory>{ L"Windows.UI.Composition.Scenes.ISceneMaterialFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneMaterialInput>{ L"Windows.UI.Composition.Scenes.ISceneMaterialInput" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneMaterialInputFactory>{ L"Windows.UI.Composition.Scenes.ISceneMaterialInputFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneMesh>{ L"Windows.UI.Composition.Scenes.ISceneMesh" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneMeshMaterialAttributeMap>{ L"Windows.UI.Composition.Scenes.ISceneMeshMaterialAttributeMap" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneMeshRendererComponent>{ L"Windows.UI.Composition.Scenes.ISceneMeshRendererComponent" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneMeshRendererComponentStatics>{ L"Windows.UI.Composition.Scenes.ISceneMeshRendererComponentStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneMeshStatics>{ L"Windows.UI.Composition.Scenes.ISceneMeshStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneMetallicRoughnessMaterial>{ L"Windows.UI.Composition.Scenes.ISceneMetallicRoughnessMaterial" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneMetallicRoughnessMaterialStatics>{ L"Windows.UI.Composition.Scenes.ISceneMetallicRoughnessMaterialStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneModelTransform>{ L"Windows.UI.Composition.Scenes.ISceneModelTransform" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneNode>{ L"Windows.UI.Composition.Scenes.ISceneNode" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneNodeCollection>{ L"Windows.UI.Composition.Scenes.ISceneNodeCollection" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneNodeStatics>{ L"Windows.UI.Composition.Scenes.ISceneNodeStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneObject>{ L"Windows.UI.Composition.Scenes.ISceneObject" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneObjectFactory>{ L"Windows.UI.Composition.Scenes.ISceneObjectFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::IScenePbrMaterial>{ L"Windows.UI.Composition.Scenes.IScenePbrMaterial" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::IScenePbrMaterialFactory>{ L"Windows.UI.Composition.Scenes.IScenePbrMaterialFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneRendererComponent>{ L"Windows.UI.Composition.Scenes.ISceneRendererComponent" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneRendererComponentFactory>{ L"Windows.UI.Composition.Scenes.ISceneRendererComponentFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneSurfaceMaterialInput>{ L"Windows.UI.Composition.Scenes.ISceneSurfaceMaterialInput" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneSurfaceMaterialInputStatics>{ L"Windows.UI.Composition.Scenes.ISceneSurfaceMaterialInputStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneVisual>{ L"Windows.UI.Composition.Scenes.ISceneVisual" };
-    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneVisualStatics>{ L"Windows.UI.Composition.Scenes.ISceneVisualStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneBoundingBox> = L"Windows.UI.Composition.Scenes.SceneBoundingBox";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneComponent> = L"Windows.UI.Composition.Scenes.SceneComponent";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneComponentCollection> = L"Windows.UI.Composition.Scenes.SceneComponentCollection";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneMaterial> = L"Windows.UI.Composition.Scenes.SceneMaterial";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneMaterialInput> = L"Windows.UI.Composition.Scenes.SceneMaterialInput";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneMesh> = L"Windows.UI.Composition.Scenes.SceneMesh";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneMeshMaterialAttributeMap> = L"Windows.UI.Composition.Scenes.SceneMeshMaterialAttributeMap";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneMeshRendererComponent> = L"Windows.UI.Composition.Scenes.SceneMeshRendererComponent";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneMetallicRoughnessMaterial> = L"Windows.UI.Composition.Scenes.SceneMetallicRoughnessMaterial";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneModelTransform> = L"Windows.UI.Composition.Scenes.SceneModelTransform";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneNode> = L"Windows.UI.Composition.Scenes.SceneNode";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneNodeCollection> = L"Windows.UI.Composition.Scenes.SceneNodeCollection";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneObject> = L"Windows.UI.Composition.Scenes.SceneObject";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ScenePbrMaterial> = L"Windows.UI.Composition.Scenes.ScenePbrMaterial";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneRendererComponent> = L"Windows.UI.Composition.Scenes.SceneRendererComponent";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneSurfaceMaterialInput> = L"Windows.UI.Composition.Scenes.SceneSurfaceMaterialInput";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneVisual> = L"Windows.UI.Composition.Scenes.SceneVisual";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneAlphaMode> = L"Windows.UI.Composition.Scenes.SceneAlphaMode";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneAttributeSemantic> = L"Windows.UI.Composition.Scenes.SceneAttributeSemantic";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneComponentType> = L"Windows.UI.Composition.Scenes.SceneComponentType";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::SceneWrappingMode> = L"Windows.UI.Composition.Scenes.SceneWrappingMode";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneBoundingBox> = L"Windows.UI.Composition.Scenes.ISceneBoundingBox";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneComponent> = L"Windows.UI.Composition.Scenes.ISceneComponent";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneComponentCollection> = L"Windows.UI.Composition.Scenes.ISceneComponentCollection";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneComponentFactory> = L"Windows.UI.Composition.Scenes.ISceneComponentFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneMaterial> = L"Windows.UI.Composition.Scenes.ISceneMaterial";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneMaterialFactory> = L"Windows.UI.Composition.Scenes.ISceneMaterialFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneMaterialInput> = L"Windows.UI.Composition.Scenes.ISceneMaterialInput";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneMaterialInputFactory> = L"Windows.UI.Composition.Scenes.ISceneMaterialInputFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneMesh> = L"Windows.UI.Composition.Scenes.ISceneMesh";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneMeshMaterialAttributeMap> = L"Windows.UI.Composition.Scenes.ISceneMeshMaterialAttributeMap";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneMeshRendererComponent> = L"Windows.UI.Composition.Scenes.ISceneMeshRendererComponent";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneMeshRendererComponentStatics> = L"Windows.UI.Composition.Scenes.ISceneMeshRendererComponentStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneMeshStatics> = L"Windows.UI.Composition.Scenes.ISceneMeshStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneMetallicRoughnessMaterial> = L"Windows.UI.Composition.Scenes.ISceneMetallicRoughnessMaterial";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneMetallicRoughnessMaterialStatics> = L"Windows.UI.Composition.Scenes.ISceneMetallicRoughnessMaterialStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneModelTransform> = L"Windows.UI.Composition.Scenes.ISceneModelTransform";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneNode> = L"Windows.UI.Composition.Scenes.ISceneNode";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneNodeCollection> = L"Windows.UI.Composition.Scenes.ISceneNodeCollection";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneNodeStatics> = L"Windows.UI.Composition.Scenes.ISceneNodeStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneObject> = L"Windows.UI.Composition.Scenes.ISceneObject";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneObjectFactory> = L"Windows.UI.Composition.Scenes.ISceneObjectFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::IScenePbrMaterial> = L"Windows.UI.Composition.Scenes.IScenePbrMaterial";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::IScenePbrMaterialFactory> = L"Windows.UI.Composition.Scenes.IScenePbrMaterialFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneRendererComponent> = L"Windows.UI.Composition.Scenes.ISceneRendererComponent";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneRendererComponentFactory> = L"Windows.UI.Composition.Scenes.ISceneRendererComponentFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneSurfaceMaterialInput> = L"Windows.UI.Composition.Scenes.ISceneSurfaceMaterialInput";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneSurfaceMaterialInputStatics> = L"Windows.UI.Composition.Scenes.ISceneSurfaceMaterialInputStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneVisual> = L"Windows.UI.Composition.Scenes.ISceneVisual";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::Scenes::ISceneVisualStatics> = L"Windows.UI.Composition.Scenes.ISceneVisualStatics";
     template <> inline constexpr guid guid_v<Windows::UI::Composition::Scenes::ISceneBoundingBox>{ 0x5D8FFC70,0xC618,0x4083,{ 0x82,0x51,0x99,0x62,0x59,0x31,0x14,0xAA } };
     template <> inline constexpr guid guid_v<Windows::UI::Composition::Scenes::ISceneComponent>{ 0xAE20FC96,0x226C,0x44BD,{ 0x95,0xCB,0xDD,0x5E,0xD9,0xEB,0xE9,0xA5 } };
     template <> inline constexpr guid guid_v<Windows::UI::Composition::Scenes::ISceneComponentCollection>{ 0xC483791C,0x5F46,0x45E4,{ 0xB6,0x66,0xA3,0xD2,0x25,0x9F,0x9B,0x2E } };
@@ -505,11 +503,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Composition_Scenes_ISceneBoundingBox
     {
-        [[nodiscard]] auto Center() const;
-        [[nodiscard]] auto Extents() const;
-        [[nodiscard]] auto Max() const;
-        [[nodiscard]] auto Min() const;
-        [[nodiscard]] auto Size() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) Center() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) Extents() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) Max() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) Min() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) Size() const;
     };
     template <> struct consume<Windows::UI::Composition::Scenes::ISceneBoundingBox>
     {
@@ -518,7 +516,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Composition_Scenes_ISceneComponent
     {
-        [[nodiscard]] auto ComponentType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::Scenes::SceneComponentType) ComponentType() const;
     };
     template <> struct consume<Windows::UI::Composition::Scenes::ISceneComponent>
     {
@@ -575,10 +573,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Composition_Scenes_ISceneMesh
     {
-        [[nodiscard]] auto Bounds() const;
-        [[nodiscard]] auto PrimitiveTopology() const;
-        auto PrimitiveTopology(Windows::Graphics::DirectX::DirectXPrimitiveTopology const& value) const;
-        auto FillMeshAttribute(Windows::UI::Composition::Scenes::SceneAttributeSemantic const& semantic, Windows::Graphics::DirectX::DirectXPixelFormat const& format, Windows::Foundation::MemoryBuffer const& memory) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::Scenes::SceneBoundingBox) Bounds() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::DirectX::DirectXPrimitiveTopology) PrimitiveTopology() const;
+        WINRT_IMPL_AUTO(void) PrimitiveTopology(Windows::Graphics::DirectX::DirectXPrimitiveTopology const& value) const;
+        WINRT_IMPL_AUTO(void) FillMeshAttribute(Windows::UI::Composition::Scenes::SceneAttributeSemantic const& semantic, Windows::Graphics::DirectX::DirectXPixelFormat const& format, Windows::Foundation::MemoryBuffer const& memory) const;
     };
     template <> struct consume<Windows::UI::Composition::Scenes::ISceneMesh>
     {
@@ -595,11 +593,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Composition_Scenes_ISceneMeshRendererComponent
     {
-        [[nodiscard]] auto Material() const;
-        auto Material(Windows::UI::Composition::Scenes::SceneMaterial const& value) const;
-        [[nodiscard]] auto Mesh() const;
-        auto Mesh(Windows::UI::Composition::Scenes::SceneMesh const& value) const;
-        [[nodiscard]] auto UVMappings() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::Scenes::SceneMaterial) Material() const;
+        WINRT_IMPL_AUTO(void) Material(Windows::UI::Composition::Scenes::SceneMaterial const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::Scenes::SceneMesh) Mesh() const;
+        WINRT_IMPL_AUTO(void) Mesh(Windows::UI::Composition::Scenes::SceneMesh const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::Scenes::SceneMeshMaterialAttributeMap) UVMappings() const;
     };
     template <> struct consume<Windows::UI::Composition::Scenes::ISceneMeshRendererComponent>
     {
@@ -608,7 +606,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Composition_Scenes_ISceneMeshRendererComponentStatics
     {
-        auto Create(Windows::UI::Composition::Compositor const& compositor) const;
+        WINRT_IMPL_AUTO(Windows::UI::Composition::Scenes::SceneMeshRendererComponent) Create(Windows::UI::Composition::Compositor const& compositor) const;
     };
     template <> struct consume<Windows::UI::Composition::Scenes::ISceneMeshRendererComponentStatics>
     {
@@ -617,7 +615,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Composition_Scenes_ISceneMeshStatics
     {
-        auto Create(Windows::UI::Composition::Compositor const& compositor) const;
+        WINRT_IMPL_AUTO(Windows::UI::Composition::Scenes::SceneMesh) Create(Windows::UI::Composition::Compositor const& compositor) const;
     };
     template <> struct consume<Windows::UI::Composition::Scenes::ISceneMeshStatics>
     {
@@ -626,16 +624,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Composition_Scenes_ISceneMetallicRoughnessMaterial
     {
-        [[nodiscard]] auto BaseColorInput() const;
-        auto BaseColorInput(Windows::UI::Composition::Scenes::SceneMaterialInput const& value) const;
-        [[nodiscard]] auto BaseColorFactor() const;
-        auto BaseColorFactor(Windows::Foundation::Numerics::float4 const& value) const;
-        [[nodiscard]] auto MetallicFactor() const;
-        auto MetallicFactor(float value) const;
-        [[nodiscard]] auto MetallicRoughnessInput() const;
-        auto MetallicRoughnessInput(Windows::UI::Composition::Scenes::SceneMaterialInput const& value) const;
-        [[nodiscard]] auto RoughnessFactor() const;
-        auto RoughnessFactor(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::Scenes::SceneMaterialInput) BaseColorInput() const;
+        WINRT_IMPL_AUTO(void) BaseColorInput(Windows::UI::Composition::Scenes::SceneMaterialInput const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float4) BaseColorFactor() const;
+        WINRT_IMPL_AUTO(void) BaseColorFactor(Windows::Foundation::Numerics::float4 const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) MetallicFactor() const;
+        WINRT_IMPL_AUTO(void) MetallicFactor(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::Scenes::SceneMaterialInput) MetallicRoughnessInput() const;
+        WINRT_IMPL_AUTO(void) MetallicRoughnessInput(Windows::UI::Composition::Scenes::SceneMaterialInput const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) RoughnessFactor() const;
+        WINRT_IMPL_AUTO(void) RoughnessFactor(float value) const;
     };
     template <> struct consume<Windows::UI::Composition::Scenes::ISceneMetallicRoughnessMaterial>
     {
@@ -644,7 +642,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Composition_Scenes_ISceneMetallicRoughnessMaterialStatics
     {
-        auto Create(Windows::UI::Composition::Compositor const& compositor) const;
+        WINRT_IMPL_AUTO(Windows::UI::Composition::Scenes::SceneMetallicRoughnessMaterial) Create(Windows::UI::Composition::Compositor const& compositor) const;
     };
     template <> struct consume<Windows::UI::Composition::Scenes::ISceneMetallicRoughnessMaterialStatics>
     {
@@ -653,18 +651,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Composition_Scenes_ISceneModelTransform
     {
-        [[nodiscard]] auto Orientation() const;
-        auto Orientation(Windows::Foundation::Numerics::quaternion const& value) const;
-        [[nodiscard]] auto RotationAngle() const;
-        auto RotationAngle(float value) const;
-        [[nodiscard]] auto RotationAngleInDegrees() const;
-        auto RotationAngleInDegrees(float value) const;
-        [[nodiscard]] auto RotationAxis() const;
-        auto RotationAxis(Windows::Foundation::Numerics::float3 const& value) const;
-        [[nodiscard]] auto Scale() const;
-        auto Scale(Windows::Foundation::Numerics::float3 const& value) const;
-        [[nodiscard]] auto Translation() const;
-        auto Translation(Windows::Foundation::Numerics::float3 const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::quaternion) Orientation() const;
+        WINRT_IMPL_AUTO(void) Orientation(Windows::Foundation::Numerics::quaternion const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) RotationAngle() const;
+        WINRT_IMPL_AUTO(void) RotationAngle(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) RotationAngleInDegrees() const;
+        WINRT_IMPL_AUTO(void) RotationAngleInDegrees(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) RotationAxis() const;
+        WINRT_IMPL_AUTO(void) RotationAxis(Windows::Foundation::Numerics::float3 const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) Scale() const;
+        WINRT_IMPL_AUTO(void) Scale(Windows::Foundation::Numerics::float3 const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) Translation() const;
+        WINRT_IMPL_AUTO(void) Translation(Windows::Foundation::Numerics::float3 const& value) const;
     };
     template <> struct consume<Windows::UI::Composition::Scenes::ISceneModelTransform>
     {
@@ -673,11 +671,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Composition_Scenes_ISceneNode
     {
-        [[nodiscard]] auto Children() const;
-        [[nodiscard]] auto Components() const;
-        [[nodiscard]] auto Parent() const;
-        [[nodiscard]] auto Transform() const;
-        auto FindFirstComponentOfType(Windows::UI::Composition::Scenes::SceneComponentType const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::Scenes::SceneNodeCollection) Children() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::Scenes::SceneComponentCollection) Components() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::Scenes::SceneNode) Parent() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::Scenes::SceneModelTransform) Transform() const;
+        WINRT_IMPL_AUTO(Windows::UI::Composition::Scenes::SceneComponent) FindFirstComponentOfType(Windows::UI::Composition::Scenes::SceneComponentType const& value) const;
     };
     template <> struct consume<Windows::UI::Composition::Scenes::ISceneNode>
     {
@@ -694,7 +692,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Composition_Scenes_ISceneNodeStatics
     {
-        auto Create(Windows::UI::Composition::Compositor const& compositor) const;
+        WINRT_IMPL_AUTO(Windows::UI::Composition::Scenes::SceneNode) Create(Windows::UI::Composition::Compositor const& compositor) const;
     };
     template <> struct consume<Windows::UI::Composition::Scenes::ISceneNodeStatics>
     {
@@ -719,24 +717,24 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Composition_Scenes_IScenePbrMaterial
     {
-        [[nodiscard]] auto AlphaCutoff() const;
-        auto AlphaCutoff(float value) const;
-        [[nodiscard]] auto AlphaMode() const;
-        auto AlphaMode(Windows::UI::Composition::Scenes::SceneAlphaMode const& value) const;
-        [[nodiscard]] auto EmissiveInput() const;
-        auto EmissiveInput(Windows::UI::Composition::Scenes::SceneMaterialInput const& value) const;
-        [[nodiscard]] auto EmissiveFactor() const;
-        auto EmissiveFactor(Windows::Foundation::Numerics::float3 const& value) const;
-        [[nodiscard]] auto IsDoubleSided() const;
-        auto IsDoubleSided(bool value) const;
-        [[nodiscard]] auto NormalInput() const;
-        auto NormalInput(Windows::UI::Composition::Scenes::SceneMaterialInput const& value) const;
-        [[nodiscard]] auto NormalScale() const;
-        auto NormalScale(float value) const;
-        [[nodiscard]] auto OcclusionInput() const;
-        auto OcclusionInput(Windows::UI::Composition::Scenes::SceneMaterialInput const& value) const;
-        [[nodiscard]] auto OcclusionStrength() const;
-        auto OcclusionStrength(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) AlphaCutoff() const;
+        WINRT_IMPL_AUTO(void) AlphaCutoff(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::Scenes::SceneAlphaMode) AlphaMode() const;
+        WINRT_IMPL_AUTO(void) AlphaMode(Windows::UI::Composition::Scenes::SceneAlphaMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::Scenes::SceneMaterialInput) EmissiveInput() const;
+        WINRT_IMPL_AUTO(void) EmissiveInput(Windows::UI::Composition::Scenes::SceneMaterialInput const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) EmissiveFactor() const;
+        WINRT_IMPL_AUTO(void) EmissiveFactor(Windows::Foundation::Numerics::float3 const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDoubleSided() const;
+        WINRT_IMPL_AUTO(void) IsDoubleSided(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::Scenes::SceneMaterialInput) NormalInput() const;
+        WINRT_IMPL_AUTO(void) NormalInput(Windows::UI::Composition::Scenes::SceneMaterialInput const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) NormalScale() const;
+        WINRT_IMPL_AUTO(void) NormalScale(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::Scenes::SceneMaterialInput) OcclusionInput() const;
+        WINRT_IMPL_AUTO(void) OcclusionInput(Windows::UI::Composition::Scenes::SceneMaterialInput const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) OcclusionStrength() const;
+        WINRT_IMPL_AUTO(void) OcclusionStrength(float value) const;
     };
     template <> struct consume<Windows::UI::Composition::Scenes::IScenePbrMaterial>
     {
@@ -769,14 +767,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Composition_Scenes_ISceneSurfaceMaterialInput
     {
-        [[nodiscard]] auto BitmapInterpolationMode() const;
-        auto BitmapInterpolationMode(Windows::UI::Composition::CompositionBitmapInterpolationMode const& value) const;
-        [[nodiscard]] auto Surface() const;
-        auto Surface(Windows::UI::Composition::ICompositionSurface const& value) const;
-        [[nodiscard]] auto WrappingUMode() const;
-        auto WrappingUMode(Windows::UI::Composition::Scenes::SceneWrappingMode const& value) const;
-        [[nodiscard]] auto WrappingVMode() const;
-        auto WrappingVMode(Windows::UI::Composition::Scenes::SceneWrappingMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionBitmapInterpolationMode) BitmapInterpolationMode() const;
+        WINRT_IMPL_AUTO(void) BitmapInterpolationMode(Windows::UI::Composition::CompositionBitmapInterpolationMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::ICompositionSurface) Surface() const;
+        WINRT_IMPL_AUTO(void) Surface(Windows::UI::Composition::ICompositionSurface const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::Scenes::SceneWrappingMode) WrappingUMode() const;
+        WINRT_IMPL_AUTO(void) WrappingUMode(Windows::UI::Composition::Scenes::SceneWrappingMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::Scenes::SceneWrappingMode) WrappingVMode() const;
+        WINRT_IMPL_AUTO(void) WrappingVMode(Windows::UI::Composition::Scenes::SceneWrappingMode const& value) const;
     };
     template <> struct consume<Windows::UI::Composition::Scenes::ISceneSurfaceMaterialInput>
     {
@@ -785,7 +783,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Composition_Scenes_ISceneSurfaceMaterialInputStatics
     {
-        auto Create(Windows::UI::Composition::Compositor const& compositor) const;
+        WINRT_IMPL_AUTO(Windows::UI::Composition::Scenes::SceneSurfaceMaterialInput) Create(Windows::UI::Composition::Compositor const& compositor) const;
     };
     template <> struct consume<Windows::UI::Composition::Scenes::ISceneSurfaceMaterialInputStatics>
     {
@@ -794,8 +792,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Composition_Scenes_ISceneVisual
     {
-        [[nodiscard]] auto Root() const;
-        auto Root(Windows::UI::Composition::Scenes::SceneNode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::Scenes::SceneNode) Root() const;
+        WINRT_IMPL_AUTO(void) Root(Windows::UI::Composition::Scenes::SceneNode const& value) const;
     };
     template <> struct consume<Windows::UI::Composition::Scenes::ISceneVisual>
     {
@@ -804,7 +802,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Composition_Scenes_ISceneVisualStatics
     {
-        auto Create(Windows::UI::Composition::Compositor const& compositor) const;
+        WINRT_IMPL_AUTO(Windows::UI::Composition::Scenes::SceneVisual) Create(Windows::UI::Composition::Compositor const& compositor) const;
     };
     template <> struct consume<Windows::UI::Composition::Scenes::ISceneVisualStatics>
     {

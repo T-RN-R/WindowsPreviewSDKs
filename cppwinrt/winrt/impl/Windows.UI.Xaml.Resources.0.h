@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -20,13 +20,11 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderOverrides>{ using type = interface_category; };
     template <> struct category<Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderStatics>{ using type = interface_category; };
     template <> struct category<Windows::UI::Xaml::Resources::CustomXamlResourceLoader>{ using type = class_category; };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Resources::CustomXamlResourceLoader>{ L"Windows.UI.Xaml.Resources.CustomXamlResourceLoader" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Resources::ICustomXamlResourceLoader>{ L"Windows.UI.Xaml.Resources.ICustomXamlResourceLoader" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderFactory>{ L"Windows.UI.Xaml.Resources.ICustomXamlResourceLoaderFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderOverrides>{ L"Windows.UI.Xaml.Resources.ICustomXamlResourceLoaderOverrides" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderStatics>{ L"Windows.UI.Xaml.Resources.ICustomXamlResourceLoaderStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Resources::CustomXamlResourceLoader> = L"Windows.UI.Xaml.Resources.CustomXamlResourceLoader";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Resources::ICustomXamlResourceLoader> = L"Windows.UI.Xaml.Resources.ICustomXamlResourceLoader";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderFactory> = L"Windows.UI.Xaml.Resources.ICustomXamlResourceLoaderFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderOverrides> = L"Windows.UI.Xaml.Resources.ICustomXamlResourceLoaderOverrides";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderStatics> = L"Windows.UI.Xaml.Resources.ICustomXamlResourceLoaderStatics";
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Resources::ICustomXamlResourceLoader>{ 0x511A84AB,0x4A88,0x419F,{ 0x85,0x2E,0x54,0x08,0x3B,0x90,0xB0,0x78 } };
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderFactory>{ 0x5BFD7E49,0x7886,0x44F3,{ 0x8E,0xD3,0x6F,0xEC,0x04,0x63,0xED,0x69 } };
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderOverrides>{ 0xF851E991,0xAF02,0x46E8,{ 0x9A,0xF8,0x42,0x7B,0x7E,0xBF,0xE9,0xF8 } };
@@ -71,7 +69,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Resources_ICustomXamlResourceLoaderFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Resources::CustomXamlResourceLoader) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderFactory>
     {
@@ -80,7 +78,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Resources_ICustomXamlResourceLoaderOverrides
     {
-        auto GetResource(param::hstring const& resourceId, param::hstring const& objectType, param::hstring const& propertyName, param::hstring const& propertyType) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) GetResource(param::hstring const& resourceId, param::hstring const& objectType, param::hstring const& propertyName, param::hstring const& propertyType) const;
     };
     template <> struct consume<Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderOverrides>
     {
@@ -89,8 +87,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Resources_ICustomXamlResourceLoaderStatics
     {
-        [[nodiscard]] auto Current() const;
-        auto Current(Windows::UI::Xaml::Resources::CustomXamlResourceLoader const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Resources::CustomXamlResourceLoader) Current() const;
+        WINRT_IMPL_AUTO(void) Current(Windows::UI::Xaml::Resources::CustomXamlResourceLoader const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Resources::ICustomXamlResourceLoaderStatics>
     {

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -9,8 +9,13 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
     template <typename T> struct IReference;
     template <typename TSender, typename TResult> struct TypedEventHandler;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::System
 {
@@ -173,45 +178,43 @@ namespace winrt::impl
     template <> struct category<Windows::ApplicationModel::UserDataTasks::UserDataTaskSensitivity>{ using type = enum_category; };
     template <> struct category<Windows::ApplicationModel::UserDataTasks::UserDataTaskStoreAccessType>{ using type = enum_category; };
     template <> struct category<Windows::ApplicationModel::UserDataTasks::UserDataTaskWeekOfMonth>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTask>{ L"Windows.ApplicationModel.UserDataTasks.UserDataTask" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskBatch>{ L"Windows.ApplicationModel.UserDataTasks.UserDataTaskBatch" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskList>{ L"Windows.ApplicationModel.UserDataTasks.UserDataTaskList" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskListLimitedWriteOperations>{ L"Windows.ApplicationModel.UserDataTasks.UserDataTaskListLimitedWriteOperations" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskListSyncManager>{ L"Windows.ApplicationModel.UserDataTasks.UserDataTaskListSyncManager" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskManager>{ L"Windows.ApplicationModel.UserDataTasks.UserDataTaskManager" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskQueryOptions>{ L"Windows.ApplicationModel.UserDataTasks.UserDataTaskQueryOptions" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskReader>{ L"Windows.ApplicationModel.UserDataTasks.UserDataTaskReader" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskRecurrenceProperties>{ L"Windows.ApplicationModel.UserDataTasks.UserDataTaskRecurrenceProperties" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskRegenerationProperties>{ L"Windows.ApplicationModel.UserDataTasks.UserDataTaskRegenerationProperties" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskStore>{ L"Windows.ApplicationModel.UserDataTasks.UserDataTaskStore" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskDaysOfWeek>{ L"Windows.ApplicationModel.UserDataTasks.UserDataTaskDaysOfWeek" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskDetailsKind>{ L"Windows.ApplicationModel.UserDataTasks.UserDataTaskDetailsKind" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskKind>{ L"Windows.ApplicationModel.UserDataTasks.UserDataTaskKind" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskListOtherAppReadAccess>{ L"Windows.ApplicationModel.UserDataTasks.UserDataTaskListOtherAppReadAccess" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskListOtherAppWriteAccess>{ L"Windows.ApplicationModel.UserDataTasks.UserDataTaskListOtherAppWriteAccess" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskListSyncStatus>{ L"Windows.ApplicationModel.UserDataTasks.UserDataTaskListSyncStatus" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskPriority>{ L"Windows.ApplicationModel.UserDataTasks.UserDataTaskPriority" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskQueryKind>{ L"Windows.ApplicationModel.UserDataTasks.UserDataTaskQueryKind" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskQuerySortProperty>{ L"Windows.ApplicationModel.UserDataTasks.UserDataTaskQuerySortProperty" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskRecurrenceUnit>{ L"Windows.ApplicationModel.UserDataTasks.UserDataTaskRecurrenceUnit" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskRegenerationUnit>{ L"Windows.ApplicationModel.UserDataTasks.UserDataTaskRegenerationUnit" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskSensitivity>{ L"Windows.ApplicationModel.UserDataTasks.UserDataTaskSensitivity" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskStoreAccessType>{ L"Windows.ApplicationModel.UserDataTasks.UserDataTaskStoreAccessType" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskWeekOfMonth>{ L"Windows.ApplicationModel.UserDataTasks.UserDataTaskWeekOfMonth" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::IUserDataTask>{ L"Windows.ApplicationModel.UserDataTasks.IUserDataTask" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskBatch>{ L"Windows.ApplicationModel.UserDataTasks.IUserDataTaskBatch" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskList>{ L"Windows.ApplicationModel.UserDataTasks.IUserDataTaskList" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskListLimitedWriteOperations>{ L"Windows.ApplicationModel.UserDataTasks.IUserDataTaskListLimitedWriteOperations" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskListSyncManager>{ L"Windows.ApplicationModel.UserDataTasks.IUserDataTaskListSyncManager" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskManager>{ L"Windows.ApplicationModel.UserDataTasks.IUserDataTaskManager" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskManagerStatics>{ L"Windows.ApplicationModel.UserDataTasks.IUserDataTaskManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskQueryOptions>{ L"Windows.ApplicationModel.UserDataTasks.IUserDataTaskQueryOptions" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskReader>{ L"Windows.ApplicationModel.UserDataTasks.IUserDataTaskReader" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskRecurrenceProperties>{ L"Windows.ApplicationModel.UserDataTasks.IUserDataTaskRecurrenceProperties" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskRegenerationProperties>{ L"Windows.ApplicationModel.UserDataTasks.IUserDataTaskRegenerationProperties" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskStore>{ L"Windows.ApplicationModel.UserDataTasks.IUserDataTaskStore" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTask> = L"Windows.ApplicationModel.UserDataTasks.UserDataTask";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskBatch> = L"Windows.ApplicationModel.UserDataTasks.UserDataTaskBatch";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskList> = L"Windows.ApplicationModel.UserDataTasks.UserDataTaskList";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskListLimitedWriteOperations> = L"Windows.ApplicationModel.UserDataTasks.UserDataTaskListLimitedWriteOperations";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskListSyncManager> = L"Windows.ApplicationModel.UserDataTasks.UserDataTaskListSyncManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskManager> = L"Windows.ApplicationModel.UserDataTasks.UserDataTaskManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskQueryOptions> = L"Windows.ApplicationModel.UserDataTasks.UserDataTaskQueryOptions";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskReader> = L"Windows.ApplicationModel.UserDataTasks.UserDataTaskReader";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskRecurrenceProperties> = L"Windows.ApplicationModel.UserDataTasks.UserDataTaskRecurrenceProperties";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskRegenerationProperties> = L"Windows.ApplicationModel.UserDataTasks.UserDataTaskRegenerationProperties";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskStore> = L"Windows.ApplicationModel.UserDataTasks.UserDataTaskStore";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskDaysOfWeek> = L"Windows.ApplicationModel.UserDataTasks.UserDataTaskDaysOfWeek";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskDetailsKind> = L"Windows.ApplicationModel.UserDataTasks.UserDataTaskDetailsKind";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskKind> = L"Windows.ApplicationModel.UserDataTasks.UserDataTaskKind";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskListOtherAppReadAccess> = L"Windows.ApplicationModel.UserDataTasks.UserDataTaskListOtherAppReadAccess";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskListOtherAppWriteAccess> = L"Windows.ApplicationModel.UserDataTasks.UserDataTaskListOtherAppWriteAccess";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskListSyncStatus> = L"Windows.ApplicationModel.UserDataTasks.UserDataTaskListSyncStatus";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskPriority> = L"Windows.ApplicationModel.UserDataTasks.UserDataTaskPriority";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskQueryKind> = L"Windows.ApplicationModel.UserDataTasks.UserDataTaskQueryKind";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskQuerySortProperty> = L"Windows.ApplicationModel.UserDataTasks.UserDataTaskQuerySortProperty";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskRecurrenceUnit> = L"Windows.ApplicationModel.UserDataTasks.UserDataTaskRecurrenceUnit";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskRegenerationUnit> = L"Windows.ApplicationModel.UserDataTasks.UserDataTaskRegenerationUnit";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskSensitivity> = L"Windows.ApplicationModel.UserDataTasks.UserDataTaskSensitivity";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskStoreAccessType> = L"Windows.ApplicationModel.UserDataTasks.UserDataTaskStoreAccessType";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::UserDataTaskWeekOfMonth> = L"Windows.ApplicationModel.UserDataTasks.UserDataTaskWeekOfMonth";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::IUserDataTask> = L"Windows.ApplicationModel.UserDataTasks.IUserDataTask";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskBatch> = L"Windows.ApplicationModel.UserDataTasks.IUserDataTaskBatch";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskList> = L"Windows.ApplicationModel.UserDataTasks.IUserDataTaskList";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskListLimitedWriteOperations> = L"Windows.ApplicationModel.UserDataTasks.IUserDataTaskListLimitedWriteOperations";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskListSyncManager> = L"Windows.ApplicationModel.UserDataTasks.IUserDataTaskListSyncManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskManager> = L"Windows.ApplicationModel.UserDataTasks.IUserDataTaskManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskManagerStatics> = L"Windows.ApplicationModel.UserDataTasks.IUserDataTaskManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskQueryOptions> = L"Windows.ApplicationModel.UserDataTasks.IUserDataTaskQueryOptions";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskReader> = L"Windows.ApplicationModel.UserDataTasks.IUserDataTaskReader";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskRecurrenceProperties> = L"Windows.ApplicationModel.UserDataTasks.IUserDataTaskRecurrenceProperties";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskRegenerationProperties> = L"Windows.ApplicationModel.UserDataTasks.IUserDataTaskRegenerationProperties";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskStore> = L"Windows.ApplicationModel.UserDataTasks.IUserDataTaskStore";
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataTasks::IUserDataTask>{ 0x7C6585D1,0xE0D4,0x4F99,{ 0xAE,0xE2,0xBC,0x2D,0x5D,0xDA,0xDF,0x4C } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskBatch>{ 0x382DA5FE,0x20B5,0x431C,{ 0x8F,0x42,0xA5,0xD2,0x92,0xEC,0x93,0x0C } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::UserDataTasks::IUserDataTaskList>{ 0x49412E39,0x7C1D,0x4DF1,{ 0xBE,0xD3,0x31,0x4B,0x7C,0xBF,0x5E,0x4E } };
@@ -407,33 +410,33 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_UserDataTasks_IUserDataTask
     {
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto ListId() const;
-        [[nodiscard]] auto RemoteId() const;
-        auto RemoteId(param::hstring const& value) const;
-        [[nodiscard]] auto CompletedDate() const;
-        auto CompletedDate(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const;
-        [[nodiscard]] auto Details() const;
-        auto Details(param::hstring const& value) const;
-        [[nodiscard]] auto DetailsKind() const;
-        auto DetailsKind(Windows::ApplicationModel::UserDataTasks::UserDataTaskDetailsKind const& value) const;
-        [[nodiscard]] auto DueDate() const;
-        auto DueDate(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const;
-        [[nodiscard]] auto Kind() const;
-        [[nodiscard]] auto Priority() const;
-        auto Priority(Windows::ApplicationModel::UserDataTasks::UserDataTaskPriority const& value) const;
-        [[nodiscard]] auto RecurrenceProperties() const;
-        auto RecurrenceProperties(Windows::ApplicationModel::UserDataTasks::UserDataTaskRecurrenceProperties const& value) const;
-        [[nodiscard]] auto RegenerationProperties() const;
-        auto RegenerationProperties(Windows::ApplicationModel::UserDataTasks::UserDataTaskRegenerationProperties const& value) const;
-        [[nodiscard]] auto Reminder() const;
-        auto Reminder(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const;
-        [[nodiscard]] auto Sensitivity() const;
-        auto Sensitivity(Windows::ApplicationModel::UserDataTasks::UserDataTaskSensitivity const& value) const;
-        [[nodiscard]] auto Subject() const;
-        auto Subject(param::hstring const& value) const;
-        [[nodiscard]] auto StartDate() const;
-        auto StartDate(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ListId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RemoteId() const;
+        WINRT_IMPL_AUTO(void) RemoteId(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) CompletedDate() const;
+        WINRT_IMPL_AUTO(void) CompletedDate(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Details() const;
+        WINRT_IMPL_AUTO(void) Details(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::UserDataTasks::UserDataTaskDetailsKind) DetailsKind() const;
+        WINRT_IMPL_AUTO(void) DetailsKind(Windows::ApplicationModel::UserDataTasks::UserDataTaskDetailsKind const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) DueDate() const;
+        WINRT_IMPL_AUTO(void) DueDate(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::UserDataTasks::UserDataTaskKind) Kind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::UserDataTasks::UserDataTaskPriority) Priority() const;
+        WINRT_IMPL_AUTO(void) Priority(Windows::ApplicationModel::UserDataTasks::UserDataTaskPriority const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::UserDataTasks::UserDataTaskRecurrenceProperties) RecurrenceProperties() const;
+        WINRT_IMPL_AUTO(void) RecurrenceProperties(Windows::ApplicationModel::UserDataTasks::UserDataTaskRecurrenceProperties const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::UserDataTasks::UserDataTaskRegenerationProperties) RegenerationProperties() const;
+        WINRT_IMPL_AUTO(void) RegenerationProperties(Windows::ApplicationModel::UserDataTasks::UserDataTaskRegenerationProperties const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) Reminder() const;
+        WINRT_IMPL_AUTO(void) Reminder(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::UserDataTasks::UserDataTaskSensitivity) Sensitivity() const;
+        WINRT_IMPL_AUTO(void) Sensitivity(Windows::ApplicationModel::UserDataTasks::UserDataTaskSensitivity const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Subject() const;
+        WINRT_IMPL_AUTO(void) Subject(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) StartDate() const;
+        WINRT_IMPL_AUTO(void) StartDate(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::UserDataTasks::IUserDataTask>
     {
@@ -442,7 +445,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_UserDataTasks_IUserDataTaskBatch
     {
-        [[nodiscard]] auto Tasks() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::UserDataTasks::UserDataTask>) Tasks() const;
     };
     template <> struct consume<Windows::ApplicationModel::UserDataTasks::IUserDataTaskBatch>
     {
@@ -451,25 +454,25 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_UserDataTasks_IUserDataTaskList
     {
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto UserDataAccountId() const;
-        [[nodiscard]] auto DisplayName() const;
-        auto DisplayName(param::hstring const& value) const;
-        [[nodiscard]] auto SourceDisplayName() const;
-        [[nodiscard]] auto OtherAppReadAccess() const;
-        auto OtherAppReadAccess(Windows::ApplicationModel::UserDataTasks::UserDataTaskListOtherAppReadAccess const& value) const;
-        [[nodiscard]] auto OtherAppWriteAccess() const;
-        auto OtherAppWriteAccess(Windows::ApplicationModel::UserDataTasks::UserDataTaskListOtherAppWriteAccess const& value) const;
-        [[nodiscard]] auto LimitedWriteOperations() const;
-        [[nodiscard]] auto SyncManager() const;
-        auto RegisterSyncManagerAsync() const;
-        auto GetTaskReader() const;
-        auto GetTaskReader(Windows::ApplicationModel::UserDataTasks::UserDataTaskQueryOptions const& options) const;
-        auto GetTaskAsync(param::hstring const& userDataTask) const;
-        auto SaveTaskAsync(Windows::ApplicationModel::UserDataTasks::UserDataTask const& userDataTask) const;
-        auto DeleteTaskAsync(param::hstring const& userDataTaskId) const;
-        auto DeleteAsync() const;
-        auto SaveAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) UserDataAccountId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        WINRT_IMPL_AUTO(void) DisplayName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SourceDisplayName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::UserDataTasks::UserDataTaskListOtherAppReadAccess) OtherAppReadAccess() const;
+        WINRT_IMPL_AUTO(void) OtherAppReadAccess(Windows::ApplicationModel::UserDataTasks::UserDataTaskListOtherAppReadAccess const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::UserDataTasks::UserDataTaskListOtherAppWriteAccess) OtherAppWriteAccess() const;
+        WINRT_IMPL_AUTO(void) OtherAppWriteAccess(Windows::ApplicationModel::UserDataTasks::UserDataTaskListOtherAppWriteAccess const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::UserDataTasks::UserDataTaskListLimitedWriteOperations) LimitedWriteOperations() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::UserDataTasks::UserDataTaskListSyncManager) SyncManager() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) RegisterSyncManagerAsync() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::UserDataTasks::UserDataTaskReader) GetTaskReader() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::UserDataTasks::UserDataTaskReader) GetTaskReader(Windows::ApplicationModel::UserDataTasks::UserDataTaskQueryOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::UserDataTasks::UserDataTask>) GetTaskAsync(param::hstring const& userDataTask) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SaveTaskAsync(Windows::ApplicationModel::UserDataTasks::UserDataTask const& userDataTask) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) DeleteTaskAsync(param::hstring const& userDataTaskId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) DeleteAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SaveAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::UserDataTasks::IUserDataTaskList>
     {
@@ -478,10 +481,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_UserDataTasks_IUserDataTaskListLimitedWriteOperations
     {
-        auto TryCompleteTaskAsync(param::hstring const& userDataTaskId) const;
-        auto TryCreateOrUpdateTaskAsync(Windows::ApplicationModel::UserDataTasks::UserDataTask const& userDataTask) const;
-        auto TryDeleteTaskAsync(param::hstring const& userDataTaskId) const;
-        auto TrySkipOccurrenceAsync(param::hstring const& userDataTaskId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<hstring>) TryCompleteTaskAsync(param::hstring const& userDataTaskId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryCreateOrUpdateTaskAsync(Windows::ApplicationModel::UserDataTasks::UserDataTask const& userDataTask) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryDeleteTaskAsync(param::hstring const& userDataTaskId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TrySkipOccurrenceAsync(param::hstring const& userDataTaskId) const;
     };
     template <> struct consume<Windows::ApplicationModel::UserDataTasks::IUserDataTaskListLimitedWriteOperations>
     {
@@ -490,17 +493,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_UserDataTasks_IUserDataTaskListSyncManager
     {
-        [[nodiscard]] auto LastAttemptedSyncTime() const;
-        auto LastAttemptedSyncTime(Windows::Foundation::DateTime const& value) const;
-        [[nodiscard]] auto LastSuccessfulSyncTime() const;
-        auto LastSuccessfulSyncTime(Windows::Foundation::DateTime const& value) const;
-        [[nodiscard]] auto Status() const;
-        auto Status(Windows::ApplicationModel::UserDataTasks::UserDataTaskListSyncStatus const& value) const;
-        auto SyncAsync() const;
-        auto SyncStatusChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::UserDataTasks::UserDataTaskListSyncManager, Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) LastAttemptedSyncTime() const;
+        WINRT_IMPL_AUTO(void) LastAttemptedSyncTime(Windows::Foundation::DateTime const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) LastSuccessfulSyncTime() const;
+        WINRT_IMPL_AUTO(void) LastSuccessfulSyncTime(Windows::Foundation::DateTime const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::UserDataTasks::UserDataTaskListSyncStatus) Status() const;
+        WINRT_IMPL_AUTO(void) Status(Windows::ApplicationModel::UserDataTasks::UserDataTaskListSyncStatus const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) SyncAsync() const;
+        WINRT_IMPL_AUTO(winrt::event_token) SyncStatusChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::UserDataTasks::UserDataTaskListSyncManager, Windows::Foundation::IInspectable> const& handler) const;
         using SyncStatusChanged_revoker = impl::event_revoker<Windows::ApplicationModel::UserDataTasks::IUserDataTaskListSyncManager, &impl::abi_t<Windows::ApplicationModel::UserDataTasks::IUserDataTaskListSyncManager>::remove_SyncStatusChanged>;
         [[nodiscard]] SyncStatusChanged_revoker SyncStatusChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::UserDataTasks::UserDataTaskListSyncManager, Windows::Foundation::IInspectable> const& handler) const;
-        auto SyncStatusChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) SyncStatusChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::ApplicationModel::UserDataTasks::IUserDataTaskListSyncManager>
     {
@@ -509,8 +512,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_UserDataTasks_IUserDataTaskManager
     {
-        auto RequestStoreAsync(Windows::ApplicationModel::UserDataTasks::UserDataTaskStoreAccessType const& accessType) const;
-        [[nodiscard]] auto User() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::UserDataTasks::UserDataTaskStore>) RequestStoreAsync(Windows::ApplicationModel::UserDataTasks::UserDataTaskStoreAccessType const& accessType) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::User) User() const;
     };
     template <> struct consume<Windows::ApplicationModel::UserDataTasks::IUserDataTaskManager>
     {
@@ -519,8 +522,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_UserDataTasks_IUserDataTaskManagerStatics
     {
-        auto GetDefault() const;
-        auto GetForUser(Windows::System::User const& user) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::UserDataTasks::UserDataTaskManager) GetDefault() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::UserDataTasks::UserDataTaskManager) GetForUser(Windows::System::User const& user) const;
     };
     template <> struct consume<Windows::ApplicationModel::UserDataTasks::IUserDataTaskManagerStatics>
     {
@@ -529,10 +532,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_UserDataTasks_IUserDataTaskQueryOptions
     {
-        [[nodiscard]] auto SortProperty() const;
-        auto SortProperty(Windows::ApplicationModel::UserDataTasks::UserDataTaskQuerySortProperty const& value) const;
-        [[nodiscard]] auto Kind() const;
-        auto Kind(Windows::ApplicationModel::UserDataTasks::UserDataTaskQueryKind const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::UserDataTasks::UserDataTaskQuerySortProperty) SortProperty() const;
+        WINRT_IMPL_AUTO(void) SortProperty(Windows::ApplicationModel::UserDataTasks::UserDataTaskQuerySortProperty const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::UserDataTasks::UserDataTaskQueryKind) Kind() const;
+        WINRT_IMPL_AUTO(void) Kind(Windows::ApplicationModel::UserDataTasks::UserDataTaskQueryKind const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::UserDataTasks::IUserDataTaskQueryOptions>
     {
@@ -541,7 +544,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_UserDataTasks_IUserDataTaskReader
     {
-        auto ReadBatchAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::UserDataTasks::UserDataTaskBatch>) ReadBatchAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::UserDataTasks::IUserDataTaskReader>
     {
@@ -550,22 +553,22 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_UserDataTasks_IUserDataTaskRecurrenceProperties
     {
-        [[nodiscard]] auto Unit() const;
-        auto Unit(Windows::ApplicationModel::UserDataTasks::UserDataTaskRecurrenceUnit const& value) const;
-        [[nodiscard]] auto Occurrences() const;
-        auto Occurrences(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto Until() const;
-        auto Until(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const;
-        [[nodiscard]] auto Interval() const;
-        auto Interval(int32_t value) const;
-        [[nodiscard]] auto DaysOfWeek() const;
-        auto DaysOfWeek(Windows::Foundation::IReference<Windows::ApplicationModel::UserDataTasks::UserDataTaskDaysOfWeek> const& value) const;
-        [[nodiscard]] auto WeekOfMonth() const;
-        auto WeekOfMonth(Windows::Foundation::IReference<Windows::ApplicationModel::UserDataTasks::UserDataTaskWeekOfMonth> const& value) const;
-        [[nodiscard]] auto Month() const;
-        auto Month(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto Day() const;
-        auto Day(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::UserDataTasks::UserDataTaskRecurrenceUnit) Unit() const;
+        WINRT_IMPL_AUTO(void) Unit(Windows::ApplicationModel::UserDataTasks::UserDataTaskRecurrenceUnit const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) Occurrences() const;
+        WINRT_IMPL_AUTO(void) Occurrences(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) Until() const;
+        WINRT_IMPL_AUTO(void) Until(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Interval() const;
+        WINRT_IMPL_AUTO(void) Interval(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::ApplicationModel::UserDataTasks::UserDataTaskDaysOfWeek>) DaysOfWeek() const;
+        WINRT_IMPL_AUTO(void) DaysOfWeek(Windows::Foundation::IReference<Windows::ApplicationModel::UserDataTasks::UserDataTaskDaysOfWeek> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::ApplicationModel::UserDataTasks::UserDataTaskWeekOfMonth>) WeekOfMonth() const;
+        WINRT_IMPL_AUTO(void) WeekOfMonth(Windows::Foundation::IReference<Windows::ApplicationModel::UserDataTasks::UserDataTaskWeekOfMonth> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) Month() const;
+        WINRT_IMPL_AUTO(void) Month(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) Day() const;
+        WINRT_IMPL_AUTO(void) Day(Windows::Foundation::IReference<int32_t> const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::UserDataTasks::IUserDataTaskRecurrenceProperties>
     {
@@ -574,14 +577,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_UserDataTasks_IUserDataTaskRegenerationProperties
     {
-        [[nodiscard]] auto Unit() const;
-        auto Unit(Windows::ApplicationModel::UserDataTasks::UserDataTaskRegenerationUnit const& value) const;
-        [[nodiscard]] auto Occurrences() const;
-        auto Occurrences(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto Until() const;
-        auto Until(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const;
-        [[nodiscard]] auto Interval() const;
-        auto Interval(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::UserDataTasks::UserDataTaskRegenerationUnit) Unit() const;
+        WINRT_IMPL_AUTO(void) Unit(Windows::ApplicationModel::UserDataTasks::UserDataTaskRegenerationUnit const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) Occurrences() const;
+        WINRT_IMPL_AUTO(void) Occurrences(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) Until() const;
+        WINRT_IMPL_AUTO(void) Until(Windows::Foundation::IReference<Windows::Foundation::DateTime> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Interval() const;
+        WINRT_IMPL_AUTO(void) Interval(int32_t value) const;
     };
     template <> struct consume<Windows::ApplicationModel::UserDataTasks::IUserDataTaskRegenerationProperties>
     {
@@ -590,10 +593,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_UserDataTasks_IUserDataTaskStore
     {
-        auto CreateListAsync(param::hstring const& name) const;
-        auto CreateListAsync(param::hstring const& name, param::hstring const& userDataAccountId) const;
-        auto FindListsAsync() const;
-        auto GetListAsync(param::hstring const& taskListId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::UserDataTasks::UserDataTaskList>) CreateListAsync(param::hstring const& name) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::UserDataTasks::UserDataTaskList>) CreateListAsync(param::hstring const& name, param::hstring const& userDataAccountId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::UserDataTasks::UserDataTaskList>>) FindListsAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::UserDataTasks::UserDataTaskList>) GetListAsync(param::hstring const& taskListId) const;
     };
     template <> struct consume<Windows::ApplicationModel::UserDataTasks::IUserDataTaskStore>
     {

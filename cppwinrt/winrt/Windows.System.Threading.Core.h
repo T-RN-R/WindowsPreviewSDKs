@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,64 +6,64 @@
 #ifndef WINRT_Windows_System_Threading_Core_H
 #define WINRT_Windows_System_Threading_Core_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.System.Threading.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.System.Threading.2.h"
 #include "winrt/impl/Windows.System.Threading.Core.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_System_Threading_Core_IPreallocatedWorkItem<D>::RunAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) consume_Windows_System_Threading_Core_IPreallocatedWorkItem<D>::RunAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::System::Threading::Core::IPreallocatedWorkItem)->RunAsync(&operation));
         return Windows::Foundation::IAsyncAction{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_System_Threading_Core_IPreallocatedWorkItemFactory<D>::CreateWorkItem(Windows::System::Threading::WorkItemHandler const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::System::Threading::Core::PreallocatedWorkItem) consume_Windows_System_Threading_Core_IPreallocatedWorkItemFactory<D>::CreateWorkItem(Windows::System::Threading::WorkItemHandler const& handler) const
     {
         void* workItem{};
         check_hresult(WINRT_IMPL_SHIM(Windows::System::Threading::Core::IPreallocatedWorkItemFactory)->CreateWorkItem(*(void**)(&handler), &workItem));
         return Windows::System::Threading::Core::PreallocatedWorkItem{ workItem, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_System_Threading_Core_IPreallocatedWorkItemFactory<D>::CreateWorkItemWithPriority(Windows::System::Threading::WorkItemHandler const& handler, Windows::System::Threading::WorkItemPriority const& priority) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::System::Threading::Core::PreallocatedWorkItem) consume_Windows_System_Threading_Core_IPreallocatedWorkItemFactory<D>::CreateWorkItemWithPriority(Windows::System::Threading::WorkItemHandler const& handler, Windows::System::Threading::WorkItemPriority const& priority) const
     {
         void* WorkItem{};
         check_hresult(WINRT_IMPL_SHIM(Windows::System::Threading::Core::IPreallocatedWorkItemFactory)->CreateWorkItemWithPriority(*(void**)(&handler), static_cast<int32_t>(priority), &WorkItem));
         return Windows::System::Threading::Core::PreallocatedWorkItem{ WorkItem, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_System_Threading_Core_IPreallocatedWorkItemFactory<D>::CreateWorkItemWithPriorityAndOptions(Windows::System::Threading::WorkItemHandler const& handler, Windows::System::Threading::WorkItemPriority const& priority, Windows::System::Threading::WorkItemOptions const& options) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::System::Threading::Core::PreallocatedWorkItem) consume_Windows_System_Threading_Core_IPreallocatedWorkItemFactory<D>::CreateWorkItemWithPriorityAndOptions(Windows::System::Threading::WorkItemHandler const& handler, Windows::System::Threading::WorkItemPriority const& priority, Windows::System::Threading::WorkItemOptions const& options) const
     {
         void* WorkItem{};
         check_hresult(WINRT_IMPL_SHIM(Windows::System::Threading::Core::IPreallocatedWorkItemFactory)->CreateWorkItemWithPriorityAndOptions(*(void**)(&handler), static_cast<int32_t>(priority), static_cast<uint32_t>(options), &WorkItem));
         return Windows::System::Threading::Core::PreallocatedWorkItem{ WorkItem, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_System_Threading_Core_ISignalNotifier<D>::Enable() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_System_Threading_Core_ISignalNotifier<D>::Enable() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::System::Threading::Core::ISignalNotifier)->Enable());
     }
-    template <typename D> auto consume_Windows_System_Threading_Core_ISignalNotifier<D>::Terminate() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_System_Threading_Core_ISignalNotifier<D>::Terminate() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::System::Threading::Core::ISignalNotifier)->Terminate());
     }
-    template <typename D> auto consume_Windows_System_Threading_Core_ISignalNotifierStatics<D>::AttachToEvent(param::hstring const& name, Windows::System::Threading::Core::SignalHandler const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::System::Threading::Core::SignalNotifier) consume_Windows_System_Threading_Core_ISignalNotifierStatics<D>::AttachToEvent(param::hstring const& name, Windows::System::Threading::Core::SignalHandler const& handler) const
     {
         void* signalNotifier{};
         check_hresult(WINRT_IMPL_SHIM(Windows::System::Threading::Core::ISignalNotifierStatics)->AttachToEvent(*(void**)(&name), *(void**)(&handler), &signalNotifier));
         return Windows::System::Threading::Core::SignalNotifier{ signalNotifier, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_System_Threading_Core_ISignalNotifierStatics<D>::AttachToEvent(param::hstring const& name, Windows::System::Threading::Core::SignalHandler const& handler, Windows::Foundation::TimeSpan const& timeout) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::System::Threading::Core::SignalNotifier) consume_Windows_System_Threading_Core_ISignalNotifierStatics<D>::AttachToEvent(param::hstring const& name, Windows::System::Threading::Core::SignalHandler const& handler, Windows::Foundation::TimeSpan const& timeout) const
     {
         void* signalNotifier{};
         check_hresult(WINRT_IMPL_SHIM(Windows::System::Threading::Core::ISignalNotifierStatics)->AttachToEventWithTimeout(*(void**)(&name), *(void**)(&handler), impl::bind_in(timeout), &signalNotifier));
         return Windows::System::Threading::Core::SignalNotifier{ signalNotifier, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_System_Threading_Core_ISignalNotifierStatics<D>::AttachToSemaphore(param::hstring const& name, Windows::System::Threading::Core::SignalHandler const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::System::Threading::Core::SignalNotifier) consume_Windows_System_Threading_Core_ISignalNotifierStatics<D>::AttachToSemaphore(param::hstring const& name, Windows::System::Threading::Core::SignalHandler const& handler) const
     {
         void* signalNotifier{};
         check_hresult(WINRT_IMPL_SHIM(Windows::System::Threading::Core::ISignalNotifierStatics)->AttachToSemaphore(*(void**)(&name), *(void**)(&handler), &signalNotifier));
         return Windows::System::Threading::Core::SignalNotifier{ signalNotifier, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_System_Threading_Core_ISignalNotifierStatics<D>::AttachToSemaphore(param::hstring const& name, Windows::System::Threading::Core::SignalHandler const& handler, Windows::Foundation::TimeSpan const& timeout) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::System::Threading::Core::SignalNotifier) consume_Windows_System_Threading_Core_ISignalNotifierStatics<D>::AttachToSemaphore(param::hstring const& name, Windows::System::Threading::Core::SignalHandler const& handler, Windows::Foundation::TimeSpan const& timeout) const
     {
         void* signalNotifier{};
         check_hresult(WINRT_IMPL_SHIM(Windows::System::Threading::Core::ISignalNotifierStatics)->AttachToSemaphoreWithTimeout(*(void**)(&name), *(void**)(&handler), impl::bind_in(timeout), &signalNotifier));

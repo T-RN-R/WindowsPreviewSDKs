@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -14,7 +14,7 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Wallet
         WalletBarcode(std::nullptr_t) noexcept {}
         WalletBarcode(void* ptr, take_ownership_from_abi_t) noexcept : Windows::ApplicationModel::Wallet::IWalletBarcode(ptr, take_ownership_from_abi) {}
         WalletBarcode(Windows::ApplicationModel::Wallet::WalletBarcodeSymbology const& symbology, param::hstring const& value);
-        WalletBarcode(Windows::Storage::Streams::IRandomAccessStreamReference const& streamToBarcodeImage);
+        explicit WalletBarcode(Windows::Storage::Streams::IRandomAccessStreamReference const& streamToBarcodeImage);
     };
     struct __declspec(empty_bases) WalletItem : Windows::ApplicationModel::Wallet::IWalletItem
     {
@@ -54,7 +54,7 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Wallet
     {
         WalletVerb(std::nullptr_t) noexcept {}
         WalletVerb(void* ptr, take_ownership_from_abi_t) noexcept : Windows::ApplicationModel::Wallet::IWalletVerb(ptr, take_ownership_from_abi) {}
-        WalletVerb(param::hstring const& name);
+        explicit WalletVerb(param::hstring const& name);
     };
 }
 #endif

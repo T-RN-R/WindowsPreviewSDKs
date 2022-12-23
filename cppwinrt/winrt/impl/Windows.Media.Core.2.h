@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -97,7 +97,7 @@ WINRT_EXPORT namespace winrt::Windows::Media::Core
     {
         AudioStreamDescriptor(std::nullptr_t) noexcept {}
         AudioStreamDescriptor(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Media::Core::IAudioStreamDescriptor(ptr, take_ownership_from_abi) {}
-        AudioStreamDescriptor(Windows::Media::MediaProperties::AudioEncodingProperties const& encodingProperties);
+        explicit AudioStreamDescriptor(Windows::Media::MediaProperties::AudioEncodingProperties const& encodingProperties);
     };
     struct __declspec(empty_bases) AudioTrack : Windows::Media::Core::IMediaTrack,
         impl::require<AudioTrack, Windows::Media::Core::IAudioTrack>
@@ -288,7 +288,7 @@ WINRT_EXPORT namespace winrt::Windows::Media::Core
     {
         MediaSourceAppServiceConnection(std::nullptr_t) noexcept {}
         MediaSourceAppServiceConnection(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Media::Core::IMediaSourceAppServiceConnection(ptr, take_ownership_from_abi) {}
-        MediaSourceAppServiceConnection(Windows::ApplicationModel::AppService::AppServiceConnection const& appServiceConnection);
+        explicit MediaSourceAppServiceConnection(Windows::ApplicationModel::AppService::AppServiceConnection const& appServiceConnection);
     };
     struct __declspec(empty_bases) MediaSourceError : Windows::Media::Core::IMediaSourceError
     {
@@ -329,7 +329,7 @@ WINRT_EXPORT namespace winrt::Windows::Media::Core
     {
         MediaStreamSource(std::nullptr_t) noexcept {}
         MediaStreamSource(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Media::Core::IMediaStreamSource(ptr, take_ownership_from_abi) {}
-        MediaStreamSource(Windows::Media::Core::IMediaStreamDescriptor const& descriptor);
+        explicit MediaStreamSource(Windows::Media::Core::IMediaStreamDescriptor const& descriptor);
         MediaStreamSource(Windows::Media::Core::IMediaStreamDescriptor const& descriptor, Windows::Media::Core::IMediaStreamDescriptor const& descriptor2);
     };
     struct __declspec(empty_bases) MediaStreamSourceClosedEventArgs : Windows::Media::Core::IMediaStreamSourceClosedEventArgs
@@ -443,7 +443,7 @@ WINRT_EXPORT namespace winrt::Windows::Media::Core
     {
         TimedMetadataStreamDescriptor(std::nullptr_t) noexcept {}
         TimedMetadataStreamDescriptor(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Media::Core::IMediaStreamDescriptor(ptr, take_ownership_from_abi) {}
-        TimedMetadataStreamDescriptor(Windows::Media::MediaProperties::TimedMetadataEncodingProperties const& encodingProperties);
+        explicit TimedMetadataStreamDescriptor(Windows::Media::MediaProperties::TimedMetadataEncodingProperties const& encodingProperties);
     };
     struct __declspec(empty_bases) TimedMetadataTrack : Windows::Media::Core::ITimedMetadataTrack,
         impl::require<TimedMetadataTrack, Windows::Media::Core::ITimedMetadataTrack2>
@@ -532,7 +532,7 @@ WINRT_EXPORT namespace winrt::Windows::Media::Core
     {
         VideoStreamDescriptor(std::nullptr_t) noexcept {}
         VideoStreamDescriptor(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Media::Core::IVideoStreamDescriptor(ptr, take_ownership_from_abi) {}
-        VideoStreamDescriptor(Windows::Media::MediaProperties::VideoEncodingProperties const& encodingProperties);
+        explicit VideoStreamDescriptor(Windows::Media::MediaProperties::VideoEncodingProperties const& encodingProperties);
     };
     struct __declspec(empty_bases) VideoTrack : Windows::Media::Core::IMediaTrack,
         impl::require<VideoTrack, Windows::Media::Core::IVideoTrack>

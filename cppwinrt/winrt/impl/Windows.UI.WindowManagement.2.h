@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -21,7 +21,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::WindowManagement
         static auto ClearPersistedState(param::hstring const& key);
     };
     struct __declspec(empty_bases) AppWindowChangedEventArgs : Windows::UI::WindowManagement::IAppWindowChangedEventArgs,
-        impl::require<AppWindowChangedEventArgs, Windows::UI::WindowManagement::IAppWindowChangedEventArgs2, Windows::UI::WindowManagement::IAppWindowChangedEventArgs22>
+        impl::require<AppWindowChangedEventArgs, Windows::UI::WindowManagement::IAppWindowChangedEventArgs2>
     {
         AppWindowChangedEventArgs(std::nullptr_t) noexcept {}
         AppWindowChangedEventArgs(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::WindowManagement::IAppWindowChangedEventArgs(ptr, take_ownership_from_abi) {}

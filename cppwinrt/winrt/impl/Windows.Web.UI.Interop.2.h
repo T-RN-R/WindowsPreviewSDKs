@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -30,7 +30,7 @@ WINRT_EXPORT namespace winrt::Windows::Web::UI::Interop
         WebViewControlProcess(std::nullptr_t) noexcept {}
         WebViewControlProcess(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Web::UI::Interop::IWebViewControlProcess(ptr, take_ownership_from_abi) {}
         WebViewControlProcess();
-        WebViewControlProcess(Windows::Web::UI::Interop::WebViewControlProcessOptions const& processOptions);
+        explicit WebViewControlProcess(Windows::Web::UI::Interop::WebViewControlProcessOptions const& processOptions);
     };
     struct __declspec(empty_bases) WebViewControlProcessOptions : Windows::Web::UI::Interop::IWebViewControlProcessOptions
     {

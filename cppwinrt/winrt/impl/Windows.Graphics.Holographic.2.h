@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -121,7 +121,7 @@ WINRT_EXPORT namespace winrt::Windows::Graphics::Holographic
     {
         HolographicQuadLayer(std::nullptr_t) noexcept {}
         HolographicQuadLayer(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Graphics::Holographic::IHolographicQuadLayer(ptr, take_ownership_from_abi) {}
-        HolographicQuadLayer(Windows::Foundation::Size const& size);
+        explicit HolographicQuadLayer(Windows::Foundation::Size const& size);
         HolographicQuadLayer(Windows::Foundation::Size const& size, Windows::Graphics::DirectX::DirectXPixelFormat const& pixelFormat);
     };
     struct __declspec(empty_bases) HolographicQuadLayerUpdateParameters : Windows::Graphics::Holographic::IHolographicQuadLayerUpdateParameters,

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -36,16 +36,14 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Core::Preview::CoreAppWindowPreview>{ using type = class_category; };
     template <> struct category<Windows::UI::Core::Preview::SystemNavigationCloseRequestedPreviewEventArgs>{ using type = class_category; };
     template <> struct category<Windows::UI::Core::Preview::SystemNavigationManagerPreview>{ using type = class_category; };
-    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::CoreAppWindowPreview>{ L"Windows.UI.Core.Preview.CoreAppWindowPreview" };
-    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::SystemNavigationCloseRequestedPreviewEventArgs>{ L"Windows.UI.Core.Preview.SystemNavigationCloseRequestedPreviewEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::SystemNavigationManagerPreview>{ L"Windows.UI.Core.Preview.SystemNavigationManagerPreview" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::ICoreAppWindowPreview>{ L"Windows.UI.Core.Preview.ICoreAppWindowPreview" };
-    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::ICoreAppWindowPreviewStatics>{ L"Windows.UI.Core.Preview.ICoreAppWindowPreviewStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::ISystemNavigationCloseRequestedPreviewEventArgs>{ L"Windows.UI.Core.Preview.ISystemNavigationCloseRequestedPreviewEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::ISystemNavigationManagerPreview>{ L"Windows.UI.Core.Preview.ISystemNavigationManagerPreview" };
-    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::ISystemNavigationManagerPreviewStatics>{ L"Windows.UI.Core.Preview.ISystemNavigationManagerPreviewStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::CoreAppWindowPreview> = L"Windows.UI.Core.Preview.CoreAppWindowPreview";
+    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::SystemNavigationCloseRequestedPreviewEventArgs> = L"Windows.UI.Core.Preview.SystemNavigationCloseRequestedPreviewEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::SystemNavigationManagerPreview> = L"Windows.UI.Core.Preview.SystemNavigationManagerPreview";
+    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::ICoreAppWindowPreview> = L"Windows.UI.Core.Preview.ICoreAppWindowPreview";
+    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::ICoreAppWindowPreviewStatics> = L"Windows.UI.Core.Preview.ICoreAppWindowPreviewStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::ISystemNavigationCloseRequestedPreviewEventArgs> = L"Windows.UI.Core.Preview.ISystemNavigationCloseRequestedPreviewEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::ISystemNavigationManagerPreview> = L"Windows.UI.Core.Preview.ISystemNavigationManagerPreview";
+    template <> inline constexpr auto& name_v<Windows::UI::Core::Preview::ISystemNavigationManagerPreviewStatics> = L"Windows.UI.Core.Preview.ISystemNavigationManagerPreviewStatics";
     template <> inline constexpr guid guid_v<Windows::UI::Core::Preview::ICoreAppWindowPreview>{ 0xA4F6E665,0x365E,0x5FDE,{ 0x87,0xA5,0x95,0x43,0xC3,0xA1,0x5A,0xA8 } };
     template <> inline constexpr guid guid_v<Windows::UI::Core::Preview::ICoreAppWindowPreviewStatics>{ 0x33AC21BE,0x423B,0x5DB6,{ 0x8A,0x8E,0x4D,0xC8,0x73,0x53,0xB7,0x5B } };
     template <> inline constexpr guid guid_v<Windows::UI::Core::Preview::ISystemNavigationCloseRequestedPreviewEventArgs>{ 0x83D00DE1,0xCBE5,0x4F31,{ 0x84,0x14,0x36,0x1D,0xA0,0x46,0x51,0x8F } };
@@ -102,7 +100,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Core_Preview_ICoreAppWindowPreviewStatics
     {
-        auto GetIdFromWindow(Windows::UI::WindowManagement::AppWindow const& window) const;
+        WINRT_IMPL_AUTO(int32_t) GetIdFromWindow(Windows::UI::WindowManagement::AppWindow const& window) const;
     };
     template <> struct consume<Windows::UI::Core::Preview::ICoreAppWindowPreviewStatics>
     {
@@ -111,9 +109,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Core_Preview_ISystemNavigationCloseRequestedPreviewEventArgs
     {
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::UI::Core::Preview::ISystemNavigationCloseRequestedPreviewEventArgs>
     {
@@ -122,10 +120,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Core_Preview_ISystemNavigationManagerPreview
     {
-        auto CloseRequested(Windows::Foundation::EventHandler<Windows::UI::Core::Preview::SystemNavigationCloseRequestedPreviewEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) CloseRequested(Windows::Foundation::EventHandler<Windows::UI::Core::Preview::SystemNavigationCloseRequestedPreviewEventArgs> const& handler) const;
         using CloseRequested_revoker = impl::event_revoker<Windows::UI::Core::Preview::ISystemNavigationManagerPreview, &impl::abi_t<Windows::UI::Core::Preview::ISystemNavigationManagerPreview>::remove_CloseRequested>;
         [[nodiscard]] CloseRequested_revoker CloseRequested(auto_revoke_t, Windows::Foundation::EventHandler<Windows::UI::Core::Preview::SystemNavigationCloseRequestedPreviewEventArgs> const& handler) const;
-        auto CloseRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) CloseRequested(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::Core::Preview::ISystemNavigationManagerPreview>
     {
@@ -134,7 +132,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Core_Preview_ISystemNavigationManagerPreviewStatics
     {
-        auto GetForCurrentView() const;
+        WINRT_IMPL_AUTO(Windows::UI::Core::Preview::SystemNavigationManagerPreview) GetForCurrentView() const;
     };
     template <> struct consume<Windows::UI::Core::Preview::ISystemNavigationManagerPreviewStatics>
     {

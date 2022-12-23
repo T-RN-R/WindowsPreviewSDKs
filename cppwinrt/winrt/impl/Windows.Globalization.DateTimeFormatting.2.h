@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -14,7 +14,7 @@ WINRT_EXPORT namespace winrt::Windows::Globalization::DateTimeFormatting
     {
         DateTimeFormatter(std::nullptr_t) noexcept {}
         DateTimeFormatter(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Globalization::DateTimeFormatting::IDateTimeFormatter(ptr, take_ownership_from_abi) {}
-        DateTimeFormatter(param::hstring const& formatTemplate);
+        explicit DateTimeFormatter(param::hstring const& formatTemplate);
         DateTimeFormatter(param::hstring const& formatTemplate, param::iterable<hstring> const& languages);
         DateTimeFormatter(param::hstring const& formatTemplate, param::iterable<hstring> const& languages, param::hstring const& geographicRegion, param::hstring const& calendar, param::hstring const& clock);
         DateTimeFormatter(Windows::Globalization::DateTimeFormatting::YearFormat const& yearFormat, Windows::Globalization::DateTimeFormatting::MonthFormat const& monthFormat, Windows::Globalization::DateTimeFormatting::DayFormat const& dayFormat, Windows::Globalization::DateTimeFormatting::DayOfWeekFormat const& dayOfWeekFormat);

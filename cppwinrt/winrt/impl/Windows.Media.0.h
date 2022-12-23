@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -15,6 +15,7 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
     struct EventRegistrationToken;
     struct HResult;
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
     template <typename T> struct IReference;
     template <typename TSender, typename TResult> struct TypedEventHandler;
     struct Uri;
@@ -22,6 +23,8 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     struct IPropertySet;
+    template <typename T> struct IVectorView;
+    template <typename T> struct IVector;
     struct ValueSet;
 }
 WINRT_EXPORT namespace winrt::Windows::Graphics::DirectX
@@ -244,77 +247,75 @@ namespace winrt::impl
     template <> struct category<Windows::Media::SystemMediaTransportControlsButton>{ using type = enum_category; };
     template <> struct category<Windows::Media::SystemMediaTransportControlsProperty>{ using type = enum_category; };
     template <> struct category<Windows::Media::MediaTimeRange>{ using type = struct_category<Windows::Foundation::TimeSpan, Windows::Foundation::TimeSpan>; };
-    template <> inline constexpr auto& name_v<Windows::Media::AudioBuffer>{ L"Windows.Media.AudioBuffer" };
-    template <> inline constexpr auto& name_v<Windows::Media::AudioFrame>{ L"Windows.Media.AudioFrame" };
-    template <> inline constexpr auto& name_v<Windows::Media::AutoRepeatModeChangeRequestedEventArgs>{ L"Windows.Media.AutoRepeatModeChangeRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::ImageDisplayProperties>{ L"Windows.Media.ImageDisplayProperties" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaControl>{ L"Windows.Media.MediaControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaExtensionManager>{ L"Windows.Media.MediaExtensionManager" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaMarkerTypes>{ L"Windows.Media.MediaMarkerTypes" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaProcessingTriggerDetails>{ L"Windows.Media.MediaProcessingTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaTimelineController>{ L"Windows.Media.MediaTimelineController" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaTimelineControllerFailedEventArgs>{ L"Windows.Media.MediaTimelineControllerFailedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::MusicDisplayProperties>{ L"Windows.Media.MusicDisplayProperties" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlaybackPositionChangeRequestedEventArgs>{ L"Windows.Media.PlaybackPositionChangeRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::PlaybackRateChangeRequestedEventArgs>{ L"Windows.Media.PlaybackRateChangeRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::ShuffleEnabledChangeRequestedEventArgs>{ L"Windows.Media.ShuffleEnabledChangeRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::SystemMediaTransportControls>{ L"Windows.Media.SystemMediaTransportControls" };
-    template <> inline constexpr auto& name_v<Windows::Media::SystemMediaTransportControlsButtonPressedEventArgs>{ L"Windows.Media.SystemMediaTransportControlsButtonPressedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::SystemMediaTransportControlsDisplayUpdater>{ L"Windows.Media.SystemMediaTransportControlsDisplayUpdater" };
-    template <> inline constexpr auto& name_v<Windows::Media::SystemMediaTransportControlsPropertyChangedEventArgs>{ L"Windows.Media.SystemMediaTransportControlsPropertyChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::SystemMediaTransportControlsTimelineProperties>{ L"Windows.Media.SystemMediaTransportControlsTimelineProperties" };
-    template <> inline constexpr auto& name_v<Windows::Media::VideoDisplayProperties>{ L"Windows.Media.VideoDisplayProperties" };
-    template <> inline constexpr auto& name_v<Windows::Media::VideoEffects>{ L"Windows.Media.VideoEffects" };
-    template <> inline constexpr auto& name_v<Windows::Media::VideoFrame>{ L"Windows.Media.VideoFrame" };
-    template <> inline constexpr auto& name_v<Windows::Media::AudioBufferAccessMode>{ L"Windows.Media.AudioBufferAccessMode" };
-    template <> inline constexpr auto& name_v<Windows::Media::AudioProcessing>{ L"Windows.Media.AudioProcessing" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaPlaybackAutoRepeatMode>{ L"Windows.Media.MediaPlaybackAutoRepeatMode" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaPlaybackStatus>{ L"Windows.Media.MediaPlaybackStatus" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaPlaybackType>{ L"Windows.Media.MediaPlaybackType" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaTimelineControllerState>{ L"Windows.Media.MediaTimelineControllerState" };
-    template <> inline constexpr auto& name_v<Windows::Media::SoundLevel>{ L"Windows.Media.SoundLevel" };
-    template <> inline constexpr auto& name_v<Windows::Media::SystemMediaTransportControlsButton>{ L"Windows.Media.SystemMediaTransportControlsButton" };
-    template <> inline constexpr auto& name_v<Windows::Media::SystemMediaTransportControlsProperty>{ L"Windows.Media.SystemMediaTransportControlsProperty" };
-    template <> inline constexpr auto& name_v<Windows::Media::MediaTimeRange>{ L"Windows.Media.MediaTimeRange" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Media::IAudioBuffer>{ L"Windows.Media.IAudioBuffer" };
-    template <> inline constexpr auto& name_v<Windows::Media::IAudioFrame>{ L"Windows.Media.IAudioFrame" };
-    template <> inline constexpr auto& name_v<Windows::Media::IAudioFrameFactory>{ L"Windows.Media.IAudioFrameFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::IAutoRepeatModeChangeRequestedEventArgs>{ L"Windows.Media.IAutoRepeatModeChangeRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::IImageDisplayProperties>{ L"Windows.Media.IImageDisplayProperties" };
-    template <> inline constexpr auto& name_v<Windows::Media::IMediaControl>{ L"Windows.Media.IMediaControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::IMediaExtension>{ L"Windows.Media.IMediaExtension" };
-    template <> inline constexpr auto& name_v<Windows::Media::IMediaExtensionManager>{ L"Windows.Media.IMediaExtensionManager" };
-    template <> inline constexpr auto& name_v<Windows::Media::IMediaExtensionManager2>{ L"Windows.Media.IMediaExtensionManager2" };
-    template <> inline constexpr auto& name_v<Windows::Media::IMediaFrame>{ L"Windows.Media.IMediaFrame" };
-    template <> inline constexpr auto& name_v<Windows::Media::IMediaMarker>{ L"Windows.Media.IMediaMarker" };
-    template <> inline constexpr auto& name_v<Windows::Media::IMediaMarkerTypesStatics>{ L"Windows.Media.IMediaMarkerTypesStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::IMediaMarkers>{ L"Windows.Media.IMediaMarkers" };
-    template <> inline constexpr auto& name_v<Windows::Media::IMediaProcessingTriggerDetails>{ L"Windows.Media.IMediaProcessingTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::Media::IMediaTimelineController>{ L"Windows.Media.IMediaTimelineController" };
-    template <> inline constexpr auto& name_v<Windows::Media::IMediaTimelineController2>{ L"Windows.Media.IMediaTimelineController2" };
-    template <> inline constexpr auto& name_v<Windows::Media::IMediaTimelineControllerFailedEventArgs>{ L"Windows.Media.IMediaTimelineControllerFailedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::IMusicDisplayProperties>{ L"Windows.Media.IMusicDisplayProperties" };
-    template <> inline constexpr auto& name_v<Windows::Media::IMusicDisplayProperties2>{ L"Windows.Media.IMusicDisplayProperties2" };
-    template <> inline constexpr auto& name_v<Windows::Media::IMusicDisplayProperties3>{ L"Windows.Media.IMusicDisplayProperties3" };
-    template <> inline constexpr auto& name_v<Windows::Media::IPlaybackPositionChangeRequestedEventArgs>{ L"Windows.Media.IPlaybackPositionChangeRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::IPlaybackRateChangeRequestedEventArgs>{ L"Windows.Media.IPlaybackRateChangeRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::IShuffleEnabledChangeRequestedEventArgs>{ L"Windows.Media.IShuffleEnabledChangeRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::ISystemMediaTransportControls>{ L"Windows.Media.ISystemMediaTransportControls" };
-    template <> inline constexpr auto& name_v<Windows::Media::ISystemMediaTransportControls2>{ L"Windows.Media.ISystemMediaTransportControls2" };
-    template <> inline constexpr auto& name_v<Windows::Media::ISystemMediaTransportControlsButtonPressedEventArgs>{ L"Windows.Media.ISystemMediaTransportControlsButtonPressedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::ISystemMediaTransportControlsDisplayUpdater>{ L"Windows.Media.ISystemMediaTransportControlsDisplayUpdater" };
-    template <> inline constexpr auto& name_v<Windows::Media::ISystemMediaTransportControlsPropertyChangedEventArgs>{ L"Windows.Media.ISystemMediaTransportControlsPropertyChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::ISystemMediaTransportControlsStatics>{ L"Windows.Media.ISystemMediaTransportControlsStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::ISystemMediaTransportControlsTimelineProperties>{ L"Windows.Media.ISystemMediaTransportControlsTimelineProperties" };
-    template <> inline constexpr auto& name_v<Windows::Media::IVideoDisplayProperties>{ L"Windows.Media.IVideoDisplayProperties" };
-    template <> inline constexpr auto& name_v<Windows::Media::IVideoDisplayProperties2>{ L"Windows.Media.IVideoDisplayProperties2" };
-    template <> inline constexpr auto& name_v<Windows::Media::IVideoEffectsStatics>{ L"Windows.Media.IVideoEffectsStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::IVideoFrame>{ L"Windows.Media.IVideoFrame" };
-    template <> inline constexpr auto& name_v<Windows::Media::IVideoFrame2>{ L"Windows.Media.IVideoFrame2" };
-    template <> inline constexpr auto& name_v<Windows::Media::IVideoFrameFactory>{ L"Windows.Media.IVideoFrameFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::IVideoFrameStatics>{ L"Windows.Media.IVideoFrameStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Media::AudioBuffer> = L"Windows.Media.AudioBuffer";
+    template <> inline constexpr auto& name_v<Windows::Media::AudioFrame> = L"Windows.Media.AudioFrame";
+    template <> inline constexpr auto& name_v<Windows::Media::AutoRepeatModeChangeRequestedEventArgs> = L"Windows.Media.AutoRepeatModeChangeRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::ImageDisplayProperties> = L"Windows.Media.ImageDisplayProperties";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaControl> = L"Windows.Media.MediaControl";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaExtensionManager> = L"Windows.Media.MediaExtensionManager";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaMarkerTypes> = L"Windows.Media.MediaMarkerTypes";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaProcessingTriggerDetails> = L"Windows.Media.MediaProcessingTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaTimelineController> = L"Windows.Media.MediaTimelineController";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaTimelineControllerFailedEventArgs> = L"Windows.Media.MediaTimelineControllerFailedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::MusicDisplayProperties> = L"Windows.Media.MusicDisplayProperties";
+    template <> inline constexpr auto& name_v<Windows::Media::PlaybackPositionChangeRequestedEventArgs> = L"Windows.Media.PlaybackPositionChangeRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::PlaybackRateChangeRequestedEventArgs> = L"Windows.Media.PlaybackRateChangeRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::ShuffleEnabledChangeRequestedEventArgs> = L"Windows.Media.ShuffleEnabledChangeRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::SystemMediaTransportControls> = L"Windows.Media.SystemMediaTransportControls";
+    template <> inline constexpr auto& name_v<Windows::Media::SystemMediaTransportControlsButtonPressedEventArgs> = L"Windows.Media.SystemMediaTransportControlsButtonPressedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::SystemMediaTransportControlsDisplayUpdater> = L"Windows.Media.SystemMediaTransportControlsDisplayUpdater";
+    template <> inline constexpr auto& name_v<Windows::Media::SystemMediaTransportControlsPropertyChangedEventArgs> = L"Windows.Media.SystemMediaTransportControlsPropertyChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::SystemMediaTransportControlsTimelineProperties> = L"Windows.Media.SystemMediaTransportControlsTimelineProperties";
+    template <> inline constexpr auto& name_v<Windows::Media::VideoDisplayProperties> = L"Windows.Media.VideoDisplayProperties";
+    template <> inline constexpr auto& name_v<Windows::Media::VideoEffects> = L"Windows.Media.VideoEffects";
+    template <> inline constexpr auto& name_v<Windows::Media::VideoFrame> = L"Windows.Media.VideoFrame";
+    template <> inline constexpr auto& name_v<Windows::Media::AudioBufferAccessMode> = L"Windows.Media.AudioBufferAccessMode";
+    template <> inline constexpr auto& name_v<Windows::Media::AudioProcessing> = L"Windows.Media.AudioProcessing";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaPlaybackAutoRepeatMode> = L"Windows.Media.MediaPlaybackAutoRepeatMode";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaPlaybackStatus> = L"Windows.Media.MediaPlaybackStatus";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaPlaybackType> = L"Windows.Media.MediaPlaybackType";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaTimelineControllerState> = L"Windows.Media.MediaTimelineControllerState";
+    template <> inline constexpr auto& name_v<Windows::Media::SoundLevel> = L"Windows.Media.SoundLevel";
+    template <> inline constexpr auto& name_v<Windows::Media::SystemMediaTransportControlsButton> = L"Windows.Media.SystemMediaTransportControlsButton";
+    template <> inline constexpr auto& name_v<Windows::Media::SystemMediaTransportControlsProperty> = L"Windows.Media.SystemMediaTransportControlsProperty";
+    template <> inline constexpr auto& name_v<Windows::Media::MediaTimeRange> = L"Windows.Media.MediaTimeRange";
+    template <> inline constexpr auto& name_v<Windows::Media::IAudioBuffer> = L"Windows.Media.IAudioBuffer";
+    template <> inline constexpr auto& name_v<Windows::Media::IAudioFrame> = L"Windows.Media.IAudioFrame";
+    template <> inline constexpr auto& name_v<Windows::Media::IAudioFrameFactory> = L"Windows.Media.IAudioFrameFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::IAutoRepeatModeChangeRequestedEventArgs> = L"Windows.Media.IAutoRepeatModeChangeRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::IImageDisplayProperties> = L"Windows.Media.IImageDisplayProperties";
+    template <> inline constexpr auto& name_v<Windows::Media::IMediaControl> = L"Windows.Media.IMediaControl";
+    template <> inline constexpr auto& name_v<Windows::Media::IMediaExtension> = L"Windows.Media.IMediaExtension";
+    template <> inline constexpr auto& name_v<Windows::Media::IMediaExtensionManager> = L"Windows.Media.IMediaExtensionManager";
+    template <> inline constexpr auto& name_v<Windows::Media::IMediaExtensionManager2> = L"Windows.Media.IMediaExtensionManager2";
+    template <> inline constexpr auto& name_v<Windows::Media::IMediaFrame> = L"Windows.Media.IMediaFrame";
+    template <> inline constexpr auto& name_v<Windows::Media::IMediaMarker> = L"Windows.Media.IMediaMarker";
+    template <> inline constexpr auto& name_v<Windows::Media::IMediaMarkerTypesStatics> = L"Windows.Media.IMediaMarkerTypesStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::IMediaMarkers> = L"Windows.Media.IMediaMarkers";
+    template <> inline constexpr auto& name_v<Windows::Media::IMediaProcessingTriggerDetails> = L"Windows.Media.IMediaProcessingTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::Media::IMediaTimelineController> = L"Windows.Media.IMediaTimelineController";
+    template <> inline constexpr auto& name_v<Windows::Media::IMediaTimelineController2> = L"Windows.Media.IMediaTimelineController2";
+    template <> inline constexpr auto& name_v<Windows::Media::IMediaTimelineControllerFailedEventArgs> = L"Windows.Media.IMediaTimelineControllerFailedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::IMusicDisplayProperties> = L"Windows.Media.IMusicDisplayProperties";
+    template <> inline constexpr auto& name_v<Windows::Media::IMusicDisplayProperties2> = L"Windows.Media.IMusicDisplayProperties2";
+    template <> inline constexpr auto& name_v<Windows::Media::IMusicDisplayProperties3> = L"Windows.Media.IMusicDisplayProperties3";
+    template <> inline constexpr auto& name_v<Windows::Media::IPlaybackPositionChangeRequestedEventArgs> = L"Windows.Media.IPlaybackPositionChangeRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::IPlaybackRateChangeRequestedEventArgs> = L"Windows.Media.IPlaybackRateChangeRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::IShuffleEnabledChangeRequestedEventArgs> = L"Windows.Media.IShuffleEnabledChangeRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::ISystemMediaTransportControls> = L"Windows.Media.ISystemMediaTransportControls";
+    template <> inline constexpr auto& name_v<Windows::Media::ISystemMediaTransportControls2> = L"Windows.Media.ISystemMediaTransportControls2";
+    template <> inline constexpr auto& name_v<Windows::Media::ISystemMediaTransportControlsButtonPressedEventArgs> = L"Windows.Media.ISystemMediaTransportControlsButtonPressedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::ISystemMediaTransportControlsDisplayUpdater> = L"Windows.Media.ISystemMediaTransportControlsDisplayUpdater";
+    template <> inline constexpr auto& name_v<Windows::Media::ISystemMediaTransportControlsPropertyChangedEventArgs> = L"Windows.Media.ISystemMediaTransportControlsPropertyChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::ISystemMediaTransportControlsStatics> = L"Windows.Media.ISystemMediaTransportControlsStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::ISystemMediaTransportControlsTimelineProperties> = L"Windows.Media.ISystemMediaTransportControlsTimelineProperties";
+    template <> inline constexpr auto& name_v<Windows::Media::IVideoDisplayProperties> = L"Windows.Media.IVideoDisplayProperties";
+    template <> inline constexpr auto& name_v<Windows::Media::IVideoDisplayProperties2> = L"Windows.Media.IVideoDisplayProperties2";
+    template <> inline constexpr auto& name_v<Windows::Media::IVideoEffectsStatics> = L"Windows.Media.IVideoEffectsStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::IVideoFrame> = L"Windows.Media.IVideoFrame";
+    template <> inline constexpr auto& name_v<Windows::Media::IVideoFrame2> = L"Windows.Media.IVideoFrame2";
+    template <> inline constexpr auto& name_v<Windows::Media::IVideoFrameFactory> = L"Windows.Media.IVideoFrameFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::IVideoFrameStatics> = L"Windows.Media.IVideoFrameStatics";
     template <> inline constexpr guid guid_v<Windows::Media::IAudioBuffer>{ 0x35175827,0x724B,0x4C6A,{ 0xB1,0x30,0xF6,0x53,0x7F,0x9A,0xE0,0xD0 } };
     template <> inline constexpr guid guid_v<Windows::Media::IAudioFrame>{ 0xE36AC304,0xAAB2,0x4277,{ 0x9E,0xD0,0x43,0xCE,0xDF,0x8E,0x29,0xC6 } };
     template <> inline constexpr guid guid_v<Windows::Media::IAudioFrameFactory>{ 0x91A90ADE,0x2422,0x40A6,{ 0xB9,0xAD,0x30,0xD0,0x24,0x04,0x31,0x7D } };
@@ -793,9 +794,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_IAudioBuffer
     {
-        [[nodiscard]] auto Capacity() const;
-        [[nodiscard]] auto Length() const;
-        auto Length(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Capacity() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Length() const;
+        WINRT_IMPL_AUTO(void) Length(uint32_t value) const;
     };
     template <> struct consume<Windows::Media::IAudioBuffer>
     {
@@ -804,7 +805,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_IAudioFrame
     {
-        auto LockBuffer(Windows::Media::AudioBufferAccessMode const& mode) const;
+        WINRT_IMPL_AUTO(Windows::Media::AudioBuffer) LockBuffer(Windows::Media::AudioBufferAccessMode const& mode) const;
     };
     template <> struct consume<Windows::Media::IAudioFrame>
     {
@@ -813,7 +814,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_IAudioFrameFactory
     {
-        auto Create(uint32_t capacity) const;
+        WINRT_IMPL_AUTO(Windows::Media::AudioFrame) Create(uint32_t capacity) const;
     };
     template <> struct consume<Windows::Media::IAudioFrameFactory>
     {
@@ -822,7 +823,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_IAutoRepeatModeChangeRequestedEventArgs
     {
-        [[nodiscard]] auto RequestedAutoRepeatMode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::MediaPlaybackAutoRepeatMode) RequestedAutoRepeatMode() const;
     };
     template <> struct consume<Windows::Media::IAutoRepeatModeChangeRequestedEventArgs>
     {
@@ -831,10 +832,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_IImageDisplayProperties
     {
-        [[nodiscard]] auto Title() const;
-        auto Title(param::hstring const& value) const;
-        [[nodiscard]] auto Subtitle() const;
-        auto Subtitle(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Title() const;
+        WINRT_IMPL_AUTO(void) Title(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Subtitle() const;
+        WINRT_IMPL_AUTO(void) Subtitle(param::hstring const& value) const;
     };
     template <> struct consume<Windows::Media::IImageDisplayProperties>
     {
@@ -843,63 +844,63 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_IMediaControl
     {
-        auto SoundLevelChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) SoundLevelChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using SoundLevelChanged_revoker = impl::event_revoker<Windows::Media::IMediaControl, &impl::abi_t<Windows::Media::IMediaControl>::remove_SoundLevelChanged>;
         [[nodiscard]] SoundLevelChanged_revoker SoundLevelChanged(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto SoundLevelChanged(winrt::event_token const& cookie) const noexcept;
-        auto PlayPressed(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) SoundLevelChanged(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PlayPressed(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using PlayPressed_revoker = impl::event_revoker<Windows::Media::IMediaControl, &impl::abi_t<Windows::Media::IMediaControl>::remove_PlayPressed>;
         [[nodiscard]] PlayPressed_revoker PlayPressed(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto PlayPressed(winrt::event_token const& cookie) const noexcept;
-        auto PausePressed(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) PlayPressed(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PausePressed(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using PausePressed_revoker = impl::event_revoker<Windows::Media::IMediaControl, &impl::abi_t<Windows::Media::IMediaControl>::remove_PausePressed>;
         [[nodiscard]] PausePressed_revoker PausePressed(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto PausePressed(winrt::event_token const& cookie) const noexcept;
-        auto StopPressed(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) PausePressed(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) StopPressed(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using StopPressed_revoker = impl::event_revoker<Windows::Media::IMediaControl, &impl::abi_t<Windows::Media::IMediaControl>::remove_StopPressed>;
         [[nodiscard]] StopPressed_revoker StopPressed(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto StopPressed(winrt::event_token const& cookie) const noexcept;
-        auto PlayPauseTogglePressed(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) StopPressed(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PlayPauseTogglePressed(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using PlayPauseTogglePressed_revoker = impl::event_revoker<Windows::Media::IMediaControl, &impl::abi_t<Windows::Media::IMediaControl>::remove_PlayPauseTogglePressed>;
         [[nodiscard]] PlayPauseTogglePressed_revoker PlayPauseTogglePressed(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto PlayPauseTogglePressed(winrt::event_token const& cookie) const noexcept;
-        auto RecordPressed(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) PlayPauseTogglePressed(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) RecordPressed(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using RecordPressed_revoker = impl::event_revoker<Windows::Media::IMediaControl, &impl::abi_t<Windows::Media::IMediaControl>::remove_RecordPressed>;
         [[nodiscard]] RecordPressed_revoker RecordPressed(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto RecordPressed(winrt::event_token const& cookie) const noexcept;
-        auto NextTrackPressed(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) RecordPressed(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) NextTrackPressed(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using NextTrackPressed_revoker = impl::event_revoker<Windows::Media::IMediaControl, &impl::abi_t<Windows::Media::IMediaControl>::remove_NextTrackPressed>;
         [[nodiscard]] NextTrackPressed_revoker NextTrackPressed(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto NextTrackPressed(winrt::event_token const& cookie) const noexcept;
-        auto PreviousTrackPressed(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) NextTrackPressed(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PreviousTrackPressed(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using PreviousTrackPressed_revoker = impl::event_revoker<Windows::Media::IMediaControl, &impl::abi_t<Windows::Media::IMediaControl>::remove_PreviousTrackPressed>;
         [[nodiscard]] PreviousTrackPressed_revoker PreviousTrackPressed(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto PreviousTrackPressed(winrt::event_token const& cookie) const noexcept;
-        auto FastForwardPressed(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) PreviousTrackPressed(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) FastForwardPressed(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using FastForwardPressed_revoker = impl::event_revoker<Windows::Media::IMediaControl, &impl::abi_t<Windows::Media::IMediaControl>::remove_FastForwardPressed>;
         [[nodiscard]] FastForwardPressed_revoker FastForwardPressed(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto FastForwardPressed(winrt::event_token const& cookie) const noexcept;
-        auto RewindPressed(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) FastForwardPressed(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) RewindPressed(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using RewindPressed_revoker = impl::event_revoker<Windows::Media::IMediaControl, &impl::abi_t<Windows::Media::IMediaControl>::remove_RewindPressed>;
         [[nodiscard]] RewindPressed_revoker RewindPressed(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto RewindPressed(winrt::event_token const& cookie) const noexcept;
-        auto ChannelUpPressed(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) RewindPressed(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ChannelUpPressed(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using ChannelUpPressed_revoker = impl::event_revoker<Windows::Media::IMediaControl, &impl::abi_t<Windows::Media::IMediaControl>::remove_ChannelUpPressed>;
         [[nodiscard]] ChannelUpPressed_revoker ChannelUpPressed(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto ChannelUpPressed(winrt::event_token const& cookie) const noexcept;
-        auto ChannelDownPressed(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) ChannelUpPressed(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ChannelDownPressed(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using ChannelDownPressed_revoker = impl::event_revoker<Windows::Media::IMediaControl, &impl::abi_t<Windows::Media::IMediaControl>::remove_ChannelDownPressed>;
         [[nodiscard]] ChannelDownPressed_revoker ChannelDownPressed(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto ChannelDownPressed(winrt::event_token const& cookie) const noexcept;
-        [[nodiscard]] auto SoundLevel() const;
-        auto TrackName(param::hstring const& value) const;
-        [[nodiscard]] auto TrackName() const;
-        auto ArtistName(param::hstring const& value) const;
-        [[nodiscard]] auto ArtistName() const;
-        auto IsPlaying(bool value) const;
-        [[nodiscard]] auto IsPlaying() const;
-        auto AlbumArt(Windows::Foundation::Uri const& value) const;
-        [[nodiscard]] auto AlbumArt() const;
+        WINRT_IMPL_AUTO(void) ChannelDownPressed(winrt::event_token const& cookie) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::SoundLevel) SoundLevel() const;
+        WINRT_IMPL_AUTO(void) TrackName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TrackName() const;
+        WINRT_IMPL_AUTO(void) ArtistName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ArtistName() const;
+        WINRT_IMPL_AUTO(void) IsPlaying(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPlaying() const;
+        WINRT_IMPL_AUTO(void) AlbumArt(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) AlbumArt() const;
     };
     template <> struct consume<Windows::Media::IMediaControl>
     {
@@ -908,7 +909,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_IMediaExtension
     {
-        auto SetProperties(Windows::Foundation::Collections::IPropertySet const& configuration) const;
+        WINRT_IMPL_AUTO(void) SetProperties(Windows::Foundation::Collections::IPropertySet const& configuration) const;
     };
     template <> struct consume<Windows::Media::IMediaExtension>
     {
@@ -917,18 +918,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_IMediaExtensionManager
     {
-        auto RegisterSchemeHandler(param::hstring const& activatableClassId, param::hstring const& scheme) const;
-        auto RegisterSchemeHandler(param::hstring const& activatableClassId, param::hstring const& scheme, Windows::Foundation::Collections::IPropertySet const& configuration) const;
-        auto RegisterByteStreamHandler(param::hstring const& activatableClassId, param::hstring const& fileExtension, param::hstring const& mimeType) const;
-        auto RegisterByteStreamHandler(param::hstring const& activatableClassId, param::hstring const& fileExtension, param::hstring const& mimeType, Windows::Foundation::Collections::IPropertySet const& configuration) const;
-        auto RegisterAudioDecoder(param::hstring const& activatableClassId, winrt::guid const& inputSubtype, winrt::guid const& outputSubtype) const;
-        auto RegisterAudioDecoder(param::hstring const& activatableClassId, winrt::guid const& inputSubtype, winrt::guid const& outputSubtype, Windows::Foundation::Collections::IPropertySet const& configuration) const;
-        auto RegisterAudioEncoder(param::hstring const& activatableClassId, winrt::guid const& inputSubtype, winrt::guid const& outputSubtype) const;
-        auto RegisterAudioEncoder(param::hstring const& activatableClassId, winrt::guid const& inputSubtype, winrt::guid const& outputSubtype, Windows::Foundation::Collections::IPropertySet const& configuration) const;
-        auto RegisterVideoDecoder(param::hstring const& activatableClassId, winrt::guid const& inputSubtype, winrt::guid const& outputSubtype) const;
-        auto RegisterVideoDecoder(param::hstring const& activatableClassId, winrt::guid const& inputSubtype, winrt::guid const& outputSubtype, Windows::Foundation::Collections::IPropertySet const& configuration) const;
-        auto RegisterVideoEncoder(param::hstring const& activatableClassId, winrt::guid const& inputSubtype, winrt::guid const& outputSubtype) const;
-        auto RegisterVideoEncoder(param::hstring const& activatableClassId, winrt::guid const& inputSubtype, winrt::guid const& outputSubtype, Windows::Foundation::Collections::IPropertySet const& configuration) const;
+        WINRT_IMPL_AUTO(void) RegisterSchemeHandler(param::hstring const& activatableClassId, param::hstring const& scheme) const;
+        WINRT_IMPL_AUTO(void) RegisterSchemeHandler(param::hstring const& activatableClassId, param::hstring const& scheme, Windows::Foundation::Collections::IPropertySet const& configuration) const;
+        WINRT_IMPL_AUTO(void) RegisterByteStreamHandler(param::hstring const& activatableClassId, param::hstring const& fileExtension, param::hstring const& mimeType) const;
+        WINRT_IMPL_AUTO(void) RegisterByteStreamHandler(param::hstring const& activatableClassId, param::hstring const& fileExtension, param::hstring const& mimeType, Windows::Foundation::Collections::IPropertySet const& configuration) const;
+        WINRT_IMPL_AUTO(void) RegisterAudioDecoder(param::hstring const& activatableClassId, winrt::guid const& inputSubtype, winrt::guid const& outputSubtype) const;
+        WINRT_IMPL_AUTO(void) RegisterAudioDecoder(param::hstring const& activatableClassId, winrt::guid const& inputSubtype, winrt::guid const& outputSubtype, Windows::Foundation::Collections::IPropertySet const& configuration) const;
+        WINRT_IMPL_AUTO(void) RegisterAudioEncoder(param::hstring const& activatableClassId, winrt::guid const& inputSubtype, winrt::guid const& outputSubtype) const;
+        WINRT_IMPL_AUTO(void) RegisterAudioEncoder(param::hstring const& activatableClassId, winrt::guid const& inputSubtype, winrt::guid const& outputSubtype, Windows::Foundation::Collections::IPropertySet const& configuration) const;
+        WINRT_IMPL_AUTO(void) RegisterVideoDecoder(param::hstring const& activatableClassId, winrt::guid const& inputSubtype, winrt::guid const& outputSubtype) const;
+        WINRT_IMPL_AUTO(void) RegisterVideoDecoder(param::hstring const& activatableClassId, winrt::guid const& inputSubtype, winrt::guid const& outputSubtype, Windows::Foundation::Collections::IPropertySet const& configuration) const;
+        WINRT_IMPL_AUTO(void) RegisterVideoEncoder(param::hstring const& activatableClassId, winrt::guid const& inputSubtype, winrt::guid const& outputSubtype) const;
+        WINRT_IMPL_AUTO(void) RegisterVideoEncoder(param::hstring const& activatableClassId, winrt::guid const& inputSubtype, winrt::guid const& outputSubtype, Windows::Foundation::Collections::IPropertySet const& configuration) const;
     };
     template <> struct consume<Windows::Media::IMediaExtensionManager>
     {
@@ -937,7 +938,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_IMediaExtensionManager2
     {
-        auto RegisterMediaExtensionForAppService(Windows::Media::IMediaExtension const& extension, Windows::ApplicationModel::AppService::AppServiceConnection const& connection) const;
+        WINRT_IMPL_AUTO(void) RegisterMediaExtensionForAppService(Windows::Media::IMediaExtension const& extension, Windows::ApplicationModel::AppService::AppServiceConnection const& connection) const;
     };
     template <> struct consume<Windows::Media::IMediaExtensionManager2>
     {
@@ -946,17 +947,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_IMediaFrame
     {
-        [[nodiscard]] auto Type() const;
-        [[nodiscard]] auto IsReadOnly() const;
-        auto RelativeTime(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
-        [[nodiscard]] auto RelativeTime() const;
-        auto SystemRelativeTime(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
-        [[nodiscard]] auto SystemRelativeTime() const;
-        auto Duration(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
-        [[nodiscard]] auto Duration() const;
-        auto IsDiscontinuous(bool value) const;
-        [[nodiscard]] auto IsDiscontinuous() const;
-        [[nodiscard]] auto ExtendedProperties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Type() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsReadOnly() const;
+        WINRT_IMPL_AUTO(void) RelativeTime(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) RelativeTime() const;
+        WINRT_IMPL_AUTO(void) SystemRelativeTime(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) SystemRelativeTime() const;
+        WINRT_IMPL_AUTO(void) Duration(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) Duration() const;
+        WINRT_IMPL_AUTO(void) IsDiscontinuous(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDiscontinuous() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IPropertySet) ExtendedProperties() const;
     };
     template <> struct consume<Windows::Media::IMediaFrame>
     {
@@ -965,9 +966,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_IMediaMarker
     {
-        [[nodiscard]] auto Time() const;
-        [[nodiscard]] auto MediaMarkerType() const;
-        [[nodiscard]] auto Text() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Time() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MediaMarkerType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Text() const;
     };
     template <> struct consume<Windows::Media::IMediaMarker>
     {
@@ -976,7 +977,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_IMediaMarkerTypesStatics
     {
-        [[nodiscard]] auto Bookmark() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Bookmark() const;
     };
     template <> struct consume<Windows::Media::IMediaMarkerTypesStatics>
     {
@@ -985,7 +986,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_IMediaMarkers
     {
-        [[nodiscard]] auto Markers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::IMediaMarker>) Markers() const;
     };
     template <> struct consume<Windows::Media::IMediaMarkers>
     {
@@ -994,7 +995,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_IMediaProcessingTriggerDetails
     {
-        [[nodiscard]] auto Arguments() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::ValueSet) Arguments() const;
     };
     template <> struct consume<Windows::Media::IMediaProcessingTriggerDetails>
     {
@@ -1003,22 +1004,22 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_IMediaTimelineController
     {
-        auto Start() const;
-        auto Resume() const;
-        auto Pause() const;
-        [[nodiscard]] auto Position() const;
-        auto Position(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto ClockRate() const;
-        auto ClockRate(double value) const;
-        [[nodiscard]] auto State() const;
-        auto PositionChanged(Windows::Foundation::TypedEventHandler<Windows::Media::MediaTimelineController, Windows::Foundation::IInspectable> const& positionChangedEventHandler) const;
+        WINRT_IMPL_AUTO(void) Start() const;
+        WINRT_IMPL_AUTO(void) Resume() const;
+        WINRT_IMPL_AUTO(void) Pause() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Position() const;
+        WINRT_IMPL_AUTO(void) Position(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) ClockRate() const;
+        WINRT_IMPL_AUTO(void) ClockRate(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::MediaTimelineControllerState) State() const;
+        WINRT_IMPL_AUTO(winrt::event_token) PositionChanged(Windows::Foundation::TypedEventHandler<Windows::Media::MediaTimelineController, Windows::Foundation::IInspectable> const& positionChangedEventHandler) const;
         using PositionChanged_revoker = impl::event_revoker<Windows::Media::IMediaTimelineController, &impl::abi_t<Windows::Media::IMediaTimelineController>::remove_PositionChanged>;
         [[nodiscard]] PositionChanged_revoker PositionChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::MediaTimelineController, Windows::Foundation::IInspectable> const& positionChangedEventHandler) const;
-        auto PositionChanged(winrt::event_token const& eventCookie) const noexcept;
-        auto StateChanged(Windows::Foundation::TypedEventHandler<Windows::Media::MediaTimelineController, Windows::Foundation::IInspectable> const& stateChangedEventHandler) const;
+        WINRT_IMPL_AUTO(void) PositionChanged(winrt::event_token const& eventCookie) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) StateChanged(Windows::Foundation::TypedEventHandler<Windows::Media::MediaTimelineController, Windows::Foundation::IInspectable> const& stateChangedEventHandler) const;
         using StateChanged_revoker = impl::event_revoker<Windows::Media::IMediaTimelineController, &impl::abi_t<Windows::Media::IMediaTimelineController>::remove_StateChanged>;
         [[nodiscard]] StateChanged_revoker StateChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::MediaTimelineController, Windows::Foundation::IInspectable> const& stateChangedEventHandler) const;
-        auto StateChanged(winrt::event_token const& eventCookie) const noexcept;
+        WINRT_IMPL_AUTO(void) StateChanged(winrt::event_token const& eventCookie) const noexcept;
     };
     template <> struct consume<Windows::Media::IMediaTimelineController>
     {
@@ -1027,18 +1028,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_IMediaTimelineController2
     {
-        [[nodiscard]] auto Duration() const;
-        auto Duration(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
-        [[nodiscard]] auto IsLoopingEnabled() const;
-        auto IsLoopingEnabled(bool value) const;
-        auto Failed(Windows::Foundation::TypedEventHandler<Windows::Media::MediaTimelineController, Windows::Media::MediaTimelineControllerFailedEventArgs> const& eventHandler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) Duration() const;
+        WINRT_IMPL_AUTO(void) Duration(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsLoopingEnabled() const;
+        WINRT_IMPL_AUTO(void) IsLoopingEnabled(bool value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Failed(Windows::Foundation::TypedEventHandler<Windows::Media::MediaTimelineController, Windows::Media::MediaTimelineControllerFailedEventArgs> const& eventHandler) const;
         using Failed_revoker = impl::event_revoker<Windows::Media::IMediaTimelineController2, &impl::abi_t<Windows::Media::IMediaTimelineController2>::remove_Failed>;
         [[nodiscard]] Failed_revoker Failed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::MediaTimelineController, Windows::Media::MediaTimelineControllerFailedEventArgs> const& eventHandler) const;
-        auto Failed(winrt::event_token const& token) const noexcept;
-        auto Ended(Windows::Foundation::TypedEventHandler<Windows::Media::MediaTimelineController, Windows::Foundation::IInspectable> const& eventHandler) const;
+        WINRT_IMPL_AUTO(void) Failed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Ended(Windows::Foundation::TypedEventHandler<Windows::Media::MediaTimelineController, Windows::Foundation::IInspectable> const& eventHandler) const;
         using Ended_revoker = impl::event_revoker<Windows::Media::IMediaTimelineController2, &impl::abi_t<Windows::Media::IMediaTimelineController2>::remove_Ended>;
         [[nodiscard]] Ended_revoker Ended(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::MediaTimelineController, Windows::Foundation::IInspectable> const& eventHandler) const;
-        auto Ended(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Ended(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Media::IMediaTimelineController2>
     {
@@ -1047,7 +1048,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_IMediaTimelineControllerFailedEventArgs
     {
-        [[nodiscard]] auto ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
     };
     template <> struct consume<Windows::Media::IMediaTimelineControllerFailedEventArgs>
     {
@@ -1056,12 +1057,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_IMusicDisplayProperties
     {
-        [[nodiscard]] auto Title() const;
-        auto Title(param::hstring const& value) const;
-        [[nodiscard]] auto AlbumArtist() const;
-        auto AlbumArtist(param::hstring const& value) const;
-        [[nodiscard]] auto Artist() const;
-        auto Artist(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Title() const;
+        WINRT_IMPL_AUTO(void) Title(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AlbumArtist() const;
+        WINRT_IMPL_AUTO(void) AlbumArtist(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Artist() const;
+        WINRT_IMPL_AUTO(void) Artist(param::hstring const& value) const;
     };
     template <> struct consume<Windows::Media::IMusicDisplayProperties>
     {
@@ -1070,11 +1071,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_IMusicDisplayProperties2
     {
-        [[nodiscard]] auto AlbumTitle() const;
-        auto AlbumTitle(param::hstring const& value) const;
-        [[nodiscard]] auto TrackNumber() const;
-        auto TrackNumber(uint32_t value) const;
-        [[nodiscard]] auto Genres() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AlbumTitle() const;
+        WINRT_IMPL_AUTO(void) AlbumTitle(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) TrackNumber() const;
+        WINRT_IMPL_AUTO(void) TrackNumber(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) Genres() const;
     };
     template <> struct consume<Windows::Media::IMusicDisplayProperties2>
     {
@@ -1083,8 +1084,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_IMusicDisplayProperties3
     {
-        [[nodiscard]] auto AlbumTrackCount() const;
-        auto AlbumTrackCount(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) AlbumTrackCount() const;
+        WINRT_IMPL_AUTO(void) AlbumTrackCount(uint32_t value) const;
     };
     template <> struct consume<Windows::Media::IMusicDisplayProperties3>
     {
@@ -1093,7 +1094,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_IPlaybackPositionChangeRequestedEventArgs
     {
-        [[nodiscard]] auto RequestedPlaybackPosition() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) RequestedPlaybackPosition() const;
     };
     template <> struct consume<Windows::Media::IPlaybackPositionChangeRequestedEventArgs>
     {
@@ -1102,7 +1103,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_IPlaybackRateChangeRequestedEventArgs
     {
-        [[nodiscard]] auto RequestedPlaybackRate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) RequestedPlaybackRate() const;
     };
     template <> struct consume<Windows::Media::IPlaybackRateChangeRequestedEventArgs>
     {
@@ -1111,7 +1112,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_IShuffleEnabledChangeRequestedEventArgs
     {
-        [[nodiscard]] auto RequestedShuffleEnabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) RequestedShuffleEnabled() const;
     };
     template <> struct consume<Windows::Media::IShuffleEnabledChangeRequestedEventArgs>
     {
@@ -1120,40 +1121,40 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_ISystemMediaTransportControls
     {
-        [[nodiscard]] auto PlaybackStatus() const;
-        auto PlaybackStatus(Windows::Media::MediaPlaybackStatus const& value) const;
-        [[nodiscard]] auto DisplayUpdater() const;
-        [[nodiscard]] auto SoundLevel() const;
-        [[nodiscard]] auto IsEnabled() const;
-        auto IsEnabled(bool value) const;
-        [[nodiscard]] auto IsPlayEnabled() const;
-        auto IsPlayEnabled(bool value) const;
-        [[nodiscard]] auto IsStopEnabled() const;
-        auto IsStopEnabled(bool value) const;
-        [[nodiscard]] auto IsPauseEnabled() const;
-        auto IsPauseEnabled(bool value) const;
-        [[nodiscard]] auto IsRecordEnabled() const;
-        auto IsRecordEnabled(bool value) const;
-        [[nodiscard]] auto IsFastForwardEnabled() const;
-        auto IsFastForwardEnabled(bool value) const;
-        [[nodiscard]] auto IsRewindEnabled() const;
-        auto IsRewindEnabled(bool value) const;
-        [[nodiscard]] auto IsPreviousEnabled() const;
-        auto IsPreviousEnabled(bool value) const;
-        [[nodiscard]] auto IsNextEnabled() const;
-        auto IsNextEnabled(bool value) const;
-        [[nodiscard]] auto IsChannelUpEnabled() const;
-        auto IsChannelUpEnabled(bool value) const;
-        [[nodiscard]] auto IsChannelDownEnabled() const;
-        auto IsChannelDownEnabled(bool value) const;
-        auto ButtonPressed(Windows::Foundation::TypedEventHandler<Windows::Media::SystemMediaTransportControls, Windows::Media::SystemMediaTransportControlsButtonPressedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::MediaPlaybackStatus) PlaybackStatus() const;
+        WINRT_IMPL_AUTO(void) PlaybackStatus(Windows::Media::MediaPlaybackStatus const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::SystemMediaTransportControlsDisplayUpdater) DisplayUpdater() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::SoundLevel) SoundLevel() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsEnabled() const;
+        WINRT_IMPL_AUTO(void) IsEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPlayEnabled() const;
+        WINRT_IMPL_AUTO(void) IsPlayEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsStopEnabled() const;
+        WINRT_IMPL_AUTO(void) IsStopEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPauseEnabled() const;
+        WINRT_IMPL_AUTO(void) IsPauseEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsRecordEnabled() const;
+        WINRT_IMPL_AUTO(void) IsRecordEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsFastForwardEnabled() const;
+        WINRT_IMPL_AUTO(void) IsFastForwardEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsRewindEnabled() const;
+        WINRT_IMPL_AUTO(void) IsRewindEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPreviousEnabled() const;
+        WINRT_IMPL_AUTO(void) IsPreviousEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsNextEnabled() const;
+        WINRT_IMPL_AUTO(void) IsNextEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsChannelUpEnabled() const;
+        WINRT_IMPL_AUTO(void) IsChannelUpEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsChannelDownEnabled() const;
+        WINRT_IMPL_AUTO(void) IsChannelDownEnabled(bool value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) ButtonPressed(Windows::Foundation::TypedEventHandler<Windows::Media::SystemMediaTransportControls, Windows::Media::SystemMediaTransportControlsButtonPressedEventArgs> const& handler) const;
         using ButtonPressed_revoker = impl::event_revoker<Windows::Media::ISystemMediaTransportControls, &impl::abi_t<Windows::Media::ISystemMediaTransportControls>::remove_ButtonPressed>;
         [[nodiscard]] ButtonPressed_revoker ButtonPressed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::SystemMediaTransportControls, Windows::Media::SystemMediaTransportControlsButtonPressedEventArgs> const& handler) const;
-        auto ButtonPressed(winrt::event_token const& token) const noexcept;
-        auto PropertyChanged(Windows::Foundation::TypedEventHandler<Windows::Media::SystemMediaTransportControls, Windows::Media::SystemMediaTransportControlsPropertyChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) ButtonPressed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PropertyChanged(Windows::Foundation::TypedEventHandler<Windows::Media::SystemMediaTransportControls, Windows::Media::SystemMediaTransportControlsPropertyChangedEventArgs> const& handler) const;
         using PropertyChanged_revoker = impl::event_revoker<Windows::Media::ISystemMediaTransportControls, &impl::abi_t<Windows::Media::ISystemMediaTransportControls>::remove_PropertyChanged>;
         [[nodiscard]] PropertyChanged_revoker PropertyChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::SystemMediaTransportControls, Windows::Media::SystemMediaTransportControlsPropertyChangedEventArgs> const& handler) const;
-        auto PropertyChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) PropertyChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Media::ISystemMediaTransportControls>
     {
@@ -1162,29 +1163,29 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_ISystemMediaTransportControls2
     {
-        [[nodiscard]] auto AutoRepeatMode() const;
-        auto AutoRepeatMode(Windows::Media::MediaPlaybackAutoRepeatMode const& value) const;
-        [[nodiscard]] auto ShuffleEnabled() const;
-        auto ShuffleEnabled(bool value) const;
-        [[nodiscard]] auto PlaybackRate() const;
-        auto PlaybackRate(double value) const;
-        auto UpdateTimelineProperties(Windows::Media::SystemMediaTransportControlsTimelineProperties const& timelineProperties) const;
-        auto PlaybackPositionChangeRequested(Windows::Foundation::TypedEventHandler<Windows::Media::SystemMediaTransportControls, Windows::Media::PlaybackPositionChangeRequestedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::MediaPlaybackAutoRepeatMode) AutoRepeatMode() const;
+        WINRT_IMPL_AUTO(void) AutoRepeatMode(Windows::Media::MediaPlaybackAutoRepeatMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ShuffleEnabled() const;
+        WINRT_IMPL_AUTO(void) ShuffleEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) PlaybackRate() const;
+        WINRT_IMPL_AUTO(void) PlaybackRate(double value) const;
+        WINRT_IMPL_AUTO(void) UpdateTimelineProperties(Windows::Media::SystemMediaTransportControlsTimelineProperties const& timelineProperties) const;
+        WINRT_IMPL_AUTO(winrt::event_token) PlaybackPositionChangeRequested(Windows::Foundation::TypedEventHandler<Windows::Media::SystemMediaTransportControls, Windows::Media::PlaybackPositionChangeRequestedEventArgs> const& handler) const;
         using PlaybackPositionChangeRequested_revoker = impl::event_revoker<Windows::Media::ISystemMediaTransportControls2, &impl::abi_t<Windows::Media::ISystemMediaTransportControls2>::remove_PlaybackPositionChangeRequested>;
         [[nodiscard]] PlaybackPositionChangeRequested_revoker PlaybackPositionChangeRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::SystemMediaTransportControls, Windows::Media::PlaybackPositionChangeRequestedEventArgs> const& handler) const;
-        auto PlaybackPositionChangeRequested(winrt::event_token const& token) const noexcept;
-        auto PlaybackRateChangeRequested(Windows::Foundation::TypedEventHandler<Windows::Media::SystemMediaTransportControls, Windows::Media::PlaybackRateChangeRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) PlaybackPositionChangeRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) PlaybackRateChangeRequested(Windows::Foundation::TypedEventHandler<Windows::Media::SystemMediaTransportControls, Windows::Media::PlaybackRateChangeRequestedEventArgs> const& handler) const;
         using PlaybackRateChangeRequested_revoker = impl::event_revoker<Windows::Media::ISystemMediaTransportControls2, &impl::abi_t<Windows::Media::ISystemMediaTransportControls2>::remove_PlaybackRateChangeRequested>;
         [[nodiscard]] PlaybackRateChangeRequested_revoker PlaybackRateChangeRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::SystemMediaTransportControls, Windows::Media::PlaybackRateChangeRequestedEventArgs> const& handler) const;
-        auto PlaybackRateChangeRequested(winrt::event_token const& token) const noexcept;
-        auto ShuffleEnabledChangeRequested(Windows::Foundation::TypedEventHandler<Windows::Media::SystemMediaTransportControls, Windows::Media::ShuffleEnabledChangeRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) PlaybackRateChangeRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ShuffleEnabledChangeRequested(Windows::Foundation::TypedEventHandler<Windows::Media::SystemMediaTransportControls, Windows::Media::ShuffleEnabledChangeRequestedEventArgs> const& handler) const;
         using ShuffleEnabledChangeRequested_revoker = impl::event_revoker<Windows::Media::ISystemMediaTransportControls2, &impl::abi_t<Windows::Media::ISystemMediaTransportControls2>::remove_ShuffleEnabledChangeRequested>;
         [[nodiscard]] ShuffleEnabledChangeRequested_revoker ShuffleEnabledChangeRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::SystemMediaTransportControls, Windows::Media::ShuffleEnabledChangeRequestedEventArgs> const& handler) const;
-        auto ShuffleEnabledChangeRequested(winrt::event_token const& token) const noexcept;
-        auto AutoRepeatModeChangeRequested(Windows::Foundation::TypedEventHandler<Windows::Media::SystemMediaTransportControls, Windows::Media::AutoRepeatModeChangeRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) ShuffleEnabledChangeRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) AutoRepeatModeChangeRequested(Windows::Foundation::TypedEventHandler<Windows::Media::SystemMediaTransportControls, Windows::Media::AutoRepeatModeChangeRequestedEventArgs> const& handler) const;
         using AutoRepeatModeChangeRequested_revoker = impl::event_revoker<Windows::Media::ISystemMediaTransportControls2, &impl::abi_t<Windows::Media::ISystemMediaTransportControls2>::remove_AutoRepeatModeChangeRequested>;
         [[nodiscard]] AutoRepeatModeChangeRequested_revoker AutoRepeatModeChangeRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::SystemMediaTransportControls, Windows::Media::AutoRepeatModeChangeRequestedEventArgs> const& handler) const;
-        auto AutoRepeatModeChangeRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) AutoRepeatModeChangeRequested(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Media::ISystemMediaTransportControls2>
     {
@@ -1193,7 +1194,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_ISystemMediaTransportControlsButtonPressedEventArgs
     {
-        [[nodiscard]] auto Button() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::SystemMediaTransportControlsButton) Button() const;
     };
     template <> struct consume<Windows::Media::ISystemMediaTransportControlsButtonPressedEventArgs>
     {
@@ -1202,18 +1203,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_ISystemMediaTransportControlsDisplayUpdater
     {
-        [[nodiscard]] auto Type() const;
-        auto Type(Windows::Media::MediaPlaybackType const& value) const;
-        [[nodiscard]] auto AppMediaId() const;
-        auto AppMediaId(param::hstring const& value) const;
-        [[nodiscard]] auto Thumbnail() const;
-        auto Thumbnail(Windows::Storage::Streams::RandomAccessStreamReference const& value) const;
-        [[nodiscard]] auto MusicProperties() const;
-        [[nodiscard]] auto VideoProperties() const;
-        [[nodiscard]] auto ImageProperties() const;
-        auto CopyFromFileAsync(Windows::Media::MediaPlaybackType const& type, Windows::Storage::StorageFile const& source) const;
-        auto ClearAll() const;
-        auto Update() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::MediaPlaybackType) Type() const;
+        WINRT_IMPL_AUTO(void) Type(Windows::Media::MediaPlaybackType const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AppMediaId() const;
+        WINRT_IMPL_AUTO(void) AppMediaId(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::RandomAccessStreamReference) Thumbnail() const;
+        WINRT_IMPL_AUTO(void) Thumbnail(Windows::Storage::Streams::RandomAccessStreamReference const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::MusicDisplayProperties) MusicProperties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::VideoDisplayProperties) VideoProperties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::ImageDisplayProperties) ImageProperties() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) CopyFromFileAsync(Windows::Media::MediaPlaybackType const& type, Windows::Storage::StorageFile const& source) const;
+        WINRT_IMPL_AUTO(void) ClearAll() const;
+        WINRT_IMPL_AUTO(void) Update() const;
     };
     template <> struct consume<Windows::Media::ISystemMediaTransportControlsDisplayUpdater>
     {
@@ -1222,7 +1223,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_ISystemMediaTransportControlsPropertyChangedEventArgs
     {
-        [[nodiscard]] auto Property() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::SystemMediaTransportControlsProperty) Property() const;
     };
     template <> struct consume<Windows::Media::ISystemMediaTransportControlsPropertyChangedEventArgs>
     {
@@ -1231,7 +1232,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_ISystemMediaTransportControlsStatics
     {
-        auto GetForCurrentView() const;
+        WINRT_IMPL_AUTO(Windows::Media::SystemMediaTransportControls) GetForCurrentView() const;
     };
     template <> struct consume<Windows::Media::ISystemMediaTransportControlsStatics>
     {
@@ -1240,16 +1241,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_ISystemMediaTransportControlsTimelineProperties
     {
-        [[nodiscard]] auto StartTime() const;
-        auto StartTime(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto EndTime() const;
-        auto EndTime(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto MinSeekTime() const;
-        auto MinSeekTime(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto MaxSeekTime() const;
-        auto MaxSeekTime(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto Position() const;
-        auto Position(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) StartTime() const;
+        WINRT_IMPL_AUTO(void) StartTime(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) EndTime() const;
+        WINRT_IMPL_AUTO(void) EndTime(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) MinSeekTime() const;
+        WINRT_IMPL_AUTO(void) MinSeekTime(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) MaxSeekTime() const;
+        WINRT_IMPL_AUTO(void) MaxSeekTime(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Position() const;
+        WINRT_IMPL_AUTO(void) Position(Windows::Foundation::TimeSpan const& value) const;
     };
     template <> struct consume<Windows::Media::ISystemMediaTransportControlsTimelineProperties>
     {
@@ -1258,10 +1259,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_IVideoDisplayProperties
     {
-        [[nodiscard]] auto Title() const;
-        auto Title(param::hstring const& value) const;
-        [[nodiscard]] auto Subtitle() const;
-        auto Subtitle(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Title() const;
+        WINRT_IMPL_AUTO(void) Title(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Subtitle() const;
+        WINRT_IMPL_AUTO(void) Subtitle(param::hstring const& value) const;
     };
     template <> struct consume<Windows::Media::IVideoDisplayProperties>
     {
@@ -1270,7 +1271,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_IVideoDisplayProperties2
     {
-        [[nodiscard]] auto Genres() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) Genres() const;
     };
     template <> struct consume<Windows::Media::IVideoDisplayProperties2>
     {
@@ -1279,7 +1280,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_IVideoEffectsStatics
     {
-        [[nodiscard]] auto VideoStabilization() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoStabilization() const;
     };
     template <> struct consume<Windows::Media::IVideoEffectsStatics>
     {
@@ -1288,9 +1289,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_IVideoFrame
     {
-        [[nodiscard]] auto SoftwareBitmap() const;
-        auto CopyToAsync(Windows::Media::VideoFrame const& frame) const;
-        [[nodiscard]] auto Direct3DSurface() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Imaging::SoftwareBitmap) SoftwareBitmap() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) CopyToAsync(Windows::Media::VideoFrame const& frame) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface) Direct3DSurface() const;
     };
     template <> struct consume<Windows::Media::IVideoFrame>
     {
@@ -1299,7 +1300,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_IVideoFrame2
     {
-        auto CopyToAsync(Windows::Media::VideoFrame const& frame, Windows::Foundation::IReference<Windows::Graphics::Imaging::BitmapBounds> const& sourceBounds, Windows::Foundation::IReference<Windows::Graphics::Imaging::BitmapBounds> const& destinationBounds) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) CopyToAsync(Windows::Media::VideoFrame const& frame, Windows::Foundation::IReference<Windows::Graphics::Imaging::BitmapBounds> const& sourceBounds, Windows::Foundation::IReference<Windows::Graphics::Imaging::BitmapBounds> const& destinationBounds) const;
     };
     template <> struct consume<Windows::Media::IVideoFrame2>
     {
@@ -1308,8 +1309,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_IVideoFrameFactory
     {
-        auto Create(Windows::Graphics::Imaging::BitmapPixelFormat const& format, int32_t width, int32_t height) const;
-        auto CreateWithAlpha(Windows::Graphics::Imaging::BitmapPixelFormat const& format, int32_t width, int32_t height, Windows::Graphics::Imaging::BitmapAlphaMode const& alpha) const;
+        WINRT_IMPL_AUTO(Windows::Media::VideoFrame) Create(Windows::Graphics::Imaging::BitmapPixelFormat const& format, int32_t width, int32_t height) const;
+        WINRT_IMPL_AUTO(Windows::Media::VideoFrame) CreateWithAlpha(Windows::Graphics::Imaging::BitmapPixelFormat const& format, int32_t width, int32_t height, Windows::Graphics::Imaging::BitmapAlphaMode const& alpha) const;
     };
     template <> struct consume<Windows::Media::IVideoFrameFactory>
     {
@@ -1318,10 +1319,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_IVideoFrameStatics
     {
-        auto CreateAsDirect3D11SurfaceBacked(Windows::Graphics::DirectX::DirectXPixelFormat const& format, int32_t width, int32_t height) const;
-        auto CreateAsDirect3D11SurfaceBacked(Windows::Graphics::DirectX::DirectXPixelFormat const& format, int32_t width, int32_t height, Windows::Graphics::DirectX::Direct3D11::IDirect3DDevice const& device) const;
-        auto CreateWithSoftwareBitmap(Windows::Graphics::Imaging::SoftwareBitmap const& bitmap) const;
-        auto CreateWithDirect3D11Surface(Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface const& surface) const;
+        WINRT_IMPL_AUTO(Windows::Media::VideoFrame) CreateAsDirect3D11SurfaceBacked(Windows::Graphics::DirectX::DirectXPixelFormat const& format, int32_t width, int32_t height) const;
+        WINRT_IMPL_AUTO(Windows::Media::VideoFrame) CreateAsDirect3D11SurfaceBacked(Windows::Graphics::DirectX::DirectXPixelFormat const& format, int32_t width, int32_t height, Windows::Graphics::DirectX::Direct3D11::IDirect3DDevice const& device) const;
+        WINRT_IMPL_AUTO(Windows::Media::VideoFrame) CreateWithSoftwareBitmap(Windows::Graphics::Imaging::SoftwareBitmap const& bitmap) const;
+        WINRT_IMPL_AUTO(Windows::Media::VideoFrame) CreateWithDirect3D11Surface(Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface const& surface) const;
     };
     template <> struct consume<Windows::Media::IVideoFrameStatics>
     {

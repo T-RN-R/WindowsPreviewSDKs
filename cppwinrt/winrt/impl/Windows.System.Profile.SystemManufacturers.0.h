@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -32,17 +32,15 @@ namespace winrt::impl
     template <> struct category<Windows::System::Profile::SystemManufacturers::SmbiosInformation>{ using type = class_category; };
     template <> struct category<Windows::System::Profile::SystemManufacturers::SystemSupportDeviceInfo>{ using type = class_category; };
     template <> struct category<Windows::System::Profile::SystemManufacturers::SystemSupportInfo>{ using type = class_category; };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::SystemManufacturers::OemSupportInfo>{ L"Windows.System.Profile.SystemManufacturers.OemSupportInfo" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::SystemManufacturers::SmbiosInformation>{ L"Windows.System.Profile.SystemManufacturers.SmbiosInformation" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::SystemManufacturers::SystemSupportDeviceInfo>{ L"Windows.System.Profile.SystemManufacturers.SystemSupportDeviceInfo" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::SystemManufacturers::SystemSupportInfo>{ L"Windows.System.Profile.SystemManufacturers.SystemSupportInfo" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::System::Profile::SystemManufacturers::IOemSupportInfo>{ L"Windows.System.Profile.SystemManufacturers.IOemSupportInfo" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::SystemManufacturers::ISmbiosInformationStatics>{ L"Windows.System.Profile.SystemManufacturers.ISmbiosInformationStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::SystemManufacturers::ISystemSupportDeviceInfo>{ L"Windows.System.Profile.SystemManufacturers.ISystemSupportDeviceInfo" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::SystemManufacturers::ISystemSupportInfoStatics>{ L"Windows.System.Profile.SystemManufacturers.ISystemSupportInfoStatics" };
-    template <> inline constexpr auto& name_v<Windows::System::Profile::SystemManufacturers::ISystemSupportInfoStatics2>{ L"Windows.System.Profile.SystemManufacturers.ISystemSupportInfoStatics2" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::System::Profile::SystemManufacturers::OemSupportInfo> = L"Windows.System.Profile.SystemManufacturers.OemSupportInfo";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::SystemManufacturers::SmbiosInformation> = L"Windows.System.Profile.SystemManufacturers.SmbiosInformation";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::SystemManufacturers::SystemSupportDeviceInfo> = L"Windows.System.Profile.SystemManufacturers.SystemSupportDeviceInfo";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::SystemManufacturers::SystemSupportInfo> = L"Windows.System.Profile.SystemManufacturers.SystemSupportInfo";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::SystemManufacturers::IOemSupportInfo> = L"Windows.System.Profile.SystemManufacturers.IOemSupportInfo";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::SystemManufacturers::ISmbiosInformationStatics> = L"Windows.System.Profile.SystemManufacturers.ISmbiosInformationStatics";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::SystemManufacturers::ISystemSupportDeviceInfo> = L"Windows.System.Profile.SystemManufacturers.ISystemSupportDeviceInfo";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::SystemManufacturers::ISystemSupportInfoStatics> = L"Windows.System.Profile.SystemManufacturers.ISystemSupportInfoStatics";
+    template <> inline constexpr auto& name_v<Windows::System::Profile::SystemManufacturers::ISystemSupportInfoStatics2> = L"Windows.System.Profile.SystemManufacturers.ISystemSupportInfoStatics2";
     template <> inline constexpr guid guid_v<Windows::System::Profile::SystemManufacturers::IOemSupportInfo>{ 0x8D2EAE55,0x87EF,0x4266,{ 0x86,0xD0,0xC4,0xAF,0xBE,0xB2,0x9B,0xB9 } };
     template <> inline constexpr guid guid_v<Windows::System::Profile::SystemManufacturers::ISmbiosInformationStatics>{ 0x080CCA7C,0x637C,0x48C4,{ 0xB7,0x28,0xF9,0x27,0x38,0x12,0xDB,0x8E } };
     template <> inline constexpr guid guid_v<Windows::System::Profile::SystemManufacturers::ISystemSupportDeviceInfo>{ 0x05880B99,0x8247,0x441B,{ 0xA9,0x96,0xA1,0x78,0x4B,0xAB,0x79,0xA8 } };
@@ -97,9 +95,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Profile_SystemManufacturers_IOemSupportInfo
     {
-        [[nodiscard]] auto SupportLink() const;
-        [[nodiscard]] auto SupportAppLink() const;
-        [[nodiscard]] auto SupportProvider() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) SupportLink() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) SupportAppLink() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SupportProvider() const;
     };
     template <> struct consume<Windows::System::Profile::SystemManufacturers::IOemSupportInfo>
     {
@@ -108,7 +106,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Profile_SystemManufacturers_ISmbiosInformationStatics
     {
-        [[nodiscard]] auto SerialNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SerialNumber() const;
     };
     template <> struct consume<Windows::System::Profile::SystemManufacturers::ISmbiosInformationStatics>
     {
@@ -117,13 +115,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Profile_SystemManufacturers_ISystemSupportDeviceInfo
     {
-        [[nodiscard]] auto OperatingSystem() const;
-        [[nodiscard]] auto FriendlyName() const;
-        [[nodiscard]] auto SystemManufacturer() const;
-        [[nodiscard]] auto SystemProductName() const;
-        [[nodiscard]] auto SystemSku() const;
-        [[nodiscard]] auto SystemHardwareVersion() const;
-        [[nodiscard]] auto SystemFirmwareVersion() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) OperatingSystem() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FriendlyName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SystemManufacturer() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SystemProductName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SystemSku() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SystemHardwareVersion() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SystemFirmwareVersion() const;
     };
     template <> struct consume<Windows::System::Profile::SystemManufacturers::ISystemSupportDeviceInfo>
     {
@@ -132,8 +130,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Profile_SystemManufacturers_ISystemSupportInfoStatics
     {
-        [[nodiscard]] auto LocalSystemEdition() const;
-        [[nodiscard]] auto OemSupportInfo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) LocalSystemEdition() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::Profile::SystemManufacturers::OemSupportInfo) OemSupportInfo() const;
     };
     template <> struct consume<Windows::System::Profile::SystemManufacturers::ISystemSupportInfoStatics>
     {
@@ -142,7 +140,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Profile_SystemManufacturers_ISystemSupportInfoStatics2
     {
-        [[nodiscard]] auto LocalDeviceInfo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::Profile::SystemManufacturers::SystemSupportDeviceInfo) LocalDeviceInfo() const;
     };
     template <> struct consume<Windows::System::Profile::SystemManufacturers::ISystemSupportInfoStatics2>
     {

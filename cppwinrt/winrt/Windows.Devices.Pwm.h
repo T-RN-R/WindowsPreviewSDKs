@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_Devices_Pwm_H
 #define WINRT_Windows_Devices_Pwm_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.Devices.h"
 #include "winrt/impl/Windows.Devices.Pwm.Provider.2.h"
 #include "winrt/impl/Windows.Foundation.2.h"
@@ -14,109 +14,109 @@ static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatche
 #include "winrt/impl/Windows.Devices.Pwm.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_Devices_Pwm_IPwmController<D>::PinCount() const
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_Devices_Pwm_IPwmController<D>::PinCount() const
     {
-        int32_t value;
+        int32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Pwm::IPwmController)->get_PinCount(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Pwm_IPwmController<D>::ActualFrequency() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Devices_Pwm_IPwmController<D>::ActualFrequency() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Pwm::IPwmController)->get_ActualFrequency(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Pwm_IPwmController<D>::SetDesiredFrequency(double desiredFrequency) const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Devices_Pwm_IPwmController<D>::SetDesiredFrequency(double desiredFrequency) const
     {
-        double result;
+        double result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Pwm::IPwmController)->SetDesiredFrequency(desiredFrequency, &result));
         return result;
     }
-    template <typename D> auto consume_Windows_Devices_Pwm_IPwmController<D>::MinFrequency() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Devices_Pwm_IPwmController<D>::MinFrequency() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Pwm::IPwmController)->get_MinFrequency(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Pwm_IPwmController<D>::MaxFrequency() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Devices_Pwm_IPwmController<D>::MaxFrequency() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Pwm::IPwmController)->get_MaxFrequency(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Pwm_IPwmController<D>::OpenPin(int32_t pinNumber) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Pwm::PwmPin) consume_Windows_Devices_Pwm_IPwmController<D>::OpenPin(int32_t pinNumber) const
     {
         void* pin{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Pwm::IPwmController)->OpenPin(pinNumber, &pin));
         return Windows::Devices::Pwm::PwmPin{ pin, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Pwm_IPwmControllerStatics<D>::GetControllersAsync(Windows::Devices::Pwm::Provider::IPwmProvider const& provider) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Devices::Pwm::PwmController>>) consume_Windows_Devices_Pwm_IPwmControllerStatics<D>::GetControllersAsync(Windows::Devices::Pwm::Provider::IPwmProvider const& provider) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Pwm::IPwmControllerStatics)->GetControllersAsync(*(void**)(&provider), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Devices::Pwm::PwmController>>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Pwm_IPwmControllerStatics2<D>::GetDefaultAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Pwm::PwmController>) consume_Windows_Devices_Pwm_IPwmControllerStatics2<D>::GetDefaultAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Pwm::IPwmControllerStatics2)->GetDefaultAsync(&operation));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::Pwm::PwmController>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Pwm_IPwmControllerStatics3<D>::GetDeviceSelector() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Pwm_IPwmControllerStatics3<D>::GetDeviceSelector() const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Pwm::IPwmControllerStatics3)->GetDeviceSelector(&result));
         return hstring{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Pwm_IPwmControllerStatics3<D>::GetDeviceSelector(param::hstring const& friendlyName) const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Pwm_IPwmControllerStatics3<D>::GetDeviceSelector(param::hstring const& friendlyName) const
     {
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Pwm::IPwmControllerStatics3)->GetDeviceSelectorFromFriendlyName(*(void**)(&friendlyName), &result));
         return hstring{ result, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Pwm_IPwmControllerStatics3<D>::FromIdAsync(param::hstring const& deviceId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Pwm::PwmController>) consume_Windows_Devices_Pwm_IPwmControllerStatics3<D>::FromIdAsync(param::hstring const& deviceId) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Pwm::IPwmControllerStatics3)->FromIdAsync(*(void**)(&deviceId), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::Pwm::PwmController>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Pwm_IPwmPin<D>::Controller() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Pwm::PwmController) consume_Windows_Devices_Pwm_IPwmPin<D>::Controller() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Pwm::IPwmPin)->get_Controller(&value));
         return Windows::Devices::Pwm::PwmController{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Pwm_IPwmPin<D>::GetActiveDutyCyclePercentage() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Devices_Pwm_IPwmPin<D>::GetActiveDutyCyclePercentage() const
     {
-        double result;
+        double result{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Pwm::IPwmPin)->GetActiveDutyCyclePercentage(&result));
         return result;
     }
-    template <typename D> auto consume_Windows_Devices_Pwm_IPwmPin<D>::SetActiveDutyCyclePercentage(double dutyCyclePercentage) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Pwm_IPwmPin<D>::SetActiveDutyCyclePercentage(double dutyCyclePercentage) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Pwm::IPwmPin)->SetActiveDutyCyclePercentage(dutyCyclePercentage));
     }
-    template <typename D> auto consume_Windows_Devices_Pwm_IPwmPin<D>::Polarity() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Pwm::PwmPulsePolarity) consume_Windows_Devices_Pwm_IPwmPin<D>::Polarity() const
     {
-        Windows::Devices::Pwm::PwmPulsePolarity value;
+        Windows::Devices::Pwm::PwmPulsePolarity value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Pwm::IPwmPin)->get_Polarity(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Pwm_IPwmPin<D>::Polarity(Windows::Devices::Pwm::PwmPulsePolarity const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Pwm_IPwmPin<D>::Polarity(Windows::Devices::Pwm::PwmPulsePolarity const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Pwm::IPwmPin)->put_Polarity(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_Devices_Pwm_IPwmPin<D>::Start() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Pwm_IPwmPin<D>::Start() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Pwm::IPwmPin)->Start());
     }
-    template <typename D> auto consume_Windows_Devices_Pwm_IPwmPin<D>::Stop() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Pwm_IPwmPin<D>::Stop() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Pwm::IPwmPin)->Stop());
     }
-    template <typename D> auto consume_Windows_Devices_Pwm_IPwmPin<D>::IsStarted() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Devices_Pwm_IPwmPin<D>::IsStarted() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Pwm::IPwmPin)->get_IsStarted(&value));
         return value;
     }

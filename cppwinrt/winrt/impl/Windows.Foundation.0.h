@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -145,51 +145,49 @@ namespace winrt::impl
     template <> struct category<Windows::Foundation::DeferralCompletedHandler>{ using type = delegate_category; };
     template <typename T> struct category<Windows::Foundation::EventHandler<T>>{ using type = generic_category<T>; };
     template <typename TSender, typename TResult> struct category<Windows::Foundation::TypedEventHandler<TSender, TResult>>{ using type = generic_category<TSender, TResult>; };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Deferral>{ L"Windows.Foundation.Deferral" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::GuidHelper>{ L"Windows.Foundation.GuidHelper" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::MemoryBuffer>{ L"Windows.Foundation.MemoryBuffer" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::PropertyValue>{ L"Windows.Foundation.PropertyValue" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::Uri>{ L"Windows.Foundation.Uri" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::WwwFormUrlDecoder>{ L"Windows.Foundation.WwwFormUrlDecoder" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::WwwFormUrlDecoderEntry>{ L"Windows.Foundation.WwwFormUrlDecoderEntry" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::AsyncStatus>{ L"Windows.Foundation.AsyncStatus" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::PropertyType>{ L"Windows.Foundation.PropertyType" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Foundation::IAsyncAction>{ L"Windows.Foundation.IAsyncAction" };
-    template <typename TProgress> inline constexpr auto name_v<Windows::Foundation::IAsyncActionWithProgress<TProgress>>{ zcombine(L"Windows.Foundation.IAsyncActionWithProgress`1<", name_v<TProgress>, L">") };
-    template <> inline constexpr auto& name_v<Windows::Foundation::IAsyncInfo>{ L"Windows.Foundation.IAsyncInfo" };
-    template <typename TResult, typename TProgress> inline constexpr auto name_v<Windows::Foundation::IAsyncOperationWithProgress<TResult, TProgress>>{ zcombine(L"Windows.Foundation.IAsyncOperationWithProgress`2<", name_v<TResult>, L", ", name_v<TProgress>, L">") };
-    template <typename TResult> inline constexpr auto name_v<Windows::Foundation::IAsyncOperation<TResult>>{ zcombine(L"Windows.Foundation.IAsyncOperation`1<", name_v<TResult>, L">") };
-    template <> inline constexpr auto& name_v<Windows::Foundation::IClosable>{ L"Windows.Foundation.IClosable" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::IDeferral>{ L"Windows.Foundation.IDeferral" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::IDeferralFactory>{ L"Windows.Foundation.IDeferralFactory" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::IGetActivationFactory>{ L"Windows.Foundation.IGetActivationFactory" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::IGuidHelperStatics>{ L"Windows.Foundation.IGuidHelperStatics" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::IMemoryBuffer>{ L"Windows.Foundation.IMemoryBuffer" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::IMemoryBufferFactory>{ L"Windows.Foundation.IMemoryBufferFactory" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::IMemoryBufferReference>{ L"Windows.Foundation.IMemoryBufferReference" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::IPropertyValue>{ L"Windows.Foundation.IPropertyValue" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::IPropertyValueStatics>{ L"Windows.Foundation.IPropertyValueStatics" };
-    template <typename T> inline constexpr auto name_v<Windows::Foundation::IReferenceArray<T>>{ zcombine(L"Windows.Foundation.IReferenceArray`1<", name_v<T>, L">") };
-    template <typename T> inline constexpr auto name_v<Windows::Foundation::IReference<T>>{ zcombine(L"Windows.Foundation.IReference`1<", name_v<T>, L">") };
-    template <> inline constexpr auto& name_v<Windows::Foundation::IStringable>{ L"Windows.Foundation.IStringable" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::IUriEscapeStatics>{ L"Windows.Foundation.IUriEscapeStatics" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::IUriRuntimeClass>{ L"Windows.Foundation.IUriRuntimeClass" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::IUriRuntimeClassFactory>{ L"Windows.Foundation.IUriRuntimeClassFactory" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::IUriRuntimeClassWithAbsoluteCanonicalUri>{ L"Windows.Foundation.IUriRuntimeClassWithAbsoluteCanonicalUri" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::IWwwFormUrlDecoderEntry>{ L"Windows.Foundation.IWwwFormUrlDecoderEntry" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::IWwwFormUrlDecoderRuntimeClass>{ L"Windows.Foundation.IWwwFormUrlDecoderRuntimeClass" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::IWwwFormUrlDecoderRuntimeClassFactory>{ L"Windows.Foundation.IWwwFormUrlDecoderRuntimeClassFactory" };
-    template <> inline constexpr auto& name_v<Windows::Foundation::AsyncActionCompletedHandler>{ L"Windows.Foundation.AsyncActionCompletedHandler" };
-    template <typename TProgress> inline constexpr auto name_v<Windows::Foundation::AsyncActionProgressHandler<TProgress>>{ zcombine(L"Windows.Foundation.AsyncActionProgressHandler`1<", name_v<TProgress>, L">") };
-    template <typename TProgress> inline constexpr auto name_v<Windows::Foundation::AsyncActionWithProgressCompletedHandler<TProgress>>{ zcombine(L"Windows.Foundation.AsyncActionWithProgressCompletedHandler`1<", name_v<TProgress>, L">") };
-    template <typename TResult> inline constexpr auto name_v<Windows::Foundation::AsyncOperationCompletedHandler<TResult>>{ zcombine(L"Windows.Foundation.AsyncOperationCompletedHandler`1<", name_v<TResult>, L">") };
-    template <typename TResult, typename TProgress> inline constexpr auto name_v<Windows::Foundation::AsyncOperationProgressHandler<TResult, TProgress>>{ zcombine(L"Windows.Foundation.AsyncOperationProgressHandler`2<", name_v<TResult>, L", ", name_v<TProgress>, L">") };
-    template <typename TResult, typename TProgress> inline constexpr auto name_v<Windows::Foundation::AsyncOperationWithProgressCompletedHandler<TResult, TProgress>>{ zcombine(L"Windows.Foundation.AsyncOperationWithProgressCompletedHandler`2<", name_v<TResult>, L", ", name_v<TProgress>, L">") };
-    template <> inline constexpr auto& name_v<Windows::Foundation::DeferralCompletedHandler>{ L"Windows.Foundation.DeferralCompletedHandler" };
-    template <typename T> inline constexpr auto name_v<Windows::Foundation::EventHandler<T>>{ zcombine(L"Windows.Foundation.EventHandler`1<", name_v<T>, L">") };
-    template <typename TSender, typename TResult> inline constexpr auto name_v<Windows::Foundation::TypedEventHandler<TSender, TResult>>{ zcombine(L"Windows.Foundation.TypedEventHandler`2<", name_v<TSender>, L", ", name_v<TResult>, L">") };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Foundation::Deferral> = L"Windows.Foundation.Deferral";
+    template <> inline constexpr auto& name_v<Windows::Foundation::GuidHelper> = L"Windows.Foundation.GuidHelper";
+    template <> inline constexpr auto& name_v<Windows::Foundation::MemoryBuffer> = L"Windows.Foundation.MemoryBuffer";
+    template <> inline constexpr auto& name_v<Windows::Foundation::PropertyValue> = L"Windows.Foundation.PropertyValue";
+    template <> inline constexpr auto& name_v<Windows::Foundation::Uri> = L"Windows.Foundation.Uri";
+    template <> inline constexpr auto& name_v<Windows::Foundation::WwwFormUrlDecoder> = L"Windows.Foundation.WwwFormUrlDecoder";
+    template <> inline constexpr auto& name_v<Windows::Foundation::WwwFormUrlDecoderEntry> = L"Windows.Foundation.WwwFormUrlDecoderEntry";
+    template <> inline constexpr auto& name_v<Windows::Foundation::AsyncStatus> = L"Windows.Foundation.AsyncStatus";
+    template <> inline constexpr auto& name_v<Windows::Foundation::PropertyType> = L"Windows.Foundation.PropertyType";
+    template <> inline constexpr auto& name_v<Windows::Foundation::IAsyncAction> = L"Windows.Foundation.IAsyncAction";
+    template <typename TProgress> inline constexpr auto name_v<Windows::Foundation::IAsyncActionWithProgress<TProgress>> = zcombine(L"Windows.Foundation.IAsyncActionWithProgress`1<", name_v<TProgress>, L">");
+    template <> inline constexpr auto& name_v<Windows::Foundation::IAsyncInfo> = L"Windows.Foundation.IAsyncInfo";
+    template <typename TResult, typename TProgress> inline constexpr auto name_v<Windows::Foundation::IAsyncOperationWithProgress<TResult, TProgress>> = zcombine(L"Windows.Foundation.IAsyncOperationWithProgress`2<", name_v<TResult>, L", ", name_v<TProgress>, L">");
+    template <typename TResult> inline constexpr auto name_v<Windows::Foundation::IAsyncOperation<TResult>> = zcombine(L"Windows.Foundation.IAsyncOperation`1<", name_v<TResult>, L">");
+    template <> inline constexpr auto& name_v<Windows::Foundation::IClosable> = L"Windows.Foundation.IClosable";
+    template <> inline constexpr auto& name_v<Windows::Foundation::IDeferral> = L"Windows.Foundation.IDeferral";
+    template <> inline constexpr auto& name_v<Windows::Foundation::IDeferralFactory> = L"Windows.Foundation.IDeferralFactory";
+    template <> inline constexpr auto& name_v<Windows::Foundation::IGetActivationFactory> = L"Windows.Foundation.IGetActivationFactory";
+    template <> inline constexpr auto& name_v<Windows::Foundation::IGuidHelperStatics> = L"Windows.Foundation.IGuidHelperStatics";
+    template <> inline constexpr auto& name_v<Windows::Foundation::IMemoryBuffer> = L"Windows.Foundation.IMemoryBuffer";
+    template <> inline constexpr auto& name_v<Windows::Foundation::IMemoryBufferFactory> = L"Windows.Foundation.IMemoryBufferFactory";
+    template <> inline constexpr auto& name_v<Windows::Foundation::IMemoryBufferReference> = L"Windows.Foundation.IMemoryBufferReference";
+    template <> inline constexpr auto& name_v<Windows::Foundation::IPropertyValue> = L"Windows.Foundation.IPropertyValue";
+    template <> inline constexpr auto& name_v<Windows::Foundation::IPropertyValueStatics> = L"Windows.Foundation.IPropertyValueStatics";
+    template <typename T> inline constexpr auto name_v<Windows::Foundation::IReferenceArray<T>> = zcombine(L"Windows.Foundation.IReferenceArray`1<", name_v<T>, L">");
+    template <typename T> inline constexpr auto name_v<Windows::Foundation::IReference<T>> = zcombine(L"Windows.Foundation.IReference`1<", name_v<T>, L">");
+    template <> inline constexpr auto& name_v<Windows::Foundation::IStringable> = L"Windows.Foundation.IStringable";
+    template <> inline constexpr auto& name_v<Windows::Foundation::IUriEscapeStatics> = L"Windows.Foundation.IUriEscapeStatics";
+    template <> inline constexpr auto& name_v<Windows::Foundation::IUriRuntimeClass> = L"Windows.Foundation.IUriRuntimeClass";
+    template <> inline constexpr auto& name_v<Windows::Foundation::IUriRuntimeClassFactory> = L"Windows.Foundation.IUriRuntimeClassFactory";
+    template <> inline constexpr auto& name_v<Windows::Foundation::IUriRuntimeClassWithAbsoluteCanonicalUri> = L"Windows.Foundation.IUriRuntimeClassWithAbsoluteCanonicalUri";
+    template <> inline constexpr auto& name_v<Windows::Foundation::IWwwFormUrlDecoderEntry> = L"Windows.Foundation.IWwwFormUrlDecoderEntry";
+    template <> inline constexpr auto& name_v<Windows::Foundation::IWwwFormUrlDecoderRuntimeClass> = L"Windows.Foundation.IWwwFormUrlDecoderRuntimeClass";
+    template <> inline constexpr auto& name_v<Windows::Foundation::IWwwFormUrlDecoderRuntimeClassFactory> = L"Windows.Foundation.IWwwFormUrlDecoderRuntimeClassFactory";
+    template <> inline constexpr auto& name_v<Windows::Foundation::AsyncActionCompletedHandler> = L"Windows.Foundation.AsyncActionCompletedHandler";
+    template <typename TProgress> inline constexpr auto name_v<Windows::Foundation::AsyncActionProgressHandler<TProgress>> = zcombine(L"Windows.Foundation.AsyncActionProgressHandler`1<", name_v<TProgress>, L">");
+    template <typename TProgress> inline constexpr auto name_v<Windows::Foundation::AsyncActionWithProgressCompletedHandler<TProgress>> = zcombine(L"Windows.Foundation.AsyncActionWithProgressCompletedHandler`1<", name_v<TProgress>, L">");
+    template <typename TResult> inline constexpr auto name_v<Windows::Foundation::AsyncOperationCompletedHandler<TResult>> = zcombine(L"Windows.Foundation.AsyncOperationCompletedHandler`1<", name_v<TResult>, L">");
+    template <typename TResult, typename TProgress> inline constexpr auto name_v<Windows::Foundation::AsyncOperationProgressHandler<TResult, TProgress>> = zcombine(L"Windows.Foundation.AsyncOperationProgressHandler`2<", name_v<TResult>, L", ", name_v<TProgress>, L">");
+    template <typename TResult, typename TProgress> inline constexpr auto name_v<Windows::Foundation::AsyncOperationWithProgressCompletedHandler<TResult, TProgress>> = zcombine(L"Windows.Foundation.AsyncOperationWithProgressCompletedHandler`2<", name_v<TResult>, L", ", name_v<TProgress>, L">");
+    template <> inline constexpr auto& name_v<Windows::Foundation::DeferralCompletedHandler> = L"Windows.Foundation.DeferralCompletedHandler";
+    template <typename T> inline constexpr auto name_v<Windows::Foundation::EventHandler<T>> = zcombine(L"Windows.Foundation.EventHandler`1<", name_v<T>, L">");
+    template <typename TSender, typename TResult> inline constexpr auto name_v<Windows::Foundation::TypedEventHandler<TSender, TResult>> = zcombine(L"Windows.Foundation.TypedEventHandler`2<", name_v<TSender>, L", ", name_v<TResult>, L">");
     template <> inline constexpr guid guid_v<Windows::Foundation::IAsyncAction>{ 0x5A648006,0x843A,0x4DA9,{ 0x86,0x5B,0x9D,0x26,0xE5,0xDF,0xAD,0x7B } };
     template <typename TProgress> inline constexpr guid guid_v<Windows::Foundation::IAsyncActionWithProgress<TProgress>>{ pinterface_guid<Windows::Foundation::IAsyncActionWithProgress<TProgress>>::value };
     template <typename TProgress> inline constexpr guid generic_guid_v<Windows::Foundation::IAsyncActionWithProgress<TProgress>>{ 0x1F6DB258,0xE803,0x48A1,{ 0x95,0x46,0xEB,0x73,0x53,0x39,0x88,0x84 } };
@@ -598,9 +596,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_IAsyncAction
     {
-        auto Completed(Windows::Foundation::AsyncActionCompletedHandler const& handler) const;
-        [[nodiscard]] auto Completed() const;
-        auto GetResults() const;
+        WINRT_IMPL_AUTO(void) Completed(Windows::Foundation::AsyncActionCompletedHandler const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::AsyncActionCompletedHandler) Completed() const;
+        WINRT_IMPL_AUTO(void) GetResults() const;
         auto get() const;
         auto wait_for(Windows::Foundation::TimeSpan const& timeout) const;
     };
@@ -611,11 +609,11 @@ namespace winrt::impl
     template <typename D, typename TProgress>
     struct consume_Windows_Foundation_IAsyncActionWithProgress
     {
-        auto Progress(Windows::Foundation::AsyncActionProgressHandler<TProgress> const& handler) const;
-        [[nodiscard]] auto Progress() const;
-        auto Completed(Windows::Foundation::AsyncActionWithProgressCompletedHandler<TProgress> const& handler) const;
-        [[nodiscard]] auto Completed() const;
-        auto GetResults() const;
+        WINRT_IMPL_AUTO(void) Progress(Windows::Foundation::AsyncActionProgressHandler<TProgress> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::AsyncActionProgressHandler<TProgress>) Progress() const;
+        WINRT_IMPL_AUTO(void) Completed(Windows::Foundation::AsyncActionWithProgressCompletedHandler<TProgress> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::AsyncActionWithProgressCompletedHandler<TProgress>) Completed() const;
+        WINRT_IMPL_AUTO(void) GetResults() const;
         auto get() const;
         auto wait_for(Windows::Foundation::TimeSpan const& timeout) const;
     };
@@ -626,11 +624,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_IAsyncInfo
     {
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto ErrorCode() const;
-        auto Cancel() const;
-        auto Close() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::AsyncStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ErrorCode() const;
+        WINRT_IMPL_AUTO(void) Cancel() const;
+        WINRT_IMPL_AUTO(void) Close() const;
     };
     template <> struct consume<Windows::Foundation::IAsyncInfo>
     {
@@ -639,11 +637,11 @@ namespace winrt::impl
     template <typename D, typename TResult, typename TProgress>
     struct consume_Windows_Foundation_IAsyncOperationWithProgress
     {
-        auto Progress(Windows::Foundation::AsyncOperationProgressHandler<TResult, TProgress> const& handler) const;
-        [[nodiscard]] auto Progress() const;
-        auto Completed(Windows::Foundation::AsyncOperationWithProgressCompletedHandler<TResult, TProgress> const& handler) const;
-        [[nodiscard]] auto Completed() const;
-        auto GetResults() const;
+        WINRT_IMPL_AUTO(void) Progress(Windows::Foundation::AsyncOperationProgressHandler<TResult, TProgress> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::AsyncOperationProgressHandler<TResult, TProgress>) Progress() const;
+        WINRT_IMPL_AUTO(void) Completed(Windows::Foundation::AsyncOperationWithProgressCompletedHandler<TResult, TProgress> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::AsyncOperationWithProgressCompletedHandler<TResult, TProgress>) Completed() const;
+        WINRT_IMPL_AUTO(TResult) GetResults() const;
         auto get() const;
         auto wait_for(Windows::Foundation::TimeSpan const& timeout) const;
     };
@@ -654,9 +652,9 @@ namespace winrt::impl
     template <typename D, typename TResult>
     struct consume_Windows_Foundation_IAsyncOperation
     {
-        auto Completed(Windows::Foundation::AsyncOperationCompletedHandler<TResult> const& handler) const;
-        [[nodiscard]] auto Completed() const;
-        auto GetResults() const;
+        WINRT_IMPL_AUTO(void) Completed(Windows::Foundation::AsyncOperationCompletedHandler<TResult> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::AsyncOperationCompletedHandler<TResult>) Completed() const;
+        WINRT_IMPL_AUTO(TResult) GetResults() const;
         auto get() const;
         auto wait_for(Windows::Foundation::TimeSpan const& timeout) const;
     };
@@ -667,7 +665,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_IClosable
     {
-        auto Close() const;
+        WINRT_IMPL_AUTO(void) Close() const;
     };
     template <> struct consume<Windows::Foundation::IClosable>
     {
@@ -676,7 +674,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_IDeferral
     {
-        auto Complete() const;
+        WINRT_IMPL_AUTO(void) Complete() const;
     };
     template <> struct consume<Windows::Foundation::IDeferral>
     {
@@ -685,7 +683,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_IDeferralFactory
     {
-        auto Create(Windows::Foundation::DeferralCompletedHandler const& handler) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) Create(Windows::Foundation::DeferralCompletedHandler const& handler) const;
     };
     template <> struct consume<Windows::Foundation::IDeferralFactory>
     {
@@ -694,7 +692,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_IGetActivationFactory
     {
-        auto GetActivationFactory(param::hstring const& activatableClassId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) GetActivationFactory(param::hstring const& activatableClassId) const;
     };
     template <> struct consume<Windows::Foundation::IGetActivationFactory>
     {
@@ -703,9 +701,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_IGuidHelperStatics
     {
-        auto CreateNewGuid() const;
-        [[nodiscard]] auto Empty() const;
-        auto Equals(winrt::guid const& target, winrt::guid const& value) const;
+        WINRT_IMPL_AUTO(winrt::guid) CreateNewGuid() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) Empty() const;
+        WINRT_IMPL_AUTO(bool) Equals(winrt::guid const& target, winrt::guid const& value) const;
     };
     template <> struct consume<Windows::Foundation::IGuidHelperStatics>
     {
@@ -714,7 +712,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_IMemoryBuffer
     {
-        auto CreateReference() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IMemoryBufferReference) CreateReference() const;
     };
     template <> struct consume<Windows::Foundation::IMemoryBuffer>
     {
@@ -723,7 +721,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_IMemoryBufferFactory
     {
-        auto Create(uint32_t capacity) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::MemoryBuffer) Create(uint32_t capacity) const;
     };
     template <> struct consume<Windows::Foundation::IMemoryBufferFactory>
     {
@@ -732,11 +730,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_IMemoryBufferReference
     {
-        [[nodiscard]] auto Capacity() const;
-        auto Closed(Windows::Foundation::TypedEventHandler<Windows::Foundation::IMemoryBufferReference, Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Capacity() const;
+        WINRT_IMPL_AUTO(winrt::event_token) Closed(Windows::Foundation::TypedEventHandler<Windows::Foundation::IMemoryBufferReference, Windows::Foundation::IInspectable> const& handler) const;
         using Closed_revoker = impl::event_revoker<Windows::Foundation::IMemoryBufferReference, &impl::abi_t<Windows::Foundation::IMemoryBufferReference>::remove_Closed>;
         [[nodiscard]] Closed_revoker Closed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Foundation::IMemoryBufferReference, Windows::Foundation::IInspectable> const& handler) const;
-        auto Closed(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(void) Closed(winrt::event_token const& cookie) const noexcept;
     };
     template <> struct consume<Windows::Foundation::IMemoryBufferReference>
     {
@@ -745,45 +743,45 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_IPropertyValue
     {
-        [[nodiscard]] auto Type() const;
-        [[nodiscard]] auto IsNumericScalar() const;
-        auto GetUInt8() const;
-        auto GetInt16() const;
-        auto GetUInt16() const;
-        auto GetInt32() const;
-        auto GetUInt32() const;
-        auto GetInt64() const;
-        auto GetUInt64() const;
-        auto GetSingle() const;
-        auto GetDouble() const;
-        auto GetChar16() const;
-        auto GetBoolean() const;
-        auto GetString() const;
-        auto GetGuid() const;
-        auto GetDateTime() const;
-        auto GetTimeSpan() const;
-        auto GetPoint() const;
-        auto GetSize() const;
-        auto GetRect() const;
-        auto GetUInt8Array(com_array<uint8_t>& value) const;
-        auto GetInt16Array(com_array<int16_t>& value) const;
-        auto GetUInt16Array(com_array<uint16_t>& value) const;
-        auto GetInt32Array(com_array<int32_t>& value) const;
-        auto GetUInt32Array(com_array<uint32_t>& value) const;
-        auto GetInt64Array(com_array<int64_t>& value) const;
-        auto GetUInt64Array(com_array<uint64_t>& value) const;
-        auto GetSingleArray(com_array<float>& value) const;
-        auto GetDoubleArray(com_array<double>& value) const;
-        auto GetChar16Array(com_array<char16_t>& value) const;
-        auto GetBooleanArray(com_array<bool>& value) const;
-        auto GetStringArray(com_array<hstring>& value) const;
-        auto GetInspectableArray(com_array<Windows::Foundation::IInspectable>& value) const;
-        auto GetGuidArray(com_array<winrt::guid>& value) const;
-        auto GetDateTimeArray(com_array<Windows::Foundation::DateTime>& value) const;
-        auto GetTimeSpanArray(com_array<Windows::Foundation::TimeSpan>& value) const;
-        auto GetPointArray(com_array<Windows::Foundation::Point>& value) const;
-        auto GetSizeArray(com_array<Windows::Foundation::Size>& value) const;
-        auto GetRectArray(com_array<Windows::Foundation::Rect>& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::PropertyType) Type() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsNumericScalar() const;
+        WINRT_IMPL_AUTO(uint8_t) GetUInt8() const;
+        WINRT_IMPL_AUTO(int16_t) GetInt16() const;
+        WINRT_IMPL_AUTO(uint16_t) GetUInt16() const;
+        WINRT_IMPL_AUTO(int32_t) GetInt32() const;
+        WINRT_IMPL_AUTO(uint32_t) GetUInt32() const;
+        WINRT_IMPL_AUTO(int64_t) GetInt64() const;
+        WINRT_IMPL_AUTO(uint64_t) GetUInt64() const;
+        WINRT_IMPL_AUTO(float) GetSingle() const;
+        WINRT_IMPL_AUTO(double) GetDouble() const;
+        WINRT_IMPL_AUTO(char16_t) GetChar16() const;
+        WINRT_IMPL_AUTO(bool) GetBoolean() const;
+        WINRT_IMPL_AUTO(hstring) GetString() const;
+        WINRT_IMPL_AUTO(winrt::guid) GetGuid() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::DateTime) GetDateTime() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) GetTimeSpan() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Point) GetPoint() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Size) GetSize() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Rect) GetRect() const;
+        WINRT_IMPL_AUTO(void) GetUInt8Array(com_array<uint8_t>& value) const;
+        WINRT_IMPL_AUTO(void) GetInt16Array(com_array<int16_t>& value) const;
+        WINRT_IMPL_AUTO(void) GetUInt16Array(com_array<uint16_t>& value) const;
+        WINRT_IMPL_AUTO(void) GetInt32Array(com_array<int32_t>& value) const;
+        WINRT_IMPL_AUTO(void) GetUInt32Array(com_array<uint32_t>& value) const;
+        WINRT_IMPL_AUTO(void) GetInt64Array(com_array<int64_t>& value) const;
+        WINRT_IMPL_AUTO(void) GetUInt64Array(com_array<uint64_t>& value) const;
+        WINRT_IMPL_AUTO(void) GetSingleArray(com_array<float>& value) const;
+        WINRT_IMPL_AUTO(void) GetDoubleArray(com_array<double>& value) const;
+        WINRT_IMPL_AUTO(void) GetChar16Array(com_array<char16_t>& value) const;
+        WINRT_IMPL_AUTO(void) GetBooleanArray(com_array<bool>& value) const;
+        WINRT_IMPL_AUTO(void) GetStringArray(com_array<hstring>& value) const;
+        WINRT_IMPL_AUTO(void) GetInspectableArray(com_array<Windows::Foundation::IInspectable>& value) const;
+        WINRT_IMPL_AUTO(void) GetGuidArray(com_array<winrt::guid>& value) const;
+        WINRT_IMPL_AUTO(void) GetDateTimeArray(com_array<Windows::Foundation::DateTime>& value) const;
+        WINRT_IMPL_AUTO(void) GetTimeSpanArray(com_array<Windows::Foundation::TimeSpan>& value) const;
+        WINRT_IMPL_AUTO(void) GetPointArray(com_array<Windows::Foundation::Point>& value) const;
+        WINRT_IMPL_AUTO(void) GetSizeArray(com_array<Windows::Foundation::Size>& value) const;
+        WINRT_IMPL_AUTO(void) GetRectArray(com_array<Windows::Foundation::Rect>& value) const;
     };
     template <> struct consume<Windows::Foundation::IPropertyValue>
     {
@@ -792,45 +790,45 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_IPropertyValueStatics
     {
-        auto CreateEmpty() const;
-        auto CreateUInt8(uint8_t value) const;
-        auto CreateInt16(int16_t value) const;
-        auto CreateUInt16(uint16_t value) const;
-        auto CreateInt32(int32_t value) const;
-        auto CreateUInt32(uint32_t value) const;
-        auto CreateInt64(int64_t value) const;
-        auto CreateUInt64(uint64_t value) const;
-        auto CreateSingle(float value) const;
-        auto CreateDouble(double value) const;
-        auto CreateChar16(char16_t value) const;
-        auto CreateBoolean(bool value) const;
-        auto CreateString(param::hstring const& value) const;
-        auto CreateInspectable(Windows::Foundation::IInspectable const& value) const;
-        auto CreateGuid(winrt::guid const& value) const;
-        auto CreateDateTime(Windows::Foundation::DateTime const& value) const;
-        auto CreateTimeSpan(Windows::Foundation::TimeSpan const& value) const;
-        auto CreatePoint(Windows::Foundation::Point const& value) const;
-        auto CreateSize(Windows::Foundation::Size const& value) const;
-        auto CreateRect(Windows::Foundation::Rect const& value) const;
-        auto CreateUInt8Array(array_view<uint8_t const> value) const;
-        auto CreateInt16Array(array_view<int16_t const> value) const;
-        auto CreateUInt16Array(array_view<uint16_t const> value) const;
-        auto CreateInt32Array(array_view<int32_t const> value) const;
-        auto CreateUInt32Array(array_view<uint32_t const> value) const;
-        auto CreateInt64Array(array_view<int64_t const> value) const;
-        auto CreateUInt64Array(array_view<uint64_t const> value) const;
-        auto CreateSingleArray(array_view<float const> value) const;
-        auto CreateDoubleArray(array_view<double const> value) const;
-        auto CreateChar16Array(array_view<char16_t const> value) const;
-        auto CreateBooleanArray(array_view<bool const> value) const;
-        auto CreateStringArray(array_view<hstring const> value) const;
-        auto CreateInspectableArray(array_view<Windows::Foundation::IInspectable const> value) const;
-        auto CreateGuidArray(array_view<winrt::guid const> value) const;
-        auto CreateDateTimeArray(array_view<Windows::Foundation::DateTime const> value) const;
-        auto CreateTimeSpanArray(array_view<Windows::Foundation::TimeSpan const> value) const;
-        auto CreatePointArray(array_view<Windows::Foundation::Point const> value) const;
-        auto CreateSizeArray(array_view<Windows::Foundation::Size const> value) const;
-        auto CreateRectArray(array_view<Windows::Foundation::Rect const> value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateEmpty() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateUInt8(uint8_t value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateInt16(int16_t value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateUInt16(uint16_t value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateInt32(int32_t value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateUInt32(uint32_t value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateInt64(int64_t value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateUInt64(uint64_t value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateSingle(float value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateDouble(double value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateChar16(char16_t value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateBoolean(bool value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateString(param::hstring const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateInspectable(Windows::Foundation::IInspectable const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateGuid(winrt::guid const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateDateTime(Windows::Foundation::DateTime const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateTimeSpan(Windows::Foundation::TimeSpan const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreatePoint(Windows::Foundation::Point const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateSize(Windows::Foundation::Size const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateRect(Windows::Foundation::Rect const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateUInt8Array(array_view<uint8_t const> value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateInt16Array(array_view<int16_t const> value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateUInt16Array(array_view<uint16_t const> value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateInt32Array(array_view<int32_t const> value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateUInt32Array(array_view<uint32_t const> value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateInt64Array(array_view<int64_t const> value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateUInt64Array(array_view<uint64_t const> value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateSingleArray(array_view<float const> value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateDoubleArray(array_view<double const> value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateChar16Array(array_view<char16_t const> value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateBooleanArray(array_view<bool const> value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateStringArray(array_view<hstring const> value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateInspectableArray(array_view<Windows::Foundation::IInspectable const> value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateGuidArray(array_view<winrt::guid const> value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateDateTimeArray(array_view<Windows::Foundation::DateTime const> value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateTimeSpanArray(array_view<Windows::Foundation::TimeSpan const> value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreatePointArray(array_view<Windows::Foundation::Point const> value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateSizeArray(array_view<Windows::Foundation::Size const> value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) CreateRectArray(array_view<Windows::Foundation::Rect const> value) const;
     };
     template <> struct consume<Windows::Foundation::IPropertyValueStatics>
     {
@@ -839,7 +837,7 @@ namespace winrt::impl
     template <typename D, typename T>
     struct consume_Windows_Foundation_IReferenceArray
     {
-        [[nodiscard]] auto Value() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(com_array<T>) Value() const;
     };
     template <typename T> struct consume<Windows::Foundation::IReferenceArray<T>>
     {
@@ -848,7 +846,7 @@ namespace winrt::impl
     template <typename D, typename T>
     struct consume_Windows_Foundation_IReference
     {
-        [[nodiscard]] auto Value() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(T) Value() const;
     };
     template <typename T> struct consume<Windows::Foundation::IReference<T>>
     {
@@ -857,7 +855,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_IStringable
     {
-        auto ToString() const;
+        WINRT_IMPL_AUTO(hstring) ToString() const;
     };
     template <> struct consume<Windows::Foundation::IStringable>
     {
@@ -866,8 +864,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_IUriEscapeStatics
     {
-        auto UnescapeComponent(param::hstring const& toUnescape) const;
-        auto EscapeComponent(param::hstring const& toEscape) const;
+        WINRT_IMPL_AUTO(hstring) UnescapeComponent(param::hstring const& toUnescape) const;
+        WINRT_IMPL_AUTO(hstring) EscapeComponent(param::hstring const& toEscape) const;
     };
     template <> struct consume<Windows::Foundation::IUriEscapeStatics>
     {
@@ -876,23 +874,23 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_IUriRuntimeClass
     {
-        [[nodiscard]] auto AbsoluteUri() const;
-        [[nodiscard]] auto DisplayUri() const;
-        [[nodiscard]] auto Domain() const;
-        [[nodiscard]] auto Extension() const;
-        [[nodiscard]] auto Fragment() const;
-        [[nodiscard]] auto Host() const;
-        [[nodiscard]] auto Password() const;
-        [[nodiscard]] auto Path() const;
-        [[nodiscard]] auto Query() const;
-        [[nodiscard]] auto QueryParsed() const;
-        [[nodiscard]] auto RawUri() const;
-        [[nodiscard]] auto SchemeName() const;
-        [[nodiscard]] auto UserName() const;
-        [[nodiscard]] auto Port() const;
-        [[nodiscard]] auto Suspicious() const;
-        auto Equals(Windows::Foundation::Uri const& pUri) const;
-        auto CombineUri(param::hstring const& relativeUri) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AbsoluteUri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayUri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Domain() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Extension() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Fragment() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Host() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Password() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Path() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Query() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::WwwFormUrlDecoder) QueryParsed() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RawUri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SchemeName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) UserName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Port() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Suspicious() const;
+        WINRT_IMPL_AUTO(bool) Equals(Windows::Foundation::Uri const& pUri) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Uri) CombineUri(param::hstring const& relativeUri) const;
     };
     template <> struct consume<Windows::Foundation::IUriRuntimeClass>
     {
@@ -901,8 +899,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_IUriRuntimeClassFactory
     {
-        auto CreateUri(param::hstring const& uri) const;
-        auto CreateWithRelativeUri(param::hstring const& baseUri, param::hstring const& relativeUri) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Uri) CreateUri(param::hstring const& uri) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Uri) CreateWithRelativeUri(param::hstring const& baseUri, param::hstring const& relativeUri) const;
     };
     template <> struct consume<Windows::Foundation::IUriRuntimeClassFactory>
     {
@@ -911,8 +909,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_IUriRuntimeClassWithAbsoluteCanonicalUri
     {
-        [[nodiscard]] auto AbsoluteCanonicalUri() const;
-        [[nodiscard]] auto DisplayIri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AbsoluteCanonicalUri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayIri() const;
     };
     template <> struct consume<Windows::Foundation::IUriRuntimeClassWithAbsoluteCanonicalUri>
     {
@@ -921,8 +919,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_IWwwFormUrlDecoderEntry
     {
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto Value() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Value() const;
     };
     template <> struct consume<Windows::Foundation::IWwwFormUrlDecoderEntry>
     {
@@ -931,7 +929,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_IWwwFormUrlDecoderRuntimeClass
     {
-        auto GetFirstValueByName(param::hstring const& name) const;
+        WINRT_IMPL_AUTO(hstring) GetFirstValueByName(param::hstring const& name) const;
     };
     template <> struct consume<Windows::Foundation::IWwwFormUrlDecoderRuntimeClass>
     {
@@ -940,7 +938,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Foundation_IWwwFormUrlDecoderRuntimeClassFactory
     {
-        auto CreateWwwFormUrlDecoder(param::hstring const& query) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::WwwFormUrlDecoder) CreateWwwFormUrlDecoder(param::hstring const& query) const;
     };
     template <> struct consume<Windows::Foundation::IWwwFormUrlDecoderRuntimeClassFactory>
     {

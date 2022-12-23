@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -16,7 +16,7 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Resources
         ResourceLoader(std::nullptr_t) noexcept {}
         ResourceLoader(void* ptr, take_ownership_from_abi_t) noexcept : Windows::ApplicationModel::Resources::IResourceLoader(ptr, take_ownership_from_abi) {}
         ResourceLoader();
-        ResourceLoader(param::hstring const& name);
+        explicit ResourceLoader(param::hstring const& name);
         static auto GetStringForReference(Windows::Foundation::Uri const& uri);
         static auto GetForCurrentView();
         static auto GetForCurrentView(param::hstring const& name);

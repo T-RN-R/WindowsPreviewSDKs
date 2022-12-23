@@ -1,10 +1,18 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
 #ifndef WINRT_Windows_Devices_Spi_Provider_0_H
 #define WINRT_Windows_Devices_Spi_Provider_0_H
+WINRT_EXPORT namespace winrt::Windows::Foundation
+{
+    template <typename TResult> struct IAsyncOperation;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
+}
 WINRT_EXPORT namespace winrt::Windows::Devices::Spi::Provider
 {
     enum class ProviderSpiMode : int32_t
@@ -36,16 +44,14 @@ namespace winrt::impl
     template <> struct category<Windows::Devices::Spi::Provider::ProviderSpiConnectionSettings>{ using type = class_category; };
     template <> struct category<Windows::Devices::Spi::Provider::ProviderSpiMode>{ using type = enum_category; };
     template <> struct category<Windows::Devices::Spi::Provider::ProviderSpiSharingMode>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Devices::Spi::Provider::ProviderSpiConnectionSettings>{ L"Windows.Devices.Spi.Provider.ProviderSpiConnectionSettings" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Spi::Provider::ProviderSpiMode>{ L"Windows.Devices.Spi.Provider.ProviderSpiMode" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Spi::Provider::ProviderSpiSharingMode>{ L"Windows.Devices.Spi.Provider.ProviderSpiSharingMode" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Devices::Spi::Provider::IProviderSpiConnectionSettings>{ L"Windows.Devices.Spi.Provider.IProviderSpiConnectionSettings" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Spi::Provider::IProviderSpiConnectionSettingsFactory>{ L"Windows.Devices.Spi.Provider.IProviderSpiConnectionSettingsFactory" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Spi::Provider::ISpiControllerProvider>{ L"Windows.Devices.Spi.Provider.ISpiControllerProvider" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Spi::Provider::ISpiDeviceProvider>{ L"Windows.Devices.Spi.Provider.ISpiDeviceProvider" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Spi::Provider::ISpiProvider>{ L"Windows.Devices.Spi.Provider.ISpiProvider" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Devices::Spi::Provider::ProviderSpiConnectionSettings> = L"Windows.Devices.Spi.Provider.ProviderSpiConnectionSettings";
+    template <> inline constexpr auto& name_v<Windows::Devices::Spi::Provider::ProviderSpiMode> = L"Windows.Devices.Spi.Provider.ProviderSpiMode";
+    template <> inline constexpr auto& name_v<Windows::Devices::Spi::Provider::ProviderSpiSharingMode> = L"Windows.Devices.Spi.Provider.ProviderSpiSharingMode";
+    template <> inline constexpr auto& name_v<Windows::Devices::Spi::Provider::IProviderSpiConnectionSettings> = L"Windows.Devices.Spi.Provider.IProviderSpiConnectionSettings";
+    template <> inline constexpr auto& name_v<Windows::Devices::Spi::Provider::IProviderSpiConnectionSettingsFactory> = L"Windows.Devices.Spi.Provider.IProviderSpiConnectionSettingsFactory";
+    template <> inline constexpr auto& name_v<Windows::Devices::Spi::Provider::ISpiControllerProvider> = L"Windows.Devices.Spi.Provider.ISpiControllerProvider";
+    template <> inline constexpr auto& name_v<Windows::Devices::Spi::Provider::ISpiDeviceProvider> = L"Windows.Devices.Spi.Provider.ISpiDeviceProvider";
+    template <> inline constexpr auto& name_v<Windows::Devices::Spi::Provider::ISpiProvider> = L"Windows.Devices.Spi.Provider.ISpiProvider";
     template <> inline constexpr guid guid_v<Windows::Devices::Spi::Provider::IProviderSpiConnectionSettings>{ 0xF6034550,0xA542,0x4EC0,{ 0x96,0x01,0xA4,0xDD,0x68,0xF8,0x69,0x7B } };
     template <> inline constexpr guid guid_v<Windows::Devices::Spi::Provider::IProviderSpiConnectionSettingsFactory>{ 0x66456B5A,0x0C79,0x43E3,{ 0x9F,0x3C,0xE5,0x97,0x80,0xAC,0x18,0xFA } };
     template <> inline constexpr guid guid_v<Windows::Devices::Spi::Provider::ISpiControllerProvider>{ 0xC1686504,0x02CE,0x4226,{ 0xA3,0x85,0x4F,0x11,0xFB,0x04,0xB4,0x1B } };
@@ -104,16 +110,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Spi_Provider_IProviderSpiConnectionSettings
     {
-        [[nodiscard]] auto ChipSelectLine() const;
-        auto ChipSelectLine(int32_t value) const;
-        [[nodiscard]] auto Mode() const;
-        auto Mode(Windows::Devices::Spi::Provider::ProviderSpiMode const& value) const;
-        [[nodiscard]] auto DataBitLength() const;
-        auto DataBitLength(int32_t value) const;
-        [[nodiscard]] auto ClockFrequency() const;
-        auto ClockFrequency(int32_t value) const;
-        [[nodiscard]] auto SharingMode() const;
-        auto SharingMode(Windows::Devices::Spi::Provider::ProviderSpiSharingMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) ChipSelectLine() const;
+        WINRT_IMPL_AUTO(void) ChipSelectLine(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Spi::Provider::ProviderSpiMode) Mode() const;
+        WINRT_IMPL_AUTO(void) Mode(Windows::Devices::Spi::Provider::ProviderSpiMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) DataBitLength() const;
+        WINRT_IMPL_AUTO(void) DataBitLength(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) ClockFrequency() const;
+        WINRT_IMPL_AUTO(void) ClockFrequency(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Spi::Provider::ProviderSpiSharingMode) SharingMode() const;
+        WINRT_IMPL_AUTO(void) SharingMode(Windows::Devices::Spi::Provider::ProviderSpiSharingMode const& value) const;
     };
     template <> struct consume<Windows::Devices::Spi::Provider::IProviderSpiConnectionSettings>
     {
@@ -122,7 +128,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Spi_Provider_IProviderSpiConnectionSettingsFactory
     {
-        auto Create(int32_t chipSelectLine) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Spi::Provider::ProviderSpiConnectionSettings) Create(int32_t chipSelectLine) const;
     };
     template <> struct consume<Windows::Devices::Spi::Provider::IProviderSpiConnectionSettingsFactory>
     {
@@ -131,7 +137,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Spi_Provider_ISpiControllerProvider
     {
-        auto GetDeviceProvider(Windows::Devices::Spi::Provider::ProviderSpiConnectionSettings const& settings) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Spi::Provider::ISpiDeviceProvider) GetDeviceProvider(Windows::Devices::Spi::Provider::ProviderSpiConnectionSettings const& settings) const;
     };
     template <> struct consume<Windows::Devices::Spi::Provider::ISpiControllerProvider>
     {
@@ -140,12 +146,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Spi_Provider_ISpiDeviceProvider
     {
-        [[nodiscard]] auto DeviceId() const;
-        [[nodiscard]] auto ConnectionSettings() const;
-        auto Write(array_view<uint8_t const> buffer) const;
-        auto Read(array_view<uint8_t> buffer) const;
-        auto TransferSequential(array_view<uint8_t const> writeBuffer, array_view<uint8_t> readBuffer) const;
-        auto TransferFullDuplex(array_view<uint8_t const> writeBuffer, array_view<uint8_t> readBuffer) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Spi::Provider::ProviderSpiConnectionSettings) ConnectionSettings() const;
+        WINRT_IMPL_AUTO(void) Write(array_view<uint8_t const> buffer) const;
+        WINRT_IMPL_AUTO(void) Read(array_view<uint8_t> buffer) const;
+        WINRT_IMPL_AUTO(void) TransferSequential(array_view<uint8_t const> writeBuffer, array_view<uint8_t> readBuffer) const;
+        WINRT_IMPL_AUTO(void) TransferFullDuplex(array_view<uint8_t const> writeBuffer, array_view<uint8_t> readBuffer) const;
     };
     template <> struct consume<Windows::Devices::Spi::Provider::ISpiDeviceProvider>
     {
@@ -154,7 +160,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Spi_Provider_ISpiProvider
     {
-        auto GetControllersAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Devices::Spi::Provider::ISpiControllerProvider>>) GetControllersAsync() const;
     };
     template <> struct consume<Windows::Devices::Spi::Provider::ISpiProvider>
     {

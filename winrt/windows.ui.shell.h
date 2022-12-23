@@ -109,6 +109,7 @@
 #include "windowscontracts.h"
 #include "Windows.Foundation.h"
 #include "Windows.ApplicationModel.Core.h"
+#include "Windows.Graphics.Imaging.h"
 #include "Windows.Storage.Streams.h"
 #include "Windows.UI.StartScreen.h"
 #include "Windows.UI.WindowManagement.h"
@@ -634,7 +635,7 @@ namespace ABI {
 #if !defined(RO_NO_TEMPLATE_NAME)
 namespace ABI { namespace Windows { namespace Foundation {
 template <>
-struct __declspec(uuid("cb43b9ef-fc6c-5fb5-b49f-22027aa6f057"))
+struct __declspec(uuid("eb53ee69-744a-5804-a912-00746b48a9cd"))
 ITypedEventHandler<ABI::Windows::UI::Shell::WindowTabManager*, ABI::Windows::UI::Shell::WindowTabThumbnailRequestedEventArgs*> : ITypedEventHandler_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::UI::Shell::WindowTabManager*, ABI::Windows::UI::Shell::IWindowTabManager*>, ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::UI::Shell::WindowTabThumbnailRequestedEventArgs*, ABI::Windows::UI::Shell::IWindowTabThumbnailRequestedEventArgs*>>
 {
     static const wchar_t* z_get_rc_name_impl()
@@ -721,6 +722,16 @@ namespace ABI {
 #define __x_ABI_CWindows_CFoundation_CIUriRuntimeClass ABI::Windows::Foundation::IUriRuntimeClass
 
 #endif // ____x_ABI_CWindows_CFoundation_CIUriRuntimeClass_FWD_DEFINED__
+
+namespace ABI {
+    namespace Windows {
+        namespace Graphics {
+            namespace Imaging {
+                typedef struct BitmapSize BitmapSize;
+            } /* Imaging */
+        } /* Graphics */
+    } /* Windows */
+} /* ABI */
 
 #ifndef ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference_FWD_DEFINED__
 #define ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference_FWD_DEFINED__
@@ -1617,7 +1628,7 @@ namespace ABI {
     namespace Windows {
         namespace UI {
             namespace Shell {
-                MIDL_INTERFACE("567a78ce-c0ae-59b5-a95c-7a845eb99230")
+                MIDL_INTERFACE("b05a41e4-6c90-5be4-b6ae-dfe9804f53b7")
                 IWindowTabThumbnailRequestedEventArgs : public IInspectable
                 {
                 public:
@@ -1635,6 +1646,9 @@ namespace ABI {
                         ) = 0;
                     virtual HRESULT STDMETHODCALLTYPE GetDeferral(
                         ABI::Windows::Foundation::IDeferral** result
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE get_RequestedSize_Temp(
+                        ABI::Windows::Graphics::Imaging::BitmapSize* value
                         ) = 0;
                 };
 
@@ -2641,6 +2655,8 @@ typedef interface __x_ABI_CWindows_CFoundation_CIDeferral __x_ABI_CWindows_CFoun
 typedef interface __x_ABI_CWindows_CFoundation_CIUriRuntimeClass __x_ABI_CWindows_CFoundation_CIUriRuntimeClass;
 
 #endif // ____x_ABI_CWindows_CFoundation_CIUriRuntimeClass_FWD_DEFINED__
+
+typedef struct __x_ABI_CWindows_CGraphics_CImaging_CBitmapSize __x_ABI_CWindows_CGraphics_CImaging_CBitmapSize;
 
 #ifndef ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference_FWD_DEFINED__
 #define ____x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference_FWD_DEFINED__
@@ -3991,6 +4007,8 @@ typedef struct __x_ABI_CWindows_CUI_CShell_CIWindowTabThumbnailRequestedEventArg
         __x_ABI_CWindows_CStorage_CStreams_CIRandomAccessStreamReference* value);
     HRESULT (STDMETHODCALLTYPE* GetDeferral)(__x_ABI_CWindows_CUI_CShell_CIWindowTabThumbnailRequestedEventArgs* This,
         __x_ABI_CWindows_CFoundation_CIDeferral** result);
+    HRESULT (STDMETHODCALLTYPE* get_RequestedSize_Temp)(__x_ABI_CWindows_CUI_CShell_CIWindowTabThumbnailRequestedEventArgs* This,
+        struct __x_ABI_CWindows_CGraphics_CImaging_CBitmapSize* value);
 
     END_INTERFACE
 } __x_ABI_CWindows_CUI_CShell_CIWindowTabThumbnailRequestedEventArgsVtbl;
@@ -4034,6 +4052,9 @@ interface __x_ABI_CWindows_CUI_CShell_CIWindowTabThumbnailRequestedEventArgs
 
 #define __x_ABI_CWindows_CUI_CShell_CIWindowTabThumbnailRequestedEventArgs_GetDeferral(This, result) \
     ((This)->lpVtbl->GetDeferral(This, result))
+
+#define __x_ABI_CWindows_CUI_CShell_CIWindowTabThumbnailRequestedEventArgs_get_RequestedSize_Temp(This, value) \
+    ((This)->lpVtbl->get_RequestedSize_Temp(This, value))
 
 #endif /* COBJMACROS */
 

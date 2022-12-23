@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_UI_Xaml_Media_Imaging_H
 #define WINRT_Windows_UI_Xaml_Media_Imaging_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.UI.Xaml.Media.h"
 #include "winrt/impl/Windows.ApplicationModel.Background.2.h"
 #include "winrt/impl/Windows.Foundation.2.h"
@@ -17,49 +17,49 @@ static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatche
 #include "winrt/impl/Windows.UI.Xaml.Media.Imaging.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage<D>::CreateOptions() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Imaging::BitmapCreateOptions) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage<D>::CreateOptions() const
     {
-        Windows::UI::Xaml::Media::Imaging::BitmapCreateOptions value;
+        Windows::UI::Xaml::Media::Imaging::BitmapCreateOptions value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImage)->get_CreateOptions(reinterpret_cast<uint32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage<D>::CreateOptions(Windows::UI::Xaml::Media::Imaging::BitmapCreateOptions const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage<D>::CreateOptions(Windows::UI::Xaml::Media::Imaging::BitmapCreateOptions const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImage)->put_CreateOptions(static_cast<uint32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage<D>::UriSource() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Uri) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage<D>::UriSource() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImage)->get_UriSource(&value));
         return Windows::Foundation::Uri{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage<D>::UriSource(Windows::Foundation::Uri const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage<D>::UriSource(Windows::Foundation::Uri const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImage)->put_UriSource(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage<D>::DecodePixelWidth() const
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage<D>::DecodePixelWidth() const
     {
-        int32_t value;
+        int32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImage)->get_DecodePixelWidth(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage<D>::DecodePixelWidth(int32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage<D>::DecodePixelWidth(int32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImage)->put_DecodePixelWidth(value));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage<D>::DecodePixelHeight() const
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage<D>::DecodePixelHeight() const
     {
-        int32_t value;
+        int32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImage)->get_DecodePixelHeight(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage<D>::DecodePixelHeight(int32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage<D>::DecodePixelHeight(int32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImage)->put_DecodePixelHeight(value));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage<D>::DownloadProgress(Windows::UI::Xaml::Media::Imaging::DownloadProgressEventHandler const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage<D>::DownloadProgress(Windows::UI::Xaml::Media::Imaging::DownloadProgressEventHandler const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImage)->add_DownloadProgress(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -67,13 +67,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, DownloadProgress_revoker>(this, DownloadProgress(handler));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage<D>::DownloadProgress(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage<D>::DownloadProgress(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImage)->remove_DownloadProgress(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage<D>::ImageOpened(Windows::UI::Xaml::RoutedEventHandler const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage<D>::ImageOpened(Windows::UI::Xaml::RoutedEventHandler const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImage)->add_ImageOpened(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -81,13 +81,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, ImageOpened_revoker>(this, ImageOpened(handler));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage<D>::ImageOpened(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage<D>::ImageOpened(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImage)->remove_ImageOpened(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage<D>::ImageFailed(Windows::UI::Xaml::ExceptionRoutedEventHandler const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage<D>::ImageFailed(Windows::UI::Xaml::ExceptionRoutedEventHandler const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImage)->add_ImageFailed(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -95,247 +95,247 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, ImageFailed_revoker>(this, ImageFailed(handler));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage<D>::ImageFailed(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage<D>::ImageFailed(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImage)->remove_ImageFailed(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage2<D>::DecodePixelType() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Imaging::DecodePixelType) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage2<D>::DecodePixelType() const
     {
-        Windows::UI::Xaml::Media::Imaging::DecodePixelType value;
+        Windows::UI::Xaml::Media::Imaging::DecodePixelType value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImage2)->get_DecodePixelType(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage2<D>::DecodePixelType(Windows::UI::Xaml::Media::Imaging::DecodePixelType const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage2<D>::DecodePixelType(Windows::UI::Xaml::Media::Imaging::DecodePixelType const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImage2)->put_DecodePixelType(static_cast<int32_t>(value)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage3<D>::IsAnimatedBitmap() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage3<D>::IsAnimatedBitmap() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImage3)->get_IsAnimatedBitmap(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage3<D>::IsPlaying() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage3<D>::IsPlaying() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImage3)->get_IsPlaying(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage3<D>::AutoPlay() const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage3<D>::AutoPlay() const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImage3)->get_AutoPlay(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage3<D>::AutoPlay(bool value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage3<D>::AutoPlay(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImage3)->put_AutoPlay(value));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage3<D>::Play() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage3<D>::Play() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImage3)->Play());
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage3<D>::Stop() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImage3<D>::Stop() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImage3)->Stop());
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImageFactory<D>::CreateInstanceWithUriSource(Windows::Foundation::Uri const& uriSource) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Imaging::BitmapImage) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImageFactory<D>::CreateInstanceWithUriSource(Windows::Foundation::Uri const& uriSource) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImageFactory)->CreateInstanceWithUriSource(*(void**)(&uriSource), &value));
         return Windows::UI::Xaml::Media::Imaging::BitmapImage{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImageStatics<D>::CreateOptionsProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImageStatics<D>::CreateOptionsProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImageStatics)->get_CreateOptionsProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImageStatics<D>::UriSourceProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImageStatics<D>::UriSourceProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImageStatics)->get_UriSourceProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImageStatics<D>::DecodePixelWidthProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImageStatics<D>::DecodePixelWidthProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImageStatics)->get_DecodePixelWidthProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImageStatics<D>::DecodePixelHeightProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImageStatics<D>::DecodePixelHeightProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImageStatics)->get_DecodePixelHeightProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImageStatics2<D>::DecodePixelTypeProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImageStatics2<D>::DecodePixelTypeProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImageStatics2)->get_DecodePixelTypeProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImageStatics3<D>::IsAnimatedBitmapProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImageStatics3<D>::IsAnimatedBitmapProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImageStatics3)->get_IsAnimatedBitmapProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImageStatics3<D>::IsPlayingProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImageStatics3<D>::IsPlayingProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImageStatics3)->get_IsPlayingProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapImageStatics3<D>::AutoPlayProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Media_Imaging_IBitmapImageStatics3<D>::AutoPlayProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapImageStatics3)->get_AutoPlayProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapSource<D>::PixelWidth() const
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_UI_Xaml_Media_Imaging_IBitmapSource<D>::PixelWidth() const
     {
-        int32_t value;
+        int32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapSource)->get_PixelWidth(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapSource<D>::PixelHeight() const
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_UI_Xaml_Media_Imaging_IBitmapSource<D>::PixelHeight() const
     {
-        int32_t value;
+        int32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapSource)->get_PixelHeight(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapSource<D>::SetSource(Windows::Storage::Streams::IRandomAccessStream const& streamSource) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Media_Imaging_IBitmapSource<D>::SetSource(Windows::Storage::Streams::IRandomAccessStream const& streamSource) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapSource)->SetSource(*(void**)(&streamSource)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapSource<D>::SetSourceAsync(Windows::Storage::Streams::IRandomAccessStream const& streamSource) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) consume_Windows_UI_Xaml_Media_Imaging_IBitmapSource<D>::SetSourceAsync(Windows::Storage::Streams::IRandomAccessStream const& streamSource) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapSource)->SetSourceAsync(*(void**)(&streamSource), &operation));
         return Windows::Foundation::IAsyncAction{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapSourceFactory<D>::CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Imaging::BitmapSource) consume_Windows_UI_Xaml_Media_Imaging_IBitmapSourceFactory<D>::CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapSourceFactory)->CreateInstance(*(void**)(&baseInterface), impl::bind_out(innerInterface), &value));
         return Windows::UI::Xaml::Media::Imaging::BitmapSource{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapSourceStatics<D>::PixelWidthProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Media_Imaging_IBitmapSourceStatics<D>::PixelWidthProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapSourceStatics)->get_PixelWidthProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IBitmapSourceStatics<D>::PixelHeightProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Media_Imaging_IBitmapSourceStatics<D>::PixelHeightProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IBitmapSourceStatics)->get_PixelHeightProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IDownloadProgressEventArgs<D>::Progress() const
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_UI_Xaml_Media_Imaging_IDownloadProgressEventArgs<D>::Progress() const
     {
-        int32_t value;
+        int32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IDownloadProgressEventArgs)->get_Progress(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IDownloadProgressEventArgs<D>::Progress(int32_t value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Media_Imaging_IDownloadProgressEventArgs<D>::Progress(int32_t value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IDownloadProgressEventArgs)->put_Progress(value));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IRenderTargetBitmap<D>::PixelWidth() const
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_UI_Xaml_Media_Imaging_IRenderTargetBitmap<D>::PixelWidth() const
     {
-        int32_t value;
+        int32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IRenderTargetBitmap)->get_PixelWidth(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IRenderTargetBitmap<D>::PixelHeight() const
+    template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_UI_Xaml_Media_Imaging_IRenderTargetBitmap<D>::PixelHeight() const
     {
-        int32_t value;
+        int32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IRenderTargetBitmap)->get_PixelHeight(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IRenderTargetBitmap<D>::RenderAsync(Windows::UI::Xaml::UIElement const& element) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) consume_Windows_UI_Xaml_Media_Imaging_IRenderTargetBitmap<D>::RenderAsync(Windows::UI::Xaml::UIElement const& element) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IRenderTargetBitmap)->RenderAsync(*(void**)(&element), &operation));
         return Windows::Foundation::IAsyncAction{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IRenderTargetBitmap<D>::RenderAsync(Windows::UI::Xaml::UIElement const& element, int32_t scaledWidth, int32_t scaledHeight) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) consume_Windows_UI_Xaml_Media_Imaging_IRenderTargetBitmap<D>::RenderAsync(Windows::UI::Xaml::UIElement const& element, int32_t scaledWidth, int32_t scaledHeight) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IRenderTargetBitmap)->RenderToSizeAsync(*(void**)(&element), scaledWidth, scaledHeight, &operation));
         return Windows::Foundation::IAsyncAction{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IRenderTargetBitmap<D>::GetPixelsAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::IBuffer>) consume_Windows_UI_Xaml_Media_Imaging_IRenderTargetBitmap<D>::GetPixelsAsync() const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IRenderTargetBitmap)->GetPixelsAsync(&operation));
         return Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::IBuffer>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IRenderTargetBitmapStatics<D>::PixelWidthProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Media_Imaging_IRenderTargetBitmapStatics<D>::PixelWidthProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IRenderTargetBitmapStatics)->get_PixelWidthProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IRenderTargetBitmapStatics<D>::PixelHeightProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Media_Imaging_IRenderTargetBitmapStatics<D>::PixelHeightProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IRenderTargetBitmapStatics)->get_PixelHeightProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_ISoftwareBitmapSource<D>::SetBitmapAsync(Windows::Graphics::Imaging::SoftwareBitmap const& softwareBitmap) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) consume_Windows_UI_Xaml_Media_Imaging_ISoftwareBitmapSource<D>::SetBitmapAsync(Windows::Graphics::Imaging::SoftwareBitmap const& softwareBitmap) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::ISoftwareBitmapSource)->SetBitmapAsync(*(void**)(&softwareBitmap), &operation));
         return Windows::Foundation::IAsyncAction{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_ISurfaceImageSourceFactory<D>::CreateInstanceWithDimensions(int32_t pixelWidth, int32_t pixelHeight, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Imaging::SurfaceImageSource) consume_Windows_UI_Xaml_Media_Imaging_ISurfaceImageSourceFactory<D>::CreateInstanceWithDimensions(int32_t pixelWidth, int32_t pixelHeight, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::ISurfaceImageSourceFactory)->CreateInstanceWithDimensions(pixelWidth, pixelHeight, *(void**)(&baseInterface), impl::bind_out(innerInterface), &value));
         return Windows::UI::Xaml::Media::Imaging::SurfaceImageSource{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_ISurfaceImageSourceFactory<D>::CreateInstanceWithDimensionsAndOpacity(int32_t pixelWidth, int32_t pixelHeight, bool isOpaque, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Imaging::SurfaceImageSource) consume_Windows_UI_Xaml_Media_Imaging_ISurfaceImageSourceFactory<D>::CreateInstanceWithDimensionsAndOpacity(int32_t pixelWidth, int32_t pixelHeight, bool isOpaque, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::ISurfaceImageSourceFactory)->CreateInstanceWithDimensionsAndOpacity(pixelWidth, pixelHeight, isOpaque, *(void**)(&baseInterface), impl::bind_out(innerInterface), &value));
         return Windows::UI::Xaml::Media::Imaging::SurfaceImageSource{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSource<D>::UriSource() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Uri) consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSource<D>::UriSource() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::ISvgImageSource)->get_UriSource(&value));
         return Windows::Foundation::Uri{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSource<D>::UriSource(Windows::Foundation::Uri const& value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSource<D>::UriSource(Windows::Foundation::Uri const& value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::ISvgImageSource)->put_UriSource(*(void**)(&value)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSource<D>::RasterizePixelWidth() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSource<D>::RasterizePixelWidth() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::ISvgImageSource)->get_RasterizePixelWidth(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSource<D>::RasterizePixelWidth(double value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSource<D>::RasterizePixelWidth(double value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::ISvgImageSource)->put_RasterizePixelWidth(value));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSource<D>::RasterizePixelHeight() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSource<D>::RasterizePixelHeight() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::ISvgImageSource)->get_RasterizePixelHeight(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSource<D>::RasterizePixelHeight(double value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSource<D>::RasterizePixelHeight(double value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::ISvgImageSource)->put_RasterizePixelHeight(value));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSource<D>::Opened(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Media::Imaging::SvgImageSource, Windows::UI::Xaml::Media::Imaging::SvgImageSourceOpenedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSource<D>::Opened(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Media::Imaging::SvgImageSource, Windows::UI::Xaml::Media::Imaging::SvgImageSourceOpenedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::ISvgImageSource)->add_Opened(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -343,13 +343,13 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, Opened_revoker>(this, Opened(handler));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSource<D>::Opened(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSource<D>::Opened(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::ISvgImageSource)->remove_Opened(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSource<D>::OpenFailed(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Media::Imaging::SvgImageSource, Windows::UI::Xaml::Media::Imaging::SvgImageSourceFailedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSource<D>::OpenFailed(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Media::Imaging::SvgImageSource, Windows::UI::Xaml::Media::Imaging::SvgImageSourceFailedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::ISvgImageSource)->add_OpenFailed(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -357,87 +357,87 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, OpenFailed_revoker>(this, OpenFailed(handler));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSource<D>::OpenFailed(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSource<D>::OpenFailed(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::ISvgImageSource)->remove_OpenFailed(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSource<D>::SetSourceAsync(Windows::Storage::Streams::IRandomAccessStream const& streamSource) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::UI::Xaml::Media::Imaging::SvgImageSourceLoadStatus>) consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSource<D>::SetSourceAsync(Windows::Storage::Streams::IRandomAccessStream const& streamSource) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::ISvgImageSource)->SetSourceAsync(*(void**)(&streamSource), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::UI::Xaml::Media::Imaging::SvgImageSourceLoadStatus>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSourceFactory<D>::CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Imaging::SvgImageSource) consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSourceFactory<D>::CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::ISvgImageSourceFactory)->CreateInstance(*(void**)(&baseInterface), impl::bind_out(innerInterface), &value));
         return Windows::UI::Xaml::Media::Imaging::SvgImageSource{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSourceFactory<D>::CreateInstanceWithUriSource(Windows::Foundation::Uri const& uriSource, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Imaging::SvgImageSource) consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSourceFactory<D>::CreateInstanceWithUriSource(Windows::Foundation::Uri const& uriSource, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::ISvgImageSourceFactory)->CreateInstanceWithUriSource(*(void**)(&uriSource), *(void**)(&baseInterface), impl::bind_out(innerInterface), &value));
         return Windows::UI::Xaml::Media::Imaging::SvgImageSource{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSourceFailedEventArgs<D>::Status() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Imaging::SvgImageSourceLoadStatus) consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSourceFailedEventArgs<D>::Status() const
     {
-        Windows::UI::Xaml::Media::Imaging::SvgImageSourceLoadStatus value;
+        Windows::UI::Xaml::Media::Imaging::SvgImageSourceLoadStatus value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::ISvgImageSourceFailedEventArgs)->get_Status(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSourceStatics<D>::UriSourceProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSourceStatics<D>::UriSourceProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::ISvgImageSourceStatics)->get_UriSourceProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSourceStatics<D>::RasterizePixelWidthProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSourceStatics<D>::RasterizePixelWidthProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::ISvgImageSourceStatics)->get_RasterizePixelWidthProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSourceStatics<D>::RasterizePixelHeightProperty() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) consume_Windows_UI_Xaml_Media_Imaging_ISvgImageSourceStatics<D>::RasterizePixelHeightProperty() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::ISvgImageSourceStatics)->get_RasterizePixelHeightProperty(&value));
         return Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IVirtualSurfaceImageSourceFactory<D>::CreateInstanceWithDimensions(int32_t pixelWidth, int32_t pixelHeight) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Imaging::VirtualSurfaceImageSource) consume_Windows_UI_Xaml_Media_Imaging_IVirtualSurfaceImageSourceFactory<D>::CreateInstanceWithDimensions(int32_t pixelWidth, int32_t pixelHeight) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IVirtualSurfaceImageSourceFactory)->CreateInstanceWithDimensions(pixelWidth, pixelHeight, &value));
         return Windows::UI::Xaml::Media::Imaging::VirtualSurfaceImageSource{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IVirtualSurfaceImageSourceFactory<D>::CreateInstanceWithDimensionsAndOpacity(int32_t pixelWidth, int32_t pixelHeight, bool isOpaque) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Imaging::VirtualSurfaceImageSource) consume_Windows_UI_Xaml_Media_Imaging_IVirtualSurfaceImageSourceFactory<D>::CreateInstanceWithDimensionsAndOpacity(int32_t pixelWidth, int32_t pixelHeight, bool isOpaque) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IVirtualSurfaceImageSourceFactory)->CreateInstanceWithDimensionsAndOpacity(pixelWidth, pixelHeight, isOpaque, &value));
         return Windows::UI::Xaml::Media::Imaging::VirtualSurfaceImageSource{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IWriteableBitmap<D>::PixelBuffer() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) consume_Windows_UI_Xaml_Media_Imaging_IWriteableBitmap<D>::PixelBuffer() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IWriteableBitmap)->get_PixelBuffer(&value));
         return Windows::Storage::Streams::IBuffer{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IWriteableBitmap<D>::Invalidate() const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Media_Imaging_IWriteableBitmap<D>::Invalidate() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IWriteableBitmap)->Invalidate());
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IWriteableBitmapFactory<D>::CreateInstanceWithDimensions(int32_t pixelWidth, int32_t pixelHeight) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Imaging::WriteableBitmap) consume_Windows_UI_Xaml_Media_Imaging_IWriteableBitmapFactory<D>::CreateInstanceWithDimensions(int32_t pixelWidth, int32_t pixelHeight) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IWriteableBitmapFactory)->CreateInstanceWithDimensions(pixelWidth, pixelHeight, &value));
         return Windows::UI::Xaml::Media::Imaging::WriteableBitmap{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IXamlRenderingBackgroundTaskFactory<D>::CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Xaml::Media::Imaging::XamlRenderingBackgroundTask) consume_Windows_UI_Xaml_Media_Imaging_IXamlRenderingBackgroundTaskFactory<D>::CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IXamlRenderingBackgroundTaskFactory)->CreateInstance(*(void**)(&baseInterface), impl::bind_out(innerInterface), &value));
         return Windows::UI::Xaml::Media::Imaging::XamlRenderingBackgroundTask{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_UI_Xaml_Media_Imaging_IXamlRenderingBackgroundTaskOverrides<D>::OnRun(Windows::ApplicationModel::Background::IBackgroundTaskInstance const& taskInstance) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Xaml_Media_Imaging_IXamlRenderingBackgroundTaskOverrides<D>::OnRun(Windows::ApplicationModel::Background::IBackgroundTaskInstance const& taskInstance) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Xaml::Media::Imaging::IXamlRenderingBackgroundTaskOverrides)->OnRun(*(void**)(&taskInstance)));
     }
@@ -1177,7 +1177,6 @@ namespace winrt::impl
         catch (...) { return to_hresult(); }
     };
 #endif
-#ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
     struct produce<D, Windows::UI::Xaml::Media::Imaging::IXamlRenderingBackgroundTaskOverrides> : produce_base<D, Windows::UI::Xaml::Media::Imaging::IXamlRenderingBackgroundTaskOverrides>
     {
@@ -1189,7 +1188,6 @@ namespace winrt::impl
         }
         catch (...) { return to_hresult(); }
     };
-#endif
 template <typename T, typename D>
 struct __declspec(empty_bases) produce_dispatch_to_overridable<T, D, Windows::UI::Xaml::Media::Imaging::IXamlRenderingBackgroundTaskOverrides>
     : produce_dispatch_to_overridable_base<T, D, Windows::UI::Xaml::Media::Imaging::IXamlRenderingBackgroundTaskOverrides>
@@ -1370,7 +1368,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Media::Imaging
     {
         check_hresult((*(impl::abi_t<DownloadProgressEventHandler>**)this)->Invoke(*(void**)(&sender), *(void**)(&e)));
     }
-    template <typename D> auto IXamlRenderingBackgroundTaskOverridesT<D>::OnRun(Windows::ApplicationModel::Background::IBackgroundTaskInstance const& taskInstance) const
+    template <typename D> WINRT_IMPL_AUTO(void) IXamlRenderingBackgroundTaskOverridesT<D>::OnRun(Windows::ApplicationModel::Background::IBackgroundTaskInstance const& taskInstance) const
     {
         return shim().template try_as<IXamlRenderingBackgroundTaskOverrides>().OnRun(taskInstance);
     }
@@ -1384,7 +1382,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Media::Imaging
     protected:
         BitmapSourceT()
         {
-            impl::call_factory<BitmapSource, IBitmapSourceFactory>([&](IBitmapSourceFactory const& f) { f.CreateInstance(*this, this->m_inner); });
+            impl::call_factory<BitmapSource, IBitmapSourceFactory>([&](IBitmapSourceFactory const& f) { [[maybe_unused]] auto winrt_impl_discarded = f.CreateInstance(*this, this->m_inner); });
         }
     };
     template <typename D, typename... Interfaces>
@@ -1397,11 +1395,11 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Media::Imaging
     protected:
         SurfaceImageSourceT(int32_t pixelWidth, int32_t pixelHeight)
         {
-            impl::call_factory<SurfaceImageSource, ISurfaceImageSourceFactory>([&](ISurfaceImageSourceFactory const& f) { f.CreateInstanceWithDimensions(pixelWidth, pixelHeight, *this, this->m_inner); });
+            impl::call_factory<SurfaceImageSource, ISurfaceImageSourceFactory>([&](ISurfaceImageSourceFactory const& f) { [[maybe_unused]] auto winrt_impl_discarded = f.CreateInstanceWithDimensions(pixelWidth, pixelHeight, *this, this->m_inner); });
         }
         SurfaceImageSourceT(int32_t pixelWidth, int32_t pixelHeight, bool isOpaque)
         {
-            impl::call_factory<SurfaceImageSource, ISurfaceImageSourceFactory>([&](ISurfaceImageSourceFactory const& f) { f.CreateInstanceWithDimensionsAndOpacity(pixelWidth, pixelHeight, isOpaque, *this, this->m_inner); });
+            impl::call_factory<SurfaceImageSource, ISurfaceImageSourceFactory>([&](ISurfaceImageSourceFactory const& f) { [[maybe_unused]] auto winrt_impl_discarded = f.CreateInstanceWithDimensionsAndOpacity(pixelWidth, pixelHeight, isOpaque, *this, this->m_inner); });
         }
     };
     template <typename D, typename... Interfaces>
@@ -1414,11 +1412,11 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Media::Imaging
     protected:
         SvgImageSourceT()
         {
-            impl::call_factory<SvgImageSource, ISvgImageSourceFactory>([&](ISvgImageSourceFactory const& f) { f.CreateInstance(*this, this->m_inner); });
+            impl::call_factory<SvgImageSource, ISvgImageSourceFactory>([&](ISvgImageSourceFactory const& f) { [[maybe_unused]] auto winrt_impl_discarded = f.CreateInstance(*this, this->m_inner); });
         }
         SvgImageSourceT(Windows::Foundation::Uri const& uriSource)
         {
-            impl::call_factory<SvgImageSource, ISvgImageSourceFactory>([&](ISvgImageSourceFactory const& f) { f.CreateInstanceWithUriSource(uriSource, *this, this->m_inner); });
+            impl::call_factory<SvgImageSource, ISvgImageSourceFactory>([&](ISvgImageSourceFactory const& f) { [[maybe_unused]] auto winrt_impl_discarded = f.CreateInstanceWithUriSource(uriSource, *this, this->m_inner); });
         }
     };
     template <typename D, typename... Interfaces>
@@ -1432,7 +1430,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Media::Imaging
     protected:
         XamlRenderingBackgroundTaskT()
         {
-            impl::call_factory<XamlRenderingBackgroundTask, IXamlRenderingBackgroundTaskFactory>([&](IXamlRenderingBackgroundTaskFactory const& f) { f.CreateInstance(*this, this->m_inner); });
+            impl::call_factory<XamlRenderingBackgroundTask, IXamlRenderingBackgroundTaskFactory>([&](IXamlRenderingBackgroundTaskFactory const& f) { [[maybe_unused]] auto winrt_impl_discarded = f.CreateInstance(*this, this->m_inner); });
         }
     };
 }

@@ -11255,11 +11255,6 @@ typedef struct _MARK_HANDLE_INFO32 {
 
 #endif /*NTDDI_VERSION >= NTDDI_WIN10_RS4 */
 
-#if (NTDDI_VERSION >= NTDDI_WIN10_MN)
-
-#endif /*NTDDI_VERSION >= NTDDI_WIN10_MN */
-
-
 
 //
 //==================== FSCTL_SECURITY_ID_CHECK ======================
@@ -15440,9 +15435,9 @@ typedef enum _DUPLICATE_EXTENTS_STATE {
 } DUPLICATE_EXTENTS_STATE, *PDUPLICATE_EXTENTS_STATE;
 
 typedef struct _ASYNC_DUPLICATE_EXTENTS_STATUS {
-    
+
     DWORD Version;
-    
+
     DUPLICATE_EXTENTS_STATE State;
 
     DWORDLONG SourceFileOffset;
@@ -15770,7 +15765,9 @@ typedef enum _VIRTUAL_STORAGE_BEHAVIOR_CODE {
 
     VirtualStorageBehaviorUndefined = 0,
     VirtualStorageBehaviorCacheWriteThrough = 1,
-    VirtualStorageBehaviorCacheWriteBack = 2
+    VirtualStorageBehaviorCacheWriteBack = 2,
+    VirtualStorageBehaviorStopIoProcessing = 3,
+    VirtualStorageBehaviorRestartIoProcessing = 4
 
 } VIRTUAL_STORAGE_BEHAVIOR_CODE, *PVIRTUAL_STORAGE_BEHAVIOR_CODE;
 

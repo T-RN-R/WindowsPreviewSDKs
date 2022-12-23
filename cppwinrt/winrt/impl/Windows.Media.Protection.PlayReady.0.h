@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -10,6 +10,8 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
     struct EventRegistrationToken;
     struct HResult;
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
+    template <typename T> struct IReference;
     template <typename TSender, typename TResult> struct TypedEventHandler;
     struct Uri;
 }
@@ -313,103 +315,101 @@ namespace winrt::impl
     template <> struct category<Windows::Media::Protection::PlayReady::PlayReadyEncryptionAlgorithm>{ using type = enum_category; };
     template <> struct category<Windows::Media::Protection::PlayReady::PlayReadyHardwareDRMFeatures>{ using type = enum_category; };
     template <> struct category<Windows::Media::Protection::PlayReady::PlayReadyITADataFormat>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::NDClient>{ L"Windows.Media.Protection.PlayReady.NDClient" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::NDCustomData>{ L"Windows.Media.Protection.PlayReady.NDCustomData" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::NDDownloadEngineNotifier>{ L"Windows.Media.Protection.PlayReady.NDDownloadEngineNotifier" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::NDLicenseFetchDescriptor>{ L"Windows.Media.Protection.PlayReady.NDLicenseFetchDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::NDStorageFileHelper>{ L"Windows.Media.Protection.PlayReady.NDStorageFileHelper" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::NDStreamParserNotifier>{ L"Windows.Media.Protection.PlayReady.NDStreamParserNotifier" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::NDTCPMessenger>{ L"Windows.Media.Protection.PlayReady.NDTCPMessenger" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyContentHeader>{ L"Windows.Media.Protection.PlayReady.PlayReadyContentHeader" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyContentResolver>{ L"Windows.Media.Protection.PlayReady.PlayReadyContentResolver" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyDomain>{ L"Windows.Media.Protection.PlayReady.PlayReadyDomain" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyDomainIterable>{ L"Windows.Media.Protection.PlayReady.PlayReadyDomainIterable" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyDomainIterator>{ L"Windows.Media.Protection.PlayReady.PlayReadyDomainIterator" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyDomainJoinServiceRequest>{ L"Windows.Media.Protection.PlayReady.PlayReadyDomainJoinServiceRequest" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyDomainLeaveServiceRequest>{ L"Windows.Media.Protection.PlayReady.PlayReadyDomainLeaveServiceRequest" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyITADataGenerator>{ L"Windows.Media.Protection.PlayReady.PlayReadyITADataGenerator" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyIndividualizationServiceRequest>{ L"Windows.Media.Protection.PlayReady.PlayReadyIndividualizationServiceRequest" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyLicense>{ L"Windows.Media.Protection.PlayReady.PlayReadyLicense" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyLicenseAcquisitionServiceRequest>{ L"Windows.Media.Protection.PlayReady.PlayReadyLicenseAcquisitionServiceRequest" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyLicenseIterable>{ L"Windows.Media.Protection.PlayReady.PlayReadyLicenseIterable" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyLicenseIterator>{ L"Windows.Media.Protection.PlayReady.PlayReadyLicenseIterator" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyLicenseManagement>{ L"Windows.Media.Protection.PlayReady.PlayReadyLicenseManagement" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyLicenseSession>{ L"Windows.Media.Protection.PlayReady.PlayReadyLicenseSession" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyMeteringReportServiceRequest>{ L"Windows.Media.Protection.PlayReady.PlayReadyMeteringReportServiceRequest" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyRevocationServiceRequest>{ L"Windows.Media.Protection.PlayReady.PlayReadyRevocationServiceRequest" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadySecureStopIterable>{ L"Windows.Media.Protection.PlayReady.PlayReadySecureStopIterable" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadySecureStopIterator>{ L"Windows.Media.Protection.PlayReady.PlayReadySecureStopIterator" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadySecureStopServiceRequest>{ L"Windows.Media.Protection.PlayReady.PlayReadySecureStopServiceRequest" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadySoapMessage>{ L"Windows.Media.Protection.PlayReady.PlayReadySoapMessage" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyStatics>{ L"Windows.Media.Protection.PlayReady.PlayReadyStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::NDCertificateFeature>{ L"Windows.Media.Protection.PlayReady.NDCertificateFeature" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::NDCertificatePlatformID>{ L"Windows.Media.Protection.PlayReady.NDCertificatePlatformID" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::NDCertificateType>{ L"Windows.Media.Protection.PlayReady.NDCertificateType" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::NDClosedCaptionFormat>{ L"Windows.Media.Protection.PlayReady.NDClosedCaptionFormat" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::NDContentIDType>{ L"Windows.Media.Protection.PlayReady.NDContentIDType" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::NDMediaStreamType>{ L"Windows.Media.Protection.PlayReady.NDMediaStreamType" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::NDProximityDetectionType>{ L"Windows.Media.Protection.PlayReady.NDProximityDetectionType" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::NDStartAsyncOptions>{ L"Windows.Media.Protection.PlayReady.NDStartAsyncOptions" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyDecryptorSetup>{ L"Windows.Media.Protection.PlayReady.PlayReadyDecryptorSetup" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyEncryptionAlgorithm>{ L"Windows.Media.Protection.PlayReady.PlayReadyEncryptionAlgorithm" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyHardwareDRMFeatures>{ L"Windows.Media.Protection.PlayReady.PlayReadyHardwareDRMFeatures" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyITADataFormat>{ L"Windows.Media.Protection.PlayReady.PlayReadyITADataFormat" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDClient>{ L"Windows.Media.Protection.PlayReady.INDClient" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDClientFactory>{ L"Windows.Media.Protection.PlayReady.INDClientFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDClosedCaptionDataReceivedEventArgs>{ L"Windows.Media.Protection.PlayReady.INDClosedCaptionDataReceivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDCustomData>{ L"Windows.Media.Protection.PlayReady.INDCustomData" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDCustomDataFactory>{ L"Windows.Media.Protection.PlayReady.INDCustomDataFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDDownloadEngine>{ L"Windows.Media.Protection.PlayReady.INDDownloadEngine" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDDownloadEngineNotifier>{ L"Windows.Media.Protection.PlayReady.INDDownloadEngineNotifier" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDLicenseFetchCompletedEventArgs>{ L"Windows.Media.Protection.PlayReady.INDLicenseFetchCompletedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDLicenseFetchDescriptor>{ L"Windows.Media.Protection.PlayReady.INDLicenseFetchDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDLicenseFetchDescriptorFactory>{ L"Windows.Media.Protection.PlayReady.INDLicenseFetchDescriptorFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDLicenseFetchResult>{ L"Windows.Media.Protection.PlayReady.INDLicenseFetchResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDMessenger>{ L"Windows.Media.Protection.PlayReady.INDMessenger" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDProximityDetectionCompletedEventArgs>{ L"Windows.Media.Protection.PlayReady.INDProximityDetectionCompletedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDRegistrationCompletedEventArgs>{ L"Windows.Media.Protection.PlayReady.INDRegistrationCompletedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDSendResult>{ L"Windows.Media.Protection.PlayReady.INDSendResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDStartResult>{ L"Windows.Media.Protection.PlayReady.INDStartResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDStorageFileHelper>{ L"Windows.Media.Protection.PlayReady.INDStorageFileHelper" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDStreamParser>{ L"Windows.Media.Protection.PlayReady.INDStreamParser" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDStreamParserNotifier>{ L"Windows.Media.Protection.PlayReady.INDStreamParserNotifier" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDTCPMessengerFactory>{ L"Windows.Media.Protection.PlayReady.INDTCPMessengerFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDTransmitterProperties>{ L"Windows.Media.Protection.PlayReady.INDTransmitterProperties" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyContentHeader>{ L"Windows.Media.Protection.PlayReady.IPlayReadyContentHeader" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyContentHeader2>{ L"Windows.Media.Protection.PlayReady.IPlayReadyContentHeader2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyContentHeaderFactory>{ L"Windows.Media.Protection.PlayReady.IPlayReadyContentHeaderFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyContentHeaderFactory2>{ L"Windows.Media.Protection.PlayReady.IPlayReadyContentHeaderFactory2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyContentResolver>{ L"Windows.Media.Protection.PlayReady.IPlayReadyContentResolver" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyDomain>{ L"Windows.Media.Protection.PlayReady.IPlayReadyDomain" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyDomainIterableFactory>{ L"Windows.Media.Protection.PlayReady.IPlayReadyDomainIterableFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyDomainJoinServiceRequest>{ L"Windows.Media.Protection.PlayReady.IPlayReadyDomainJoinServiceRequest" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyDomainLeaveServiceRequest>{ L"Windows.Media.Protection.PlayReady.IPlayReadyDomainLeaveServiceRequest" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyITADataGenerator>{ L"Windows.Media.Protection.PlayReady.IPlayReadyITADataGenerator" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyIndividualizationServiceRequest>{ L"Windows.Media.Protection.PlayReady.IPlayReadyIndividualizationServiceRequest" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyLicense>{ L"Windows.Media.Protection.PlayReady.IPlayReadyLicense" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyLicense2>{ L"Windows.Media.Protection.PlayReady.IPlayReadyLicense2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyLicenseAcquisitionServiceRequest>{ L"Windows.Media.Protection.PlayReady.IPlayReadyLicenseAcquisitionServiceRequest" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyLicenseAcquisitionServiceRequest2>{ L"Windows.Media.Protection.PlayReady.IPlayReadyLicenseAcquisitionServiceRequest2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyLicenseAcquisitionServiceRequest3>{ L"Windows.Media.Protection.PlayReady.IPlayReadyLicenseAcquisitionServiceRequest3" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyLicenseIterableFactory>{ L"Windows.Media.Protection.PlayReady.IPlayReadyLicenseIterableFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyLicenseManagement>{ L"Windows.Media.Protection.PlayReady.IPlayReadyLicenseManagement" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyLicenseSession>{ L"Windows.Media.Protection.PlayReady.IPlayReadyLicenseSession" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyLicenseSession2>{ L"Windows.Media.Protection.PlayReady.IPlayReadyLicenseSession2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyLicenseSessionFactory>{ L"Windows.Media.Protection.PlayReady.IPlayReadyLicenseSessionFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyMeteringReportServiceRequest>{ L"Windows.Media.Protection.PlayReady.IPlayReadyMeteringReportServiceRequest" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyRevocationServiceRequest>{ L"Windows.Media.Protection.PlayReady.IPlayReadyRevocationServiceRequest" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadySecureStopIterableFactory>{ L"Windows.Media.Protection.PlayReady.IPlayReadySecureStopIterableFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadySecureStopServiceRequest>{ L"Windows.Media.Protection.PlayReady.IPlayReadySecureStopServiceRequest" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadySecureStopServiceRequestFactory>{ L"Windows.Media.Protection.PlayReady.IPlayReadySecureStopServiceRequestFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyServiceRequest>{ L"Windows.Media.Protection.PlayReady.IPlayReadyServiceRequest" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadySoapMessage>{ L"Windows.Media.Protection.PlayReady.IPlayReadySoapMessage" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyStatics>{ L"Windows.Media.Protection.PlayReady.IPlayReadyStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyStatics2>{ L"Windows.Media.Protection.PlayReady.IPlayReadyStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyStatics3>{ L"Windows.Media.Protection.PlayReady.IPlayReadyStatics3" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyStatics4>{ L"Windows.Media.Protection.PlayReady.IPlayReadyStatics4" };
-    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyStatics5>{ L"Windows.Media.Protection.PlayReady.IPlayReadyStatics5" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::NDClient> = L"Windows.Media.Protection.PlayReady.NDClient";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::NDCustomData> = L"Windows.Media.Protection.PlayReady.NDCustomData";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::NDDownloadEngineNotifier> = L"Windows.Media.Protection.PlayReady.NDDownloadEngineNotifier";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::NDLicenseFetchDescriptor> = L"Windows.Media.Protection.PlayReady.NDLicenseFetchDescriptor";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::NDStorageFileHelper> = L"Windows.Media.Protection.PlayReady.NDStorageFileHelper";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::NDStreamParserNotifier> = L"Windows.Media.Protection.PlayReady.NDStreamParserNotifier";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::NDTCPMessenger> = L"Windows.Media.Protection.PlayReady.NDTCPMessenger";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyContentHeader> = L"Windows.Media.Protection.PlayReady.PlayReadyContentHeader";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyContentResolver> = L"Windows.Media.Protection.PlayReady.PlayReadyContentResolver";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyDomain> = L"Windows.Media.Protection.PlayReady.PlayReadyDomain";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyDomainIterable> = L"Windows.Media.Protection.PlayReady.PlayReadyDomainIterable";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyDomainIterator> = L"Windows.Media.Protection.PlayReady.PlayReadyDomainIterator";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyDomainJoinServiceRequest> = L"Windows.Media.Protection.PlayReady.PlayReadyDomainJoinServiceRequest";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyDomainLeaveServiceRequest> = L"Windows.Media.Protection.PlayReady.PlayReadyDomainLeaveServiceRequest";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyITADataGenerator> = L"Windows.Media.Protection.PlayReady.PlayReadyITADataGenerator";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyIndividualizationServiceRequest> = L"Windows.Media.Protection.PlayReady.PlayReadyIndividualizationServiceRequest";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyLicense> = L"Windows.Media.Protection.PlayReady.PlayReadyLicense";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyLicenseAcquisitionServiceRequest> = L"Windows.Media.Protection.PlayReady.PlayReadyLicenseAcquisitionServiceRequest";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyLicenseIterable> = L"Windows.Media.Protection.PlayReady.PlayReadyLicenseIterable";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyLicenseIterator> = L"Windows.Media.Protection.PlayReady.PlayReadyLicenseIterator";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyLicenseManagement> = L"Windows.Media.Protection.PlayReady.PlayReadyLicenseManagement";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyLicenseSession> = L"Windows.Media.Protection.PlayReady.PlayReadyLicenseSession";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyMeteringReportServiceRequest> = L"Windows.Media.Protection.PlayReady.PlayReadyMeteringReportServiceRequest";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyRevocationServiceRequest> = L"Windows.Media.Protection.PlayReady.PlayReadyRevocationServiceRequest";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadySecureStopIterable> = L"Windows.Media.Protection.PlayReady.PlayReadySecureStopIterable";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadySecureStopIterator> = L"Windows.Media.Protection.PlayReady.PlayReadySecureStopIterator";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadySecureStopServiceRequest> = L"Windows.Media.Protection.PlayReady.PlayReadySecureStopServiceRequest";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadySoapMessage> = L"Windows.Media.Protection.PlayReady.PlayReadySoapMessage";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyStatics> = L"Windows.Media.Protection.PlayReady.PlayReadyStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::NDCertificateFeature> = L"Windows.Media.Protection.PlayReady.NDCertificateFeature";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::NDCertificatePlatformID> = L"Windows.Media.Protection.PlayReady.NDCertificatePlatformID";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::NDCertificateType> = L"Windows.Media.Protection.PlayReady.NDCertificateType";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::NDClosedCaptionFormat> = L"Windows.Media.Protection.PlayReady.NDClosedCaptionFormat";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::NDContentIDType> = L"Windows.Media.Protection.PlayReady.NDContentIDType";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::NDMediaStreamType> = L"Windows.Media.Protection.PlayReady.NDMediaStreamType";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::NDProximityDetectionType> = L"Windows.Media.Protection.PlayReady.NDProximityDetectionType";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::NDStartAsyncOptions> = L"Windows.Media.Protection.PlayReady.NDStartAsyncOptions";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyDecryptorSetup> = L"Windows.Media.Protection.PlayReady.PlayReadyDecryptorSetup";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyEncryptionAlgorithm> = L"Windows.Media.Protection.PlayReady.PlayReadyEncryptionAlgorithm";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyHardwareDRMFeatures> = L"Windows.Media.Protection.PlayReady.PlayReadyHardwareDRMFeatures";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::PlayReadyITADataFormat> = L"Windows.Media.Protection.PlayReady.PlayReadyITADataFormat";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDClient> = L"Windows.Media.Protection.PlayReady.INDClient";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDClientFactory> = L"Windows.Media.Protection.PlayReady.INDClientFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDClosedCaptionDataReceivedEventArgs> = L"Windows.Media.Protection.PlayReady.INDClosedCaptionDataReceivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDCustomData> = L"Windows.Media.Protection.PlayReady.INDCustomData";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDCustomDataFactory> = L"Windows.Media.Protection.PlayReady.INDCustomDataFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDDownloadEngine> = L"Windows.Media.Protection.PlayReady.INDDownloadEngine";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDDownloadEngineNotifier> = L"Windows.Media.Protection.PlayReady.INDDownloadEngineNotifier";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDLicenseFetchCompletedEventArgs> = L"Windows.Media.Protection.PlayReady.INDLicenseFetchCompletedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDLicenseFetchDescriptor> = L"Windows.Media.Protection.PlayReady.INDLicenseFetchDescriptor";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDLicenseFetchDescriptorFactory> = L"Windows.Media.Protection.PlayReady.INDLicenseFetchDescriptorFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDLicenseFetchResult> = L"Windows.Media.Protection.PlayReady.INDLicenseFetchResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDMessenger> = L"Windows.Media.Protection.PlayReady.INDMessenger";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDProximityDetectionCompletedEventArgs> = L"Windows.Media.Protection.PlayReady.INDProximityDetectionCompletedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDRegistrationCompletedEventArgs> = L"Windows.Media.Protection.PlayReady.INDRegistrationCompletedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDSendResult> = L"Windows.Media.Protection.PlayReady.INDSendResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDStartResult> = L"Windows.Media.Protection.PlayReady.INDStartResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDStorageFileHelper> = L"Windows.Media.Protection.PlayReady.INDStorageFileHelper";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDStreamParser> = L"Windows.Media.Protection.PlayReady.INDStreamParser";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDStreamParserNotifier> = L"Windows.Media.Protection.PlayReady.INDStreamParserNotifier";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDTCPMessengerFactory> = L"Windows.Media.Protection.PlayReady.INDTCPMessengerFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::INDTransmitterProperties> = L"Windows.Media.Protection.PlayReady.INDTransmitterProperties";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyContentHeader> = L"Windows.Media.Protection.PlayReady.IPlayReadyContentHeader";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyContentHeader2> = L"Windows.Media.Protection.PlayReady.IPlayReadyContentHeader2";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyContentHeaderFactory> = L"Windows.Media.Protection.PlayReady.IPlayReadyContentHeaderFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyContentHeaderFactory2> = L"Windows.Media.Protection.PlayReady.IPlayReadyContentHeaderFactory2";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyContentResolver> = L"Windows.Media.Protection.PlayReady.IPlayReadyContentResolver";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyDomain> = L"Windows.Media.Protection.PlayReady.IPlayReadyDomain";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyDomainIterableFactory> = L"Windows.Media.Protection.PlayReady.IPlayReadyDomainIterableFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyDomainJoinServiceRequest> = L"Windows.Media.Protection.PlayReady.IPlayReadyDomainJoinServiceRequest";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyDomainLeaveServiceRequest> = L"Windows.Media.Protection.PlayReady.IPlayReadyDomainLeaveServiceRequest";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyITADataGenerator> = L"Windows.Media.Protection.PlayReady.IPlayReadyITADataGenerator";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyIndividualizationServiceRequest> = L"Windows.Media.Protection.PlayReady.IPlayReadyIndividualizationServiceRequest";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyLicense> = L"Windows.Media.Protection.PlayReady.IPlayReadyLicense";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyLicense2> = L"Windows.Media.Protection.PlayReady.IPlayReadyLicense2";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyLicenseAcquisitionServiceRequest> = L"Windows.Media.Protection.PlayReady.IPlayReadyLicenseAcquisitionServiceRequest";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyLicenseAcquisitionServiceRequest2> = L"Windows.Media.Protection.PlayReady.IPlayReadyLicenseAcquisitionServiceRequest2";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyLicenseAcquisitionServiceRequest3> = L"Windows.Media.Protection.PlayReady.IPlayReadyLicenseAcquisitionServiceRequest3";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyLicenseIterableFactory> = L"Windows.Media.Protection.PlayReady.IPlayReadyLicenseIterableFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyLicenseManagement> = L"Windows.Media.Protection.PlayReady.IPlayReadyLicenseManagement";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyLicenseSession> = L"Windows.Media.Protection.PlayReady.IPlayReadyLicenseSession";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyLicenseSession2> = L"Windows.Media.Protection.PlayReady.IPlayReadyLicenseSession2";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyLicenseSessionFactory> = L"Windows.Media.Protection.PlayReady.IPlayReadyLicenseSessionFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyMeteringReportServiceRequest> = L"Windows.Media.Protection.PlayReady.IPlayReadyMeteringReportServiceRequest";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyRevocationServiceRequest> = L"Windows.Media.Protection.PlayReady.IPlayReadyRevocationServiceRequest";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadySecureStopIterableFactory> = L"Windows.Media.Protection.PlayReady.IPlayReadySecureStopIterableFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadySecureStopServiceRequest> = L"Windows.Media.Protection.PlayReady.IPlayReadySecureStopServiceRequest";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadySecureStopServiceRequestFactory> = L"Windows.Media.Protection.PlayReady.IPlayReadySecureStopServiceRequestFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyServiceRequest> = L"Windows.Media.Protection.PlayReady.IPlayReadyServiceRequest";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadySoapMessage> = L"Windows.Media.Protection.PlayReady.IPlayReadySoapMessage";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyStatics> = L"Windows.Media.Protection.PlayReady.IPlayReadyStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyStatics2> = L"Windows.Media.Protection.PlayReady.IPlayReadyStatics2";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyStatics3> = L"Windows.Media.Protection.PlayReady.IPlayReadyStatics3";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyStatics4> = L"Windows.Media.Protection.PlayReady.IPlayReadyStatics4";
+    template <> inline constexpr auto& name_v<Windows::Media::Protection::PlayReady::IPlayReadyStatics5> = L"Windows.Media.Protection.PlayReady.IPlayReadyStatics5";
     template <> inline constexpr guid guid_v<Windows::Media::Protection::PlayReady::INDClient>{ 0x3BD6781B,0x61B8,0x46E2,{ 0x99,0xA5,0x8A,0xBC,0xB6,0xB9,0xF7,0xD6 } };
     template <> inline constexpr guid guid_v<Windows::Media::Protection::PlayReady::INDClientFactory>{ 0x3E53DD62,0xFEE8,0x451F,{ 0xB0,0xD4,0xF7,0x06,0xCC,0xA3,0xE0,0x37 } };
     template <> inline constexpr guid guid_v<Windows::Media::Protection::PlayReady::INDClosedCaptionDataReceivedEventArgs>{ 0x4738D29F,0xC345,0x4649,{ 0x84,0x68,0xB8,0xC5,0xFC,0x35,0x71,0x90 } };
@@ -988,30 +988,30 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_INDClient
     {
-        auto RegistrationCompleted(Windows::Foundation::TypedEventHandler<Windows::Media::Protection::PlayReady::NDClient, Windows::Media::Protection::PlayReady::INDRegistrationCompletedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) RegistrationCompleted(Windows::Foundation::TypedEventHandler<Windows::Media::Protection::PlayReady::NDClient, Windows::Media::Protection::PlayReady::INDRegistrationCompletedEventArgs> const& handler) const;
         using RegistrationCompleted_revoker = impl::event_revoker<Windows::Media::Protection::PlayReady::INDClient, &impl::abi_t<Windows::Media::Protection::PlayReady::INDClient>::remove_RegistrationCompleted>;
         [[nodiscard]] RegistrationCompleted_revoker RegistrationCompleted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Protection::PlayReady::NDClient, Windows::Media::Protection::PlayReady::INDRegistrationCompletedEventArgs> const& handler) const;
-        auto RegistrationCompleted(winrt::event_token const& token) const noexcept;
-        auto ProximityDetectionCompleted(Windows::Foundation::TypedEventHandler<Windows::Media::Protection::PlayReady::NDClient, Windows::Media::Protection::PlayReady::INDProximityDetectionCompletedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) RegistrationCompleted(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ProximityDetectionCompleted(Windows::Foundation::TypedEventHandler<Windows::Media::Protection::PlayReady::NDClient, Windows::Media::Protection::PlayReady::INDProximityDetectionCompletedEventArgs> const& handler) const;
         using ProximityDetectionCompleted_revoker = impl::event_revoker<Windows::Media::Protection::PlayReady::INDClient, &impl::abi_t<Windows::Media::Protection::PlayReady::INDClient>::remove_ProximityDetectionCompleted>;
         [[nodiscard]] ProximityDetectionCompleted_revoker ProximityDetectionCompleted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Protection::PlayReady::NDClient, Windows::Media::Protection::PlayReady::INDProximityDetectionCompletedEventArgs> const& handler) const;
-        auto ProximityDetectionCompleted(winrt::event_token const& token) const noexcept;
-        auto LicenseFetchCompleted(Windows::Foundation::TypedEventHandler<Windows::Media::Protection::PlayReady::NDClient, Windows::Media::Protection::PlayReady::INDLicenseFetchCompletedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) ProximityDetectionCompleted(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) LicenseFetchCompleted(Windows::Foundation::TypedEventHandler<Windows::Media::Protection::PlayReady::NDClient, Windows::Media::Protection::PlayReady::INDLicenseFetchCompletedEventArgs> const& handler) const;
         using LicenseFetchCompleted_revoker = impl::event_revoker<Windows::Media::Protection::PlayReady::INDClient, &impl::abi_t<Windows::Media::Protection::PlayReady::INDClient>::remove_LicenseFetchCompleted>;
         [[nodiscard]] LicenseFetchCompleted_revoker LicenseFetchCompleted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Protection::PlayReady::NDClient, Windows::Media::Protection::PlayReady::INDLicenseFetchCompletedEventArgs> const& handler) const;
-        auto LicenseFetchCompleted(winrt::event_token const& token) const noexcept;
-        auto ReRegistrationNeeded(Windows::Foundation::TypedEventHandler<Windows::Media::Protection::PlayReady::NDClient, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) LicenseFetchCompleted(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ReRegistrationNeeded(Windows::Foundation::TypedEventHandler<Windows::Media::Protection::PlayReady::NDClient, Windows::Foundation::IInspectable> const& handler) const;
         using ReRegistrationNeeded_revoker = impl::event_revoker<Windows::Media::Protection::PlayReady::INDClient, &impl::abi_t<Windows::Media::Protection::PlayReady::INDClient>::remove_ReRegistrationNeeded>;
         [[nodiscard]] ReRegistrationNeeded_revoker ReRegistrationNeeded(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Protection::PlayReady::NDClient, Windows::Foundation::IInspectable> const& handler) const;
-        auto ReRegistrationNeeded(winrt::event_token const& token) const noexcept;
-        auto ClosedCaptionDataReceived(Windows::Foundation::TypedEventHandler<Windows::Media::Protection::PlayReady::NDClient, Windows::Media::Protection::PlayReady::INDClosedCaptionDataReceivedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) ReRegistrationNeeded(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ClosedCaptionDataReceived(Windows::Foundation::TypedEventHandler<Windows::Media::Protection::PlayReady::NDClient, Windows::Media::Protection::PlayReady::INDClosedCaptionDataReceivedEventArgs> const& handler) const;
         using ClosedCaptionDataReceived_revoker = impl::event_revoker<Windows::Media::Protection::PlayReady::INDClient, &impl::abi_t<Windows::Media::Protection::PlayReady::INDClient>::remove_ClosedCaptionDataReceived>;
         [[nodiscard]] ClosedCaptionDataReceived_revoker ClosedCaptionDataReceived(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Protection::PlayReady::NDClient, Windows::Media::Protection::PlayReady::INDClosedCaptionDataReceivedEventArgs> const& handler) const;
-        auto ClosedCaptionDataReceived(winrt::event_token const& token) const noexcept;
-        auto StartAsync(Windows::Foundation::Uri const& contentUrl, uint32_t startAsyncOptions, Windows::Media::Protection::PlayReady::INDCustomData const& registrationCustomData, Windows::Media::Protection::PlayReady::INDLicenseFetchDescriptor const& licenseFetchDescriptor) const;
-        auto LicenseFetchAsync(Windows::Media::Protection::PlayReady::INDLicenseFetchDescriptor const& licenseFetchDescriptor) const;
-        auto ReRegistrationAsync(Windows::Media::Protection::PlayReady::INDCustomData const& registrationCustomData) const;
-        auto Close() const;
+        WINRT_IMPL_AUTO(void) ClosedCaptionDataReceived(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Protection::PlayReady::INDStartResult>) StartAsync(Windows::Foundation::Uri const& contentUrl, uint32_t startAsyncOptions, Windows::Media::Protection::PlayReady::INDCustomData const& registrationCustomData, Windows::Media::Protection::PlayReady::INDLicenseFetchDescriptor const& licenseFetchDescriptor) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Protection::PlayReady::INDLicenseFetchResult>) LicenseFetchAsync(Windows::Media::Protection::PlayReady::INDLicenseFetchDescriptor const& licenseFetchDescriptor) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) ReRegistrationAsync(Windows::Media::Protection::PlayReady::INDCustomData const& registrationCustomData) const;
+        WINRT_IMPL_AUTO(void) Close() const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::INDClient>
     {
@@ -1020,7 +1020,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_INDClientFactory
     {
-        auto CreateInstance(Windows::Media::Protection::PlayReady::INDDownloadEngine const& downloadEngine, Windows::Media::Protection::PlayReady::INDStreamParser const& streamParser, Windows::Media::Protection::PlayReady::INDMessenger const& pMessenger) const;
+        WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::NDClient) CreateInstance(Windows::Media::Protection::PlayReady::INDDownloadEngine const& downloadEngine, Windows::Media::Protection::PlayReady::INDStreamParser const& streamParser, Windows::Media::Protection::PlayReady::INDMessenger const& pMessenger) const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::INDClientFactory>
     {
@@ -1029,9 +1029,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_INDClosedCaptionDataReceivedEventArgs
     {
-        [[nodiscard]] auto ClosedCaptionDataFormat() const;
-        [[nodiscard]] auto PresentationTimestamp() const;
-        [[nodiscard]] auto ClosedCaptionData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::NDClosedCaptionFormat) ClosedCaptionDataFormat() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int64_t) PresentationTimestamp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(com_array<uint8_t>) ClosedCaptionData() const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::INDClosedCaptionDataReceivedEventArgs>
     {
@@ -1040,8 +1040,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_INDCustomData
     {
-        [[nodiscard]] auto CustomDataTypeID() const;
-        [[nodiscard]] auto CustomData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(com_array<uint8_t>) CustomDataTypeID() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(com_array<uint8_t>) CustomData() const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::INDCustomData>
     {
@@ -1050,7 +1050,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_INDCustomDataFactory
     {
-        auto CreateInstance(array_view<uint8_t const> customDataTypeIDBytes, array_view<uint8_t const> customDataBytes) const;
+        WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::NDCustomData) CreateInstance(array_view<uint8_t const> customDataTypeIDBytes, array_view<uint8_t const> customDataBytes) const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::INDCustomDataFactory>
     {
@@ -1059,15 +1059,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_INDDownloadEngine
     {
-        auto Open(Windows::Foundation::Uri const& uri, array_view<uint8_t const> sessionIDBytes) const;
-        auto Pause() const;
-        auto Resume() const;
-        auto Close() const;
-        auto Seek(Windows::Foundation::TimeSpan const& startPosition) const;
-        [[nodiscard]] auto CanSeek() const;
-        [[nodiscard]] auto BufferFullMinThresholdInSamples() const;
-        [[nodiscard]] auto BufferFullMaxThresholdInSamples() const;
-        [[nodiscard]] auto Notifier() const;
+        WINRT_IMPL_AUTO(void) Open(Windows::Foundation::Uri const& uri, array_view<uint8_t const> sessionIDBytes) const;
+        WINRT_IMPL_AUTO(void) Pause() const;
+        WINRT_IMPL_AUTO(void) Resume() const;
+        WINRT_IMPL_AUTO(void) Close() const;
+        WINRT_IMPL_AUTO(void) Seek(Windows::Foundation::TimeSpan const& startPosition) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanSeek() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) BufferFullMinThresholdInSamples() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) BufferFullMaxThresholdInSamples() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::NDDownloadEngineNotifier) Notifier() const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::INDDownloadEngine>
     {
@@ -1076,12 +1076,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_INDDownloadEngineNotifier
     {
-        auto OnStreamOpened() const;
-        auto OnPlayReadyObjectReceived(array_view<uint8_t const> dataBytes) const;
-        auto OnContentIDReceived(Windows::Media::Protection::PlayReady::INDLicenseFetchDescriptor const& licenseFetchDescriptor) const;
-        auto OnDataReceived(array_view<uint8_t const> dataBytes, uint32_t bytesReceived) const;
-        auto OnEndOfStream() const;
-        auto OnNetworkError() const;
+        WINRT_IMPL_AUTO(void) OnStreamOpened() const;
+        WINRT_IMPL_AUTO(void) OnPlayReadyObjectReceived(array_view<uint8_t const> dataBytes) const;
+        WINRT_IMPL_AUTO(void) OnContentIDReceived(Windows::Media::Protection::PlayReady::INDLicenseFetchDescriptor const& licenseFetchDescriptor) const;
+        WINRT_IMPL_AUTO(void) OnDataReceived(array_view<uint8_t const> dataBytes, uint32_t bytesReceived) const;
+        WINRT_IMPL_AUTO(void) OnEndOfStream() const;
+        WINRT_IMPL_AUTO(void) OnNetworkError() const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::INDDownloadEngineNotifier>
     {
@@ -1090,7 +1090,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_INDLicenseFetchCompletedEventArgs
     {
-        [[nodiscard]] auto ResponseCustomData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::INDCustomData) ResponseCustomData() const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::INDLicenseFetchCompletedEventArgs>
     {
@@ -1099,10 +1099,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_INDLicenseFetchDescriptor
     {
-        [[nodiscard]] auto ContentIDType() const;
-        [[nodiscard]] auto ContentID() const;
-        [[nodiscard]] auto LicenseFetchChallengeCustomData() const;
-        auto LicenseFetchChallengeCustomData(Windows::Media::Protection::PlayReady::INDCustomData const& licenseFetchChallengeCustomData) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::NDContentIDType) ContentIDType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(com_array<uint8_t>) ContentID() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::INDCustomData) LicenseFetchChallengeCustomData() const;
+        WINRT_IMPL_AUTO(void) LicenseFetchChallengeCustomData(Windows::Media::Protection::PlayReady::INDCustomData const& licenseFetchChallengeCustomData) const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::INDLicenseFetchDescriptor>
     {
@@ -1111,7 +1111,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_INDLicenseFetchDescriptorFactory
     {
-        auto CreateInstance(Windows::Media::Protection::PlayReady::NDContentIDType const& contentIDType, array_view<uint8_t const> contentIDBytes, Windows::Media::Protection::PlayReady::INDCustomData const& licenseFetchChallengeCustomData) const;
+        WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::NDLicenseFetchDescriptor) CreateInstance(Windows::Media::Protection::PlayReady::NDContentIDType const& contentIDType, array_view<uint8_t const> contentIDBytes, Windows::Media::Protection::PlayReady::INDCustomData const& licenseFetchChallengeCustomData) const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::INDLicenseFetchDescriptorFactory>
     {
@@ -1120,7 +1120,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_INDLicenseFetchResult
     {
-        [[nodiscard]] auto ResponseCustomData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::INDCustomData) ResponseCustomData() const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::INDLicenseFetchResult>
     {
@@ -1129,10 +1129,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_INDMessenger
     {
-        auto SendRegistrationRequestAsync(array_view<uint8_t const> sessionIDBytes, array_view<uint8_t const> challengeDataBytes) const;
-        auto SendProximityDetectionStartAsync(Windows::Media::Protection::PlayReady::NDProximityDetectionType const& pdType, array_view<uint8_t const> transmitterChannelBytes, array_view<uint8_t const> sessionIDBytes, array_view<uint8_t const> challengeDataBytes) const;
-        auto SendProximityDetectionResponseAsync(Windows::Media::Protection::PlayReady::NDProximityDetectionType const& pdType, array_view<uint8_t const> transmitterChannelBytes, array_view<uint8_t const> sessionIDBytes, array_view<uint8_t const> responseDataBytes) const;
-        auto SendLicenseFetchRequestAsync(array_view<uint8_t const> sessionIDBytes, array_view<uint8_t const> challengeDataBytes) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Protection::PlayReady::INDSendResult>) SendRegistrationRequestAsync(array_view<uint8_t const> sessionIDBytes, array_view<uint8_t const> challengeDataBytes) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Protection::PlayReady::INDSendResult>) SendProximityDetectionStartAsync(Windows::Media::Protection::PlayReady::NDProximityDetectionType const& pdType, array_view<uint8_t const> transmitterChannelBytes, array_view<uint8_t const> sessionIDBytes, array_view<uint8_t const> challengeDataBytes) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Protection::PlayReady::INDSendResult>) SendProximityDetectionResponseAsync(Windows::Media::Protection::PlayReady::NDProximityDetectionType const& pdType, array_view<uint8_t const> transmitterChannelBytes, array_view<uint8_t const> sessionIDBytes, array_view<uint8_t const> responseDataBytes) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Protection::PlayReady::INDSendResult>) SendLicenseFetchRequestAsync(array_view<uint8_t const> sessionIDBytes, array_view<uint8_t const> challengeDataBytes) const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::INDMessenger>
     {
@@ -1141,7 +1141,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_INDProximityDetectionCompletedEventArgs
     {
-        [[nodiscard]] auto ProximityDetectionRetryCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ProximityDetectionRetryCount() const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::INDProximityDetectionCompletedEventArgs>
     {
@@ -1150,10 +1150,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_INDRegistrationCompletedEventArgs
     {
-        [[nodiscard]] auto ResponseCustomData() const;
-        [[nodiscard]] auto TransmitterProperties() const;
-        [[nodiscard]] auto TransmitterCertificateAccepted() const;
-        auto TransmitterCertificateAccepted(bool accept) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::INDCustomData) ResponseCustomData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::INDTransmitterProperties) TransmitterProperties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) TransmitterCertificateAccepted() const;
+        WINRT_IMPL_AUTO(void) TransmitterCertificateAccepted(bool accept) const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::INDRegistrationCompletedEventArgs>
     {
@@ -1162,7 +1162,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_INDSendResult
     {
-        [[nodiscard]] auto Response() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(com_array<uint8_t>) Response() const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::INDSendResult>
     {
@@ -1171,7 +1171,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_INDStartResult
     {
-        [[nodiscard]] auto MediaStreamSource() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::MediaStreamSource) MediaStreamSource() const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::INDStartResult>
     {
@@ -1180,7 +1180,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_INDStorageFileHelper
     {
-        auto GetFileURLs(Windows::Storage::IStorageFile const& file) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) GetFileURLs(Windows::Storage::IStorageFile const& file) const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::INDStorageFileHelper>
     {
@@ -1189,11 +1189,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_INDStreamParser
     {
-        auto ParseData(array_view<uint8_t const> dataBytes) const;
-        auto GetStreamInformation(Windows::Media::Core::IMediaStreamDescriptor const& descriptor, Windows::Media::Protection::PlayReady::NDMediaStreamType& streamType) const;
-        auto BeginOfStream() const;
-        auto EndOfStream() const;
-        [[nodiscard]] auto Notifier() const;
+        WINRT_IMPL_AUTO(void) ParseData(array_view<uint8_t const> dataBytes) const;
+        WINRT_IMPL_AUTO(uint32_t) GetStreamInformation(Windows::Media::Core::IMediaStreamDescriptor const& descriptor, Windows::Media::Protection::PlayReady::NDMediaStreamType& streamType) const;
+        WINRT_IMPL_AUTO(void) BeginOfStream() const;
+        WINRT_IMPL_AUTO(void) EndOfStream() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::NDStreamParserNotifier) Notifier() const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::INDStreamParser>
     {
@@ -1202,10 +1202,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_INDStreamParserNotifier
     {
-        auto OnContentIDReceived(Windows::Media::Protection::PlayReady::INDLicenseFetchDescriptor const& licenseFetchDescriptor) const;
-        auto OnMediaStreamDescriptorCreated(param::vector<Windows::Media::Core::AudioStreamDescriptor> const& audioStreamDescriptors, param::vector<Windows::Media::Core::VideoStreamDescriptor> const& videoStreamDescriptors) const;
-        auto OnSampleParsed(uint32_t streamID, Windows::Media::Protection::PlayReady::NDMediaStreamType const& streamType, Windows::Media::Core::MediaStreamSample const& streamSample, int64_t pts, Windows::Media::Protection::PlayReady::NDClosedCaptionFormat const& ccFormat, array_view<uint8_t const> ccDataBytes) const;
-        auto OnBeginSetupDecryptor(Windows::Media::Core::IMediaStreamDescriptor const& descriptor, winrt::guid const& keyID, array_view<uint8_t const> proBytes) const;
+        WINRT_IMPL_AUTO(void) OnContentIDReceived(Windows::Media::Protection::PlayReady::INDLicenseFetchDescriptor const& licenseFetchDescriptor) const;
+        WINRT_IMPL_AUTO(void) OnMediaStreamDescriptorCreated(param::vector<Windows::Media::Core::AudioStreamDescriptor> const& audioStreamDescriptors, param::vector<Windows::Media::Core::VideoStreamDescriptor> const& videoStreamDescriptors) const;
+        WINRT_IMPL_AUTO(void) OnSampleParsed(uint32_t streamID, Windows::Media::Protection::PlayReady::NDMediaStreamType const& streamType, Windows::Media::Core::MediaStreamSample const& streamSample, int64_t pts, Windows::Media::Protection::PlayReady::NDClosedCaptionFormat const& ccFormat, array_view<uint8_t const> ccDataBytes) const;
+        WINRT_IMPL_AUTO(void) OnBeginSetupDecryptor(Windows::Media::Core::IMediaStreamDescriptor const& descriptor, winrt::guid const& keyID, array_view<uint8_t const> proBytes) const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::INDStreamParserNotifier>
     {
@@ -1214,7 +1214,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_INDTCPMessengerFactory
     {
-        auto CreateInstance(param::hstring const& remoteHostName, uint32_t remoteHostPort) const;
+        WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::NDTCPMessenger) CreateInstance(param::hstring const& remoteHostName, uint32_t remoteHostPort) const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::INDTCPMessengerFactory>
     {
@@ -1223,17 +1223,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_INDTransmitterProperties
     {
-        [[nodiscard]] auto CertificateType() const;
-        [[nodiscard]] auto PlatformIdentifier() const;
-        [[nodiscard]] auto SupportedFeatures() const;
-        [[nodiscard]] auto SecurityLevel() const;
-        [[nodiscard]] auto SecurityVersion() const;
-        [[nodiscard]] auto ExpirationDate() const;
-        [[nodiscard]] auto ClientID() const;
-        [[nodiscard]] auto ModelDigest() const;
-        [[nodiscard]] auto ModelManufacturerName() const;
-        [[nodiscard]] auto ModelName() const;
-        [[nodiscard]] auto ModelNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::NDCertificateType) CertificateType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::NDCertificatePlatformID) PlatformIdentifier() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(com_array<Windows::Media::Protection::PlayReady::NDCertificateFeature>) SupportedFeatures() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) SecurityLevel() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) SecurityVersion() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) ExpirationDate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(com_array<uint8_t>) ClientID() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(com_array<uint8_t>) ModelDigest() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ModelManufacturerName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ModelName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ModelNumber() const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::INDTransmitterProperties>
     {
@@ -1242,16 +1242,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadyContentHeader
     {
-        [[nodiscard]] auto KeyId() const;
-        [[nodiscard]] auto KeyIdString() const;
-        [[nodiscard]] auto LicenseAcquisitionUrl() const;
-        [[nodiscard]] auto LicenseAcquisitionUserInterfaceUrl() const;
-        [[nodiscard]] auto DomainServiceId() const;
-        [[nodiscard]] auto EncryptionType() const;
-        [[nodiscard]] auto CustomAttributes() const;
-        [[nodiscard]] auto DecryptorSetup() const;
-        auto GetSerializedHeader() const;
-        [[nodiscard]] auto HeaderWithEmbeddedUpdates() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) KeyId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) KeyIdString() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) LicenseAcquisitionUrl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) LicenseAcquisitionUserInterfaceUrl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) DomainServiceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::PlayReadyEncryptionAlgorithm) EncryptionType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CustomAttributes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::PlayReadyDecryptorSetup) DecryptorSetup() const;
+        WINRT_IMPL_AUTO(com_array<uint8_t>) GetSerializedHeader() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::PlayReadyContentHeader) HeaderWithEmbeddedUpdates() const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadyContentHeader>
     {
@@ -1260,8 +1260,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadyContentHeader2
     {
-        [[nodiscard]] auto KeyIds() const;
-        [[nodiscard]] auto KeyIdStrings() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(com_array<winrt::guid>) KeyIds() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(com_array<hstring>) KeyIdStrings() const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadyContentHeader2>
     {
@@ -1270,9 +1270,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadyContentHeaderFactory
     {
-        auto CreateInstanceFromWindowsMediaDrmHeader(array_view<uint8_t const> headerBytes, Windows::Foundation::Uri const& licenseAcquisitionUrl, Windows::Foundation::Uri const& licenseAcquisitionUserInterfaceUrl, param::hstring const& customAttributes, winrt::guid const& domainServiceId) const;
-        auto CreateInstanceFromComponents(winrt::guid const& contentKeyId, param::hstring const& contentKeyIdString, Windows::Media::Protection::PlayReady::PlayReadyEncryptionAlgorithm const& contentEncryptionAlgorithm, Windows::Foundation::Uri const& licenseAcquisitionUrl, Windows::Foundation::Uri const& licenseAcquisitionUserInterfaceUrl, param::hstring const& customAttributes, winrt::guid const& domainServiceId) const;
-        auto CreateInstanceFromPlayReadyHeader(array_view<uint8_t const> headerBytes) const;
+        WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::PlayReadyContentHeader) CreateInstanceFromWindowsMediaDrmHeader(array_view<uint8_t const> headerBytes, Windows::Foundation::Uri const& licenseAcquisitionUrl, Windows::Foundation::Uri const& licenseAcquisitionUserInterfaceUrl, param::hstring const& customAttributes, winrt::guid const& domainServiceId) const;
+        WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::PlayReadyContentHeader) CreateInstanceFromComponents(winrt::guid const& contentKeyId, param::hstring const& contentKeyIdString, Windows::Media::Protection::PlayReady::PlayReadyEncryptionAlgorithm const& contentEncryptionAlgorithm, Windows::Foundation::Uri const& licenseAcquisitionUrl, Windows::Foundation::Uri const& licenseAcquisitionUserInterfaceUrl, param::hstring const& customAttributes, winrt::guid const& domainServiceId) const;
+        WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::PlayReadyContentHeader) CreateInstanceFromPlayReadyHeader(array_view<uint8_t const> headerBytes) const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadyContentHeaderFactory>
     {
@@ -1281,7 +1281,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadyContentHeaderFactory2
     {
-        auto CreateInstanceFromComponents2(uint32_t dwFlags, array_view<winrt::guid const> contentKeyIds, array_view<hstring const> contentKeyIdStrings, Windows::Media::Protection::PlayReady::PlayReadyEncryptionAlgorithm const& contentEncryptionAlgorithm, Windows::Foundation::Uri const& licenseAcquisitionUrl, Windows::Foundation::Uri const& licenseAcquisitionUserInterfaceUrl, param::hstring const& customAttributes, winrt::guid const& domainServiceId) const;
+        WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::PlayReadyContentHeader) CreateInstanceFromComponents2(uint32_t dwFlags, array_view<winrt::guid const> contentKeyIds, array_view<hstring const> contentKeyIdStrings, Windows::Media::Protection::PlayReady::PlayReadyEncryptionAlgorithm const& contentEncryptionAlgorithm, Windows::Foundation::Uri const& licenseAcquisitionUrl, Windows::Foundation::Uri const& licenseAcquisitionUserInterfaceUrl, param::hstring const& customAttributes, winrt::guid const& domainServiceId) const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadyContentHeaderFactory2>
     {
@@ -1290,7 +1290,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadyContentResolver
     {
-        auto ServiceRequest(Windows::Media::Protection::PlayReady::PlayReadyContentHeader const& contentHeader) const;
+        WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::IPlayReadyServiceRequest) ServiceRequest(Windows::Media::Protection::PlayReady::PlayReadyContentHeader const& contentHeader) const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadyContentResolver>
     {
@@ -1299,11 +1299,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadyDomain
     {
-        [[nodiscard]] auto AccountId() const;
-        [[nodiscard]] auto ServiceId() const;
-        [[nodiscard]] auto Revision() const;
-        [[nodiscard]] auto FriendlyName() const;
-        [[nodiscard]] auto DomainJoinUrl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) AccountId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) ServiceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Revision() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FriendlyName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) DomainJoinUrl() const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadyDomain>
     {
@@ -1312,7 +1312,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadyDomainIterableFactory
     {
-        auto CreateInstance(winrt::guid const& domainAccountId) const;
+        WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::PlayReadyDomainIterable) CreateInstance(winrt::guid const& domainAccountId) const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadyDomainIterableFactory>
     {
@@ -1321,12 +1321,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadyDomainJoinServiceRequest
     {
-        [[nodiscard]] auto DomainAccountId() const;
-        auto DomainAccountId(winrt::guid const& value) const;
-        [[nodiscard]] auto DomainFriendlyName() const;
-        auto DomainFriendlyName(param::hstring const& value) const;
-        [[nodiscard]] auto DomainServiceId() const;
-        auto DomainServiceId(winrt::guid const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) DomainAccountId() const;
+        WINRT_IMPL_AUTO(void) DomainAccountId(winrt::guid const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DomainFriendlyName() const;
+        WINRT_IMPL_AUTO(void) DomainFriendlyName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) DomainServiceId() const;
+        WINRT_IMPL_AUTO(void) DomainServiceId(winrt::guid const& value) const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadyDomainJoinServiceRequest>
     {
@@ -1335,10 +1335,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadyDomainLeaveServiceRequest
     {
-        [[nodiscard]] auto DomainAccountId() const;
-        auto DomainAccountId(winrt::guid const& value) const;
-        [[nodiscard]] auto DomainServiceId() const;
-        auto DomainServiceId(winrt::guid const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) DomainAccountId() const;
+        WINRT_IMPL_AUTO(void) DomainAccountId(winrt::guid const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) DomainServiceId() const;
+        WINRT_IMPL_AUTO(void) DomainServiceId(winrt::guid const& value) const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadyDomainLeaveServiceRequest>
     {
@@ -1347,7 +1347,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadyITADataGenerator
     {
-        auto GenerateData(winrt::guid const& guidCPSystemId, uint32_t countOfStreams, Windows::Foundation::Collections::IPropertySet const& configuration, Windows::Media::Protection::PlayReady::PlayReadyITADataFormat const& format) const;
+        WINRT_IMPL_AUTO(com_array<uint8_t>) GenerateData(winrt::guid const& guidCPSystemId, uint32_t countOfStreams, Windows::Foundation::Collections::IPropertySet const& configuration, Windows::Media::Protection::PlayReady::PlayReadyITADataFormat const& format) const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadyITADataGenerator>
     {
@@ -1364,13 +1364,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadyLicense
     {
-        [[nodiscard]] auto FullyEvaluated() const;
-        [[nodiscard]] auto UsableForPlay() const;
-        [[nodiscard]] auto ExpirationDate() const;
-        [[nodiscard]] auto ExpireAfterFirstPlay() const;
-        [[nodiscard]] auto DomainAccountID() const;
-        [[nodiscard]] auto ChainDepth() const;
-        auto GetKIDAtChainDepth(uint32_t chainDepth) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) FullyEvaluated() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) UsableForPlay() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) ExpirationDate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ExpireAfterFirstPlay() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) DomainAccountID() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ChainDepth() const;
+        WINRT_IMPL_AUTO(winrt::guid) GetKIDAtChainDepth(uint32_t chainDepth) const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadyLicense>
     {
@@ -1379,10 +1379,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadyLicense2
     {
-        [[nodiscard]] auto SecureStopId() const;
-        [[nodiscard]] auto SecurityLevel() const;
-        [[nodiscard]] auto InMemoryOnly() const;
-        [[nodiscard]] auto ExpiresInRealTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) SecureStopId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) SecurityLevel() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) InMemoryOnly() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ExpiresInRealTime() const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadyLicense2>
     {
@@ -1391,10 +1391,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadyLicenseAcquisitionServiceRequest
     {
-        [[nodiscard]] auto ContentHeader() const;
-        auto ContentHeader(Windows::Media::Protection::PlayReady::PlayReadyContentHeader const& value) const;
-        [[nodiscard]] auto DomainServiceId() const;
-        auto DomainServiceId(winrt::guid const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::PlayReadyContentHeader) ContentHeader() const;
+        WINRT_IMPL_AUTO(void) ContentHeader(Windows::Media::Protection::PlayReady::PlayReadyContentHeader const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) DomainServiceId() const;
+        WINRT_IMPL_AUTO(void) DomainServiceId(winrt::guid const& value) const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadyLicenseAcquisitionServiceRequest>
     {
@@ -1403,7 +1403,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadyLicenseAcquisitionServiceRequest2
     {
-        [[nodiscard]] auto SessionId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) SessionId() const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadyLicenseAcquisitionServiceRequest2>
     {
@@ -1412,7 +1412,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadyLicenseAcquisitionServiceRequest3
     {
-        auto CreateLicenseIterable(Windows::Media::Protection::PlayReady::PlayReadyContentHeader const& contentHeader, bool fullyEvaluated) const;
+        WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::PlayReadyLicenseIterable) CreateLicenseIterable(Windows::Media::Protection::PlayReady::PlayReadyContentHeader const& contentHeader, bool fullyEvaluated) const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadyLicenseAcquisitionServiceRequest3>
     {
@@ -1421,7 +1421,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadyLicenseIterableFactory
     {
-        auto CreateInstance(Windows::Media::Protection::PlayReady::PlayReadyContentHeader const& contentHeader, bool fullyEvaluated) const;
+        WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::PlayReadyLicenseIterable) CreateInstance(Windows::Media::Protection::PlayReady::PlayReadyContentHeader const& contentHeader, bool fullyEvaluated) const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadyLicenseIterableFactory>
     {
@@ -1430,7 +1430,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadyLicenseManagement
     {
-        auto DeleteLicenses(Windows::Media::Protection::PlayReady::PlayReadyContentHeader const& contentHeader) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) DeleteLicenses(Windows::Media::Protection::PlayReady::PlayReadyContentHeader const& contentHeader) const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadyLicenseManagement>
     {
@@ -1439,8 +1439,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadyLicenseSession
     {
-        auto CreateLAServiceRequest() const;
-        auto ConfigureMediaProtectionManager(Windows::Media::Protection::MediaProtectionManager const& mpm) const;
+        WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::IPlayReadyLicenseAcquisitionServiceRequest) CreateLAServiceRequest() const;
+        WINRT_IMPL_AUTO(void) ConfigureMediaProtectionManager(Windows::Media::Protection::MediaProtectionManager const& mpm) const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadyLicenseSession>
     {
@@ -1449,7 +1449,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadyLicenseSession2
     {
-        auto CreateLicenseIterable(Windows::Media::Protection::PlayReady::PlayReadyContentHeader const& contentHeader, bool fullyEvaluated) const;
+        WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::PlayReadyLicenseIterable) CreateLicenseIterable(Windows::Media::Protection::PlayReady::PlayReadyContentHeader const& contentHeader, bool fullyEvaluated) const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadyLicenseSession2>
     {
@@ -1458,7 +1458,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadyLicenseSessionFactory
     {
-        auto CreateInstance(Windows::Foundation::Collections::IPropertySet const& configuration) const;
+        WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::PlayReadyLicenseSession) CreateInstance(Windows::Foundation::Collections::IPropertySet const& configuration) const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadyLicenseSessionFactory>
     {
@@ -1467,8 +1467,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadyMeteringReportServiceRequest
     {
-        [[nodiscard]] auto MeteringCertificate() const;
-        auto MeteringCertificate(array_view<uint8_t const> meteringCertBytes) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(com_array<uint8_t>) MeteringCertificate() const;
+        WINRT_IMPL_AUTO(void) MeteringCertificate(array_view<uint8_t const> meteringCertBytes) const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadyMeteringReportServiceRequest>
     {
@@ -1485,7 +1485,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadySecureStopIterableFactory
     {
-        auto CreateInstance(array_view<uint8_t const> publisherCertBytes) const;
+        WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::PlayReadySecureStopIterable) CreateInstance(array_view<uint8_t const> publisherCertBytes) const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadySecureStopIterableFactory>
     {
@@ -1494,11 +1494,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadySecureStopServiceRequest
     {
-        [[nodiscard]] auto SessionID() const;
-        [[nodiscard]] auto StartTime() const;
-        [[nodiscard]] auto UpdateTime() const;
-        [[nodiscard]] auto Stopped() const;
-        [[nodiscard]] auto PublisherCertificate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) SessionID() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) StartTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) UpdateTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Stopped() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(com_array<uint8_t>) PublisherCertificate() const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadySecureStopServiceRequest>
     {
@@ -1507,8 +1507,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadySecureStopServiceRequestFactory
     {
-        auto CreateInstance(array_view<uint8_t const> publisherCertBytes) const;
-        auto CreateInstanceFromSessionID(winrt::guid const& sessionID, array_view<uint8_t const> publisherCertBytes) const;
+        WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::PlayReadySecureStopServiceRequest) CreateInstance(array_view<uint8_t const> publisherCertBytes) const;
+        WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::PlayReadySecureStopServiceRequest) CreateInstanceFromSessionID(winrt::guid const& sessionID, array_view<uint8_t const> publisherCertBytes) const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadySecureStopServiceRequestFactory>
     {
@@ -1517,15 +1517,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadyServiceRequest
     {
-        [[nodiscard]] auto Uri() const;
-        auto Uri(Windows::Foundation::Uri const& value) const;
-        [[nodiscard]] auto ResponseCustomData() const;
-        [[nodiscard]] auto ChallengeCustomData() const;
-        auto ChallengeCustomData(param::hstring const& value) const;
-        auto BeginServiceRequest() const;
-        auto NextServiceRequest() const;
-        auto GenerateManualEnablingChallenge() const;
-        auto ProcessManualEnablingResponse(array_view<uint8_t const> responseBytes) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Uri() const;
+        WINRT_IMPL_AUTO(void) Uri(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ResponseCustomData() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ChallengeCustomData() const;
+        WINRT_IMPL_AUTO(void) ChallengeCustomData(param::hstring const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) BeginServiceRequest() const;
+        WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::IPlayReadyServiceRequest) NextServiceRequest() const;
+        WINRT_IMPL_AUTO(Windows::Media::Protection::PlayReady::PlayReadySoapMessage) GenerateManualEnablingChallenge() const;
+        WINRT_IMPL_AUTO(winrt::hresult) ProcessManualEnablingResponse(array_view<uint8_t const> responseBytes) const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadyServiceRequest>
     {
@@ -1534,9 +1534,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadySoapMessage
     {
-        auto GetMessageBody() const;
-        [[nodiscard]] auto MessageHeaders() const;
-        [[nodiscard]] auto Uri() const;
+        WINRT_IMPL_AUTO(com_array<uint8_t>) GetMessageBody() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IPropertySet) MessageHeaders() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Uri() const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadySoapMessage>
     {
@@ -1545,14 +1545,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadyStatics
     {
-        [[nodiscard]] auto DomainJoinServiceRequestType() const;
-        [[nodiscard]] auto DomainLeaveServiceRequestType() const;
-        [[nodiscard]] auto IndividualizationServiceRequestType() const;
-        [[nodiscard]] auto LicenseAcquirerServiceRequestType() const;
-        [[nodiscard]] auto MeteringReportServiceRequestType() const;
-        [[nodiscard]] auto RevocationServiceRequestType() const;
-        [[nodiscard]] auto MediaProtectionSystemId() const;
-        [[nodiscard]] auto PlayReadySecurityVersion() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) DomainJoinServiceRequestType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) DomainLeaveServiceRequestType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) IndividualizationServiceRequestType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) LicenseAcquirerServiceRequestType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) MeteringReportServiceRequestType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) RevocationServiceRequestType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) MediaProtectionSystemId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) PlayReadySecurityVersion() const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadyStatics>
     {
@@ -1561,7 +1561,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadyStatics2
     {
-        [[nodiscard]] auto PlayReadyCertificateSecurityLevel() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) PlayReadyCertificateSecurityLevel() const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadyStatics2>
     {
@@ -1570,8 +1570,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadyStatics3
     {
-        [[nodiscard]] auto SecureStopServiceRequestType() const;
-        auto CheckSupportedHardware(Windows::Media::Protection::PlayReady::PlayReadyHardwareDRMFeatures const& hwdrmFeature) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) SecureStopServiceRequestType() const;
+        WINRT_IMPL_AUTO(bool) CheckSupportedHardware(Windows::Media::Protection::PlayReady::PlayReadyHardwareDRMFeatures const& hwdrmFeature) const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadyStatics3>
     {
@@ -1580,8 +1580,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadyStatics4
     {
-        [[nodiscard]] auto InputTrustAuthorityToCreate() const;
-        [[nodiscard]] auto ProtectionSystemId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) InputTrustAuthorityToCreate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) ProtectionSystemId() const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadyStatics4>
     {
@@ -1590,9 +1590,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Protection_PlayReady_IPlayReadyStatics5
     {
-        [[nodiscard]] auto HardwareDRMDisabledAtTime() const;
-        [[nodiscard]] auto HardwareDRMDisabledUntilTime() const;
-        auto ResetHardwareDRMDisabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) HardwareDRMDisabledAtTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::DateTime>) HardwareDRMDisabledUntilTime() const;
+        WINRT_IMPL_AUTO(void) ResetHardwareDRMDisabled() const;
     };
     template <> struct consume<Windows::Media::Protection::PlayReady::IPlayReadyStatics5>
     {

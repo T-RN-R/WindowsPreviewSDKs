@@ -1,15 +1,20 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
 #ifndef WINRT_Windows_ApplicationModel_Contacts_0_H
 #define WINRT_Windows_ApplicationModel_Contacts_0_H
+WINRT_EXPORT namespace winrt::Windows::Data::Text
+{
+    struct TextSegment;
+}
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct Deferral;
     struct EventRegistrationToken;
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
     template <typename T> struct IReference;
     struct Rect;
     template <typename TSender, typename TResult> struct TypedEventHandler;
@@ -19,11 +24,15 @@ WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
     struct IPropertySet;
+    template <typename T> struct IVectorView;
+    template <typename T> struct IVector;
     struct ValueSet;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage::Streams
 {
     struct IRandomAccessStreamReference;
+    struct IRandomAccessStreamWithContentType;
+    struct RandomAccessStreamReference;
 }
 WINRT_EXPORT namespace winrt::Windows::System
 {
@@ -495,155 +504,153 @@ namespace winrt::impl
     template <> struct category<Windows::ApplicationModel::Contacts::ContactSelectionMode>{ using type = enum_category; };
     template <> struct category<Windows::ApplicationModel::Contacts::ContactStoreAccessType>{ using type = enum_category; };
     template <> struct category<Windows::ApplicationModel::Contacts::PinnedContactSurface>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::AggregateContactManager>{ L"Windows.ApplicationModel.Contacts.AggregateContactManager" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::Contact>{ L"Windows.ApplicationModel.Contacts.Contact" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactAddress>{ L"Windows.ApplicationModel.Contacts.ContactAddress" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactAnnotation>{ L"Windows.ApplicationModel.Contacts.ContactAnnotation" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactAnnotationList>{ L"Windows.ApplicationModel.Contacts.ContactAnnotationList" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactAnnotationStore>{ L"Windows.ApplicationModel.Contacts.ContactAnnotationStore" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactBatch>{ L"Windows.ApplicationModel.Contacts.ContactBatch" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactCardDelayedDataLoader>{ L"Windows.ApplicationModel.Contacts.ContactCardDelayedDataLoader" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactCardOptions>{ L"Windows.ApplicationModel.Contacts.ContactCardOptions" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactChange>{ L"Windows.ApplicationModel.Contacts.ContactChange" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactChangeReader>{ L"Windows.ApplicationModel.Contacts.ContactChangeReader" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactChangeTracker>{ L"Windows.ApplicationModel.Contacts.ContactChangeTracker" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactChangedDeferral>{ L"Windows.ApplicationModel.Contacts.ContactChangedDeferral" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactChangedEventArgs>{ L"Windows.ApplicationModel.Contacts.ContactChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactConnectedServiceAccount>{ L"Windows.ApplicationModel.Contacts.ContactConnectedServiceAccount" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactDate>{ L"Windows.ApplicationModel.Contacts.ContactDate" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactEmail>{ L"Windows.ApplicationModel.Contacts.ContactEmail" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactField>{ L"Windows.ApplicationModel.Contacts.ContactField" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactFieldFactory>{ L"Windows.ApplicationModel.Contacts.ContactFieldFactory" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactGroup>{ L"Windows.ApplicationModel.Contacts.ContactGroup" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactInformation>{ L"Windows.ApplicationModel.Contacts.ContactInformation" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactInstantMessageField>{ L"Windows.ApplicationModel.Contacts.ContactInstantMessageField" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactJobInfo>{ L"Windows.ApplicationModel.Contacts.ContactJobInfo" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactLaunchActionVerbs>{ L"Windows.ApplicationModel.Contacts.ContactLaunchActionVerbs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactList>{ L"Windows.ApplicationModel.Contacts.ContactList" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactListLimitedWriteOperations>{ L"Windows.ApplicationModel.Contacts.ContactListLimitedWriteOperations" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactListSyncConstraints>{ L"Windows.ApplicationModel.Contacts.ContactListSyncConstraints" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactListSyncManager>{ L"Windows.ApplicationModel.Contacts.ContactListSyncManager" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactLocationField>{ L"Windows.ApplicationModel.Contacts.ContactLocationField" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactManager>{ L"Windows.ApplicationModel.Contacts.ContactManager" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactManagerForUser>{ L"Windows.ApplicationModel.Contacts.ContactManagerForUser" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactMatchReason>{ L"Windows.ApplicationModel.Contacts.ContactMatchReason" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactPanel>{ L"Windows.ApplicationModel.Contacts.ContactPanel" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactPanelClosingEventArgs>{ L"Windows.ApplicationModel.Contacts.ContactPanelClosingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactPanelLaunchFullAppRequestedEventArgs>{ L"Windows.ApplicationModel.Contacts.ContactPanelLaunchFullAppRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactPhone>{ L"Windows.ApplicationModel.Contacts.ContactPhone" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactPicker>{ L"Windows.ApplicationModel.Contacts.ContactPicker" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactQueryOptions>{ L"Windows.ApplicationModel.Contacts.ContactQueryOptions" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactQueryTextSearch>{ L"Windows.ApplicationModel.Contacts.ContactQueryTextSearch" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactReader>{ L"Windows.ApplicationModel.Contacts.ContactReader" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactSignificantOther>{ L"Windows.ApplicationModel.Contacts.ContactSignificantOther" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactStore>{ L"Windows.ApplicationModel.Contacts.ContactStore" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactStoreNotificationTriggerDetails>{ L"Windows.ApplicationModel.Contacts.ContactStoreNotificationTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactWebsite>{ L"Windows.ApplicationModel.Contacts.ContactWebsite" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::FullContactCardOptions>{ L"Windows.ApplicationModel.Contacts.FullContactCardOptions" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::KnownContactField>{ L"Windows.ApplicationModel.Contacts.KnownContactField" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::PinnedContactIdsQueryResult>{ L"Windows.ApplicationModel.Contacts.PinnedContactIdsQueryResult" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::PinnedContactManager>{ L"Windows.ApplicationModel.Contacts.PinnedContactManager" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactAddressKind>{ L"Windows.ApplicationModel.Contacts.ContactAddressKind" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactAnnotationOperations>{ L"Windows.ApplicationModel.Contacts.ContactAnnotationOperations" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactAnnotationStoreAccessType>{ L"Windows.ApplicationModel.Contacts.ContactAnnotationStoreAccessType" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactBatchStatus>{ L"Windows.ApplicationModel.Contacts.ContactBatchStatus" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactCardHeaderKind>{ L"Windows.ApplicationModel.Contacts.ContactCardHeaderKind" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactCardTabKind>{ L"Windows.ApplicationModel.Contacts.ContactCardTabKind" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactChangeType>{ L"Windows.ApplicationModel.Contacts.ContactChangeType" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactDateKind>{ L"Windows.ApplicationModel.Contacts.ContactDateKind" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactEmailKind>{ L"Windows.ApplicationModel.Contacts.ContactEmailKind" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactFieldCategory>{ L"Windows.ApplicationModel.Contacts.ContactFieldCategory" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactFieldType>{ L"Windows.ApplicationModel.Contacts.ContactFieldType" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactListOtherAppReadAccess>{ L"Windows.ApplicationModel.Contacts.ContactListOtherAppReadAccess" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactListOtherAppWriteAccess>{ L"Windows.ApplicationModel.Contacts.ContactListOtherAppWriteAccess" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactListSyncStatus>{ L"Windows.ApplicationModel.Contacts.ContactListSyncStatus" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactMatchReasonKind>{ L"Windows.ApplicationModel.Contacts.ContactMatchReasonKind" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactNameOrder>{ L"Windows.ApplicationModel.Contacts.ContactNameOrder" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactPhoneKind>{ L"Windows.ApplicationModel.Contacts.ContactPhoneKind" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactQueryDesiredFields>{ L"Windows.ApplicationModel.Contacts.ContactQueryDesiredFields" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactQuerySearchFields>{ L"Windows.ApplicationModel.Contacts.ContactQuerySearchFields" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactQuerySearchScope>{ L"Windows.ApplicationModel.Contacts.ContactQuerySearchScope" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactRelationship>{ L"Windows.ApplicationModel.Contacts.ContactRelationship" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactSelectionMode>{ L"Windows.ApplicationModel.Contacts.ContactSelectionMode" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactStoreAccessType>{ L"Windows.ApplicationModel.Contacts.ContactStoreAccessType" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::PinnedContactSurface>{ L"Windows.ApplicationModel.Contacts.PinnedContactSurface" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IAggregateContactManager>{ L"Windows.ApplicationModel.Contacts.IAggregateContactManager" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IAggregateContactManager2>{ L"Windows.ApplicationModel.Contacts.IAggregateContactManager2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContact>{ L"Windows.ApplicationModel.Contacts.IContact" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContact2>{ L"Windows.ApplicationModel.Contacts.IContact2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContact3>{ L"Windows.ApplicationModel.Contacts.IContact3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactAddress>{ L"Windows.ApplicationModel.Contacts.IContactAddress" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactAnnotation>{ L"Windows.ApplicationModel.Contacts.IContactAnnotation" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactAnnotation2>{ L"Windows.ApplicationModel.Contacts.IContactAnnotation2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactAnnotationList>{ L"Windows.ApplicationModel.Contacts.IContactAnnotationList" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactAnnotationStore>{ L"Windows.ApplicationModel.Contacts.IContactAnnotationStore" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactAnnotationStore2>{ L"Windows.ApplicationModel.Contacts.IContactAnnotationStore2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactBatch>{ L"Windows.ApplicationModel.Contacts.IContactBatch" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactCardDelayedDataLoader>{ L"Windows.ApplicationModel.Contacts.IContactCardDelayedDataLoader" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactCardOptions>{ L"Windows.ApplicationModel.Contacts.IContactCardOptions" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactCardOptions2>{ L"Windows.ApplicationModel.Contacts.IContactCardOptions2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactChange>{ L"Windows.ApplicationModel.Contacts.IContactChange" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactChangeReader>{ L"Windows.ApplicationModel.Contacts.IContactChangeReader" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactChangeTracker>{ L"Windows.ApplicationModel.Contacts.IContactChangeTracker" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactChangeTracker2>{ L"Windows.ApplicationModel.Contacts.IContactChangeTracker2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactChangedDeferral>{ L"Windows.ApplicationModel.Contacts.IContactChangedDeferral" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactChangedEventArgs>{ L"Windows.ApplicationModel.Contacts.IContactChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactConnectedServiceAccount>{ L"Windows.ApplicationModel.Contacts.IContactConnectedServiceAccount" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactDate>{ L"Windows.ApplicationModel.Contacts.IContactDate" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactEmail>{ L"Windows.ApplicationModel.Contacts.IContactEmail" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactField>{ L"Windows.ApplicationModel.Contacts.IContactField" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactFieldFactory>{ L"Windows.ApplicationModel.Contacts.IContactFieldFactory" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactGroup>{ L"Windows.ApplicationModel.Contacts.IContactGroup" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactInformation>{ L"Windows.ApplicationModel.Contacts.IContactInformation" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactInstantMessageField>{ L"Windows.ApplicationModel.Contacts.IContactInstantMessageField" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactInstantMessageFieldFactory>{ L"Windows.ApplicationModel.Contacts.IContactInstantMessageFieldFactory" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactJobInfo>{ L"Windows.ApplicationModel.Contacts.IContactJobInfo" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactLaunchActionVerbsStatics>{ L"Windows.ApplicationModel.Contacts.IContactLaunchActionVerbsStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactList>{ L"Windows.ApplicationModel.Contacts.IContactList" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactList2>{ L"Windows.ApplicationModel.Contacts.IContactList2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactList3>{ L"Windows.ApplicationModel.Contacts.IContactList3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactListLimitedWriteOperations>{ L"Windows.ApplicationModel.Contacts.IContactListLimitedWriteOperations" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactListSyncConstraints>{ L"Windows.ApplicationModel.Contacts.IContactListSyncConstraints" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactListSyncManager>{ L"Windows.ApplicationModel.Contacts.IContactListSyncManager" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactListSyncManager2>{ L"Windows.ApplicationModel.Contacts.IContactListSyncManager2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactLocationField>{ L"Windows.ApplicationModel.Contacts.IContactLocationField" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactLocationFieldFactory>{ L"Windows.ApplicationModel.Contacts.IContactLocationFieldFactory" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactManagerForUser>{ L"Windows.ApplicationModel.Contacts.IContactManagerForUser" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactManagerForUser2>{ L"Windows.ApplicationModel.Contacts.IContactManagerForUser2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactManagerStatics>{ L"Windows.ApplicationModel.Contacts.IContactManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactManagerStatics2>{ L"Windows.ApplicationModel.Contacts.IContactManagerStatics2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactManagerStatics3>{ L"Windows.ApplicationModel.Contacts.IContactManagerStatics3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactManagerStatics4>{ L"Windows.ApplicationModel.Contacts.IContactManagerStatics4" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactManagerStatics5>{ L"Windows.ApplicationModel.Contacts.IContactManagerStatics5" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactMatchReason>{ L"Windows.ApplicationModel.Contacts.IContactMatchReason" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactName>{ L"Windows.ApplicationModel.Contacts.IContactName" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactPanel>{ L"Windows.ApplicationModel.Contacts.IContactPanel" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactPanelClosingEventArgs>{ L"Windows.ApplicationModel.Contacts.IContactPanelClosingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactPanelLaunchFullAppRequestedEventArgs>{ L"Windows.ApplicationModel.Contacts.IContactPanelLaunchFullAppRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactPhone>{ L"Windows.ApplicationModel.Contacts.IContactPhone" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactPicker>{ L"Windows.ApplicationModel.Contacts.IContactPicker" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactPicker2>{ L"Windows.ApplicationModel.Contacts.IContactPicker2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactPicker3>{ L"Windows.ApplicationModel.Contacts.IContactPicker3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactPickerStatics>{ L"Windows.ApplicationModel.Contacts.IContactPickerStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactQueryOptions>{ L"Windows.ApplicationModel.Contacts.IContactQueryOptions" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactQueryOptionsFactory>{ L"Windows.ApplicationModel.Contacts.IContactQueryOptionsFactory" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactQueryTextSearch>{ L"Windows.ApplicationModel.Contacts.IContactQueryTextSearch" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactReader>{ L"Windows.ApplicationModel.Contacts.IContactReader" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactSignificantOther>{ L"Windows.ApplicationModel.Contacts.IContactSignificantOther" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactSignificantOther2>{ L"Windows.ApplicationModel.Contacts.IContactSignificantOther2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactStore>{ L"Windows.ApplicationModel.Contacts.IContactStore" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactStore2>{ L"Windows.ApplicationModel.Contacts.IContactStore2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactStore3>{ L"Windows.ApplicationModel.Contacts.IContactStore3" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactStoreNotificationTriggerDetails>{ L"Windows.ApplicationModel.Contacts.IContactStoreNotificationTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactWebsite>{ L"Windows.ApplicationModel.Contacts.IContactWebsite" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactWebsite2>{ L"Windows.ApplicationModel.Contacts.IContactWebsite2" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IFullContactCardOptions>{ L"Windows.ApplicationModel.Contacts.IFullContactCardOptions" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IKnownContactFieldStatics>{ L"Windows.ApplicationModel.Contacts.IKnownContactFieldStatics" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IPinnedContactIdsQueryResult>{ L"Windows.ApplicationModel.Contacts.IPinnedContactIdsQueryResult" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IPinnedContactManager>{ L"Windows.ApplicationModel.Contacts.IPinnedContactManager" };
-    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IPinnedContactManagerStatics>{ L"Windows.ApplicationModel.Contacts.IPinnedContactManagerStatics" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::AggregateContactManager> = L"Windows.ApplicationModel.Contacts.AggregateContactManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::Contact> = L"Windows.ApplicationModel.Contacts.Contact";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactAddress> = L"Windows.ApplicationModel.Contacts.ContactAddress";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactAnnotation> = L"Windows.ApplicationModel.Contacts.ContactAnnotation";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactAnnotationList> = L"Windows.ApplicationModel.Contacts.ContactAnnotationList";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactAnnotationStore> = L"Windows.ApplicationModel.Contacts.ContactAnnotationStore";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactBatch> = L"Windows.ApplicationModel.Contacts.ContactBatch";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactCardDelayedDataLoader> = L"Windows.ApplicationModel.Contacts.ContactCardDelayedDataLoader";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactCardOptions> = L"Windows.ApplicationModel.Contacts.ContactCardOptions";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactChange> = L"Windows.ApplicationModel.Contacts.ContactChange";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactChangeReader> = L"Windows.ApplicationModel.Contacts.ContactChangeReader";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactChangeTracker> = L"Windows.ApplicationModel.Contacts.ContactChangeTracker";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactChangedDeferral> = L"Windows.ApplicationModel.Contacts.ContactChangedDeferral";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactChangedEventArgs> = L"Windows.ApplicationModel.Contacts.ContactChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactConnectedServiceAccount> = L"Windows.ApplicationModel.Contacts.ContactConnectedServiceAccount";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactDate> = L"Windows.ApplicationModel.Contacts.ContactDate";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactEmail> = L"Windows.ApplicationModel.Contacts.ContactEmail";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactField> = L"Windows.ApplicationModel.Contacts.ContactField";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactFieldFactory> = L"Windows.ApplicationModel.Contacts.ContactFieldFactory";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactGroup> = L"Windows.ApplicationModel.Contacts.ContactGroup";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactInformation> = L"Windows.ApplicationModel.Contacts.ContactInformation";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactInstantMessageField> = L"Windows.ApplicationModel.Contacts.ContactInstantMessageField";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactJobInfo> = L"Windows.ApplicationModel.Contacts.ContactJobInfo";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactLaunchActionVerbs> = L"Windows.ApplicationModel.Contacts.ContactLaunchActionVerbs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactList> = L"Windows.ApplicationModel.Contacts.ContactList";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactListLimitedWriteOperations> = L"Windows.ApplicationModel.Contacts.ContactListLimitedWriteOperations";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactListSyncConstraints> = L"Windows.ApplicationModel.Contacts.ContactListSyncConstraints";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactListSyncManager> = L"Windows.ApplicationModel.Contacts.ContactListSyncManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactLocationField> = L"Windows.ApplicationModel.Contacts.ContactLocationField";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactManager> = L"Windows.ApplicationModel.Contacts.ContactManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactManagerForUser> = L"Windows.ApplicationModel.Contacts.ContactManagerForUser";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactMatchReason> = L"Windows.ApplicationModel.Contacts.ContactMatchReason";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactPanel> = L"Windows.ApplicationModel.Contacts.ContactPanel";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactPanelClosingEventArgs> = L"Windows.ApplicationModel.Contacts.ContactPanelClosingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactPanelLaunchFullAppRequestedEventArgs> = L"Windows.ApplicationModel.Contacts.ContactPanelLaunchFullAppRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactPhone> = L"Windows.ApplicationModel.Contacts.ContactPhone";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactPicker> = L"Windows.ApplicationModel.Contacts.ContactPicker";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactQueryOptions> = L"Windows.ApplicationModel.Contacts.ContactQueryOptions";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactQueryTextSearch> = L"Windows.ApplicationModel.Contacts.ContactQueryTextSearch";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactReader> = L"Windows.ApplicationModel.Contacts.ContactReader";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactSignificantOther> = L"Windows.ApplicationModel.Contacts.ContactSignificantOther";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactStore> = L"Windows.ApplicationModel.Contacts.ContactStore";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactStoreNotificationTriggerDetails> = L"Windows.ApplicationModel.Contacts.ContactStoreNotificationTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactWebsite> = L"Windows.ApplicationModel.Contacts.ContactWebsite";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::FullContactCardOptions> = L"Windows.ApplicationModel.Contacts.FullContactCardOptions";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::KnownContactField> = L"Windows.ApplicationModel.Contacts.KnownContactField";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::PinnedContactIdsQueryResult> = L"Windows.ApplicationModel.Contacts.PinnedContactIdsQueryResult";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::PinnedContactManager> = L"Windows.ApplicationModel.Contacts.PinnedContactManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactAddressKind> = L"Windows.ApplicationModel.Contacts.ContactAddressKind";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactAnnotationOperations> = L"Windows.ApplicationModel.Contacts.ContactAnnotationOperations";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactAnnotationStoreAccessType> = L"Windows.ApplicationModel.Contacts.ContactAnnotationStoreAccessType";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactBatchStatus> = L"Windows.ApplicationModel.Contacts.ContactBatchStatus";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactCardHeaderKind> = L"Windows.ApplicationModel.Contacts.ContactCardHeaderKind";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactCardTabKind> = L"Windows.ApplicationModel.Contacts.ContactCardTabKind";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactChangeType> = L"Windows.ApplicationModel.Contacts.ContactChangeType";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactDateKind> = L"Windows.ApplicationModel.Contacts.ContactDateKind";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactEmailKind> = L"Windows.ApplicationModel.Contacts.ContactEmailKind";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactFieldCategory> = L"Windows.ApplicationModel.Contacts.ContactFieldCategory";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactFieldType> = L"Windows.ApplicationModel.Contacts.ContactFieldType";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactListOtherAppReadAccess> = L"Windows.ApplicationModel.Contacts.ContactListOtherAppReadAccess";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactListOtherAppWriteAccess> = L"Windows.ApplicationModel.Contacts.ContactListOtherAppWriteAccess";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactListSyncStatus> = L"Windows.ApplicationModel.Contacts.ContactListSyncStatus";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactMatchReasonKind> = L"Windows.ApplicationModel.Contacts.ContactMatchReasonKind";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactNameOrder> = L"Windows.ApplicationModel.Contacts.ContactNameOrder";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactPhoneKind> = L"Windows.ApplicationModel.Contacts.ContactPhoneKind";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactQueryDesiredFields> = L"Windows.ApplicationModel.Contacts.ContactQueryDesiredFields";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactQuerySearchFields> = L"Windows.ApplicationModel.Contacts.ContactQuerySearchFields";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactQuerySearchScope> = L"Windows.ApplicationModel.Contacts.ContactQuerySearchScope";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactRelationship> = L"Windows.ApplicationModel.Contacts.ContactRelationship";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactSelectionMode> = L"Windows.ApplicationModel.Contacts.ContactSelectionMode";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::ContactStoreAccessType> = L"Windows.ApplicationModel.Contacts.ContactStoreAccessType";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::PinnedContactSurface> = L"Windows.ApplicationModel.Contacts.PinnedContactSurface";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IAggregateContactManager> = L"Windows.ApplicationModel.Contacts.IAggregateContactManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IAggregateContactManager2> = L"Windows.ApplicationModel.Contacts.IAggregateContactManager2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContact> = L"Windows.ApplicationModel.Contacts.IContact";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContact2> = L"Windows.ApplicationModel.Contacts.IContact2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContact3> = L"Windows.ApplicationModel.Contacts.IContact3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactAddress> = L"Windows.ApplicationModel.Contacts.IContactAddress";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactAnnotation> = L"Windows.ApplicationModel.Contacts.IContactAnnotation";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactAnnotation2> = L"Windows.ApplicationModel.Contacts.IContactAnnotation2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactAnnotationList> = L"Windows.ApplicationModel.Contacts.IContactAnnotationList";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactAnnotationStore> = L"Windows.ApplicationModel.Contacts.IContactAnnotationStore";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactAnnotationStore2> = L"Windows.ApplicationModel.Contacts.IContactAnnotationStore2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactBatch> = L"Windows.ApplicationModel.Contacts.IContactBatch";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactCardDelayedDataLoader> = L"Windows.ApplicationModel.Contacts.IContactCardDelayedDataLoader";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactCardOptions> = L"Windows.ApplicationModel.Contacts.IContactCardOptions";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactCardOptions2> = L"Windows.ApplicationModel.Contacts.IContactCardOptions2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactChange> = L"Windows.ApplicationModel.Contacts.IContactChange";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactChangeReader> = L"Windows.ApplicationModel.Contacts.IContactChangeReader";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactChangeTracker> = L"Windows.ApplicationModel.Contacts.IContactChangeTracker";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactChangeTracker2> = L"Windows.ApplicationModel.Contacts.IContactChangeTracker2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactChangedDeferral> = L"Windows.ApplicationModel.Contacts.IContactChangedDeferral";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactChangedEventArgs> = L"Windows.ApplicationModel.Contacts.IContactChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactConnectedServiceAccount> = L"Windows.ApplicationModel.Contacts.IContactConnectedServiceAccount";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactDate> = L"Windows.ApplicationModel.Contacts.IContactDate";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactEmail> = L"Windows.ApplicationModel.Contacts.IContactEmail";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactField> = L"Windows.ApplicationModel.Contacts.IContactField";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactFieldFactory> = L"Windows.ApplicationModel.Contacts.IContactFieldFactory";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactGroup> = L"Windows.ApplicationModel.Contacts.IContactGroup";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactInformation> = L"Windows.ApplicationModel.Contacts.IContactInformation";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactInstantMessageField> = L"Windows.ApplicationModel.Contacts.IContactInstantMessageField";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactInstantMessageFieldFactory> = L"Windows.ApplicationModel.Contacts.IContactInstantMessageFieldFactory";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactJobInfo> = L"Windows.ApplicationModel.Contacts.IContactJobInfo";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactLaunchActionVerbsStatics> = L"Windows.ApplicationModel.Contacts.IContactLaunchActionVerbsStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactList> = L"Windows.ApplicationModel.Contacts.IContactList";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactList2> = L"Windows.ApplicationModel.Contacts.IContactList2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactList3> = L"Windows.ApplicationModel.Contacts.IContactList3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactListLimitedWriteOperations> = L"Windows.ApplicationModel.Contacts.IContactListLimitedWriteOperations";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactListSyncConstraints> = L"Windows.ApplicationModel.Contacts.IContactListSyncConstraints";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactListSyncManager> = L"Windows.ApplicationModel.Contacts.IContactListSyncManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactListSyncManager2> = L"Windows.ApplicationModel.Contacts.IContactListSyncManager2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactLocationField> = L"Windows.ApplicationModel.Contacts.IContactLocationField";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactLocationFieldFactory> = L"Windows.ApplicationModel.Contacts.IContactLocationFieldFactory";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactManagerForUser> = L"Windows.ApplicationModel.Contacts.IContactManagerForUser";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactManagerForUser2> = L"Windows.ApplicationModel.Contacts.IContactManagerForUser2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactManagerStatics> = L"Windows.ApplicationModel.Contacts.IContactManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactManagerStatics2> = L"Windows.ApplicationModel.Contacts.IContactManagerStatics2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactManagerStatics3> = L"Windows.ApplicationModel.Contacts.IContactManagerStatics3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactManagerStatics4> = L"Windows.ApplicationModel.Contacts.IContactManagerStatics4";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactManagerStatics5> = L"Windows.ApplicationModel.Contacts.IContactManagerStatics5";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactMatchReason> = L"Windows.ApplicationModel.Contacts.IContactMatchReason";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactName> = L"Windows.ApplicationModel.Contacts.IContactName";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactPanel> = L"Windows.ApplicationModel.Contacts.IContactPanel";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactPanelClosingEventArgs> = L"Windows.ApplicationModel.Contacts.IContactPanelClosingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactPanelLaunchFullAppRequestedEventArgs> = L"Windows.ApplicationModel.Contacts.IContactPanelLaunchFullAppRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactPhone> = L"Windows.ApplicationModel.Contacts.IContactPhone";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactPicker> = L"Windows.ApplicationModel.Contacts.IContactPicker";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactPicker2> = L"Windows.ApplicationModel.Contacts.IContactPicker2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactPicker3> = L"Windows.ApplicationModel.Contacts.IContactPicker3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactPickerStatics> = L"Windows.ApplicationModel.Contacts.IContactPickerStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactQueryOptions> = L"Windows.ApplicationModel.Contacts.IContactQueryOptions";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactQueryOptionsFactory> = L"Windows.ApplicationModel.Contacts.IContactQueryOptionsFactory";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactQueryTextSearch> = L"Windows.ApplicationModel.Contacts.IContactQueryTextSearch";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactReader> = L"Windows.ApplicationModel.Contacts.IContactReader";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactSignificantOther> = L"Windows.ApplicationModel.Contacts.IContactSignificantOther";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactSignificantOther2> = L"Windows.ApplicationModel.Contacts.IContactSignificantOther2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactStore> = L"Windows.ApplicationModel.Contacts.IContactStore";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactStore2> = L"Windows.ApplicationModel.Contacts.IContactStore2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactStore3> = L"Windows.ApplicationModel.Contacts.IContactStore3";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactStoreNotificationTriggerDetails> = L"Windows.ApplicationModel.Contacts.IContactStoreNotificationTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactWebsite> = L"Windows.ApplicationModel.Contacts.IContactWebsite";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IContactWebsite2> = L"Windows.ApplicationModel.Contacts.IContactWebsite2";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IFullContactCardOptions> = L"Windows.ApplicationModel.Contacts.IFullContactCardOptions";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IKnownContactFieldStatics> = L"Windows.ApplicationModel.Contacts.IKnownContactFieldStatics";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IPinnedContactIdsQueryResult> = L"Windows.ApplicationModel.Contacts.IPinnedContactIdsQueryResult";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IPinnedContactManager> = L"Windows.ApplicationModel.Contacts.IPinnedContactManager";
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::Contacts::IPinnedContactManagerStatics> = L"Windows.ApplicationModel.Contacts.IPinnedContactManagerStatics";
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Contacts::IAggregateContactManager>{ 0x0379D5DD,0xDB5A,0x4FD3,{ 0xB5,0x4E,0x4D,0xF1,0x79,0x17,0xA2,0x12 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Contacts::IAggregateContactManager2>{ 0x5E8CC2D8,0xA9CD,0x4430,{ 0x9C,0x4B,0x01,0x34,0x8D,0xB2,0xCA,0x50 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::Contacts::IContact>{ 0xEC0072F3,0x2118,0x4049,{ 0x9E,0xBC,0x17,0xF0,0xAB,0x69,0x2B,0x64 } };
@@ -1643,10 +1650,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IAggregateContactManager
     {
-        auto FindRawContactsAsync(Windows::ApplicationModel::Contacts::Contact const& contact) const;
-        auto TryLinkContactsAsync(Windows::ApplicationModel::Contacts::Contact const& primaryContact, Windows::ApplicationModel::Contacts::Contact const& secondaryContact) const;
-        auto UnlinkRawContactAsync(Windows::ApplicationModel::Contacts::Contact const& contact) const;
-        auto TrySetPreferredSourceForPictureAsync(Windows::ApplicationModel::Contacts::Contact const& aggregateContact, Windows::ApplicationModel::Contacts::Contact const& rawContact) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Contacts::Contact>>) FindRawContactsAsync(Windows::ApplicationModel::Contacts::Contact const& contact) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Contacts::Contact>) TryLinkContactsAsync(Windows::ApplicationModel::Contacts::Contact const& primaryContact, Windows::ApplicationModel::Contacts::Contact const& secondaryContact) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) UnlinkRawContactAsync(Windows::ApplicationModel::Contacts::Contact const& contact) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TrySetPreferredSourceForPictureAsync(Windows::ApplicationModel::Contacts::Contact const& aggregateContact, Windows::ApplicationModel::Contacts::Contact const& rawContact) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IAggregateContactManager>
     {
@@ -1655,7 +1662,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IAggregateContactManager2
     {
-        auto SetRemoteIdentificationInformationAsync(param::hstring const& contactListId, param::hstring const& remoteSourceId, param::hstring const& accountId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SetRemoteIdentificationInformationAsync(param::hstring const& contactListId, param::hstring const& remoteSourceId, param::hstring const& accountId) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IAggregateContactManager2>
     {
@@ -1664,11 +1671,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContact
     {
-        [[nodiscard]] auto Name() const;
-        auto Name(param::hstring const& value) const;
-        [[nodiscard]] auto Thumbnail() const;
-        auto Thumbnail(Windows::Storage::Streams::IRandomAccessStreamReference const& value) const;
-        [[nodiscard]] auto Fields() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        WINRT_IMPL_AUTO(void) Name(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamReference) Thumbnail() const;
+        WINRT_IMPL_AUTO(void) Thumbnail(Windows::Storage::Streams::IRandomAccessStreamReference const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::ApplicationModel::Contacts::IContactField>) Fields() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContact>
     {
@@ -1677,20 +1684,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContact2
     {
-        [[nodiscard]] auto Id() const;
-        auto Id(param::hstring const& value) const;
-        [[nodiscard]] auto Notes() const;
-        auto Notes(param::hstring const& value) const;
-        [[nodiscard]] auto Phones() const;
-        [[nodiscard]] auto Emails() const;
-        [[nodiscard]] auto Addresses() const;
-        [[nodiscard]] auto ConnectedServiceAccounts() const;
-        [[nodiscard]] auto ImportantDates() const;
-        [[nodiscard]] auto DataSuppliers() const;
-        [[nodiscard]] auto JobInfo() const;
-        [[nodiscard]] auto SignificantOthers() const;
-        [[nodiscard]] auto Websites() const;
-        [[nodiscard]] auto ProviderProperties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        WINRT_IMPL_AUTO(void) Id(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Notes() const;
+        WINRT_IMPL_AUTO(void) Notes(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::ApplicationModel::Contacts::ContactPhone>) Phones() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::ApplicationModel::Contacts::ContactEmail>) Emails() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::ApplicationModel::Contacts::ContactAddress>) Addresses() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::ApplicationModel::Contacts::ContactConnectedServiceAccount>) ConnectedServiceAccounts() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::ApplicationModel::Contacts::ContactDate>) ImportantDates() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) DataSuppliers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::ApplicationModel::Contacts::ContactJobInfo>) JobInfo() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::ApplicationModel::Contacts::ContactSignificantOther>) SignificantOthers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::ApplicationModel::Contacts::ContactWebsite>) Websites() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IPropertySet) ProviderProperties() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContact2>
     {
@@ -1699,29 +1706,29 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContact3
     {
-        [[nodiscard]] auto ContactListId() const;
-        [[nodiscard]] auto DisplayPictureUserUpdateTime() const;
-        auto DisplayPictureUserUpdateTime(Windows::Foundation::DateTime const& value) const;
-        [[nodiscard]] auto IsMe() const;
-        [[nodiscard]] auto AggregateId() const;
-        [[nodiscard]] auto RemoteId() const;
-        auto RemoteId(param::hstring const& value) const;
-        [[nodiscard]] auto RingToneToken() const;
-        auto RingToneToken(param::hstring const& value) const;
-        [[nodiscard]] auto IsDisplayPictureManuallySet() const;
-        [[nodiscard]] auto LargeDisplayPicture() const;
-        [[nodiscard]] auto SmallDisplayPicture() const;
-        [[nodiscard]] auto SourceDisplayPicture() const;
-        auto SourceDisplayPicture(Windows::Storage::Streams::IRandomAccessStreamReference const& value) const;
-        [[nodiscard]] auto TextToneToken() const;
-        auto TextToneToken(param::hstring const& value) const;
-        [[nodiscard]] auto IsAggregate() const;
-        [[nodiscard]] auto FullName() const;
-        [[nodiscard]] auto DisplayNameOverride() const;
-        auto DisplayNameOverride(param::hstring const& value) const;
-        [[nodiscard]] auto Nickname() const;
-        auto Nickname(param::hstring const& value) const;
-        [[nodiscard]] auto SortName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ContactListId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) DisplayPictureUserUpdateTime() const;
+        WINRT_IMPL_AUTO(void) DisplayPictureUserUpdateTime(Windows::Foundation::DateTime const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsMe() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AggregateId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RemoteId() const;
+        WINRT_IMPL_AUTO(void) RemoteId(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RingToneToken() const;
+        WINRT_IMPL_AUTO(void) RingToneToken(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDisplayPictureManuallySet() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamReference) LargeDisplayPicture() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamReference) SmallDisplayPicture() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamReference) SourceDisplayPicture() const;
+        WINRT_IMPL_AUTO(void) SourceDisplayPicture(Windows::Storage::Streams::IRandomAccessStreamReference const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) TextToneToken() const;
+        WINRT_IMPL_AUTO(void) TextToneToken(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsAggregate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FullName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayNameOverride() const;
+        WINRT_IMPL_AUTO(void) DisplayNameOverride(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Nickname() const;
+        WINRT_IMPL_AUTO(void) Nickname(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SortName() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContact3>
     {
@@ -1730,20 +1737,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactAddress
     {
-        [[nodiscard]] auto StreetAddress() const;
-        auto StreetAddress(param::hstring const& value) const;
-        [[nodiscard]] auto Locality() const;
-        auto Locality(param::hstring const& value) const;
-        [[nodiscard]] auto Region() const;
-        auto Region(param::hstring const& value) const;
-        [[nodiscard]] auto Country() const;
-        auto Country(param::hstring const& value) const;
-        [[nodiscard]] auto PostalCode() const;
-        auto PostalCode(param::hstring const& value) const;
-        [[nodiscard]] auto Kind() const;
-        auto Kind(Windows::ApplicationModel::Contacts::ContactAddressKind const& value) const;
-        [[nodiscard]] auto Description() const;
-        auto Description(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) StreetAddress() const;
+        WINRT_IMPL_AUTO(void) StreetAddress(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Locality() const;
+        WINRT_IMPL_AUTO(void) Locality(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Region() const;
+        WINRT_IMPL_AUTO(void) Region(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Country() const;
+        WINRT_IMPL_AUTO(void) Country(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PostalCode() const;
+        WINRT_IMPL_AUTO(void) PostalCode(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactAddressKind) Kind() const;
+        WINRT_IMPL_AUTO(void) Kind(Windows::ApplicationModel::Contacts::ContactAddressKind const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
+        WINRT_IMPL_AUTO(void) Description(param::hstring const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactAddress>
     {
@@ -1752,16 +1759,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactAnnotation
     {
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto AnnotationListId() const;
-        [[nodiscard]] auto ContactId() const;
-        auto ContactId(param::hstring const& value) const;
-        [[nodiscard]] auto RemoteId() const;
-        auto RemoteId(param::hstring const& value) const;
-        [[nodiscard]] auto SupportedOperations() const;
-        auto SupportedOperations(Windows::ApplicationModel::Contacts::ContactAnnotationOperations const& value) const;
-        [[nodiscard]] auto IsDisabled() const;
-        [[nodiscard]] auto ProviderProperties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AnnotationListId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ContactId() const;
+        WINRT_IMPL_AUTO(void) ContactId(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RemoteId() const;
+        WINRT_IMPL_AUTO(void) RemoteId(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactAnnotationOperations) SupportedOperations() const;
+        WINRT_IMPL_AUTO(void) SupportedOperations(Windows::ApplicationModel::Contacts::ContactAnnotationOperations const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDisabled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::ValueSet) ProviderProperties() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactAnnotation>
     {
@@ -1770,8 +1777,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactAnnotation2
     {
-        [[nodiscard]] auto ContactListId() const;
-        auto ContactListId(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ContactListId() const;
+        WINRT_IMPL_AUTO(void) ContactListId(param::hstring const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactAnnotation2>
     {
@@ -1780,15 +1787,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactAnnotationList
     {
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto ProviderPackageFamilyName() const;
-        [[nodiscard]] auto UserDataAccountId() const;
-        auto DeleteAsync() const;
-        auto TrySaveAnnotationAsync(Windows::ApplicationModel::Contacts::ContactAnnotation const& annotation) const;
-        auto GetAnnotationAsync(param::hstring const& annotationId) const;
-        auto FindAnnotationsByRemoteIdAsync(param::hstring const& remoteId) const;
-        auto FindAnnotationsAsync() const;
-        auto DeleteAnnotationAsync(Windows::ApplicationModel::Contacts::ContactAnnotation const& annotation) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ProviderPackageFamilyName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) UserDataAccountId() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) DeleteAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TrySaveAnnotationAsync(Windows::ApplicationModel::Contacts::ContactAnnotation const& annotation) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Contacts::ContactAnnotation>) GetAnnotationAsync(param::hstring const& annotationId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Contacts::ContactAnnotation>>) FindAnnotationsByRemoteIdAsync(param::hstring const& remoteId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Contacts::ContactAnnotation>>) FindAnnotationsAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) DeleteAnnotationAsync(Windows::ApplicationModel::Contacts::ContactAnnotation const& annotation) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactAnnotationList>
     {
@@ -1797,14 +1804,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactAnnotationStore
     {
-        auto FindContactIdsByEmailAsync(param::hstring const& emailAddress) const;
-        auto FindContactIdsByPhoneNumberAsync(param::hstring const& phoneNumber) const;
-        auto FindAnnotationsForContactAsync(Windows::ApplicationModel::Contacts::Contact const& contact) const;
-        auto DisableAnnotationAsync(Windows::ApplicationModel::Contacts::ContactAnnotation const& annotation) const;
-        auto CreateAnnotationListAsync() const;
-        auto CreateAnnotationListAsync(param::hstring const& userDataAccountId) const;
-        auto GetAnnotationListAsync(param::hstring const& annotationListId) const;
-        auto FindAnnotationListsAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<hstring>>) FindContactIdsByEmailAsync(param::hstring const& emailAddress) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<hstring>>) FindContactIdsByPhoneNumberAsync(param::hstring const& phoneNumber) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Contacts::ContactAnnotation>>) FindAnnotationsForContactAsync(Windows::ApplicationModel::Contacts::Contact const& contact) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) DisableAnnotationAsync(Windows::ApplicationModel::Contacts::ContactAnnotation const& annotation) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Contacts::ContactAnnotationList>) CreateAnnotationListAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Contacts::ContactAnnotationList>) CreateAnnotationListAsync(param::hstring const& userDataAccountId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Contacts::ContactAnnotationList>) GetAnnotationListAsync(param::hstring const& annotationListId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Contacts::ContactAnnotationList>>) FindAnnotationListsAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactAnnotationStore>
     {
@@ -1813,7 +1820,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactAnnotationStore2
     {
-        auto FindAnnotationsForContactListAsync(param::hstring const& contactListId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Contacts::ContactAnnotation>>) FindAnnotationsForContactListAsync(param::hstring const& contactListId) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactAnnotationStore2>
     {
@@ -1822,8 +1829,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactBatch
     {
-        [[nodiscard]] auto Contacts() const;
-        [[nodiscard]] auto Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Contacts::Contact>) Contacts() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactBatchStatus) Status() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactBatch>
     {
@@ -1832,7 +1839,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactCardDelayedDataLoader
     {
-        auto SetData(Windows::ApplicationModel::Contacts::Contact const& contact) const;
+        WINRT_IMPL_AUTO(void) SetData(Windows::ApplicationModel::Contacts::Contact const& contact) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactCardDelayedDataLoader>
     {
@@ -1841,10 +1848,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactCardOptions
     {
-        [[nodiscard]] auto HeaderKind() const;
-        auto HeaderKind(Windows::ApplicationModel::Contacts::ContactCardHeaderKind const& value) const;
-        [[nodiscard]] auto InitialTabKind() const;
-        auto InitialTabKind(Windows::ApplicationModel::Contacts::ContactCardTabKind const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactCardHeaderKind) HeaderKind() const;
+        WINRT_IMPL_AUTO(void) HeaderKind(Windows::ApplicationModel::Contacts::ContactCardHeaderKind const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactCardTabKind) InitialTabKind() const;
+        WINRT_IMPL_AUTO(void) InitialTabKind(Windows::ApplicationModel::Contacts::ContactCardTabKind const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactCardOptions>
     {
@@ -1853,7 +1860,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactCardOptions2
     {
-        [[nodiscard]] auto ServerSearchContactListIds() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) ServerSearchContactListIds() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactCardOptions2>
     {
@@ -1862,8 +1869,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactChange
     {
-        [[nodiscard]] auto ChangeType() const;
-        [[nodiscard]] auto Contact() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactChangeType) ChangeType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::Contact) Contact() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactChange>
     {
@@ -1872,9 +1879,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactChangeReader
     {
-        auto AcceptChanges() const;
-        auto AcceptChangesThrough(Windows::ApplicationModel::Contacts::ContactChange const& lastChangeToAccept) const;
-        auto ReadBatchAsync() const;
+        WINRT_IMPL_AUTO(void) AcceptChanges() const;
+        WINRT_IMPL_AUTO(void) AcceptChangesThrough(Windows::ApplicationModel::Contacts::ContactChange const& lastChangeToAccept) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Contacts::ContactChange>>) ReadBatchAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactChangeReader>
     {
@@ -1883,9 +1890,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactChangeTracker
     {
-        auto Enable() const;
-        auto GetChangeReader() const;
-        auto Reset() const;
+        WINRT_IMPL_AUTO(void) Enable() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactChangeReader) GetChangeReader() const;
+        WINRT_IMPL_AUTO(void) Reset() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactChangeTracker>
     {
@@ -1894,7 +1901,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactChangeTracker2
     {
-        [[nodiscard]] auto IsTracking() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsTracking() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactChangeTracker2>
     {
@@ -1903,7 +1910,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactChangedDeferral
     {
-        auto Complete() const;
+        WINRT_IMPL_AUTO(void) Complete() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactChangedDeferral>
     {
@@ -1912,7 +1919,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactChangedEventArgs
     {
-        auto GetDeferral() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactChangedDeferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactChangedEventArgs>
     {
@@ -1921,10 +1928,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactConnectedServiceAccount
     {
-        [[nodiscard]] auto Id() const;
-        auto Id(param::hstring const& value) const;
-        [[nodiscard]] auto ServiceName() const;
-        auto ServiceName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        WINRT_IMPL_AUTO(void) Id(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ServiceName() const;
+        WINRT_IMPL_AUTO(void) ServiceName(param::hstring const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactConnectedServiceAccount>
     {
@@ -1933,16 +1940,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactDate
     {
-        [[nodiscard]] auto Day() const;
-        auto Day(Windows::Foundation::IReference<uint32_t> const& value) const;
-        [[nodiscard]] auto Month() const;
-        auto Month(Windows::Foundation::IReference<uint32_t> const& value) const;
-        [[nodiscard]] auto Year() const;
-        auto Year(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto Kind() const;
-        auto Kind(Windows::ApplicationModel::Contacts::ContactDateKind const& value) const;
-        [[nodiscard]] auto Description() const;
-        auto Description(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint32_t>) Day() const;
+        WINRT_IMPL_AUTO(void) Day(Windows::Foundation::IReference<uint32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint32_t>) Month() const;
+        WINRT_IMPL_AUTO(void) Month(Windows::Foundation::IReference<uint32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) Year() const;
+        WINRT_IMPL_AUTO(void) Year(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactDateKind) Kind() const;
+        WINRT_IMPL_AUTO(void) Kind(Windows::ApplicationModel::Contacts::ContactDateKind const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
+        WINRT_IMPL_AUTO(void) Description(param::hstring const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactDate>
     {
@@ -1951,12 +1958,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactEmail
     {
-        [[nodiscard]] auto Address() const;
-        auto Address(param::hstring const& value) const;
-        [[nodiscard]] auto Kind() const;
-        auto Kind(Windows::ApplicationModel::Contacts::ContactEmailKind const& value) const;
-        [[nodiscard]] auto Description() const;
-        auto Description(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Address() const;
+        WINRT_IMPL_AUTO(void) Address(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactEmailKind) Kind() const;
+        WINRT_IMPL_AUTO(void) Kind(Windows::ApplicationModel::Contacts::ContactEmailKind const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
+        WINRT_IMPL_AUTO(void) Description(param::hstring const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactEmail>
     {
@@ -1965,10 +1972,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactField
     {
-        [[nodiscard]] auto Type() const;
-        [[nodiscard]] auto Category() const;
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto Value() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactFieldType) Type() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactFieldCategory) Category() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Value() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactField>
     {
@@ -1977,9 +1984,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactFieldFactory
     {
-        auto CreateField(param::hstring const& value, Windows::ApplicationModel::Contacts::ContactFieldType const& type) const;
-        auto CreateField(param::hstring const& value, Windows::ApplicationModel::Contacts::ContactFieldType const& type, Windows::ApplicationModel::Contacts::ContactFieldCategory const& category) const;
-        auto CreateField(param::hstring const& name, param::hstring const& value, Windows::ApplicationModel::Contacts::ContactFieldType const& type, Windows::ApplicationModel::Contacts::ContactFieldCategory const& category) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactField) CreateField(param::hstring const& value, Windows::ApplicationModel::Contacts::ContactFieldType const& type) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactField) CreateField(param::hstring const& value, Windows::ApplicationModel::Contacts::ContactFieldType const& type, Windows::ApplicationModel::Contacts::ContactFieldCategory const& category) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactField) CreateField(param::hstring const& name, param::hstring const& value, Windows::ApplicationModel::Contacts::ContactFieldType const& type, Windows::ApplicationModel::Contacts::ContactFieldCategory const& category) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactFieldFactory>
     {
@@ -1996,14 +2003,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactInformation
     {
-        [[nodiscard]] auto Name() const;
-        auto GetThumbnailAsync() const;
-        [[nodiscard]] auto Emails() const;
-        [[nodiscard]] auto PhoneNumbers() const;
-        [[nodiscard]] auto Locations() const;
-        [[nodiscard]] auto InstantMessages() const;
-        [[nodiscard]] auto CustomFields() const;
-        auto QueryCustomFields(param::hstring const& customName) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::IRandomAccessStreamWithContentType>) GetThumbnailAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Contacts::ContactField>) Emails() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Contacts::ContactField>) PhoneNumbers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Contacts::ContactLocationField>) Locations() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Contacts::ContactInstantMessageField>) InstantMessages() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Contacts::ContactField>) CustomFields() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Contacts::ContactField>) QueryCustomFields(param::hstring const& customName) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactInformation>
     {
@@ -2012,10 +2019,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactInstantMessageField
     {
-        [[nodiscard]] auto UserName() const;
-        [[nodiscard]] auto Service() const;
-        [[nodiscard]] auto DisplayText() const;
-        [[nodiscard]] auto LaunchUri() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) UserName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Service() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayText() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) LaunchUri() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactInstantMessageField>
     {
@@ -2024,9 +2031,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactInstantMessageFieldFactory
     {
-        auto CreateInstantMessage(param::hstring const& userName) const;
-        auto CreateInstantMessage(param::hstring const& userName, Windows::ApplicationModel::Contacts::ContactFieldCategory const& category) const;
-        auto CreateInstantMessage(param::hstring const& userName, Windows::ApplicationModel::Contacts::ContactFieldCategory const& category, param::hstring const& service, param::hstring const& displayText, Windows::Foundation::Uri const& verb) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactInstantMessageField) CreateInstantMessage(param::hstring const& userName) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactInstantMessageField) CreateInstantMessage(param::hstring const& userName, Windows::ApplicationModel::Contacts::ContactFieldCategory const& category) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactInstantMessageField) CreateInstantMessage(param::hstring const& userName, Windows::ApplicationModel::Contacts::ContactFieldCategory const& category, param::hstring const& service, param::hstring const& displayText, Windows::Foundation::Uri const& verb) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactInstantMessageFieldFactory>
     {
@@ -2035,22 +2042,22 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactJobInfo
     {
-        [[nodiscard]] auto CompanyName() const;
-        auto CompanyName(param::hstring const& value) const;
-        [[nodiscard]] auto CompanyYomiName() const;
-        auto CompanyYomiName(param::hstring const& value) const;
-        [[nodiscard]] auto Department() const;
-        auto Department(param::hstring const& value) const;
-        [[nodiscard]] auto Title() const;
-        auto Title(param::hstring const& value) const;
-        [[nodiscard]] auto Manager() const;
-        auto Manager(param::hstring const& value) const;
-        [[nodiscard]] auto Office() const;
-        auto Office(param::hstring const& value) const;
-        [[nodiscard]] auto CompanyAddress() const;
-        auto CompanyAddress(param::hstring const& value) const;
-        [[nodiscard]] auto Description() const;
-        auto Description(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CompanyName() const;
+        WINRT_IMPL_AUTO(void) CompanyName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CompanyYomiName() const;
+        WINRT_IMPL_AUTO(void) CompanyYomiName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Department() const;
+        WINRT_IMPL_AUTO(void) Department(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Title() const;
+        WINRT_IMPL_AUTO(void) Title(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Manager() const;
+        WINRT_IMPL_AUTO(void) Manager(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Office() const;
+        WINRT_IMPL_AUTO(void) Office(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CompanyAddress() const;
+        WINRT_IMPL_AUTO(void) CompanyAddress(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
+        WINRT_IMPL_AUTO(void) Description(param::hstring const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactJobInfo>
     {
@@ -2059,11 +2066,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactLaunchActionVerbsStatics
     {
-        [[nodiscard]] auto Call() const;
-        [[nodiscard]] auto Message() const;
-        [[nodiscard]] auto Map() const;
-        [[nodiscard]] auto Post() const;
-        [[nodiscard]] auto VideoCall() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Call() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Message() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Map() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Post() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoCall() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactLaunchActionVerbsStatics>
     {
@@ -2072,33 +2079,33 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactList
     {
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto DisplayName() const;
-        auto DisplayName(param::hstring const& value) const;
-        [[nodiscard]] auto SourceDisplayName() const;
-        [[nodiscard]] auto IsHidden() const;
-        auto IsHidden(bool value) const;
-        [[nodiscard]] auto OtherAppReadAccess() const;
-        auto OtherAppReadAccess(Windows::ApplicationModel::Contacts::ContactListOtherAppReadAccess const& value) const;
-        [[nodiscard]] auto OtherAppWriteAccess() const;
-        auto OtherAppWriteAccess(Windows::ApplicationModel::Contacts::ContactListOtherAppWriteAccess const& value) const;
-        [[nodiscard]] auto ChangeTracker() const;
-        [[nodiscard]] auto SyncManager() const;
-        [[nodiscard]] auto SupportsServerSearch() const;
-        [[nodiscard]] auto UserDataAccountId() const;
-        auto ContactChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Contacts::ContactList, Windows::ApplicationModel::Contacts::ContactChangedEventArgs> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        WINRT_IMPL_AUTO(void) DisplayName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SourceDisplayName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsHidden() const;
+        WINRT_IMPL_AUTO(void) IsHidden(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactListOtherAppReadAccess) OtherAppReadAccess() const;
+        WINRT_IMPL_AUTO(void) OtherAppReadAccess(Windows::ApplicationModel::Contacts::ContactListOtherAppReadAccess const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactListOtherAppWriteAccess) OtherAppWriteAccess() const;
+        WINRT_IMPL_AUTO(void) OtherAppWriteAccess(Windows::ApplicationModel::Contacts::ContactListOtherAppWriteAccess const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactChangeTracker) ChangeTracker() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactListSyncManager) SyncManager() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) SupportsServerSearch() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) UserDataAccountId() const;
+        WINRT_IMPL_AUTO(winrt::event_token) ContactChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Contacts::ContactList, Windows::ApplicationModel::Contacts::ContactChangedEventArgs> const& value) const;
         using ContactChanged_revoker = impl::event_revoker<Windows::ApplicationModel::Contacts::IContactList, &impl::abi_t<Windows::ApplicationModel::Contacts::IContactList>::remove_ContactChanged>;
         [[nodiscard]] ContactChanged_revoker ContactChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Contacts::ContactList, Windows::ApplicationModel::Contacts::ContactChangedEventArgs> const& value) const;
-        auto ContactChanged(winrt::event_token const& value) const noexcept;
-        auto SaveAsync() const;
-        auto DeleteAsync() const;
-        auto GetContactFromRemoteIdAsync(param::hstring const& remoteId) const;
-        auto GetMeContactAsync() const;
-        auto GetContactReader() const;
-        auto GetContactReader(Windows::ApplicationModel::Contacts::ContactQueryOptions const& options) const;
-        auto SaveContactAsync(Windows::ApplicationModel::Contacts::Contact const& contact) const;
-        auto DeleteContactAsync(Windows::ApplicationModel::Contacts::Contact const& contact) const;
-        auto GetContactAsync(param::hstring const& contactId) const;
+        WINRT_IMPL_AUTO(void) ContactChanged(winrt::event_token const& value) const noexcept;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SaveAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) DeleteAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Contacts::Contact>) GetContactFromRemoteIdAsync(param::hstring const& remoteId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Contacts::Contact>) GetMeContactAsync() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactReader) GetContactReader() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactReader) GetContactReader(Windows::ApplicationModel::Contacts::ContactQueryOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) SaveContactAsync(Windows::ApplicationModel::Contacts::Contact const& contact) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) DeleteContactAsync(Windows::ApplicationModel::Contacts::Contact const& contact) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Contacts::Contact>) GetContactAsync(param::hstring const& contactId) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactList>
     {
@@ -2107,9 +2114,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactList2
     {
-        auto RegisterSyncManagerAsync() const;
-        auto SupportsServerSearch(bool value) const;
-        [[nodiscard]] auto SyncConstraints() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) RegisterSyncManagerAsync() const;
+        WINRT_IMPL_AUTO(void) SupportsServerSearch(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactListSyncConstraints) SyncConstraints() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactList2>
     {
@@ -2118,8 +2125,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactList3
     {
-        [[nodiscard]] auto LimitedWriteOperations() const;
-        auto GetChangeTracker(param::hstring const& identity) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactListLimitedWriteOperations) LimitedWriteOperations() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactChangeTracker) GetChangeTracker(param::hstring const& identity) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactList3>
     {
@@ -2128,8 +2135,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactListLimitedWriteOperations
     {
-        auto TryCreateOrUpdateContactAsync(Windows::ApplicationModel::Contacts::Contact const& contact) const;
-        auto TryDeleteContactAsync(param::hstring const& contactId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryCreateOrUpdateContactAsync(Windows::ApplicationModel::Contacts::Contact const& contact) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) TryDeleteContactAsync(param::hstring const& contactId) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactListLimitedWriteOperations>
     {
@@ -2138,62 +2145,62 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactListSyncConstraints
     {
-        [[nodiscard]] auto CanSyncDescriptions() const;
-        auto CanSyncDescriptions(bool value) const;
-        [[nodiscard]] auto MaxHomePhoneNumbers() const;
-        auto MaxHomePhoneNumbers(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto MaxMobilePhoneNumbers() const;
-        auto MaxMobilePhoneNumbers(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto MaxWorkPhoneNumbers() const;
-        auto MaxWorkPhoneNumbers(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto MaxOtherPhoneNumbers() const;
-        auto MaxOtherPhoneNumbers(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto MaxPagerPhoneNumbers() const;
-        auto MaxPagerPhoneNumbers(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto MaxBusinessFaxPhoneNumbers() const;
-        auto MaxBusinessFaxPhoneNumbers(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto MaxHomeFaxPhoneNumbers() const;
-        auto MaxHomeFaxPhoneNumbers(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto MaxCompanyPhoneNumbers() const;
-        auto MaxCompanyPhoneNumbers(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto MaxAssistantPhoneNumbers() const;
-        auto MaxAssistantPhoneNumbers(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto MaxRadioPhoneNumbers() const;
-        auto MaxRadioPhoneNumbers(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto MaxPersonalEmailAddresses() const;
-        auto MaxPersonalEmailAddresses(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto MaxWorkEmailAddresses() const;
-        auto MaxWorkEmailAddresses(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto MaxOtherEmailAddresses() const;
-        auto MaxOtherEmailAddresses(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto MaxHomeAddresses() const;
-        auto MaxHomeAddresses(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto MaxWorkAddresses() const;
-        auto MaxWorkAddresses(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto MaxOtherAddresses() const;
-        auto MaxOtherAddresses(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto MaxBirthdayDates() const;
-        auto MaxBirthdayDates(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto MaxAnniversaryDates() const;
-        auto MaxAnniversaryDates(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto MaxOtherDates() const;
-        auto MaxOtherDates(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto MaxOtherRelationships() const;
-        auto MaxOtherRelationships(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto MaxSpouseRelationships() const;
-        auto MaxSpouseRelationships(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto MaxPartnerRelationships() const;
-        auto MaxPartnerRelationships(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto MaxSiblingRelationships() const;
-        auto MaxSiblingRelationships(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto MaxParentRelationships() const;
-        auto MaxParentRelationships(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto MaxChildRelationships() const;
-        auto MaxChildRelationships(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto MaxJobInfo() const;
-        auto MaxJobInfo(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto MaxWebsites() const;
-        auto MaxWebsites(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanSyncDescriptions() const;
+        WINRT_IMPL_AUTO(void) CanSyncDescriptions(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) MaxHomePhoneNumbers() const;
+        WINRT_IMPL_AUTO(void) MaxHomePhoneNumbers(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) MaxMobilePhoneNumbers() const;
+        WINRT_IMPL_AUTO(void) MaxMobilePhoneNumbers(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) MaxWorkPhoneNumbers() const;
+        WINRT_IMPL_AUTO(void) MaxWorkPhoneNumbers(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) MaxOtherPhoneNumbers() const;
+        WINRT_IMPL_AUTO(void) MaxOtherPhoneNumbers(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) MaxPagerPhoneNumbers() const;
+        WINRT_IMPL_AUTO(void) MaxPagerPhoneNumbers(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) MaxBusinessFaxPhoneNumbers() const;
+        WINRT_IMPL_AUTO(void) MaxBusinessFaxPhoneNumbers(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) MaxHomeFaxPhoneNumbers() const;
+        WINRT_IMPL_AUTO(void) MaxHomeFaxPhoneNumbers(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) MaxCompanyPhoneNumbers() const;
+        WINRT_IMPL_AUTO(void) MaxCompanyPhoneNumbers(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) MaxAssistantPhoneNumbers() const;
+        WINRT_IMPL_AUTO(void) MaxAssistantPhoneNumbers(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) MaxRadioPhoneNumbers() const;
+        WINRT_IMPL_AUTO(void) MaxRadioPhoneNumbers(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) MaxPersonalEmailAddresses() const;
+        WINRT_IMPL_AUTO(void) MaxPersonalEmailAddresses(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) MaxWorkEmailAddresses() const;
+        WINRT_IMPL_AUTO(void) MaxWorkEmailAddresses(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) MaxOtherEmailAddresses() const;
+        WINRT_IMPL_AUTO(void) MaxOtherEmailAddresses(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) MaxHomeAddresses() const;
+        WINRT_IMPL_AUTO(void) MaxHomeAddresses(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) MaxWorkAddresses() const;
+        WINRT_IMPL_AUTO(void) MaxWorkAddresses(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) MaxOtherAddresses() const;
+        WINRT_IMPL_AUTO(void) MaxOtherAddresses(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) MaxBirthdayDates() const;
+        WINRT_IMPL_AUTO(void) MaxBirthdayDates(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) MaxAnniversaryDates() const;
+        WINRT_IMPL_AUTO(void) MaxAnniversaryDates(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) MaxOtherDates() const;
+        WINRT_IMPL_AUTO(void) MaxOtherDates(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) MaxOtherRelationships() const;
+        WINRT_IMPL_AUTO(void) MaxOtherRelationships(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) MaxSpouseRelationships() const;
+        WINRT_IMPL_AUTO(void) MaxSpouseRelationships(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) MaxPartnerRelationships() const;
+        WINRT_IMPL_AUTO(void) MaxPartnerRelationships(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) MaxSiblingRelationships() const;
+        WINRT_IMPL_AUTO(void) MaxSiblingRelationships(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) MaxParentRelationships() const;
+        WINRT_IMPL_AUTO(void) MaxParentRelationships(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) MaxChildRelationships() const;
+        WINRT_IMPL_AUTO(void) MaxChildRelationships(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) MaxJobInfo() const;
+        WINRT_IMPL_AUTO(void) MaxJobInfo(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) MaxWebsites() const;
+        WINRT_IMPL_AUTO(void) MaxWebsites(Windows::Foundation::IReference<int32_t> const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactListSyncConstraints>
     {
@@ -2202,14 +2209,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactListSyncManager
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto LastSuccessfulSyncTime() const;
-        [[nodiscard]] auto LastAttemptedSyncTime() const;
-        auto SyncAsync() const;
-        auto SyncStatusChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Contacts::ContactListSyncManager, Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactListSyncStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) LastSuccessfulSyncTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) LastAttemptedSyncTime() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) SyncAsync() const;
+        WINRT_IMPL_AUTO(winrt::event_token) SyncStatusChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Contacts::ContactListSyncManager, Windows::Foundation::IInspectable> const& handler) const;
         using SyncStatusChanged_revoker = impl::event_revoker<Windows::ApplicationModel::Contacts::IContactListSyncManager, &impl::abi_t<Windows::ApplicationModel::Contacts::IContactListSyncManager>::remove_SyncStatusChanged>;
         [[nodiscard]] SyncStatusChanged_revoker SyncStatusChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Contacts::ContactListSyncManager, Windows::Foundation::IInspectable> const& handler) const;
-        auto SyncStatusChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) SyncStatusChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactListSyncManager>
     {
@@ -2218,9 +2225,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactListSyncManager2
     {
-        auto Status(Windows::ApplicationModel::Contacts::ContactListSyncStatus const& value) const;
-        auto LastSuccessfulSyncTime(Windows::Foundation::DateTime const& value) const;
-        auto LastAttemptedSyncTime(Windows::Foundation::DateTime const& value) const;
+        WINRT_IMPL_AUTO(void) Status(Windows::ApplicationModel::Contacts::ContactListSyncStatus const& value) const;
+        WINRT_IMPL_AUTO(void) LastSuccessfulSyncTime(Windows::Foundation::DateTime const& value) const;
+        WINRT_IMPL_AUTO(void) LastAttemptedSyncTime(Windows::Foundation::DateTime const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactListSyncManager2>
     {
@@ -2229,12 +2236,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactLocationField
     {
-        [[nodiscard]] auto UnstructuredAddress() const;
-        [[nodiscard]] auto Street() const;
-        [[nodiscard]] auto City() const;
-        [[nodiscard]] auto Region() const;
-        [[nodiscard]] auto Country() const;
-        [[nodiscard]] auto PostalCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) UnstructuredAddress() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Street() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) City() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Region() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Country() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PostalCode() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactLocationField>
     {
@@ -2243,9 +2250,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactLocationFieldFactory
     {
-        auto CreateLocation(param::hstring const& unstructuredAddress) const;
-        auto CreateLocation(param::hstring const& unstructuredAddress, Windows::ApplicationModel::Contacts::ContactFieldCategory const& category) const;
-        auto CreateLocation(param::hstring const& unstructuredAddress, Windows::ApplicationModel::Contacts::ContactFieldCategory const& category, param::hstring const& street, param::hstring const& city, param::hstring const& region, param::hstring const& country, param::hstring const& postalCode) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactLocationField) CreateLocation(param::hstring const& unstructuredAddress) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactLocationField) CreateLocation(param::hstring const& unstructuredAddress, Windows::ApplicationModel::Contacts::ContactFieldCategory const& category) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactLocationField) CreateLocation(param::hstring const& unstructuredAddress, Windows::ApplicationModel::Contacts::ContactFieldCategory const& category, param::hstring const& street, param::hstring const& city, param::hstring const& region, param::hstring const& country, param::hstring const& postalCode) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactLocationFieldFactory>
     {
@@ -2254,16 +2261,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactManagerForUser
     {
-        auto ConvertContactToVCardAsync(Windows::ApplicationModel::Contacts::Contact const& contact) const;
-        auto ConvertContactToVCardAsync(Windows::ApplicationModel::Contacts::Contact const& contact, uint32_t maxBytes) const;
-        auto ConvertVCardToContactAsync(Windows::Storage::Streams::IRandomAccessStreamReference const& vCard) const;
-        auto RequestStoreAsync(Windows::ApplicationModel::Contacts::ContactStoreAccessType const& accessType) const;
-        auto RequestAnnotationStoreAsync(Windows::ApplicationModel::Contacts::ContactAnnotationStoreAccessType const& accessType) const;
-        [[nodiscard]] auto SystemDisplayNameOrder() const;
-        auto SystemDisplayNameOrder(Windows::ApplicationModel::Contacts::ContactNameOrder const& value) const;
-        [[nodiscard]] auto SystemSortOrder() const;
-        auto SystemSortOrder(Windows::ApplicationModel::Contacts::ContactNameOrder const& value) const;
-        [[nodiscard]] auto User() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::RandomAccessStreamReference>) ConvertContactToVCardAsync(Windows::ApplicationModel::Contacts::Contact const& contact) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::RandomAccessStreamReference>) ConvertContactToVCardAsync(Windows::ApplicationModel::Contacts::Contact const& contact, uint32_t maxBytes) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Contacts::Contact>) ConvertVCardToContactAsync(Windows::Storage::Streams::IRandomAccessStreamReference const& vCard) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Contacts::ContactStore>) RequestStoreAsync(Windows::ApplicationModel::Contacts::ContactStoreAccessType const& accessType) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Contacts::ContactAnnotationStore>) RequestAnnotationStoreAsync(Windows::ApplicationModel::Contacts::ContactAnnotationStoreAccessType const& accessType) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactNameOrder) SystemDisplayNameOrder() const;
+        WINRT_IMPL_AUTO(void) SystemDisplayNameOrder(Windows::ApplicationModel::Contacts::ContactNameOrder const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactNameOrder) SystemSortOrder() const;
+        WINRT_IMPL_AUTO(void) SystemSortOrder(Windows::ApplicationModel::Contacts::ContactNameOrder const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::User) User() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactManagerForUser>
     {
@@ -2272,7 +2279,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactManagerForUser2
     {
-        auto ShowFullContactCard(Windows::ApplicationModel::Contacts::Contact const& contact, Windows::ApplicationModel::Contacts::FullContactCardOptions const& fullContactCardOptions) const;
+        WINRT_IMPL_AUTO(void) ShowFullContactCard(Windows::ApplicationModel::Contacts::Contact const& contact, Windows::ApplicationModel::Contacts::FullContactCardOptions const& fullContactCardOptions) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactManagerForUser2>
     {
@@ -2281,9 +2288,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactManagerStatics
     {
-        auto ShowContactCard(Windows::ApplicationModel::Contacts::Contact const& contact, Windows::Foundation::Rect const& selection) const;
-        auto ShowContactCard(Windows::ApplicationModel::Contacts::Contact const& contact, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement) const;
-        auto ShowDelayLoadedContactCard(Windows::ApplicationModel::Contacts::Contact const& contact, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement) const;
+        WINRT_IMPL_AUTO(void) ShowContactCard(Windows::ApplicationModel::Contacts::Contact const& contact, Windows::Foundation::Rect const& selection) const;
+        WINRT_IMPL_AUTO(void) ShowContactCard(Windows::ApplicationModel::Contacts::Contact const& contact, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactCardDelayedDataLoader) ShowDelayLoadedContactCard(Windows::ApplicationModel::Contacts::Contact const& contact, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactManagerStatics>
     {
@@ -2292,7 +2299,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactManagerStatics2
     {
-        auto RequestStoreAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Contacts::ContactStore>) RequestStoreAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactManagerStatics2>
     {
@@ -2301,20 +2308,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactManagerStatics3
     {
-        auto ConvertContactToVCardAsync(Windows::ApplicationModel::Contacts::Contact const& contact) const;
-        auto ConvertContactToVCardAsync(Windows::ApplicationModel::Contacts::Contact const& contact, uint32_t maxBytes) const;
-        auto ConvertVCardToContactAsync(Windows::Storage::Streams::IRandomAccessStreamReference const& vCard) const;
-        auto RequestStoreAsync(Windows::ApplicationModel::Contacts::ContactStoreAccessType const& accessType) const;
-        auto RequestAnnotationStoreAsync(Windows::ApplicationModel::Contacts::ContactAnnotationStoreAccessType const& accessType) const;
-        auto IsShowContactCardSupported() const;
-        auto ShowContactCard(Windows::ApplicationModel::Contacts::Contact const& contact, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement, Windows::ApplicationModel::Contacts::ContactCardOptions const& contactCardOptions) const;
-        auto IsShowDelayLoadedContactCardSupported() const;
-        auto ShowDelayLoadedContactCard(Windows::ApplicationModel::Contacts::Contact const& contact, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement, Windows::ApplicationModel::Contacts::ContactCardOptions const& contactCardOptions) const;
-        auto ShowFullContactCard(Windows::ApplicationModel::Contacts::Contact const& contact, Windows::ApplicationModel::Contacts::FullContactCardOptions const& fullContactCardOptions) const;
-        [[nodiscard]] auto SystemDisplayNameOrder() const;
-        auto SystemDisplayNameOrder(Windows::ApplicationModel::Contacts::ContactNameOrder const& value) const;
-        [[nodiscard]] auto SystemSortOrder() const;
-        auto SystemSortOrder(Windows::ApplicationModel::Contacts::ContactNameOrder const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::RandomAccessStreamReference>) ConvertContactToVCardAsync(Windows::ApplicationModel::Contacts::Contact const& contact) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::Streams::RandomAccessStreamReference>) ConvertContactToVCardAsync(Windows::ApplicationModel::Contacts::Contact const& contact, uint32_t maxBytes) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Contacts::Contact>) ConvertVCardToContactAsync(Windows::Storage::Streams::IRandomAccessStreamReference const& vCard) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Contacts::ContactStore>) RequestStoreAsync(Windows::ApplicationModel::Contacts::ContactStoreAccessType const& accessType) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Contacts::ContactAnnotationStore>) RequestAnnotationStoreAsync(Windows::ApplicationModel::Contacts::ContactAnnotationStoreAccessType const& accessType) const;
+        WINRT_IMPL_AUTO(bool) IsShowContactCardSupported() const;
+        WINRT_IMPL_AUTO(void) ShowContactCard(Windows::ApplicationModel::Contacts::Contact const& contact, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement, Windows::ApplicationModel::Contacts::ContactCardOptions const& contactCardOptions) const;
+        WINRT_IMPL_AUTO(bool) IsShowDelayLoadedContactCardSupported() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactCardDelayedDataLoader) ShowDelayLoadedContactCard(Windows::ApplicationModel::Contacts::Contact const& contact, Windows::Foundation::Rect const& selection, Windows::UI::Popups::Placement const& preferredPlacement, Windows::ApplicationModel::Contacts::ContactCardOptions const& contactCardOptions) const;
+        WINRT_IMPL_AUTO(void) ShowFullContactCard(Windows::ApplicationModel::Contacts::Contact const& contact, Windows::ApplicationModel::Contacts::FullContactCardOptions const& fullContactCardOptions) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactNameOrder) SystemDisplayNameOrder() const;
+        WINRT_IMPL_AUTO(void) SystemDisplayNameOrder(Windows::ApplicationModel::Contacts::ContactNameOrder const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactNameOrder) SystemSortOrder() const;
+        WINRT_IMPL_AUTO(void) SystemSortOrder(Windows::ApplicationModel::Contacts::ContactNameOrder const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactManagerStatics3>
     {
@@ -2323,7 +2330,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactManagerStatics4
     {
-        auto GetForUser(Windows::System::User const& user) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactManagerForUser) GetForUser(Windows::System::User const& user) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactManagerStatics4>
     {
@@ -2332,9 +2339,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactManagerStatics5
     {
-        auto IsShowFullContactCardSupportedAsync() const;
-        [[nodiscard]] auto IncludeMiddleNameInSystemDisplayAndSort() const;
-        auto IncludeMiddleNameInSystemDisplayAndSort(bool value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) IsShowFullContactCardSupportedAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IncludeMiddleNameInSystemDisplayAndSort() const;
+        WINRT_IMPL_AUTO(void) IncludeMiddleNameInSystemDisplayAndSort(bool value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactManagerStatics5>
     {
@@ -2343,9 +2350,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactMatchReason
     {
-        [[nodiscard]] auto Field() const;
-        [[nodiscard]] auto Segments() const;
-        [[nodiscard]] auto Text() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactMatchReasonKind) Field() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Data::Text::TextSegment>) Segments() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Text() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactMatchReason>
     {
@@ -2354,22 +2361,22 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactName
     {
-        [[nodiscard]] auto FirstName() const;
-        auto FirstName(param::hstring const& value) const;
-        [[nodiscard]] auto LastName() const;
-        auto LastName(param::hstring const& value) const;
-        [[nodiscard]] auto MiddleName() const;
-        auto MiddleName(param::hstring const& value) const;
-        [[nodiscard]] auto YomiGivenName() const;
-        auto YomiGivenName(param::hstring const& value) const;
-        [[nodiscard]] auto YomiFamilyName() const;
-        auto YomiFamilyName(param::hstring const& value) const;
-        [[nodiscard]] auto HonorificNameSuffix() const;
-        auto HonorificNameSuffix(param::hstring const& value) const;
-        [[nodiscard]] auto HonorificNamePrefix() const;
-        auto HonorificNamePrefix(param::hstring const& value) const;
-        [[nodiscard]] auto DisplayName() const;
-        [[nodiscard]] auto YomiDisplayName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FirstName() const;
+        WINRT_IMPL_AUTO(void) FirstName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) LastName() const;
+        WINRT_IMPL_AUTO(void) LastName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) MiddleName() const;
+        WINRT_IMPL_AUTO(void) MiddleName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) YomiGivenName() const;
+        WINRT_IMPL_AUTO(void) YomiGivenName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) YomiFamilyName() const;
+        WINRT_IMPL_AUTO(void) YomiFamilyName(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) HonorificNameSuffix() const;
+        WINRT_IMPL_AUTO(void) HonorificNameSuffix(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) HonorificNamePrefix() const;
+        WINRT_IMPL_AUTO(void) HonorificNamePrefix(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) YomiDisplayName() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactName>
     {
@@ -2378,17 +2385,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactPanel
     {
-        auto ClosePanel() const;
-        [[nodiscard]] auto HeaderColor() const;
-        auto HeaderColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
-        auto LaunchFullAppRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Contacts::ContactPanel, Windows::ApplicationModel::Contacts::ContactPanelLaunchFullAppRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) ClosePanel() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::UI::Color>) HeaderColor() const;
+        WINRT_IMPL_AUTO(void) HeaderColor(Windows::Foundation::IReference<Windows::UI::Color> const& value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) LaunchFullAppRequested(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Contacts::ContactPanel, Windows::ApplicationModel::Contacts::ContactPanelLaunchFullAppRequestedEventArgs> const& handler) const;
         using LaunchFullAppRequested_revoker = impl::event_revoker<Windows::ApplicationModel::Contacts::IContactPanel, &impl::abi_t<Windows::ApplicationModel::Contacts::IContactPanel>::remove_LaunchFullAppRequested>;
         [[nodiscard]] LaunchFullAppRequested_revoker LaunchFullAppRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Contacts::ContactPanel, Windows::ApplicationModel::Contacts::ContactPanelLaunchFullAppRequestedEventArgs> const& handler) const;
-        auto LaunchFullAppRequested(winrt::event_token const& token) const noexcept;
-        auto Closing(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Contacts::ContactPanel, Windows::ApplicationModel::Contacts::ContactPanelClosingEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) LaunchFullAppRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Closing(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Contacts::ContactPanel, Windows::ApplicationModel::Contacts::ContactPanelClosingEventArgs> const& handler) const;
         using Closing_revoker = impl::event_revoker<Windows::ApplicationModel::Contacts::IContactPanel, &impl::abi_t<Windows::ApplicationModel::Contacts::IContactPanel>::remove_Closing>;
         [[nodiscard]] Closing_revoker Closing(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Contacts::ContactPanel, Windows::ApplicationModel::Contacts::ContactPanelClosingEventArgs> const& handler) const;
-        auto Closing(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Closing(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactPanel>
     {
@@ -2397,7 +2404,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactPanelClosingEventArgs
     {
-        auto GetDeferral() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactPanelClosingEventArgs>
     {
@@ -2406,8 +2413,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactPanelLaunchFullAppRequestedEventArgs
     {
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactPanelLaunchFullAppRequestedEventArgs>
     {
@@ -2416,12 +2423,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactPhone
     {
-        [[nodiscard]] auto Number() const;
-        auto Number(param::hstring const& value) const;
-        [[nodiscard]] auto Kind() const;
-        auto Kind(Windows::ApplicationModel::Contacts::ContactPhoneKind const& value) const;
-        [[nodiscard]] auto Description() const;
-        auto Description(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Number() const;
+        WINRT_IMPL_AUTO(void) Number(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactPhoneKind) Kind() const;
+        WINRT_IMPL_AUTO(void) Kind(Windows::ApplicationModel::Contacts::ContactPhoneKind const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
+        WINRT_IMPL_AUTO(void) Description(param::hstring const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactPhone>
     {
@@ -2430,13 +2437,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactPicker
     {
-        [[nodiscard]] auto CommitButtonText() const;
-        auto CommitButtonText(param::hstring const& value) const;
-        [[nodiscard]] auto SelectionMode() const;
-        auto SelectionMode(Windows::ApplicationModel::Contacts::ContactSelectionMode const& value) const;
-        [[nodiscard]] auto DesiredFields() const;
-        auto PickSingleContactAsync() const;
-        auto PickMultipleContactsAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CommitButtonText() const;
+        WINRT_IMPL_AUTO(void) CommitButtonText(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactSelectionMode) SelectionMode() const;
+        WINRT_IMPL_AUTO(void) SelectionMode(Windows::ApplicationModel::Contacts::ContactSelectionMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) DesiredFields() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Contacts::ContactInformation>) PickSingleContactAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Contacts::ContactInformation>>) PickMultipleContactsAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactPicker>
     {
@@ -2445,9 +2452,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactPicker2
     {
-        [[nodiscard]] auto DesiredFieldsWithContactFieldType() const;
-        auto PickContactAsync() const;
-        auto PickContactsAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::ApplicationModel::Contacts::ContactFieldType>) DesiredFieldsWithContactFieldType() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Contacts::Contact>) PickContactAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVector<Windows::ApplicationModel::Contacts::Contact>>) PickContactsAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactPicker2>
     {
@@ -2456,7 +2463,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactPicker3
     {
-        [[nodiscard]] auto User() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::User) User() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactPicker3>
     {
@@ -2465,8 +2472,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactPickerStatics
     {
-        auto CreateForUser(Windows::System::User const& user) const;
-        auto IsSupportedAsync() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactPicker) CreateForUser(Windows::System::User const& user) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) IsSupportedAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactPickerStatics>
     {
@@ -2475,15 +2482,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactQueryOptions
     {
-        [[nodiscard]] auto TextSearch() const;
-        [[nodiscard]] auto ContactListIds() const;
-        [[nodiscard]] auto IncludeContactsFromHiddenLists() const;
-        auto IncludeContactsFromHiddenLists(bool value) const;
-        [[nodiscard]] auto DesiredFields() const;
-        auto DesiredFields(Windows::ApplicationModel::Contacts::ContactQueryDesiredFields const& value) const;
-        [[nodiscard]] auto DesiredOperations() const;
-        auto DesiredOperations(Windows::ApplicationModel::Contacts::ContactAnnotationOperations const& value) const;
-        [[nodiscard]] auto AnnotationListIds() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactQueryTextSearch) TextSearch() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) ContactListIds() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IncludeContactsFromHiddenLists() const;
+        WINRT_IMPL_AUTO(void) IncludeContactsFromHiddenLists(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactQueryDesiredFields) DesiredFields() const;
+        WINRT_IMPL_AUTO(void) DesiredFields(Windows::ApplicationModel::Contacts::ContactQueryDesiredFields const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactAnnotationOperations) DesiredOperations() const;
+        WINRT_IMPL_AUTO(void) DesiredOperations(Windows::ApplicationModel::Contacts::ContactAnnotationOperations const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) AnnotationListIds() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactQueryOptions>
     {
@@ -2492,8 +2499,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactQueryOptionsFactory
     {
-        auto CreateWithText(param::hstring const& text) const;
-        auto CreateWithTextAndFields(param::hstring const& text, Windows::ApplicationModel::Contacts::ContactQuerySearchFields const& fields) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactQueryOptions) CreateWithText(param::hstring const& text) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactQueryOptions) CreateWithTextAndFields(param::hstring const& text, Windows::ApplicationModel::Contacts::ContactQuerySearchFields const& fields) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactQueryOptionsFactory>
     {
@@ -2502,12 +2509,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactQueryTextSearch
     {
-        [[nodiscard]] auto Fields() const;
-        auto Fields(Windows::ApplicationModel::Contacts::ContactQuerySearchFields const& value) const;
-        [[nodiscard]] auto Text() const;
-        auto Text(param::hstring const& value) const;
-        [[nodiscard]] auto SearchScope() const;
-        auto SearchScope(Windows::ApplicationModel::Contacts::ContactQuerySearchScope const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactQuerySearchFields) Fields() const;
+        WINRT_IMPL_AUTO(void) Fields(Windows::ApplicationModel::Contacts::ContactQuerySearchFields const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Text() const;
+        WINRT_IMPL_AUTO(void) Text(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactQuerySearchScope) SearchScope() const;
+        WINRT_IMPL_AUTO(void) SearchScope(Windows::ApplicationModel::Contacts::ContactQuerySearchScope const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactQueryTextSearch>
     {
@@ -2516,8 +2523,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactReader
     {
-        auto ReadBatchAsync() const;
-        auto GetMatchingPropertiesWithMatchReason(Windows::ApplicationModel::Contacts::Contact const& contact) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Contacts::ContactBatch>) ReadBatchAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Contacts::ContactMatchReason>) GetMatchingPropertiesWithMatchReason(Windows::ApplicationModel::Contacts::Contact const& contact) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactReader>
     {
@@ -2526,10 +2533,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactSignificantOther
     {
-        [[nodiscard]] auto Name() const;
-        auto Name(param::hstring const& value) const;
-        [[nodiscard]] auto Description() const;
-        auto Description(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        WINRT_IMPL_AUTO(void) Name(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
+        WINRT_IMPL_AUTO(void) Description(param::hstring const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactSignificantOther>
     {
@@ -2538,8 +2545,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactSignificantOther2
     {
-        [[nodiscard]] auto Relationship() const;
-        auto Relationship(Windows::ApplicationModel::Contacts::ContactRelationship const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactRelationship) Relationship() const;
+        WINRT_IMPL_AUTO(void) Relationship(Windows::ApplicationModel::Contacts::ContactRelationship const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactSignificantOther2>
     {
@@ -2548,9 +2555,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactStore
     {
-        auto FindContactsAsync() const;
-        auto FindContactsAsync(param::hstring const& searchText) const;
-        auto GetContactAsync(param::hstring const& contactId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Contacts::Contact>>) FindContactsAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Contacts::Contact>>) FindContactsAsync(param::hstring const& searchText) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Contacts::Contact>) GetContactAsync(param::hstring const& contactId) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactStore>
     {
@@ -2559,19 +2566,19 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactStore2
     {
-        [[nodiscard]] auto ChangeTracker() const;
-        auto ContactChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Contacts::ContactStore, Windows::ApplicationModel::Contacts::ContactChangedEventArgs> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactChangeTracker) ChangeTracker() const;
+        WINRT_IMPL_AUTO(winrt::event_token) ContactChanged(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Contacts::ContactStore, Windows::ApplicationModel::Contacts::ContactChangedEventArgs> const& value) const;
         using ContactChanged_revoker = impl::event_revoker<Windows::ApplicationModel::Contacts::IContactStore2, &impl::abi_t<Windows::ApplicationModel::Contacts::IContactStore2>::remove_ContactChanged>;
         [[nodiscard]] ContactChanged_revoker ContactChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::Contacts::ContactStore, Windows::ApplicationModel::Contacts::ContactChangedEventArgs> const& value) const;
-        auto ContactChanged(winrt::event_token const& value) const noexcept;
-        [[nodiscard]] auto AggregateContactManager() const;
-        auto FindContactListsAsync() const;
-        auto GetContactListAsync(param::hstring const& contactListId) const;
-        auto CreateContactListAsync(param::hstring const& displayName) const;
-        auto GetMeContactAsync() const;
-        auto GetContactReader() const;
-        auto GetContactReader(Windows::ApplicationModel::Contacts::ContactQueryOptions const& options) const;
-        auto CreateContactListAsync(param::hstring const& displayName, param::hstring const& userDataAccountId) const;
+        WINRT_IMPL_AUTO(void) ContactChanged(winrt::event_token const& value) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::AggregateContactManager) AggregateContactManager() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Contacts::ContactList>>) FindContactListsAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Contacts::ContactList>) GetContactListAsync(param::hstring const& contactListId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Contacts::ContactList>) CreateContactListAsync(param::hstring const& displayName) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Contacts::Contact>) GetMeContactAsync() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactReader) GetContactReader() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactReader) GetContactReader(Windows::ApplicationModel::Contacts::ContactQueryOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Contacts::ContactList>) CreateContactListAsync(param::hstring const& displayName, param::hstring const& userDataAccountId) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactStore2>
     {
@@ -2580,7 +2587,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactStore3
     {
-        auto GetChangeTracker(param::hstring const& identity) const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactChangeTracker) GetChangeTracker(param::hstring const& identity) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactStore3>
     {
@@ -2597,10 +2604,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactWebsite
     {
-        [[nodiscard]] auto Uri() const;
-        auto Uri(Windows::Foundation::Uri const& value) const;
-        [[nodiscard]] auto Description() const;
-        auto Description(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Uri() const;
+        WINRT_IMPL_AUTO(void) Uri(Windows::Foundation::Uri const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
+        WINRT_IMPL_AUTO(void) Description(param::hstring const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactWebsite>
     {
@@ -2609,8 +2616,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IContactWebsite2
     {
-        [[nodiscard]] auto RawValue() const;
-        auto RawValue(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RawValue() const;
+        WINRT_IMPL_AUTO(void) RawValue(param::hstring const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IContactWebsite2>
     {
@@ -2619,8 +2626,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IFullContactCardOptions
     {
-        [[nodiscard]] auto DesiredRemainingView() const;
-        auto DesiredRemainingView(Windows::UI::ViewManagement::ViewSizePreference const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::ViewManagement::ViewSizePreference) DesiredRemainingView() const;
+        WINRT_IMPL_AUTO(void) DesiredRemainingView(Windows::UI::ViewManagement::ViewSizePreference const& value) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IFullContactCardOptions>
     {
@@ -2629,12 +2636,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IKnownContactFieldStatics
     {
-        [[nodiscard]] auto Email() const;
-        [[nodiscard]] auto PhoneNumber() const;
-        [[nodiscard]] auto Location() const;
-        [[nodiscard]] auto InstantMessage() const;
-        auto ConvertNameToType(param::hstring const& name) const;
-        auto ConvertTypeToName(Windows::ApplicationModel::Contacts::ContactFieldType const& type) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Email() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PhoneNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Location() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) InstantMessage() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::ContactFieldType) ConvertNameToType(param::hstring const& name) const;
+        WINRT_IMPL_AUTO(hstring) ConvertTypeToName(Windows::ApplicationModel::Contacts::ContactFieldType const& type) const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IKnownContactFieldStatics>
     {
@@ -2643,7 +2650,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IPinnedContactIdsQueryResult
     {
-        [[nodiscard]] auto ContactIds() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) ContactIds() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IPinnedContactIdsQueryResult>
     {
@@ -2652,14 +2659,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IPinnedContactManager
     {
-        [[nodiscard]] auto User() const;
-        auto IsPinSurfaceSupported(Windows::ApplicationModel::Contacts::PinnedContactSurface const& surface) const;
-        auto IsContactPinned(Windows::ApplicationModel::Contacts::Contact const& contact, Windows::ApplicationModel::Contacts::PinnedContactSurface const& surface) const;
-        auto RequestPinContactAsync(Windows::ApplicationModel::Contacts::Contact const& contact, Windows::ApplicationModel::Contacts::PinnedContactSurface const& surface) const;
-        auto RequestPinContactsAsync(param::async_iterable<Windows::ApplicationModel::Contacts::Contact> const& contacts, Windows::ApplicationModel::Contacts::PinnedContactSurface const& surface) const;
-        auto RequestUnpinContactAsync(Windows::ApplicationModel::Contacts::Contact const& contact, Windows::ApplicationModel::Contacts::PinnedContactSurface const& surface) const;
-        auto SignalContactActivity(Windows::ApplicationModel::Contacts::Contact const& contact) const;
-        auto GetPinnedContactIdsAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::User) User() const;
+        WINRT_IMPL_AUTO(bool) IsPinSurfaceSupported(Windows::ApplicationModel::Contacts::PinnedContactSurface const& surface) const;
+        WINRT_IMPL_AUTO(bool) IsContactPinned(Windows::ApplicationModel::Contacts::Contact const& contact, Windows::ApplicationModel::Contacts::PinnedContactSurface const& surface) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) RequestPinContactAsync(Windows::ApplicationModel::Contacts::Contact const& contact, Windows::ApplicationModel::Contacts::PinnedContactSurface const& surface) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) RequestPinContactsAsync(param::async_iterable<Windows::ApplicationModel::Contacts::Contact> const& contacts, Windows::ApplicationModel::Contacts::PinnedContactSurface const& surface) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) RequestUnpinContactAsync(Windows::ApplicationModel::Contacts::Contact const& contact, Windows::ApplicationModel::Contacts::PinnedContactSurface const& surface) const;
+        WINRT_IMPL_AUTO(void) SignalContactActivity(Windows::ApplicationModel::Contacts::Contact const& contact) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::ApplicationModel::Contacts::PinnedContactIdsQueryResult>) GetPinnedContactIdsAsync() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IPinnedContactManager>
     {
@@ -2668,9 +2675,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_ApplicationModel_Contacts_IPinnedContactManagerStatics
     {
-        auto GetDefault() const;
-        auto GetForUser(Windows::System::User const& user) const;
-        auto IsSupported() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::PinnedContactManager) GetDefault() const;
+        WINRT_IMPL_AUTO(Windows::ApplicationModel::Contacts::PinnedContactManager) GetForUser(Windows::System::User const& user) const;
+        WINRT_IMPL_AUTO(bool) IsSupported() const;
     };
     template <> struct consume<Windows::ApplicationModel::Contacts::IPinnedContactManagerStatics>
     {

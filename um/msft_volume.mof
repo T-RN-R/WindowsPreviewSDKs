@@ -173,6 +173,9 @@ class MSFT_Volume : MSFT_StorageObject {
         [In]
         Boolean IsDAX,
 
+        [In]
+        Boolean NoTrim,
+
         [Out, EmbeddedInstance("MSFT_Volume")]
         String FormattedVolume,
 

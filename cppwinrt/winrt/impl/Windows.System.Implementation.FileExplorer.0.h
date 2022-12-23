@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -8,11 +8,13 @@
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
+    template <typename TResult> struct IAsyncOperation;
     template <typename TSender, typename TResult> struct TypedEventHandler;
 }
 WINRT_EXPORT namespace winrt::Windows::Web::Http
 {
     struct HttpRequestMessage;
+    struct HttpResponseMessage;
 }
 WINRT_EXPORT namespace winrt::Windows::System::Implementation::FileExplorer
 {
@@ -31,14 +33,12 @@ namespace winrt::impl
     template <> struct category<Windows::System::Implementation::FileExplorer::ISysStorageProviderHandlerFactory>{ using type = interface_category; };
     template <> struct category<Windows::System::Implementation::FileExplorer::ISysStorageProviderHttpRequestProvider>{ using type = interface_category; };
     template <> struct category<Windows::System::Implementation::FileExplorer::SysStorageProviderEventReceivedEventArgs>{ using type = class_category; };
-    template <> inline constexpr auto& name_v<Windows::System::Implementation::FileExplorer::SysStorageProviderEventReceivedEventArgs>{ L"Windows.System.Implementation.FileExplorer.SysStorageProviderEventReceivedEventArgs" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::System::Implementation::FileExplorer::ISysStorageProviderEventReceivedEventArgs>{ L"Windows.System.Implementation.FileExplorer.ISysStorageProviderEventReceivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::System::Implementation::FileExplorer::ISysStorageProviderEventReceivedEventArgsFactory>{ L"Windows.System.Implementation.FileExplorer.ISysStorageProviderEventReceivedEventArgsFactory" };
-    template <> inline constexpr auto& name_v<Windows::System::Implementation::FileExplorer::ISysStorageProviderEventSource>{ L"Windows.System.Implementation.FileExplorer.ISysStorageProviderEventSource" };
-    template <> inline constexpr auto& name_v<Windows::System::Implementation::FileExplorer::ISysStorageProviderHandlerFactory>{ L"Windows.System.Implementation.FileExplorer.ISysStorageProviderHandlerFactory" };
-    template <> inline constexpr auto& name_v<Windows::System::Implementation::FileExplorer::ISysStorageProviderHttpRequestProvider>{ L"Windows.System.Implementation.FileExplorer.ISysStorageProviderHttpRequestProvider" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::System::Implementation::FileExplorer::SysStorageProviderEventReceivedEventArgs> = L"Windows.System.Implementation.FileExplorer.SysStorageProviderEventReceivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::System::Implementation::FileExplorer::ISysStorageProviderEventReceivedEventArgs> = L"Windows.System.Implementation.FileExplorer.ISysStorageProviderEventReceivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::System::Implementation::FileExplorer::ISysStorageProviderEventReceivedEventArgsFactory> = L"Windows.System.Implementation.FileExplorer.ISysStorageProviderEventReceivedEventArgsFactory";
+    template <> inline constexpr auto& name_v<Windows::System::Implementation::FileExplorer::ISysStorageProviderEventSource> = L"Windows.System.Implementation.FileExplorer.ISysStorageProviderEventSource";
+    template <> inline constexpr auto& name_v<Windows::System::Implementation::FileExplorer::ISysStorageProviderHandlerFactory> = L"Windows.System.Implementation.FileExplorer.ISysStorageProviderHandlerFactory";
+    template <> inline constexpr auto& name_v<Windows::System::Implementation::FileExplorer::ISysStorageProviderHttpRequestProvider> = L"Windows.System.Implementation.FileExplorer.ISysStorageProviderHttpRequestProvider";
     template <> inline constexpr guid guid_v<Windows::System::Implementation::FileExplorer::ISysStorageProviderEventReceivedEventArgs>{ 0xE132D1B9,0x7B9D,0x5820,{ 0x97,0x28,0x42,0x62,0xB5,0x28,0x91,0x42 } };
     template <> inline constexpr guid guid_v<Windows::System::Implementation::FileExplorer::ISysStorageProviderEventReceivedEventArgsFactory>{ 0xDE1A780E,0xE975,0x5F68,{ 0xBC,0xC6,0xFB,0x46,0x28,0x1C,0x6A,0x61 } };
     template <> inline constexpr guid guid_v<Windows::System::Implementation::FileExplorer::ISysStorageProviderEventSource>{ 0x1F36C476,0x9546,0x536A,{ 0x83,0x81,0x2F,0x9A,0x2C,0x08,0xCE,0xDD } };
@@ -85,7 +85,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Implementation_FileExplorer_ISysStorageProviderEventReceivedEventArgs
     {
-        [[nodiscard]] auto Json() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Json() const;
     };
     template <> struct consume<Windows::System::Implementation::FileExplorer::ISysStorageProviderEventReceivedEventArgs>
     {
@@ -94,7 +94,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Implementation_FileExplorer_ISysStorageProviderEventReceivedEventArgsFactory
     {
-        auto CreateInstance(param::hstring const& json) const;
+        WINRT_IMPL_AUTO(Windows::System::Implementation::FileExplorer::SysStorageProviderEventReceivedEventArgs) CreateInstance(param::hstring const& json) const;
     };
     template <> struct consume<Windows::System::Implementation::FileExplorer::ISysStorageProviderEventReceivedEventArgsFactory>
     {
@@ -103,10 +103,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Implementation_FileExplorer_ISysStorageProviderEventSource
     {
-        auto EventReceived(Windows::Foundation::TypedEventHandler<Windows::System::Implementation::FileExplorer::ISysStorageProviderEventSource, Windows::System::Implementation::FileExplorer::SysStorageProviderEventReceivedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) EventReceived(Windows::Foundation::TypedEventHandler<Windows::System::Implementation::FileExplorer::ISysStorageProviderEventSource, Windows::System::Implementation::FileExplorer::SysStorageProviderEventReceivedEventArgs> const& handler) const;
         using EventReceived_revoker = impl::event_revoker<Windows::System::Implementation::FileExplorer::ISysStorageProviderEventSource, &impl::abi_t<Windows::System::Implementation::FileExplorer::ISysStorageProviderEventSource>::remove_EventReceived>;
         [[nodiscard]] EventReceived_revoker EventReceived(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::System::Implementation::FileExplorer::ISysStorageProviderEventSource, Windows::System::Implementation::FileExplorer::SysStorageProviderEventReceivedEventArgs> const& handler) const;
-        auto EventReceived(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) EventReceived(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::System::Implementation::FileExplorer::ISysStorageProviderEventSource>
     {
@@ -115,8 +115,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Implementation_FileExplorer_ISysStorageProviderHandlerFactory
     {
-        auto GetHttpRequestProvider(param::hstring const& syncRootId) const;
-        auto GetEventSource(param::hstring const& syncRootId, param::hstring const& eventName) const;
+        WINRT_IMPL_AUTO(Windows::System::Implementation::FileExplorer::ISysStorageProviderHttpRequestProvider) GetHttpRequestProvider(param::hstring const& syncRootId) const;
+        WINRT_IMPL_AUTO(Windows::System::Implementation::FileExplorer::ISysStorageProviderEventSource) GetEventSource(param::hstring const& syncRootId, param::hstring const& eventName) const;
     };
     template <> struct consume<Windows::System::Implementation::FileExplorer::ISysStorageProviderHandlerFactory>
     {
@@ -125,7 +125,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_System_Implementation_FileExplorer_ISysStorageProviderHttpRequestProvider
     {
-        auto SendRequestAsync(Windows::Web::Http::HttpRequestMessage const& request) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Web::Http::HttpResponseMessage>) SendRequestAsync(Windows::Web::Http::HttpRequestMessage const& request) const;
     };
     template <> struct consume<Windows::System::Implementation::FileExplorer::ISysStorageProviderHttpRequestProvider>
     {

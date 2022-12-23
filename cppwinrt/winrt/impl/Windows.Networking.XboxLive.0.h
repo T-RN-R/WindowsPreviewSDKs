@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -9,7 +9,13 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
     struct IAsyncAction;
+    template <typename TResult> struct IAsyncOperation;
     template <typename TSender, typename TResult> struct TypedEventHandler;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
+    template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::Networking
 {
@@ -141,37 +147,35 @@ namespace winrt::impl
     template <> struct category<Windows::Networking::XboxLive::XboxLiveQualityOfServiceMeasurementStatus>{ using type = enum_category; };
     template <> struct category<Windows::Networking::XboxLive::XboxLiveQualityOfServiceMetric>{ using type = enum_category; };
     template <> struct category<Windows::Networking::XboxLive::XboxLiveSocketKind>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveDeviceAddress>{ L"Windows.Networking.XboxLive.XboxLiveDeviceAddress" };
-    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveEndpointPair>{ L"Windows.Networking.XboxLive.XboxLiveEndpointPair" };
-    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveEndpointPairCreationResult>{ L"Windows.Networking.XboxLive.XboxLiveEndpointPairCreationResult" };
-    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveEndpointPairStateChangedEventArgs>{ L"Windows.Networking.XboxLive.XboxLiveEndpointPairStateChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveEndpointPairTemplate>{ L"Windows.Networking.XboxLive.XboxLiveEndpointPairTemplate" };
-    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveInboundEndpointPairCreatedEventArgs>{ L"Windows.Networking.XboxLive.XboxLiveInboundEndpointPairCreatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveQualityOfServiceMeasurement>{ L"Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurement" };
-    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveQualityOfServiceMetricResult>{ L"Windows.Networking.XboxLive.XboxLiveQualityOfServiceMetricResult" };
-    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveQualityOfServicePrivatePayloadResult>{ L"Windows.Networking.XboxLive.XboxLiveQualityOfServicePrivatePayloadResult" };
-    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveEndpointPairCreationBehaviors>{ L"Windows.Networking.XboxLive.XboxLiveEndpointPairCreationBehaviors" };
-    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveEndpointPairCreationStatus>{ L"Windows.Networking.XboxLive.XboxLiveEndpointPairCreationStatus" };
-    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveEndpointPairState>{ L"Windows.Networking.XboxLive.XboxLiveEndpointPairState" };
-    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveNetworkAccessKind>{ L"Windows.Networking.XboxLive.XboxLiveNetworkAccessKind" };
-    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveQualityOfServiceMeasurementStatus>{ L"Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurementStatus" };
-    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveQualityOfServiceMetric>{ L"Windows.Networking.XboxLive.XboxLiveQualityOfServiceMetric" };
-    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveSocketKind>{ L"Windows.Networking.XboxLive.XboxLiveSocketKind" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::IXboxLiveDeviceAddress>{ L"Windows.Networking.XboxLive.IXboxLiveDeviceAddress" };
-    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::IXboxLiveDeviceAddressStatics>{ L"Windows.Networking.XboxLive.IXboxLiveDeviceAddressStatics" };
-    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::IXboxLiveEndpointPair>{ L"Windows.Networking.XboxLive.IXboxLiveEndpointPair" };
-    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::IXboxLiveEndpointPairCreationResult>{ L"Windows.Networking.XboxLive.IXboxLiveEndpointPairCreationResult" };
-    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::IXboxLiveEndpointPairStateChangedEventArgs>{ L"Windows.Networking.XboxLive.IXboxLiveEndpointPairStateChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::IXboxLiveEndpointPairStatics>{ L"Windows.Networking.XboxLive.IXboxLiveEndpointPairStatics" };
-    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::IXboxLiveEndpointPairTemplate>{ L"Windows.Networking.XboxLive.IXboxLiveEndpointPairTemplate" };
-    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::IXboxLiveEndpointPairTemplateStatics>{ L"Windows.Networking.XboxLive.IXboxLiveEndpointPairTemplateStatics" };
-    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::IXboxLiveInboundEndpointPairCreatedEventArgs>{ L"Windows.Networking.XboxLive.IXboxLiveInboundEndpointPairCreatedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::IXboxLiveQualityOfServiceMeasurement>{ L"Windows.Networking.XboxLive.IXboxLiveQualityOfServiceMeasurement" };
-    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::IXboxLiveQualityOfServiceMeasurementStatics>{ L"Windows.Networking.XboxLive.IXboxLiveQualityOfServiceMeasurementStatics" };
-    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::IXboxLiveQualityOfServiceMetricResult>{ L"Windows.Networking.XboxLive.IXboxLiveQualityOfServiceMetricResult" };
-    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::IXboxLiveQualityOfServicePrivatePayloadResult>{ L"Windows.Networking.XboxLive.IXboxLiveQualityOfServicePrivatePayloadResult" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveDeviceAddress> = L"Windows.Networking.XboxLive.XboxLiveDeviceAddress";
+    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveEndpointPair> = L"Windows.Networking.XboxLive.XboxLiveEndpointPair";
+    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveEndpointPairCreationResult> = L"Windows.Networking.XboxLive.XboxLiveEndpointPairCreationResult";
+    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveEndpointPairStateChangedEventArgs> = L"Windows.Networking.XboxLive.XboxLiveEndpointPairStateChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveEndpointPairTemplate> = L"Windows.Networking.XboxLive.XboxLiveEndpointPairTemplate";
+    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveInboundEndpointPairCreatedEventArgs> = L"Windows.Networking.XboxLive.XboxLiveInboundEndpointPairCreatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveQualityOfServiceMeasurement> = L"Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurement";
+    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveQualityOfServiceMetricResult> = L"Windows.Networking.XboxLive.XboxLiveQualityOfServiceMetricResult";
+    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveQualityOfServicePrivatePayloadResult> = L"Windows.Networking.XboxLive.XboxLiveQualityOfServicePrivatePayloadResult";
+    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveEndpointPairCreationBehaviors> = L"Windows.Networking.XboxLive.XboxLiveEndpointPairCreationBehaviors";
+    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveEndpointPairCreationStatus> = L"Windows.Networking.XboxLive.XboxLiveEndpointPairCreationStatus";
+    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveEndpointPairState> = L"Windows.Networking.XboxLive.XboxLiveEndpointPairState";
+    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveNetworkAccessKind> = L"Windows.Networking.XboxLive.XboxLiveNetworkAccessKind";
+    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveQualityOfServiceMeasurementStatus> = L"Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurementStatus";
+    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveQualityOfServiceMetric> = L"Windows.Networking.XboxLive.XboxLiveQualityOfServiceMetric";
+    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::XboxLiveSocketKind> = L"Windows.Networking.XboxLive.XboxLiveSocketKind";
+    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::IXboxLiveDeviceAddress> = L"Windows.Networking.XboxLive.IXboxLiveDeviceAddress";
+    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::IXboxLiveDeviceAddressStatics> = L"Windows.Networking.XboxLive.IXboxLiveDeviceAddressStatics";
+    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::IXboxLiveEndpointPair> = L"Windows.Networking.XboxLive.IXboxLiveEndpointPair";
+    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::IXboxLiveEndpointPairCreationResult> = L"Windows.Networking.XboxLive.IXboxLiveEndpointPairCreationResult";
+    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::IXboxLiveEndpointPairStateChangedEventArgs> = L"Windows.Networking.XboxLive.IXboxLiveEndpointPairStateChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::IXboxLiveEndpointPairStatics> = L"Windows.Networking.XboxLive.IXboxLiveEndpointPairStatics";
+    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::IXboxLiveEndpointPairTemplate> = L"Windows.Networking.XboxLive.IXboxLiveEndpointPairTemplate";
+    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::IXboxLiveEndpointPairTemplateStatics> = L"Windows.Networking.XboxLive.IXboxLiveEndpointPairTemplateStatics";
+    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::IXboxLiveInboundEndpointPairCreatedEventArgs> = L"Windows.Networking.XboxLive.IXboxLiveInboundEndpointPairCreatedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::IXboxLiveQualityOfServiceMeasurement> = L"Windows.Networking.XboxLive.IXboxLiveQualityOfServiceMeasurement";
+    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::IXboxLiveQualityOfServiceMeasurementStatics> = L"Windows.Networking.XboxLive.IXboxLiveQualityOfServiceMeasurementStatics";
+    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::IXboxLiveQualityOfServiceMetricResult> = L"Windows.Networking.XboxLive.IXboxLiveQualityOfServiceMetricResult";
+    template <> inline constexpr auto& name_v<Windows::Networking::XboxLive::IXboxLiveQualityOfServicePrivatePayloadResult> = L"Windows.Networking.XboxLive.IXboxLiveQualityOfServicePrivatePayloadResult";
     template <> inline constexpr guid guid_v<Windows::Networking::XboxLive::IXboxLiveDeviceAddress>{ 0xF5BBD279,0x3C86,0x4B57,{ 0xA3,0x1A,0xB9,0x46,0x24,0x08,0xFD,0x01 } };
     template <> inline constexpr guid guid_v<Windows::Networking::XboxLive::IXboxLiveDeviceAddressStatics>{ 0x5954A819,0x4A79,0x4931,{ 0x82,0x7C,0x7F,0x50,0x3E,0x96,0x32,0x63 } };
     template <> inline constexpr guid guid_v<Windows::Networking::XboxLive::IXboxLiveEndpointPair>{ 0x1E9A839B,0x813E,0x44E0,{ 0xB8,0x7F,0xC8,0x7A,0x09,0x34,0x75,0xE4 } };
@@ -359,17 +363,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_XboxLive_IXboxLiveDeviceAddress
     {
-        auto SnapshotChanged(Windows::Foundation::TypedEventHandler<Windows::Networking::XboxLive::XboxLiveDeviceAddress, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) SnapshotChanged(Windows::Foundation::TypedEventHandler<Windows::Networking::XboxLive::XboxLiveDeviceAddress, Windows::Foundation::IInspectable> const& handler) const;
         using SnapshotChanged_revoker = impl::event_revoker<Windows::Networking::XboxLive::IXboxLiveDeviceAddress, &impl::abi_t<Windows::Networking::XboxLive::IXboxLiveDeviceAddress>::remove_SnapshotChanged>;
         [[nodiscard]] SnapshotChanged_revoker SnapshotChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Networking::XboxLive::XboxLiveDeviceAddress, Windows::Foundation::IInspectable> const& handler) const;
-        auto SnapshotChanged(winrt::event_token const& token) const noexcept;
-        auto GetSnapshotAsBase64() const;
-        auto GetSnapshotAsBuffer() const;
-        auto GetSnapshotAsBytes(array_view<uint8_t> buffer, uint32_t& bytesWritten) const;
-        auto Compare(Windows::Networking::XboxLive::XboxLiveDeviceAddress const& otherDeviceAddress) const;
-        [[nodiscard]] auto IsValid() const;
-        [[nodiscard]] auto IsLocal() const;
-        [[nodiscard]] auto NetworkAccessKind() const;
+        WINRT_IMPL_AUTO(void) SnapshotChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(hstring) GetSnapshotAsBase64() const;
+        WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) GetSnapshotAsBuffer() const;
+        WINRT_IMPL_AUTO(void) GetSnapshotAsBytes(array_view<uint8_t> buffer, uint32_t& bytesWritten) const;
+        WINRT_IMPL_AUTO(int32_t) Compare(Windows::Networking::XboxLive::XboxLiveDeviceAddress const& otherDeviceAddress) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsValid() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsLocal() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::XboxLive::XboxLiveNetworkAccessKind) NetworkAccessKind() const;
     };
     template <> struct consume<Windows::Networking::XboxLive::IXboxLiveDeviceAddress>
     {
@@ -378,11 +382,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_XboxLive_IXboxLiveDeviceAddressStatics
     {
-        auto CreateFromSnapshotBase64(param::hstring const& base64) const;
-        auto CreateFromSnapshotBuffer(Windows::Storage::Streams::IBuffer const& buffer) const;
-        auto CreateFromSnapshotBytes(array_view<uint8_t const> buffer) const;
-        auto GetLocal() const;
-        [[nodiscard]] auto MaxSnapshotBytesSize() const;
+        WINRT_IMPL_AUTO(Windows::Networking::XboxLive::XboxLiveDeviceAddress) CreateFromSnapshotBase64(param::hstring const& base64) const;
+        WINRT_IMPL_AUTO(Windows::Networking::XboxLive::XboxLiveDeviceAddress) CreateFromSnapshotBuffer(Windows::Storage::Streams::IBuffer const& buffer) const;
+        WINRT_IMPL_AUTO(Windows::Networking::XboxLive::XboxLiveDeviceAddress) CreateFromSnapshotBytes(array_view<uint8_t const> buffer) const;
+        WINRT_IMPL_AUTO(Windows::Networking::XboxLive::XboxLiveDeviceAddress) GetLocal() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxSnapshotBytesSize() const;
     };
     template <> struct consume<Windows::Networking::XboxLive::IXboxLiveDeviceAddressStatics>
     {
@@ -391,20 +395,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_XboxLive_IXboxLiveEndpointPair
     {
-        auto StateChanged(Windows::Foundation::TypedEventHandler<Windows::Networking::XboxLive::XboxLiveEndpointPair, Windows::Networking::XboxLive::XboxLiveEndpointPairStateChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) StateChanged(Windows::Foundation::TypedEventHandler<Windows::Networking::XboxLive::XboxLiveEndpointPair, Windows::Networking::XboxLive::XboxLiveEndpointPairStateChangedEventArgs> const& handler) const;
         using StateChanged_revoker = impl::event_revoker<Windows::Networking::XboxLive::IXboxLiveEndpointPair, &impl::abi_t<Windows::Networking::XboxLive::IXboxLiveEndpointPair>::remove_StateChanged>;
         [[nodiscard]] StateChanged_revoker StateChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Networking::XboxLive::XboxLiveEndpointPair, Windows::Networking::XboxLive::XboxLiveEndpointPairStateChangedEventArgs> const& handler) const;
-        auto StateChanged(winrt::event_token const& token) const noexcept;
-        auto DeleteAsync() const;
-        auto GetRemoteSocketAddressBytes(array_view<uint8_t> socketAddress) const;
-        auto GetLocalSocketAddressBytes(array_view<uint8_t> socketAddress) const;
-        [[nodiscard]] auto State() const;
-        [[nodiscard]] auto Template() const;
-        [[nodiscard]] auto RemoteDeviceAddress() const;
-        [[nodiscard]] auto RemoteHostName() const;
-        [[nodiscard]] auto RemotePort() const;
-        [[nodiscard]] auto LocalHostName() const;
-        [[nodiscard]] auto LocalPort() const;
+        WINRT_IMPL_AUTO(void) StateChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) DeleteAsync() const;
+        WINRT_IMPL_AUTO(void) GetRemoteSocketAddressBytes(array_view<uint8_t> socketAddress) const;
+        WINRT_IMPL_AUTO(void) GetLocalSocketAddressBytes(array_view<uint8_t> socketAddress) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::XboxLive::XboxLiveEndpointPairState) State() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::XboxLive::XboxLiveEndpointPairTemplate) Template() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::XboxLive::XboxLiveDeviceAddress) RemoteDeviceAddress() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::HostName) RemoteHostName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) RemotePort() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::HostName) LocalHostName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) LocalPort() const;
     };
     template <> struct consume<Windows::Networking::XboxLive::IXboxLiveEndpointPair>
     {
@@ -413,10 +417,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_XboxLive_IXboxLiveEndpointPairCreationResult
     {
-        [[nodiscard]] auto DeviceAddress() const;
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto IsExistingPathEvaluation() const;
-        [[nodiscard]] auto EndpointPair() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::XboxLive::XboxLiveDeviceAddress) DeviceAddress() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::XboxLive::XboxLiveEndpointPairCreationStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsExistingPathEvaluation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::XboxLive::XboxLiveEndpointPair) EndpointPair() const;
     };
     template <> struct consume<Windows::Networking::XboxLive::IXboxLiveEndpointPairCreationResult>
     {
@@ -425,8 +429,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_XboxLive_IXboxLiveEndpointPairStateChangedEventArgs
     {
-        [[nodiscard]] auto OldState() const;
-        [[nodiscard]] auto NewState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::XboxLive::XboxLiveEndpointPairState) OldState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::XboxLive::XboxLiveEndpointPairState) NewState() const;
     };
     template <> struct consume<Windows::Networking::XboxLive::IXboxLiveEndpointPairStateChangedEventArgs>
     {
@@ -435,8 +439,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_XboxLive_IXboxLiveEndpointPairStatics
     {
-        auto FindEndpointPairBySocketAddressBytes(array_view<uint8_t const> localSocketAddress, array_view<uint8_t const> remoteSocketAddress) const;
-        auto FindEndpointPairByHostNamesAndPorts(Windows::Networking::HostName const& localHostName, param::hstring const& localPort, Windows::Networking::HostName const& remoteHostName, param::hstring const& remotePort) const;
+        WINRT_IMPL_AUTO(Windows::Networking::XboxLive::XboxLiveEndpointPair) FindEndpointPairBySocketAddressBytes(array_view<uint8_t const> localSocketAddress, array_view<uint8_t const> remoteSocketAddress) const;
+        WINRT_IMPL_AUTO(Windows::Networking::XboxLive::XboxLiveEndpointPair) FindEndpointPairByHostNamesAndPorts(Windows::Networking::HostName const& localHostName, param::hstring const& localPort, Windows::Networking::HostName const& remoteHostName, param::hstring const& remotePort) const;
     };
     template <> struct consume<Windows::Networking::XboxLive::IXboxLiveEndpointPairStatics>
     {
@@ -445,21 +449,21 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_XboxLive_IXboxLiveEndpointPairTemplate
     {
-        auto InboundEndpointPairCreated(Windows::Foundation::TypedEventHandler<Windows::Networking::XboxLive::XboxLiveEndpointPairTemplate, Windows::Networking::XboxLive::XboxLiveInboundEndpointPairCreatedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) InboundEndpointPairCreated(Windows::Foundation::TypedEventHandler<Windows::Networking::XboxLive::XboxLiveEndpointPairTemplate, Windows::Networking::XboxLive::XboxLiveInboundEndpointPairCreatedEventArgs> const& handler) const;
         using InboundEndpointPairCreated_revoker = impl::event_revoker<Windows::Networking::XboxLive::IXboxLiveEndpointPairTemplate, &impl::abi_t<Windows::Networking::XboxLive::IXboxLiveEndpointPairTemplate>::remove_InboundEndpointPairCreated>;
         [[nodiscard]] InboundEndpointPairCreated_revoker InboundEndpointPairCreated(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Networking::XboxLive::XboxLiveEndpointPairTemplate, Windows::Networking::XboxLive::XboxLiveInboundEndpointPairCreatedEventArgs> const& handler) const;
-        auto InboundEndpointPairCreated(winrt::event_token const& token) const noexcept;
-        auto CreateEndpointPairAsync(Windows::Networking::XboxLive::XboxLiveDeviceAddress const& deviceAddress) const;
-        auto CreateEndpointPairAsync(Windows::Networking::XboxLive::XboxLiveDeviceAddress const& deviceAddress, Windows::Networking::XboxLive::XboxLiveEndpointPairCreationBehaviors const& behaviors) const;
-        auto CreateEndpointPairForPortsAsync(Windows::Networking::XboxLive::XboxLiveDeviceAddress const& deviceAddress, param::hstring const& initiatorPort, param::hstring const& acceptorPort) const;
-        auto CreateEndpointPairForPortsAsync(Windows::Networking::XboxLive::XboxLiveDeviceAddress const& deviceAddress, param::hstring const& initiatorPort, param::hstring const& acceptorPort, Windows::Networking::XboxLive::XboxLiveEndpointPairCreationBehaviors const& behaviors) const;
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto SocketKind() const;
-        [[nodiscard]] auto InitiatorBoundPortRangeLower() const;
-        [[nodiscard]] auto InitiatorBoundPortRangeUpper() const;
-        [[nodiscard]] auto AcceptorBoundPortRangeLower() const;
-        [[nodiscard]] auto AcceptorBoundPortRangeUpper() const;
-        [[nodiscard]] auto EndpointPairs() const;
+        WINRT_IMPL_AUTO(void) InboundEndpointPairCreated(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::XboxLive::XboxLiveEndpointPairCreationResult>) CreateEndpointPairAsync(Windows::Networking::XboxLive::XboxLiveDeviceAddress const& deviceAddress) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::XboxLive::XboxLiveEndpointPairCreationResult>) CreateEndpointPairAsync(Windows::Networking::XboxLive::XboxLiveDeviceAddress const& deviceAddress, Windows::Networking::XboxLive::XboxLiveEndpointPairCreationBehaviors const& behaviors) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::XboxLive::XboxLiveEndpointPairCreationResult>) CreateEndpointPairForPortsAsync(Windows::Networking::XboxLive::XboxLiveDeviceAddress const& deviceAddress, param::hstring const& initiatorPort, param::hstring const& acceptorPort) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Networking::XboxLive::XboxLiveEndpointPairCreationResult>) CreateEndpointPairForPortsAsync(Windows::Networking::XboxLive::XboxLiveDeviceAddress const& deviceAddress, param::hstring const& initiatorPort, param::hstring const& acceptorPort, Windows::Networking::XboxLive::XboxLiveEndpointPairCreationBehaviors const& behaviors) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::XboxLive::XboxLiveSocketKind) SocketKind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) InitiatorBoundPortRangeLower() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) InitiatorBoundPortRangeUpper() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) AcceptorBoundPortRangeLower() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint16_t) AcceptorBoundPortRangeUpper() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::XboxLive::XboxLiveEndpointPair>) EndpointPairs() const;
     };
     template <> struct consume<Windows::Networking::XboxLive::IXboxLiveEndpointPairTemplate>
     {
@@ -468,8 +472,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_XboxLive_IXboxLiveEndpointPairTemplateStatics
     {
-        auto GetTemplateByName(param::hstring const& name) const;
-        [[nodiscard]] auto Templates() const;
+        WINRT_IMPL_AUTO(Windows::Networking::XboxLive::XboxLiveEndpointPairTemplate) GetTemplateByName(param::hstring const& name) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::XboxLive::XboxLiveEndpointPairTemplate>) Templates() const;
     };
     template <> struct consume<Windows::Networking::XboxLive::IXboxLiveEndpointPairTemplateStatics>
     {
@@ -478,7 +482,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_XboxLive_IXboxLiveInboundEndpointPairCreatedEventArgs
     {
-        [[nodiscard]] auto EndpointPair() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::XboxLive::XboxLiveEndpointPair) EndpointPair() const;
     };
     template <> struct consume<Windows::Networking::XboxLive::IXboxLiveInboundEndpointPairCreatedEventArgs>
     {
@@ -487,22 +491,22 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_XboxLive_IXboxLiveQualityOfServiceMeasurement
     {
-        auto MeasureAsync() const;
-        auto GetMetricResultsForDevice(Windows::Networking::XboxLive::XboxLiveDeviceAddress const& deviceAddress) const;
-        auto GetMetricResultsForMetric(Windows::Networking::XboxLive::XboxLiveQualityOfServiceMetric const& metric) const;
-        auto GetMetricResult(Windows::Networking::XboxLive::XboxLiveDeviceAddress const& deviceAddress, Windows::Networking::XboxLive::XboxLiveQualityOfServiceMetric const& metric) const;
-        auto GetPrivatePayloadResult(Windows::Networking::XboxLive::XboxLiveDeviceAddress const& deviceAddress) const;
-        [[nodiscard]] auto Metrics() const;
-        [[nodiscard]] auto DeviceAddresses() const;
-        [[nodiscard]] auto ShouldRequestPrivatePayloads() const;
-        auto ShouldRequestPrivatePayloads(bool value) const;
-        [[nodiscard]] auto TimeoutInMilliseconds() const;
-        auto TimeoutInMilliseconds(uint32_t value) const;
-        [[nodiscard]] auto NumberOfProbesToAttempt() const;
-        auto NumberOfProbesToAttempt(uint32_t value) const;
-        [[nodiscard]] auto NumberOfResultsPending() const;
-        [[nodiscard]] auto MetricResults() const;
-        [[nodiscard]] auto PrivatePayloadResults() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) MeasureAsync() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::XboxLive::XboxLiveQualityOfServiceMetricResult>) GetMetricResultsForDevice(Windows::Networking::XboxLive::XboxLiveDeviceAddress const& deviceAddress) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::XboxLive::XboxLiveQualityOfServiceMetricResult>) GetMetricResultsForMetric(Windows::Networking::XboxLive::XboxLiveQualityOfServiceMetric const& metric) const;
+        WINRT_IMPL_AUTO(Windows::Networking::XboxLive::XboxLiveQualityOfServiceMetricResult) GetMetricResult(Windows::Networking::XboxLive::XboxLiveDeviceAddress const& deviceAddress, Windows::Networking::XboxLive::XboxLiveQualityOfServiceMetric const& metric) const;
+        WINRT_IMPL_AUTO(Windows::Networking::XboxLive::XboxLiveQualityOfServicePrivatePayloadResult) GetPrivatePayloadResult(Windows::Networking::XboxLive::XboxLiveDeviceAddress const& deviceAddress) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Networking::XboxLive::XboxLiveQualityOfServiceMetric>) Metrics() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Networking::XboxLive::XboxLiveDeviceAddress>) DeviceAddresses() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) ShouldRequestPrivatePayloads() const;
+        WINRT_IMPL_AUTO(void) ShouldRequestPrivatePayloads(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) TimeoutInMilliseconds() const;
+        WINRT_IMPL_AUTO(void) TimeoutInMilliseconds(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) NumberOfProbesToAttempt() const;
+        WINRT_IMPL_AUTO(void) NumberOfProbesToAttempt(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) NumberOfResultsPending() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::XboxLive::XboxLiveQualityOfServiceMetricResult>) MetricResults() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Networking::XboxLive::XboxLiveQualityOfServicePrivatePayloadResult>) PrivatePayloadResults() const;
     };
     template <> struct consume<Windows::Networking::XboxLive::IXboxLiveQualityOfServiceMeasurement>
     {
@@ -511,17 +515,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_XboxLive_IXboxLiveQualityOfServiceMeasurementStatics
     {
-        auto PublishPrivatePayloadBytes(array_view<uint8_t const> payload) const;
-        auto ClearPrivatePayload() const;
-        [[nodiscard]] auto MaxSimultaneousProbeConnections() const;
-        auto MaxSimultaneousProbeConnections(uint32_t value) const;
-        [[nodiscard]] auto IsSystemOutboundBandwidthConstrained() const;
-        auto IsSystemOutboundBandwidthConstrained(bool value) const;
-        [[nodiscard]] auto IsSystemInboundBandwidthConstrained() const;
-        auto IsSystemInboundBandwidthConstrained(bool value) const;
-        [[nodiscard]] auto PublishedPrivatePayload() const;
-        auto PublishedPrivatePayload(Windows::Storage::Streams::IBuffer const& value) const;
-        [[nodiscard]] auto MaxPrivatePayloadSize() const;
+        WINRT_IMPL_AUTO(void) PublishPrivatePayloadBytes(array_view<uint8_t const> payload) const;
+        WINRT_IMPL_AUTO(void) ClearPrivatePayload() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxSimultaneousProbeConnections() const;
+        WINRT_IMPL_AUTO(void) MaxSimultaneousProbeConnections(uint32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSystemOutboundBandwidthConstrained() const;
+        WINRT_IMPL_AUTO(void) IsSystemOutboundBandwidthConstrained(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSystemInboundBandwidthConstrained() const;
+        WINRT_IMPL_AUTO(void) IsSystemInboundBandwidthConstrained(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) PublishedPrivatePayload() const;
+        WINRT_IMPL_AUTO(void) PublishedPrivatePayload(Windows::Storage::Streams::IBuffer const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxPrivatePayloadSize() const;
     };
     template <> struct consume<Windows::Networking::XboxLive::IXboxLiveQualityOfServiceMeasurementStatics>
     {
@@ -530,10 +534,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_XboxLive_IXboxLiveQualityOfServiceMetricResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto DeviceAddress() const;
-        [[nodiscard]] auto Metric() const;
-        [[nodiscard]] auto Value() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::XboxLive::XboxLiveQualityOfServiceMeasurementStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::XboxLive::XboxLiveDeviceAddress) DeviceAddress() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::XboxLive::XboxLiveQualityOfServiceMetric) Metric() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint64_t) Value() const;
     };
     template <> struct consume<Windows::Networking::XboxLive::IXboxLiveQualityOfServiceMetricResult>
     {
@@ -542,9 +546,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Networking_XboxLive_IXboxLiveQualityOfServicePrivatePayloadResult
     {
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto DeviceAddress() const;
-        [[nodiscard]] auto Value() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::XboxLive::XboxLiveQualityOfServiceMeasurementStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::XboxLive::XboxLiveDeviceAddress) DeviceAddress() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) Value() const;
     };
     template <> struct consume<Windows::Networking::XboxLive::IXboxLiveQualityOfServicePrivatePayloadResult>
     {

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -8,6 +8,7 @@
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
+    template <typename TResult> struct IAsyncOperation;
     template <typename TSender, typename TResult> struct TypedEventHandler;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
@@ -17,6 +18,8 @@ WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 WINRT_EXPORT namespace winrt::Windows::Storage
 {
     struct IStorageItem;
+    struct StorageFile;
+    struct StorageFolder;
 }
 WINRT_EXPORT namespace winrt::Windows::System
 {
@@ -66,22 +69,20 @@ namespace winrt::impl
     template <> struct category<Windows::Storage::AccessCache::AccessCacheOptions>{ using type = enum_category; };
     template <> struct category<Windows::Storage::AccessCache::RecentStorageItemVisibility>{ using type = enum_category; };
     template <> struct category<Windows::Storage::AccessCache::AccessListEntry>{ using type = struct_category<hstring, hstring>; };
-    template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::AccessListEntryView>{ L"Windows.Storage.AccessCache.AccessListEntryView" };
-    template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::ItemRemovedEventArgs>{ L"Windows.Storage.AccessCache.ItemRemovedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::StorageApplicationPermissions>{ L"Windows.Storage.AccessCache.StorageApplicationPermissions" };
-    template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::StorageItemAccessList>{ L"Windows.Storage.AccessCache.StorageItemAccessList" };
-    template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::StorageItemMostRecentlyUsedList>{ L"Windows.Storage.AccessCache.StorageItemMostRecentlyUsedList" };
-    template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::AccessCacheOptions>{ L"Windows.Storage.AccessCache.AccessCacheOptions" };
-    template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::RecentStorageItemVisibility>{ L"Windows.Storage.AccessCache.RecentStorageItemVisibility" };
-    template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::AccessListEntry>{ L"Windows.Storage.AccessCache.AccessListEntry" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::IItemRemovedEventArgs>{ L"Windows.Storage.AccessCache.IItemRemovedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::IStorageApplicationPermissionsStatics>{ L"Windows.Storage.AccessCache.IStorageApplicationPermissionsStatics" };
-    template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::IStorageApplicationPermissionsStatics2>{ L"Windows.Storage.AccessCache.IStorageApplicationPermissionsStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::IStorageItemAccessList>{ L"Windows.Storage.AccessCache.IStorageItemAccessList" };
-    template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::IStorageItemMostRecentlyUsedList>{ L"Windows.Storage.AccessCache.IStorageItemMostRecentlyUsedList" };
-    template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::IStorageItemMostRecentlyUsedList2>{ L"Windows.Storage.AccessCache.IStorageItemMostRecentlyUsedList2" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::AccessListEntryView> = L"Windows.Storage.AccessCache.AccessListEntryView";
+    template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::ItemRemovedEventArgs> = L"Windows.Storage.AccessCache.ItemRemovedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::StorageApplicationPermissions> = L"Windows.Storage.AccessCache.StorageApplicationPermissions";
+    template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::StorageItemAccessList> = L"Windows.Storage.AccessCache.StorageItemAccessList";
+    template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::StorageItemMostRecentlyUsedList> = L"Windows.Storage.AccessCache.StorageItemMostRecentlyUsedList";
+    template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::AccessCacheOptions> = L"Windows.Storage.AccessCache.AccessCacheOptions";
+    template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::RecentStorageItemVisibility> = L"Windows.Storage.AccessCache.RecentStorageItemVisibility";
+    template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::AccessListEntry> = L"Windows.Storage.AccessCache.AccessListEntry";
+    template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::IItemRemovedEventArgs> = L"Windows.Storage.AccessCache.IItemRemovedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::IStorageApplicationPermissionsStatics> = L"Windows.Storage.AccessCache.IStorageApplicationPermissionsStatics";
+    template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::IStorageApplicationPermissionsStatics2> = L"Windows.Storage.AccessCache.IStorageApplicationPermissionsStatics2";
+    template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::IStorageItemAccessList> = L"Windows.Storage.AccessCache.IStorageItemAccessList";
+    template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::IStorageItemMostRecentlyUsedList> = L"Windows.Storage.AccessCache.IStorageItemMostRecentlyUsedList";
+    template <> inline constexpr auto& name_v<Windows::Storage::AccessCache::IStorageItemMostRecentlyUsedList2> = L"Windows.Storage.AccessCache.IStorageItemMostRecentlyUsedList2";
     template <> inline constexpr guid guid_v<Windows::Storage::AccessCache::IItemRemovedEventArgs>{ 0x59677E5C,0x55BE,0x4C66,{ 0xBA,0x66,0x5E,0xAE,0xA7,0x9D,0x26,0x31 } };
     template <> inline constexpr guid guid_v<Windows::Storage::AccessCache::IStorageApplicationPermissionsStatics>{ 0x4391DFAA,0xD033,0x48F9,{ 0x80,0x60,0x3E,0xC8,0x47,0xD2,0xE3,0xF1 } };
     template <> inline constexpr guid guid_v<Windows::Storage::AccessCache::IStorageApplicationPermissionsStatics2>{ 0x072716EC,0xAA05,0x4294,{ 0x9A,0x11,0x1A,0x3D,0x04,0x51,0x9A,0xD0 } };
@@ -156,7 +157,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_AccessCache_IItemRemovedEventArgs
     {
-        [[nodiscard]] auto RemovedEntry() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::AccessCache::AccessListEntry) RemovedEntry() const;
     };
     template <> struct consume<Windows::Storage::AccessCache::IItemRemovedEventArgs>
     {
@@ -165,8 +166,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_AccessCache_IStorageApplicationPermissionsStatics
     {
-        [[nodiscard]] auto FutureAccessList() const;
-        [[nodiscard]] auto MostRecentlyUsedList() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::AccessCache::StorageItemAccessList) FutureAccessList() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::AccessCache::StorageItemMostRecentlyUsedList) MostRecentlyUsedList() const;
     };
     template <> struct consume<Windows::Storage::AccessCache::IStorageApplicationPermissionsStatics>
     {
@@ -175,8 +176,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_AccessCache_IStorageApplicationPermissionsStatics2
     {
-        auto GetFutureAccessListForUser(Windows::System::User const& user) const;
-        auto GetMostRecentlyUsedListForUser(Windows::System::User const& user) const;
+        WINRT_IMPL_AUTO(Windows::Storage::AccessCache::StorageItemAccessList) GetFutureAccessListForUser(Windows::System::User const& user) const;
+        WINRT_IMPL_AUTO(Windows::Storage::AccessCache::StorageItemMostRecentlyUsedList) GetMostRecentlyUsedListForUser(Windows::System::User const& user) const;
     };
     template <> struct consume<Windows::Storage::AccessCache::IStorageApplicationPermissionsStatics2>
     {
@@ -185,22 +186,22 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_AccessCache_IStorageItemAccessList
     {
-        auto Add(Windows::Storage::IStorageItem const& file) const;
-        auto Add(Windows::Storage::IStorageItem const& file, param::hstring const& metadata) const;
-        auto AddOrReplace(param::hstring const& token, Windows::Storage::IStorageItem const& file) const;
-        auto AddOrReplace(param::hstring const& token, Windows::Storage::IStorageItem const& file, param::hstring const& metadata) const;
-        auto GetItemAsync(param::hstring const& token) const;
-        auto GetFileAsync(param::hstring const& token) const;
-        auto GetFolderAsync(param::hstring const& token) const;
-        auto GetItemAsync(param::hstring const& token, Windows::Storage::AccessCache::AccessCacheOptions const& options) const;
-        auto GetFileAsync(param::hstring const& token, Windows::Storage::AccessCache::AccessCacheOptions const& options) const;
-        auto GetFolderAsync(param::hstring const& token, Windows::Storage::AccessCache::AccessCacheOptions const& options) const;
-        auto Remove(param::hstring const& token) const;
-        auto ContainsItem(param::hstring const& token) const;
-        auto Clear() const;
-        auto CheckAccess(Windows::Storage::IStorageItem const& file) const;
-        [[nodiscard]] auto Entries() const;
-        [[nodiscard]] auto MaximumItemsAllowed() const;
+        WINRT_IMPL_AUTO(hstring) Add(Windows::Storage::IStorageItem const& file) const;
+        WINRT_IMPL_AUTO(hstring) Add(Windows::Storage::IStorageItem const& file, param::hstring const& metadata) const;
+        WINRT_IMPL_AUTO(void) AddOrReplace(param::hstring const& token, Windows::Storage::IStorageItem const& file) const;
+        WINRT_IMPL_AUTO(void) AddOrReplace(param::hstring const& token, Windows::Storage::IStorageItem const& file, param::hstring const& metadata) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::IStorageItem>) GetItemAsync(param::hstring const& token) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::StorageFile>) GetFileAsync(param::hstring const& token) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::StorageFolder>) GetFolderAsync(param::hstring const& token) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::IStorageItem>) GetItemAsync(param::hstring const& token, Windows::Storage::AccessCache::AccessCacheOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::StorageFile>) GetFileAsync(param::hstring const& token, Windows::Storage::AccessCache::AccessCacheOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Storage::StorageFolder>) GetFolderAsync(param::hstring const& token, Windows::Storage::AccessCache::AccessCacheOptions const& options) const;
+        WINRT_IMPL_AUTO(void) Remove(param::hstring const& token) const;
+        WINRT_IMPL_AUTO(bool) ContainsItem(param::hstring const& token) const;
+        WINRT_IMPL_AUTO(void) Clear() const;
+        WINRT_IMPL_AUTO(bool) CheckAccess(Windows::Storage::IStorageItem const& file) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::AccessCache::AccessListEntryView) Entries() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaximumItemsAllowed() const;
     };
     template <> struct consume<Windows::Storage::AccessCache::IStorageItemAccessList>
     {
@@ -209,10 +210,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_AccessCache_IStorageItemMostRecentlyUsedList
     {
-        auto ItemRemoved(Windows::Foundation::TypedEventHandler<Windows::Storage::AccessCache::StorageItemMostRecentlyUsedList, Windows::Storage::AccessCache::ItemRemovedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) ItemRemoved(Windows::Foundation::TypedEventHandler<Windows::Storage::AccessCache::StorageItemMostRecentlyUsedList, Windows::Storage::AccessCache::ItemRemovedEventArgs> const& handler) const;
         using ItemRemoved_revoker = impl::event_revoker<Windows::Storage::AccessCache::IStorageItemMostRecentlyUsedList, &impl::abi_t<Windows::Storage::AccessCache::IStorageItemMostRecentlyUsedList>::remove_ItemRemoved>;
         [[nodiscard]] ItemRemoved_revoker ItemRemoved(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Storage::AccessCache::StorageItemMostRecentlyUsedList, Windows::Storage::AccessCache::ItemRemovedEventArgs> const& handler) const;
-        auto ItemRemoved(winrt::event_token const& eventCookie) const noexcept;
+        WINRT_IMPL_AUTO(void) ItemRemoved(winrt::event_token const& eventCookie) const noexcept;
     };
     template <> struct consume<Windows::Storage::AccessCache::IStorageItemMostRecentlyUsedList>
     {
@@ -221,8 +222,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_AccessCache_IStorageItemMostRecentlyUsedList2
     {
-        auto Add(Windows::Storage::IStorageItem const& file, param::hstring const& metadata, Windows::Storage::AccessCache::RecentStorageItemVisibility const& visibility) const;
-        auto AddOrReplace(param::hstring const& token, Windows::Storage::IStorageItem const& file, param::hstring const& metadata, Windows::Storage::AccessCache::RecentStorageItemVisibility const& visibility) const;
+        WINRT_IMPL_AUTO(hstring) Add(Windows::Storage::IStorageItem const& file, param::hstring const& metadata, Windows::Storage::AccessCache::RecentStorageItemVisibility const& visibility) const;
+        WINRT_IMPL_AUTO(void) AddOrReplace(param::hstring const& token, Windows::Storage::IStorageItem const& file, param::hstring const& metadata, Windows::Storage::AccessCache::RecentStorageItemVisibility const& visibility) const;
     };
     template <> struct consume<Windows::Storage::AccessCache::IStorageItemMostRecentlyUsedList2>
     {

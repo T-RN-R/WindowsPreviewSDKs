@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -9,6 +9,10 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
     template <typename TSender, typename TResult> struct TypedEventHandler;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVectorView;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage
 {
@@ -76,29 +80,27 @@ namespace winrt::impl
     template <> struct category<Windows::Storage::Pickers::Provider::AddFileResult>{ using type = enum_category; };
     template <> struct category<Windows::Storage::Pickers::Provider::FileSelectionMode>{ using type = enum_category; };
     template <> struct category<Windows::Storage::Pickers::Provider::SetFileNameResult>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::FileOpenPickerUI>{ L"Windows.Storage.Pickers.Provider.FileOpenPickerUI" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::FileRemovedEventArgs>{ L"Windows.Storage.Pickers.Provider.FileRemovedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::FileSavePickerUI>{ L"Windows.Storage.Pickers.Provider.FileSavePickerUI" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::PickerClosingDeferral>{ L"Windows.Storage.Pickers.Provider.PickerClosingDeferral" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::PickerClosingEventArgs>{ L"Windows.Storage.Pickers.Provider.PickerClosingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::PickerClosingOperation>{ L"Windows.Storage.Pickers.Provider.PickerClosingOperation" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::TargetFileRequest>{ L"Windows.Storage.Pickers.Provider.TargetFileRequest" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::TargetFileRequestDeferral>{ L"Windows.Storage.Pickers.Provider.TargetFileRequestDeferral" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::TargetFileRequestedEventArgs>{ L"Windows.Storage.Pickers.Provider.TargetFileRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::AddFileResult>{ L"Windows.Storage.Pickers.Provider.AddFileResult" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::FileSelectionMode>{ L"Windows.Storage.Pickers.Provider.FileSelectionMode" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::SetFileNameResult>{ L"Windows.Storage.Pickers.Provider.SetFileNameResult" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::IFileOpenPickerUI>{ L"Windows.Storage.Pickers.Provider.IFileOpenPickerUI" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::IFileRemovedEventArgs>{ L"Windows.Storage.Pickers.Provider.IFileRemovedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::IFileSavePickerUI>{ L"Windows.Storage.Pickers.Provider.IFileSavePickerUI" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::IPickerClosingDeferral>{ L"Windows.Storage.Pickers.Provider.IPickerClosingDeferral" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::IPickerClosingEventArgs>{ L"Windows.Storage.Pickers.Provider.IPickerClosingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::IPickerClosingOperation>{ L"Windows.Storage.Pickers.Provider.IPickerClosingOperation" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::ITargetFileRequest>{ L"Windows.Storage.Pickers.Provider.ITargetFileRequest" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::ITargetFileRequestDeferral>{ L"Windows.Storage.Pickers.Provider.ITargetFileRequestDeferral" };
-    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::ITargetFileRequestedEventArgs>{ L"Windows.Storage.Pickers.Provider.ITargetFileRequestedEventArgs" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::FileOpenPickerUI> = L"Windows.Storage.Pickers.Provider.FileOpenPickerUI";
+    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::FileRemovedEventArgs> = L"Windows.Storage.Pickers.Provider.FileRemovedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::FileSavePickerUI> = L"Windows.Storage.Pickers.Provider.FileSavePickerUI";
+    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::PickerClosingDeferral> = L"Windows.Storage.Pickers.Provider.PickerClosingDeferral";
+    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::PickerClosingEventArgs> = L"Windows.Storage.Pickers.Provider.PickerClosingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::PickerClosingOperation> = L"Windows.Storage.Pickers.Provider.PickerClosingOperation";
+    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::TargetFileRequest> = L"Windows.Storage.Pickers.Provider.TargetFileRequest";
+    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::TargetFileRequestDeferral> = L"Windows.Storage.Pickers.Provider.TargetFileRequestDeferral";
+    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::TargetFileRequestedEventArgs> = L"Windows.Storage.Pickers.Provider.TargetFileRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::AddFileResult> = L"Windows.Storage.Pickers.Provider.AddFileResult";
+    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::FileSelectionMode> = L"Windows.Storage.Pickers.Provider.FileSelectionMode";
+    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::SetFileNameResult> = L"Windows.Storage.Pickers.Provider.SetFileNameResult";
+    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::IFileOpenPickerUI> = L"Windows.Storage.Pickers.Provider.IFileOpenPickerUI";
+    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::IFileRemovedEventArgs> = L"Windows.Storage.Pickers.Provider.IFileRemovedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::IFileSavePickerUI> = L"Windows.Storage.Pickers.Provider.IFileSavePickerUI";
+    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::IPickerClosingDeferral> = L"Windows.Storage.Pickers.Provider.IPickerClosingDeferral";
+    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::IPickerClosingEventArgs> = L"Windows.Storage.Pickers.Provider.IPickerClosingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::IPickerClosingOperation> = L"Windows.Storage.Pickers.Provider.IPickerClosingOperation";
+    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::ITargetFileRequest> = L"Windows.Storage.Pickers.Provider.ITargetFileRequest";
+    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::ITargetFileRequestDeferral> = L"Windows.Storage.Pickers.Provider.ITargetFileRequestDeferral";
+    template <> inline constexpr auto& name_v<Windows::Storage::Pickers::Provider::ITargetFileRequestedEventArgs> = L"Windows.Storage.Pickers.Provider.ITargetFileRequestedEventArgs";
     template <> inline constexpr guid guid_v<Windows::Storage::Pickers::Provider::IFileOpenPickerUI>{ 0xDDA45A10,0xF9D4,0x40C4,{ 0x8A,0xF5,0xC5,0xB6,0xB5,0xA6,0x1D,0x1D } };
     template <> inline constexpr guid guid_v<Windows::Storage::Pickers::Provider::IFileRemovedEventArgs>{ 0x13043DA7,0x7FCA,0x4C2B,{ 0x9E,0xCA,0x68,0x90,0xF9,0xF0,0x01,0x85 } };
     template <> inline constexpr guid guid_v<Windows::Storage::Pickers::Provider::IFileSavePickerUI>{ 0x9656C1E7,0x3E56,0x43CC,{ 0x8A,0x39,0x33,0xC7,0x3D,0x9D,0x54,0x2B } };
@@ -208,23 +210,23 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_Pickers_Provider_IFileOpenPickerUI
     {
-        auto AddFile(param::hstring const& id, Windows::Storage::IStorageFile const& file) const;
-        auto RemoveFile(param::hstring const& id) const;
-        auto ContainsFile(param::hstring const& id) const;
-        auto CanAddFile(Windows::Storage::IStorageFile const& file) const;
-        [[nodiscard]] auto AllowedFileTypes() const;
-        [[nodiscard]] auto SelectionMode() const;
-        [[nodiscard]] auto SettingsIdentifier() const;
-        [[nodiscard]] auto Title() const;
-        auto Title(param::hstring const& value) const;
-        auto FileRemoved(Windows::Foundation::TypedEventHandler<Windows::Storage::Pickers::Provider::FileOpenPickerUI, Windows::Storage::Pickers::Provider::FileRemovedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(Windows::Storage::Pickers::Provider::AddFileResult) AddFile(param::hstring const& id, Windows::Storage::IStorageFile const& file) const;
+        WINRT_IMPL_AUTO(void) RemoveFile(param::hstring const& id) const;
+        WINRT_IMPL_AUTO(bool) ContainsFile(param::hstring const& id) const;
+        WINRT_IMPL_AUTO(bool) CanAddFile(Windows::Storage::IStorageFile const& file) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) AllowedFileTypes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Pickers::Provider::FileSelectionMode) SelectionMode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SettingsIdentifier() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Title() const;
+        WINRT_IMPL_AUTO(void) Title(param::hstring const& value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) FileRemoved(Windows::Foundation::TypedEventHandler<Windows::Storage::Pickers::Provider::FileOpenPickerUI, Windows::Storage::Pickers::Provider::FileRemovedEventArgs> const& handler) const;
         using FileRemoved_revoker = impl::event_revoker<Windows::Storage::Pickers::Provider::IFileOpenPickerUI, &impl::abi_t<Windows::Storage::Pickers::Provider::IFileOpenPickerUI>::remove_FileRemoved>;
         [[nodiscard]] FileRemoved_revoker FileRemoved(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Storage::Pickers::Provider::FileOpenPickerUI, Windows::Storage::Pickers::Provider::FileRemovedEventArgs> const& handler) const;
-        auto FileRemoved(winrt::event_token const& token) const noexcept;
-        auto Closing(Windows::Foundation::TypedEventHandler<Windows::Storage::Pickers::Provider::FileOpenPickerUI, Windows::Storage::Pickers::Provider::PickerClosingEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) FileRemoved(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Closing(Windows::Foundation::TypedEventHandler<Windows::Storage::Pickers::Provider::FileOpenPickerUI, Windows::Storage::Pickers::Provider::PickerClosingEventArgs> const& handler) const;
         using Closing_revoker = impl::event_revoker<Windows::Storage::Pickers::Provider::IFileOpenPickerUI, &impl::abi_t<Windows::Storage::Pickers::Provider::IFileOpenPickerUI>::remove_Closing>;
         [[nodiscard]] Closing_revoker Closing(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Storage::Pickers::Provider::FileOpenPickerUI, Windows::Storage::Pickers::Provider::PickerClosingEventArgs> const& handler) const;
-        auto Closing(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Closing(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Storage::Pickers::Provider::IFileOpenPickerUI>
     {
@@ -233,7 +235,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_Pickers_Provider_IFileRemovedEventArgs
     {
-        [[nodiscard]] auto Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
     };
     template <> struct consume<Windows::Storage::Pickers::Provider::IFileRemovedEventArgs>
     {
@@ -242,20 +244,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_Pickers_Provider_IFileSavePickerUI
     {
-        [[nodiscard]] auto Title() const;
-        auto Title(param::hstring const& value) const;
-        [[nodiscard]] auto AllowedFileTypes() const;
-        [[nodiscard]] auto SettingsIdentifier() const;
-        [[nodiscard]] auto FileName() const;
-        auto TrySetFileName(param::hstring const& value) const;
-        auto FileNameChanged(Windows::Foundation::TypedEventHandler<Windows::Storage::Pickers::Provider::FileSavePickerUI, Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Title() const;
+        WINRT_IMPL_AUTO(void) Title(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) AllowedFileTypes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SettingsIdentifier() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FileName() const;
+        WINRT_IMPL_AUTO(Windows::Storage::Pickers::Provider::SetFileNameResult) TrySetFileName(param::hstring const& value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) FileNameChanged(Windows::Foundation::TypedEventHandler<Windows::Storage::Pickers::Provider::FileSavePickerUI, Windows::Foundation::IInspectable> const& handler) const;
         using FileNameChanged_revoker = impl::event_revoker<Windows::Storage::Pickers::Provider::IFileSavePickerUI, &impl::abi_t<Windows::Storage::Pickers::Provider::IFileSavePickerUI>::remove_FileNameChanged>;
         [[nodiscard]] FileNameChanged_revoker FileNameChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Storage::Pickers::Provider::FileSavePickerUI, Windows::Foundation::IInspectable> const& handler) const;
-        auto FileNameChanged(winrt::event_token const& token) const noexcept;
-        auto TargetFileRequested(Windows::Foundation::TypedEventHandler<Windows::Storage::Pickers::Provider::FileSavePickerUI, Windows::Storage::Pickers::Provider::TargetFileRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) FileNameChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) TargetFileRequested(Windows::Foundation::TypedEventHandler<Windows::Storage::Pickers::Provider::FileSavePickerUI, Windows::Storage::Pickers::Provider::TargetFileRequestedEventArgs> const& handler) const;
         using TargetFileRequested_revoker = impl::event_revoker<Windows::Storage::Pickers::Provider::IFileSavePickerUI, &impl::abi_t<Windows::Storage::Pickers::Provider::IFileSavePickerUI>::remove_TargetFileRequested>;
         [[nodiscard]] TargetFileRequested_revoker TargetFileRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Storage::Pickers::Provider::FileSavePickerUI, Windows::Storage::Pickers::Provider::TargetFileRequestedEventArgs> const& handler) const;
-        auto TargetFileRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) TargetFileRequested(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Storage::Pickers::Provider::IFileSavePickerUI>
     {
@@ -264,7 +266,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_Pickers_Provider_IPickerClosingDeferral
     {
-        auto Complete() const;
+        WINRT_IMPL_AUTO(void) Complete() const;
     };
     template <> struct consume<Windows::Storage::Pickers::Provider::IPickerClosingDeferral>
     {
@@ -273,8 +275,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_Pickers_Provider_IPickerClosingEventArgs
     {
-        [[nodiscard]] auto ClosingOperation() const;
-        [[nodiscard]] auto IsCanceled() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Pickers::Provider::PickerClosingOperation) ClosingOperation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsCanceled() const;
     };
     template <> struct consume<Windows::Storage::Pickers::Provider::IPickerClosingEventArgs>
     {
@@ -283,8 +285,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_Pickers_Provider_IPickerClosingOperation
     {
-        auto GetDeferral() const;
-        [[nodiscard]] auto Deadline() const;
+        WINRT_IMPL_AUTO(Windows::Storage::Pickers::Provider::PickerClosingDeferral) GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) Deadline() const;
     };
     template <> struct consume<Windows::Storage::Pickers::Provider::IPickerClosingOperation>
     {
@@ -293,9 +295,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_Pickers_Provider_ITargetFileRequest
     {
-        [[nodiscard]] auto TargetFile() const;
-        auto TargetFile(Windows::Storage::IStorageFile const& value) const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::IStorageFile) TargetFile() const;
+        WINRT_IMPL_AUTO(void) TargetFile(Windows::Storage::IStorageFile const& value) const;
+        WINRT_IMPL_AUTO(Windows::Storage::Pickers::Provider::TargetFileRequestDeferral) GetDeferral() const;
     };
     template <> struct consume<Windows::Storage::Pickers::Provider::ITargetFileRequest>
     {
@@ -304,7 +306,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_Pickers_Provider_ITargetFileRequestDeferral
     {
-        auto Complete() const;
+        WINRT_IMPL_AUTO(void) Complete() const;
     };
     template <> struct consume<Windows::Storage::Pickers::Provider::ITargetFileRequestDeferral>
     {
@@ -313,7 +315,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Storage_Pickers_Provider_ITargetFileRequestedEventArgs
     {
-        [[nodiscard]] auto Request() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Pickers::Provider::TargetFileRequest) Request() const;
     };
     template <> struct consume<Windows::Storage::Pickers::Provider::ITargetFileRequestedEventArgs>
     {

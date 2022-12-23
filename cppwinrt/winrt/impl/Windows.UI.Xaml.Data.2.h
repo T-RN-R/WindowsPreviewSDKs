@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -94,7 +94,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Data
         CurrentChangingEventArgs(std::nullptr_t) noexcept {}
         CurrentChangingEventArgs(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Xaml::Data::ICurrentChangingEventArgs(ptr, take_ownership_from_abi) {}
         CurrentChangingEventArgs();
-        CurrentChangingEventArgs(bool isCancelable);
+        explicit CurrentChangingEventArgs(bool isCancelable);
     };
     struct __declspec(empty_bases) ItemIndexRange : Windows::UI::Xaml::Data::IItemIndexRange
     {
@@ -106,7 +106,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Data
     {
         PropertyChangedEventArgs(std::nullptr_t) noexcept {}
         PropertyChangedEventArgs(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Xaml::Data::IPropertyChangedEventArgs(ptr, take_ownership_from_abi) {}
-        PropertyChangedEventArgs(param::hstring const& name);
+        explicit PropertyChangedEventArgs(param::hstring const& name);
     };
     struct __declspec(empty_bases) RelativeSource : Windows::UI::Xaml::Data::IRelativeSource,
         impl::base<RelativeSource, Windows::UI::Xaml::DependencyObject>,

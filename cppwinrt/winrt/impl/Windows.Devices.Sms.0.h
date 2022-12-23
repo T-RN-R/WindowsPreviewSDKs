@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -11,11 +11,14 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
     struct IAsyncAction;
     template <typename TResult, typename TProgress> struct IAsyncOperationWithProgress;
     template <typename TResult> struct IAsyncOperation;
+    template <typename T> struct IReference;
     template <typename TSender, typename TResult> struct TypedEventHandler;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
+    template <typename K, typename V> struct IMap;
     template <typename T> struct IVectorView;
+    template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::Storage::Streams
 {
@@ -260,74 +263,72 @@ namespace winrt::impl
     template <> struct category<Windows::Devices::Sms::SmsEncodedLength>{ using type = struct_category<uint32_t, uint32_t, uint32_t, uint32_t, uint32_t>; };
     template <> struct category<Windows::Devices::Sms::SmsDeviceStatusChangedEventHandler>{ using type = delegate_category; };
     template <> struct category<Windows::Devices::Sms::SmsMessageReceivedEventHandler>{ using type = delegate_category; };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::DeleteSmsMessageOperation>{ L"Windows.Devices.Sms.DeleteSmsMessageOperation" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::DeleteSmsMessagesOperation>{ L"Windows.Devices.Sms.DeleteSmsMessagesOperation" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::GetSmsDeviceOperation>{ L"Windows.Devices.Sms.GetSmsDeviceOperation" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::GetSmsMessageOperation>{ L"Windows.Devices.Sms.GetSmsMessageOperation" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::GetSmsMessagesOperation>{ L"Windows.Devices.Sms.GetSmsMessagesOperation" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SendSmsMessageOperation>{ L"Windows.Devices.Sms.SendSmsMessageOperation" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsAppMessage>{ L"Windows.Devices.Sms.SmsAppMessage" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsBinaryMessage>{ L"Windows.Devices.Sms.SmsBinaryMessage" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsBroadcastMessage>{ L"Windows.Devices.Sms.SmsBroadcastMessage" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsDevice>{ L"Windows.Devices.Sms.SmsDevice" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsDevice2>{ L"Windows.Devices.Sms.SmsDevice2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsDeviceMessageStore>{ L"Windows.Devices.Sms.SmsDeviceMessageStore" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsFilterRule>{ L"Windows.Devices.Sms.SmsFilterRule" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsFilterRules>{ L"Windows.Devices.Sms.SmsFilterRules" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsMessageReceivedEventArgs>{ L"Windows.Devices.Sms.SmsMessageReceivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsMessageReceivedTriggerDetails>{ L"Windows.Devices.Sms.SmsMessageReceivedTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsMessageRegistration>{ L"Windows.Devices.Sms.SmsMessageRegistration" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsReceivedEventDetails>{ L"Windows.Devices.Sms.SmsReceivedEventDetails" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsSendMessageResult>{ L"Windows.Devices.Sms.SmsSendMessageResult" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsStatusMessage>{ L"Windows.Devices.Sms.SmsStatusMessage" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsTextMessage>{ L"Windows.Devices.Sms.SmsTextMessage" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsTextMessage2>{ L"Windows.Devices.Sms.SmsTextMessage2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsVoicemailMessage>{ L"Windows.Devices.Sms.SmsVoicemailMessage" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsWapMessage>{ L"Windows.Devices.Sms.SmsWapMessage" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::CellularClass>{ L"Windows.Devices.Sms.CellularClass" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsBroadcastType>{ L"Windows.Devices.Sms.SmsBroadcastType" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsDataFormat>{ L"Windows.Devices.Sms.SmsDataFormat" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsDeviceStatus>{ L"Windows.Devices.Sms.SmsDeviceStatus" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsEncoding>{ L"Windows.Devices.Sms.SmsEncoding" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsFilterActionType>{ L"Windows.Devices.Sms.SmsFilterActionType" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsGeographicalScope>{ L"Windows.Devices.Sms.SmsGeographicalScope" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsMessageClass>{ L"Windows.Devices.Sms.SmsMessageClass" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsMessageFilter>{ L"Windows.Devices.Sms.SmsMessageFilter" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsMessageType>{ L"Windows.Devices.Sms.SmsMessageType" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsModemErrorCode>{ L"Windows.Devices.Sms.SmsModemErrorCode" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsEncodedLength>{ L"Windows.Devices.Sms.SmsEncodedLength" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsAppMessage>{ L"Windows.Devices.Sms.ISmsAppMessage" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsBinaryMessage>{ L"Windows.Devices.Sms.ISmsBinaryMessage" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsBroadcastMessage>{ L"Windows.Devices.Sms.ISmsBroadcastMessage" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsDevice>{ L"Windows.Devices.Sms.ISmsDevice" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsDevice2>{ L"Windows.Devices.Sms.ISmsDevice2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsDevice2Statics>{ L"Windows.Devices.Sms.ISmsDevice2Statics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsDeviceMessageStore>{ L"Windows.Devices.Sms.ISmsDeviceMessageStore" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsDeviceStatics>{ L"Windows.Devices.Sms.ISmsDeviceStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsDeviceStatics2>{ L"Windows.Devices.Sms.ISmsDeviceStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsFilterRule>{ L"Windows.Devices.Sms.ISmsFilterRule" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsFilterRuleFactory>{ L"Windows.Devices.Sms.ISmsFilterRuleFactory" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsFilterRules>{ L"Windows.Devices.Sms.ISmsFilterRules" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsFilterRulesFactory>{ L"Windows.Devices.Sms.ISmsFilterRulesFactory" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsMessage>{ L"Windows.Devices.Sms.ISmsMessage" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsMessageBase>{ L"Windows.Devices.Sms.ISmsMessageBase" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsMessageReceivedEventArgs>{ L"Windows.Devices.Sms.ISmsMessageReceivedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsMessageReceivedTriggerDetails>{ L"Windows.Devices.Sms.ISmsMessageReceivedTriggerDetails" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsMessageRegistration>{ L"Windows.Devices.Sms.ISmsMessageRegistration" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsMessageRegistrationStatics>{ L"Windows.Devices.Sms.ISmsMessageRegistrationStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsReceivedEventDetails>{ L"Windows.Devices.Sms.ISmsReceivedEventDetails" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsReceivedEventDetails2>{ L"Windows.Devices.Sms.ISmsReceivedEventDetails2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsSendMessageResult>{ L"Windows.Devices.Sms.ISmsSendMessageResult" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsStatusMessage>{ L"Windows.Devices.Sms.ISmsStatusMessage" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsTextMessage>{ L"Windows.Devices.Sms.ISmsTextMessage" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsTextMessage2>{ L"Windows.Devices.Sms.ISmsTextMessage2" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsTextMessageStatics>{ L"Windows.Devices.Sms.ISmsTextMessageStatics" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsVoicemailMessage>{ L"Windows.Devices.Sms.ISmsVoicemailMessage" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsWapMessage>{ L"Windows.Devices.Sms.ISmsWapMessage" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsDeviceStatusChangedEventHandler>{ L"Windows.Devices.Sms.SmsDeviceStatusChangedEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsMessageReceivedEventHandler>{ L"Windows.Devices.Sms.SmsMessageReceivedEventHandler" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::DeleteSmsMessageOperation> = L"Windows.Devices.Sms.DeleteSmsMessageOperation";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::DeleteSmsMessagesOperation> = L"Windows.Devices.Sms.DeleteSmsMessagesOperation";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::GetSmsDeviceOperation> = L"Windows.Devices.Sms.GetSmsDeviceOperation";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::GetSmsMessageOperation> = L"Windows.Devices.Sms.GetSmsMessageOperation";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::GetSmsMessagesOperation> = L"Windows.Devices.Sms.GetSmsMessagesOperation";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SendSmsMessageOperation> = L"Windows.Devices.Sms.SendSmsMessageOperation";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsAppMessage> = L"Windows.Devices.Sms.SmsAppMessage";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsBinaryMessage> = L"Windows.Devices.Sms.SmsBinaryMessage";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsBroadcastMessage> = L"Windows.Devices.Sms.SmsBroadcastMessage";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsDevice> = L"Windows.Devices.Sms.SmsDevice";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsDevice2> = L"Windows.Devices.Sms.SmsDevice2";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsDeviceMessageStore> = L"Windows.Devices.Sms.SmsDeviceMessageStore";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsFilterRule> = L"Windows.Devices.Sms.SmsFilterRule";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsFilterRules> = L"Windows.Devices.Sms.SmsFilterRules";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsMessageReceivedEventArgs> = L"Windows.Devices.Sms.SmsMessageReceivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsMessageReceivedTriggerDetails> = L"Windows.Devices.Sms.SmsMessageReceivedTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsMessageRegistration> = L"Windows.Devices.Sms.SmsMessageRegistration";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsReceivedEventDetails> = L"Windows.Devices.Sms.SmsReceivedEventDetails";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsSendMessageResult> = L"Windows.Devices.Sms.SmsSendMessageResult";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsStatusMessage> = L"Windows.Devices.Sms.SmsStatusMessage";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsTextMessage> = L"Windows.Devices.Sms.SmsTextMessage";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsTextMessage2> = L"Windows.Devices.Sms.SmsTextMessage2";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsVoicemailMessage> = L"Windows.Devices.Sms.SmsVoicemailMessage";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsWapMessage> = L"Windows.Devices.Sms.SmsWapMessage";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::CellularClass> = L"Windows.Devices.Sms.CellularClass";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsBroadcastType> = L"Windows.Devices.Sms.SmsBroadcastType";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsDataFormat> = L"Windows.Devices.Sms.SmsDataFormat";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsDeviceStatus> = L"Windows.Devices.Sms.SmsDeviceStatus";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsEncoding> = L"Windows.Devices.Sms.SmsEncoding";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsFilterActionType> = L"Windows.Devices.Sms.SmsFilterActionType";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsGeographicalScope> = L"Windows.Devices.Sms.SmsGeographicalScope";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsMessageClass> = L"Windows.Devices.Sms.SmsMessageClass";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsMessageFilter> = L"Windows.Devices.Sms.SmsMessageFilter";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsMessageType> = L"Windows.Devices.Sms.SmsMessageType";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsModemErrorCode> = L"Windows.Devices.Sms.SmsModemErrorCode";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsEncodedLength> = L"Windows.Devices.Sms.SmsEncodedLength";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsAppMessage> = L"Windows.Devices.Sms.ISmsAppMessage";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsBinaryMessage> = L"Windows.Devices.Sms.ISmsBinaryMessage";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsBroadcastMessage> = L"Windows.Devices.Sms.ISmsBroadcastMessage";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsDevice> = L"Windows.Devices.Sms.ISmsDevice";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsDevice2> = L"Windows.Devices.Sms.ISmsDevice2";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsDevice2Statics> = L"Windows.Devices.Sms.ISmsDevice2Statics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsDeviceMessageStore> = L"Windows.Devices.Sms.ISmsDeviceMessageStore";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsDeviceStatics> = L"Windows.Devices.Sms.ISmsDeviceStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsDeviceStatics2> = L"Windows.Devices.Sms.ISmsDeviceStatics2";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsFilterRule> = L"Windows.Devices.Sms.ISmsFilterRule";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsFilterRuleFactory> = L"Windows.Devices.Sms.ISmsFilterRuleFactory";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsFilterRules> = L"Windows.Devices.Sms.ISmsFilterRules";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsFilterRulesFactory> = L"Windows.Devices.Sms.ISmsFilterRulesFactory";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsMessage> = L"Windows.Devices.Sms.ISmsMessage";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsMessageBase> = L"Windows.Devices.Sms.ISmsMessageBase";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsMessageReceivedEventArgs> = L"Windows.Devices.Sms.ISmsMessageReceivedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsMessageReceivedTriggerDetails> = L"Windows.Devices.Sms.ISmsMessageReceivedTriggerDetails";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsMessageRegistration> = L"Windows.Devices.Sms.ISmsMessageRegistration";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsMessageRegistrationStatics> = L"Windows.Devices.Sms.ISmsMessageRegistrationStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsReceivedEventDetails> = L"Windows.Devices.Sms.ISmsReceivedEventDetails";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsReceivedEventDetails2> = L"Windows.Devices.Sms.ISmsReceivedEventDetails2";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsSendMessageResult> = L"Windows.Devices.Sms.ISmsSendMessageResult";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsStatusMessage> = L"Windows.Devices.Sms.ISmsStatusMessage";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsTextMessage> = L"Windows.Devices.Sms.ISmsTextMessage";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsTextMessage2> = L"Windows.Devices.Sms.ISmsTextMessage2";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsTextMessageStatics> = L"Windows.Devices.Sms.ISmsTextMessageStatics";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsVoicemailMessage> = L"Windows.Devices.Sms.ISmsVoicemailMessage";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::ISmsWapMessage> = L"Windows.Devices.Sms.ISmsWapMessage";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsDeviceStatusChangedEventHandler> = L"Windows.Devices.Sms.SmsDeviceStatusChangedEventHandler";
+    template <> inline constexpr auto& name_v<Windows::Devices::Sms::SmsMessageReceivedEventHandler> = L"Windows.Devices.Sms.SmsMessageReceivedEventHandler";
     template <> inline constexpr guid guid_v<Windows::Devices::Sms::ISmsAppMessage>{ 0xE8BB8494,0xD3A0,0x4A0A,{ 0x86,0xD7,0x29,0x10,0x33,0xA8,0xCF,0x54 } };
     template <> inline constexpr guid guid_v<Windows::Devices::Sms::ISmsBinaryMessage>{ 0x5BF4E813,0x3B53,0x4C6E,{ 0xB6,0x1A,0xD8,0x6A,0x63,0x75,0x56,0x50 } };
     template <> inline constexpr guid guid_v<Windows::Devices::Sms::ISmsBroadcastMessage>{ 0x75AEBBF1,0xE4B7,0x4874,{ 0xA0,0x9C,0x29,0x56,0xE5,0x92,0xF9,0x57 } };
@@ -739,28 +740,28 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sms_ISmsAppMessage
     {
-        [[nodiscard]] auto Timestamp() const;
-        [[nodiscard]] auto To() const;
-        auto To(param::hstring const& value) const;
-        [[nodiscard]] auto From() const;
-        [[nodiscard]] auto Body() const;
-        auto Body(param::hstring const& value) const;
-        [[nodiscard]] auto CallbackNumber() const;
-        auto CallbackNumber(param::hstring const& value) const;
-        [[nodiscard]] auto IsDeliveryNotificationEnabled() const;
-        auto IsDeliveryNotificationEnabled(bool value) const;
-        [[nodiscard]] auto RetryAttemptCount() const;
-        auto RetryAttemptCount(int32_t value) const;
-        [[nodiscard]] auto Encoding() const;
-        auto Encoding(Windows::Devices::Sms::SmsEncoding const& value) const;
-        [[nodiscard]] auto PortNumber() const;
-        auto PortNumber(int32_t value) const;
-        [[nodiscard]] auto TeleserviceId() const;
-        auto TeleserviceId(int32_t value) const;
-        [[nodiscard]] auto ProtocolId() const;
-        auto ProtocolId(int32_t value) const;
-        [[nodiscard]] auto BinaryBody() const;
-        auto BinaryBody(Windows::Storage::Streams::IBuffer const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) Timestamp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) To() const;
+        WINRT_IMPL_AUTO(void) To(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) From() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Body() const;
+        WINRT_IMPL_AUTO(void) Body(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CallbackNumber() const;
+        WINRT_IMPL_AUTO(void) CallbackNumber(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDeliveryNotificationEnabled() const;
+        WINRT_IMPL_AUTO(void) IsDeliveryNotificationEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) RetryAttemptCount() const;
+        WINRT_IMPL_AUTO(void) RetryAttemptCount(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsEncoding) Encoding() const;
+        WINRT_IMPL_AUTO(void) Encoding(Windows::Devices::Sms::SmsEncoding const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) PortNumber() const;
+        WINRT_IMPL_AUTO(void) PortNumber(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) TeleserviceId() const;
+        WINRT_IMPL_AUTO(void) TeleserviceId(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) ProtocolId() const;
+        WINRT_IMPL_AUTO(void) ProtocolId(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) BinaryBody() const;
+        WINRT_IMPL_AUTO(void) BinaryBody(Windows::Storage::Streams::IBuffer const& value) const;
     };
     template <> struct consume<Windows::Devices::Sms::ISmsAppMessage>
     {
@@ -769,10 +770,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sms_ISmsBinaryMessage
     {
-        [[nodiscard]] auto Format() const;
-        auto Format(Windows::Devices::Sms::SmsDataFormat const& value) const;
-        auto GetData() const;
-        auto SetData(array_view<uint8_t const> value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsDataFormat) Format() const;
+        WINRT_IMPL_AUTO(void) Format(Windows::Devices::Sms::SmsDataFormat const& value) const;
+        WINRT_IMPL_AUTO(com_array<uint8_t>) GetData() const;
+        WINRT_IMPL_AUTO(void) SetData(array_view<uint8_t const> value) const;
     };
     template <> struct consume<Windows::Devices::Sms::ISmsBinaryMessage>
     {
@@ -781,16 +782,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sms_ISmsBroadcastMessage
     {
-        [[nodiscard]] auto Timestamp() const;
-        [[nodiscard]] auto To() const;
-        [[nodiscard]] auto Body() const;
-        [[nodiscard]] auto Channel() const;
-        [[nodiscard]] auto GeographicalScope() const;
-        [[nodiscard]] auto MessageCode() const;
-        [[nodiscard]] auto UpdateNumber() const;
-        [[nodiscard]] auto BroadcastType() const;
-        [[nodiscard]] auto IsEmergencyAlert() const;
-        [[nodiscard]] auto IsUserPopupRequested() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) Timestamp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) To() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Body() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Channel() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsGeographicalScope) GeographicalScope() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) MessageCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) UpdateNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsBroadcastType) BroadcastType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsEmergencyAlert() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsUserPopupRequested() const;
     };
     template <> struct consume<Windows::Devices::Sms::ISmsBroadcastMessage>
     {
@@ -799,20 +800,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sms_ISmsDevice
     {
-        auto SendMessageAsync(Windows::Devices::Sms::ISmsMessage const& message) const;
-        auto CalculateLength(Windows::Devices::Sms::SmsTextMessage const& message) const;
-        [[nodiscard]] auto AccountPhoneNumber() const;
-        [[nodiscard]] auto CellularClass() const;
-        [[nodiscard]] auto MessageStore() const;
-        [[nodiscard]] auto DeviceStatus() const;
-        auto SmsMessageReceived(Windows::Devices::Sms::SmsMessageReceivedEventHandler const& eventHandler) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Sms::SendSmsMessageOperation) SendMessageAsync(Windows::Devices::Sms::ISmsMessage const& message) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsEncodedLength) CalculateLength(Windows::Devices::Sms::SmsTextMessage const& message) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AccountPhoneNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::CellularClass) CellularClass() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsDeviceMessageStore) MessageStore() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsDeviceStatus) DeviceStatus() const;
+        WINRT_IMPL_AUTO(winrt::event_token) SmsMessageReceived(Windows::Devices::Sms::SmsMessageReceivedEventHandler const& eventHandler) const;
         using SmsMessageReceived_revoker = impl::event_revoker<Windows::Devices::Sms::ISmsDevice, &impl::abi_t<Windows::Devices::Sms::ISmsDevice>::remove_SmsMessageReceived>;
         [[nodiscard]] SmsMessageReceived_revoker SmsMessageReceived(auto_revoke_t, Windows::Devices::Sms::SmsMessageReceivedEventHandler const& eventHandler) const;
-        auto SmsMessageReceived(winrt::event_token const& eventCookie) const noexcept;
-        auto SmsDeviceStatusChanged(Windows::Devices::Sms::SmsDeviceStatusChangedEventHandler const& eventHandler) const;
+        WINRT_IMPL_AUTO(void) SmsMessageReceived(winrt::event_token const& eventCookie) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) SmsDeviceStatusChanged(Windows::Devices::Sms::SmsDeviceStatusChangedEventHandler const& eventHandler) const;
         using SmsDeviceStatusChanged_revoker = impl::event_revoker<Windows::Devices::Sms::ISmsDevice, &impl::abi_t<Windows::Devices::Sms::ISmsDevice>::remove_SmsDeviceStatusChanged>;
         [[nodiscard]] SmsDeviceStatusChanged_revoker SmsDeviceStatusChanged(auto_revoke_t, Windows::Devices::Sms::SmsDeviceStatusChangedEventHandler const& eventHandler) const;
-        auto SmsDeviceStatusChanged(winrt::event_token const& eventCookie) const noexcept;
+        WINRT_IMPL_AUTO(void) SmsDeviceStatusChanged(winrt::event_token const& eventCookie) const noexcept;
     };
     template <> struct consume<Windows::Devices::Sms::ISmsDevice>
     {
@@ -821,19 +822,19 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sms_ISmsDevice2
     {
-        [[nodiscard]] auto SmscAddress() const;
-        auto SmscAddress(param::hstring const& value) const;
-        [[nodiscard]] auto DeviceId() const;
-        [[nodiscard]] auto ParentDeviceId() const;
-        [[nodiscard]] auto AccountPhoneNumber() const;
-        [[nodiscard]] auto CellularClass() const;
-        [[nodiscard]] auto DeviceStatus() const;
-        auto CalculateLength(Windows::Devices::Sms::ISmsMessageBase const& message) const;
-        auto SendMessageAndGetResultAsync(Windows::Devices::Sms::ISmsMessageBase const& message) const;
-        auto DeviceStatusChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sms::SmsDevice2, Windows::Foundation::IInspectable> const& eventHandler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SmscAddress() const;
+        WINRT_IMPL_AUTO(void) SmscAddress(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ParentDeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AccountPhoneNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::CellularClass) CellularClass() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsDeviceStatus) DeviceStatus() const;
+        WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsEncodedLength) CalculateLength(Windows::Devices::Sms::ISmsMessageBase const& message) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Sms::SmsSendMessageResult>) SendMessageAndGetResultAsync(Windows::Devices::Sms::ISmsMessageBase const& message) const;
+        WINRT_IMPL_AUTO(winrt::event_token) DeviceStatusChanged(Windows::Foundation::TypedEventHandler<Windows::Devices::Sms::SmsDevice2, Windows::Foundation::IInspectable> const& eventHandler) const;
         using DeviceStatusChanged_revoker = impl::event_revoker<Windows::Devices::Sms::ISmsDevice2, &impl::abi_t<Windows::Devices::Sms::ISmsDevice2>::remove_DeviceStatusChanged>;
         [[nodiscard]] DeviceStatusChanged_revoker DeviceStatusChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Sms::SmsDevice2, Windows::Foundation::IInspectable> const& eventHandler) const;
-        auto DeviceStatusChanged(winrt::event_token const& eventCookie) const noexcept;
+        WINRT_IMPL_AUTO(void) DeviceStatusChanged(winrt::event_token const& eventCookie) const noexcept;
     };
     template <> struct consume<Windows::Devices::Sms::ISmsDevice2>
     {
@@ -842,10 +843,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sms_ISmsDevice2Statics
     {
-        auto GetDeviceSelector() const;
-        auto FromId(param::hstring const& deviceId) const;
-        auto GetDefault() const;
-        auto FromParentId(param::hstring const& parentDeviceId) const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector() const;
+        WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsDevice2) FromId(param::hstring const& deviceId) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsDevice2) GetDefault() const;
+        WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsDevice2) FromParentId(param::hstring const& parentDeviceId) const;
     };
     template <> struct consume<Windows::Devices::Sms::ISmsDevice2Statics>
     {
@@ -854,11 +855,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sms_ISmsDeviceMessageStore
     {
-        auto DeleteMessageAsync(uint32_t messageId) const;
-        auto DeleteMessagesAsync(Windows::Devices::Sms::SmsMessageFilter const& messageFilter) const;
-        auto GetMessageAsync(uint32_t messageId) const;
-        auto GetMessagesAsync(Windows::Devices::Sms::SmsMessageFilter const& messageFilter) const;
-        [[nodiscard]] auto MaxMessages() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) DeleteMessageAsync(uint32_t messageId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) DeleteMessagesAsync(Windows::Devices::Sms::SmsMessageFilter const& messageFilter) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Sms::ISmsMessage>) GetMessageAsync(uint32_t messageId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Foundation::Collections::IVectorView<Windows::Devices::Sms::ISmsMessage>, int32_t>) GetMessagesAsync(Windows::Devices::Sms::SmsMessageFilter const& messageFilter) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MaxMessages() const;
     };
     template <> struct consume<Windows::Devices::Sms::ISmsDeviceMessageStore>
     {
@@ -867,9 +868,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sms_ISmsDeviceStatics
     {
-        auto GetDeviceSelector() const;
-        auto FromIdAsync(param::hstring const& deviceId) const;
-        auto GetDefaultAsync() const;
+        WINRT_IMPL_AUTO(hstring) GetDeviceSelector() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Sms::SmsDevice>) FromIdAsync(param::hstring const& deviceId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Sms::SmsDevice>) GetDefaultAsync() const;
     };
     template <> struct consume<Windows::Devices::Sms::ISmsDeviceStatics>
     {
@@ -878,7 +879,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sms_ISmsDeviceStatics2
     {
-        auto FromNetworkAccountIdAsync(param::hstring const& networkAccountId) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Sms::SmsDevice>) FromNetworkAccountIdAsync(param::hstring const& networkAccountId) const;
     };
     template <> struct consume<Windows::Devices::Sms::ISmsDeviceStatics2>
     {
@@ -887,20 +888,20 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sms_ISmsFilterRule
     {
-        [[nodiscard]] auto MessageType() const;
-        [[nodiscard]] auto ImsiPrefixes() const;
-        [[nodiscard]] auto DeviceIds() const;
-        [[nodiscard]] auto SenderNumbers() const;
-        [[nodiscard]] auto TextMessagePrefixes() const;
-        [[nodiscard]] auto PortNumbers() const;
-        [[nodiscard]] auto CellularClass() const;
-        auto CellularClass(Windows::Devices::Sms::CellularClass const& value) const;
-        [[nodiscard]] auto ProtocolIds() const;
-        [[nodiscard]] auto TeleserviceIds() const;
-        [[nodiscard]] auto WapApplicationIds() const;
-        [[nodiscard]] auto WapContentTypes() const;
-        [[nodiscard]] auto BroadcastTypes() const;
-        [[nodiscard]] auto BroadcastChannels() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsMessageType) MessageType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) ImsiPrefixes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) DeviceIds() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) SenderNumbers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) TextMessagePrefixes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<int32_t>) PortNumbers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::CellularClass) CellularClass() const;
+        WINRT_IMPL_AUTO(void) CellularClass(Windows::Devices::Sms::CellularClass const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<int32_t>) ProtocolIds() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<int32_t>) TeleserviceIds() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) WapApplicationIds() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) WapContentTypes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Devices::Sms::SmsBroadcastType>) BroadcastTypes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<int32_t>) BroadcastChannels() const;
     };
     template <> struct consume<Windows::Devices::Sms::ISmsFilterRule>
     {
@@ -909,7 +910,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sms_ISmsFilterRuleFactory
     {
-        auto CreateFilterRule(Windows::Devices::Sms::SmsMessageType const& messageType) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsFilterRule) CreateFilterRule(Windows::Devices::Sms::SmsMessageType const& messageType) const;
     };
     template <> struct consume<Windows::Devices::Sms::ISmsFilterRuleFactory>
     {
@@ -918,8 +919,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sms_ISmsFilterRules
     {
-        [[nodiscard]] auto ActionType() const;
-        [[nodiscard]] auto Rules() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsFilterActionType) ActionType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Devices::Sms::SmsFilterRule>) Rules() const;
     };
     template <> struct consume<Windows::Devices::Sms::ISmsFilterRules>
     {
@@ -928,7 +929,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sms_ISmsFilterRulesFactory
     {
-        auto CreateFilterRules(Windows::Devices::Sms::SmsFilterActionType const& actionType) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsFilterRules) CreateFilterRules(Windows::Devices::Sms::SmsFilterActionType const& actionType) const;
     };
     template <> struct consume<Windows::Devices::Sms::ISmsFilterRulesFactory>
     {
@@ -937,8 +938,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sms_ISmsMessage
     {
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto MessageClass() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsMessageClass) MessageClass() const;
     };
     template <> struct consume<Windows::Devices::Sms::ISmsMessage>
     {
@@ -947,11 +948,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sms_ISmsMessageBase
     {
-        [[nodiscard]] auto MessageType() const;
-        [[nodiscard]] auto DeviceId() const;
-        [[nodiscard]] auto CellularClass() const;
-        [[nodiscard]] auto MessageClass() const;
-        [[nodiscard]] auto SimIccId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsMessageType) MessageType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::CellularClass) CellularClass() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsMessageClass) MessageClass() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) SimIccId() const;
     };
     template <> struct consume<Windows::Devices::Sms::ISmsMessageBase>
     {
@@ -960,8 +961,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sms_ISmsMessageReceivedEventArgs
     {
-        [[nodiscard]] auto TextMessage() const;
-        [[nodiscard]] auto BinaryMessage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsTextMessage) TextMessage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsBinaryMessage) BinaryMessage() const;
     };
     template <> struct consume<Windows::Devices::Sms::ISmsMessageReceivedEventArgs>
     {
@@ -970,15 +971,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sms_ISmsMessageReceivedTriggerDetails
     {
-        [[nodiscard]] auto MessageType() const;
-        [[nodiscard]] auto TextMessage() const;
-        [[nodiscard]] auto WapMessage() const;
-        [[nodiscard]] auto AppMessage() const;
-        [[nodiscard]] auto BroadcastMessage() const;
-        [[nodiscard]] auto VoicemailMessage() const;
-        [[nodiscard]] auto StatusMessage() const;
-        auto Drop() const;
-        auto Accept() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsMessageType) MessageType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsTextMessage2) TextMessage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsWapMessage) WapMessage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsAppMessage) AppMessage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsBroadcastMessage) BroadcastMessage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsVoicemailMessage) VoicemailMessage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsStatusMessage) StatusMessage() const;
+        WINRT_IMPL_AUTO(void) Drop() const;
+        WINRT_IMPL_AUTO(void) Accept() const;
     };
     template <> struct consume<Windows::Devices::Sms::ISmsMessageReceivedTriggerDetails>
     {
@@ -987,12 +988,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sms_ISmsMessageRegistration
     {
-        [[nodiscard]] auto Id() const;
-        auto Unregister() const;
-        auto MessageReceived(Windows::Foundation::TypedEventHandler<Windows::Devices::Sms::SmsMessageRegistration, Windows::Devices::Sms::SmsMessageReceivedTriggerDetails> const& eventHandler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        WINRT_IMPL_AUTO(void) Unregister() const;
+        WINRT_IMPL_AUTO(winrt::event_token) MessageReceived(Windows::Foundation::TypedEventHandler<Windows::Devices::Sms::SmsMessageRegistration, Windows::Devices::Sms::SmsMessageReceivedTriggerDetails> const& eventHandler) const;
         using MessageReceived_revoker = impl::event_revoker<Windows::Devices::Sms::ISmsMessageRegistration, &impl::abi_t<Windows::Devices::Sms::ISmsMessageRegistration>::remove_MessageReceived>;
         [[nodiscard]] MessageReceived_revoker MessageReceived(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Devices::Sms::SmsMessageRegistration, Windows::Devices::Sms::SmsMessageReceivedTriggerDetails> const& eventHandler) const;
-        auto MessageReceived(winrt::event_token const& eventCookie) const noexcept;
+        WINRT_IMPL_AUTO(void) MessageReceived(winrt::event_token const& eventCookie) const noexcept;
     };
     template <> struct consume<Windows::Devices::Sms::ISmsMessageRegistration>
     {
@@ -1001,8 +1002,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sms_ISmsMessageRegistrationStatics
     {
-        [[nodiscard]] auto AllRegistrations() const;
-        auto Register(param::hstring const& id, Windows::Devices::Sms::SmsFilterRules const& filterRules) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Sms::SmsMessageRegistration>) AllRegistrations() const;
+        WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsMessageRegistration) Register(param::hstring const& id, Windows::Devices::Sms::SmsFilterRules const& filterRules) const;
     };
     template <> struct consume<Windows::Devices::Sms::ISmsMessageRegistrationStatics>
     {
@@ -1011,8 +1012,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sms_ISmsReceivedEventDetails
     {
-        [[nodiscard]] auto DeviceId() const;
-        [[nodiscard]] auto MessageIndex() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) MessageIndex() const;
     };
     template <> struct consume<Windows::Devices::Sms::ISmsReceivedEventDetails>
     {
@@ -1021,8 +1022,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sms_ISmsReceivedEventDetails2
     {
-        [[nodiscard]] auto MessageClass() const;
-        [[nodiscard]] auto BinaryMessage() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsMessageClass) MessageClass() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsBinaryMessage) BinaryMessage() const;
     };
     template <> struct consume<Windows::Devices::Sms::ISmsReceivedEventDetails2>
     {
@@ -1031,13 +1032,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sms_ISmsSendMessageResult
     {
-        [[nodiscard]] auto IsSuccessful() const;
-        [[nodiscard]] auto MessageReferenceNumbers() const;
-        [[nodiscard]] auto CellularClass() const;
-        [[nodiscard]] auto ModemErrorCode() const;
-        [[nodiscard]] auto IsErrorTransient() const;
-        [[nodiscard]] auto NetworkCauseCode() const;
-        [[nodiscard]] auto TransportFailureCause() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSuccessful() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<int32_t>) MessageReferenceNumbers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::CellularClass) CellularClass() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsModemErrorCode) ModemErrorCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsErrorTransient() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) NetworkCauseCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) TransportFailureCause() const;
     };
     template <> struct consume<Windows::Devices::Sms::ISmsSendMessageResult>
     {
@@ -1046,13 +1047,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sms_ISmsStatusMessage
     {
-        [[nodiscard]] auto To() const;
-        [[nodiscard]] auto From() const;
-        [[nodiscard]] auto Body() const;
-        [[nodiscard]] auto Status() const;
-        [[nodiscard]] auto MessageReferenceNumber() const;
-        [[nodiscard]] auto ServiceCenterTimestamp() const;
-        [[nodiscard]] auto DischargeTime() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) To() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) From() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Body() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) MessageReferenceNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) ServiceCenterTimestamp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) DischargeTime() const;
     };
     template <> struct consume<Windows::Devices::Sms::ISmsStatusMessage>
     {
@@ -1061,19 +1062,19 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sms_ISmsTextMessage
     {
-        [[nodiscard]] auto Timestamp() const;
-        [[nodiscard]] auto PartReferenceId() const;
-        [[nodiscard]] auto PartNumber() const;
-        [[nodiscard]] auto PartCount() const;
-        [[nodiscard]] auto To() const;
-        auto To(param::hstring const& value) const;
-        [[nodiscard]] auto From() const;
-        auto From(param::hstring const& value) const;
-        [[nodiscard]] auto Body() const;
-        auto Body(param::hstring const& value) const;
-        [[nodiscard]] auto Encoding() const;
-        auto Encoding(Windows::Devices::Sms::SmsEncoding const& value) const;
-        auto ToBinaryMessages(Windows::Devices::Sms::SmsDataFormat const& format) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) Timestamp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) PartReferenceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) PartNumber() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) PartCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) To() const;
+        WINRT_IMPL_AUTO(void) To(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) From() const;
+        WINRT_IMPL_AUTO(void) From(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Body() const;
+        WINRT_IMPL_AUTO(void) Body(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsEncoding) Encoding() const;
+        WINRT_IMPL_AUTO(void) Encoding(Windows::Devices::Sms::SmsEncoding const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Devices::Sms::ISmsBinaryMessage>) ToBinaryMessages(Windows::Devices::Sms::SmsDataFormat const& format) const;
     };
     template <> struct consume<Windows::Devices::Sms::ISmsTextMessage>
     {
@@ -1082,22 +1083,22 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sms_ISmsTextMessage2
     {
-        [[nodiscard]] auto Timestamp() const;
-        [[nodiscard]] auto To() const;
-        auto To(param::hstring const& value) const;
-        [[nodiscard]] auto From() const;
-        [[nodiscard]] auto Body() const;
-        auto Body(param::hstring const& value) const;
-        [[nodiscard]] auto Encoding() const;
-        auto Encoding(Windows::Devices::Sms::SmsEncoding const& value) const;
-        [[nodiscard]] auto CallbackNumber() const;
-        auto CallbackNumber(param::hstring const& value) const;
-        [[nodiscard]] auto IsDeliveryNotificationEnabled() const;
-        auto IsDeliveryNotificationEnabled(bool value) const;
-        [[nodiscard]] auto RetryAttemptCount() const;
-        auto RetryAttemptCount(int32_t value) const;
-        [[nodiscard]] auto TeleserviceId() const;
-        [[nodiscard]] auto ProtocolId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) Timestamp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) To() const;
+        WINRT_IMPL_AUTO(void) To(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) From() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Body() const;
+        WINRT_IMPL_AUTO(void) Body(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsEncoding) Encoding() const;
+        WINRT_IMPL_AUTO(void) Encoding(Windows::Devices::Sms::SmsEncoding const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) CallbackNumber() const;
+        WINRT_IMPL_AUTO(void) CallbackNumber(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDeliveryNotificationEnabled() const;
+        WINRT_IMPL_AUTO(void) IsDeliveryNotificationEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) RetryAttemptCount() const;
+        WINRT_IMPL_AUTO(void) RetryAttemptCount(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) TeleserviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) ProtocolId() const;
     };
     template <> struct consume<Windows::Devices::Sms::ISmsTextMessage2>
     {
@@ -1106,8 +1107,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sms_ISmsTextMessageStatics
     {
-        auto FromBinaryMessage(Windows::Devices::Sms::SmsBinaryMessage const& binaryMessage) const;
-        auto FromBinaryData(Windows::Devices::Sms::SmsDataFormat const& format, array_view<uint8_t const> value) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsTextMessage) FromBinaryMessage(Windows::Devices::Sms::SmsBinaryMessage const& binaryMessage) const;
+        WINRT_IMPL_AUTO(Windows::Devices::Sms::SmsTextMessage) FromBinaryData(Windows::Devices::Sms::SmsDataFormat const& format, array_view<uint8_t const> value) const;
     };
     template <> struct consume<Windows::Devices::Sms::ISmsTextMessageStatics>
     {
@@ -1116,10 +1117,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sms_ISmsVoicemailMessage
     {
-        [[nodiscard]] auto Timestamp() const;
-        [[nodiscard]] auto To() const;
-        [[nodiscard]] auto Body() const;
-        [[nodiscard]] auto MessageCount() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) Timestamp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) To() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Body() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) MessageCount() const;
     };
     template <> struct consume<Windows::Devices::Sms::ISmsVoicemailMessage>
     {
@@ -1128,13 +1129,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Devices_Sms_ISmsWapMessage
     {
-        [[nodiscard]] auto Timestamp() const;
-        [[nodiscard]] auto To() const;
-        [[nodiscard]] auto From() const;
-        [[nodiscard]] auto ApplicationId() const;
-        [[nodiscard]] auto ContentType() const;
-        [[nodiscard]] auto BinaryBody() const;
-        [[nodiscard]] auto Headers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::DateTime) Timestamp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) To() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) From() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ApplicationId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ContentType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) BinaryBody() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IMap<hstring, hstring>) Headers() const;
     };
     template <> struct consume<Windows::Devices::Sms::ISmsWapMessage>
     {

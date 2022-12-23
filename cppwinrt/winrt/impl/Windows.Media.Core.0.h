@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -15,6 +15,8 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
     struct EventRegistrationToken;
     struct HResult;
     struct IAsyncAction;
+    template <typename TResult, typename TProgress> struct IAsyncOperationWithProgress;
+    template <typename TResult> struct IAsyncOperation;
     template <typename T> struct IReference;
     template <typename TSender, typename TResult> struct TypedEventHandler;
     struct Uri;
@@ -23,6 +25,9 @@ WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
 {
     template <typename T> struct IIterable;
     template <typename K, typename V> struct IMap;
+    template <typename T> struct IObservableVector;
+    template <typename T> struct IVectorView;
+    template <typename T> struct IVector;
     struct PropertySet;
     struct ValueSet;
 }
@@ -32,6 +37,7 @@ WINRT_EXPORT namespace winrt::Windows::Graphics::DirectX::Direct3D11
 }
 WINRT_EXPORT namespace winrt::Windows::Graphics::Imaging
 {
+    enum class BitmapPixelFormat : int32_t;
     struct SoftwareBitmap;
 }
 WINRT_EXPORT namespace winrt::Windows::Media::Capture
@@ -47,9 +53,17 @@ WINRT_EXPORT namespace winrt::Windows::Media::Devices
 {
     struct VideoDeviceController;
 }
+WINRT_EXPORT namespace winrt::Windows::Media::Devices::Core
+{
+    struct FrameController;
+}
 WINRT_EXPORT namespace winrt::Windows::Media::Effects
 {
     struct IVideoEffectDefinition;
+}
+WINRT_EXPORT namespace winrt::Windows::Media::FaceAnalysis
+{
+    struct DetectedFace;
 }
 WINRT_EXPORT namespace winrt::Windows::Media::MediaProperties
 {
@@ -661,214 +675,212 @@ namespace winrt::impl
     template <> struct category<Windows::Media::Core::TimedTextPadding>{ using type = struct_category<double, double, double, double, Windows::Media::Core::TimedTextUnit>; };
     template <> struct category<Windows::Media::Core::TimedTextPoint>{ using type = struct_category<double, double, Windows::Media::Core::TimedTextUnit>; };
     template <> struct category<Windows::Media::Core::TimedTextSize>{ using type = struct_category<double, double, Windows::Media::Core::TimedTextUnit>; };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::AudioStreamDescriptor>{ L"Windows.Media.Core.AudioStreamDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::AudioTrack>{ L"Windows.Media.Core.AudioTrack" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::AudioTrackOpenFailedEventArgs>{ L"Windows.Media.Core.AudioTrackOpenFailedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::AudioTrackSupportInfo>{ L"Windows.Media.Core.AudioTrackSupportInfo" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ChapterCue>{ L"Windows.Media.Core.ChapterCue" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::CodecInfo>{ L"Windows.Media.Core.CodecInfo" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::CodecQuery>{ L"Windows.Media.Core.CodecQuery" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::CodecSubtypes>{ L"Windows.Media.Core.CodecSubtypes" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::DataCue>{ L"Windows.Media.Core.DataCue" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::FaceDetectedEventArgs>{ L"Windows.Media.Core.FaceDetectedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::FaceDetectionEffect>{ L"Windows.Media.Core.FaceDetectionEffect" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::FaceDetectionEffectDefinition>{ L"Windows.Media.Core.FaceDetectionEffectDefinition" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::FaceDetectionEffectFrame>{ L"Windows.Media.Core.FaceDetectionEffectFrame" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::HighDynamicRangeControl>{ L"Windows.Media.Core.HighDynamicRangeControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::HighDynamicRangeOutput>{ L"Windows.Media.Core.HighDynamicRangeOutput" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ImageCue>{ L"Windows.Media.Core.ImageCue" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::InitializeMediaStreamSourceRequestedEventArgs>{ L"Windows.Media.Core.InitializeMediaStreamSourceRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::LowLightFusion>{ L"Windows.Media.Core.LowLightFusion" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::LowLightFusionResult>{ L"Windows.Media.Core.LowLightFusionResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaBinder>{ L"Windows.Media.Core.MediaBinder" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaBindingEventArgs>{ L"Windows.Media.Core.MediaBindingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaCueEventArgs>{ L"Windows.Media.Core.MediaCueEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaSource>{ L"Windows.Media.Core.MediaSource" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaSourceAppServiceConnection>{ L"Windows.Media.Core.MediaSourceAppServiceConnection" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaSourceError>{ L"Windows.Media.Core.MediaSourceError" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaSourceOpenOperationCompletedEventArgs>{ L"Windows.Media.Core.MediaSourceOpenOperationCompletedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaSourceStateChangedEventArgs>{ L"Windows.Media.Core.MediaSourceStateChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSample>{ L"Windows.Media.Core.MediaStreamSample" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSamplePropertySet>{ L"Windows.Media.Core.MediaStreamSamplePropertySet" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSampleProtectionProperties>{ L"Windows.Media.Core.MediaStreamSampleProtectionProperties" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSource>{ L"Windows.Media.Core.MediaStreamSource" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSourceClosedEventArgs>{ L"Windows.Media.Core.MediaStreamSourceClosedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSourceClosedRequest>{ L"Windows.Media.Core.MediaStreamSourceClosedRequest" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSourceSampleRenderedEventArgs>{ L"Windows.Media.Core.MediaStreamSourceSampleRenderedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSourceSampleRequest>{ L"Windows.Media.Core.MediaStreamSourceSampleRequest" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSourceSampleRequestDeferral>{ L"Windows.Media.Core.MediaStreamSourceSampleRequestDeferral" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSourceSampleRequestedEventArgs>{ L"Windows.Media.Core.MediaStreamSourceSampleRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSourceStartingEventArgs>{ L"Windows.Media.Core.MediaStreamSourceStartingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSourceStartingRequest>{ L"Windows.Media.Core.MediaStreamSourceStartingRequest" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSourceStartingRequestDeferral>{ L"Windows.Media.Core.MediaStreamSourceStartingRequestDeferral" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSourceSwitchStreamsRequest>{ L"Windows.Media.Core.MediaStreamSourceSwitchStreamsRequest" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSourceSwitchStreamsRequestDeferral>{ L"Windows.Media.Core.MediaStreamSourceSwitchStreamsRequestDeferral" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSourceSwitchStreamsRequestedEventArgs>{ L"Windows.Media.Core.MediaStreamSourceSwitchStreamsRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MseSourceBuffer>{ L"Windows.Media.Core.MseSourceBuffer" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MseSourceBufferList>{ L"Windows.Media.Core.MseSourceBufferList" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MseStreamSource>{ L"Windows.Media.Core.MseStreamSource" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::SceneAnalysisEffect>{ L"Windows.Media.Core.SceneAnalysisEffect" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::SceneAnalysisEffectDefinition>{ L"Windows.Media.Core.SceneAnalysisEffectDefinition" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::SceneAnalysisEffectFrame>{ L"Windows.Media.Core.SceneAnalysisEffectFrame" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::SceneAnalyzedEventArgs>{ L"Windows.Media.Core.SceneAnalyzedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::SpeechCue>{ L"Windows.Media.Core.SpeechCue" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedMetadataStreamDescriptor>{ L"Windows.Media.Core.TimedMetadataStreamDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedMetadataTrack>{ L"Windows.Media.Core.TimedMetadataTrack" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedMetadataTrackError>{ L"Windows.Media.Core.TimedMetadataTrackError" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedMetadataTrackFailedEventArgs>{ L"Windows.Media.Core.TimedMetadataTrackFailedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextCue>{ L"Windows.Media.Core.TimedTextCue" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextLine>{ L"Windows.Media.Core.TimedTextLine" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextRegion>{ L"Windows.Media.Core.TimedTextRegion" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextSource>{ L"Windows.Media.Core.TimedTextSource" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextSourceResolveResultEventArgs>{ L"Windows.Media.Core.TimedTextSourceResolveResultEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextStyle>{ L"Windows.Media.Core.TimedTextStyle" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextSubformat>{ L"Windows.Media.Core.TimedTextSubformat" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::VideoStabilizationEffect>{ L"Windows.Media.Core.VideoStabilizationEffect" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::VideoStabilizationEffectDefinition>{ L"Windows.Media.Core.VideoStabilizationEffectDefinition" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::VideoStabilizationEffectEnabledChangedEventArgs>{ L"Windows.Media.Core.VideoStabilizationEffectEnabledChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::VideoStreamDescriptor>{ L"Windows.Media.Core.VideoStreamDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::VideoTrack>{ L"Windows.Media.Core.VideoTrack" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::VideoTrackOpenFailedEventArgs>{ L"Windows.Media.Core.VideoTrackOpenFailedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::VideoTrackSupportInfo>{ L"Windows.Media.Core.VideoTrackSupportInfo" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::AudioDecoderDegradation>{ L"Windows.Media.Core.AudioDecoderDegradation" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::AudioDecoderDegradationReason>{ L"Windows.Media.Core.AudioDecoderDegradationReason" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::CodecCategory>{ L"Windows.Media.Core.CodecCategory" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::CodecKind>{ L"Windows.Media.Core.CodecKind" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::FaceDetectionMode>{ L"Windows.Media.Core.FaceDetectionMode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaDecoderStatus>{ L"Windows.Media.Core.MediaDecoderStatus" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaSourceState>{ L"Windows.Media.Core.MediaSourceState" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaSourceStatus>{ L"Windows.Media.Core.MediaSourceStatus" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSourceClosedReason>{ L"Windows.Media.Core.MediaStreamSourceClosedReason" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSourceErrorStatus>{ L"Windows.Media.Core.MediaStreamSourceErrorStatus" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaTrackKind>{ L"Windows.Media.Core.MediaTrackKind" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MseAppendMode>{ L"Windows.Media.Core.MseAppendMode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MseEndOfStreamStatus>{ L"Windows.Media.Core.MseEndOfStreamStatus" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MseReadyState>{ L"Windows.Media.Core.MseReadyState" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::SceneAnalysisRecommendation>{ L"Windows.Media.Core.SceneAnalysisRecommendation" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedMetadataKind>{ L"Windows.Media.Core.TimedMetadataKind" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedMetadataTrackErrorCode>{ L"Windows.Media.Core.TimedMetadataTrackErrorCode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextDisplayAlignment>{ L"Windows.Media.Core.TimedTextDisplayAlignment" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextFlowDirection>{ L"Windows.Media.Core.TimedTextFlowDirection" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextFontStyle>{ L"Windows.Media.Core.TimedTextFontStyle" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextLineAlignment>{ L"Windows.Media.Core.TimedTextLineAlignment" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextScrollMode>{ L"Windows.Media.Core.TimedTextScrollMode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextUnit>{ L"Windows.Media.Core.TimedTextUnit" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextWeight>{ L"Windows.Media.Core.TimedTextWeight" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextWrapping>{ L"Windows.Media.Core.TimedTextWrapping" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextWritingMode>{ L"Windows.Media.Core.TimedTextWritingMode" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::VideoStabilizationEffectEnabledChangedReason>{ L"Windows.Media.Core.VideoStabilizationEffectEnabledChangedReason" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::MseTimeRange>{ L"Windows.Media.Core.MseTimeRange" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextDouble>{ L"Windows.Media.Core.TimedTextDouble" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextPadding>{ L"Windows.Media.Core.TimedTextPadding" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextPoint>{ L"Windows.Media.Core.TimedTextPoint" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextSize>{ L"Windows.Media.Core.TimedTextSize" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IAudioStreamDescriptor>{ L"Windows.Media.Core.IAudioStreamDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IAudioStreamDescriptor2>{ L"Windows.Media.Core.IAudioStreamDescriptor2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IAudioStreamDescriptor3>{ L"Windows.Media.Core.IAudioStreamDescriptor3" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IAudioStreamDescriptorFactory>{ L"Windows.Media.Core.IAudioStreamDescriptorFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IAudioTrack>{ L"Windows.Media.Core.IAudioTrack" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IAudioTrackOpenFailedEventArgs>{ L"Windows.Media.Core.IAudioTrackOpenFailedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IAudioTrackSupportInfo>{ L"Windows.Media.Core.IAudioTrackSupportInfo" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IChapterCue>{ L"Windows.Media.Core.IChapterCue" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ICodecInfo>{ L"Windows.Media.Core.ICodecInfo" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ICodecQuery>{ L"Windows.Media.Core.ICodecQuery" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ICodecSubtypesStatics>{ L"Windows.Media.Core.ICodecSubtypesStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IDataCue>{ L"Windows.Media.Core.IDataCue" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IDataCue2>{ L"Windows.Media.Core.IDataCue2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IFaceDetectedEventArgs>{ L"Windows.Media.Core.IFaceDetectedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IFaceDetectionEffect>{ L"Windows.Media.Core.IFaceDetectionEffect" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IFaceDetectionEffectDefinition>{ L"Windows.Media.Core.IFaceDetectionEffectDefinition" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IFaceDetectionEffectFrame>{ L"Windows.Media.Core.IFaceDetectionEffectFrame" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IHighDynamicRangeControl>{ L"Windows.Media.Core.IHighDynamicRangeControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IHighDynamicRangeOutput>{ L"Windows.Media.Core.IHighDynamicRangeOutput" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IImageCue>{ L"Windows.Media.Core.IImageCue" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IInitializeMediaStreamSourceRequestedEventArgs>{ L"Windows.Media.Core.IInitializeMediaStreamSourceRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ILowLightFusionResult>{ L"Windows.Media.Core.ILowLightFusionResult" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ILowLightFusionStatics>{ L"Windows.Media.Core.ILowLightFusionStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaBinder>{ L"Windows.Media.Core.IMediaBinder" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaBindingEventArgs>{ L"Windows.Media.Core.IMediaBindingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaBindingEventArgs2>{ L"Windows.Media.Core.IMediaBindingEventArgs2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaBindingEventArgs3>{ L"Windows.Media.Core.IMediaBindingEventArgs3" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaCue>{ L"Windows.Media.Core.IMediaCue" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaCueEventArgs>{ L"Windows.Media.Core.IMediaCueEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaSource>{ L"Windows.Media.Core.IMediaSource" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaSource2>{ L"Windows.Media.Core.IMediaSource2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaSource3>{ L"Windows.Media.Core.IMediaSource3" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaSource4>{ L"Windows.Media.Core.IMediaSource4" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaSource5>{ L"Windows.Media.Core.IMediaSource5" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaSourceAppServiceConnection>{ L"Windows.Media.Core.IMediaSourceAppServiceConnection" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaSourceAppServiceConnectionFactory>{ L"Windows.Media.Core.IMediaSourceAppServiceConnectionFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaSourceError>{ L"Windows.Media.Core.IMediaSourceError" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaSourceOpenOperationCompletedEventArgs>{ L"Windows.Media.Core.IMediaSourceOpenOperationCompletedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaSourceStateChangedEventArgs>{ L"Windows.Media.Core.IMediaSourceStateChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaSourceStatics>{ L"Windows.Media.Core.IMediaSourceStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaSourceStatics2>{ L"Windows.Media.Core.IMediaSourceStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaSourceStatics3>{ L"Windows.Media.Core.IMediaSourceStatics3" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaSourceStatics4>{ L"Windows.Media.Core.IMediaSourceStatics4" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamDescriptor>{ L"Windows.Media.Core.IMediaStreamDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamDescriptor2>{ L"Windows.Media.Core.IMediaStreamDescriptor2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSample>{ L"Windows.Media.Core.IMediaStreamSample" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSample2>{ L"Windows.Media.Core.IMediaStreamSample2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSampleProtectionProperties>{ L"Windows.Media.Core.IMediaStreamSampleProtectionProperties" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSampleStatics>{ L"Windows.Media.Core.IMediaStreamSampleStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSampleStatics2>{ L"Windows.Media.Core.IMediaStreamSampleStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSource>{ L"Windows.Media.Core.IMediaStreamSource" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSource2>{ L"Windows.Media.Core.IMediaStreamSource2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSource3>{ L"Windows.Media.Core.IMediaStreamSource3" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSource4>{ L"Windows.Media.Core.IMediaStreamSource4" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSourceClosedEventArgs>{ L"Windows.Media.Core.IMediaStreamSourceClosedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSourceClosedRequest>{ L"Windows.Media.Core.IMediaStreamSourceClosedRequest" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSourceFactory>{ L"Windows.Media.Core.IMediaStreamSourceFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSourceSampleRenderedEventArgs>{ L"Windows.Media.Core.IMediaStreamSourceSampleRenderedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSourceSampleRequest>{ L"Windows.Media.Core.IMediaStreamSourceSampleRequest" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSourceSampleRequestDeferral>{ L"Windows.Media.Core.IMediaStreamSourceSampleRequestDeferral" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSourceSampleRequestedEventArgs>{ L"Windows.Media.Core.IMediaStreamSourceSampleRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSourceStartingEventArgs>{ L"Windows.Media.Core.IMediaStreamSourceStartingEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSourceStartingRequest>{ L"Windows.Media.Core.IMediaStreamSourceStartingRequest" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSourceStartingRequestDeferral>{ L"Windows.Media.Core.IMediaStreamSourceStartingRequestDeferral" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSourceSwitchStreamsRequest>{ L"Windows.Media.Core.IMediaStreamSourceSwitchStreamsRequest" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSourceSwitchStreamsRequestDeferral>{ L"Windows.Media.Core.IMediaStreamSourceSwitchStreamsRequestDeferral" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSourceSwitchStreamsRequestedEventArgs>{ L"Windows.Media.Core.IMediaStreamSourceSwitchStreamsRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaTrack>{ L"Windows.Media.Core.IMediaTrack" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMseSourceBuffer>{ L"Windows.Media.Core.IMseSourceBuffer" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMseSourceBufferList>{ L"Windows.Media.Core.IMseSourceBufferList" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMseStreamSource>{ L"Windows.Media.Core.IMseStreamSource" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMseStreamSource2>{ L"Windows.Media.Core.IMseStreamSource2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IMseStreamSourceStatics>{ L"Windows.Media.Core.IMseStreamSourceStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ISceneAnalysisEffect>{ L"Windows.Media.Core.ISceneAnalysisEffect" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ISceneAnalysisEffectFrame>{ L"Windows.Media.Core.ISceneAnalysisEffectFrame" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ISceneAnalysisEffectFrame2>{ L"Windows.Media.Core.ISceneAnalysisEffectFrame2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ISceneAnalyzedEventArgs>{ L"Windows.Media.Core.ISceneAnalyzedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ISingleSelectMediaTrackList>{ L"Windows.Media.Core.ISingleSelectMediaTrackList" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ISpeechCue>{ L"Windows.Media.Core.ISpeechCue" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedMetadataStreamDescriptor>{ L"Windows.Media.Core.ITimedMetadataStreamDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedMetadataStreamDescriptorFactory>{ L"Windows.Media.Core.ITimedMetadataStreamDescriptorFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedMetadataTrack>{ L"Windows.Media.Core.ITimedMetadataTrack" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedMetadataTrack2>{ L"Windows.Media.Core.ITimedMetadataTrack2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedMetadataTrackError>{ L"Windows.Media.Core.ITimedMetadataTrackError" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedMetadataTrackFactory>{ L"Windows.Media.Core.ITimedMetadataTrackFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedMetadataTrackFailedEventArgs>{ L"Windows.Media.Core.ITimedMetadataTrackFailedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedMetadataTrackProvider>{ L"Windows.Media.Core.ITimedMetadataTrackProvider" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedTextCue>{ L"Windows.Media.Core.ITimedTextCue" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedTextLine>{ L"Windows.Media.Core.ITimedTextLine" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedTextRegion>{ L"Windows.Media.Core.ITimedTextRegion" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedTextSource>{ L"Windows.Media.Core.ITimedTextSource" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedTextSourceResolveResultEventArgs>{ L"Windows.Media.Core.ITimedTextSourceResolveResultEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedTextSourceStatics>{ L"Windows.Media.Core.ITimedTextSourceStatics" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedTextSourceStatics2>{ L"Windows.Media.Core.ITimedTextSourceStatics2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedTextStyle>{ L"Windows.Media.Core.ITimedTextStyle" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedTextStyle2>{ L"Windows.Media.Core.ITimedTextStyle2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedTextSubformat>{ L"Windows.Media.Core.ITimedTextSubformat" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IVideoStabilizationEffect>{ L"Windows.Media.Core.IVideoStabilizationEffect" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IVideoStabilizationEffectEnabledChangedEventArgs>{ L"Windows.Media.Core.IVideoStabilizationEffectEnabledChangedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IVideoStreamDescriptor>{ L"Windows.Media.Core.IVideoStreamDescriptor" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IVideoStreamDescriptor2>{ L"Windows.Media.Core.IVideoStreamDescriptor2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IVideoStreamDescriptorFactory>{ L"Windows.Media.Core.IVideoStreamDescriptorFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IVideoTrack>{ L"Windows.Media.Core.IVideoTrack" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IVideoTrackOpenFailedEventArgs>{ L"Windows.Media.Core.IVideoTrackOpenFailedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::Media::Core::IVideoTrackSupportInfo>{ L"Windows.Media.Core.IVideoTrackSupportInfo" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Media::Core::AudioStreamDescriptor> = L"Windows.Media.Core.AudioStreamDescriptor";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::AudioTrack> = L"Windows.Media.Core.AudioTrack";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::AudioTrackOpenFailedEventArgs> = L"Windows.Media.Core.AudioTrackOpenFailedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::AudioTrackSupportInfo> = L"Windows.Media.Core.AudioTrackSupportInfo";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ChapterCue> = L"Windows.Media.Core.ChapterCue";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::CodecInfo> = L"Windows.Media.Core.CodecInfo";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::CodecQuery> = L"Windows.Media.Core.CodecQuery";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::CodecSubtypes> = L"Windows.Media.Core.CodecSubtypes";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::DataCue> = L"Windows.Media.Core.DataCue";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::FaceDetectedEventArgs> = L"Windows.Media.Core.FaceDetectedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::FaceDetectionEffect> = L"Windows.Media.Core.FaceDetectionEffect";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::FaceDetectionEffectDefinition> = L"Windows.Media.Core.FaceDetectionEffectDefinition";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::FaceDetectionEffectFrame> = L"Windows.Media.Core.FaceDetectionEffectFrame";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::HighDynamicRangeControl> = L"Windows.Media.Core.HighDynamicRangeControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::HighDynamicRangeOutput> = L"Windows.Media.Core.HighDynamicRangeOutput";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ImageCue> = L"Windows.Media.Core.ImageCue";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::InitializeMediaStreamSourceRequestedEventArgs> = L"Windows.Media.Core.InitializeMediaStreamSourceRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::LowLightFusion> = L"Windows.Media.Core.LowLightFusion";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::LowLightFusionResult> = L"Windows.Media.Core.LowLightFusionResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaBinder> = L"Windows.Media.Core.MediaBinder";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaBindingEventArgs> = L"Windows.Media.Core.MediaBindingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaCueEventArgs> = L"Windows.Media.Core.MediaCueEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaSource> = L"Windows.Media.Core.MediaSource";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaSourceAppServiceConnection> = L"Windows.Media.Core.MediaSourceAppServiceConnection";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaSourceError> = L"Windows.Media.Core.MediaSourceError";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaSourceOpenOperationCompletedEventArgs> = L"Windows.Media.Core.MediaSourceOpenOperationCompletedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaSourceStateChangedEventArgs> = L"Windows.Media.Core.MediaSourceStateChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSample> = L"Windows.Media.Core.MediaStreamSample";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSamplePropertySet> = L"Windows.Media.Core.MediaStreamSamplePropertySet";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSampleProtectionProperties> = L"Windows.Media.Core.MediaStreamSampleProtectionProperties";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSource> = L"Windows.Media.Core.MediaStreamSource";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSourceClosedEventArgs> = L"Windows.Media.Core.MediaStreamSourceClosedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSourceClosedRequest> = L"Windows.Media.Core.MediaStreamSourceClosedRequest";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSourceSampleRenderedEventArgs> = L"Windows.Media.Core.MediaStreamSourceSampleRenderedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSourceSampleRequest> = L"Windows.Media.Core.MediaStreamSourceSampleRequest";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSourceSampleRequestDeferral> = L"Windows.Media.Core.MediaStreamSourceSampleRequestDeferral";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSourceSampleRequestedEventArgs> = L"Windows.Media.Core.MediaStreamSourceSampleRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSourceStartingEventArgs> = L"Windows.Media.Core.MediaStreamSourceStartingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSourceStartingRequest> = L"Windows.Media.Core.MediaStreamSourceStartingRequest";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSourceStartingRequestDeferral> = L"Windows.Media.Core.MediaStreamSourceStartingRequestDeferral";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSourceSwitchStreamsRequest> = L"Windows.Media.Core.MediaStreamSourceSwitchStreamsRequest";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSourceSwitchStreamsRequestDeferral> = L"Windows.Media.Core.MediaStreamSourceSwitchStreamsRequestDeferral";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSourceSwitchStreamsRequestedEventArgs> = L"Windows.Media.Core.MediaStreamSourceSwitchStreamsRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MseSourceBuffer> = L"Windows.Media.Core.MseSourceBuffer";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MseSourceBufferList> = L"Windows.Media.Core.MseSourceBufferList";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MseStreamSource> = L"Windows.Media.Core.MseStreamSource";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::SceneAnalysisEffect> = L"Windows.Media.Core.SceneAnalysisEffect";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::SceneAnalysisEffectDefinition> = L"Windows.Media.Core.SceneAnalysisEffectDefinition";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::SceneAnalysisEffectFrame> = L"Windows.Media.Core.SceneAnalysisEffectFrame";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::SceneAnalyzedEventArgs> = L"Windows.Media.Core.SceneAnalyzedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::SpeechCue> = L"Windows.Media.Core.SpeechCue";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedMetadataStreamDescriptor> = L"Windows.Media.Core.TimedMetadataStreamDescriptor";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedMetadataTrack> = L"Windows.Media.Core.TimedMetadataTrack";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedMetadataTrackError> = L"Windows.Media.Core.TimedMetadataTrackError";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedMetadataTrackFailedEventArgs> = L"Windows.Media.Core.TimedMetadataTrackFailedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextCue> = L"Windows.Media.Core.TimedTextCue";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextLine> = L"Windows.Media.Core.TimedTextLine";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextRegion> = L"Windows.Media.Core.TimedTextRegion";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextSource> = L"Windows.Media.Core.TimedTextSource";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextSourceResolveResultEventArgs> = L"Windows.Media.Core.TimedTextSourceResolveResultEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextStyle> = L"Windows.Media.Core.TimedTextStyle";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextSubformat> = L"Windows.Media.Core.TimedTextSubformat";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::VideoStabilizationEffect> = L"Windows.Media.Core.VideoStabilizationEffect";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::VideoStabilizationEffectDefinition> = L"Windows.Media.Core.VideoStabilizationEffectDefinition";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::VideoStabilizationEffectEnabledChangedEventArgs> = L"Windows.Media.Core.VideoStabilizationEffectEnabledChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::VideoStreamDescriptor> = L"Windows.Media.Core.VideoStreamDescriptor";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::VideoTrack> = L"Windows.Media.Core.VideoTrack";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::VideoTrackOpenFailedEventArgs> = L"Windows.Media.Core.VideoTrackOpenFailedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::VideoTrackSupportInfo> = L"Windows.Media.Core.VideoTrackSupportInfo";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::AudioDecoderDegradation> = L"Windows.Media.Core.AudioDecoderDegradation";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::AudioDecoderDegradationReason> = L"Windows.Media.Core.AudioDecoderDegradationReason";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::CodecCategory> = L"Windows.Media.Core.CodecCategory";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::CodecKind> = L"Windows.Media.Core.CodecKind";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::FaceDetectionMode> = L"Windows.Media.Core.FaceDetectionMode";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaDecoderStatus> = L"Windows.Media.Core.MediaDecoderStatus";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaSourceState> = L"Windows.Media.Core.MediaSourceState";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaSourceStatus> = L"Windows.Media.Core.MediaSourceStatus";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSourceClosedReason> = L"Windows.Media.Core.MediaStreamSourceClosedReason";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaStreamSourceErrorStatus> = L"Windows.Media.Core.MediaStreamSourceErrorStatus";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MediaTrackKind> = L"Windows.Media.Core.MediaTrackKind";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MseAppendMode> = L"Windows.Media.Core.MseAppendMode";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MseEndOfStreamStatus> = L"Windows.Media.Core.MseEndOfStreamStatus";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MseReadyState> = L"Windows.Media.Core.MseReadyState";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::SceneAnalysisRecommendation> = L"Windows.Media.Core.SceneAnalysisRecommendation";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedMetadataKind> = L"Windows.Media.Core.TimedMetadataKind";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedMetadataTrackErrorCode> = L"Windows.Media.Core.TimedMetadataTrackErrorCode";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextDisplayAlignment> = L"Windows.Media.Core.TimedTextDisplayAlignment";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextFlowDirection> = L"Windows.Media.Core.TimedTextFlowDirection";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextFontStyle> = L"Windows.Media.Core.TimedTextFontStyle";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextLineAlignment> = L"Windows.Media.Core.TimedTextLineAlignment";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextScrollMode> = L"Windows.Media.Core.TimedTextScrollMode";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextUnit> = L"Windows.Media.Core.TimedTextUnit";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextWeight> = L"Windows.Media.Core.TimedTextWeight";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextWrapping> = L"Windows.Media.Core.TimedTextWrapping";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextWritingMode> = L"Windows.Media.Core.TimedTextWritingMode";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::VideoStabilizationEffectEnabledChangedReason> = L"Windows.Media.Core.VideoStabilizationEffectEnabledChangedReason";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::MseTimeRange> = L"Windows.Media.Core.MseTimeRange";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextDouble> = L"Windows.Media.Core.TimedTextDouble";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextPadding> = L"Windows.Media.Core.TimedTextPadding";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextPoint> = L"Windows.Media.Core.TimedTextPoint";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::TimedTextSize> = L"Windows.Media.Core.TimedTextSize";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IAudioStreamDescriptor> = L"Windows.Media.Core.IAudioStreamDescriptor";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IAudioStreamDescriptor2> = L"Windows.Media.Core.IAudioStreamDescriptor2";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IAudioStreamDescriptor3> = L"Windows.Media.Core.IAudioStreamDescriptor3";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IAudioStreamDescriptorFactory> = L"Windows.Media.Core.IAudioStreamDescriptorFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IAudioTrack> = L"Windows.Media.Core.IAudioTrack";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IAudioTrackOpenFailedEventArgs> = L"Windows.Media.Core.IAudioTrackOpenFailedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IAudioTrackSupportInfo> = L"Windows.Media.Core.IAudioTrackSupportInfo";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IChapterCue> = L"Windows.Media.Core.IChapterCue";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ICodecInfo> = L"Windows.Media.Core.ICodecInfo";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ICodecQuery> = L"Windows.Media.Core.ICodecQuery";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ICodecSubtypesStatics> = L"Windows.Media.Core.ICodecSubtypesStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IDataCue> = L"Windows.Media.Core.IDataCue";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IDataCue2> = L"Windows.Media.Core.IDataCue2";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IFaceDetectedEventArgs> = L"Windows.Media.Core.IFaceDetectedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IFaceDetectionEffect> = L"Windows.Media.Core.IFaceDetectionEffect";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IFaceDetectionEffectDefinition> = L"Windows.Media.Core.IFaceDetectionEffectDefinition";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IFaceDetectionEffectFrame> = L"Windows.Media.Core.IFaceDetectionEffectFrame";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IHighDynamicRangeControl> = L"Windows.Media.Core.IHighDynamicRangeControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IHighDynamicRangeOutput> = L"Windows.Media.Core.IHighDynamicRangeOutput";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IImageCue> = L"Windows.Media.Core.IImageCue";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IInitializeMediaStreamSourceRequestedEventArgs> = L"Windows.Media.Core.IInitializeMediaStreamSourceRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ILowLightFusionResult> = L"Windows.Media.Core.ILowLightFusionResult";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ILowLightFusionStatics> = L"Windows.Media.Core.ILowLightFusionStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaBinder> = L"Windows.Media.Core.IMediaBinder";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaBindingEventArgs> = L"Windows.Media.Core.IMediaBindingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaBindingEventArgs2> = L"Windows.Media.Core.IMediaBindingEventArgs2";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaBindingEventArgs3> = L"Windows.Media.Core.IMediaBindingEventArgs3";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaCue> = L"Windows.Media.Core.IMediaCue";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaCueEventArgs> = L"Windows.Media.Core.IMediaCueEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaSource> = L"Windows.Media.Core.IMediaSource";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaSource2> = L"Windows.Media.Core.IMediaSource2";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaSource3> = L"Windows.Media.Core.IMediaSource3";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaSource4> = L"Windows.Media.Core.IMediaSource4";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaSource5> = L"Windows.Media.Core.IMediaSource5";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaSourceAppServiceConnection> = L"Windows.Media.Core.IMediaSourceAppServiceConnection";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaSourceAppServiceConnectionFactory> = L"Windows.Media.Core.IMediaSourceAppServiceConnectionFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaSourceError> = L"Windows.Media.Core.IMediaSourceError";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaSourceOpenOperationCompletedEventArgs> = L"Windows.Media.Core.IMediaSourceOpenOperationCompletedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaSourceStateChangedEventArgs> = L"Windows.Media.Core.IMediaSourceStateChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaSourceStatics> = L"Windows.Media.Core.IMediaSourceStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaSourceStatics2> = L"Windows.Media.Core.IMediaSourceStatics2";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaSourceStatics3> = L"Windows.Media.Core.IMediaSourceStatics3";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaSourceStatics4> = L"Windows.Media.Core.IMediaSourceStatics4";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamDescriptor> = L"Windows.Media.Core.IMediaStreamDescriptor";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamDescriptor2> = L"Windows.Media.Core.IMediaStreamDescriptor2";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSample> = L"Windows.Media.Core.IMediaStreamSample";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSample2> = L"Windows.Media.Core.IMediaStreamSample2";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSampleProtectionProperties> = L"Windows.Media.Core.IMediaStreamSampleProtectionProperties";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSampleStatics> = L"Windows.Media.Core.IMediaStreamSampleStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSampleStatics2> = L"Windows.Media.Core.IMediaStreamSampleStatics2";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSource> = L"Windows.Media.Core.IMediaStreamSource";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSource2> = L"Windows.Media.Core.IMediaStreamSource2";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSource3> = L"Windows.Media.Core.IMediaStreamSource3";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSource4> = L"Windows.Media.Core.IMediaStreamSource4";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSourceClosedEventArgs> = L"Windows.Media.Core.IMediaStreamSourceClosedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSourceClosedRequest> = L"Windows.Media.Core.IMediaStreamSourceClosedRequest";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSourceFactory> = L"Windows.Media.Core.IMediaStreamSourceFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSourceSampleRenderedEventArgs> = L"Windows.Media.Core.IMediaStreamSourceSampleRenderedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSourceSampleRequest> = L"Windows.Media.Core.IMediaStreamSourceSampleRequest";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSourceSampleRequestDeferral> = L"Windows.Media.Core.IMediaStreamSourceSampleRequestDeferral";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSourceSampleRequestedEventArgs> = L"Windows.Media.Core.IMediaStreamSourceSampleRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSourceStartingEventArgs> = L"Windows.Media.Core.IMediaStreamSourceStartingEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSourceStartingRequest> = L"Windows.Media.Core.IMediaStreamSourceStartingRequest";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSourceStartingRequestDeferral> = L"Windows.Media.Core.IMediaStreamSourceStartingRequestDeferral";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSourceSwitchStreamsRequest> = L"Windows.Media.Core.IMediaStreamSourceSwitchStreamsRequest";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSourceSwitchStreamsRequestDeferral> = L"Windows.Media.Core.IMediaStreamSourceSwitchStreamsRequestDeferral";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaStreamSourceSwitchStreamsRequestedEventArgs> = L"Windows.Media.Core.IMediaStreamSourceSwitchStreamsRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMediaTrack> = L"Windows.Media.Core.IMediaTrack";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMseSourceBuffer> = L"Windows.Media.Core.IMseSourceBuffer";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMseSourceBufferList> = L"Windows.Media.Core.IMseSourceBufferList";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMseStreamSource> = L"Windows.Media.Core.IMseStreamSource";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMseStreamSource2> = L"Windows.Media.Core.IMseStreamSource2";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IMseStreamSourceStatics> = L"Windows.Media.Core.IMseStreamSourceStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ISceneAnalysisEffect> = L"Windows.Media.Core.ISceneAnalysisEffect";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ISceneAnalysisEffectFrame> = L"Windows.Media.Core.ISceneAnalysisEffectFrame";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ISceneAnalysisEffectFrame2> = L"Windows.Media.Core.ISceneAnalysisEffectFrame2";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ISceneAnalyzedEventArgs> = L"Windows.Media.Core.ISceneAnalyzedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ISingleSelectMediaTrackList> = L"Windows.Media.Core.ISingleSelectMediaTrackList";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ISpeechCue> = L"Windows.Media.Core.ISpeechCue";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedMetadataStreamDescriptor> = L"Windows.Media.Core.ITimedMetadataStreamDescriptor";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedMetadataStreamDescriptorFactory> = L"Windows.Media.Core.ITimedMetadataStreamDescriptorFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedMetadataTrack> = L"Windows.Media.Core.ITimedMetadataTrack";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedMetadataTrack2> = L"Windows.Media.Core.ITimedMetadataTrack2";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedMetadataTrackError> = L"Windows.Media.Core.ITimedMetadataTrackError";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedMetadataTrackFactory> = L"Windows.Media.Core.ITimedMetadataTrackFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedMetadataTrackFailedEventArgs> = L"Windows.Media.Core.ITimedMetadataTrackFailedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedMetadataTrackProvider> = L"Windows.Media.Core.ITimedMetadataTrackProvider";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedTextCue> = L"Windows.Media.Core.ITimedTextCue";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedTextLine> = L"Windows.Media.Core.ITimedTextLine";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedTextRegion> = L"Windows.Media.Core.ITimedTextRegion";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedTextSource> = L"Windows.Media.Core.ITimedTextSource";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedTextSourceResolveResultEventArgs> = L"Windows.Media.Core.ITimedTextSourceResolveResultEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedTextSourceStatics> = L"Windows.Media.Core.ITimedTextSourceStatics";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedTextSourceStatics2> = L"Windows.Media.Core.ITimedTextSourceStatics2";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedTextStyle> = L"Windows.Media.Core.ITimedTextStyle";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedTextStyle2> = L"Windows.Media.Core.ITimedTextStyle2";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::ITimedTextSubformat> = L"Windows.Media.Core.ITimedTextSubformat";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IVideoStabilizationEffect> = L"Windows.Media.Core.IVideoStabilizationEffect";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IVideoStabilizationEffectEnabledChangedEventArgs> = L"Windows.Media.Core.IVideoStabilizationEffectEnabledChangedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IVideoStreamDescriptor> = L"Windows.Media.Core.IVideoStreamDescriptor";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IVideoStreamDescriptor2> = L"Windows.Media.Core.IVideoStreamDescriptor2";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IVideoStreamDescriptorFactory> = L"Windows.Media.Core.IVideoStreamDescriptorFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IVideoTrack> = L"Windows.Media.Core.IVideoTrack";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IVideoTrackOpenFailedEventArgs> = L"Windows.Media.Core.IVideoTrackOpenFailedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::Media::Core::IVideoTrackSupportInfo> = L"Windows.Media.Core.IVideoTrackSupportInfo";
     template <> inline constexpr guid guid_v<Windows::Media::Core::IAudioStreamDescriptor>{ 0x1E3692E4,0x4027,0x4847,{ 0xA7,0x0B,0xDF,0x1D,0x9A,0x2A,0x7B,0x04 } };
     template <> inline constexpr guid guid_v<Windows::Media::Core::IAudioStreamDescriptor2>{ 0x2E68F1F6,0xA448,0x497B,{ 0x88,0x40,0x85,0x08,0x26,0x65,0xAC,0xF9 } };
     template <> inline constexpr guid guid_v<Windows::Media::Core::IAudioStreamDescriptor3>{ 0x4D220DA1,0x8E83,0x44EF,{ 0x89,0x73,0x2F,0x63,0xE9,0x93,0xF3,0x6B } };
@@ -2119,7 +2131,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IAudioStreamDescriptor
     {
-        [[nodiscard]] auto EncodingProperties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::MediaProperties::AudioEncodingProperties) EncodingProperties() const;
     };
     template <> struct consume<Windows::Media::Core::IAudioStreamDescriptor>
     {
@@ -2128,10 +2140,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IAudioStreamDescriptor2
     {
-        auto LeadingEncoderPadding(Windows::Foundation::IReference<uint32_t> const& value) const;
-        [[nodiscard]] auto LeadingEncoderPadding() const;
-        auto TrailingEncoderPadding(Windows::Foundation::IReference<uint32_t> const& value) const;
-        [[nodiscard]] auto TrailingEncoderPadding() const;
+        WINRT_IMPL_AUTO(void) LeadingEncoderPadding(Windows::Foundation::IReference<uint32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint32_t>) LeadingEncoderPadding() const;
+        WINRT_IMPL_AUTO(void) TrailingEncoderPadding(Windows::Foundation::IReference<uint32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint32_t>) TrailingEncoderPadding() const;
     };
     template <> struct consume<Windows::Media::Core::IAudioStreamDescriptor2>
     {
@@ -2140,7 +2152,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IAudioStreamDescriptor3
     {
-        auto Copy() const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::AudioStreamDescriptor) Copy() const;
     };
     template <> struct consume<Windows::Media::Core::IAudioStreamDescriptor3>
     {
@@ -2149,7 +2161,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IAudioStreamDescriptorFactory
     {
-        auto Create(Windows::Media::MediaProperties::AudioEncodingProperties const& encodingProperties) const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::AudioStreamDescriptor) Create(Windows::Media::MediaProperties::AudioEncodingProperties const& encodingProperties) const;
     };
     template <> struct consume<Windows::Media::Core::IAudioStreamDescriptorFactory>
     {
@@ -2158,14 +2170,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IAudioTrack
     {
-        auto OpenFailed(Windows::Foundation::TypedEventHandler<Windows::Media::Core::AudioTrack, Windows::Media::Core::AudioTrackOpenFailedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) OpenFailed(Windows::Foundation::TypedEventHandler<Windows::Media::Core::AudioTrack, Windows::Media::Core::AudioTrackOpenFailedEventArgs> const& handler) const;
         using OpenFailed_revoker = impl::event_revoker<Windows::Media::Core::IAudioTrack, &impl::abi_t<Windows::Media::Core::IAudioTrack>::remove_OpenFailed>;
         [[nodiscard]] OpenFailed_revoker OpenFailed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::AudioTrack, Windows::Media::Core::AudioTrackOpenFailedEventArgs> const& handler) const;
-        auto OpenFailed(winrt::event_token const& token) const noexcept;
-        auto GetEncodingProperties() const;
-        [[nodiscard]] auto PlaybackItem() const;
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto SupportInfo() const;
+        WINRT_IMPL_AUTO(void) OpenFailed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::AudioEncodingProperties) GetEncodingProperties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Playback::MediaPlaybackItem) PlaybackItem() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::AudioTrackSupportInfo) SupportInfo() const;
     };
     template <> struct consume<Windows::Media::Core::IAudioTrack>
     {
@@ -2174,7 +2186,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IAudioTrackOpenFailedEventArgs
     {
-        [[nodiscard]] auto ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
     };
     template <> struct consume<Windows::Media::Core::IAudioTrackOpenFailedEventArgs>
     {
@@ -2183,10 +2195,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IAudioTrackSupportInfo
     {
-        [[nodiscard]] auto DecoderStatus() const;
-        [[nodiscard]] auto Degradation() const;
-        [[nodiscard]] auto DegradationReason() const;
-        [[nodiscard]] auto MediaSourceStatus() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::MediaDecoderStatus) DecoderStatus() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::AudioDecoderDegradation) Degradation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::AudioDecoderDegradationReason) DegradationReason() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::MediaSourceStatus) MediaSourceStatus() const;
     };
     template <> struct consume<Windows::Media::Core::IAudioTrackSupportInfo>
     {
@@ -2195,8 +2207,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IChapterCue
     {
-        auto Title(param::hstring const& value) const;
-        [[nodiscard]] auto Title() const;
+        WINRT_IMPL_AUTO(void) Title(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Title() const;
     };
     template <> struct consume<Windows::Media::Core::IChapterCue>
     {
@@ -2205,11 +2217,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_ICodecInfo
     {
-        [[nodiscard]] auto Kind() const;
-        [[nodiscard]] auto Category() const;
-        [[nodiscard]] auto Subtypes() const;
-        [[nodiscard]] auto DisplayName() const;
-        [[nodiscard]] auto IsTrusted() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::CodecKind) Kind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::CodecCategory) Category() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<hstring>) Subtypes() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DisplayName() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsTrusted() const;
     };
     template <> struct consume<Windows::Media::Core::ICodecInfo>
     {
@@ -2218,7 +2230,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_ICodecQuery
     {
-        auto FindAllAsync(Windows::Media::Core::CodecKind const& kind, Windows::Media::Core::CodecCategory const& category, param::hstring const& subType) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Foundation::Collections::IVectorView<Windows::Media::Core::CodecInfo>>) FindAllAsync(Windows::Media::Core::CodecKind const& kind, Windows::Media::Core::CodecCategory const& category, param::hstring const& subType) const;
     };
     template <> struct consume<Windows::Media::Core::ICodecQuery>
     {
@@ -2227,57 +2239,57 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_ICodecSubtypesStatics
     {
-        [[nodiscard]] auto VideoFormatDV25() const;
-        [[nodiscard]] auto VideoFormatDV50() const;
-        [[nodiscard]] auto VideoFormatDvc() const;
-        [[nodiscard]] auto VideoFormatDvh1() const;
-        [[nodiscard]] auto VideoFormatDvhD() const;
-        [[nodiscard]] auto VideoFormatDvsd() const;
-        [[nodiscard]] auto VideoFormatDvsl() const;
-        [[nodiscard]] auto VideoFormatH263() const;
-        [[nodiscard]] auto VideoFormatH264() const;
-        [[nodiscard]] auto VideoFormatH265() const;
-        [[nodiscard]] auto VideoFormatH264ES() const;
-        [[nodiscard]] auto VideoFormatHevc() const;
-        [[nodiscard]] auto VideoFormatHevcES() const;
-        [[nodiscard]] auto VideoFormatM4S2() const;
-        [[nodiscard]] auto VideoFormatMjpg() const;
-        [[nodiscard]] auto VideoFormatMP43() const;
-        [[nodiscard]] auto VideoFormatMP4S() const;
-        [[nodiscard]] auto VideoFormatMP4V() const;
-        [[nodiscard]] auto VideoFormatMpeg2() const;
-        [[nodiscard]] auto VideoFormatVP80() const;
-        [[nodiscard]] auto VideoFormatVP90() const;
-        [[nodiscard]] auto VideoFormatMpg1() const;
-        [[nodiscard]] auto VideoFormatMss1() const;
-        [[nodiscard]] auto VideoFormatMss2() const;
-        [[nodiscard]] auto VideoFormatWmv1() const;
-        [[nodiscard]] auto VideoFormatWmv2() const;
-        [[nodiscard]] auto VideoFormatWmv3() const;
-        [[nodiscard]] auto VideoFormatWvc1() const;
-        [[nodiscard]] auto VideoFormat420O() const;
-        [[nodiscard]] auto AudioFormatAac() const;
-        [[nodiscard]] auto AudioFormatAdts() const;
-        [[nodiscard]] auto AudioFormatAlac() const;
-        [[nodiscard]] auto AudioFormatAmrNB() const;
-        [[nodiscard]] auto AudioFormatAmrWB() const;
-        [[nodiscard]] auto AudioFormatAmrWP() const;
-        [[nodiscard]] auto AudioFormatDolbyAC3() const;
-        [[nodiscard]] auto AudioFormatDolbyAC3Spdif() const;
-        [[nodiscard]] auto AudioFormatDolbyDDPlus() const;
-        [[nodiscard]] auto AudioFormatDrm() const;
-        [[nodiscard]] auto AudioFormatDts() const;
-        [[nodiscard]] auto AudioFormatFlac() const;
-        [[nodiscard]] auto AudioFormatFloat() const;
-        [[nodiscard]] auto AudioFormatMP3() const;
-        [[nodiscard]] auto AudioFormatMPeg() const;
-        [[nodiscard]] auto AudioFormatMsp1() const;
-        [[nodiscard]] auto AudioFormatOpus() const;
-        [[nodiscard]] auto AudioFormatPcm() const;
-        [[nodiscard]] auto AudioFormatWmaSpdif() const;
-        [[nodiscard]] auto AudioFormatWMAudioLossless() const;
-        [[nodiscard]] auto AudioFormatWMAudioV8() const;
-        [[nodiscard]] auto AudioFormatWMAudioV9() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoFormatDV25() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoFormatDV50() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoFormatDvc() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoFormatDvh1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoFormatDvhD() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoFormatDvsd() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoFormatDvsl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoFormatH263() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoFormatH264() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoFormatH265() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoFormatH264ES() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoFormatHevc() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoFormatHevcES() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoFormatM4S2() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoFormatMjpg() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoFormatMP43() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoFormatMP4S() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoFormatMP4V() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoFormatMpeg2() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoFormatVP80() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoFormatVP90() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoFormatMpg1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoFormatMss1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoFormatMss2() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoFormatWmv1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoFormatWmv2() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoFormatWmv3() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoFormatWvc1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) VideoFormat420O() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AudioFormatAac() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AudioFormatAdts() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AudioFormatAlac() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AudioFormatAmrNB() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AudioFormatAmrWB() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AudioFormatAmrWP() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AudioFormatDolbyAC3() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AudioFormatDolbyAC3Spdif() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AudioFormatDolbyDDPlus() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AudioFormatDrm() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AudioFormatDts() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AudioFormatFlac() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AudioFormatFloat() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AudioFormatMP3() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AudioFormatMPeg() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AudioFormatMsp1() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AudioFormatOpus() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AudioFormatPcm() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AudioFormatWmaSpdif() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AudioFormatWMAudioLossless() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AudioFormatWMAudioV8() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AudioFormatWMAudioV9() const;
     };
     template <> struct consume<Windows::Media::Core::ICodecSubtypesStatics>
     {
@@ -2286,8 +2298,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IDataCue
     {
-        auto Data(Windows::Storage::Streams::IBuffer const& value) const;
-        [[nodiscard]] auto Data() const;
+        WINRT_IMPL_AUTO(void) Data(Windows::Storage::Streams::IBuffer const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) Data() const;
     };
     template <> struct consume<Windows::Media::Core::IDataCue>
     {
@@ -2296,7 +2308,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IDataCue2
     {
-        [[nodiscard]] auto Properties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::PropertySet) Properties() const;
     };
     template <> struct consume<Windows::Media::Core::IDataCue2>
     {
@@ -2305,7 +2317,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IFaceDetectedEventArgs
     {
-        [[nodiscard]] auto ResultFrame() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::FaceDetectionEffectFrame) ResultFrame() const;
     };
     template <> struct consume<Windows::Media::Core::IFaceDetectedEventArgs>
     {
@@ -2314,14 +2326,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IFaceDetectionEffect
     {
-        auto Enabled(bool value) const;
-        [[nodiscard]] auto Enabled() const;
-        auto DesiredDetectionInterval(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto DesiredDetectionInterval() const;
-        auto FaceDetected(Windows::Foundation::TypedEventHandler<Windows::Media::Core::FaceDetectionEffect, Windows::Media::Core::FaceDetectedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) Enabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Enabled() const;
+        WINRT_IMPL_AUTO(void) DesiredDetectionInterval(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) DesiredDetectionInterval() const;
+        WINRT_IMPL_AUTO(winrt::event_token) FaceDetected(Windows::Foundation::TypedEventHandler<Windows::Media::Core::FaceDetectionEffect, Windows::Media::Core::FaceDetectedEventArgs> const& handler) const;
         using FaceDetected_revoker = impl::event_revoker<Windows::Media::Core::IFaceDetectionEffect, &impl::abi_t<Windows::Media::Core::IFaceDetectionEffect>::remove_FaceDetected>;
         [[nodiscard]] FaceDetected_revoker FaceDetected(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::FaceDetectionEffect, Windows::Media::Core::FaceDetectedEventArgs> const& handler) const;
-        auto FaceDetected(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(void) FaceDetected(winrt::event_token const& cookie) const noexcept;
     };
     template <> struct consume<Windows::Media::Core::IFaceDetectionEffect>
     {
@@ -2330,10 +2342,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IFaceDetectionEffectDefinition
     {
-        auto DetectionMode(Windows::Media::Core::FaceDetectionMode const& value) const;
-        [[nodiscard]] auto DetectionMode() const;
-        auto SynchronousDetectionEnabled(bool value) const;
-        [[nodiscard]] auto SynchronousDetectionEnabled() const;
+        WINRT_IMPL_AUTO(void) DetectionMode(Windows::Media::Core::FaceDetectionMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::FaceDetectionMode) DetectionMode() const;
+        WINRT_IMPL_AUTO(void) SynchronousDetectionEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) SynchronousDetectionEnabled() const;
     };
     template <> struct consume<Windows::Media::Core::IFaceDetectionEffectDefinition>
     {
@@ -2342,7 +2354,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IFaceDetectionEffectFrame
     {
-        [[nodiscard]] auto DetectedFaces() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::FaceAnalysis::DetectedFace>) DetectedFaces() const;
     };
     template <> struct consume<Windows::Media::Core::IFaceDetectionEffectFrame>
     {
@@ -2351,8 +2363,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IHighDynamicRangeControl
     {
-        auto Enabled(bool value) const;
-        [[nodiscard]] auto Enabled() const;
+        WINRT_IMPL_AUTO(void) Enabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Enabled() const;
     };
     template <> struct consume<Windows::Media::Core::IHighDynamicRangeControl>
     {
@@ -2361,8 +2373,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IHighDynamicRangeOutput
     {
-        [[nodiscard]] auto Certainty() const;
-        [[nodiscard]] auto FrameControllers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Certainty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Devices::Core::FrameController>) FrameControllers() const;
     };
     template <> struct consume<Windows::Media::Core::IHighDynamicRangeOutput>
     {
@@ -2371,12 +2383,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IImageCue
     {
-        [[nodiscard]] auto Position() const;
-        auto Position(Windows::Media::Core::TimedTextPoint const& value) const;
-        [[nodiscard]] auto Extent() const;
-        auto Extent(Windows::Media::Core::TimedTextSize const& value) const;
-        auto SoftwareBitmap(Windows::Graphics::Imaging::SoftwareBitmap const& value) const;
-        [[nodiscard]] auto SoftwareBitmap() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::TimedTextPoint) Position() const;
+        WINRT_IMPL_AUTO(void) Position(Windows::Media::Core::TimedTextPoint const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::TimedTextSize) Extent() const;
+        WINRT_IMPL_AUTO(void) Extent(Windows::Media::Core::TimedTextSize const& value) const;
+        WINRT_IMPL_AUTO(void) SoftwareBitmap(Windows::Graphics::Imaging::SoftwareBitmap const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Imaging::SoftwareBitmap) SoftwareBitmap() const;
     };
     template <> struct consume<Windows::Media::Core::IImageCue>
     {
@@ -2385,9 +2397,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IInitializeMediaStreamSourceRequestedEventArgs
     {
-        [[nodiscard]] auto Source() const;
-        [[nodiscard]] auto RandomAccessStream() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::MediaStreamSource) Source() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStream) RandomAccessStream() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
     };
     template <> struct consume<Windows::Media::Core::IInitializeMediaStreamSourceRequestedEventArgs>
     {
@@ -2396,7 +2408,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_ILowLightFusionResult
     {
-        [[nodiscard]] auto Frame() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::Imaging::SoftwareBitmap) Frame() const;
     };
     template <> struct consume<Windows::Media::Core::ILowLightFusionResult>
     {
@@ -2405,9 +2417,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_ILowLightFusionStatics
     {
-        [[nodiscard]] auto SupportedBitmapPixelFormats() const;
-        [[nodiscard]] auto MaxSupportedFrameCount() const;
-        auto FuseAsync(param::async_iterable<Windows::Graphics::Imaging::SoftwareBitmap> const& frameSet) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Graphics::Imaging::BitmapPixelFormat>) SupportedBitmapPixelFormats() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) MaxSupportedFrameCount() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperationWithProgress<Windows::Media::Core::LowLightFusionResult, double>) FuseAsync(param::async_iterable<Windows::Graphics::Imaging::SoftwareBitmap> const& frameSet) const;
     };
     template <> struct consume<Windows::Media::Core::ILowLightFusionStatics>
     {
@@ -2416,13 +2428,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaBinder
     {
-        auto Binding(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaBinder, Windows::Media::Core::MediaBindingEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Binding(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaBinder, Windows::Media::Core::MediaBindingEventArgs> const& handler) const;
         using Binding_revoker = impl::event_revoker<Windows::Media::Core::IMediaBinder, &impl::abi_t<Windows::Media::Core::IMediaBinder>::remove_Binding>;
         [[nodiscard]] Binding_revoker Binding(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaBinder, Windows::Media::Core::MediaBindingEventArgs> const& handler) const;
-        auto Binding(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto Token() const;
-        auto Token(param::hstring const& value) const;
-        [[nodiscard]] auto Source() const;
+        WINRT_IMPL_AUTO(void) Binding(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Token() const;
+        WINRT_IMPL_AUTO(void) Token(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::MediaSource) Source() const;
     };
     template <> struct consume<Windows::Media::Core::IMediaBinder>
     {
@@ -2431,15 +2443,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaBindingEventArgs
     {
-        auto Canceled(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaBindingEventArgs, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Canceled(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaBindingEventArgs, Windows::Foundation::IInspectable> const& handler) const;
         using Canceled_revoker = impl::event_revoker<Windows::Media::Core::IMediaBindingEventArgs, &impl::abi_t<Windows::Media::Core::IMediaBindingEventArgs>::remove_Canceled>;
         [[nodiscard]] Canceled_revoker Canceled(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaBindingEventArgs, Windows::Foundation::IInspectable> const& handler) const;
-        auto Canceled(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto MediaBinder() const;
-        auto GetDeferral() const;
-        auto SetUri(Windows::Foundation::Uri const& uri) const;
-        auto SetStream(Windows::Storage::Streams::IRandomAccessStream const& stream, param::hstring const& contentType) const;
-        auto SetStreamReference(Windows::Storage::Streams::IRandomAccessStreamReference const& stream, param::hstring const& contentType) const;
+        WINRT_IMPL_AUTO(void) Canceled(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::MediaBinder) MediaBinder() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Deferral) GetDeferral() const;
+        WINRT_IMPL_AUTO(void) SetUri(Windows::Foundation::Uri const& uri) const;
+        WINRT_IMPL_AUTO(void) SetStream(Windows::Storage::Streams::IRandomAccessStream const& stream, param::hstring const& contentType) const;
+        WINRT_IMPL_AUTO(void) SetStreamReference(Windows::Storage::Streams::IRandomAccessStreamReference const& stream, param::hstring const& contentType) const;
     };
     template <> struct consume<Windows::Media::Core::IMediaBindingEventArgs>
     {
@@ -2448,8 +2460,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaBindingEventArgs2
     {
-        auto SetAdaptiveMediaSource(Windows::Media::Streaming::Adaptive::AdaptiveMediaSource const& mediaSource) const;
-        auto SetStorageFile(Windows::Storage::IStorageFile const& file) const;
+        WINRT_IMPL_AUTO(void) SetAdaptiveMediaSource(Windows::Media::Streaming::Adaptive::AdaptiveMediaSource const& mediaSource) const;
+        WINRT_IMPL_AUTO(void) SetStorageFile(Windows::Storage::IStorageFile const& file) const;
     };
     template <> struct consume<Windows::Media::Core::IMediaBindingEventArgs2>
     {
@@ -2458,7 +2470,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaBindingEventArgs3
     {
-        auto SetDownloadOperation(Windows::Networking::BackgroundTransfer::DownloadOperation const& downloadOperation) const;
+        WINRT_IMPL_AUTO(void) SetDownloadOperation(Windows::Networking::BackgroundTransfer::DownloadOperation const& downloadOperation) const;
     };
     template <> struct consume<Windows::Media::Core::IMediaBindingEventArgs3>
     {
@@ -2467,12 +2479,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaCue
     {
-        auto StartTime(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto StartTime() const;
-        auto Duration(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto Duration() const;
-        auto Id(param::hstring const& value) const;
-        [[nodiscard]] auto Id() const;
+        WINRT_IMPL_AUTO(void) StartTime(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) StartTime() const;
+        WINRT_IMPL_AUTO(void) Duration(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Duration() const;
+        WINRT_IMPL_AUTO(void) Id(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
     };
     template <> struct consume<Windows::Media::Core::IMediaCue>
     {
@@ -2481,7 +2493,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaCueEventArgs
     {
-        [[nodiscard]] auto Cue() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::IMediaCue) Cue() const;
     };
     template <> struct consume<Windows::Media::Core::IMediaCueEventArgs>
     {
@@ -2498,15 +2510,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaSource2
     {
-        auto OpenOperationCompleted(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaSource, Windows::Media::Core::MediaSourceOpenOperationCompletedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) OpenOperationCompleted(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaSource, Windows::Media::Core::MediaSourceOpenOperationCompletedEventArgs> const& handler) const;
         using OpenOperationCompleted_revoker = impl::event_revoker<Windows::Media::Core::IMediaSource2, &impl::abi_t<Windows::Media::Core::IMediaSource2>::remove_OpenOperationCompleted>;
         [[nodiscard]] OpenOperationCompleted_revoker OpenOperationCompleted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaSource, Windows::Media::Core::MediaSourceOpenOperationCompletedEventArgs> const& handler) const;
-        auto OpenOperationCompleted(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto CustomProperties() const;
-        [[nodiscard]] auto Duration() const;
-        [[nodiscard]] auto IsOpen() const;
-        [[nodiscard]] auto ExternalTimedTextSources() const;
-        [[nodiscard]] auto ExternalTimedMetadataTracks() const;
+        WINRT_IMPL_AUTO(void) OpenOperationCompleted(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::ValueSet) CustomProperties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) Duration() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsOpen() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IObservableVector<Windows::Media::Core::TimedTextSource>) ExternalTimedTextSources() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IObservableVector<Windows::Media::Core::TimedMetadataTrack>) ExternalTimedMetadataTracks() const;
     };
     template <> struct consume<Windows::Media::Core::IMediaSource2>
     {
@@ -2515,12 +2527,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaSource3
     {
-        auto StateChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaSource, Windows::Media::Core::MediaSourceStateChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) StateChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaSource, Windows::Media::Core::MediaSourceStateChangedEventArgs> const& handler) const;
         using StateChanged_revoker = impl::event_revoker<Windows::Media::Core::IMediaSource3, &impl::abi_t<Windows::Media::Core::IMediaSource3>::remove_StateChanged>;
         [[nodiscard]] StateChanged_revoker StateChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaSource, Windows::Media::Core::MediaSourceStateChangedEventArgs> const& handler) const;
-        auto StateChanged(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto State() const;
-        auto Reset() const;
+        WINRT_IMPL_AUTO(void) StateChanged(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::MediaSourceState) State() const;
+        WINRT_IMPL_AUTO(void) Reset() const;
     };
     template <> struct consume<Windows::Media::Core::IMediaSource3>
     {
@@ -2529,11 +2541,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaSource4
     {
-        [[nodiscard]] auto AdaptiveMediaSource() const;
-        [[nodiscard]] auto MediaStreamSource() const;
-        [[nodiscard]] auto MseStreamSource() const;
-        [[nodiscard]] auto Uri() const;
-        auto OpenAsync() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Streaming::Adaptive::AdaptiveMediaSource) AdaptiveMediaSource() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::MediaStreamSource) MediaStreamSource() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::MseStreamSource) MseStreamSource() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Uri) Uri() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) OpenAsync() const;
     };
     template <> struct consume<Windows::Media::Core::IMediaSource4>
     {
@@ -2542,7 +2554,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaSource5
     {
-        [[nodiscard]] auto DownloadOperation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Networking::BackgroundTransfer::DownloadOperation) DownloadOperation() const;
     };
     template <> struct consume<Windows::Media::Core::IMediaSource5>
     {
@@ -2551,11 +2563,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaSourceAppServiceConnection
     {
-        auto InitializeMediaStreamSourceRequested(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaSourceAppServiceConnection, Windows::Media::Core::InitializeMediaStreamSourceRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) InitializeMediaStreamSourceRequested(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaSourceAppServiceConnection, Windows::Media::Core::InitializeMediaStreamSourceRequestedEventArgs> const& handler) const;
         using InitializeMediaStreamSourceRequested_revoker = impl::event_revoker<Windows::Media::Core::IMediaSourceAppServiceConnection, &impl::abi_t<Windows::Media::Core::IMediaSourceAppServiceConnection>::remove_InitializeMediaStreamSourceRequested>;
         [[nodiscard]] InitializeMediaStreamSourceRequested_revoker InitializeMediaStreamSourceRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaSourceAppServiceConnection, Windows::Media::Core::InitializeMediaStreamSourceRequestedEventArgs> const& handler) const;
-        auto InitializeMediaStreamSourceRequested(winrt::event_token const& token) const noexcept;
-        auto Start() const;
+        WINRT_IMPL_AUTO(void) InitializeMediaStreamSourceRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Start() const;
     };
     template <> struct consume<Windows::Media::Core::IMediaSourceAppServiceConnection>
     {
@@ -2564,7 +2576,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaSourceAppServiceConnectionFactory
     {
-        auto Create(Windows::ApplicationModel::AppService::AppServiceConnection const& appServiceConnection) const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::MediaSourceAppServiceConnection) Create(Windows::ApplicationModel::AppService::AppServiceConnection const& appServiceConnection) const;
     };
     template <> struct consume<Windows::Media::Core::IMediaSourceAppServiceConnectionFactory>
     {
@@ -2573,7 +2585,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaSourceError
     {
-        [[nodiscard]] auto ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
     };
     template <> struct consume<Windows::Media::Core::IMediaSourceError>
     {
@@ -2582,7 +2594,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaSourceOpenOperationCompletedEventArgs
     {
-        [[nodiscard]] auto Error() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::MediaSourceError) Error() const;
     };
     template <> struct consume<Windows::Media::Core::IMediaSourceOpenOperationCompletedEventArgs>
     {
@@ -2591,8 +2603,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaSourceStateChangedEventArgs
     {
-        [[nodiscard]] auto OldState() const;
-        [[nodiscard]] auto NewState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::MediaSourceState) OldState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::MediaSourceState) NewState() const;
     };
     template <> struct consume<Windows::Media::Core::IMediaSourceStateChangedEventArgs>
     {
@@ -2601,14 +2613,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaSourceStatics
     {
-        auto CreateFromAdaptiveMediaSource(Windows::Media::Streaming::Adaptive::AdaptiveMediaSource const& mediaSource) const;
-        auto CreateFromMediaStreamSource(Windows::Media::Core::MediaStreamSource const& mediaSource) const;
-        auto CreateFromMseStreamSource(Windows::Media::Core::MseStreamSource const& mediaSource) const;
-        auto CreateFromIMediaSource(Windows::Media::Core::IMediaSource const& mediaSource) const;
-        auto CreateFromStorageFile(Windows::Storage::IStorageFile const& file) const;
-        auto CreateFromStream(Windows::Storage::Streams::IRandomAccessStream const& stream, param::hstring const& contentType) const;
-        auto CreateFromStreamReference(Windows::Storage::Streams::IRandomAccessStreamReference const& stream, param::hstring const& contentType) const;
-        auto CreateFromUri(Windows::Foundation::Uri const& uri) const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::MediaSource) CreateFromAdaptiveMediaSource(Windows::Media::Streaming::Adaptive::AdaptiveMediaSource const& mediaSource) const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::MediaSource) CreateFromMediaStreamSource(Windows::Media::Core::MediaStreamSource const& mediaSource) const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::MediaSource) CreateFromMseStreamSource(Windows::Media::Core::MseStreamSource const& mediaSource) const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::MediaSource) CreateFromIMediaSource(Windows::Media::Core::IMediaSource const& mediaSource) const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::MediaSource) CreateFromStorageFile(Windows::Storage::IStorageFile const& file) const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::MediaSource) CreateFromStream(Windows::Storage::Streams::IRandomAccessStream const& stream, param::hstring const& contentType) const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::MediaSource) CreateFromStreamReference(Windows::Storage::Streams::IRandomAccessStreamReference const& stream, param::hstring const& contentType) const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::MediaSource) CreateFromUri(Windows::Foundation::Uri const& uri) const;
     };
     template <> struct consume<Windows::Media::Core::IMediaSourceStatics>
     {
@@ -2617,7 +2629,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaSourceStatics2
     {
-        auto CreateFromMediaBinder(Windows::Media::Core::MediaBinder const& binder) const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::MediaSource) CreateFromMediaBinder(Windows::Media::Core::MediaBinder const& binder) const;
     };
     template <> struct consume<Windows::Media::Core::IMediaSourceStatics2>
     {
@@ -2626,7 +2638,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaSourceStatics3
     {
-        auto CreateFromMediaFrameSource(Windows::Media::Capture::Frames::MediaFrameSource const& frameSource) const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::MediaSource) CreateFromMediaFrameSource(Windows::Media::Capture::Frames::MediaFrameSource const& frameSource) const;
     };
     template <> struct consume<Windows::Media::Core::IMediaSourceStatics3>
     {
@@ -2635,7 +2647,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaSourceStatics4
     {
-        auto CreateFromDownloadOperation(Windows::Networking::BackgroundTransfer::DownloadOperation const& downloadOperation) const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::MediaSource) CreateFromDownloadOperation(Windows::Networking::BackgroundTransfer::DownloadOperation const& downloadOperation) const;
     };
     template <> struct consume<Windows::Media::Core::IMediaSourceStatics4>
     {
@@ -2644,11 +2656,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaStreamDescriptor
     {
-        [[nodiscard]] auto IsSelected() const;
-        auto Name(param::hstring const& value) const;
-        [[nodiscard]] auto Name() const;
-        auto Language(param::hstring const& value) const;
-        [[nodiscard]] auto Language() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSelected() const;
+        WINRT_IMPL_AUTO(void) Name(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        WINRT_IMPL_AUTO(void) Language(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Language() const;
     };
     template <> struct consume<Windows::Media::Core::IMediaStreamDescriptor>
     {
@@ -2657,8 +2669,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaStreamDescriptor2
     {
-        auto Label(param::hstring const& value) const;
-        [[nodiscard]] auto Label() const;
+        WINRT_IMPL_AUTO(void) Label(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Label() const;
     };
     template <> struct consume<Windows::Media::Core::IMediaStreamDescriptor2>
     {
@@ -2667,22 +2679,22 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaStreamSample
     {
-        auto Processed(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaStreamSample, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Processed(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaStreamSample, Windows::Foundation::IInspectable> const& handler) const;
         using Processed_revoker = impl::event_revoker<Windows::Media::Core::IMediaStreamSample, &impl::abi_t<Windows::Media::Core::IMediaStreamSample>::remove_Processed>;
         [[nodiscard]] Processed_revoker Processed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaStreamSample, Windows::Foundation::IInspectable> const& handler) const;
-        auto Processed(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto Buffer() const;
-        [[nodiscard]] auto Timestamp() const;
-        [[nodiscard]] auto ExtendedProperties() const;
-        [[nodiscard]] auto Protection() const;
-        auto DecodeTimestamp(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto DecodeTimestamp() const;
-        auto Duration(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto Duration() const;
-        auto KeyFrame(bool value) const;
-        [[nodiscard]] auto KeyFrame() const;
-        auto Discontinuous(bool value) const;
-        [[nodiscard]] auto Discontinuous() const;
+        WINRT_IMPL_AUTO(void) Processed(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::Buffer) Buffer() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Timestamp() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::MediaStreamSamplePropertySet) ExtendedProperties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::MediaStreamSampleProtectionProperties) Protection() const;
+        WINRT_IMPL_AUTO(void) DecodeTimestamp(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) DecodeTimestamp() const;
+        WINRT_IMPL_AUTO(void) Duration(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Duration() const;
+        WINRT_IMPL_AUTO(void) KeyFrame(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) KeyFrame() const;
+        WINRT_IMPL_AUTO(void) Discontinuous(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Discontinuous() const;
     };
     template <> struct consume<Windows::Media::Core::IMediaStreamSample>
     {
@@ -2691,7 +2703,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaStreamSample2
     {
-        [[nodiscard]] auto Direct3D11Surface() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface) Direct3D11Surface() const;
     };
     template <> struct consume<Windows::Media::Core::IMediaStreamSample2>
     {
@@ -2700,12 +2712,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaStreamSampleProtectionProperties
     {
-        auto SetKeyIdentifier(array_view<uint8_t const> value) const;
-        auto GetKeyIdentifier(com_array<uint8_t>& value) const;
-        auto SetInitializationVector(array_view<uint8_t const> value) const;
-        auto GetInitializationVector(com_array<uint8_t>& value) const;
-        auto SetSubSampleMapping(array_view<uint8_t const> value) const;
-        auto GetSubSampleMapping(com_array<uint8_t>& value) const;
+        WINRT_IMPL_AUTO(void) SetKeyIdentifier(array_view<uint8_t const> value) const;
+        WINRT_IMPL_AUTO(void) GetKeyIdentifier(com_array<uint8_t>& value) const;
+        WINRT_IMPL_AUTO(void) SetInitializationVector(array_view<uint8_t const> value) const;
+        WINRT_IMPL_AUTO(void) GetInitializationVector(com_array<uint8_t>& value) const;
+        WINRT_IMPL_AUTO(void) SetSubSampleMapping(array_view<uint8_t const> value) const;
+        WINRT_IMPL_AUTO(void) GetSubSampleMapping(com_array<uint8_t>& value) const;
     };
     template <> struct consume<Windows::Media::Core::IMediaStreamSampleProtectionProperties>
     {
@@ -2714,8 +2726,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaStreamSampleStatics
     {
-        auto CreateFromBuffer(Windows::Storage::Streams::IBuffer const& buffer, Windows::Foundation::TimeSpan const& timestamp) const;
-        auto CreateFromStreamAsync(Windows::Storage::Streams::IInputStream const& stream, uint32_t count, Windows::Foundation::TimeSpan const& timestamp) const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::MediaStreamSample) CreateFromBuffer(Windows::Storage::Streams::IBuffer const& buffer, Windows::Foundation::TimeSpan const& timestamp) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Media::Core::MediaStreamSample>) CreateFromStreamAsync(Windows::Storage::Streams::IInputStream const& stream, uint32_t count, Windows::Foundation::TimeSpan const& timestamp) const;
     };
     template <> struct consume<Windows::Media::Core::IMediaStreamSampleStatics>
     {
@@ -2724,7 +2736,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaStreamSampleStatics2
     {
-        auto CreateFromDirect3D11Surface(Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface const& surface, Windows::Foundation::TimeSpan const& timestamp) const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::MediaStreamSample) CreateFromDirect3D11Surface(Windows::Graphics::DirectX::Direct3D11::IDirect3DSurface const& surface, Windows::Foundation::TimeSpan const& timestamp) const;
     };
     template <> struct consume<Windows::Media::Core::IMediaStreamSampleStatics2>
     {
@@ -2733,42 +2745,42 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaStreamSource
     {
-        auto Closed(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaStreamSource, Windows::Media::Core::MediaStreamSourceClosedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Closed(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaStreamSource, Windows::Media::Core::MediaStreamSourceClosedEventArgs> const& handler) const;
         using Closed_revoker = impl::event_revoker<Windows::Media::Core::IMediaStreamSource, &impl::abi_t<Windows::Media::Core::IMediaStreamSource>::remove_Closed>;
         [[nodiscard]] Closed_revoker Closed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaStreamSource, Windows::Media::Core::MediaStreamSourceClosedEventArgs> const& handler) const;
-        auto Closed(winrt::event_token const& token) const noexcept;
-        auto Starting(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaStreamSource, Windows::Media::Core::MediaStreamSourceStartingEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) Closed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Starting(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaStreamSource, Windows::Media::Core::MediaStreamSourceStartingEventArgs> const& handler) const;
         using Starting_revoker = impl::event_revoker<Windows::Media::Core::IMediaStreamSource, &impl::abi_t<Windows::Media::Core::IMediaStreamSource>::remove_Starting>;
         [[nodiscard]] Starting_revoker Starting(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaStreamSource, Windows::Media::Core::MediaStreamSourceStartingEventArgs> const& handler) const;
-        auto Starting(winrt::event_token const& token) const noexcept;
-        auto Paused(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaStreamSource, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) Starting(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Paused(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaStreamSource, Windows::Foundation::IInspectable> const& handler) const;
         using Paused_revoker = impl::event_revoker<Windows::Media::Core::IMediaStreamSource, &impl::abi_t<Windows::Media::Core::IMediaStreamSource>::remove_Paused>;
         [[nodiscard]] Paused_revoker Paused(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaStreamSource, Windows::Foundation::IInspectable> const& handler) const;
-        auto Paused(winrt::event_token const& token) const noexcept;
-        auto SampleRequested(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaStreamSource, Windows::Media::Core::MediaStreamSourceSampleRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) Paused(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) SampleRequested(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaStreamSource, Windows::Media::Core::MediaStreamSourceSampleRequestedEventArgs> const& handler) const;
         using SampleRequested_revoker = impl::event_revoker<Windows::Media::Core::IMediaStreamSource, &impl::abi_t<Windows::Media::Core::IMediaStreamSource>::remove_SampleRequested>;
         [[nodiscard]] SampleRequested_revoker SampleRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaStreamSource, Windows::Media::Core::MediaStreamSourceSampleRequestedEventArgs> const& handler) const;
-        auto SampleRequested(winrt::event_token const& token) const noexcept;
-        auto SwitchStreamsRequested(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaStreamSource, Windows::Media::Core::MediaStreamSourceSwitchStreamsRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) SampleRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) SwitchStreamsRequested(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaStreamSource, Windows::Media::Core::MediaStreamSourceSwitchStreamsRequestedEventArgs> const& handler) const;
         using SwitchStreamsRequested_revoker = impl::event_revoker<Windows::Media::Core::IMediaStreamSource, &impl::abi_t<Windows::Media::Core::IMediaStreamSource>::remove_SwitchStreamsRequested>;
         [[nodiscard]] SwitchStreamsRequested_revoker SwitchStreamsRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaStreamSource, Windows::Media::Core::MediaStreamSourceSwitchStreamsRequestedEventArgs> const& handler) const;
-        auto SwitchStreamsRequested(winrt::event_token const& token) const noexcept;
-        auto NotifyError(Windows::Media::Core::MediaStreamSourceErrorStatus const& errorStatus) const;
-        auto AddStreamDescriptor(Windows::Media::Core::IMediaStreamDescriptor const& descriptor) const;
-        auto MediaProtectionManager(Windows::Media::Protection::MediaProtectionManager const& value) const;
-        [[nodiscard]] auto MediaProtectionManager() const;
-        auto Duration(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto Duration() const;
-        auto CanSeek(bool value) const;
-        [[nodiscard]] auto CanSeek() const;
-        auto BufferTime(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto BufferTime() const;
-        auto SetBufferedRange(Windows::Foundation::TimeSpan const& startOffset, Windows::Foundation::TimeSpan const& endOffset) const;
-        [[nodiscard]] auto MusicProperties() const;
-        [[nodiscard]] auto VideoProperties() const;
-        auto Thumbnail(Windows::Storage::Streams::IRandomAccessStreamReference const& value) const;
-        [[nodiscard]] auto Thumbnail() const;
-        auto AddProtectionKey(Windows::Media::Core::IMediaStreamDescriptor const& streamDescriptor, array_view<uint8_t const> keyIdentifier, array_view<uint8_t const> licenseData) const;
+        WINRT_IMPL_AUTO(void) SwitchStreamsRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) NotifyError(Windows::Media::Core::MediaStreamSourceErrorStatus const& errorStatus) const;
+        WINRT_IMPL_AUTO(void) AddStreamDescriptor(Windows::Media::Core::IMediaStreamDescriptor const& descriptor) const;
+        WINRT_IMPL_AUTO(void) MediaProtectionManager(Windows::Media::Protection::MediaProtectionManager const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Protection::MediaProtectionManager) MediaProtectionManager() const;
+        WINRT_IMPL_AUTO(void) Duration(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Duration() const;
+        WINRT_IMPL_AUTO(void) CanSeek(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanSeek() const;
+        WINRT_IMPL_AUTO(void) BufferTime(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) BufferTime() const;
+        WINRT_IMPL_AUTO(void) SetBufferedRange(Windows::Foundation::TimeSpan const& startOffset, Windows::Foundation::TimeSpan const& endOffset) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::FileProperties::MusicProperties) MusicProperties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::FileProperties::VideoProperties) VideoProperties() const;
+        WINRT_IMPL_AUTO(void) Thumbnail(Windows::Storage::Streams::IRandomAccessStreamReference const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Storage::Streams::IRandomAccessStreamReference) Thumbnail() const;
+        WINRT_IMPL_AUTO(void) AddProtectionKey(Windows::Media::Core::IMediaStreamDescriptor const& streamDescriptor, array_view<uint8_t const> keyIdentifier, array_view<uint8_t const> licenseData) const;
     };
     template <> struct consume<Windows::Media::Core::IMediaStreamSource>
     {
@@ -2777,10 +2789,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaStreamSource2
     {
-        auto SampleRendered(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaStreamSource, Windows::Media::Core::MediaStreamSourceSampleRenderedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) SampleRendered(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaStreamSource, Windows::Media::Core::MediaStreamSourceSampleRenderedEventArgs> const& handler) const;
         using SampleRendered_revoker = impl::event_revoker<Windows::Media::Core::IMediaStreamSource2, &impl::abi_t<Windows::Media::Core::IMediaStreamSource2>::remove_SampleRendered>;
         [[nodiscard]] SampleRendered_revoker SampleRendered(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::MediaStreamSource, Windows::Media::Core::MediaStreamSourceSampleRenderedEventArgs> const& handler) const;
-        auto SampleRendered(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) SampleRendered(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Media::Core::IMediaStreamSource2>
     {
@@ -2789,8 +2801,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaStreamSource3
     {
-        auto MaxSupportedPlaybackRate(Windows::Foundation::IReference<double> const& value) const;
-        [[nodiscard]] auto MaxSupportedPlaybackRate() const;
+        WINRT_IMPL_AUTO(void) MaxSupportedPlaybackRate(Windows::Foundation::IReference<double> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<double>) MaxSupportedPlaybackRate() const;
     };
     template <> struct consume<Windows::Media::Core::IMediaStreamSource3>
     {
@@ -2799,8 +2811,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaStreamSource4
     {
-        auto IsLive(bool value) const;
-        [[nodiscard]] auto IsLive() const;
+        WINRT_IMPL_AUTO(void) IsLive(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsLive() const;
     };
     template <> struct consume<Windows::Media::Core::IMediaStreamSource4>
     {
@@ -2809,7 +2821,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaStreamSourceClosedEventArgs
     {
-        [[nodiscard]] auto Request() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::MediaStreamSourceClosedRequest) Request() const;
     };
     template <> struct consume<Windows::Media::Core::IMediaStreamSourceClosedEventArgs>
     {
@@ -2818,7 +2830,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaStreamSourceClosedRequest
     {
-        [[nodiscard]] auto Reason() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::MediaStreamSourceClosedReason) Reason() const;
     };
     template <> struct consume<Windows::Media::Core::IMediaStreamSourceClosedRequest>
     {
@@ -2827,8 +2839,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaStreamSourceFactory
     {
-        auto CreateFromDescriptor(Windows::Media::Core::IMediaStreamDescriptor const& descriptor) const;
-        auto CreateFromDescriptors(Windows::Media::Core::IMediaStreamDescriptor const& descriptor, Windows::Media::Core::IMediaStreamDescriptor const& descriptor2) const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::MediaStreamSource) CreateFromDescriptor(Windows::Media::Core::IMediaStreamDescriptor const& descriptor) const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::MediaStreamSource) CreateFromDescriptors(Windows::Media::Core::IMediaStreamDescriptor const& descriptor, Windows::Media::Core::IMediaStreamDescriptor const& descriptor2) const;
     };
     template <> struct consume<Windows::Media::Core::IMediaStreamSourceFactory>
     {
@@ -2837,7 +2849,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaStreamSourceSampleRenderedEventArgs
     {
-        [[nodiscard]] auto SampleLag() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) SampleLag() const;
     };
     template <> struct consume<Windows::Media::Core::IMediaStreamSourceSampleRenderedEventArgs>
     {
@@ -2846,11 +2858,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaStreamSourceSampleRequest
     {
-        [[nodiscard]] auto StreamDescriptor() const;
-        auto GetDeferral() const;
-        auto Sample(Windows::Media::Core::MediaStreamSample const& value) const;
-        [[nodiscard]] auto Sample() const;
-        auto ReportSampleProgress(uint32_t progress) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::IMediaStreamDescriptor) StreamDescriptor() const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::MediaStreamSourceSampleRequestDeferral) GetDeferral() const;
+        WINRT_IMPL_AUTO(void) Sample(Windows::Media::Core::MediaStreamSample const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::MediaStreamSample) Sample() const;
+        WINRT_IMPL_AUTO(void) ReportSampleProgress(uint32_t progress) const;
     };
     template <> struct consume<Windows::Media::Core::IMediaStreamSourceSampleRequest>
     {
@@ -2859,7 +2871,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaStreamSourceSampleRequestDeferral
     {
-        auto Complete() const;
+        WINRT_IMPL_AUTO(void) Complete() const;
     };
     template <> struct consume<Windows::Media::Core::IMediaStreamSourceSampleRequestDeferral>
     {
@@ -2868,7 +2880,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaStreamSourceSampleRequestedEventArgs
     {
-        [[nodiscard]] auto Request() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::MediaStreamSourceSampleRequest) Request() const;
     };
     template <> struct consume<Windows::Media::Core::IMediaStreamSourceSampleRequestedEventArgs>
     {
@@ -2877,7 +2889,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaStreamSourceStartingEventArgs
     {
-        [[nodiscard]] auto Request() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::MediaStreamSourceStartingRequest) Request() const;
     };
     template <> struct consume<Windows::Media::Core::IMediaStreamSourceStartingEventArgs>
     {
@@ -2886,9 +2898,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaStreamSourceStartingRequest
     {
-        [[nodiscard]] auto StartPosition() const;
-        auto GetDeferral() const;
-        auto SetActualStartPosition(Windows::Foundation::TimeSpan const& position) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) StartPosition() const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::MediaStreamSourceStartingRequestDeferral) GetDeferral() const;
+        WINRT_IMPL_AUTO(void) SetActualStartPosition(Windows::Foundation::TimeSpan const& position) const;
     };
     template <> struct consume<Windows::Media::Core::IMediaStreamSourceStartingRequest>
     {
@@ -2897,7 +2909,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaStreamSourceStartingRequestDeferral
     {
-        auto Complete() const;
+        WINRT_IMPL_AUTO(void) Complete() const;
     };
     template <> struct consume<Windows::Media::Core::IMediaStreamSourceStartingRequestDeferral>
     {
@@ -2906,9 +2918,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaStreamSourceSwitchStreamsRequest
     {
-        [[nodiscard]] auto OldStreamDescriptor() const;
-        [[nodiscard]] auto NewStreamDescriptor() const;
-        auto GetDeferral() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::IMediaStreamDescriptor) OldStreamDescriptor() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::IMediaStreamDescriptor) NewStreamDescriptor() const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::MediaStreamSourceSwitchStreamsRequestDeferral) GetDeferral() const;
     };
     template <> struct consume<Windows::Media::Core::IMediaStreamSourceSwitchStreamsRequest>
     {
@@ -2917,7 +2929,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaStreamSourceSwitchStreamsRequestDeferral
     {
-        auto Complete() const;
+        WINRT_IMPL_AUTO(void) Complete() const;
     };
     template <> struct consume<Windows::Media::Core::IMediaStreamSourceSwitchStreamsRequestDeferral>
     {
@@ -2926,7 +2938,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaStreamSourceSwitchStreamsRequestedEventArgs
     {
-        [[nodiscard]] auto Request() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::MediaStreamSourceSwitchStreamsRequest) Request() const;
     };
     template <> struct consume<Windows::Media::Core::IMediaStreamSourceSwitchStreamsRequestedEventArgs>
     {
@@ -2935,11 +2947,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMediaTrack
     {
-        [[nodiscard]] auto Id() const;
-        [[nodiscard]] auto Language() const;
-        [[nodiscard]] auto TrackKind() const;
-        auto Label(param::hstring const& value) const;
-        [[nodiscard]] auto Label() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Language() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::MediaTrackKind) TrackKind() const;
+        WINRT_IMPL_AUTO(void) Label(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Label() const;
     };
     template <> struct consume<Windows::Media::Core::IMediaTrack>
     {
@@ -2948,41 +2960,41 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMseSourceBuffer
     {
-        auto UpdateStarting(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MseSourceBuffer, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) UpdateStarting(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MseSourceBuffer, Windows::Foundation::IInspectable> const& handler) const;
         using UpdateStarting_revoker = impl::event_revoker<Windows::Media::Core::IMseSourceBuffer, &impl::abi_t<Windows::Media::Core::IMseSourceBuffer>::remove_UpdateStarting>;
         [[nodiscard]] UpdateStarting_revoker UpdateStarting(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::MseSourceBuffer, Windows::Foundation::IInspectable> const& handler) const;
-        auto UpdateStarting(winrt::event_token const& token) const noexcept;
-        auto Updated(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MseSourceBuffer, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) UpdateStarting(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Updated(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MseSourceBuffer, Windows::Foundation::IInspectable> const& handler) const;
         using Updated_revoker = impl::event_revoker<Windows::Media::Core::IMseSourceBuffer, &impl::abi_t<Windows::Media::Core::IMseSourceBuffer>::remove_Updated>;
         [[nodiscard]] Updated_revoker Updated(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::MseSourceBuffer, Windows::Foundation::IInspectable> const& handler) const;
-        auto Updated(winrt::event_token const& token) const noexcept;
-        auto UpdateEnded(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MseSourceBuffer, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) Updated(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) UpdateEnded(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MseSourceBuffer, Windows::Foundation::IInspectable> const& handler) const;
         using UpdateEnded_revoker = impl::event_revoker<Windows::Media::Core::IMseSourceBuffer, &impl::abi_t<Windows::Media::Core::IMseSourceBuffer>::remove_UpdateEnded>;
         [[nodiscard]] UpdateEnded_revoker UpdateEnded(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::MseSourceBuffer, Windows::Foundation::IInspectable> const& handler) const;
-        auto UpdateEnded(winrt::event_token const& token) const noexcept;
-        auto ErrorOccurred(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MseSourceBuffer, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) UpdateEnded(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) ErrorOccurred(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MseSourceBuffer, Windows::Foundation::IInspectable> const& handler) const;
         using ErrorOccurred_revoker = impl::event_revoker<Windows::Media::Core::IMseSourceBuffer, &impl::abi_t<Windows::Media::Core::IMseSourceBuffer>::remove_ErrorOccurred>;
         [[nodiscard]] ErrorOccurred_revoker ErrorOccurred(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::MseSourceBuffer, Windows::Foundation::IInspectable> const& handler) const;
-        auto ErrorOccurred(winrt::event_token const& token) const noexcept;
-        auto Aborted(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MseSourceBuffer, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) ErrorOccurred(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Aborted(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MseSourceBuffer, Windows::Foundation::IInspectable> const& handler) const;
         using Aborted_revoker = impl::event_revoker<Windows::Media::Core::IMseSourceBuffer, &impl::abi_t<Windows::Media::Core::IMseSourceBuffer>::remove_Aborted>;
         [[nodiscard]] Aborted_revoker Aborted(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::MseSourceBuffer, Windows::Foundation::IInspectable> const& handler) const;
-        auto Aborted(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto Mode() const;
-        auto Mode(Windows::Media::Core::MseAppendMode const& value) const;
-        [[nodiscard]] auto IsUpdating() const;
-        [[nodiscard]] auto Buffered() const;
-        [[nodiscard]] auto TimestampOffset() const;
-        auto TimestampOffset(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto AppendWindowStart() const;
-        auto AppendWindowStart(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto AppendWindowEnd() const;
-        auto AppendWindowEnd(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
-        auto AppendBuffer(Windows::Storage::Streams::IBuffer const& buffer) const;
-        auto AppendStream(Windows::Storage::Streams::IInputStream const& stream) const;
-        auto AppendStream(Windows::Storage::Streams::IInputStream const& stream, uint64_t maxSize) const;
-        auto Abort() const;
-        auto Remove(Windows::Foundation::TimeSpan const& start, Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& end) const;
+        WINRT_IMPL_AUTO(void) Aborted(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::MseAppendMode) Mode() const;
+        WINRT_IMPL_AUTO(void) Mode(Windows::Media::Core::MseAppendMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsUpdating() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Core::MseTimeRange>) Buffered() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) TimestampOffset() const;
+        WINRT_IMPL_AUTO(void) TimestampOffset(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) AppendWindowStart() const;
+        WINRT_IMPL_AUTO(void) AppendWindowStart(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) AppendWindowEnd() const;
+        WINRT_IMPL_AUTO(void) AppendWindowEnd(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
+        WINRT_IMPL_AUTO(void) AppendBuffer(Windows::Storage::Streams::IBuffer const& buffer) const;
+        WINRT_IMPL_AUTO(void) AppendStream(Windows::Storage::Streams::IInputStream const& stream) const;
+        WINRT_IMPL_AUTO(void) AppendStream(Windows::Storage::Streams::IInputStream const& stream, uint64_t maxSize) const;
+        WINRT_IMPL_AUTO(void) Abort() const;
+        WINRT_IMPL_AUTO(void) Remove(Windows::Foundation::TimeSpan const& start, Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& end) const;
     };
     template <> struct consume<Windows::Media::Core::IMseSourceBuffer>
     {
@@ -2991,15 +3003,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMseSourceBufferList
     {
-        auto SourceBufferAdded(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MseSourceBufferList, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) SourceBufferAdded(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MseSourceBufferList, Windows::Foundation::IInspectable> const& handler) const;
         using SourceBufferAdded_revoker = impl::event_revoker<Windows::Media::Core::IMseSourceBufferList, &impl::abi_t<Windows::Media::Core::IMseSourceBufferList>::remove_SourceBufferAdded>;
         [[nodiscard]] SourceBufferAdded_revoker SourceBufferAdded(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::MseSourceBufferList, Windows::Foundation::IInspectable> const& handler) const;
-        auto SourceBufferAdded(winrt::event_token const& token) const noexcept;
-        auto SourceBufferRemoved(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MseSourceBufferList, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) SourceBufferAdded(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) SourceBufferRemoved(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MseSourceBufferList, Windows::Foundation::IInspectable> const& handler) const;
         using SourceBufferRemoved_revoker = impl::event_revoker<Windows::Media::Core::IMseSourceBufferList, &impl::abi_t<Windows::Media::Core::IMseSourceBufferList>::remove_SourceBufferRemoved>;
         [[nodiscard]] SourceBufferRemoved_revoker SourceBufferRemoved(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::MseSourceBufferList, Windows::Foundation::IInspectable> const& handler) const;
-        auto SourceBufferRemoved(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto Buffers() const;
+        WINRT_IMPL_AUTO(void) SourceBufferRemoved(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Core::MseSourceBuffer>) Buffers() const;
     };
     template <> struct consume<Windows::Media::Core::IMseSourceBufferList>
     {
@@ -3008,26 +3020,26 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMseStreamSource
     {
-        auto Opened(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MseStreamSource, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Opened(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MseStreamSource, Windows::Foundation::IInspectable> const& handler) const;
         using Opened_revoker = impl::event_revoker<Windows::Media::Core::IMseStreamSource, &impl::abi_t<Windows::Media::Core::IMseStreamSource>::remove_Opened>;
         [[nodiscard]] Opened_revoker Opened(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::MseStreamSource, Windows::Foundation::IInspectable> const& handler) const;
-        auto Opened(winrt::event_token const& token) const noexcept;
-        auto Ended(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MseStreamSource, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) Opened(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Ended(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MseStreamSource, Windows::Foundation::IInspectable> const& handler) const;
         using Ended_revoker = impl::event_revoker<Windows::Media::Core::IMseStreamSource, &impl::abi_t<Windows::Media::Core::IMseStreamSource>::remove_Ended>;
         [[nodiscard]] Ended_revoker Ended(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::MseStreamSource, Windows::Foundation::IInspectable> const& handler) const;
-        auto Ended(winrt::event_token const& token) const noexcept;
-        auto Closed(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MseStreamSource, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(void) Ended(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) Closed(Windows::Foundation::TypedEventHandler<Windows::Media::Core::MseStreamSource, Windows::Foundation::IInspectable> const& handler) const;
         using Closed_revoker = impl::event_revoker<Windows::Media::Core::IMseStreamSource, &impl::abi_t<Windows::Media::Core::IMseStreamSource>::remove_Closed>;
         [[nodiscard]] Closed_revoker Closed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::MseStreamSource, Windows::Foundation::IInspectable> const& handler) const;
-        auto Closed(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto SourceBuffers() const;
-        [[nodiscard]] auto ActiveSourceBuffers() const;
-        [[nodiscard]] auto ReadyState() const;
-        [[nodiscard]] auto Duration() const;
-        auto Duration(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
-        auto AddSourceBuffer(param::hstring const& mimeType) const;
-        auto RemoveSourceBuffer(Windows::Media::Core::MseSourceBuffer const& buffer) const;
-        auto EndOfStream(Windows::Media::Core::MseEndOfStreamStatus const& status) const;
+        WINRT_IMPL_AUTO(void) Closed(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::MseSourceBufferList) SourceBuffers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::MseSourceBufferList) ActiveSourceBuffers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::MseReadyState) ReadyState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) Duration() const;
+        WINRT_IMPL_AUTO(void) Duration(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::MseSourceBuffer) AddSourceBuffer(param::hstring const& mimeType) const;
+        WINRT_IMPL_AUTO(void) RemoveSourceBuffer(Windows::Media::Core::MseSourceBuffer const& buffer) const;
+        WINRT_IMPL_AUTO(void) EndOfStream(Windows::Media::Core::MseEndOfStreamStatus const& status) const;
     };
     template <> struct consume<Windows::Media::Core::IMseStreamSource>
     {
@@ -3036,8 +3048,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMseStreamSource2
     {
-        [[nodiscard]] auto LiveSeekableRange() const;
-        auto LiveSeekableRange(Windows::Foundation::IReference<Windows::Media::Core::MseTimeRange> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Media::Core::MseTimeRange>) LiveSeekableRange() const;
+        WINRT_IMPL_AUTO(void) LiveSeekableRange(Windows::Foundation::IReference<Windows::Media::Core::MseTimeRange> const& value) const;
     };
     template <> struct consume<Windows::Media::Core::IMseStreamSource2>
     {
@@ -3046,7 +3058,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IMseStreamSourceStatics
     {
-        auto IsContentTypeSupported(param::hstring const& contentType) const;
+        WINRT_IMPL_AUTO(bool) IsContentTypeSupported(param::hstring const& contentType) const;
     };
     template <> struct consume<Windows::Media::Core::IMseStreamSourceStatics>
     {
@@ -3055,13 +3067,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_ISceneAnalysisEffect
     {
-        [[nodiscard]] auto HighDynamicRangeAnalyzer() const;
-        auto DesiredAnalysisInterval(Windows::Foundation::TimeSpan const& value) const;
-        [[nodiscard]] auto DesiredAnalysisInterval() const;
-        auto SceneAnalyzed(Windows::Foundation::TypedEventHandler<Windows::Media::Core::SceneAnalysisEffect, Windows::Media::Core::SceneAnalyzedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::HighDynamicRangeControl) HighDynamicRangeAnalyzer() const;
+        WINRT_IMPL_AUTO(void) DesiredAnalysisInterval(Windows::Foundation::TimeSpan const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) DesiredAnalysisInterval() const;
+        WINRT_IMPL_AUTO(winrt::event_token) SceneAnalyzed(Windows::Foundation::TypedEventHandler<Windows::Media::Core::SceneAnalysisEffect, Windows::Media::Core::SceneAnalyzedEventArgs> const& handler) const;
         using SceneAnalyzed_revoker = impl::event_revoker<Windows::Media::Core::ISceneAnalysisEffect, &impl::abi_t<Windows::Media::Core::ISceneAnalysisEffect>::remove_SceneAnalyzed>;
         [[nodiscard]] SceneAnalyzed_revoker SceneAnalyzed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::SceneAnalysisEffect, Windows::Media::Core::SceneAnalyzedEventArgs> const& handler) const;
-        auto SceneAnalyzed(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(void) SceneAnalyzed(winrt::event_token const& cookie) const noexcept;
     };
     template <> struct consume<Windows::Media::Core::ISceneAnalysisEffect>
     {
@@ -3070,8 +3082,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_ISceneAnalysisEffectFrame
     {
-        [[nodiscard]] auto FrameControlValues() const;
-        [[nodiscard]] auto HighDynamicRange() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Capture::CapturedFrameControlValues) FrameControlValues() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::HighDynamicRangeOutput) HighDynamicRange() const;
     };
     template <> struct consume<Windows::Media::Core::ISceneAnalysisEffectFrame>
     {
@@ -3080,7 +3092,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_ISceneAnalysisEffectFrame2
     {
-        [[nodiscard]] auto AnalysisRecommendation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::SceneAnalysisRecommendation) AnalysisRecommendation() const;
     };
     template <> struct consume<Windows::Media::Core::ISceneAnalysisEffectFrame2>
     {
@@ -3089,7 +3101,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_ISceneAnalyzedEventArgs
     {
-        [[nodiscard]] auto ResultFrame() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::SceneAnalysisEffectFrame) ResultFrame() const;
     };
     template <> struct consume<Windows::Media::Core::ISceneAnalyzedEventArgs>
     {
@@ -3098,12 +3110,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_ISingleSelectMediaTrackList
     {
-        auto SelectedIndexChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Core::ISingleSelectMediaTrackList, Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) SelectedIndexChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Core::ISingleSelectMediaTrackList, Windows::Foundation::IInspectable> const& handler) const;
         using SelectedIndexChanged_revoker = impl::event_revoker<Windows::Media::Core::ISingleSelectMediaTrackList, &impl::abi_t<Windows::Media::Core::ISingleSelectMediaTrackList>::remove_SelectedIndexChanged>;
         [[nodiscard]] SelectedIndexChanged_revoker SelectedIndexChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::ISingleSelectMediaTrackList, Windows::Foundation::IInspectable> const& handler) const;
-        auto SelectedIndexChanged(winrt::event_token const& token) const noexcept;
-        auto SelectedIndex(int32_t value) const;
-        [[nodiscard]] auto SelectedIndex() const;
+        WINRT_IMPL_AUTO(void) SelectedIndexChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) SelectedIndex(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) SelectedIndex() const;
     };
     template <> struct consume<Windows::Media::Core::ISingleSelectMediaTrackList>
     {
@@ -3112,12 +3124,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_ISpeechCue
     {
-        [[nodiscard]] auto Text() const;
-        auto Text(param::hstring const& value) const;
-        [[nodiscard]] auto StartPositionInInput() const;
-        auto StartPositionInInput(Windows::Foundation::IReference<int32_t> const& value) const;
-        [[nodiscard]] auto EndPositionInInput() const;
-        auto EndPositionInInput(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Text() const;
+        WINRT_IMPL_AUTO(void) Text(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) StartPositionInInput() const;
+        WINRT_IMPL_AUTO(void) StartPositionInInput(Windows::Foundation::IReference<int32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<int32_t>) EndPositionInInput() const;
+        WINRT_IMPL_AUTO(void) EndPositionInInput(Windows::Foundation::IReference<int32_t> const& value) const;
     };
     template <> struct consume<Windows::Media::Core::ISpeechCue>
     {
@@ -3126,8 +3138,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_ITimedMetadataStreamDescriptor
     {
-        [[nodiscard]] auto EncodingProperties() const;
-        auto Copy() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::MediaProperties::TimedMetadataEncodingProperties) EncodingProperties() const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::TimedMetadataStreamDescriptor) Copy() const;
     };
     template <> struct consume<Windows::Media::Core::ITimedMetadataStreamDescriptor>
     {
@@ -3136,7 +3148,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_ITimedMetadataStreamDescriptorFactory
     {
-        auto Create(Windows::Media::MediaProperties::TimedMetadataEncodingProperties const& encodingProperties) const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::TimedMetadataStreamDescriptor) Create(Windows::Media::MediaProperties::TimedMetadataEncodingProperties const& encodingProperties) const;
     };
     template <> struct consume<Windows::Media::Core::ITimedMetadataStreamDescriptorFactory>
     {
@@ -3145,24 +3157,24 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_ITimedMetadataTrack
     {
-        auto CueEntered(Windows::Foundation::TypedEventHandler<Windows::Media::Core::TimedMetadataTrack, Windows::Media::Core::MediaCueEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) CueEntered(Windows::Foundation::TypedEventHandler<Windows::Media::Core::TimedMetadataTrack, Windows::Media::Core::MediaCueEventArgs> const& handler) const;
         using CueEntered_revoker = impl::event_revoker<Windows::Media::Core::ITimedMetadataTrack, &impl::abi_t<Windows::Media::Core::ITimedMetadataTrack>::remove_CueEntered>;
         [[nodiscard]] CueEntered_revoker CueEntered(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::TimedMetadataTrack, Windows::Media::Core::MediaCueEventArgs> const& handler) const;
-        auto CueEntered(winrt::event_token const& token) const noexcept;
-        auto CueExited(Windows::Foundation::TypedEventHandler<Windows::Media::Core::TimedMetadataTrack, Windows::Media::Core::MediaCueEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) CueEntered(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) CueExited(Windows::Foundation::TypedEventHandler<Windows::Media::Core::TimedMetadataTrack, Windows::Media::Core::MediaCueEventArgs> const& handler) const;
         using CueExited_revoker = impl::event_revoker<Windows::Media::Core::ITimedMetadataTrack, &impl::abi_t<Windows::Media::Core::ITimedMetadataTrack>::remove_CueExited>;
         [[nodiscard]] CueExited_revoker CueExited(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::TimedMetadataTrack, Windows::Media::Core::MediaCueEventArgs> const& handler) const;
-        auto CueExited(winrt::event_token const& token) const noexcept;
-        auto TrackFailed(Windows::Foundation::TypedEventHandler<Windows::Media::Core::TimedMetadataTrack, Windows::Media::Core::TimedMetadataTrackFailedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) CueExited(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) TrackFailed(Windows::Foundation::TypedEventHandler<Windows::Media::Core::TimedMetadataTrack, Windows::Media::Core::TimedMetadataTrackFailedEventArgs> const& handler) const;
         using TrackFailed_revoker = impl::event_revoker<Windows::Media::Core::ITimedMetadataTrack, &impl::abi_t<Windows::Media::Core::ITimedMetadataTrack>::remove_TrackFailed>;
         [[nodiscard]] TrackFailed_revoker TrackFailed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::TimedMetadataTrack, Windows::Media::Core::TimedMetadataTrackFailedEventArgs> const& handler) const;
-        auto TrackFailed(winrt::event_token const& token) const noexcept;
-        [[nodiscard]] auto Cues() const;
-        [[nodiscard]] auto ActiveCues() const;
-        [[nodiscard]] auto TimedMetadataKind() const;
-        [[nodiscard]] auto DispatchType() const;
-        auto AddCue(Windows::Media::Core::IMediaCue const& cue) const;
-        auto RemoveCue(Windows::Media::Core::IMediaCue const& cue) const;
+        WINRT_IMPL_AUTO(void) TrackFailed(winrt::event_token const& token) const noexcept;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Core::IMediaCue>) Cues() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Core::IMediaCue>) ActiveCues() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::TimedMetadataKind) TimedMetadataKind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DispatchType() const;
+        WINRT_IMPL_AUTO(void) AddCue(Windows::Media::Core::IMediaCue const& cue) const;
+        WINRT_IMPL_AUTO(void) RemoveCue(Windows::Media::Core::IMediaCue const& cue) const;
     };
     template <> struct consume<Windows::Media::Core::ITimedMetadataTrack>
     {
@@ -3171,8 +3183,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_ITimedMetadataTrack2
     {
-        [[nodiscard]] auto PlaybackItem() const;
-        [[nodiscard]] auto Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Playback::MediaPlaybackItem) PlaybackItem() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
     };
     template <> struct consume<Windows::Media::Core::ITimedMetadataTrack2>
     {
@@ -3181,8 +3193,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_ITimedMetadataTrackError
     {
-        [[nodiscard]] auto ErrorCode() const;
-        [[nodiscard]] auto ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::TimedMetadataTrackErrorCode) ErrorCode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
     };
     template <> struct consume<Windows::Media::Core::ITimedMetadataTrackError>
     {
@@ -3191,7 +3203,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_ITimedMetadataTrackFactory
     {
-        auto Create(param::hstring const& id, param::hstring const& language, Windows::Media::Core::TimedMetadataKind const& kind) const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::TimedMetadataTrack) Create(param::hstring const& id, param::hstring const& language, Windows::Media::Core::TimedMetadataKind const& kind) const;
     };
     template <> struct consume<Windows::Media::Core::ITimedMetadataTrackFactory>
     {
@@ -3200,7 +3212,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_ITimedMetadataTrackFailedEventArgs
     {
-        [[nodiscard]] auto Error() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::TimedMetadataTrackError) Error() const;
     };
     template <> struct consume<Windows::Media::Core::ITimedMetadataTrackFailedEventArgs>
     {
@@ -3209,7 +3221,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_ITimedMetadataTrackProvider
     {
-        [[nodiscard]] auto TimedMetadataTracks() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Core::TimedMetadataTrack>) TimedMetadataTracks() const;
     };
     template <> struct consume<Windows::Media::Core::ITimedMetadataTrackProvider>
     {
@@ -3218,11 +3230,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_ITimedTextCue
     {
-        [[nodiscard]] auto CueRegion() const;
-        auto CueRegion(Windows::Media::Core::TimedTextRegion const& value) const;
-        [[nodiscard]] auto CueStyle() const;
-        auto CueStyle(Windows::Media::Core::TimedTextStyle const& value) const;
-        [[nodiscard]] auto Lines() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::TimedTextRegion) CueRegion() const;
+        WINRT_IMPL_AUTO(void) CueRegion(Windows::Media::Core::TimedTextRegion const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::TimedTextStyle) CueStyle() const;
+        WINRT_IMPL_AUTO(void) CueStyle(Windows::Media::Core::TimedTextStyle const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Media::Core::TimedTextLine>) Lines() const;
     };
     template <> struct consume<Windows::Media::Core::ITimedTextCue>
     {
@@ -3231,9 +3243,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_ITimedTextLine
     {
-        [[nodiscard]] auto Text() const;
-        auto Text(param::hstring const& value) const;
-        [[nodiscard]] auto Subformats() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Text() const;
+        WINRT_IMPL_AUTO(void) Text(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Media::Core::TimedTextSubformat>) Subformats() const;
     };
     template <> struct consume<Windows::Media::Core::ITimedTextLine>
     {
@@ -3242,30 +3254,30 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_ITimedTextRegion
     {
-        [[nodiscard]] auto Name() const;
-        auto Name(param::hstring const& value) const;
-        [[nodiscard]] auto Position() const;
-        auto Position(Windows::Media::Core::TimedTextPoint const& value) const;
-        [[nodiscard]] auto Extent() const;
-        auto Extent(Windows::Media::Core::TimedTextSize const& value) const;
-        [[nodiscard]] auto Background() const;
-        auto Background(Windows::UI::Color const& value) const;
-        [[nodiscard]] auto WritingMode() const;
-        auto WritingMode(Windows::Media::Core::TimedTextWritingMode const& value) const;
-        [[nodiscard]] auto DisplayAlignment() const;
-        auto DisplayAlignment(Windows::Media::Core::TimedTextDisplayAlignment const& value) const;
-        [[nodiscard]] auto LineHeight() const;
-        auto LineHeight(Windows::Media::Core::TimedTextDouble const& value) const;
-        [[nodiscard]] auto IsOverflowClipped() const;
-        auto IsOverflowClipped(bool value) const;
-        [[nodiscard]] auto Padding() const;
-        auto Padding(Windows::Media::Core::TimedTextPadding const& value) const;
-        [[nodiscard]] auto TextWrapping() const;
-        auto TextWrapping(Windows::Media::Core::TimedTextWrapping const& value) const;
-        [[nodiscard]] auto ZIndex() const;
-        auto ZIndex(int32_t value) const;
-        [[nodiscard]] auto ScrollMode() const;
-        auto ScrollMode(Windows::Media::Core::TimedTextScrollMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        WINRT_IMPL_AUTO(void) Name(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::TimedTextPoint) Position() const;
+        WINRT_IMPL_AUTO(void) Position(Windows::Media::Core::TimedTextPoint const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::TimedTextSize) Extent() const;
+        WINRT_IMPL_AUTO(void) Extent(Windows::Media::Core::TimedTextSize const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Color) Background() const;
+        WINRT_IMPL_AUTO(void) Background(Windows::UI::Color const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::TimedTextWritingMode) WritingMode() const;
+        WINRT_IMPL_AUTO(void) WritingMode(Windows::Media::Core::TimedTextWritingMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::TimedTextDisplayAlignment) DisplayAlignment() const;
+        WINRT_IMPL_AUTO(void) DisplayAlignment(Windows::Media::Core::TimedTextDisplayAlignment const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::TimedTextDouble) LineHeight() const;
+        WINRT_IMPL_AUTO(void) LineHeight(Windows::Media::Core::TimedTextDouble const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsOverflowClipped() const;
+        WINRT_IMPL_AUTO(void) IsOverflowClipped(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::TimedTextPadding) Padding() const;
+        WINRT_IMPL_AUTO(void) Padding(Windows::Media::Core::TimedTextPadding const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::TimedTextWrapping) TextWrapping() const;
+        WINRT_IMPL_AUTO(void) TextWrapping(Windows::Media::Core::TimedTextWrapping const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) ZIndex() const;
+        WINRT_IMPL_AUTO(void) ZIndex(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::TimedTextScrollMode) ScrollMode() const;
+        WINRT_IMPL_AUTO(void) ScrollMode(Windows::Media::Core::TimedTextScrollMode const& value) const;
     };
     template <> struct consume<Windows::Media::Core::ITimedTextRegion>
     {
@@ -3274,10 +3286,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_ITimedTextSource
     {
-        auto Resolved(Windows::Foundation::TypedEventHandler<Windows::Media::Core::TimedTextSource, Windows::Media::Core::TimedTextSourceResolveResultEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Resolved(Windows::Foundation::TypedEventHandler<Windows::Media::Core::TimedTextSource, Windows::Media::Core::TimedTextSourceResolveResultEventArgs> const& handler) const;
         using Resolved_revoker = impl::event_revoker<Windows::Media::Core::ITimedTextSource, &impl::abi_t<Windows::Media::Core::ITimedTextSource>::remove_Resolved>;
         [[nodiscard]] Resolved_revoker Resolved(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::TimedTextSource, Windows::Media::Core::TimedTextSourceResolveResultEventArgs> const& handler) const;
-        auto Resolved(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Resolved(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::Media::Core::ITimedTextSource>
     {
@@ -3286,8 +3298,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_ITimedTextSourceResolveResultEventArgs
     {
-        [[nodiscard]] auto Error() const;
-        [[nodiscard]] auto Tracks() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::TimedMetadataTrackError) Error() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVectorView<Windows::Media::Core::TimedMetadataTrack>) Tracks() const;
     };
     template <> struct consume<Windows::Media::Core::ITimedTextSourceResolveResultEventArgs>
     {
@@ -3296,10 +3308,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_ITimedTextSourceStatics
     {
-        auto CreateFromStream(Windows::Storage::Streams::IRandomAccessStream const& stream) const;
-        auto CreateFromUri(Windows::Foundation::Uri const& uri) const;
-        auto CreateFromStream(Windows::Storage::Streams::IRandomAccessStream const& stream, param::hstring const& defaultLanguage) const;
-        auto CreateFromUri(Windows::Foundation::Uri const& uri, param::hstring const& defaultLanguage) const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::TimedTextSource) CreateFromStream(Windows::Storage::Streams::IRandomAccessStream const& stream) const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::TimedTextSource) CreateFromUri(Windows::Foundation::Uri const& uri) const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::TimedTextSource) CreateFromStream(Windows::Storage::Streams::IRandomAccessStream const& stream, param::hstring const& defaultLanguage) const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::TimedTextSource) CreateFromUri(Windows::Foundation::Uri const& uri, param::hstring const& defaultLanguage) const;
     };
     template <> struct consume<Windows::Media::Core::ITimedTextSourceStatics>
     {
@@ -3308,10 +3320,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_ITimedTextSourceStatics2
     {
-        auto CreateFromStreamWithIndex(Windows::Storage::Streams::IRandomAccessStream const& stream, Windows::Storage::Streams::IRandomAccessStream const& indexStream) const;
-        auto CreateFromUriWithIndex(Windows::Foundation::Uri const& uri, Windows::Foundation::Uri const& indexUri) const;
-        auto CreateFromStreamWithIndex(Windows::Storage::Streams::IRandomAccessStream const& stream, Windows::Storage::Streams::IRandomAccessStream const& indexStream, param::hstring const& defaultLanguage) const;
-        auto CreateFromUriWithIndex(Windows::Foundation::Uri const& uri, Windows::Foundation::Uri const& indexUri, param::hstring const& defaultLanguage) const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::TimedTextSource) CreateFromStreamWithIndex(Windows::Storage::Streams::IRandomAccessStream const& stream, Windows::Storage::Streams::IRandomAccessStream const& indexStream) const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::TimedTextSource) CreateFromUriWithIndex(Windows::Foundation::Uri const& uri, Windows::Foundation::Uri const& indexUri) const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::TimedTextSource) CreateFromStreamWithIndex(Windows::Storage::Streams::IRandomAccessStream const& stream, Windows::Storage::Streams::IRandomAccessStream const& indexStream, param::hstring const& defaultLanguage) const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::TimedTextSource) CreateFromUriWithIndex(Windows::Foundation::Uri const& uri, Windows::Foundation::Uri const& indexUri, param::hstring const& defaultLanguage) const;
     };
     template <> struct consume<Windows::Media::Core::ITimedTextSourceStatics2>
     {
@@ -3320,30 +3332,30 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_ITimedTextStyle
     {
-        [[nodiscard]] auto Name() const;
-        auto Name(param::hstring const& value) const;
-        [[nodiscard]] auto FontFamily() const;
-        auto FontFamily(param::hstring const& value) const;
-        [[nodiscard]] auto FontSize() const;
-        auto FontSize(Windows::Media::Core::TimedTextDouble const& value) const;
-        [[nodiscard]] auto FontWeight() const;
-        auto FontWeight(Windows::Media::Core::TimedTextWeight const& value) const;
-        [[nodiscard]] auto Foreground() const;
-        auto Foreground(Windows::UI::Color const& value) const;
-        [[nodiscard]] auto Background() const;
-        auto Background(Windows::UI::Color const& value) const;
-        [[nodiscard]] auto IsBackgroundAlwaysShown() const;
-        auto IsBackgroundAlwaysShown(bool value) const;
-        [[nodiscard]] auto FlowDirection() const;
-        auto FlowDirection(Windows::Media::Core::TimedTextFlowDirection const& value) const;
-        [[nodiscard]] auto LineAlignment() const;
-        auto LineAlignment(Windows::Media::Core::TimedTextLineAlignment const& value) const;
-        [[nodiscard]] auto OutlineColor() const;
-        auto OutlineColor(Windows::UI::Color const& value) const;
-        [[nodiscard]] auto OutlineThickness() const;
-        auto OutlineThickness(Windows::Media::Core::TimedTextDouble const& value) const;
-        [[nodiscard]] auto OutlineRadius() const;
-        auto OutlineRadius(Windows::Media::Core::TimedTextDouble const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        WINRT_IMPL_AUTO(void) Name(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) FontFamily() const;
+        WINRT_IMPL_AUTO(void) FontFamily(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::TimedTextDouble) FontSize() const;
+        WINRT_IMPL_AUTO(void) FontSize(Windows::Media::Core::TimedTextDouble const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::TimedTextWeight) FontWeight() const;
+        WINRT_IMPL_AUTO(void) FontWeight(Windows::Media::Core::TimedTextWeight const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Color) Foreground() const;
+        WINRT_IMPL_AUTO(void) Foreground(Windows::UI::Color const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Color) Background() const;
+        WINRT_IMPL_AUTO(void) Background(Windows::UI::Color const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsBackgroundAlwaysShown() const;
+        WINRT_IMPL_AUTO(void) IsBackgroundAlwaysShown(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::TimedTextFlowDirection) FlowDirection() const;
+        WINRT_IMPL_AUTO(void) FlowDirection(Windows::Media::Core::TimedTextFlowDirection const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::TimedTextLineAlignment) LineAlignment() const;
+        WINRT_IMPL_AUTO(void) LineAlignment(Windows::Media::Core::TimedTextLineAlignment const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Color) OutlineColor() const;
+        WINRT_IMPL_AUTO(void) OutlineColor(Windows::UI::Color const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::TimedTextDouble) OutlineThickness() const;
+        WINRT_IMPL_AUTO(void) OutlineThickness(Windows::Media::Core::TimedTextDouble const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::TimedTextDouble) OutlineRadius() const;
+        WINRT_IMPL_AUTO(void) OutlineRadius(Windows::Media::Core::TimedTextDouble const& value) const;
     };
     template <> struct consume<Windows::Media::Core::ITimedTextStyle>
     {
@@ -3352,14 +3364,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_ITimedTextStyle2
     {
-        [[nodiscard]] auto FontStyle() const;
-        auto FontStyle(Windows::Media::Core::TimedTextFontStyle const& value) const;
-        [[nodiscard]] auto IsUnderlineEnabled() const;
-        auto IsUnderlineEnabled(bool value) const;
-        [[nodiscard]] auto IsLineThroughEnabled() const;
-        auto IsLineThroughEnabled(bool value) const;
-        [[nodiscard]] auto IsOverlineEnabled() const;
-        auto IsOverlineEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::TimedTextFontStyle) FontStyle() const;
+        WINRT_IMPL_AUTO(void) FontStyle(Windows::Media::Core::TimedTextFontStyle const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsUnderlineEnabled() const;
+        WINRT_IMPL_AUTO(void) IsUnderlineEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsLineThroughEnabled() const;
+        WINRT_IMPL_AUTO(void) IsLineThroughEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsOverlineEnabled() const;
+        WINRT_IMPL_AUTO(void) IsOverlineEnabled(bool value) const;
     };
     template <> struct consume<Windows::Media::Core::ITimedTextStyle2>
     {
@@ -3368,12 +3380,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_ITimedTextSubformat
     {
-        [[nodiscard]] auto StartIndex() const;
-        auto StartIndex(int32_t value) const;
-        [[nodiscard]] auto Length() const;
-        auto Length(int32_t value) const;
-        [[nodiscard]] auto SubformatStyle() const;
-        auto SubformatStyle(Windows::Media::Core::TimedTextStyle const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) StartIndex() const;
+        WINRT_IMPL_AUTO(void) StartIndex(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Length() const;
+        WINRT_IMPL_AUTO(void) Length(int32_t value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::TimedTextStyle) SubformatStyle() const;
+        WINRT_IMPL_AUTO(void) SubformatStyle(Windows::Media::Core::TimedTextStyle const& value) const;
     };
     template <> struct consume<Windows::Media::Core::ITimedTextSubformat>
     {
@@ -3382,13 +3394,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IVideoStabilizationEffect
     {
-        auto Enabled(bool value) const;
-        [[nodiscard]] auto Enabled() const;
-        auto EnabledChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Core::VideoStabilizationEffect, Windows::Media::Core::VideoStabilizationEffectEnabledChangedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) Enabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Enabled() const;
+        WINRT_IMPL_AUTO(winrt::event_token) EnabledChanged(Windows::Foundation::TypedEventHandler<Windows::Media::Core::VideoStabilizationEffect, Windows::Media::Core::VideoStabilizationEffectEnabledChangedEventArgs> const& handler) const;
         using EnabledChanged_revoker = impl::event_revoker<Windows::Media::Core::IVideoStabilizationEffect, &impl::abi_t<Windows::Media::Core::IVideoStabilizationEffect>::remove_EnabledChanged>;
         [[nodiscard]] EnabledChanged_revoker EnabledChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::VideoStabilizationEffect, Windows::Media::Core::VideoStabilizationEffectEnabledChangedEventArgs> const& handler) const;
-        auto EnabledChanged(winrt::event_token const& cookie) const noexcept;
-        auto GetRecommendedStreamConfiguration(Windows::Media::Devices::VideoDeviceController const& controller, Windows::Media::MediaProperties::VideoEncodingProperties const& desiredProperties) const;
+        WINRT_IMPL_AUTO(void) EnabledChanged(winrt::event_token const& cookie) const noexcept;
+        WINRT_IMPL_AUTO(Windows::Media::Capture::VideoStreamConfiguration) GetRecommendedStreamConfiguration(Windows::Media::Devices::VideoDeviceController const& controller, Windows::Media::MediaProperties::VideoEncodingProperties const& desiredProperties) const;
     };
     template <> struct consume<Windows::Media::Core::IVideoStabilizationEffect>
     {
@@ -3397,7 +3409,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IVideoStabilizationEffectEnabledChangedEventArgs
     {
-        [[nodiscard]] auto Reason() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::VideoStabilizationEffectEnabledChangedReason) Reason() const;
     };
     template <> struct consume<Windows::Media::Core::IVideoStabilizationEffectEnabledChangedEventArgs>
     {
@@ -3406,7 +3418,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IVideoStreamDescriptor
     {
-        [[nodiscard]] auto EncodingProperties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::MediaProperties::VideoEncodingProperties) EncodingProperties() const;
     };
     template <> struct consume<Windows::Media::Core::IVideoStreamDescriptor>
     {
@@ -3415,7 +3427,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IVideoStreamDescriptor2
     {
-        auto Copy() const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::VideoStreamDescriptor) Copy() const;
     };
     template <> struct consume<Windows::Media::Core::IVideoStreamDescriptor2>
     {
@@ -3424,7 +3436,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IVideoStreamDescriptorFactory
     {
-        auto Create(Windows::Media::MediaProperties::VideoEncodingProperties const& encodingProperties) const;
+        WINRT_IMPL_AUTO(Windows::Media::Core::VideoStreamDescriptor) Create(Windows::Media::MediaProperties::VideoEncodingProperties const& encodingProperties) const;
     };
     template <> struct consume<Windows::Media::Core::IVideoStreamDescriptorFactory>
     {
@@ -3433,14 +3445,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IVideoTrack
     {
-        auto OpenFailed(Windows::Foundation::TypedEventHandler<Windows::Media::Core::VideoTrack, Windows::Media::Core::VideoTrackOpenFailedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) OpenFailed(Windows::Foundation::TypedEventHandler<Windows::Media::Core::VideoTrack, Windows::Media::Core::VideoTrackOpenFailedEventArgs> const& handler) const;
         using OpenFailed_revoker = impl::event_revoker<Windows::Media::Core::IVideoTrack, &impl::abi_t<Windows::Media::Core::IVideoTrack>::remove_OpenFailed>;
         [[nodiscard]] OpenFailed_revoker OpenFailed(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Media::Core::VideoTrack, Windows::Media::Core::VideoTrackOpenFailedEventArgs> const& handler) const;
-        auto OpenFailed(winrt::event_token const& token) const noexcept;
-        auto GetEncodingProperties() const;
-        [[nodiscard]] auto PlaybackItem() const;
-        [[nodiscard]] auto Name() const;
-        [[nodiscard]] auto SupportInfo() const;
+        WINRT_IMPL_AUTO(void) OpenFailed(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::VideoEncodingProperties) GetEncodingProperties() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Playback::MediaPlaybackItem) PlaybackItem() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Name() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::VideoTrackSupportInfo) SupportInfo() const;
     };
     template <> struct consume<Windows::Media::Core::IVideoTrack>
     {
@@ -3449,7 +3461,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IVideoTrackOpenFailedEventArgs
     {
-        [[nodiscard]] auto ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
     };
     template <> struct consume<Windows::Media::Core::IVideoTrackOpenFailedEventArgs>
     {
@@ -3458,8 +3470,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Core_IVideoTrackSupportInfo
     {
-        [[nodiscard]] auto DecoderStatus() const;
-        [[nodiscard]] auto MediaSourceStatus() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::MediaDecoderStatus) DecoderStatus() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Core::MediaSourceStatus) MediaSourceStatus() const;
     };
     template <> struct consume<Windows::Media::Core::IVideoTrackSupportInfo>
     {

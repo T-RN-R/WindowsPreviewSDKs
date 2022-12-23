@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -76,7 +76,7 @@ WINRT_EXPORT namespace winrt::Windows::Devices::Geolocation
     {
         Geopath(std::nullptr_t) noexcept {}
         Geopath(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Devices::Geolocation::IGeopath(ptr, take_ownership_from_abi) {}
-        Geopath(param::iterable<Windows::Devices::Geolocation::BasicGeoposition> const& positions);
+        explicit Geopath(param::iterable<Windows::Devices::Geolocation::BasicGeoposition> const& positions);
         Geopath(param::iterable<Windows::Devices::Geolocation::BasicGeoposition> const& positions, Windows::Devices::Geolocation::AltitudeReferenceSystem const& altitudeReferenceSystem);
         Geopath(param::iterable<Windows::Devices::Geolocation::BasicGeoposition> const& positions, Windows::Devices::Geolocation::AltitudeReferenceSystem const& altitudeReferenceSystem, uint32_t spatialReferenceId);
     };
@@ -84,7 +84,7 @@ WINRT_EXPORT namespace winrt::Windows::Devices::Geolocation
     {
         Geopoint(std::nullptr_t) noexcept {}
         Geopoint(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Devices::Geolocation::IGeopoint(ptr, take_ownership_from_abi) {}
-        Geopoint(Windows::Devices::Geolocation::BasicGeoposition const& position);
+        explicit Geopoint(Windows::Devices::Geolocation::BasicGeoposition const& position);
         Geopoint(Windows::Devices::Geolocation::BasicGeoposition const& position, Windows::Devices::Geolocation::AltitudeReferenceSystem const& altitudeReferenceSystem);
         Geopoint(Windows::Devices::Geolocation::BasicGeoposition const& position, Windows::Devices::Geolocation::AltitudeReferenceSystem const& altitudeReferenceSystem, uint32_t spatialReferenceId);
     };

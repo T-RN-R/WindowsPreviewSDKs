@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -9,6 +9,10 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     template <typename T> struct IReference;
     struct Point;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::Foundation::Numerics
 {
@@ -102,43 +106,41 @@ namespace winrt::impl
     template <> struct category<Windows::Media::Devices::Core::FrameIsoSpeedControl>{ using type = class_category; };
     template <> struct category<Windows::Media::Devices::Core::VariablePhotoSequenceController>{ using type = class_category; };
     template <> struct category<Windows::Media::Devices::Core::FrameFlashMode>{ using type = enum_category; };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::CameraIntrinsics>{ L"Windows.Media.Devices.Core.CameraIntrinsics" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::DepthCorrelatedCoordinateMapper>{ L"Windows.Media.Devices.Core.DepthCorrelatedCoordinateMapper" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::FrameControlCapabilities>{ L"Windows.Media.Devices.Core.FrameControlCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::FrameController>{ L"Windows.Media.Devices.Core.FrameController" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::FrameExposureCapabilities>{ L"Windows.Media.Devices.Core.FrameExposureCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::FrameExposureCompensationCapabilities>{ L"Windows.Media.Devices.Core.FrameExposureCompensationCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::FrameExposureCompensationControl>{ L"Windows.Media.Devices.Core.FrameExposureCompensationControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::FrameExposureControl>{ L"Windows.Media.Devices.Core.FrameExposureControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::FrameFlashCapabilities>{ L"Windows.Media.Devices.Core.FrameFlashCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::FrameFlashControl>{ L"Windows.Media.Devices.Core.FrameFlashControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::FrameFocusCapabilities>{ L"Windows.Media.Devices.Core.FrameFocusCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::FrameFocusControl>{ L"Windows.Media.Devices.Core.FrameFocusControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::FrameIsoSpeedCapabilities>{ L"Windows.Media.Devices.Core.FrameIsoSpeedCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::FrameIsoSpeedControl>{ L"Windows.Media.Devices.Core.FrameIsoSpeedControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::VariablePhotoSequenceController>{ L"Windows.Media.Devices.Core.VariablePhotoSequenceController" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::FrameFlashMode>{ L"Windows.Media.Devices.Core.FrameFlashMode" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::ICameraIntrinsics>{ L"Windows.Media.Devices.Core.ICameraIntrinsics" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::ICameraIntrinsics2>{ L"Windows.Media.Devices.Core.ICameraIntrinsics2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::ICameraIntrinsicsFactory>{ L"Windows.Media.Devices.Core.ICameraIntrinsicsFactory" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IDepthCorrelatedCoordinateMapper>{ L"Windows.Media.Devices.Core.IDepthCorrelatedCoordinateMapper" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IFrameControlCapabilities>{ L"Windows.Media.Devices.Core.IFrameControlCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IFrameControlCapabilities2>{ L"Windows.Media.Devices.Core.IFrameControlCapabilities2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IFrameController>{ L"Windows.Media.Devices.Core.IFrameController" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IFrameController2>{ L"Windows.Media.Devices.Core.IFrameController2" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IFrameExposureCapabilities>{ L"Windows.Media.Devices.Core.IFrameExposureCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IFrameExposureCompensationCapabilities>{ L"Windows.Media.Devices.Core.IFrameExposureCompensationCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IFrameExposureCompensationControl>{ L"Windows.Media.Devices.Core.IFrameExposureCompensationControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IFrameExposureControl>{ L"Windows.Media.Devices.Core.IFrameExposureControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IFrameFlashCapabilities>{ L"Windows.Media.Devices.Core.IFrameFlashCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IFrameFlashControl>{ L"Windows.Media.Devices.Core.IFrameFlashControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IFrameFocusCapabilities>{ L"Windows.Media.Devices.Core.IFrameFocusCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IFrameFocusControl>{ L"Windows.Media.Devices.Core.IFrameFocusControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IFrameIsoSpeedCapabilities>{ L"Windows.Media.Devices.Core.IFrameIsoSpeedCapabilities" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IFrameIsoSpeedControl>{ L"Windows.Media.Devices.Core.IFrameIsoSpeedControl" };
-    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IVariablePhotoSequenceController>{ L"Windows.Media.Devices.Core.IVariablePhotoSequenceController" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::CameraIntrinsics> = L"Windows.Media.Devices.Core.CameraIntrinsics";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::DepthCorrelatedCoordinateMapper> = L"Windows.Media.Devices.Core.DepthCorrelatedCoordinateMapper";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::FrameControlCapabilities> = L"Windows.Media.Devices.Core.FrameControlCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::FrameController> = L"Windows.Media.Devices.Core.FrameController";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::FrameExposureCapabilities> = L"Windows.Media.Devices.Core.FrameExposureCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::FrameExposureCompensationCapabilities> = L"Windows.Media.Devices.Core.FrameExposureCompensationCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::FrameExposureCompensationControl> = L"Windows.Media.Devices.Core.FrameExposureCompensationControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::FrameExposureControl> = L"Windows.Media.Devices.Core.FrameExposureControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::FrameFlashCapabilities> = L"Windows.Media.Devices.Core.FrameFlashCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::FrameFlashControl> = L"Windows.Media.Devices.Core.FrameFlashControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::FrameFocusCapabilities> = L"Windows.Media.Devices.Core.FrameFocusCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::FrameFocusControl> = L"Windows.Media.Devices.Core.FrameFocusControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::FrameIsoSpeedCapabilities> = L"Windows.Media.Devices.Core.FrameIsoSpeedCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::FrameIsoSpeedControl> = L"Windows.Media.Devices.Core.FrameIsoSpeedControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::VariablePhotoSequenceController> = L"Windows.Media.Devices.Core.VariablePhotoSequenceController";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::FrameFlashMode> = L"Windows.Media.Devices.Core.FrameFlashMode";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::ICameraIntrinsics> = L"Windows.Media.Devices.Core.ICameraIntrinsics";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::ICameraIntrinsics2> = L"Windows.Media.Devices.Core.ICameraIntrinsics2";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::ICameraIntrinsicsFactory> = L"Windows.Media.Devices.Core.ICameraIntrinsicsFactory";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IDepthCorrelatedCoordinateMapper> = L"Windows.Media.Devices.Core.IDepthCorrelatedCoordinateMapper";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IFrameControlCapabilities> = L"Windows.Media.Devices.Core.IFrameControlCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IFrameControlCapabilities2> = L"Windows.Media.Devices.Core.IFrameControlCapabilities2";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IFrameController> = L"Windows.Media.Devices.Core.IFrameController";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IFrameController2> = L"Windows.Media.Devices.Core.IFrameController2";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IFrameExposureCapabilities> = L"Windows.Media.Devices.Core.IFrameExposureCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IFrameExposureCompensationCapabilities> = L"Windows.Media.Devices.Core.IFrameExposureCompensationCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IFrameExposureCompensationControl> = L"Windows.Media.Devices.Core.IFrameExposureCompensationControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IFrameExposureControl> = L"Windows.Media.Devices.Core.IFrameExposureControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IFrameFlashCapabilities> = L"Windows.Media.Devices.Core.IFrameFlashCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IFrameFlashControl> = L"Windows.Media.Devices.Core.IFrameFlashControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IFrameFocusCapabilities> = L"Windows.Media.Devices.Core.IFrameFocusCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IFrameFocusControl> = L"Windows.Media.Devices.Core.IFrameFocusControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IFrameIsoSpeedCapabilities> = L"Windows.Media.Devices.Core.IFrameIsoSpeedCapabilities";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IFrameIsoSpeedControl> = L"Windows.Media.Devices.Core.IFrameIsoSpeedControl";
+    template <> inline constexpr auto& name_v<Windows::Media::Devices::Core::IVariablePhotoSequenceController> = L"Windows.Media.Devices.Core.IVariablePhotoSequenceController";
     template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::ICameraIntrinsics>{ 0x0AA6ED32,0x6589,0x49DA,{ 0xAF,0xDE,0x59,0x42,0x70,0xCA,0x0A,0xAC } };
     template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::ICameraIntrinsics2>{ 0x0CDAA447,0x0798,0x4B4D,{ 0x83,0x9F,0xC5,0xEC,0x41,0x4D,0xB2,0x7A } };
     template <> inline constexpr guid guid_v<Windows::Media::Devices::Core::ICameraIntrinsicsFactory>{ 0xC0DDC486,0x2132,0x4A34,{ 0xA6,0x59,0x9B,0xFE,0x2A,0x05,0x57,0x12 } };
@@ -370,16 +372,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_Core_ICameraIntrinsics
     {
-        [[nodiscard]] auto FocalLength() const;
-        [[nodiscard]] auto PrincipalPoint() const;
-        [[nodiscard]] auto RadialDistortion() const;
-        [[nodiscard]] auto TangentialDistortion() const;
-        [[nodiscard]] auto ImageWidth() const;
-        [[nodiscard]] auto ImageHeight() const;
-        auto ProjectOntoFrame(Windows::Foundation::Numerics::float3 const& coordinate) const;
-        auto UnprojectAtUnitDepth(Windows::Foundation::Point const& pixelCoordinate) const;
-        auto ProjectManyOntoFrame(array_view<Windows::Foundation::Numerics::float3 const> coordinates, array_view<Windows::Foundation::Point> results) const;
-        auto UnprojectPixelsAtUnitDepth(array_view<Windows::Foundation::Point const> pixelCoordinates, array_view<Windows::Foundation::Numerics::float2> results) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) FocalLength() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) PrincipalPoint() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) RadialDistortion() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) TangentialDistortion() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ImageWidth() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) ImageHeight() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Point) ProjectOntoFrame(Windows::Foundation::Numerics::float3 const& coordinate) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) UnprojectAtUnitDepth(Windows::Foundation::Point const& pixelCoordinate) const;
+        WINRT_IMPL_AUTO(void) ProjectManyOntoFrame(array_view<Windows::Foundation::Numerics::float3 const> coordinates, array_view<Windows::Foundation::Point> results) const;
+        WINRT_IMPL_AUTO(void) UnprojectPixelsAtUnitDepth(array_view<Windows::Foundation::Point const> pixelCoordinates, array_view<Windows::Foundation::Numerics::float2> results) const;
     };
     template <> struct consume<Windows::Media::Devices::Core::ICameraIntrinsics>
     {
@@ -388,11 +390,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_Core_ICameraIntrinsics2
     {
-        [[nodiscard]] auto UndistortedProjectionTransform() const;
-        auto DistortPoint(Windows::Foundation::Point const& input) const;
-        auto DistortPoints(array_view<Windows::Foundation::Point const> inputs, array_view<Windows::Foundation::Point> results) const;
-        auto UndistortPoint(Windows::Foundation::Point const& input) const;
-        auto UndistortPoints(array_view<Windows::Foundation::Point const> inputs, array_view<Windows::Foundation::Point> results) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float4x4) UndistortedProjectionTransform() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Point) DistortPoint(Windows::Foundation::Point const& input) const;
+        WINRT_IMPL_AUTO(void) DistortPoints(array_view<Windows::Foundation::Point const> inputs, array_view<Windows::Foundation::Point> results) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Point) UndistortPoint(Windows::Foundation::Point const& input) const;
+        WINRT_IMPL_AUTO(void) UndistortPoints(array_view<Windows::Foundation::Point const> inputs, array_view<Windows::Foundation::Point> results) const;
     };
     template <> struct consume<Windows::Media::Devices::Core::ICameraIntrinsics2>
     {
@@ -401,7 +403,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_Core_ICameraIntrinsicsFactory
     {
-        auto Create(Windows::Foundation::Numerics::float2 const& focalLength, Windows::Foundation::Numerics::float2 const& principalPoint, Windows::Foundation::Numerics::float3 const& radialDistortion, Windows::Foundation::Numerics::float2 const& tangentialDistortion, uint32_t imageWidth, uint32_t imageHeight) const;
+        WINRT_IMPL_AUTO(Windows::Media::Devices::Core::CameraIntrinsics) Create(Windows::Foundation::Numerics::float2 const& focalLength, Windows::Foundation::Numerics::float2 const& principalPoint, Windows::Foundation::Numerics::float3 const& radialDistortion, Windows::Foundation::Numerics::float2 const& tangentialDistortion, uint32_t imageWidth, uint32_t imageHeight) const;
     };
     template <> struct consume<Windows::Media::Devices::Core::ICameraIntrinsicsFactory>
     {
@@ -410,10 +412,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_Core_IDepthCorrelatedCoordinateMapper
     {
-        auto UnprojectPoint(Windows::Foundation::Point const& sourcePoint, Windows::Perception::Spatial::SpatialCoordinateSystem const& targetCoordinateSystem) const;
-        auto UnprojectPoints(array_view<Windows::Foundation::Point const> sourcePoints, Windows::Perception::Spatial::SpatialCoordinateSystem const& targetCoordinateSystem, array_view<Windows::Foundation::Numerics::float3> results) const;
-        auto MapPoint(Windows::Foundation::Point const& sourcePoint, Windows::Perception::Spatial::SpatialCoordinateSystem const& targetCoordinateSystem, Windows::Media::Devices::Core::CameraIntrinsics const& targetCameraIntrinsics) const;
-        auto MapPoints(array_view<Windows::Foundation::Point const> sourcePoints, Windows::Perception::Spatial::SpatialCoordinateSystem const& targetCoordinateSystem, Windows::Media::Devices::Core::CameraIntrinsics const& targetCameraIntrinsics, array_view<Windows::Foundation::Point> results) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float3) UnprojectPoint(Windows::Foundation::Point const& sourcePoint, Windows::Perception::Spatial::SpatialCoordinateSystem const& targetCoordinateSystem) const;
+        WINRT_IMPL_AUTO(void) UnprojectPoints(array_view<Windows::Foundation::Point const> sourcePoints, Windows::Perception::Spatial::SpatialCoordinateSystem const& targetCoordinateSystem, array_view<Windows::Foundation::Numerics::float3> results) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Point) MapPoint(Windows::Foundation::Point const& sourcePoint, Windows::Perception::Spatial::SpatialCoordinateSystem const& targetCoordinateSystem, Windows::Media::Devices::Core::CameraIntrinsics const& targetCameraIntrinsics) const;
+        WINRT_IMPL_AUTO(void) MapPoints(array_view<Windows::Foundation::Point const> sourcePoints, Windows::Perception::Spatial::SpatialCoordinateSystem const& targetCoordinateSystem, Windows::Media::Devices::Core::CameraIntrinsics const& targetCameraIntrinsics, array_view<Windows::Foundation::Point> results) const;
     };
     template <> struct consume<Windows::Media::Devices::Core::IDepthCorrelatedCoordinateMapper>
     {
@@ -422,11 +424,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_Core_IFrameControlCapabilities
     {
-        [[nodiscard]] auto Exposure() const;
-        [[nodiscard]] auto ExposureCompensation() const;
-        [[nodiscard]] auto IsoSpeed() const;
-        [[nodiscard]] auto Focus() const;
-        [[nodiscard]] auto PhotoConfirmationSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::Core::FrameExposureCapabilities) Exposure() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::Core::FrameExposureCompensationCapabilities) ExposureCompensation() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::Core::FrameIsoSpeedCapabilities) IsoSpeed() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::Core::FrameFocusCapabilities) Focus() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) PhotoConfirmationSupported() const;
     };
     template <> struct consume<Windows::Media::Devices::Core::IFrameControlCapabilities>
     {
@@ -435,7 +437,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_Core_IFrameControlCapabilities2
     {
-        [[nodiscard]] auto Flash() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::Core::FrameFlashCapabilities) Flash() const;
     };
     template <> struct consume<Windows::Media::Devices::Core::IFrameControlCapabilities2>
     {
@@ -444,12 +446,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_Core_IFrameController
     {
-        [[nodiscard]] auto ExposureControl() const;
-        [[nodiscard]] auto ExposureCompensationControl() const;
-        [[nodiscard]] auto IsoSpeedControl() const;
-        [[nodiscard]] auto FocusControl() const;
-        [[nodiscard]] auto PhotoConfirmationEnabled() const;
-        auto PhotoConfirmationEnabled(Windows::Foundation::IReference<bool> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::Core::FrameExposureControl) ExposureControl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::Core::FrameExposureCompensationControl) ExposureCompensationControl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::Core::FrameIsoSpeedControl) IsoSpeedControl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::Core::FrameFocusControl) FocusControl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<bool>) PhotoConfirmationEnabled() const;
+        WINRT_IMPL_AUTO(void) PhotoConfirmationEnabled(Windows::Foundation::IReference<bool> const& value) const;
     };
     template <> struct consume<Windows::Media::Devices::Core::IFrameController>
     {
@@ -458,7 +460,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_Core_IFrameController2
     {
-        [[nodiscard]] auto FlashControl() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::Core::FrameFlashControl) FlashControl() const;
     };
     template <> struct consume<Windows::Media::Devices::Core::IFrameController2>
     {
@@ -467,10 +469,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_Core_IFrameExposureCapabilities
     {
-        [[nodiscard]] auto Supported() const;
-        [[nodiscard]] auto Min() const;
-        [[nodiscard]] auto Max() const;
-        [[nodiscard]] auto Step() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Supported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Min() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Max() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) Step() const;
     };
     template <> struct consume<Windows::Media::Devices::Core::IFrameExposureCapabilities>
     {
@@ -479,10 +481,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_Core_IFrameExposureCompensationCapabilities
     {
-        [[nodiscard]] auto Supported() const;
-        [[nodiscard]] auto Min() const;
-        [[nodiscard]] auto Max() const;
-        [[nodiscard]] auto Step() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Supported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) Min() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) Max() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) Step() const;
     };
     template <> struct consume<Windows::Media::Devices::Core::IFrameExposureCompensationCapabilities>
     {
@@ -491,8 +493,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_Core_IFrameExposureCompensationControl
     {
-        [[nodiscard]] auto Value() const;
-        auto Value(Windows::Foundation::IReference<float> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<float>) Value() const;
+        WINRT_IMPL_AUTO(void) Value(Windows::Foundation::IReference<float> const& value) const;
     };
     template <> struct consume<Windows::Media::Devices::Core::IFrameExposureCompensationControl>
     {
@@ -501,10 +503,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_Core_IFrameExposureControl
     {
-        [[nodiscard]] auto Auto() const;
-        auto Auto(bool value) const;
-        [[nodiscard]] auto Value() const;
-        auto Value(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Auto() const;
+        WINRT_IMPL_AUTO(void) Auto(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<Windows::Foundation::TimeSpan>) Value() const;
+        WINRT_IMPL_AUTO(void) Value(Windows::Foundation::IReference<Windows::Foundation::TimeSpan> const& value) const;
     };
     template <> struct consume<Windows::Media::Devices::Core::IFrameExposureControl>
     {
@@ -513,9 +515,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_Core_IFrameFlashCapabilities
     {
-        [[nodiscard]] auto Supported() const;
-        [[nodiscard]] auto RedEyeReductionSupported() const;
-        [[nodiscard]] auto PowerSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Supported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) RedEyeReductionSupported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) PowerSupported() const;
     };
     template <> struct consume<Windows::Media::Devices::Core::IFrameFlashCapabilities>
     {
@@ -524,14 +526,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_Core_IFrameFlashControl
     {
-        [[nodiscard]] auto Mode() const;
-        auto Mode(Windows::Media::Devices::Core::FrameFlashMode const& value) const;
-        [[nodiscard]] auto Auto() const;
-        auto Auto(bool value) const;
-        [[nodiscard]] auto RedEyeReduction() const;
-        auto RedEyeReduction(bool value) const;
-        [[nodiscard]] auto PowerPercent() const;
-        auto PowerPercent(float value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::Core::FrameFlashMode) Mode() const;
+        WINRT_IMPL_AUTO(void) Mode(Windows::Media::Devices::Core::FrameFlashMode const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Auto() const;
+        WINRT_IMPL_AUTO(void) Auto(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) RedEyeReduction() const;
+        WINRT_IMPL_AUTO(void) RedEyeReduction(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) PowerPercent() const;
+        WINRT_IMPL_AUTO(void) PowerPercent(float value) const;
     };
     template <> struct consume<Windows::Media::Devices::Core::IFrameFlashControl>
     {
@@ -540,10 +542,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_Core_IFrameFocusCapabilities
     {
-        [[nodiscard]] auto Supported() const;
-        [[nodiscard]] auto Min() const;
-        [[nodiscard]] auto Max() const;
-        [[nodiscard]] auto Step() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Supported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Min() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Max() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Step() const;
     };
     template <> struct consume<Windows::Media::Devices::Core::IFrameFocusCapabilities>
     {
@@ -552,8 +554,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_Core_IFrameFocusControl
     {
-        [[nodiscard]] auto Value() const;
-        auto Value(Windows::Foundation::IReference<uint32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint32_t>) Value() const;
+        WINRT_IMPL_AUTO(void) Value(Windows::Foundation::IReference<uint32_t> const& value) const;
     };
     template <> struct consume<Windows::Media::Devices::Core::IFrameFocusControl>
     {
@@ -562,10 +564,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_Core_IFrameIsoSpeedCapabilities
     {
-        [[nodiscard]] auto Supported() const;
-        [[nodiscard]] auto Min() const;
-        [[nodiscard]] auto Max() const;
-        [[nodiscard]] auto Step() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Supported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Min() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Max() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) Step() const;
     };
     template <> struct consume<Windows::Media::Devices::Core::IFrameIsoSpeedCapabilities>
     {
@@ -574,10 +576,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_Core_IFrameIsoSpeedControl
     {
-        [[nodiscard]] auto Auto() const;
-        auto Auto(bool value) const;
-        [[nodiscard]] auto Value() const;
-        auto Value(Windows::Foundation::IReference<uint32_t> const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Auto() const;
+        WINRT_IMPL_AUTO(void) Auto(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IReference<uint32_t>) Value() const;
+        WINRT_IMPL_AUTO(void) Value(Windows::Foundation::IReference<uint32_t> const& value) const;
     };
     template <> struct consume<Windows::Media::Devices::Core::IFrameIsoSpeedControl>
     {
@@ -586,14 +588,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Media_Devices_Core_IVariablePhotoSequenceController
     {
-        [[nodiscard]] auto Supported() const;
-        [[nodiscard]] auto MaxPhotosPerSecond() const;
-        [[nodiscard]] auto PhotosPerSecondLimit() const;
-        auto PhotosPerSecondLimit(float value) const;
-        auto GetHighestConcurrentFrameRate(Windows::Media::MediaProperties::IMediaEncodingProperties const& captureProperties) const;
-        auto GetCurrentFrameRate() const;
-        [[nodiscard]] auto FrameCapabilities() const;
-        [[nodiscard]] auto DesiredFrameControllers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Supported() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) MaxPhotosPerSecond() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) PhotosPerSecondLimit() const;
+        WINRT_IMPL_AUTO(void) PhotosPerSecondLimit(float value) const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::MediaRatio) GetHighestConcurrentFrameRate(Windows::Media::MediaProperties::IMediaEncodingProperties const& captureProperties) const;
+        WINRT_IMPL_AUTO(Windows::Media::MediaProperties::MediaRatio) GetCurrentFrameRate() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Media::Devices::Core::FrameControlCapabilities) FrameCapabilities() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::Media::Devices::Core::FrameController>) DesiredFrameControllers() const;
     };
     template <> struct consume<Windows::Media::Devices::Core::IVariablePhotoSequenceController>
     {

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -13,9 +13,14 @@ WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     template <typename T> struct EventHandler;
     struct EventRegistrationToken;
+    template <typename TResult> struct IAsyncOperation;
     struct Point;
     struct Rect;
     template <typename TSender, typename TResult> struct TypedEventHandler;
+}
+WINRT_EXPORT namespace winrt::Windows::Foundation::Collections
+{
+    template <typename T> struct IVector;
 }
 WINRT_EXPORT namespace winrt::Windows::System
 {
@@ -437,136 +442,134 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Xaml::Input::PointerEventHandler>{ using type = delegate_category; };
     template <> struct category<Windows::UI::Xaml::Input::RightTappedEventHandler>{ using type = delegate_category; };
     template <> struct category<Windows::UI::Xaml::Input::TappedEventHandler>{ using type = delegate_category; };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::AccessKeyDisplayDismissedEventArgs>{ L"Windows.UI.Xaml.Input.AccessKeyDisplayDismissedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::AccessKeyDisplayRequestedEventArgs>{ L"Windows.UI.Xaml.Input.AccessKeyDisplayRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::AccessKeyInvokedEventArgs>{ L"Windows.UI.Xaml.Input.AccessKeyInvokedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::AccessKeyManager>{ L"Windows.UI.Xaml.Input.AccessKeyManager" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::CanExecuteRequestedEventArgs>{ L"Windows.UI.Xaml.Input.CanExecuteRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::CharacterReceivedRoutedEventArgs>{ L"Windows.UI.Xaml.Input.CharacterReceivedRoutedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ContextRequestedEventArgs>{ L"Windows.UI.Xaml.Input.ContextRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::DoubleTappedRoutedEventArgs>{ L"Windows.UI.Xaml.Input.DoubleTappedRoutedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ExecuteRequestedEventArgs>{ L"Windows.UI.Xaml.Input.ExecuteRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::FindNextElementOptions>{ L"Windows.UI.Xaml.Input.FindNextElementOptions" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::FocusManager>{ L"Windows.UI.Xaml.Input.FocusManager" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::FocusManagerGotFocusEventArgs>{ L"Windows.UI.Xaml.Input.FocusManagerGotFocusEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::FocusManagerLostFocusEventArgs>{ L"Windows.UI.Xaml.Input.FocusManagerLostFocusEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::FocusMovementResult>{ L"Windows.UI.Xaml.Input.FocusMovementResult" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::GettingFocusEventArgs>{ L"Windows.UI.Xaml.Input.GettingFocusEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::HoldingRoutedEventArgs>{ L"Windows.UI.Xaml.Input.HoldingRoutedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::InertiaExpansionBehavior>{ L"Windows.UI.Xaml.Input.InertiaExpansionBehavior" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::InertiaRotationBehavior>{ L"Windows.UI.Xaml.Input.InertiaRotationBehavior" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::InertiaTranslationBehavior>{ L"Windows.UI.Xaml.Input.InertiaTranslationBehavior" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::InputScope>{ L"Windows.UI.Xaml.Input.InputScope" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::InputScopeName>{ L"Windows.UI.Xaml.Input.InputScopeName" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::KeyRoutedEventArgs>{ L"Windows.UI.Xaml.Input.KeyRoutedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::KeyboardAccelerator>{ L"Windows.UI.Xaml.Input.KeyboardAccelerator" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::KeyboardAcceleratorInvokedEventArgs>{ L"Windows.UI.Xaml.Input.KeyboardAcceleratorInvokedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::LosingFocusEventArgs>{ L"Windows.UI.Xaml.Input.LosingFocusEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ManipulationCompletedRoutedEventArgs>{ L"Windows.UI.Xaml.Input.ManipulationCompletedRoutedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ManipulationDeltaRoutedEventArgs>{ L"Windows.UI.Xaml.Input.ManipulationDeltaRoutedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ManipulationInertiaStartingRoutedEventArgs>{ L"Windows.UI.Xaml.Input.ManipulationInertiaStartingRoutedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ManipulationPivot>{ L"Windows.UI.Xaml.Input.ManipulationPivot" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ManipulationStartedRoutedEventArgs>{ L"Windows.UI.Xaml.Input.ManipulationStartedRoutedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ManipulationStartingRoutedEventArgs>{ L"Windows.UI.Xaml.Input.ManipulationStartingRoutedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::NoFocusCandidateFoundEventArgs>{ L"Windows.UI.Xaml.Input.NoFocusCandidateFoundEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::Pointer>{ L"Windows.UI.Xaml.Input.Pointer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::PointerRoutedEventArgs>{ L"Windows.UI.Xaml.Input.PointerRoutedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ProcessKeyboardAcceleratorEventArgs>{ L"Windows.UI.Xaml.Input.ProcessKeyboardAcceleratorEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::RightTappedRoutedEventArgs>{ L"Windows.UI.Xaml.Input.RightTappedRoutedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::StandardUICommand>{ L"Windows.UI.Xaml.Input.StandardUICommand" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::TappedRoutedEventArgs>{ L"Windows.UI.Xaml.Input.TappedRoutedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::XamlUICommand>{ L"Windows.UI.Xaml.Input.XamlUICommand" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::FocusInputDeviceKind>{ L"Windows.UI.Xaml.Input.FocusInputDeviceKind" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::FocusNavigationDirection>{ L"Windows.UI.Xaml.Input.FocusNavigationDirection" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::InputScopeNameValue>{ L"Windows.UI.Xaml.Input.InputScopeNameValue" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::KeyTipPlacementMode>{ L"Windows.UI.Xaml.Input.KeyTipPlacementMode" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::KeyboardAcceleratorPlacementMode>{ L"Windows.UI.Xaml.Input.KeyboardAcceleratorPlacementMode" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::KeyboardNavigationMode>{ L"Windows.UI.Xaml.Input.KeyboardNavigationMode" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ManipulationModes>{ L"Windows.UI.Xaml.Input.ManipulationModes" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::StandardUICommandKind>{ L"Windows.UI.Xaml.Input.StandardUICommandKind" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::XYFocusKeyboardNavigationMode>{ L"Windows.UI.Xaml.Input.XYFocusKeyboardNavigationMode" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::XYFocusNavigationStrategy>{ L"Windows.UI.Xaml.Input.XYFocusNavigationStrategy" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::XYFocusNavigationStrategyOverride>{ L"Windows.UI.Xaml.Input.XYFocusNavigationStrategyOverride" };
-#ifndef WINRT_LEAN_AND_MEAN
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IAccessKeyDisplayDismissedEventArgs>{ L"Windows.UI.Xaml.Input.IAccessKeyDisplayDismissedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IAccessKeyDisplayRequestedEventArgs>{ L"Windows.UI.Xaml.Input.IAccessKeyDisplayRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IAccessKeyInvokedEventArgs>{ L"Windows.UI.Xaml.Input.IAccessKeyInvokedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IAccessKeyManager>{ L"Windows.UI.Xaml.Input.IAccessKeyManager" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IAccessKeyManagerStatics>{ L"Windows.UI.Xaml.Input.IAccessKeyManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IAccessKeyManagerStatics2>{ L"Windows.UI.Xaml.Input.IAccessKeyManagerStatics2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ICanExecuteRequestedEventArgs>{ L"Windows.UI.Xaml.Input.ICanExecuteRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ICharacterReceivedRoutedEventArgs>{ L"Windows.UI.Xaml.Input.ICharacterReceivedRoutedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ICommand>{ L"Windows.UI.Xaml.Input.ICommand" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IContextRequestedEventArgs>{ L"Windows.UI.Xaml.Input.IContextRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IDoubleTappedRoutedEventArgs>{ L"Windows.UI.Xaml.Input.IDoubleTappedRoutedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IExecuteRequestedEventArgs>{ L"Windows.UI.Xaml.Input.IExecuteRequestedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IFindNextElementOptions>{ L"Windows.UI.Xaml.Input.IFindNextElementOptions" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IFocusManager>{ L"Windows.UI.Xaml.Input.IFocusManager" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IFocusManagerGotFocusEventArgs>{ L"Windows.UI.Xaml.Input.IFocusManagerGotFocusEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IFocusManagerLostFocusEventArgs>{ L"Windows.UI.Xaml.Input.IFocusManagerLostFocusEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IFocusManagerStatics>{ L"Windows.UI.Xaml.Input.IFocusManagerStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IFocusManagerStatics2>{ L"Windows.UI.Xaml.Input.IFocusManagerStatics2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IFocusManagerStatics3>{ L"Windows.UI.Xaml.Input.IFocusManagerStatics3" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IFocusManagerStatics4>{ L"Windows.UI.Xaml.Input.IFocusManagerStatics4" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IFocusManagerStatics5>{ L"Windows.UI.Xaml.Input.IFocusManagerStatics5" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IFocusManagerStatics6>{ L"Windows.UI.Xaml.Input.IFocusManagerStatics6" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IFocusManagerStatics7>{ L"Windows.UI.Xaml.Input.IFocusManagerStatics7" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IFocusMovementResult>{ L"Windows.UI.Xaml.Input.IFocusMovementResult" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IGettingFocusEventArgs>{ L"Windows.UI.Xaml.Input.IGettingFocusEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IGettingFocusEventArgs2>{ L"Windows.UI.Xaml.Input.IGettingFocusEventArgs2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IGettingFocusEventArgs3>{ L"Windows.UI.Xaml.Input.IGettingFocusEventArgs3" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IHoldingRoutedEventArgs>{ L"Windows.UI.Xaml.Input.IHoldingRoutedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IInertiaExpansionBehavior>{ L"Windows.UI.Xaml.Input.IInertiaExpansionBehavior" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IInertiaRotationBehavior>{ L"Windows.UI.Xaml.Input.IInertiaRotationBehavior" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IInertiaTranslationBehavior>{ L"Windows.UI.Xaml.Input.IInertiaTranslationBehavior" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IInputScope>{ L"Windows.UI.Xaml.Input.IInputScope" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IInputScopeName>{ L"Windows.UI.Xaml.Input.IInputScopeName" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IInputScopeNameFactory>{ L"Windows.UI.Xaml.Input.IInputScopeNameFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IKeyRoutedEventArgs>{ L"Windows.UI.Xaml.Input.IKeyRoutedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IKeyRoutedEventArgs2>{ L"Windows.UI.Xaml.Input.IKeyRoutedEventArgs2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IKeyRoutedEventArgs3>{ L"Windows.UI.Xaml.Input.IKeyRoutedEventArgs3" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IKeyboardAccelerator>{ L"Windows.UI.Xaml.Input.IKeyboardAccelerator" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IKeyboardAcceleratorFactory>{ L"Windows.UI.Xaml.Input.IKeyboardAcceleratorFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IKeyboardAcceleratorInvokedEventArgs>{ L"Windows.UI.Xaml.Input.IKeyboardAcceleratorInvokedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IKeyboardAcceleratorInvokedEventArgs2>{ L"Windows.UI.Xaml.Input.IKeyboardAcceleratorInvokedEventArgs2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IKeyboardAcceleratorStatics>{ L"Windows.UI.Xaml.Input.IKeyboardAcceleratorStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ILosingFocusEventArgs>{ L"Windows.UI.Xaml.Input.ILosingFocusEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ILosingFocusEventArgs2>{ L"Windows.UI.Xaml.Input.ILosingFocusEventArgs2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ILosingFocusEventArgs3>{ L"Windows.UI.Xaml.Input.ILosingFocusEventArgs3" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IManipulationCompletedRoutedEventArgs>{ L"Windows.UI.Xaml.Input.IManipulationCompletedRoutedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IManipulationDeltaRoutedEventArgs>{ L"Windows.UI.Xaml.Input.IManipulationDeltaRoutedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IManipulationInertiaStartingRoutedEventArgs>{ L"Windows.UI.Xaml.Input.IManipulationInertiaStartingRoutedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IManipulationPivot>{ L"Windows.UI.Xaml.Input.IManipulationPivot" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IManipulationPivotFactory>{ L"Windows.UI.Xaml.Input.IManipulationPivotFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IManipulationStartedRoutedEventArgs>{ L"Windows.UI.Xaml.Input.IManipulationStartedRoutedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IManipulationStartedRoutedEventArgsFactory>{ L"Windows.UI.Xaml.Input.IManipulationStartedRoutedEventArgsFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IManipulationStartingRoutedEventArgs>{ L"Windows.UI.Xaml.Input.IManipulationStartingRoutedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::INoFocusCandidateFoundEventArgs>{ L"Windows.UI.Xaml.Input.INoFocusCandidateFoundEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IPointer>{ L"Windows.UI.Xaml.Input.IPointer" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IPointerRoutedEventArgs>{ L"Windows.UI.Xaml.Input.IPointerRoutedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IPointerRoutedEventArgs2>{ L"Windows.UI.Xaml.Input.IPointerRoutedEventArgs2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IProcessKeyboardAcceleratorEventArgs>{ L"Windows.UI.Xaml.Input.IProcessKeyboardAcceleratorEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IRightTappedRoutedEventArgs>{ L"Windows.UI.Xaml.Input.IRightTappedRoutedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IStandardUICommand>{ L"Windows.UI.Xaml.Input.IStandardUICommand" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IStandardUICommand2>{ L"Windows.UI.Xaml.Input.IStandardUICommand2" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IStandardUICommandFactory>{ L"Windows.UI.Xaml.Input.IStandardUICommandFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IStandardUICommandStatics>{ L"Windows.UI.Xaml.Input.IStandardUICommandStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ITappedRoutedEventArgs>{ L"Windows.UI.Xaml.Input.ITappedRoutedEventArgs" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IXamlUICommand>{ L"Windows.UI.Xaml.Input.IXamlUICommand" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IXamlUICommandFactory>{ L"Windows.UI.Xaml.Input.IXamlUICommandFactory" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IXamlUICommandStatics>{ L"Windows.UI.Xaml.Input.IXamlUICommandStatics" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::DoubleTappedEventHandler>{ L"Windows.UI.Xaml.Input.DoubleTappedEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::HoldingEventHandler>{ L"Windows.UI.Xaml.Input.HoldingEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::KeyEventHandler>{ L"Windows.UI.Xaml.Input.KeyEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ManipulationCompletedEventHandler>{ L"Windows.UI.Xaml.Input.ManipulationCompletedEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ManipulationDeltaEventHandler>{ L"Windows.UI.Xaml.Input.ManipulationDeltaEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ManipulationInertiaStartingEventHandler>{ L"Windows.UI.Xaml.Input.ManipulationInertiaStartingEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ManipulationStartedEventHandler>{ L"Windows.UI.Xaml.Input.ManipulationStartedEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ManipulationStartingEventHandler>{ L"Windows.UI.Xaml.Input.ManipulationStartingEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::PointerEventHandler>{ L"Windows.UI.Xaml.Input.PointerEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::RightTappedEventHandler>{ L"Windows.UI.Xaml.Input.RightTappedEventHandler" };
-    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::TappedEventHandler>{ L"Windows.UI.Xaml.Input.TappedEventHandler" };
-#endif
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::AccessKeyDisplayDismissedEventArgs> = L"Windows.UI.Xaml.Input.AccessKeyDisplayDismissedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::AccessKeyDisplayRequestedEventArgs> = L"Windows.UI.Xaml.Input.AccessKeyDisplayRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::AccessKeyInvokedEventArgs> = L"Windows.UI.Xaml.Input.AccessKeyInvokedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::AccessKeyManager> = L"Windows.UI.Xaml.Input.AccessKeyManager";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::CanExecuteRequestedEventArgs> = L"Windows.UI.Xaml.Input.CanExecuteRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::CharacterReceivedRoutedEventArgs> = L"Windows.UI.Xaml.Input.CharacterReceivedRoutedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ContextRequestedEventArgs> = L"Windows.UI.Xaml.Input.ContextRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::DoubleTappedRoutedEventArgs> = L"Windows.UI.Xaml.Input.DoubleTappedRoutedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ExecuteRequestedEventArgs> = L"Windows.UI.Xaml.Input.ExecuteRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::FindNextElementOptions> = L"Windows.UI.Xaml.Input.FindNextElementOptions";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::FocusManager> = L"Windows.UI.Xaml.Input.FocusManager";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::FocusManagerGotFocusEventArgs> = L"Windows.UI.Xaml.Input.FocusManagerGotFocusEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::FocusManagerLostFocusEventArgs> = L"Windows.UI.Xaml.Input.FocusManagerLostFocusEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::FocusMovementResult> = L"Windows.UI.Xaml.Input.FocusMovementResult";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::GettingFocusEventArgs> = L"Windows.UI.Xaml.Input.GettingFocusEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::HoldingRoutedEventArgs> = L"Windows.UI.Xaml.Input.HoldingRoutedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::InertiaExpansionBehavior> = L"Windows.UI.Xaml.Input.InertiaExpansionBehavior";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::InertiaRotationBehavior> = L"Windows.UI.Xaml.Input.InertiaRotationBehavior";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::InertiaTranslationBehavior> = L"Windows.UI.Xaml.Input.InertiaTranslationBehavior";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::InputScope> = L"Windows.UI.Xaml.Input.InputScope";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::InputScopeName> = L"Windows.UI.Xaml.Input.InputScopeName";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::KeyRoutedEventArgs> = L"Windows.UI.Xaml.Input.KeyRoutedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::KeyboardAccelerator> = L"Windows.UI.Xaml.Input.KeyboardAccelerator";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::KeyboardAcceleratorInvokedEventArgs> = L"Windows.UI.Xaml.Input.KeyboardAcceleratorInvokedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::LosingFocusEventArgs> = L"Windows.UI.Xaml.Input.LosingFocusEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ManipulationCompletedRoutedEventArgs> = L"Windows.UI.Xaml.Input.ManipulationCompletedRoutedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ManipulationDeltaRoutedEventArgs> = L"Windows.UI.Xaml.Input.ManipulationDeltaRoutedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ManipulationInertiaStartingRoutedEventArgs> = L"Windows.UI.Xaml.Input.ManipulationInertiaStartingRoutedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ManipulationPivot> = L"Windows.UI.Xaml.Input.ManipulationPivot";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ManipulationStartedRoutedEventArgs> = L"Windows.UI.Xaml.Input.ManipulationStartedRoutedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ManipulationStartingRoutedEventArgs> = L"Windows.UI.Xaml.Input.ManipulationStartingRoutedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::NoFocusCandidateFoundEventArgs> = L"Windows.UI.Xaml.Input.NoFocusCandidateFoundEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::Pointer> = L"Windows.UI.Xaml.Input.Pointer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::PointerRoutedEventArgs> = L"Windows.UI.Xaml.Input.PointerRoutedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ProcessKeyboardAcceleratorEventArgs> = L"Windows.UI.Xaml.Input.ProcessKeyboardAcceleratorEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::RightTappedRoutedEventArgs> = L"Windows.UI.Xaml.Input.RightTappedRoutedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::StandardUICommand> = L"Windows.UI.Xaml.Input.StandardUICommand";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::TappedRoutedEventArgs> = L"Windows.UI.Xaml.Input.TappedRoutedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::XamlUICommand> = L"Windows.UI.Xaml.Input.XamlUICommand";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::FocusInputDeviceKind> = L"Windows.UI.Xaml.Input.FocusInputDeviceKind";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::FocusNavigationDirection> = L"Windows.UI.Xaml.Input.FocusNavigationDirection";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::InputScopeNameValue> = L"Windows.UI.Xaml.Input.InputScopeNameValue";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::KeyTipPlacementMode> = L"Windows.UI.Xaml.Input.KeyTipPlacementMode";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::KeyboardAcceleratorPlacementMode> = L"Windows.UI.Xaml.Input.KeyboardAcceleratorPlacementMode";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::KeyboardNavigationMode> = L"Windows.UI.Xaml.Input.KeyboardNavigationMode";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ManipulationModes> = L"Windows.UI.Xaml.Input.ManipulationModes";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::StandardUICommandKind> = L"Windows.UI.Xaml.Input.StandardUICommandKind";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::XYFocusKeyboardNavigationMode> = L"Windows.UI.Xaml.Input.XYFocusKeyboardNavigationMode";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::XYFocusNavigationStrategy> = L"Windows.UI.Xaml.Input.XYFocusNavigationStrategy";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::XYFocusNavigationStrategyOverride> = L"Windows.UI.Xaml.Input.XYFocusNavigationStrategyOverride";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IAccessKeyDisplayDismissedEventArgs> = L"Windows.UI.Xaml.Input.IAccessKeyDisplayDismissedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IAccessKeyDisplayRequestedEventArgs> = L"Windows.UI.Xaml.Input.IAccessKeyDisplayRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IAccessKeyInvokedEventArgs> = L"Windows.UI.Xaml.Input.IAccessKeyInvokedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IAccessKeyManager> = L"Windows.UI.Xaml.Input.IAccessKeyManager";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IAccessKeyManagerStatics> = L"Windows.UI.Xaml.Input.IAccessKeyManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IAccessKeyManagerStatics2> = L"Windows.UI.Xaml.Input.IAccessKeyManagerStatics2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ICanExecuteRequestedEventArgs> = L"Windows.UI.Xaml.Input.ICanExecuteRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ICharacterReceivedRoutedEventArgs> = L"Windows.UI.Xaml.Input.ICharacterReceivedRoutedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ICommand> = L"Windows.UI.Xaml.Input.ICommand";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IContextRequestedEventArgs> = L"Windows.UI.Xaml.Input.IContextRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IDoubleTappedRoutedEventArgs> = L"Windows.UI.Xaml.Input.IDoubleTappedRoutedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IExecuteRequestedEventArgs> = L"Windows.UI.Xaml.Input.IExecuteRequestedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IFindNextElementOptions> = L"Windows.UI.Xaml.Input.IFindNextElementOptions";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IFocusManager> = L"Windows.UI.Xaml.Input.IFocusManager";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IFocusManagerGotFocusEventArgs> = L"Windows.UI.Xaml.Input.IFocusManagerGotFocusEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IFocusManagerLostFocusEventArgs> = L"Windows.UI.Xaml.Input.IFocusManagerLostFocusEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IFocusManagerStatics> = L"Windows.UI.Xaml.Input.IFocusManagerStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IFocusManagerStatics2> = L"Windows.UI.Xaml.Input.IFocusManagerStatics2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IFocusManagerStatics3> = L"Windows.UI.Xaml.Input.IFocusManagerStatics3";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IFocusManagerStatics4> = L"Windows.UI.Xaml.Input.IFocusManagerStatics4";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IFocusManagerStatics5> = L"Windows.UI.Xaml.Input.IFocusManagerStatics5";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IFocusManagerStatics6> = L"Windows.UI.Xaml.Input.IFocusManagerStatics6";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IFocusManagerStatics7> = L"Windows.UI.Xaml.Input.IFocusManagerStatics7";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IFocusMovementResult> = L"Windows.UI.Xaml.Input.IFocusMovementResult";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IGettingFocusEventArgs> = L"Windows.UI.Xaml.Input.IGettingFocusEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IGettingFocusEventArgs2> = L"Windows.UI.Xaml.Input.IGettingFocusEventArgs2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IGettingFocusEventArgs3> = L"Windows.UI.Xaml.Input.IGettingFocusEventArgs3";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IHoldingRoutedEventArgs> = L"Windows.UI.Xaml.Input.IHoldingRoutedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IInertiaExpansionBehavior> = L"Windows.UI.Xaml.Input.IInertiaExpansionBehavior";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IInertiaRotationBehavior> = L"Windows.UI.Xaml.Input.IInertiaRotationBehavior";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IInertiaTranslationBehavior> = L"Windows.UI.Xaml.Input.IInertiaTranslationBehavior";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IInputScope> = L"Windows.UI.Xaml.Input.IInputScope";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IInputScopeName> = L"Windows.UI.Xaml.Input.IInputScopeName";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IInputScopeNameFactory> = L"Windows.UI.Xaml.Input.IInputScopeNameFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IKeyRoutedEventArgs> = L"Windows.UI.Xaml.Input.IKeyRoutedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IKeyRoutedEventArgs2> = L"Windows.UI.Xaml.Input.IKeyRoutedEventArgs2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IKeyRoutedEventArgs3> = L"Windows.UI.Xaml.Input.IKeyRoutedEventArgs3";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IKeyboardAccelerator> = L"Windows.UI.Xaml.Input.IKeyboardAccelerator";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IKeyboardAcceleratorFactory> = L"Windows.UI.Xaml.Input.IKeyboardAcceleratorFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IKeyboardAcceleratorInvokedEventArgs> = L"Windows.UI.Xaml.Input.IKeyboardAcceleratorInvokedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IKeyboardAcceleratorInvokedEventArgs2> = L"Windows.UI.Xaml.Input.IKeyboardAcceleratorInvokedEventArgs2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IKeyboardAcceleratorStatics> = L"Windows.UI.Xaml.Input.IKeyboardAcceleratorStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ILosingFocusEventArgs> = L"Windows.UI.Xaml.Input.ILosingFocusEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ILosingFocusEventArgs2> = L"Windows.UI.Xaml.Input.ILosingFocusEventArgs2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ILosingFocusEventArgs3> = L"Windows.UI.Xaml.Input.ILosingFocusEventArgs3";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IManipulationCompletedRoutedEventArgs> = L"Windows.UI.Xaml.Input.IManipulationCompletedRoutedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IManipulationDeltaRoutedEventArgs> = L"Windows.UI.Xaml.Input.IManipulationDeltaRoutedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IManipulationInertiaStartingRoutedEventArgs> = L"Windows.UI.Xaml.Input.IManipulationInertiaStartingRoutedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IManipulationPivot> = L"Windows.UI.Xaml.Input.IManipulationPivot";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IManipulationPivotFactory> = L"Windows.UI.Xaml.Input.IManipulationPivotFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IManipulationStartedRoutedEventArgs> = L"Windows.UI.Xaml.Input.IManipulationStartedRoutedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IManipulationStartedRoutedEventArgsFactory> = L"Windows.UI.Xaml.Input.IManipulationStartedRoutedEventArgsFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IManipulationStartingRoutedEventArgs> = L"Windows.UI.Xaml.Input.IManipulationStartingRoutedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::INoFocusCandidateFoundEventArgs> = L"Windows.UI.Xaml.Input.INoFocusCandidateFoundEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IPointer> = L"Windows.UI.Xaml.Input.IPointer";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IPointerRoutedEventArgs> = L"Windows.UI.Xaml.Input.IPointerRoutedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IPointerRoutedEventArgs2> = L"Windows.UI.Xaml.Input.IPointerRoutedEventArgs2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IProcessKeyboardAcceleratorEventArgs> = L"Windows.UI.Xaml.Input.IProcessKeyboardAcceleratorEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IRightTappedRoutedEventArgs> = L"Windows.UI.Xaml.Input.IRightTappedRoutedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IStandardUICommand> = L"Windows.UI.Xaml.Input.IStandardUICommand";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IStandardUICommand2> = L"Windows.UI.Xaml.Input.IStandardUICommand2";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IStandardUICommandFactory> = L"Windows.UI.Xaml.Input.IStandardUICommandFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IStandardUICommandStatics> = L"Windows.UI.Xaml.Input.IStandardUICommandStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ITappedRoutedEventArgs> = L"Windows.UI.Xaml.Input.ITappedRoutedEventArgs";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IXamlUICommand> = L"Windows.UI.Xaml.Input.IXamlUICommand";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IXamlUICommandFactory> = L"Windows.UI.Xaml.Input.IXamlUICommandFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::IXamlUICommandStatics> = L"Windows.UI.Xaml.Input.IXamlUICommandStatics";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::DoubleTappedEventHandler> = L"Windows.UI.Xaml.Input.DoubleTappedEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::HoldingEventHandler> = L"Windows.UI.Xaml.Input.HoldingEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::KeyEventHandler> = L"Windows.UI.Xaml.Input.KeyEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ManipulationCompletedEventHandler> = L"Windows.UI.Xaml.Input.ManipulationCompletedEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ManipulationDeltaEventHandler> = L"Windows.UI.Xaml.Input.ManipulationDeltaEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ManipulationInertiaStartingEventHandler> = L"Windows.UI.Xaml.Input.ManipulationInertiaStartingEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ManipulationStartedEventHandler> = L"Windows.UI.Xaml.Input.ManipulationStartedEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::ManipulationStartingEventHandler> = L"Windows.UI.Xaml.Input.ManipulationStartingEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::PointerEventHandler> = L"Windows.UI.Xaml.Input.PointerEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::RightTappedEventHandler> = L"Windows.UI.Xaml.Input.RightTappedEventHandler";
+    template <> inline constexpr auto& name_v<Windows::UI::Xaml::Input::TappedEventHandler> = L"Windows.UI.Xaml.Input.TappedEventHandler";
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Input::IAccessKeyDisplayDismissedEventArgs>{ 0x8A610DC6,0xD72D,0x4CA8,{ 0x9F,0x66,0x55,0x6F,0x35,0xB5,0x13,0xDA } };
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Input::IAccessKeyDisplayRequestedEventArgs>{ 0x0C079E55,0x13FE,0x4D03,{ 0xA6,0x1D,0xE1,0x2F,0x06,0x56,0x72,0x86 } };
     template <> inline constexpr guid guid_v<Windows::UI::Xaml::Input::IAccessKeyInvokedEventArgs>{ 0xCFE9CD97,0xC718,0x4091,{ 0xB7,0xDD,0xAD,0xF1,0xC0,0x72,0xB1,0xE1 } };
@@ -1415,7 +1418,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IAccessKeyDisplayRequestedEventArgs
     {
-        [[nodiscard]] auto PressedKeys() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) PressedKeys() const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IAccessKeyDisplayRequestedEventArgs>
     {
@@ -1424,8 +1427,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IAccessKeyInvokedEventArgs
     {
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IAccessKeyInvokedEventArgs>
     {
@@ -1442,12 +1445,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IAccessKeyManagerStatics
     {
-        [[nodiscard]] auto IsDisplayModeEnabled() const;
-        auto IsDisplayModeEnabledChanged(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsDisplayModeEnabled() const;
+        WINRT_IMPL_AUTO(winrt::event_token) IsDisplayModeEnabledChanged(Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::Foundation::IInspectable> const& handler) const;
         using IsDisplayModeEnabledChanged_revoker = impl::event_revoker<Windows::UI::Xaml::Input::IAccessKeyManagerStatics, &impl::abi_t<Windows::UI::Xaml::Input::IAccessKeyManagerStatics>::remove_IsDisplayModeEnabledChanged>;
         [[nodiscard]] IsDisplayModeEnabledChanged_revoker IsDisplayModeEnabledChanged(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::Foundation::IInspectable, Windows::Foundation::IInspectable> const& handler) const;
-        auto IsDisplayModeEnabledChanged(winrt::event_token const& token) const noexcept;
-        auto ExitDisplayMode() const;
+        WINRT_IMPL_AUTO(void) IsDisplayModeEnabledChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) ExitDisplayMode() const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IAccessKeyManagerStatics>
     {
@@ -1456,8 +1459,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IAccessKeyManagerStatics2
     {
-        [[nodiscard]] auto AreKeyTipsEnabled() const;
-        auto AreKeyTipsEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AreKeyTipsEnabled() const;
+        WINRT_IMPL_AUTO(void) AreKeyTipsEnabled(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IAccessKeyManagerStatics2>
     {
@@ -1466,9 +1469,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_ICanExecuteRequestedEventArgs
     {
-        [[nodiscard]] auto Parameter() const;
-        [[nodiscard]] auto CanExecute() const;
-        auto CanExecute(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) Parameter() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) CanExecute() const;
+        WINRT_IMPL_AUTO(void) CanExecute(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::ICanExecuteRequestedEventArgs>
     {
@@ -1477,10 +1480,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_ICharacterReceivedRoutedEventArgs
     {
-        [[nodiscard]] auto Character() const;
-        [[nodiscard]] auto KeyStatus() const;
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(char16_t) Character() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Core::CorePhysicalKeyStatus) KeyStatus() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::ICharacterReceivedRoutedEventArgs>
     {
@@ -1489,12 +1492,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_ICommand
     {
-        auto CanExecuteChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) CanExecuteChanged(Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
         using CanExecuteChanged_revoker = impl::event_revoker<Windows::UI::Xaml::Input::ICommand, &impl::abi_t<Windows::UI::Xaml::Input::ICommand>::remove_CanExecuteChanged>;
         [[nodiscard]] CanExecuteChanged_revoker CanExecuteChanged(auto_revoke_t, Windows::Foundation::EventHandler<Windows::Foundation::IInspectable> const& handler) const;
-        auto CanExecuteChanged(winrt::event_token const& token) const noexcept;
-        auto CanExecute(Windows::Foundation::IInspectable const& parameter) const;
-        auto Execute(Windows::Foundation::IInspectable const& parameter) const;
+        WINRT_IMPL_AUTO(void) CanExecuteChanged(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(bool) CanExecute(Windows::Foundation::IInspectable const& parameter) const;
+        WINRT_IMPL_AUTO(void) Execute(Windows::Foundation::IInspectable const& parameter) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::ICommand>
     {
@@ -1503,9 +1506,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IContextRequestedEventArgs
     {
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
-        auto TryGetPosition(Windows::UI::Xaml::UIElement const& relativeTo, Windows::Foundation::Point& point) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
+        WINRT_IMPL_AUTO(bool) TryGetPosition(Windows::UI::Xaml::UIElement const& relativeTo, Windows::Foundation::Point& point) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IContextRequestedEventArgs>
     {
@@ -1514,10 +1517,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IDoubleTappedRoutedEventArgs
     {
-        [[nodiscard]] auto PointerDeviceType() const;
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
-        auto GetPosition(Windows::UI::Xaml::UIElement const& relativeTo) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Input::PointerDeviceType) PointerDeviceType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Point) GetPosition(Windows::UI::Xaml::UIElement const& relativeTo) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IDoubleTappedRoutedEventArgs>
     {
@@ -1526,7 +1529,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IExecuteRequestedEventArgs
     {
-        [[nodiscard]] auto Parameter() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) Parameter() const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IExecuteRequestedEventArgs>
     {
@@ -1535,14 +1538,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IFindNextElementOptions
     {
-        [[nodiscard]] auto SearchRoot() const;
-        auto SearchRoot(Windows::UI::Xaml::DependencyObject const& value) const;
-        [[nodiscard]] auto ExclusionRect() const;
-        auto ExclusionRect(Windows::Foundation::Rect const& value) const;
-        [[nodiscard]] auto HintRect() const;
-        auto HintRect(Windows::Foundation::Rect const& value) const;
-        [[nodiscard]] auto XYFocusNavigationStrategyOverride() const;
-        auto XYFocusNavigationStrategyOverride(Windows::UI::Xaml::Input::XYFocusNavigationStrategyOverride const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObject) SearchRoot() const;
+        WINRT_IMPL_AUTO(void) SearchRoot(Windows::UI::Xaml::DependencyObject const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) ExclusionRect() const;
+        WINRT_IMPL_AUTO(void) ExclusionRect(Windows::Foundation::Rect const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Rect) HintRect() const;
+        WINRT_IMPL_AUTO(void) HintRect(Windows::Foundation::Rect const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::XYFocusNavigationStrategyOverride) XYFocusNavigationStrategyOverride() const;
+        WINRT_IMPL_AUTO(void) XYFocusNavigationStrategyOverride(Windows::UI::Xaml::Input::XYFocusNavigationStrategyOverride const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IFindNextElementOptions>
     {
@@ -1559,8 +1562,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IFocusManagerGotFocusEventArgs
     {
-        [[nodiscard]] auto NewFocusedElement() const;
-        [[nodiscard]] auto CorrelationId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObject) NewFocusedElement() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) CorrelationId() const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IFocusManagerGotFocusEventArgs>
     {
@@ -1569,8 +1572,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IFocusManagerLostFocusEventArgs
     {
-        [[nodiscard]] auto OldFocusedElement() const;
-        [[nodiscard]] auto CorrelationId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObject) OldFocusedElement() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) CorrelationId() const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IFocusManagerLostFocusEventArgs>
     {
@@ -1579,7 +1582,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IFocusManagerStatics
     {
-        auto GetFocusedElement() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) GetFocusedElement() const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IFocusManagerStatics>
     {
@@ -1588,7 +1591,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IFocusManagerStatics2
     {
-        auto TryMoveFocus(Windows::UI::Xaml::Input::FocusNavigationDirection const& focusNavigationDirection) const;
+        WINRT_IMPL_AUTO(bool) TryMoveFocus(Windows::UI::Xaml::Input::FocusNavigationDirection const& focusNavigationDirection) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IFocusManagerStatics2>
     {
@@ -1597,8 +1600,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IFocusManagerStatics3
     {
-        auto FindNextFocusableElement(Windows::UI::Xaml::Input::FocusNavigationDirection const& focusNavigationDirection) const;
-        auto FindNextFocusableElement(Windows::UI::Xaml::Input::FocusNavigationDirection const& focusNavigationDirection, Windows::Foundation::Rect const& hintRect) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::UIElement) FindNextFocusableElement(Windows::UI::Xaml::Input::FocusNavigationDirection const& focusNavigationDirection) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::UIElement) FindNextFocusableElement(Windows::UI::Xaml::Input::FocusNavigationDirection const& focusNavigationDirection, Windows::Foundation::Rect const& hintRect) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IFocusManagerStatics3>
     {
@@ -1607,11 +1610,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IFocusManagerStatics4
     {
-        auto TryMoveFocus(Windows::UI::Xaml::Input::FocusNavigationDirection const& focusNavigationDirection, Windows::UI::Xaml::Input::FindNextElementOptions const& focusNavigationOptions) const;
-        auto FindNextElement(Windows::UI::Xaml::Input::FocusNavigationDirection const& focusNavigationDirection) const;
-        auto FindFirstFocusableElement(Windows::UI::Xaml::DependencyObject const& searchScope) const;
-        auto FindLastFocusableElement(Windows::UI::Xaml::DependencyObject const& searchScope) const;
-        auto FindNextElement(Windows::UI::Xaml::Input::FocusNavigationDirection const& focusNavigationDirection, Windows::UI::Xaml::Input::FindNextElementOptions const& focusNavigationOptions) const;
+        WINRT_IMPL_AUTO(bool) TryMoveFocus(Windows::UI::Xaml::Input::FocusNavigationDirection const& focusNavigationDirection, Windows::UI::Xaml::Input::FindNextElementOptions const& focusNavigationOptions) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObject) FindNextElement(Windows::UI::Xaml::Input::FocusNavigationDirection const& focusNavigationDirection) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObject) FindFirstFocusableElement(Windows::UI::Xaml::DependencyObject const& searchScope) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObject) FindLastFocusableElement(Windows::UI::Xaml::DependencyObject const& searchScope) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObject) FindNextElement(Windows::UI::Xaml::Input::FocusNavigationDirection const& focusNavigationDirection, Windows::UI::Xaml::Input::FindNextElementOptions const& focusNavigationOptions) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IFocusManagerStatics4>
     {
@@ -1620,9 +1623,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IFocusManagerStatics5
     {
-        auto TryFocusAsync(Windows::UI::Xaml::DependencyObject const& element, Windows::UI::Xaml::FocusState const& value) const;
-        auto TryMoveFocusAsync(Windows::UI::Xaml::Input::FocusNavigationDirection const& focusNavigationDirection) const;
-        auto TryMoveFocusAsync(Windows::UI::Xaml::Input::FocusNavigationDirection const& focusNavigationDirection, Windows::UI::Xaml::Input::FindNextElementOptions const& focusNavigationOptions) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::UI::Xaml::Input::FocusMovementResult>) TryFocusAsync(Windows::UI::Xaml::DependencyObject const& element, Windows::UI::Xaml::FocusState const& value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::UI::Xaml::Input::FocusMovementResult>) TryMoveFocusAsync(Windows::UI::Xaml::Input::FocusNavigationDirection const& focusNavigationDirection) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::UI::Xaml::Input::FocusMovementResult>) TryMoveFocusAsync(Windows::UI::Xaml::Input::FocusNavigationDirection const& focusNavigationDirection, Windows::UI::Xaml::Input::FindNextElementOptions const& focusNavigationOptions) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IFocusManagerStatics5>
     {
@@ -1631,22 +1634,22 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IFocusManagerStatics6
     {
-        auto GotFocus(Windows::Foundation::EventHandler<Windows::UI::Xaml::Input::FocusManagerGotFocusEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(winrt::event_token) GotFocus(Windows::Foundation::EventHandler<Windows::UI::Xaml::Input::FocusManagerGotFocusEventArgs> const& handler) const;
         using GotFocus_revoker = impl::event_revoker<Windows::UI::Xaml::Input::IFocusManagerStatics6, &impl::abi_t<Windows::UI::Xaml::Input::IFocusManagerStatics6>::remove_GotFocus>;
         [[nodiscard]] GotFocus_revoker GotFocus(auto_revoke_t, Windows::Foundation::EventHandler<Windows::UI::Xaml::Input::FocusManagerGotFocusEventArgs> const& handler) const;
-        auto GotFocus(winrt::event_token const& token) const noexcept;
-        auto LostFocus(Windows::Foundation::EventHandler<Windows::UI::Xaml::Input::FocusManagerLostFocusEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) GotFocus(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) LostFocus(Windows::Foundation::EventHandler<Windows::UI::Xaml::Input::FocusManagerLostFocusEventArgs> const& handler) const;
         using LostFocus_revoker = impl::event_revoker<Windows::UI::Xaml::Input::IFocusManagerStatics6, &impl::abi_t<Windows::UI::Xaml::Input::IFocusManagerStatics6>::remove_LostFocus>;
         [[nodiscard]] LostFocus_revoker LostFocus(auto_revoke_t, Windows::Foundation::EventHandler<Windows::UI::Xaml::Input::FocusManagerLostFocusEventArgs> const& handler) const;
-        auto LostFocus(winrt::event_token const& token) const noexcept;
-        auto GettingFocus(Windows::Foundation::EventHandler<Windows::UI::Xaml::Input::GettingFocusEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) LostFocus(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) GettingFocus(Windows::Foundation::EventHandler<Windows::UI::Xaml::Input::GettingFocusEventArgs> const& handler) const;
         using GettingFocus_revoker = impl::event_revoker<Windows::UI::Xaml::Input::IFocusManagerStatics6, &impl::abi_t<Windows::UI::Xaml::Input::IFocusManagerStatics6>::remove_GettingFocus>;
         [[nodiscard]] GettingFocus_revoker GettingFocus(auto_revoke_t, Windows::Foundation::EventHandler<Windows::UI::Xaml::Input::GettingFocusEventArgs> const& handler) const;
-        auto GettingFocus(winrt::event_token const& token) const noexcept;
-        auto LosingFocus(Windows::Foundation::EventHandler<Windows::UI::Xaml::Input::LosingFocusEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) GettingFocus(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) LosingFocus(Windows::Foundation::EventHandler<Windows::UI::Xaml::Input::LosingFocusEventArgs> const& handler) const;
         using LosingFocus_revoker = impl::event_revoker<Windows::UI::Xaml::Input::IFocusManagerStatics6, &impl::abi_t<Windows::UI::Xaml::Input::IFocusManagerStatics6>::remove_LosingFocus>;
         [[nodiscard]] LosingFocus_revoker LosingFocus(auto_revoke_t, Windows::Foundation::EventHandler<Windows::UI::Xaml::Input::LosingFocusEventArgs> const& handler) const;
-        auto LosingFocus(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) LosingFocus(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IFocusManagerStatics6>
     {
@@ -1655,7 +1658,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IFocusManagerStatics7
     {
-        auto GetFocusedElement(Windows::UI::Xaml::XamlRoot const& xamlRoot) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IInspectable) GetFocusedElement(Windows::UI::Xaml::XamlRoot const& xamlRoot) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IFocusManagerStatics7>
     {
@@ -1664,7 +1667,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IFocusMovementResult
     {
-        [[nodiscard]] auto Succeeded() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Succeeded() const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IFocusMovementResult>
     {
@@ -1673,16 +1676,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IGettingFocusEventArgs
     {
-        [[nodiscard]] auto OldFocusedElement() const;
-        [[nodiscard]] auto NewFocusedElement() const;
-        auto NewFocusedElement(Windows::UI::Xaml::DependencyObject const& value) const;
-        [[nodiscard]] auto FocusState() const;
-        [[nodiscard]] auto Direction() const;
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
-        [[nodiscard]] auto InputDevice() const;
-        [[nodiscard]] auto Cancel() const;
-        auto Cancel(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObject) OldFocusedElement() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObject) NewFocusedElement() const;
+        WINRT_IMPL_AUTO(void) NewFocusedElement(Windows::UI::Xaml::DependencyObject const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::FocusState) FocusState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::FocusNavigationDirection) Direction() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::FocusInputDeviceKind) InputDevice() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Cancel() const;
+        WINRT_IMPL_AUTO(void) Cancel(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IGettingFocusEventArgs>
     {
@@ -1691,8 +1694,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IGettingFocusEventArgs2
     {
-        auto TryCancel() const;
-        auto TrySetNewFocusedElement(Windows::UI::Xaml::DependencyObject const& element) const;
+        WINRT_IMPL_AUTO(bool) TryCancel() const;
+        WINRT_IMPL_AUTO(bool) TrySetNewFocusedElement(Windows::UI::Xaml::DependencyObject const& element) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IGettingFocusEventArgs2>
     {
@@ -1701,7 +1704,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IGettingFocusEventArgs3
     {
-        [[nodiscard]] auto CorrelationId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) CorrelationId() const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IGettingFocusEventArgs3>
     {
@@ -1710,11 +1713,11 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IHoldingRoutedEventArgs
     {
-        [[nodiscard]] auto PointerDeviceType() const;
-        [[nodiscard]] auto HoldingState() const;
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
-        auto GetPosition(Windows::UI::Xaml::UIElement const& relativeTo) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Input::PointerDeviceType) PointerDeviceType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Input::HoldingState) HoldingState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Point) GetPosition(Windows::UI::Xaml::UIElement const& relativeTo) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IHoldingRoutedEventArgs>
     {
@@ -1723,10 +1726,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IInertiaExpansionBehavior
     {
-        [[nodiscard]] auto DesiredDeceleration() const;
-        auto DesiredDeceleration(double value) const;
-        [[nodiscard]] auto DesiredExpansion() const;
-        auto DesiredExpansion(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) DesiredDeceleration() const;
+        WINRT_IMPL_AUTO(void) DesiredDeceleration(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) DesiredExpansion() const;
+        WINRT_IMPL_AUTO(void) DesiredExpansion(double value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IInertiaExpansionBehavior>
     {
@@ -1735,10 +1738,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IInertiaRotationBehavior
     {
-        [[nodiscard]] auto DesiredDeceleration() const;
-        auto DesiredDeceleration(double value) const;
-        [[nodiscard]] auto DesiredRotation() const;
-        auto DesiredRotation(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) DesiredDeceleration() const;
+        WINRT_IMPL_AUTO(void) DesiredDeceleration(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) DesiredRotation() const;
+        WINRT_IMPL_AUTO(void) DesiredRotation(double value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IInertiaRotationBehavior>
     {
@@ -1747,10 +1750,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IInertiaTranslationBehavior
     {
-        [[nodiscard]] auto DesiredDeceleration() const;
-        auto DesiredDeceleration(double value) const;
-        [[nodiscard]] auto DesiredDisplacement() const;
-        auto DesiredDisplacement(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) DesiredDeceleration() const;
+        WINRT_IMPL_AUTO(void) DesiredDeceleration(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) DesiredDisplacement() const;
+        WINRT_IMPL_AUTO(void) DesiredDisplacement(double value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IInertiaTranslationBehavior>
     {
@@ -1759,7 +1762,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IInputScope
     {
-        [[nodiscard]] auto Names() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::UI::Xaml::Input::InputScopeName>) Names() const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IInputScope>
     {
@@ -1768,8 +1771,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IInputScopeName
     {
-        [[nodiscard]] auto NameValue() const;
-        auto NameValue(Windows::UI::Xaml::Input::InputScopeNameValue const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::InputScopeNameValue) NameValue() const;
+        WINRT_IMPL_AUTO(void) NameValue(Windows::UI::Xaml::Input::InputScopeNameValue const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IInputScopeName>
     {
@@ -1778,7 +1781,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IInputScopeNameFactory
     {
-        auto CreateInstance(Windows::UI::Xaml::Input::InputScopeNameValue const& nameValue) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::InputScopeName) CreateInstance(Windows::UI::Xaml::Input::InputScopeNameValue const& nameValue) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IInputScopeNameFactory>
     {
@@ -1787,10 +1790,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IKeyRoutedEventArgs
     {
-        [[nodiscard]] auto Key() const;
-        [[nodiscard]] auto KeyStatus() const;
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::VirtualKey) Key() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Core::CorePhysicalKeyStatus) KeyStatus() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IKeyRoutedEventArgs>
     {
@@ -1799,7 +1802,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IKeyRoutedEventArgs2
     {
-        [[nodiscard]] auto OriginalKey() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::VirtualKey) OriginalKey() const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IKeyRoutedEventArgs2>
     {
@@ -1808,7 +1811,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IKeyRoutedEventArgs3
     {
-        [[nodiscard]] auto DeviceId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) DeviceId() const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IKeyRoutedEventArgs3>
     {
@@ -1817,18 +1820,18 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IKeyboardAccelerator
     {
-        [[nodiscard]] auto Key() const;
-        auto Key(Windows::System::VirtualKey const& value) const;
-        [[nodiscard]] auto Modifiers() const;
-        auto Modifiers(Windows::System::VirtualKeyModifiers const& value) const;
-        [[nodiscard]] auto IsEnabled() const;
-        auto IsEnabled(bool value) const;
-        [[nodiscard]] auto ScopeOwner() const;
-        auto ScopeOwner(Windows::UI::Xaml::DependencyObject const& value) const;
-        auto Invoked(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Input::KeyboardAccelerator, Windows::UI::Xaml::Input::KeyboardAcceleratorInvokedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::VirtualKey) Key() const;
+        WINRT_IMPL_AUTO(void) Key(Windows::System::VirtualKey const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::VirtualKeyModifiers) Modifiers() const;
+        WINRT_IMPL_AUTO(void) Modifiers(Windows::System::VirtualKeyModifiers const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsEnabled() const;
+        WINRT_IMPL_AUTO(void) IsEnabled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObject) ScopeOwner() const;
+        WINRT_IMPL_AUTO(void) ScopeOwner(Windows::UI::Xaml::DependencyObject const& value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) Invoked(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Input::KeyboardAccelerator, Windows::UI::Xaml::Input::KeyboardAcceleratorInvokedEventArgs> const& handler) const;
         using Invoked_revoker = impl::event_revoker<Windows::UI::Xaml::Input::IKeyboardAccelerator, &impl::abi_t<Windows::UI::Xaml::Input::IKeyboardAccelerator>::remove_Invoked>;
         [[nodiscard]] Invoked_revoker Invoked(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Input::KeyboardAccelerator, Windows::UI::Xaml::Input::KeyboardAcceleratorInvokedEventArgs> const& handler) const;
-        auto Invoked(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) Invoked(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IKeyboardAccelerator>
     {
@@ -1837,7 +1840,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IKeyboardAcceleratorFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::KeyboardAccelerator) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IKeyboardAcceleratorFactory>
     {
@@ -1846,9 +1849,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IKeyboardAcceleratorInvokedEventArgs
     {
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
-        [[nodiscard]] auto Element() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObject) Element() const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IKeyboardAcceleratorInvokedEventArgs>
     {
@@ -1857,7 +1860,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IKeyboardAcceleratorInvokedEventArgs2
     {
-        [[nodiscard]] auto KeyboardAccelerator() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::KeyboardAccelerator) KeyboardAccelerator() const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IKeyboardAcceleratorInvokedEventArgs2>
     {
@@ -1866,10 +1869,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IKeyboardAcceleratorStatics
     {
-        [[nodiscard]] auto KeyProperty() const;
-        [[nodiscard]] auto ModifiersProperty() const;
-        [[nodiscard]] auto IsEnabledProperty() const;
-        [[nodiscard]] auto ScopeOwnerProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) KeyProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ModifiersProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IsEnabledProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) ScopeOwnerProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IKeyboardAcceleratorStatics>
     {
@@ -1878,16 +1881,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_ILosingFocusEventArgs
     {
-        [[nodiscard]] auto OldFocusedElement() const;
-        [[nodiscard]] auto NewFocusedElement() const;
-        auto NewFocusedElement(Windows::UI::Xaml::DependencyObject const& value) const;
-        [[nodiscard]] auto FocusState() const;
-        [[nodiscard]] auto Direction() const;
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
-        [[nodiscard]] auto InputDevice() const;
-        [[nodiscard]] auto Cancel() const;
-        auto Cancel(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObject) OldFocusedElement() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyObject) NewFocusedElement() const;
+        WINRT_IMPL_AUTO(void) NewFocusedElement(Windows::UI::Xaml::DependencyObject const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::FocusState) FocusState() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::FocusNavigationDirection) Direction() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::FocusInputDeviceKind) InputDevice() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Cancel() const;
+        WINRT_IMPL_AUTO(void) Cancel(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::ILosingFocusEventArgs>
     {
@@ -1896,8 +1899,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_ILosingFocusEventArgs2
     {
-        auto TryCancel() const;
-        auto TrySetNewFocusedElement(Windows::UI::Xaml::DependencyObject const& element) const;
+        WINRT_IMPL_AUTO(bool) TryCancel() const;
+        WINRT_IMPL_AUTO(bool) TrySetNewFocusedElement(Windows::UI::Xaml::DependencyObject const& element) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::ILosingFocusEventArgs2>
     {
@@ -1906,7 +1909,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_ILosingFocusEventArgs3
     {
-        [[nodiscard]] auto CorrelationId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::guid) CorrelationId() const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::ILosingFocusEventArgs3>
     {
@@ -1915,14 +1918,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IManipulationCompletedRoutedEventArgs
     {
-        [[nodiscard]] auto Container() const;
-        [[nodiscard]] auto Position() const;
-        [[nodiscard]] auto IsInertial() const;
-        [[nodiscard]] auto Cumulative() const;
-        [[nodiscard]] auto Velocities() const;
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
-        [[nodiscard]] auto PointerDeviceType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::UIElement) Container() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Point) Position() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsInertial() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Input::ManipulationDelta) Cumulative() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Input::ManipulationVelocities) Velocities() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Input::PointerDeviceType) PointerDeviceType() const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IManipulationCompletedRoutedEventArgs>
     {
@@ -1931,16 +1934,16 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IManipulationDeltaRoutedEventArgs
     {
-        [[nodiscard]] auto Container() const;
-        [[nodiscard]] auto Position() const;
-        [[nodiscard]] auto IsInertial() const;
-        [[nodiscard]] auto Delta() const;
-        [[nodiscard]] auto Cumulative() const;
-        [[nodiscard]] auto Velocities() const;
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
-        [[nodiscard]] auto PointerDeviceType() const;
-        auto Complete() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::UIElement) Container() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Point) Position() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsInertial() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Input::ManipulationDelta) Delta() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Input::ManipulationDelta) Cumulative() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Input::ManipulationVelocities) Velocities() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Input::PointerDeviceType) PointerDeviceType() const;
+        WINRT_IMPL_AUTO(void) Complete() const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IManipulationDeltaRoutedEventArgs>
     {
@@ -1949,19 +1952,19 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IManipulationInertiaStartingRoutedEventArgs
     {
-        [[nodiscard]] auto Container() const;
-        [[nodiscard]] auto ExpansionBehavior() const;
-        auto ExpansionBehavior(Windows::UI::Xaml::Input::InertiaExpansionBehavior const& value) const;
-        [[nodiscard]] auto RotationBehavior() const;
-        auto RotationBehavior(Windows::UI::Xaml::Input::InertiaRotationBehavior const& value) const;
-        [[nodiscard]] auto TranslationBehavior() const;
-        auto TranslationBehavior(Windows::UI::Xaml::Input::InertiaTranslationBehavior const& value) const;
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
-        [[nodiscard]] auto PointerDeviceType() const;
-        [[nodiscard]] auto Delta() const;
-        [[nodiscard]] auto Cumulative() const;
-        [[nodiscard]] auto Velocities() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::UIElement) Container() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::InertiaExpansionBehavior) ExpansionBehavior() const;
+        WINRT_IMPL_AUTO(void) ExpansionBehavior(Windows::UI::Xaml::Input::InertiaExpansionBehavior const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::InertiaRotationBehavior) RotationBehavior() const;
+        WINRT_IMPL_AUTO(void) RotationBehavior(Windows::UI::Xaml::Input::InertiaRotationBehavior const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::InertiaTranslationBehavior) TranslationBehavior() const;
+        WINRT_IMPL_AUTO(void) TranslationBehavior(Windows::UI::Xaml::Input::InertiaTranslationBehavior const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Input::PointerDeviceType) PointerDeviceType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Input::ManipulationDelta) Delta() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Input::ManipulationDelta) Cumulative() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Input::ManipulationVelocities) Velocities() const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IManipulationInertiaStartingRoutedEventArgs>
     {
@@ -1970,10 +1973,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IManipulationPivot
     {
-        [[nodiscard]] auto Center() const;
-        auto Center(Windows::Foundation::Point const& value) const;
-        [[nodiscard]] auto Radius() const;
-        auto Radius(double value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Point) Center() const;
+        WINRT_IMPL_AUTO(void) Center(Windows::Foundation::Point const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(double) Radius() const;
+        WINRT_IMPL_AUTO(void) Radius(double value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IManipulationPivot>
     {
@@ -1982,7 +1985,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IManipulationPivotFactory
     {
-        auto CreateInstanceWithCenterAndRadius(Windows::Foundation::Point const& center, double radius) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::ManipulationPivot) CreateInstanceWithCenterAndRadius(Windows::Foundation::Point const& center, double radius) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IManipulationPivotFactory>
     {
@@ -1991,13 +1994,13 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IManipulationStartedRoutedEventArgs
     {
-        [[nodiscard]] auto Container() const;
-        [[nodiscard]] auto Position() const;
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
-        [[nodiscard]] auto PointerDeviceType() const;
-        [[nodiscard]] auto Cumulative() const;
-        auto Complete() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::UIElement) Container() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Point) Position() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Input::PointerDeviceType) PointerDeviceType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Input::ManipulationDelta) Cumulative() const;
+        WINRT_IMPL_AUTO(void) Complete() const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IManipulationStartedRoutedEventArgs>
     {
@@ -2006,7 +2009,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IManipulationStartedRoutedEventArgsFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::ManipulationStartedRoutedEventArgs) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IManipulationStartedRoutedEventArgsFactory>
     {
@@ -2015,14 +2018,14 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IManipulationStartingRoutedEventArgs
     {
-        [[nodiscard]] auto Mode() const;
-        auto Mode(Windows::UI::Xaml::Input::ManipulationModes const& value) const;
-        [[nodiscard]] auto Container() const;
-        auto Container(Windows::UI::Xaml::UIElement const& value) const;
-        [[nodiscard]] auto Pivot() const;
-        auto Pivot(Windows::UI::Xaml::Input::ManipulationPivot const& value) const;
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::ManipulationModes) Mode() const;
+        WINRT_IMPL_AUTO(void) Mode(Windows::UI::Xaml::Input::ManipulationModes const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::UIElement) Container() const;
+        WINRT_IMPL_AUTO(void) Container(Windows::UI::Xaml::UIElement const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::ManipulationPivot) Pivot() const;
+        WINRT_IMPL_AUTO(void) Pivot(Windows::UI::Xaml::Input::ManipulationPivot const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IManipulationStartingRoutedEventArgs>
     {
@@ -2031,10 +2034,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_INoFocusCandidateFoundEventArgs
     {
-        [[nodiscard]] auto Direction() const;
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
-        [[nodiscard]] auto InputDevice() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::FocusNavigationDirection) Direction() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::FocusInputDeviceKind) InputDevice() const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::INoFocusCandidateFoundEventArgs>
     {
@@ -2043,10 +2046,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IPointer
     {
-        [[nodiscard]] auto PointerId() const;
-        [[nodiscard]] auto PointerDeviceType() const;
-        [[nodiscard]] auto IsInContact() const;
-        [[nodiscard]] auto IsInRange() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(uint32_t) PointerId() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Input::PointerDeviceType) PointerDeviceType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsInContact() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsInRange() const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IPointer>
     {
@@ -2055,12 +2058,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IPointerRoutedEventArgs
     {
-        [[nodiscard]] auto Pointer() const;
-        [[nodiscard]] auto KeyModifiers() const;
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
-        auto GetCurrentPoint(Windows::UI::Xaml::UIElement const& relativeTo) const;
-        auto GetIntermediatePoints(Windows::UI::Xaml::UIElement const& relativeTo) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::Pointer) Pointer() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::VirtualKeyModifiers) KeyModifiers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
+        WINRT_IMPL_AUTO(Windows::UI::Input::PointerPoint) GetCurrentPoint(Windows::UI::Xaml::UIElement const& relativeTo) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::UI::Input::PointerPoint>) GetIntermediatePoints(Windows::UI::Xaml::UIElement const& relativeTo) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IPointerRoutedEventArgs>
     {
@@ -2069,7 +2072,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IPointerRoutedEventArgs2
     {
-        [[nodiscard]] auto IsGenerated() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsGenerated() const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IPointerRoutedEventArgs2>
     {
@@ -2078,10 +2081,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IProcessKeyboardAcceleratorEventArgs
     {
-        [[nodiscard]] auto Key() const;
-        [[nodiscard]] auto Modifiers() const;
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::VirtualKey) Key() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::VirtualKeyModifiers) Modifiers() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IProcessKeyboardAcceleratorEventArgs>
     {
@@ -2090,10 +2093,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IRightTappedRoutedEventArgs
     {
-        [[nodiscard]] auto PointerDeviceType() const;
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
-        auto GetPosition(Windows::UI::Xaml::UIElement const& relativeTo) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Input::PointerDeviceType) PointerDeviceType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Point) GetPosition(Windows::UI::Xaml::UIElement const& relativeTo) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IRightTappedRoutedEventArgs>
     {
@@ -2102,7 +2105,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IStandardUICommand
     {
-        [[nodiscard]] auto Kind() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::StandardUICommandKind) Kind() const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IStandardUICommand>
     {
@@ -2111,7 +2114,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IStandardUICommand2
     {
-        auto Kind(Windows::UI::Xaml::Input::StandardUICommandKind const& value) const;
+        WINRT_IMPL_AUTO(void) Kind(Windows::UI::Xaml::Input::StandardUICommandKind const& value) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IStandardUICommand2>
     {
@@ -2120,8 +2123,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IStandardUICommandFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
-        auto CreateInstanceWithKind(Windows::UI::Xaml::Input::StandardUICommandKind const& kind, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::StandardUICommand) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::StandardUICommand) CreateInstanceWithKind(Windows::UI::Xaml::Input::StandardUICommandKind const& kind, Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IStandardUICommandFactory>
     {
@@ -2130,7 +2133,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IStandardUICommandStatics
     {
-        [[nodiscard]] auto KindProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) KindProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IStandardUICommandStatics>
     {
@@ -2139,10 +2142,10 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_ITappedRoutedEventArgs
     {
-        [[nodiscard]] auto PointerDeviceType() const;
-        [[nodiscard]] auto Handled() const;
-        auto Handled(bool value) const;
-        auto GetPosition(Windows::UI::Xaml::UIElement const& relativeTo) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Devices::Input::PointerDeviceType) PointerDeviceType() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) Handled() const;
+        WINRT_IMPL_AUTO(void) Handled(bool value) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::Point) GetPosition(Windows::UI::Xaml::UIElement const& relativeTo) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::ITappedRoutedEventArgs>
     {
@@ -2151,26 +2154,26 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IXamlUICommand
     {
-        [[nodiscard]] auto Label() const;
-        auto Label(param::hstring const& value) const;
-        [[nodiscard]] auto IconSource() const;
-        auto IconSource(Windows::UI::Xaml::Controls::IconSource const& value) const;
-        [[nodiscard]] auto KeyboardAccelerators() const;
-        [[nodiscard]] auto AccessKey() const;
-        auto AccessKey(param::hstring const& value) const;
-        [[nodiscard]] auto Description() const;
-        auto Description(param::hstring const& value) const;
-        [[nodiscard]] auto Command() const;
-        auto Command(Windows::UI::Xaml::Input::ICommand const& value) const;
-        auto ExecuteRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Input::XamlUICommand, Windows::UI::Xaml::Input::ExecuteRequestedEventArgs> const& handler) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Label() const;
+        WINRT_IMPL_AUTO(void) Label(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Controls::IconSource) IconSource() const;
+        WINRT_IMPL_AUTO(void) IconSource(Windows::UI::Xaml::Controls::IconSource const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<Windows::UI::Xaml::Input::KeyboardAccelerator>) KeyboardAccelerators() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) AccessKey() const;
+        WINRT_IMPL_AUTO(void) AccessKey(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Description() const;
+        WINRT_IMPL_AUTO(void) Description(param::hstring const& value) const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::ICommand) Command() const;
+        WINRT_IMPL_AUTO(void) Command(Windows::UI::Xaml::Input::ICommand const& value) const;
+        WINRT_IMPL_AUTO(winrt::event_token) ExecuteRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Input::XamlUICommand, Windows::UI::Xaml::Input::ExecuteRequestedEventArgs> const& handler) const;
         using ExecuteRequested_revoker = impl::event_revoker<Windows::UI::Xaml::Input::IXamlUICommand, &impl::abi_t<Windows::UI::Xaml::Input::IXamlUICommand>::remove_ExecuteRequested>;
         [[nodiscard]] ExecuteRequested_revoker ExecuteRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Input::XamlUICommand, Windows::UI::Xaml::Input::ExecuteRequestedEventArgs> const& handler) const;
-        auto ExecuteRequested(winrt::event_token const& token) const noexcept;
-        auto CanExecuteRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Input::XamlUICommand, Windows::UI::Xaml::Input::CanExecuteRequestedEventArgs> const& handler) const;
+        WINRT_IMPL_AUTO(void) ExecuteRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(winrt::event_token) CanExecuteRequested(Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Input::XamlUICommand, Windows::UI::Xaml::Input::CanExecuteRequestedEventArgs> const& handler) const;
         using CanExecuteRequested_revoker = impl::event_revoker<Windows::UI::Xaml::Input::IXamlUICommand, &impl::abi_t<Windows::UI::Xaml::Input::IXamlUICommand>::remove_CanExecuteRequested>;
         [[nodiscard]] CanExecuteRequested_revoker CanExecuteRequested(auto_revoke_t, Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Input::XamlUICommand, Windows::UI::Xaml::Input::CanExecuteRequestedEventArgs> const& handler) const;
-        auto CanExecuteRequested(winrt::event_token const& token) const noexcept;
-        auto NotifyCanExecuteChanged() const;
+        WINRT_IMPL_AUTO(void) CanExecuteRequested(winrt::event_token const& token) const noexcept;
+        WINRT_IMPL_AUTO(void) NotifyCanExecuteChanged() const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IXamlUICommand>
     {
@@ -2179,7 +2182,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IXamlUICommandFactory
     {
-        auto CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
+        WINRT_IMPL_AUTO(Windows::UI::Xaml::Input::XamlUICommand) CreateInstance(Windows::Foundation::IInspectable const& baseInterface, Windows::Foundation::IInspectable& innerInterface) const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IXamlUICommandFactory>
     {
@@ -2188,12 +2191,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Xaml_Input_IXamlUICommandStatics
     {
-        [[nodiscard]] auto LabelProperty() const;
-        [[nodiscard]] auto IconSourceProperty() const;
-        [[nodiscard]] auto KeyboardAcceleratorsProperty() const;
-        [[nodiscard]] auto AccessKeyProperty() const;
-        [[nodiscard]] auto DescriptionProperty() const;
-        [[nodiscard]] auto CommandProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) LabelProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) IconSourceProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) KeyboardAcceleratorsProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) AccessKeyProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) DescriptionProperty() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Xaml::DependencyProperty) CommandProperty() const;
     };
     template <> struct consume<Windows::UI::Xaml::Input::IXamlUICommandStatics>
     {

@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_Devices_Midi_H
 #define WINRT_Windows_Devices_Midi_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.Devices.h"
 #include "winrt/impl/Windows.Devices.Enumeration.2.h"
 #include "winrt/impl/Windows.Foundation.2.h"
@@ -14,51 +14,51 @@ static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatche
 #include "winrt/impl/Windows.Devices.Midi.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiChannelPressureMessage<D>::Channel() const
+    template <typename D> WINRT_IMPL_AUTO(uint8_t) consume_Windows_Devices_Midi_IMidiChannelPressureMessage<D>::Channel() const
     {
-        uint8_t value;
+        uint8_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiChannelPressureMessage)->get_Channel(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiChannelPressureMessage<D>::Pressure() const
+    template <typename D> WINRT_IMPL_AUTO(uint8_t) consume_Windows_Devices_Midi_IMidiChannelPressureMessage<D>::Pressure() const
     {
-        uint8_t value;
+        uint8_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiChannelPressureMessage)->get_Pressure(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiChannelPressureMessageFactory<D>::CreateMidiChannelPressureMessage(uint8_t channel, uint8_t pressure) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Midi::MidiChannelPressureMessage) consume_Windows_Devices_Midi_IMidiChannelPressureMessageFactory<D>::CreateMidiChannelPressureMessage(uint8_t channel, uint8_t pressure) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiChannelPressureMessageFactory)->CreateMidiChannelPressureMessage(channel, pressure, &value));
         return Windows::Devices::Midi::MidiChannelPressureMessage{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiControlChangeMessage<D>::Channel() const
+    template <typename D> WINRT_IMPL_AUTO(uint8_t) consume_Windows_Devices_Midi_IMidiControlChangeMessage<D>::Channel() const
     {
-        uint8_t value;
+        uint8_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiControlChangeMessage)->get_Channel(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiControlChangeMessage<D>::Controller() const
+    template <typename D> WINRT_IMPL_AUTO(uint8_t) consume_Windows_Devices_Midi_IMidiControlChangeMessage<D>::Controller() const
     {
-        uint8_t value;
+        uint8_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiControlChangeMessage)->get_Controller(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiControlChangeMessage<D>::ControlValue() const
+    template <typename D> WINRT_IMPL_AUTO(uint8_t) consume_Windows_Devices_Midi_IMidiControlChangeMessage<D>::ControlValue() const
     {
-        uint8_t value;
+        uint8_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiControlChangeMessage)->get_ControlValue(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiControlChangeMessageFactory<D>::CreateMidiControlChangeMessage(uint8_t channel, uint8_t controller, uint8_t controlValue) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Midi::MidiControlChangeMessage) consume_Windows_Devices_Midi_IMidiControlChangeMessageFactory<D>::CreateMidiControlChangeMessage(uint8_t channel, uint8_t controller, uint8_t controlValue) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiControlChangeMessageFactory)->CreateMidiControlChangeMessage(channel, controller, controlValue, &value));
         return Windows::Devices::Midi::MidiControlChangeMessage{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiInPort<D>::MessageReceived(Windows::Foundation::TypedEventHandler<Windows::Devices::Midi::MidiInPort, Windows::Devices::Midi::MidiMessageReceivedEventArgs> const& handler) const
+    template <typename D> WINRT_IMPL_AUTO(winrt::event_token) consume_Windows_Devices_Midi_IMidiInPort<D>::MessageReceived(Windows::Foundation::TypedEventHandler<Windows::Devices::Midi::MidiInPort, Windows::Devices::Midi::MidiMessageReceivedEventArgs> const& handler) const
     {
-        winrt::event_token token;
+        winrt::event_token token{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiInPort)->add_MessageReceived(*(void**)(&handler), put_abi(token)));
         return token;
     }
@@ -66,263 +66,263 @@ namespace winrt::impl
     {
         return impl::make_event_revoker<D, MessageReceived_revoker>(this, MessageReceived(handler));
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiInPort<D>::MessageReceived(winrt::event_token const& token) const noexcept
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Midi_IMidiInPort<D>::MessageReceived(winrt::event_token const& token) const noexcept
     {
         WINRT_VERIFY_(0, WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiInPort)->remove_MessageReceived(impl::bind_in(token)));
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiInPort<D>::DeviceId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Midi_IMidiInPort<D>::DeviceId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiInPort)->get_DeviceId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiInPortStatics<D>::FromIdAsync(param::hstring const& deviceId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Midi::MidiInPort>) consume_Windows_Devices_Midi_IMidiInPortStatics<D>::FromIdAsync(param::hstring const& deviceId) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiInPortStatics)->FromIdAsync(*(void**)(&deviceId), &value));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::Midi::MidiInPort>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiInPortStatics<D>::GetDeviceSelector() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Midi_IMidiInPortStatics<D>::GetDeviceSelector() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiInPortStatics)->GetDeviceSelector(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiMessage<D>::Timestamp() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::TimeSpan) consume_Windows_Devices_Midi_IMidiMessage<D>::Timestamp() const
     {
-        Windows::Foundation::TimeSpan value;
+        Windows::Foundation::TimeSpan value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiMessage)->get_Timestamp(put_abi(value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiMessage<D>::RawData() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Streams::IBuffer) consume_Windows_Devices_Midi_IMidiMessage<D>::RawData() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiMessage)->get_RawData(&value));
         return Windows::Storage::Streams::IBuffer{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiMessage<D>::Type() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Midi::MidiMessageType) consume_Windows_Devices_Midi_IMidiMessage<D>::Type() const
     {
-        Windows::Devices::Midi::MidiMessageType value;
+        Windows::Devices::Midi::MidiMessageType value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiMessage)->get_Type(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiMessageReceivedEventArgs<D>::Message() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Midi::IMidiMessage) consume_Windows_Devices_Midi_IMidiMessageReceivedEventArgs<D>::Message() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiMessageReceivedEventArgs)->get_Message(&value));
         return Windows::Devices::Midi::IMidiMessage{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiNoteOffMessage<D>::Channel() const
+    template <typename D> WINRT_IMPL_AUTO(uint8_t) consume_Windows_Devices_Midi_IMidiNoteOffMessage<D>::Channel() const
     {
-        uint8_t value;
+        uint8_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiNoteOffMessage)->get_Channel(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiNoteOffMessage<D>::Note() const
+    template <typename D> WINRT_IMPL_AUTO(uint8_t) consume_Windows_Devices_Midi_IMidiNoteOffMessage<D>::Note() const
     {
-        uint8_t value;
+        uint8_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiNoteOffMessage)->get_Note(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiNoteOffMessage<D>::Velocity() const
+    template <typename D> WINRT_IMPL_AUTO(uint8_t) consume_Windows_Devices_Midi_IMidiNoteOffMessage<D>::Velocity() const
     {
-        uint8_t value;
+        uint8_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiNoteOffMessage)->get_Velocity(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiNoteOffMessageFactory<D>::CreateMidiNoteOffMessage(uint8_t channel, uint8_t note, uint8_t velocity) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Midi::MidiNoteOffMessage) consume_Windows_Devices_Midi_IMidiNoteOffMessageFactory<D>::CreateMidiNoteOffMessage(uint8_t channel, uint8_t note, uint8_t velocity) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiNoteOffMessageFactory)->CreateMidiNoteOffMessage(channel, note, velocity, &value));
         return Windows::Devices::Midi::MidiNoteOffMessage{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiNoteOnMessage<D>::Channel() const
+    template <typename D> WINRT_IMPL_AUTO(uint8_t) consume_Windows_Devices_Midi_IMidiNoteOnMessage<D>::Channel() const
     {
-        uint8_t value;
+        uint8_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiNoteOnMessage)->get_Channel(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiNoteOnMessage<D>::Note() const
+    template <typename D> WINRT_IMPL_AUTO(uint8_t) consume_Windows_Devices_Midi_IMidiNoteOnMessage<D>::Note() const
     {
-        uint8_t value;
+        uint8_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiNoteOnMessage)->get_Note(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiNoteOnMessage<D>::Velocity() const
+    template <typename D> WINRT_IMPL_AUTO(uint8_t) consume_Windows_Devices_Midi_IMidiNoteOnMessage<D>::Velocity() const
     {
-        uint8_t value;
+        uint8_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiNoteOnMessage)->get_Velocity(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiNoteOnMessageFactory<D>::CreateMidiNoteOnMessage(uint8_t channel, uint8_t note, uint8_t velocity) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Midi::MidiNoteOnMessage) consume_Windows_Devices_Midi_IMidiNoteOnMessageFactory<D>::CreateMidiNoteOnMessage(uint8_t channel, uint8_t note, uint8_t velocity) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiNoteOnMessageFactory)->CreateMidiNoteOnMessage(channel, note, velocity, &value));
         return Windows::Devices::Midi::MidiNoteOnMessage{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiOutPort<D>::SendMessage(Windows::Devices::Midi::IMidiMessage const& midiMessage) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Midi_IMidiOutPort<D>::SendMessage(Windows::Devices::Midi::IMidiMessage const& midiMessage) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiOutPort)->SendMessage(*(void**)(&midiMessage)));
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiOutPort<D>::SendBuffer(Windows::Storage::Streams::IBuffer const& midiData) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Midi_IMidiOutPort<D>::SendBuffer(Windows::Storage::Streams::IBuffer const& midiData) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiOutPort)->SendBuffer(*(void**)(&midiData)));
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiOutPort<D>::DeviceId() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Midi_IMidiOutPort<D>::DeviceId() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiOutPort)->get_DeviceId(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiOutPortStatics<D>::FromIdAsync(param::hstring const& deviceId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Midi::IMidiOutPort>) consume_Windows_Devices_Midi_IMidiOutPortStatics<D>::FromIdAsync(param::hstring const& deviceId) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiOutPortStatics)->FromIdAsync(*(void**)(&deviceId), &value));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::Midi::IMidiOutPort>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiOutPortStatics<D>::GetDeviceSelector() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Midi_IMidiOutPortStatics<D>::GetDeviceSelector() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiOutPortStatics)->GetDeviceSelector(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiPitchBendChangeMessage<D>::Channel() const
+    template <typename D> WINRT_IMPL_AUTO(uint8_t) consume_Windows_Devices_Midi_IMidiPitchBendChangeMessage<D>::Channel() const
     {
-        uint8_t value;
+        uint8_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiPitchBendChangeMessage)->get_Channel(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiPitchBendChangeMessage<D>::Bend() const
+    template <typename D> WINRT_IMPL_AUTO(uint16_t) consume_Windows_Devices_Midi_IMidiPitchBendChangeMessage<D>::Bend() const
     {
-        uint16_t value;
+        uint16_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiPitchBendChangeMessage)->get_Bend(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiPitchBendChangeMessageFactory<D>::CreateMidiPitchBendChangeMessage(uint8_t channel, uint16_t bend) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Midi::MidiPitchBendChangeMessage) consume_Windows_Devices_Midi_IMidiPitchBendChangeMessageFactory<D>::CreateMidiPitchBendChangeMessage(uint8_t channel, uint16_t bend) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiPitchBendChangeMessageFactory)->CreateMidiPitchBendChangeMessage(channel, bend, &value));
         return Windows::Devices::Midi::MidiPitchBendChangeMessage{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiPolyphonicKeyPressureMessage<D>::Channel() const
+    template <typename D> WINRT_IMPL_AUTO(uint8_t) consume_Windows_Devices_Midi_IMidiPolyphonicKeyPressureMessage<D>::Channel() const
     {
-        uint8_t value;
+        uint8_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiPolyphonicKeyPressureMessage)->get_Channel(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiPolyphonicKeyPressureMessage<D>::Note() const
+    template <typename D> WINRT_IMPL_AUTO(uint8_t) consume_Windows_Devices_Midi_IMidiPolyphonicKeyPressureMessage<D>::Note() const
     {
-        uint8_t value;
+        uint8_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiPolyphonicKeyPressureMessage)->get_Note(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiPolyphonicKeyPressureMessage<D>::Pressure() const
+    template <typename D> WINRT_IMPL_AUTO(uint8_t) consume_Windows_Devices_Midi_IMidiPolyphonicKeyPressureMessage<D>::Pressure() const
     {
-        uint8_t value;
+        uint8_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiPolyphonicKeyPressureMessage)->get_Pressure(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiPolyphonicKeyPressureMessageFactory<D>::CreateMidiPolyphonicKeyPressureMessage(uint8_t channel, uint8_t note, uint8_t pressure) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Midi::MidiPolyphonicKeyPressureMessage) consume_Windows_Devices_Midi_IMidiPolyphonicKeyPressureMessageFactory<D>::CreateMidiPolyphonicKeyPressureMessage(uint8_t channel, uint8_t note, uint8_t pressure) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiPolyphonicKeyPressureMessageFactory)->CreateMidiPolyphonicKeyPressureMessage(channel, note, pressure, &value));
         return Windows::Devices::Midi::MidiPolyphonicKeyPressureMessage{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiProgramChangeMessage<D>::Channel() const
+    template <typename D> WINRT_IMPL_AUTO(uint8_t) consume_Windows_Devices_Midi_IMidiProgramChangeMessage<D>::Channel() const
     {
-        uint8_t value;
+        uint8_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiProgramChangeMessage)->get_Channel(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiProgramChangeMessage<D>::Program() const
+    template <typename D> WINRT_IMPL_AUTO(uint8_t) consume_Windows_Devices_Midi_IMidiProgramChangeMessage<D>::Program() const
     {
-        uint8_t value;
+        uint8_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiProgramChangeMessage)->get_Program(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiProgramChangeMessageFactory<D>::CreateMidiProgramChangeMessage(uint8_t channel, uint8_t program) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Midi::MidiProgramChangeMessage) consume_Windows_Devices_Midi_IMidiProgramChangeMessageFactory<D>::CreateMidiProgramChangeMessage(uint8_t channel, uint8_t program) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiProgramChangeMessageFactory)->CreateMidiProgramChangeMessage(channel, program, &value));
         return Windows::Devices::Midi::MidiProgramChangeMessage{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiSongPositionPointerMessage<D>::Beats() const
+    template <typename D> WINRT_IMPL_AUTO(uint16_t) consume_Windows_Devices_Midi_IMidiSongPositionPointerMessage<D>::Beats() const
     {
-        uint16_t value;
+        uint16_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiSongPositionPointerMessage)->get_Beats(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiSongPositionPointerMessageFactory<D>::CreateMidiSongPositionPointerMessage(uint16_t beats) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Midi::MidiSongPositionPointerMessage) consume_Windows_Devices_Midi_IMidiSongPositionPointerMessageFactory<D>::CreateMidiSongPositionPointerMessage(uint16_t beats) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiSongPositionPointerMessageFactory)->CreateMidiSongPositionPointerMessage(beats, &value));
         return Windows::Devices::Midi::MidiSongPositionPointerMessage{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiSongSelectMessage<D>::Song() const
+    template <typename D> WINRT_IMPL_AUTO(uint8_t) consume_Windows_Devices_Midi_IMidiSongSelectMessage<D>::Song() const
     {
-        uint8_t value;
+        uint8_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiSongSelectMessage)->get_Song(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiSongSelectMessageFactory<D>::CreateMidiSongSelectMessage(uint8_t song) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Midi::MidiSongSelectMessage) consume_Windows_Devices_Midi_IMidiSongSelectMessageFactory<D>::CreateMidiSongSelectMessage(uint8_t song) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiSongSelectMessageFactory)->CreateMidiSongSelectMessage(song, &value));
         return Windows::Devices::Midi::MidiSongSelectMessage{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiSynthesizer<D>::AudioDevice() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Enumeration::DeviceInformation) consume_Windows_Devices_Midi_IMidiSynthesizer<D>::AudioDevice() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiSynthesizer)->get_AudioDevice(&value));
         return Windows::Devices::Enumeration::DeviceInformation{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiSynthesizer<D>::Volume() const
+    template <typename D> WINRT_IMPL_AUTO(double) consume_Windows_Devices_Midi_IMidiSynthesizer<D>::Volume() const
     {
-        double value;
+        double value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiSynthesizer)->get_Volume(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiSynthesizer<D>::Volume(double value) const
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Devices_Midi_IMidiSynthesizer<D>::Volume(double value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiSynthesizer)->put_Volume(value));
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiSynthesizerStatics<D>::CreateAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Midi::MidiSynthesizer>) consume_Windows_Devices_Midi_IMidiSynthesizerStatics<D>::CreateAsync() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiSynthesizerStatics)->CreateAsync(&value));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::Midi::MidiSynthesizer>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiSynthesizerStatics<D>::CreateAsync(Windows::Devices::Enumeration::DeviceInformation const& audioDevice) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Midi::MidiSynthesizer>) consume_Windows_Devices_Midi_IMidiSynthesizerStatics<D>::CreateAsync(Windows::Devices::Enumeration::DeviceInformation const& audioDevice) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiSynthesizerStatics)->CreateFromAudioDeviceAsync(*(void**)(&audioDevice), &value));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::Midi::MidiSynthesizer>{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiSynthesizerStatics<D>::IsSynthesizer(Windows::Devices::Enumeration::DeviceInformation const& midiDevice) const
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Devices_Midi_IMidiSynthesizerStatics<D>::IsSynthesizer(Windows::Devices::Enumeration::DeviceInformation const& midiDevice) const
     {
-        bool value;
+        bool value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiSynthesizerStatics)->IsSynthesizer(*(void**)(&midiDevice), &value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiSystemExclusiveMessageFactory<D>::CreateMidiSystemExclusiveMessage(Windows::Storage::Streams::IBuffer const& rawData) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Midi::MidiSystemExclusiveMessage) consume_Windows_Devices_Midi_IMidiSystemExclusiveMessageFactory<D>::CreateMidiSystemExclusiveMessage(Windows::Storage::Streams::IBuffer const& rawData) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiSystemExclusiveMessageFactory)->CreateMidiSystemExclusiveMessage(*(void**)(&rawData), &value));
         return Windows::Devices::Midi::MidiSystemExclusiveMessage{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiTimeCodeMessage<D>::FrameType() const
+    template <typename D> WINRT_IMPL_AUTO(uint8_t) consume_Windows_Devices_Midi_IMidiTimeCodeMessage<D>::FrameType() const
     {
-        uint8_t value;
+        uint8_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiTimeCodeMessage)->get_FrameType(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiTimeCodeMessage<D>::Values() const
+    template <typename D> WINRT_IMPL_AUTO(uint8_t) consume_Windows_Devices_Midi_IMidiTimeCodeMessage<D>::Values() const
     {
-        uint8_t value;
+        uint8_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiTimeCodeMessage)->get_Values(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Midi_IMidiTimeCodeMessageFactory<D>::CreateMidiTimeCodeMessage(uint8_t frameType, uint8_t values) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Midi::MidiTimeCodeMessage) consume_Windows_Devices_Midi_IMidiTimeCodeMessageFactory<D>::CreateMidiTimeCodeMessage(uint8_t frameType, uint8_t values) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Midi::IMidiTimeCodeMessageFactory)->CreateMidiTimeCodeMessage(frameType, values, &value));

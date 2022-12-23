@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.191023.3
+// C++/WinRT v2.0.200213.5
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,88 +6,88 @@
 #ifndef WINRT_Windows_Devices_Custom_H
 #define WINRT_Windows_Devices_Custom_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.191023.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200213.5"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.Devices.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Storage.Streams.2.h"
 #include "winrt/impl/Windows.Devices.Custom.2.h"
 namespace winrt::impl
 {
-    template <typename D> auto consume_Windows_Devices_Custom_ICustomDevice<D>::InputStream() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Streams::IInputStream) consume_Windows_Devices_Custom_ICustomDevice<D>::InputStream() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Custom::ICustomDevice)->get_InputStream(&value));
         return Windows::Storage::Streams::IInputStream{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Custom_ICustomDevice<D>::OutputStream() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Storage::Streams::IOutputStream) consume_Windows_Devices_Custom_ICustomDevice<D>::OutputStream() const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Custom::ICustomDevice)->get_OutputStream(&value));
         return Windows::Storage::Streams::IOutputStream{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Custom_ICustomDevice<D>::SendIOControlAsync(Windows::Devices::Custom::IIOControlCode const& ioControlCode, Windows::Storage::Streams::IBuffer const& inputBuffer, Windows::Storage::Streams::IBuffer const& outputBuffer) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<uint32_t>) consume_Windows_Devices_Custom_ICustomDevice<D>::SendIOControlAsync(Windows::Devices::Custom::IIOControlCode const& ioControlCode, Windows::Storage::Streams::IBuffer const& inputBuffer, Windows::Storage::Streams::IBuffer const& outputBuffer) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Custom::ICustomDevice)->SendIOControlAsync(*(void**)(&ioControlCode), *(void**)(&inputBuffer), *(void**)(&outputBuffer), &operation));
         return Windows::Foundation::IAsyncOperation<uint32_t>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Custom_ICustomDevice<D>::TrySendIOControlAsync(Windows::Devices::Custom::IIOControlCode const& ioControlCode, Windows::Storage::Streams::IBuffer const& inputBuffer, Windows::Storage::Streams::IBuffer const& outputBuffer) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_Devices_Custom_ICustomDevice<D>::TrySendIOControlAsync(Windows::Devices::Custom::IIOControlCode const& ioControlCode, Windows::Storage::Streams::IBuffer const& inputBuffer, Windows::Storage::Streams::IBuffer const& outputBuffer) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Custom::ICustomDevice)->TrySendIOControlAsync(*(void**)(&ioControlCode), *(void**)(&inputBuffer), *(void**)(&outputBuffer), &operation));
         return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Custom_ICustomDeviceStatics<D>::GetDeviceSelector(winrt::guid const& classGuid) const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Devices_Custom_ICustomDeviceStatics<D>::GetDeviceSelector(winrt::guid const& classGuid) const
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Custom::ICustomDeviceStatics)->GetDeviceSelector(impl::bind_in(classGuid), &value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Custom_ICustomDeviceStatics<D>::FromIdAsync(param::hstring const& deviceId, Windows::Devices::Custom::DeviceAccessMode const& desiredAccess, Windows::Devices::Custom::DeviceSharingMode const& sharingMode) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Devices::Custom::CustomDevice>) consume_Windows_Devices_Custom_ICustomDeviceStatics<D>::FromIdAsync(param::hstring const& deviceId, Windows::Devices::Custom::DeviceAccessMode const& desiredAccess, Windows::Devices::Custom::DeviceSharingMode const& sharingMode) const
     {
         void* operation{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Custom::ICustomDeviceStatics)->FromIdAsync(*(void**)(&deviceId), static_cast<int32_t>(desiredAccess), static_cast<int32_t>(sharingMode), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::Devices::Custom::CustomDevice>{ operation, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Custom_IIOControlCode<D>::AccessMode() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Custom::IOControlAccessMode) consume_Windows_Devices_Custom_IIOControlCode<D>::AccessMode() const
     {
-        Windows::Devices::Custom::IOControlAccessMode value;
+        Windows::Devices::Custom::IOControlAccessMode value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Custom::IIOControlCode)->get_AccessMode(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Custom_IIOControlCode<D>::BufferingMethod() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Custom::IOControlBufferingMethod) consume_Windows_Devices_Custom_IIOControlCode<D>::BufferingMethod() const
     {
-        Windows::Devices::Custom::IOControlBufferingMethod value;
+        Windows::Devices::Custom::IOControlBufferingMethod value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Custom::IIOControlCode)->get_BufferingMethod(reinterpret_cast<int32_t*>(&value)));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Custom_IIOControlCode<D>::Function() const
+    template <typename D> WINRT_IMPL_AUTO(uint16_t) consume_Windows_Devices_Custom_IIOControlCode<D>::Function() const
     {
-        uint16_t value;
+        uint16_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Custom::IIOControlCode)->get_Function(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Custom_IIOControlCode<D>::DeviceType() const
+    template <typename D> WINRT_IMPL_AUTO(uint16_t) consume_Windows_Devices_Custom_IIOControlCode<D>::DeviceType() const
     {
-        uint16_t value;
+        uint16_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Custom::IIOControlCode)->get_DeviceType(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Custom_IIOControlCode<D>::ControlCode() const
+    template <typename D> WINRT_IMPL_AUTO(uint32_t) consume_Windows_Devices_Custom_IIOControlCode<D>::ControlCode() const
     {
-        uint32_t value;
+        uint32_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Custom::IIOControlCode)->get_ControlCode(&value));
         return value;
     }
-    template <typename D> auto consume_Windows_Devices_Custom_IIOControlCodeFactory<D>::CreateIOControlCode(uint16_t deviceType, uint16_t function, Windows::Devices::Custom::IOControlAccessMode const& accessMode, Windows::Devices::Custom::IOControlBufferingMethod const& bufferingMethod) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Devices::Custom::IOControlCode) consume_Windows_Devices_Custom_IIOControlCodeFactory<D>::CreateIOControlCode(uint16_t deviceType, uint16_t function, Windows::Devices::Custom::IOControlAccessMode const& accessMode, Windows::Devices::Custom::IOControlBufferingMethod const& bufferingMethod) const
     {
         void* instance{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Custom::IIOControlCodeFactory)->CreateIOControlCode(deviceType, function, static_cast<int32_t>(accessMode), static_cast<int32_t>(bufferingMethod), &instance));
         return Windows::Devices::Custom::IOControlCode{ instance, take_ownership_from_abi };
     }
-    template <typename D> auto consume_Windows_Devices_Custom_IKnownDeviceTypesStatics<D>::Unknown() const
+    template <typename D> WINRT_IMPL_AUTO(uint16_t) consume_Windows_Devices_Custom_IKnownDeviceTypesStatics<D>::Unknown() const
     {
-        uint16_t value;
+        uint16_t value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Devices::Custom::IKnownDeviceTypesStatics)->get_Unknown(&value));
         return value;
     }
