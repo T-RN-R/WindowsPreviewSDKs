@@ -1564,6 +1564,7 @@ typedef enum D3D12_HEAP_FLAGS
     D3D12_HEAP_FLAG_ALLOW_SHADER_ATOMICS = 0x400,
     D3D12_HEAP_FLAG_CREATE_NOT_RESIDENT = 0x800,
     D3D12_HEAP_FLAG_CREATE_NOT_ZEROED = 0x1000,
+    D3D12_HEAP_FLAG_TOOLS_USE_MANUAL_WRITE_TRACKING = 0x2000,
 
     // These are convenience aliases to manage resource heap tier restrictions. They cannot be bitwise OR'ed together cleanly.
     D3D12_HEAP_FLAG_ALLOW_ALL_BUFFERS_AND_TEXTURES = 0x0,

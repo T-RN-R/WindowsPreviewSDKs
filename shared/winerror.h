@@ -50549,6 +50549,15 @@ FORCEINLINE HRESULT HRESULT_FROM_SETUPAPI(unsigned long x) { return (((x) & (0x2
 #define FVE_E_NO_BACKUP_ACCOUNT          _HRESULT_TYPEDEF_(0x803100EFL)
 
 //
+// MessageId: FVE_E_SUSPEND_PROTECTION_NOT_ALLOWED
+//
+// MessageText:
+//
+// The operation failed because BitLocker Drive Encryption is configured to not allow suspending protection.
+//
+#define FVE_E_SUSPEND_PROTECTION_NOT_ALLOWED _HRESULT_TYPEDEF_(0x803100F0L)
+
+//
 // =======================================================
 // Windows Filtering Platform Error Messages
 // =======================================================

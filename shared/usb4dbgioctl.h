@@ -115,7 +115,7 @@ typedef struct _USB4_HRD_DEBUG_ROUTE_STRING
 typedef struct _USB4_HRD_DEBUG_READ_CONFIGURATION_SPACE_INPUT {
 
     USB4_HRD_DEBUG_ROUTE_STRING Route;
-    UINT8                       Port;
+    UINT8                       AdapterNumber;
     USB4_CONFIG_SPACE_TYPE      ConfigurationSpaceType;
     UINT32                      DwOffset;
     UINT32                      DwLength;
