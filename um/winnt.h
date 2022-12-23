@@ -11715,6 +11715,40 @@ typedef struct _PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
     PPROCESS_DYNAMIC_EH_CONTINUATION_TARGET Targets;
 } PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION, *PPROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION;
 
+//
+// Process dynamic enforced address ranges information, used for dynamic
+// enforced CETCOMPAT ranges.
+//
+// Information class - ProcessDynamicEnforcedCetCompatibleRanges.
+//
+
+//
+// Dynamic enforced address range should be added. If not set, the range is
+// removed. Input flag.
+//
+
+#define DYNAMIC_ENFORCED_ADDRESS_RANGE_ADD                               (0x00000001)
+
+//
+// Dynamic enforced address range has been successfully processed. Used to
+// report to the caller how much progress has been made. Output flag.
+//
+
+#define DYNAMIC_ENFORCED_ADDRESS_RANGE_PROCESSED                         (0x00000002)
+
+typedef struct _PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
+    ULONG_PTR BaseAddress;
+    SIZE_T Size;
+    DWORD Flags;
+} PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE, *PPROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE;
+
+typedef struct _PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
+    WORD   NumberOfRanges;
+    WORD   Reserved;
+    DWORD Reserved2;
+    PPROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE Ranges;
+} PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION, *PPROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION;
+
 
 typedef struct _QUOTA_LIMITS {
     SIZE_T PagedPoolLimit;
@@ -19450,7 +19484,7 @@ RtlCaptureContext(
     _Out_ PCONTEXT ContextRecord
     );
 
-#endif
+#endif // (NTDDI_VERSION > NTDDI_WIN2K)
 
 #if (NTDDI_VERSION >= NTDDI_WIN10_VB)
 
@@ -19463,9 +19497,9 @@ RtlCaptureContext2(
     _Inout_ PCONTEXT ContextRecord
     );
 
-#endif
+#endif // defined(_AMD64_)
 
-#endif
+#endif // (NTDDI_VERSION >= NTDDI_WIN10_VB)
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
@@ -19611,7 +19645,7 @@ RtlVirtualUnwind(
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
-#endif // _AMD64_
+#endif // defined(_AMD64_)
 
 
 #if defined(_ARM_)
@@ -19743,7 +19777,7 @@ RtlVirtualUnwind(
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
-#endif // _ARM_
+#endif // defined(_ARM_)
 
 
 #if defined(_ARM64_)
@@ -19875,7 +19909,31 @@ RtlVirtualUnwind(
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
-#endif // _ARM64_
+#endif // defined(_ARM64_)
+
+
+#if defined(_X86_)
+
+#pragma region Desktop Family or OneCore Family or Games Family
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
+
+#if (NTDDI_VERSION >= NTDDI_WIN10_FE)
+
+NTSYSAPI
+VOID
+__cdecl
+RtlRestoreContext(
+    _In_ PCONTEXT ContextRecord,
+    _In_opt_ struct _EXCEPTION_RECORD* ExceptionRecord
+    );
+
+#endif /* NTDDI_VERSION >= NTDDI_WIN10_FE */
+
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
+#pragma endregion
+
+#endif // defined(_X86_)
+
 
 #if defined(_CHPE_X86_ARM64_)
 
@@ -19906,7 +19964,7 @@ RtlLookupFunctionEntryCHPE(
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion
 
-#endif // _X86_
+#endif // defined(_CHPE_X86_ARM64_)
 
 #pragma region Desktop Family or OneCore Family or Games Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)

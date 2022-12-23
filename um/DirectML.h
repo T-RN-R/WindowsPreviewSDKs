@@ -19,7 +19,7 @@
 #ifndef DML_TARGET_VERSION
 
 #if !defined(NTDDI_VERSION) || defined(DML_TARGET_VERSION_USE_LATEST) // Use the latest if using redist or no Windows target set.
-#define DML_TARGET_VERSION 0x2100
+#define DML_TARGET_VERSION 0x3000
 #elif NTDDI_VERSION >= NTDDI_WIN10_VB // Windows 10 2004 Update
 #define DML_TARGET_VERSION 0x2000
 #else NTDDI_VERSION >= NTDDI_WIN10_19H1 // Windows 10 1903 Update
@@ -244,6 +244,22 @@ enum DML_OPERATOR_TYPE
     DML_OPERATOR_CONVOLUTION_INTEGER,
     DML_OPERATOR_QUANTIZED_LINEAR_CONVOLUTION,
 #endif // DML_TARGET_VERSION >= 0x2100
+
+#if DML_TARGET_VERSION >= 0x3000
+    DML_OPERATOR_ELEMENT_WISE_BIT_AND,
+    DML_OPERATOR_ELEMENT_WISE_BIT_OR,
+    DML_OPERATOR_ELEMENT_WISE_BIT_XOR,
+    DML_OPERATOR_ELEMENT_WISE_BIT_NOT,
+    DML_OPERATOR_ELEMENT_WISE_BIT_COUNT,
+    DML_OPERATOR_ACTIVATION_RELU_GRAD,
+    DML_OPERATOR_AVERAGE_POOLING_GRAD,
+    DML_OPERATOR_MAX_POOLING_GRAD,
+    DML_OPERATOR_RANDOM_GENERATOR,
+    DML_OPERATOR_NONZERO_COORDINATES,
+    DML_OPERATOR_RESAMPLE_GRAD,
+    DML_OPERATOR_SLICE_GRAD,
+    DML_OPERATOR_ADAM_OPTIMIZER,
+#endif // DML_TARGET_VERSION >= 0x3000
 };
 
 
@@ -290,6 +306,10 @@ enum DML_PADDING_MODE
     DML_PADDING_MODE_CONSTANT,
     DML_PADDING_MODE_EDGE,
     DML_PADDING_MODE_REFLECTION,
+
+#if DML_TARGET_VERSION >= 0x3000
+    DML_PADDING_MODE_SYMMETRIC,
+#endif
 };
 
 enum DML_INTERPOLATION_MODE
@@ -361,6 +381,15 @@ union DML_SCALAR_UNION
 };
 
 #endif // DML_TARGET_VERSION >= 0x2100
+
+#if DML_TARGET_VERSION >= 0x3000
+
+enum DML_RANDOM_GENERATOR_TYPE
+{
+    DML_RANDOM_GENERATOR_TYPE_PHILOX_4X32_10
+};
+
+#endif // DML_TARGET_VERSION >= 0x3000
 
 // ===================================================================================================================
 //   Operator descriptions
@@ -1399,6 +1428,127 @@ struct DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC
 
 #endif // DML_TARGET_VERSION >= 0x2100
 
+#if DML_TARGET_VERSION >= 0x3000
+
+struct DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC
+{
+    const DML_TENSOR_DESC* ATensor;
+    const DML_TENSOR_DESC* BTensor;
+    const DML_TENSOR_DESC* OutputTensor;
+};
+
+struct DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC
+{
+    const DML_TENSOR_DESC* ATensor;
+    const DML_TENSOR_DESC* BTensor;
+    const DML_TENSOR_DESC* OutputTensor;
+};
+
+struct DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC
+{
+    const DML_TENSOR_DESC* ATensor;
+    const DML_TENSOR_DESC* BTensor;
+    const DML_TENSOR_DESC* OutputTensor;
+};
+
+struct DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC
+{
+    const DML_TENSOR_DESC* InputTensor;
+    const DML_TENSOR_DESC* OutputTensor;
+};
+
+struct DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC
+{
+    const DML_TENSOR_DESC* InputTensor;
+    const DML_TENSOR_DESC* OutputTensor;
+};
+
+struct DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC
+{
+    const DML_TENSOR_DESC* InputTensor;
+    const DML_TENSOR_DESC* InputGradientTensor;
+    const DML_TENSOR_DESC* OutputGradientTensor;
+};
+
+struct DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC
+{
+    const DML_TENSOR_DESC* InputGradientTensor;
+    const DML_TENSOR_DESC* OutputGradientTensor;
+    UINT DimensionCount;
+    _Field_size_(DimensionCount) const UINT* Strides;
+    _Field_size_(DimensionCount) const UINT* WindowSize;
+    _Field_size_(DimensionCount) const UINT* StartPadding;
+    _Field_size_(DimensionCount) const UINT* EndPadding;
+    BOOL IncludePadding;
+};
+
+struct DML_MAX_POOLING_GRAD_OPERATOR_DESC
+{
+    const DML_TENSOR_DESC* InputTensor;
+    const DML_TENSOR_DESC* InputGradientTensor;
+    const DML_TENSOR_DESC* OutputGradientTensor;
+    UINT DimensionCount;
+    _Field_size_(DimensionCount) const UINT* Strides;
+    _Field_size_(DimensionCount) const UINT* WindowSize;
+    _Field_size_(DimensionCount) const UINT* StartPadding;
+    _Field_size_(DimensionCount) const UINT* EndPadding;
+    _Field_size_(DimensionCount) const UINT* Dilations;
+};
+
+struct DML_RANDOM_GENERATOR_OPERATOR_DESC
+{
+    const DML_TENSOR_DESC* InputStateTensor;
+    const DML_TENSOR_DESC* OutputTensor;
+    _Maybenull_ const DML_TENSOR_DESC* OutputStateTensor;
+    DML_RANDOM_GENERATOR_TYPE Type;
+};
+
+struct DML_NONZERO_COORDINATES_OPERATOR_DESC
+{
+    const DML_TENSOR_DESC* InputTensor;
+    const DML_TENSOR_DESC* OutputCountTensor;
+    const DML_TENSOR_DESC* OutputCoordinatesTensor;
+};
+
+struct DML_RESAMPLE_GRAD_OPERATOR_DESC
+{
+    const DML_TENSOR_DESC* InputGradientTensor;
+    const DML_TENSOR_DESC* OutputGradientTensor;
+    DML_INTERPOLATION_MODE InterpolationMode;
+    UINT DimensionCount;
+    _Field_size_(DimensionCount) const FLOAT* Scales;
+    _Field_size_(DimensionCount) const FLOAT* InputPixelOffsets;
+    _Field_size_(DimensionCount) const FLOAT* OutputPixelOffsets;
+};
+
+struct DML_SLICE_GRAD_OPERATOR_DESC
+{
+    const DML_TENSOR_DESC* InputGradientTensor;
+    const DML_TENSOR_DESC* OutputGradientTensor;
+    UINT DimensionCount;
+    _Field_size_(DimensionCount) const UINT* InputWindowOffsets;
+    _Field_size_(DimensionCount) const UINT* InputWindowSizes;
+    _Field_size_(DimensionCount) const INT* InputWindowStrides;
+};
+
+struct DML_ADAM_OPTIMIZER_OPERATOR_DESC
+{ 
+    const DML_TENSOR_DESC* InputParametersTensor;
+    const DML_TENSOR_DESC* InputFirstMomentTensor;
+    const DML_TENSOR_DESC* InputSecondMomentTensor;
+    const DML_TENSOR_DESC* GradientTensor;
+    const DML_TENSOR_DESC* TrainingStepTensor;
+    const DML_TENSOR_DESC* OutputParametersTensor;
+    const DML_TENSOR_DESC* OutputFirstMomentTensor;
+    const DML_TENSOR_DESC* OutputSecondMomentTensor;
+    float LearningRate;
+    float Beta1;
+    float Beta2;
+    float Epsilon;
+};
+
+#endif // DML_TARGET_VERSION >= 0x3000
+
 // ===================================================================================================================
 //   DML feature support queries
 // ===================================================================================================================
@@ -1410,6 +1560,7 @@ enum DML_FEATURE_LEVEL
     DML_FEATURE_LEVEL_1_0 = 0x1000,
     DML_FEATURE_LEVEL_2_0 = 0x2000,
     DML_FEATURE_LEVEL_2_1 = 0x2100,
+    DML_FEATURE_LEVEL_3_0 = 0x3000,
 };
 
 #endif // DML_TARGET_VERSION >= 0x2000

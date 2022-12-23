@@ -547,6 +547,12 @@ DEFINE_PCI_DEVICE_DEVPKEY(DEVPKEY_PciDevice_SupportedLinkSubState, 36);
 
 DEFINE_PCI_DEVICE_DEVPKEY(DEVPKEY_PciDevice_OnPostPath, 37);
 
+//
+// This property contains bitmask of the D3.cold state and reason for that state.
+//
+
+DEFINE_PCI_DEVICE_DEVPKEY(DEVPKEY_PciDevice_D3ColdSupport, 38);
+
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 #pragma endregion
 

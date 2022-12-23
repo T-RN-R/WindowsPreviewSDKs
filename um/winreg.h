@@ -398,7 +398,6 @@ RegCreateKeyExW(
     _Out_ PHKEY phkResult,
     _Out_opt_ LPDWORD lpdwDisposition
     );
-
 #ifdef UNICODE
 #define RegCreateKeyEx  RegCreateKeyExW
 #else
@@ -494,7 +493,6 @@ RegDeleteKeyExW(
     _In_ REGSAM samDesired,
     _Reserved_ DWORD Reserved
     );
-
 #ifdef UNICODE
 #define RegDeleteKeyEx  RegDeleteKeyExW
 #else
@@ -584,7 +582,6 @@ RegDeleteValueW(
     _In_ HKEY hKey,
     _In_opt_ LPCWSTR lpValueName
     );
-
 #ifdef UNICODE
 #define RegDeleteValue  RegDeleteValueW
 #else
@@ -642,7 +639,6 @@ RegEnumKeyExW(
     _Inout_opt_ LPDWORD lpcchClass,
     _Out_opt_ PFILETIME lpftLastWriteTime
     );
-
 #ifdef UNICODE
 #define RegEnumKeyEx  RegEnumKeyExW
 #else
@@ -676,7 +672,6 @@ RegEnumValueW(
     _Out_writes_bytes_to_opt_(*lpcbData, *lpcbData) __out_data_source(REGISTRY) LPBYTE lpData,
     _Inout_opt_ LPDWORD lpcbData
     );
-
 #ifdef UNICODE
 #define RegEnumValue  RegEnumValueW
 #else
@@ -723,7 +718,6 @@ RegLoadKeyW(
     _In_opt_ LPCWSTR lpSubKey,
     _In_ LPCWSTR lpFile
     );
-
 #ifdef UNICODE
 #define RegLoadKey  RegLoadKeyW
 #else
@@ -790,7 +784,6 @@ RegOpenKeyExW(
     _In_ REGSAM samDesired,
     _Out_ PHKEY phkResult
     );
-
 #ifdef UNICODE
 #define RegOpenKeyEx  RegOpenKeyExW
 #else
@@ -874,7 +867,6 @@ RegQueryInfoKeyW(
     _Out_opt_ LPDWORD lpcbSecurityDescriptor,
     _Out_opt_ PFILETIME lpftLastWriteTime
     );
-
 #ifdef UNICODE
 #define RegQueryInfoKey  RegQueryInfoKeyW
 #else
@@ -934,7 +926,6 @@ RegQueryMultipleValuesW(
     _Out_writes_bytes_to_opt_(*ldwTotsize, *ldwTotsize) __out_data_source(REGISTRY) LPWSTR lpValueBuf,
     _Inout_opt_ LPDWORD ldwTotsize
     );
-
 #ifdef UNICODE
 #define RegQueryMultipleValues  RegQueryMultipleValuesW
 #else
@@ -972,7 +963,6 @@ RegQueryValueExW(
     _Out_writes_bytes_to_opt_(*lpcbData, *lpcbData) __out_data_source(REGISTRY) LPBYTE lpData,
     _When_(lpData == NULL, _Out_opt_) _When_(lpData != NULL, _Inout_opt_) LPDWORD lpcbData
     );
-
 #ifdef UNICODE
 #define RegQueryValueEx  RegQueryValueExW
 #else
@@ -1026,7 +1016,6 @@ RegRestoreKeyW(
     _In_ LPCWSTR lpFile,
     _In_ DWORD dwFlags
     );
-
 #ifdef UNICODE
 #define RegRestoreKey  RegRestoreKeyW
 #else
@@ -1144,7 +1133,6 @@ RegSetValueExW(
     _In_reads_bytes_opt_(cbData) CONST BYTE* lpData,
     _In_ DWORD cbData
     );
-
 #ifdef UNICODE
 #define RegSetValueEx  RegSetValueExW
 #else
@@ -1172,7 +1160,6 @@ RegUnLoadKeyW(
     _In_ HKEY hKey,
     _In_opt_ LPCWSTR lpSubKey
     );
-
 #ifdef UNICODE
 #define RegUnLoadKey  RegUnLoadKeyW
 #else
@@ -1201,7 +1188,6 @@ RegDeleteKeyValueW(
     _In_opt_ LPCWSTR lpSubKey,
     _In_opt_ LPCWSTR lpValueName
     );
-
 #ifdef UNICODE
 #define RegDeleteKeyValue  RegDeleteKeyValueW
 #else
@@ -1231,7 +1217,6 @@ RegSetKeyValueW(
     _In_reads_bytes_opt_(cbData) LPCVOID lpData,
     _In_ DWORD cbData
     );
-
 #ifdef UNICODE
 #define RegSetKeyValue  RegSetKeyValueW
 #else
@@ -1253,7 +1238,6 @@ RegDeleteTreeW(
     _In_ HKEY hKey,
     _In_opt_ LPCWSTR lpSubKey
     );
-
 #ifdef UNICODE
 #define RegDeleteTree  RegDeleteTreeW
 #else
@@ -1315,7 +1299,6 @@ RegGetValueW(
     _Out_writes_bytes_to_opt_(*pcbData,*pcbData) PVOID pvData,
     _Inout_opt_ LPDWORD pcbData
     );
-
 #ifdef UNICODE
 #define RegGetValue  RegGetValueW
 #else
@@ -1334,7 +1317,6 @@ RegCopyTreeW(
     _In_opt_ LPCWSTR lpSubKey,
     _In_ HKEY hKeyDest
     );
-
 #ifdef UNICODE
 #define RegCopyTree  RegCopyTreeW
 #endif
@@ -1364,7 +1346,6 @@ RegLoadMUIStringW(
     _In_ DWORD Flags,
     _In_opt_ LPCWSTR pszDirectory
     );
-
 #ifdef UNICODE
 #define RegLoadMUIString  RegLoadMUIStringW
 #else
@@ -1392,7 +1373,6 @@ RegLoadAppKeyW(
     _In_ DWORD dwOptions,
     _Reserved_ DWORD Reserved
     );
-
 #ifdef UNICODE
 #define RegLoadAppKey  RegLoadAppKeyW
 #else
@@ -1594,7 +1574,6 @@ RegSaveKeyExW(
     _In_opt_ CONST LPSECURITY_ATTRIBUTES lpSecurityAttributes,
     _In_ DWORD Flags
     );
-
 #ifdef UNICODE
 #define RegSaveKeyEx  RegSaveKeyExW
 #else

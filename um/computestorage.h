@@ -28,6 +28,7 @@ extern "C" {
 #endif
 
 // Imports a container layer.
+
 HRESULT
 WINAPI
 HcsImportLayer(
@@ -37,6 +38,7 @@ HcsImportLayer(
     );
 
 // Exports a container layer.
+
 HRESULT
 WINAPI
 HcsExportLayer(
@@ -47,6 +49,7 @@ HcsExportLayer(
     );
 
 // Exports a legacy container writable layer.
+
 HRESULT
 WINAPI
 HcsExportLegacyWritableLayer(
@@ -57,6 +60,7 @@ HcsExportLegacyWritableLayer(
     );
 
 // Deletes a container layer.
+
 HRESULT
 WINAPI
 HcsDestroyLayer(
@@ -64,6 +68,7 @@ HcsDestroyLayer(
     );
 
 // Sets up a layer that contains a base OS for a container.
+
 HRESULT
 WINAPI
 HcsSetupBaseOSLayer(
@@ -73,6 +78,7 @@ HcsSetupBaseOSLayer(
     );
 
 // Initializes a writable layer for a container.
+
 HRESULT
 WINAPI
 HcsInitializeWritableLayer(
@@ -82,6 +88,7 @@ HcsInitializeWritableLayer(
     );
 
 // Initializes a writable layer for a container using the legacy hive folder format.
+
 HRESULT
 WINAPI
 HcsInitializeLegacyWritableLayer(
@@ -92,6 +99,7 @@ HcsInitializeLegacyWritableLayer(
     );
 
 // Sets up the layer storage filter on a writable container layer.
+
 HRESULT
 WINAPI
 HcsAttachLayerStorageFilter(
@@ -100,6 +108,7 @@ HcsAttachLayerStorageFilter(
     );
 
 // Detaches the layer storage filter from a writable container layer.
+
 HRESULT
 WINAPI
 HcsDetachLayerStorageFilter(
@@ -107,6 +116,7 @@ HcsDetachLayerStorageFilter(
     );
 
 // Formats a virtual disk for the use as a writable container layer.
+
 HRESULT
 WINAPI
 HcsFormatWritableLayerVhd(
@@ -114,6 +124,7 @@ HcsFormatWritableLayerVhd(
     );
 
 // Returns the volume path for a virtual disk of a writable container layer.
+
 HRESULT
 WINAPI
 HcsGetLayerVhdMountPath(

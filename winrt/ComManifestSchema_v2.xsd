@@ -18,7 +18,6 @@
   <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"/>
   <xs:import namespace="http://schemas.microsoft.com/appx/manifest/uap/windows10/11"/>
 
-
   <xs:element name="ProxyStubDll" type="CT_ProxyStubDll"/>
 
   <xs:complexType name="CT_ProxyStubDll">

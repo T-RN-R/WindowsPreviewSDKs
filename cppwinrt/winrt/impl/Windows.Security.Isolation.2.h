@@ -45,7 +45,7 @@ WINRT_EXPORT namespace winrt::Windows::Security::Isolation
         return !(left == right);
     }
     struct __declspec(empty_bases) IsolatedWindowsEnvironment : Windows::Security::Isolation::IIsolatedWindowsEnvironment,
-        impl::require<IsolatedWindowsEnvironment, Windows::Security::Isolation::IIsolatedWindowsEnvironment2>
+        impl::require<IsolatedWindowsEnvironment, Windows::Security::Isolation::IIsolatedWindowsEnvironment2, Windows::Security::Isolation::IIsolatedWindowsEnvironment3>
     {
         IsolatedWindowsEnvironment(std::nullptr_t) noexcept {}
         IsolatedWindowsEnvironment(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Security::Isolation::IIsolatedWindowsEnvironment(ptr, take_ownership_from_abi) {}
@@ -129,6 +129,11 @@ WINRT_EXPORT namespace winrt::Windows::Security::Isolation
         IsolatedWindowsEnvironmentTelemetryParameters(std::nullptr_t) noexcept {}
         IsolatedWindowsEnvironmentTelemetryParameters(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Security::Isolation::IIsolatedWindowsEnvironmentTelemetryParameters(ptr, take_ownership_from_abi) {}
         IsolatedWindowsEnvironmentTelemetryParameters();
+    };
+    struct __declspec(empty_bases) IsolatedWindowsEnvironmentUserInfo : Windows::Security::Isolation::IIsolatedWindowsEnvironmentUserInfo
+    {
+        IsolatedWindowsEnvironmentUserInfo(std::nullptr_t) noexcept {}
+        IsolatedWindowsEnvironmentUserInfo(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Security::Isolation::IIsolatedWindowsEnvironmentUserInfo(ptr, take_ownership_from_abi) {}
     };
     struct IsolatedWindowsHostMessenger
     {

@@ -136,6 +136,7 @@ GetPackageFullName(
     );
 
 //TODO:8645770 Change 0x0101 to 0x0102 once THRESHOLD constants are available
+
 WINBASEAPI
 _Check_return_
 _Success_(return == ERROR_SUCCESS)
@@ -158,6 +159,7 @@ GetPackageFamilyName(
     );
 
 //TODO:8645770 Change 0x0101 to 0x0102 once THRESHOLD constants are available
+
 WINBASEAPI
 _Check_return_
 _Success_(return == ERROR_SUCCESS)
@@ -257,7 +259,6 @@ GetCurrentPackagePath2(
     _Inout_ UINT32* pathLength,
     _Out_writes_opt_(*pathLength) PWSTR path
     );
-
 #endif // NTDDI_VERSION >= NTDDI_WIN10_19H1
 
 /* ---------------------------------------------------------------- */
@@ -284,6 +285,7 @@ GetApplicationUserModelId(
     );
 
 //TODO:8645770 Change 0x0101 to 0x0102 once THRESHOLD constants are available
+
 WINBASEAPI
 _Check_return_
 _Success_(return == ERROR_SUCCESS)
@@ -300,6 +302,7 @@ GetApplicationUserModelIdFromToken(
 // Verification Functions
 
 //TODO:8645770 Change 0x0101 to 0x0102 once THRESHOLD constants are available
+
 WINBASEAPI
 _Check_return_
 _Success_(return == ERROR_SUCCESS)
@@ -451,7 +454,8 @@ GetPackagesByPackageFamily(
     _Out_writes_opt_(*bufferLength) WCHAR* buffer
     );
 
-/* Any combination of PACKAGE_FILTER_* */WINBASEAPI
+/* Any combination of PACKAGE_FILTER_* */
+WINBASEAPI
 _Check_return_
 _Success_(return == ERROR_SUCCESS)
 _On_failure_(_Unchanged_(*count))
@@ -565,6 +569,7 @@ OpenPackageInfoByFullName(
     );
 
 //TODO:8645770 Change 0x0101 to 0x0102 once THRESHOLD constants are available
+
 WINBASEAPI
 _Check_return_
 _Success_(return == ERROR_SUCCESS)
@@ -609,6 +614,7 @@ GetPackageApplicationIds(
     );
 
 #if NTDDI_VERSION >= NTDDI_WIN10_19H1
+
 WINBASEAPI
 _Success_(return == ERROR_SUCCESS)
 LONG
@@ -621,7 +627,6 @@ GetPackageInfo2(
     _Out_writes_bytes_opt_(*bufferLength) BYTE* buffer,
     _Out_opt_ UINT32* count
     );
-
 #endif // NTDDI_VERSION >= NTDDI_WIN10_19H1
 
 WINBASEAPI

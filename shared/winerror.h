@@ -12652,6 +12652,15 @@
 #define ERROR_VRF_VOLATILE_NMI_REGISTERED 3086L
 
 //
+// MessageId: ERROR_DIF_LIVEDUMP_LIMIT_EXCEEDED
+//
+// MessageText:
+//
+// Verifier's internal data size exceeds the limit of live dump secondary data.
+//
+#define ERROR_DIF_LIVEDUMP_LIMIT_EXCEEDED 3191L
+
+//
 // MessageId: ERROR_DIF_VOLATILE_SECTION_NOT_LOCKED
 //
 // MessageText:
@@ -12670,13 +12679,13 @@
 #define ERROR_DIF_VOLATILE_DRIVER_HOTPATCHED 3193L
 
 //
-// MessageId: ERROR_DIF_VOLATILE_INVALID_RULE_CLASS
+// MessageId: ERROR_DIF_VOLATILE_INVALID_INFO
 //
 // MessageText:
 //
-// The passed rule classes are invalid.
+// The passed system DIF information is invalid.
 //
-#define ERROR_DIF_VOLATILE_INVALID_RULE_CLASS 3194L
+#define ERROR_DIF_VOLATILE_INVALID_INFO  3194L
 
 //
 // MessageId: ERROR_DIF_VOLATILE_DRIVER_IS_NOT_RUNNING

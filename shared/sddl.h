@@ -276,7 +276,6 @@ ConvertSidToStringSidW(
     _In_ PSID Sid,
     _Outptr_ LPWSTR* StringSid
     );
-
 #ifdef UNICODE
 #define ConvertSidToStringSid  ConvertSidToStringSidW
 #else
@@ -298,7 +297,6 @@ ConvertStringSidToSidW(
     _In_ LPCWSTR StringSid,
     _Outptr_ PSID* Sid
     );
-
 #ifdef UNICODE
 #define ConvertStringSidToSid  ConvertStringSidToSidW
 #else
@@ -324,7 +322,6 @@ ConvertStringSecurityDescriptorToSecurityDescriptorW(
     _Outptr_ PSECURITY_DESCRIPTOR* SecurityDescriptor,
     _Out_opt_ PULONG SecurityDescriptorSize
     );
-
 #ifdef UNICODE
 #define ConvertStringSecurityDescriptorToSecurityDescriptor  ConvertStringSecurityDescriptorToSecurityDescriptorW
 #else
@@ -352,7 +349,6 @@ ConvertSecurityDescriptorToStringSecurityDescriptorW(
     _Outptr_ LPWSTR* StringSecurityDescriptor,
     _Out_opt_ PULONG StringSecurityDescriptorLen
     );
-
 #ifdef UNICODE
 #define ConvertSecurityDescriptorToStringSecurityDescriptor  ConvertSecurityDescriptorToStringSecurityDescriptorW
 #else

@@ -71,7 +71,7 @@ RtlCaptureContext(
     _Out_ PCONTEXT ContextRecord
     );
 
-#endif
+#endif // (NTDDI_VERSION > NTDDI_WIN2K)
 
 #if (NTDDI_VERSION >= NTDDI_WIN10_VB)
 
@@ -84,9 +84,9 @@ RtlCaptureContext2(
     _Inout_ PCONTEXT ContextRecord
     );
 
-#endif
+#endif // defined(_AMD64_)
 
-#endif
+#endif // (NTDDI_VERSION >= NTDDI_WIN10_VB)
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
@@ -258,7 +258,7 @@ RtlVirtualUnwind2(
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
-#endif // _AMD64_
+#endif // defined(_AMD64_)
 
 // end_winnt
 
@@ -419,7 +419,7 @@ RtlVirtualUnwind2(
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
-#endif // _ARM_
+#endif // defined(_ARM_)
 
 // end_winnt
 
@@ -580,7 +580,37 @@ RtlVirtualUnwind2(
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
-#endif // _ARM64_
+#endif // defined(_ARM64_)
+
+// end_winnt
+
+// begin_winnt
+
+#if defined(_X86_)
+
+#pragma region Desktop Family or OneCore Family or Games Family
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
+
+#if (NTDDI_VERSION >= NTDDI_WIN10_FE)
+
+NTSYSAPI
+VOID
+__cdecl
+RtlRestoreContext(
+    _In_ PCONTEXT ContextRecord,
+    _In_opt_ struct _EXCEPTION_RECORD* ExceptionRecord
+    );
+
+#endif /* NTDDI_VERSION >= NTDDI_WIN10_FE */
+
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
+#pragma endregion
+
+#endif // defined(_X86_)
+
+// end_winnt
+
+// begin_winnt
 
 #if defined(_CHPE_X86_ARM64_)
 
@@ -611,7 +641,7 @@ RtlLookupFunctionEntryCHPE(
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion
 
-#endif // _X86_
+#endif // defined(_CHPE_X86_ARM64_)
 
 #pragma region Desktop Family or OneCore Family or Games Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)

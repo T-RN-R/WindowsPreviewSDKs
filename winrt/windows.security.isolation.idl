@@ -63,6 +63,8 @@ namespace Windows
 
             interface IIsolatedWindowsEnvironment2;
 
+            interface IIsolatedWindowsEnvironment3;
+
             interface IIsolatedWindowsEnvironmentCreateResult;
 
             interface IIsolatedWindowsEnvironmentFactory;
@@ -74,6 +76,8 @@ namespace Windows
             interface IIsolatedWindowsEnvironmentLaunchFileResult;
 
             interface IIsolatedWindowsEnvironmentOptions;
+
+            interface IIsolatedWindowsEnvironmentOptions2;
 
             interface IIsolatedWindowsEnvironmentOwnerRegistrationData;
 
@@ -92,6 +96,8 @@ namespace Windows
             interface IIsolatedWindowsEnvironmentStartProcessResult;
 
             interface IIsolatedWindowsEnvironmentTelemetryParameters;
+
+            interface IIsolatedWindowsEnvironmentUserInfo;
 
             interface IIsolatedWindowsHostMessengerStatics;
 
@@ -126,6 +132,8 @@ namespace Windows
             runtimeclass IsolatedWindowsEnvironmentStartProcessResult;
 
             runtimeclass IsolatedWindowsEnvironmentTelemetryParameters;
+
+            runtimeclass IsolatedWindowsEnvironmentUserInfo;
 
             runtimeclass IsolatedWindowsHostMessenger;
         }
@@ -343,6 +351,17 @@ namespace Windows
                 [overload("PostMessageToReceiverAsync")] HRESULT PostMessageToReceiverWithTelemetryAsync([in] GUID receiverId, [in] Windows.Foundation.Collections.IIterable<IInspectable*>* message, [in] Windows.Security.Isolation.IsolatedWindowsEnvironmentTelemetryParameters* telemetryParameters, [out] [retval] Windows.Foundation.IAsyncOperation<Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageResult*>** operation);
             }
 
+            [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 3.0)]
+            [exclusiveto(Windows.Security.Isolation.IsolatedWindowsEnvironment)]
+            [uuid(CB7FC7D2-D06E-4C26-8ADA-DACDAAAD03F5)]
+            interface IIsolatedWindowsEnvironment3 : IInspectable
+                requires
+                    Windows.Security.Isolation.IIsolatedWindowsEnvironment2,
+                    Windows.Security.Isolation.IIsolatedWindowsEnvironment
+            {
+                HRESULT GetIsolatedWindowsEnvironmentUserInfo([out] [retval] Windows.Security.Isolation.IsolatedWindowsEnvironmentUserInfo** result);
+            }
+
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
             [exclusiveto(Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateResult)]
             [uuid(EF9A5E58-DCD7-45C2-9C85-AB642A715E8E)]
@@ -415,6 +434,15 @@ namespace Windows
                 [propput] HRESULT AllowGraphicsHardwareAcceleration([in] boolean value);
                 [propget] HRESULT AllowCameraAndMicrophoneAccess([out] [retval] boolean* value);
                 [propput] HRESULT AllowCameraAndMicrophoneAccess([in] boolean value);
+            }
+
+            [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 3.0)]
+            [exclusiveto(Windows.Security.Isolation.IsolatedWindowsEnvironmentOptions)]
+            [uuid(10D7CC31-8B8F-4B9D-B22C-617103B55B08)]
+            interface IIsolatedWindowsEnvironmentOptions2 : IInspectable
+            {
+                [propget] HRESULT WindowTitleOverride([out] [retval] HSTRING* value);
+                [propput] HRESULT WindowTitleOverride([in] HSTRING value);
             }
 
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
@@ -504,6 +532,15 @@ namespace Windows
                 [propput] HRESULT CorrelationId([in] GUID value);
             }
 
+            [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 3.0)]
+            [exclusiveto(Windows.Security.Isolation.IsolatedWindowsEnvironmentUserInfo)]
+            [uuid(8A9C75AE-69BA-4001-96FC-19A02703B340)]
+            interface IIsolatedWindowsEnvironmentUserInfo : IInspectable
+            {
+                [propget] HRESULT EnvironmentUserSID([out] [retval] HSTRING* value);
+                [propget] HRESULT EnvironmentUsername([out] [retval] HSTRING* value);
+            }
+
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
             [exclusiveto(Windows.Security.Isolation.IsolatedWindowsHostMessenger)]
             [uuid(06E444BB-53C0-4889-8FA3-53592E37CF21)]
@@ -528,6 +565,7 @@ namespace Windows
             {
                 [default] interface Windows.Security.Isolation.IIsolatedWindowsEnvironment;
                 [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 2.0)] interface Windows.Security.Isolation.IIsolatedWindowsEnvironment2;
+                [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 3.0)] interface Windows.Security.Isolation.IIsolatedWindowsEnvironment3;
             }
 
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]
@@ -622,6 +660,12 @@ namespace Windows
             runtimeclass IsolatedWindowsEnvironmentTelemetryParameters
             {
                 [default] interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentTelemetryParameters;
+            }
+
+            [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 3.0)]
+            runtimeclass IsolatedWindowsEnvironmentUserInfo
+            {
+                [default] interface Windows.Security.Isolation.IIsolatedWindowsEnvironmentUserInfo;
             }
 
             [contract(Windows.Security.Isolation.IsolatedWindowsEnvironmentContract, 1.0)]

@@ -187,6 +187,7 @@ WHvSetVirtualProcessorRegisters(
 #if defined(NTDDI_VERSION) && (NTDDI_VERSION >= NTDDI_WIN10_VB)
 #pragma deprecated("WHvGetVirtualProcessorInterruptControllerState is deprecated; use WHvGetVirtualProcessorInterruptControllerState2")
 #endif
+
 HRESULT
 WINAPI
 WHvGetVirtualProcessorInterruptControllerState(
@@ -200,6 +201,7 @@ WHvGetVirtualProcessorInterruptControllerState(
 #if defined(NTDDI_VERSION) && (NTDDI_VERSION >= NTDDI_WIN10_VB)
 #pragma deprecated("WHvSetVirtualProcessorInterruptControllerState is deprecated; use WHvSetVirtualProcessorInterruptControllerState2")
 #endif
+
 HRESULT
 WINAPI
 WHvSetVirtualProcessorInterruptControllerState(
