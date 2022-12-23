@@ -713,6 +713,8 @@ typedef struct _WINHTTP_RESOLVER_CACHE_CONFIG
 
 #define WINHTTP_OPTION_FIRST_AVAILABLE_CONNECTION       173
 
+#define WINHTTP_OPTION_ENABLE_TEST_SIGNING              174
+
 #define WINHTTP_LAST_OPTION                             WINHTTP_OPTION_FIRST_AVAILABLE_CONNECTION
 
 #define WINHTTP_OPTION_USERNAME                         0x1000
@@ -1265,6 +1267,18 @@ typedef WINHTTP_STATUS_CALLBACK * LPWINHTTP_STATUS_CALLBACK;
 
 #define WINHTTP_EXTENDED_HEADER_FLAG_UNICODE 0x00000001
 
+//
+// values for ullFlags for WinHttpReadDataEx
+//
+
+//
+// WINHTTP_READ_DATA_EX_FLAG_FILL_BUFFER - if set, don't complete ReadDataEx
+// until the data buffer has been filled or the response is complete.
+//
+
+#define WINHTTP_READ_DATA_EX_FLAG_FILL_BUFFER 0x0000000000000001ull
+
+
 #define WINHTTP_IGNORE_REQUEST_TOTAL_LENGTH 0
 
 // WinHttpSendRequest prettifiers for optional parameters.
@@ -1523,6 +1537,20 @@ WinHttpReadData
     OUT LPDWORD lpdwNumberOfBytesRead
 );
 
+WINHTTPAPI
+DWORD
+WINAPI
+WinHttpReadDataEx
+(
+    IN HINTERNET hRequest,
+    _Out_writes_bytes_to_(dwNumberOfBytesToRead, *lpdwNumberOfBytesRead) __out_data_source(NETWORK) LPVOID lpBuffer,
+    IN DWORD dwNumberOfBytesToRead,
+    OUT LPDWORD lpdwNumberOfBytesRead,
+    IN ULONGLONG ullFlags,
+    IN DWORD cbProperty,
+    _In_reads_bytes_opt_(cbProperty) PVOID pvProperty
+);
+
 BOOLAPI
 WinHttpWriteData
 (
@@ -1733,6 +1761,21 @@ WinHttpQueryHeaders
     _Out_writes_bytes_to_opt_(*lpdwBufferLength, *lpdwBufferLength) __out_data_source(NETWORK) LPVOID lpBuffer,
     IN OUT LPDWORD   lpdwBufferLength,
     IN OUT LPDWORD   lpdwIndex OPTIONAL
+);
+
+WINHTTPAPI
+DWORD
+WINAPI
+WinHttpQueryHeadersEx
+(
+    _In_ HINTERNET hRequest,
+    _In_ DWORD dwInfoLevel,
+    _In_ ULONGLONG ullFlags,
+    _In_opt_ PCWSTR pwszName,
+    _Out_writes_bytes_to_opt_(*pdwBufferLength, *pdwBufferLength) PVOID pBuffer,
+    _Inout_ PDWORD pdwBufferLength,
+    _Out_writes_opt_(*pdwHeadersCount) PWINHTTP_EXTENDED_HEADER *ppHeaders,
+    _Out_ PDWORD pdwHeadersCount
 );
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */

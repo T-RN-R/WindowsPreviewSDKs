@@ -1066,6 +1066,7 @@ typedef struct _D3DKMT_PRESENT_MULTIPLANE_OVERLAY3
     UINT                                        HDRMetaDataSize;
     _Field_size_bytes_(HDRMetaDataSize)
     const VOID*                                 pHDRMetaData;
+    UINT                                        BoostRefreshRateMultiplier;
 } D3DKMT_PRESENT_MULTIPLANE_OVERLAY3;
 #endif  // DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_1
 
@@ -3874,8 +3875,6 @@ typedef struct _D3DKMT_PRESENT_STATS_DWM
     UINT SyncRefreshCount;
     LARGE_INTEGER SyncQPCTime;
     UINT CustomPresentDuration;
-    UINT VirtualSyncRefreshCount;
-    LARGE_INTEGER VirtualSyncQPCTime;
 } D3DKMT_PRESENT_STATS_DWM;
 
 #if (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_0)

@@ -218,6 +218,22 @@ namespace winrt::impl
         check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Vpn::IVpnChannel4)->get_CurrentRequestTransportContext(&context));
         return Windows::Foundation::IInspectable{ context, take_ownership_from_abi };
     }
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Vpn_IVpnChannel5<D>::AppendVpnReceivePacketBuffer(Windows::Networking::Vpn::VpnPacketBuffer const& decapsulatedPacketBuffer) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Vpn::IVpnChannel5)->AppendVpnReceivePacketBuffer(*(void**)(&decapsulatedPacketBuffer)));
+    }
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Vpn_IVpnChannel5<D>::AppendVpnSendPacketBuffer(Windows::Networking::Vpn::VpnPacketBuffer const& encapsulatedPacketBuffer) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Vpn::IVpnChannel5)->AppendVpnSendPacketBuffer(*(void**)(&encapsulatedPacketBuffer)));
+    }
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Vpn_IVpnChannel5<D>::FlushVpnReceivePacketBuffers() const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Vpn::IVpnChannel5)->FlushVpnReceivePacketBuffers());
+    }
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Networking_Vpn_IVpnChannel5<D>::FlushVpnSendPacketBuffers() const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::Networking::Vpn::IVpnChannel5)->FlushVpnSendPacketBuffers());
+    }
     template <typename D> WINRT_IMPL_AUTO(Windows::Networking::Vpn::VpnChannelActivityEventType) consume_Windows_Networking_Vpn_IVpnChannelActivityEventArgs<D>::Type() const
     {
         Windows::Networking::Vpn::VpnChannelActivityEventType value{};
@@ -1454,6 +1470,40 @@ namespace winrt::impl
             clear_abi(context);
             typename D::abi_guard guard(this->shim());
             *context = detach_from<Windows::Foundation::IInspectable>(this->shim().CurrentRequestTransportContext());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, Windows::Networking::Vpn::IVpnChannel5> : produce_base<D, Windows::Networking::Vpn::IVpnChannel5>
+    {
+        int32_t __stdcall AppendVpnReceivePacketBuffer(void* decapsulatedPacketBuffer) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().AppendVpnReceivePacketBuffer(*reinterpret_cast<Windows::Networking::Vpn::VpnPacketBuffer const*>(&decapsulatedPacketBuffer));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall AppendVpnSendPacketBuffer(void* encapsulatedPacketBuffer) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().AppendVpnSendPacketBuffer(*reinterpret_cast<Windows::Networking::Vpn::VpnPacketBuffer const*>(&encapsulatedPacketBuffer));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall FlushVpnReceivePacketBuffers() noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().FlushVpnReceivePacketBuffers();
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall FlushVpnSendPacketBuffers() noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().FlushVpnSendPacketBuffers();
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -3162,6 +3212,7 @@ namespace std
     template<> struct hash<winrt::Windows::Networking::Vpn::IVpnChannel> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Networking::Vpn::IVpnChannel2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Networking::Vpn::IVpnChannel4> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Networking::Vpn::IVpnChannel5> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Networking::Vpn::IVpnChannelActivityEventArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Networking::Vpn::IVpnChannelActivityStateChangedArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Networking::Vpn::IVpnChannelConfiguration> : winrt::impl::hash_base {};

@@ -156,7 +156,7 @@ extern "C" {
 //       versions of the SDK which did not block inclusion in an .RC file.
 //
 
-#if defined(_AMD64_) || defined(_X86_)
+#if defined(_AMD64_) || defined(_X86_) || defined(_ARM64EC_)
 #define PROBE_ALIGNMENT( _s ) TYPE_ALIGNMENT( DWORD )
 #elif defined(_IA64_) || defined(_ARM_) || defined(_ARM64_)
 
@@ -338,7 +338,7 @@ extern "C" {
 #endif
 
 #ifndef DECLSPEC_CHPE_PATCHABLE
-#if _M_HYBRID
+#if defined (_M_HYBRID)
 #define DECLSPEC_CHPE_PATCHABLE  __declspec(hybrid_patchable)
 #else
 #define DECLSPEC_CHPE_PATCHABLE
@@ -2724,6 +2724,8 @@ extern "C" {
 #define BitTestAndComplement _bittestandcomplement
 #define BitTestAndSet _bittestandset
 #define BitTestAndReset _bittestandreset
+
+#if !defined(_M_ARM64EC)
 #define InterlockedBitTestAndSet _interlockedbittestandset
 #define InterlockedBitTestAndSetAcquire _interlockedbittestandset
 #define InterlockedBitTestAndSetRelease _interlockedbittestandset
@@ -2732,11 +2734,13 @@ extern "C" {
 #define InterlockedBitTestAndResetAcquire _interlockedbittestandreset
 #define InterlockedBitTestAndResetRelease _interlockedbittestandreset
 #define InterlockedBitTestAndResetNoFence _interlockedbittestandreset
+#endif // !defined(_M_ARM64EC)
 
 #define BitTest64 _bittest64
 #define BitTestAndComplement64 _bittestandcomplement64
 #define BitTestAndSet64 _bittestandset64
 #define BitTestAndReset64 _bittestandreset64
+#if !defined(_M_ARM64EC)
 #define InterlockedBitTestAndSet64 _interlockedbittestandset64
 #define InterlockedBitTestAndSet64Acquire _interlockedbittestandset64
 #define InterlockedBitTestAndSet64Release _interlockedbittestandset64
@@ -2745,6 +2749,7 @@ extern "C" {
 #define InterlockedBitTestAndReset64Acquire _interlockedbittestandreset64
 #define InterlockedBitTestAndReset64Release _interlockedbittestandreset64
 #define InterlockedBitTestAndReset64NoFence _interlockedbittestandreset64
+#endif // !defined(_M_ARM64EC)
 
 _Must_inspect_result_
 BOOLEAN
@@ -2880,6 +2885,30 @@ _BitScanReverse64 (
 //
 
 #define InterlockedIncrement16 _InterlockedIncrement16
+#define InterlockedDecrement16 _InterlockedDecrement16
+#define InterlockedCompareExchange16 _InterlockedCompareExchange16
+#define InterlockedAnd _InterlockedAnd
+#define InterlockedOr _InterlockedOr
+#define InterlockedXor _InterlockedXor
+#define InterlockedIncrement _InterlockedIncrement
+#define InterlockedDecrement _InterlockedDecrement
+#define InterlockedExchange _InterlockedExchange
+#define InterlockedExchangeAdd _InterlockedExchangeAdd
+#define InterlockedCompareExchange _InterlockedCompareExchange
+
+#define InterlockedAnd64 _InterlockedAnd64
+#define InterlockedOr64 _InterlockedOr64
+#define InterlockedXor64 _InterlockedXor64
+#define InterlockedIncrement64 _InterlockedIncrement64
+#define InterlockedDecrement64 _InterlockedDecrement64
+#define InterlockedExchange64 _InterlockedExchange64
+#define InterlockedExchangeAdd64 _InterlockedExchangeAdd64
+#define InterlockedCompareExchange64 _InterlockedCompareExchange64
+#define InterlockedCompareExchange128 _InterlockedCompareExchange128
+#define InterlockedExchangePointer _InterlockedExchangePointer
+#define InterlockedCompareExchangePointer _InterlockedCompareExchangePointer
+
+#if !defined(_M_ARM64EC)
 #define InterlockedIncrementAcquire16 _InterlockedIncrement16
 #define InterlockedIncrementRelease16 _InterlockedIncrement16
 #define InterlockedIncrementNoFence16 _InterlockedIncrement16
@@ -2982,6 +3011,7 @@ _BitScanReverse64 (
 #define InterlockedIncrementSizeTNoFence(a) InterlockedIncrement64((LONG64 *)a)
 #define InterlockedDecrementSizeT(a) InterlockedDecrement64((LONG64 *)a)
 #define InterlockedDecrementSizeTNoFence(a) InterlockedDecrement64((LONG64 *)a)
+#endif // !defined(_M_ARM64EC)
 
 SHORT
 InterlockedIncrement16 (
@@ -3271,7 +3301,16 @@ InterlockedXor16(
 // Define extended CPUID intrinsic.
 //
 
+#if !defined(_M_ARM64EC)
+
 #define CpuIdEx __cpuidex
+
+#else
+
+#define __cpuidex CpuIdEx
+#define __cpuid __CpuId
+
+#endif
 
 VOID
 __cpuidex (
@@ -3280,10 +3319,77 @@ __cpuidex (
     int SubLeaf
     );
 
+#if !defined(_M_ARM64EC)
+
 #pragma intrinsic(__cpuidex)
+
+#else
+
+// TODO-ARM64X: Implement CpuIdEx in a lib
+
+__forceinline
+VOID
+CpuIdEx(
+    int CPUInfo[4],
+    int Function,
+    int Subfunction
+    )
+{
+    (CPUInfo);     // reference to make compiler happy
+    (Function);    // reference to make compiler happy
+    (Subfunction); // reference to make compiler happy
+
+    CPUInfo[0] = 0;
+    CPUInfo[1] = 0;
+    CPUInfo[2] = 0;
+    CPUInfo[4] = 0;
+}
+
+__forceinline
+VOID
+__CpuId (
+    int CPUInfo[4],
+    int Function
+    )
+{
+    CpuIdEx(CPUInfo, Function, 0);
+}
+
+//
+// TODO-ARM64X: Emulate __readmsr/__writemsr behavior accurately.
+//
+
+__declspec(noreturn) void __fastfail(_In_ unsigned int);
+
+__forceinline
+unsigned __int64
+__readmsr(
+    _In_ unsigned long Register
+    )
+{
+    (Register); // reference to make compiler happy
+    __fastfail(0);
+    return 0;
+}
+
+__forceinline
+void
+__writemsr(
+    _In_ unsigned long Register,
+    _In_ unsigned __int64 Value
+    )
+{
+    (Register); // reference to make compiler happy
+    (Value);    // reference to make compiler happy
+    __fastfail(0);
+}
+
+#endif // !defined(_M_ARM64EC)
 
 //
 //
+
+#if !defined(_M_ARM64EC)
 
 //
 // Define function to flush a cache line.
@@ -3298,8 +3404,12 @@ _mm_clflush (
 
 #pragma intrinsic(_mm_clflush)
 
+#endif // !defined(_M_ARM64EC)
+
 //
 //
+
+#if !defined(_M_ARM64EC)
 
 VOID
 _ReadWriteBarrier (
@@ -3309,29 +3419,44 @@ _ReadWriteBarrier (
 #pragma intrinsic(_ReadWriteBarrier)
 
 //
-// Define memory fence intrinsics
+// Define memory fence intrinsics  TODO-ARM64X: Re-express in terms of ARM64?
 //
 
 #define FastFence __faststorefence
 
+#endif // !defined(_M_ARM64EC)
+
 //
 //
+
+// TODO-ARM64X: Re-express in terms of ARM64?
+#if !defined(_M_ARM64EC)
 
 #define LoadFence _mm_lfence
 #define MemoryFence _mm_mfence
 #define StoreFence _mm_sfence
 #define SpeculationFence LoadFence
 
+#endif
+
 //
 //
+
+// TODO-ARM64X: Re-express in terms of ARM64?
+#if !defined(_M_ARM64EC)
 
 VOID
 __faststorefence (
     VOID
     );
 
+#endif // !defined(_M_ARM64EC)
+
 //
 //
+
+// TODO-ARM64X: Intrinsics
+#if !defined(_M_ARM64EC)
 
 VOID
 _mm_lfence (
@@ -3364,6 +3489,8 @@ _m_prefetchw (
     _In_ volatile CONST VOID *Source
     );
 
+#endif // !defined(_M_ARM64EC)
+
 //
 // Define constants for use with _mm_prefetch.
 //
@@ -3376,10 +3503,18 @@ _m_prefetchw (
 //
 //
 
+// TODO-ARM64X: Intrisincs
+#if !defined(_M_ARM64EC)
+
 #pragma intrinsic(__faststorefence)
+
+#endif // !defined(_M_ARM64EC)
 
 //
 //
+
+// TODO-ARM64X: Intrisincs
+#if !defined(_M_ARM64EC)
 
 #pragma intrinsic(_mm_pause)
 #pragma intrinsic(_mm_prefetch)
@@ -3387,6 +3522,10 @@ _m_prefetchw (
 #pragma intrinsic(_mm_mfence)
 #pragma intrinsic(_mm_sfence)
 #pragma intrinsic(_m_prefetchw)
+
+#endif // !defined(_M_ARM64EC)
+
+#if !defined(_M_ARM64EC)
 
 #define YieldProcessor _mm_pause
 #define MemoryBarrier __faststorefence
@@ -3402,6 +3541,8 @@ _m_prefetchw (
 #define PF_TEMPORAL_LEVEL_2 _MM_HINT_T1
 #define PF_TEMPORAL_LEVEL_3 _MM_HINT_T2
 #define PF_NON_TEMPORAL_LEVEL_ALL _MM_HINT_NTA
+
+#endif // !defined(_M_ARM64EC)
 
 //
 // Define get/set MXCSR intrinsics.
@@ -3420,8 +3561,15 @@ _mm_setcsr (
     _In_ unsigned int MxCsr
     );
 
+// TODO-ARM64X: Intrinsics
+#if !defined(_M_ARM64EC)
+
 #pragma intrinsic(_mm_getcsr)
 #pragma intrinsic(_mm_setcsr)
+
+#endif // !defined(_M_ARM64EC)
+
+#if !defined(_M_ARM64EC)
 
 //
 // Define function to get the caller's EFLAGs value.
@@ -3571,11 +3719,21 @@ UnsignedMultiplyHigh (
 #pragma intrinsic(__mulh)
 #pragma intrinsic(__umulh)
 
+#endif // !defined(_M_ARM64EC)
+
 //
 // Define population count intrinsic.
 //
 
+#if !defined(_M_ARM64EC)
+
 #define PopulationCount64 __popcnt64
+
+#else
+
+#define __popcnt64 PopulationCount64
+
+#endif // !defined(_M_ARM64EC)
 
 DWORD64
 PopulationCount64 (
@@ -3583,17 +3741,28 @@ PopulationCount64 (
     );
 
 #if _MSC_VER >= 1500
+#if !defined(_M_ARM64EC)
 
 #pragma intrinsic(__popcnt64)
 
-#endif
+#endif // !defined(_M_ARM64EC)
+#endif // _MSC_VER >= 1500
 
 //
 // Define functions to perform 128-bit shifts
 //
 
+#if !defined(_M_ARM64EC)
+
 #define ShiftLeft128 __shiftleft128
 #define ShiftRight128 __shiftright128
+
+#else
+
+#define __shiftleft128   ShiftLeft128
+#define __shiftright128  ShiftRight128
+
+#endif // !defined(_M_ARM64EC)
 
 DWORD64
 ShiftLeft128 (
@@ -3609,14 +3778,26 @@ ShiftRight128 (
     _In_ BYTE  Shift
     );
 
+#if !defined(_M_ARM64EC)
+
 #pragma intrinsic(__shiftleft128)
 #pragma intrinsic(__shiftright128)
+
+#endif // !defined(_M_ARM64EC)
 
 //
 // Define functions to perform 128-bit multiplies.
 //
 
+#if !defined(_M_ARM64EC)
+
 #define Multiply128 _mul128
+
+#else
+
+#define _mul128 Multiply128
+
+#endif // !defined(_M_ARM64EC)
 
 LONG64
 Multiply128 (
@@ -3625,11 +3806,13 @@ Multiply128 (
     _Out_ LONG64 *HighProduct
     );
 
+#if !defined(_M_ARM64EC)
+
 #pragma intrinsic(_mul128)
 
-#ifndef UnsignedMultiply128
+#endif // !defined(_M_ARM64EC)
 
-#define UnsignedMultiply128 _umul128
+#if !defined(UnsignedMultiply128)
 
 DWORD64
 UnsignedMultiply128 (
@@ -3638,9 +3821,37 @@ UnsignedMultiply128 (
     _Out_ DWORD64 *HighProduct
     );
 
+#if !defined(_M_ARM64EC)
+
+#define UnsignedMultiply128 _umul128
+
+#else
+
+#define _umul128 UnsignedMultiply128
+
+#endif // !defined(_M_ARM64EC)
+
+DWORD64
+UnsignedMultiply128 (
+    _In_ DWORD64 Multiplier,
+    _In_ DWORD64 Multiplicand,
+    _Out_ DWORD64 *HighProduct
+    );
+
+LONG64
+Multiply128 (
+    _In_ LONG64 Multiplier,
+    _In_ LONG64 Multiplicand,
+    _Out_ LONG64 *HighProduct
+    );
+
+#if !defined(_M_ARM64EC)
+
 #pragma intrinsic(_umul128)
 
-#endif
+#endif // !defined(_M_ARM64EC)
+
+#endif // !defined(UnsignedMultiply128)
 
 __forceinline
 LONG64
@@ -3700,7 +3911,7 @@ UnsignedMultiplyExtract128 (
 }
 
 //
-// Define functions to read and write the uer TEB and the system PCR/PRCB.
+// Define functions to read and write the user TEB and the system PCR/PRCB.
 //
 
 BYTE 
@@ -3747,6 +3958,9 @@ __writegsqword (
     _In_ DWORD64 Data
     );
 
+// TODO-ARM64X: Intrinsics
+#if !defined(_M_ARM64EC)
+
 #pragma intrinsic(__readgsbyte)
 #pragma intrinsic(__readgsword)
 #pragma intrinsic(__readgsdword)
@@ -3755,6 +3969,8 @@ __writegsqword (
 #pragma intrinsic(__writegsword)
 #pragma intrinsic(__writegsdword)
 #pragma intrinsic(__writegsqword)
+
+#endif // !defined(_M_ARM64EC)
 
 #if !defined(_MANAGED)
 
@@ -3833,9 +4049,13 @@ __addgsqword (
 // violation.
 //
 
+#if !defined(_ARM64EC_)
+
 #define EXCEPTION_READ_FAULT 0          // exception caused by a read
 #define EXCEPTION_WRITE_FAULT 1         // exception caused by a write
 #define EXCEPTION_EXECUTE_FAULT 8       // exception caused by an instruction fetch
+
+#endif // !defined(_ARM64EC_)
 
 //
 // The following flags control the contents of the CONTEXT structure.
@@ -3870,6 +4090,14 @@ __addgsqword (
 #define CONTEXT_SERVICE_ACTIVE      0x10000000L
 #define CONTEXT_EXCEPTION_REQUEST   0x40000000L
 #define CONTEXT_EXCEPTION_REPORTING 0x80000000L
+
+//
+// CONTEXT_UNWOUND_TO_CALL flag is set by the unwinder if it
+// has unwound to a call site, and cleared whenever it unwinds
+// through a trap frame.
+//
+
+#define CONTEXT_UNWOUND_TO_CALL     0x20000000
 
 #endif // !defined(RC_INVOKED)
 
@@ -4065,28 +4293,6 @@ typedef SCOPE_TABLE_AMD64 SCOPE_TABLE, *PSCOPE_TABLE;
 #define UNWIND_CHAIN_LIMIT      32
 
 //
-// Define unwind history table structure.
-//
-
-#define UNWIND_HISTORY_TABLE_SIZE 12
-
-typedef struct _UNWIND_HISTORY_TABLE_ENTRY {
-    DWORD64 ImageBase;
-    PRUNTIME_FUNCTION FunctionEntry;
-} UNWIND_HISTORY_TABLE_ENTRY, *PUNWIND_HISTORY_TABLE_ENTRY;
-
-typedef struct _UNWIND_HISTORY_TABLE {
-    DWORD Count;
-    BYTE  LocalHint;
-    BYTE  GlobalHint;
-    BYTE  Search;
-    BYTE  Once;
-    DWORD64 LowAddress;
-    DWORD64 HighAddress;
-    UNWIND_HISTORY_TABLE_ENTRY Entry[UNWIND_HISTORY_TABLE_SIZE];
-} UNWIND_HISTORY_TABLE, *PUNWIND_HISTORY_TABLE;
-
-//
 // Define dynamic function table entry.
 //
 
@@ -4126,10 +4332,29 @@ typedef struct _DISPATCHER_CONTEXT {
     PCONTEXT ContextRecord;
     PEXCEPTION_ROUTINE LanguageHandler;
     PVOID HandlerData;
-    PUNWIND_HISTORY_TABLE HistoryTable;
+    struct _UNWIND_HISTORY_TABLE *HistoryTable;
     DWORD ScopeIndex;
     DWORD Fill0;
 } DISPATCHER_CONTEXT, *PDISPATCHER_CONTEXT;
+
+#if defined(_ARM64EC_)
+
+typedef struct _DISPATCHER_CONTEXT_ARM64EC {
+    DWORD64 ControlPc;
+    DWORD64 ImageBase;
+    PRUNTIME_FUNCTION FunctionEntry;
+    DWORD64 EstablisherFrame;
+    DWORD64 TargetIp;
+    PCONTEXT ContextRecord;
+    PEXCEPTION_ROUTINE LanguageHandler;
+    PVOID HandlerData;
+    struct _UNWIND_HISTORY_TABLE *HistoryTable;
+    DWORD ScopeIndex;
+    BOOLEAN ControlPcIsUnwound;
+    PBYTE  NonVolatileRegisters;
+} DISPATCHER_CONTEXT_ARM64EC, *PDISPATCHER_CONTEXT_ARM64EC;
+
+#endif // defined(_ARM64EC_)
 
 //
 // Define exception filter and termination handler function types.
@@ -5084,28 +5309,6 @@ typedef SCOPE_TABLE_ARM SCOPE_TABLE, *PSCOPE_TABLE;
 #define UNW_FLAG_UHANDLER               0x2             /* unwind handler */
 
 //
-// Define unwind history table structure.
-//
-
-#define UNWIND_HISTORY_TABLE_SIZE 12
-
-typedef struct _UNWIND_HISTORY_TABLE_ENTRY {
-    DWORD ImageBase;
-    PRUNTIME_FUNCTION FunctionEntry;
-} UNWIND_HISTORY_TABLE_ENTRY, *PUNWIND_HISTORY_TABLE_ENTRY;
-
-typedef struct _UNWIND_HISTORY_TABLE {
-    DWORD Count;
-    BYTE  LocalHint;
-    BYTE  GlobalHint;
-    BYTE  Search;
-    BYTE  Once;
-    DWORD LowAddress;
-    DWORD HighAddress;
-    UNWIND_HISTORY_TABLE_ENTRY Entry[UNWIND_HISTORY_TABLE_SIZE];
-} UNWIND_HISTORY_TABLE, *PUNWIND_HISTORY_TABLE;
-
-//
 // Define exception dispatch context structure.
 //
 
@@ -5118,7 +5321,7 @@ typedef struct _DISPATCHER_CONTEXT {
     PCONTEXT ContextRecord;
     PEXCEPTION_ROUTINE LanguageHandler;
     PVOID HandlerData;
-    PUNWIND_HISTORY_TABLE HistoryTable;
+    struct _UNWIND_HISTORY_TABLE *HistoryTable;
     DWORD ScopeIndex;
     BOOLEAN ControlPcIsUnwound;
     PBYTE  NonVolatileRegisters;
@@ -5222,7 +5425,7 @@ typedef struct _SCOPE_TABLE_ARM64 {
 //
 //
 
-#if defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
+#if defined(_ARM64_) || defined(_CHPE_X86_ARM64_) || defined(_ARM64EC_)
 
 //
 //
@@ -5232,7 +5435,7 @@ typedef struct _SCOPE_TABLE_ARM64 {
 
 #include <intrin.h>
 
-#if defined(_M_ARM64)
+#if defined(_M_ARM64) || defined(_M_ARM64EC)
 
 #pragma intrinsic(__readx18byte)
 #pragma intrinsic(__readx18word)
@@ -5594,9 +5797,9 @@ typedef struct _SCOPE_TABLE_ARM64 {
 #define InterlockedDecrementSizeT(a) InterlockedDecrement64((LONG64 *)a)
 #define InterlockedDecrementSizeTNoFence(a) InterlockedDecrementNoFence64((LONG64 *)a)
 
-#endif // defined(_M_ARM64)
+#endif // defined(_M_ARM64) || defined(_M_ARM64EC)
 
-#if defined(_M_ARM64) || defined(_M_HYBRID_X86_ARM64)
+#if defined(_M_ARM64) || defined(_M_HYBRID_X86_ARM64) || defined(_M_ARM64EC)
 
 #pragma intrinsic(__getReg)
 #pragma intrinsic(__getCallerReg)
@@ -6021,7 +6224,260 @@ ReadPMC (
 #pragma intrinsic(__mulh)
 #pragma intrinsic(__umulh)
 
-#endif // defined(_M_ARM64) || defined(_M_HYBRID_X86_ARM64)
+#endif // defined(_M_ARM64) || defined(_M_HYBRID_X86_ARM64) || defined(_M_ARM64EC)
+
+
+//
+// Define population count intrinsic.
+//
+
+#if !defined(PopulationCount64)
+
+__forceinline
+DWORD64
+PopulationCount64 (
+    _In_ DWORD64 operand
+    )
+{
+    // log(n) population count
+
+    DWORD64 highBits = (operand & 0xAAAAAAAAAAAAAAAA) >> 1;
+    DWORD64 lowBits = operand & 0x5555555555555555;
+    DWORD64 bitSum = highBits + lowBits;
+
+    highBits = (bitSum & 0xCCCCCCCCCCCCCCCC) >> 2;
+    lowBits = bitSum & 0x3333333333333333;
+    bitSum = highBits + lowBits;
+
+    highBits = (bitSum & 0xF0F0F0F0F0F0F0F0) >> 4;
+    lowBits = bitSum & 0x0F0F0F0F0F0F0F0F;
+    bitSum = highBits + lowBits;
+
+    highBits = (bitSum & 0xFF00FF00FF00FF00) >> 8;
+    lowBits = bitSum & 0x00FF00FF00FF00FF;
+    bitSum = highBits + lowBits;
+
+    highBits = (bitSum & 0xFFFF0000FFFF0000) >> 16;
+    lowBits = bitSum & 0x0000FFFF0000FFFF;
+    bitSum = highBits + lowBits;
+
+    highBits = (bitSum & 0xFFFFFFFF00000000) >> 32;
+    lowBits = bitSum & 0x00000000FFFFFFFF;
+    bitSum = highBits + lowBits;
+
+    return bitSum;
+}
+
+#endif // !defined(PopulationCount64)
+
+//
+// Define functions to perform 128-bit shifts
+//
+
+#if !defined(ShiftLeft128)
+
+#define __shiftleft128   ShiftLeft128
+#define __shiftright128  ShiftRight128
+
+__forceinline
+DWORD64
+ShiftLeft128 (
+    _In_ DWORD64 LowPart,
+    _In_ DWORD64 HighPart,
+    _In_ BYTE  Shift
+    )
+{
+    Shift &= 63;
+
+    if (Shift == 0) {
+        return HighPart;
+    }
+
+    return (HighPart << Shift) | (LowPart >> (64 - Shift));
+}
+
+__forceinline
+DWORD64
+ShiftRight128 (
+    _In_ DWORD64 LowPart,
+    _In_ DWORD64 HighPart,
+    _In_ BYTE  Shift
+    )
+{
+    Shift &= 63;
+
+    if (Shift == 0) {
+        return LowPart;
+    }
+
+    return (LowPart >> Shift) | (HighPart << (64 - Shift));
+}
+
+#endif // !defined(ShiftLeft128)
+
+//
+// Define functions to perform 128-bit multiplies.
+//
+
+#if !defined(UnsignedMultiply128)
+
+__forceinline
+DWORD64
+UnsignedMultiply128 (
+    _In_ DWORD64 Multiplier,
+    _In_ DWORD64 Multiplicand,
+    _Out_ DWORD64 *HighProduct
+    )
+
+/*++
+
+Routine Description:
+
+    Calculates the 128 bit product of two 64 bit integers.
+
+Arguments:
+
+    Multiplier -
+
+    Multiplicand -
+
+    HighProduct - Receives the high 64 bits of the product.
+
+Return Value:
+
+    Low 64 bits of the product.
+
+--*/
+
+{
+
+#if defined(_M_ARM64) || defined(_M_HYBRID_X86_ARM64) || defined(_M_ARM64EC)
+
+    *HighProduct = UnsignedMultiplyHigh(Multiplier, Multiplicand);
+    return Multiplier * Multiplicand;
+
+#else
+
+    DWORD64 HiMultiplier = Multiplier >> 32;
+    DWORD64 LoMultiplier = Multiplier & 0xFFFFFFFF;
+    DWORD64 HiMultiplicand = Multiplicand >> 32;
+    DWORD64 LoMultiplicand = Multiplicand & 0xFFFFFFFF;
+    DWORD64 CrossTerm1 = (HiMultiplier * LoMultiplicand);
+    DWORD64 CrossTerm2 = (LoMultiplier * HiMultiplicand);
+
+    DWORD64 ResultLo = (LoMultiplier * LoMultiplicand);
+    DWORD64 ResultHi = (HiMultiplier * HiMultiplicand);
+
+    // Add the cross-terms and propagate carries across all 128 bits.
+
+    ResultLo += (CrossTerm1 << 32);
+    ResultHi += (CrossTerm1 >> 32) + (ResultLo < (CrossTerm1 << 32));
+
+    ResultLo += (CrossTerm2 << 32);
+    ResultHi += (CrossTerm2 >> 32) + (ResultLo < (CrossTerm2 << 32));
+
+    *HighProduct = ResultHi;
+
+    return ResultLo;
+
+#endif
+
+}
+
+__forceinline
+LONG64
+Multiply128 (
+    _In_ LONG64 Multiplier,
+    _In_ LONG64 Multiplicand,
+    _Out_ LONG64 *HighProduct
+    )
+{
+    LONG64 Result = (LONG64)UnsignedMultiply128((DWORD64)Multiplier, (DWORD64)Multiplicand, (DWORD64 *)HighProduct);
+
+    *HighProduct -= (Multiplier >> 63) * Multiplicand;
+    *HighProduct -= Multiplier * (Multiplicand >> 63);
+
+    return Result;
+}
+
+#endif // !defined(UnsignedMultiply128)
+
+#if !defined(_M_ARM64EC)
+
+__forceinline
+LONG64
+MultiplyExtract128 (
+    _In_ LONG64 Multiplier,
+    _In_ LONG64 Multiplicand,
+    _In_ BYTE  Shift
+    )
+
+{
+
+    LONG64 extractedProduct;
+    LONG64 highProduct;
+    LONG64 lowProduct;
+    BOOLEAN negate;
+    DWORD64 uhighProduct;
+    DWORD64 ulowProduct;
+
+    lowProduct = Multiply128(Multiplier, Multiplicand, &highProduct);
+    negate = FALSE;
+    uhighProduct = (DWORD64)highProduct;
+    ulowProduct = (DWORD64)lowProduct;
+    if (highProduct < 0) {
+        negate = TRUE;
+        uhighProduct = (DWORD64)(-highProduct);
+        ulowProduct = (DWORD64)(-lowProduct);
+        if (ulowProduct != 0) {
+            uhighProduct -= 1;
+        }
+    }
+
+    extractedProduct = (LONG64)ShiftRight128(ulowProduct, uhighProduct, Shift);
+    if (negate != FALSE) {
+        extractedProduct = -extractedProduct;
+    }
+
+    return extractedProduct;
+}
+
+__forceinline
+DWORD64
+UnsignedMultiplyExtract128 (
+    _In_ DWORD64 Multiplier,
+    _In_ DWORD64 Multiplicand,
+    _In_ BYTE  Shift
+    )
+
+{
+
+    DWORD64 extractedProduct;
+    DWORD64 highProduct;
+    DWORD64 lowProduct;
+
+    lowProduct = UnsignedMultiply128(Multiplier, Multiplicand, &highProduct);
+    extractedProduct = ShiftRight128(lowProduct, highProduct, Shift);
+    return extractedProduct;
+}
+
+#endif // !defined(_M_ARM64EC)
+
+
+
+#if defined(_M_ARM64EC)
+
+unsigned int
+_mm_getcsr (
+    VOID
+    );
+
+VOID
+_mm_setcsr (
+    _In_ unsigned int MxCsr
+    );
+
+#endif // defined(_M_ARM64EC)
 
 #endif // !defined(RC_INVOKED) && !defined(MIDL_PASS)
 
@@ -6064,7 +6520,7 @@ YieldProcessor (
 //
 //
 
-#endif // defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
+#endif // defined(_ARM64_) || defined(_CHPE_X86_ARM64_) || defined(_ARM64EC_)
 
 //
 //
@@ -6108,17 +6564,20 @@ YieldProcessor (
 
 #endif // defined(_ARM64_)
 
+//
+// CONTEXT_UNWOUND_TO_CALL flag is set by the unwinder if it
+// has unwound to a call site, and cleared whenever it unwinds
+// through a trap frame. It is used by language-specific exception
+// handlers to help differentiate exception scopes during dispatching.
+//
+
+#define CONTEXT_ARM64_UNWOUND_TO_CALL 0x20000000
+#define CONTEXT_ARM64_RET_TO_GUEST    0x04000000
+
 #if defined(_ARM64_) || defined(_CHPE_X86_ARM64_) || defined(_X86_)
 
-//
-// This flag is set by the unwinder if it has unwound to a call
-// site, and cleared whenever it unwinds through a trap frame.
-// It is used by language-specific exception handlers to help
-// differentiate exception scopes during dispatching.
-//
-
-#define CONTEXT_UNWOUND_TO_CALL 0x20000000
-#define CONTEXT_RET_TO_GUEST    0x04000000
+#define CONTEXT_UNWOUND_TO_CALL CONTEXT_ARM64_UNWOUND_TO_CALL
+#define CONTEXT_RET_TO_GUEST    CONTEXT_ARM64_RET_TO_GUEST
 
 #endif // defined(_ARM64_) || defined(_CHPE_X86_ARM64_) || defined(_X86_)
 
@@ -6280,6 +6739,438 @@ typedef ARM64_NT_CONTEXT CONTEXT, *PCONTEXT;
 
 #endif // defined(_ARM64_)
 
+typedef union _ARM64_FPCR_REG {
+    DWORD Value;
+
+    struct {
+        DWORD res0_1    : 8;
+        DWORD IOE       : 1;    // bit 8
+        DWORD DZE       : 1;    // bit 9
+        DWORD OFE       : 1;    // bit 10
+        DWORD UFE       : 1;    // bit 11
+        DWORD IXE       : 1;    // bit 12
+        DWORD res0_2    : 2;
+        DWORD IDE       : 1;    // bit 15
+        DWORD Len       : 3;    // AArch32 only
+        DWORD FZ16      : 1;    // bit 19
+        DWORD Stride    : 2;    // AArch32 only
+        DWORD RMode     : 2;    // bit 23:22
+        DWORD FZ        : 1;    // bit 24
+        DWORD DN        : 1;    // bit 25
+        DWORD AHP       : 1;    // bit 26
+        DWORD res0_3    : 5;
+    } DUMMYSTRUCTNAME;
+} ARM64_FPCR_REG;
+
+typedef union _ARM64_FPSR_REG {
+    DWORD Value;
+
+    struct {
+        DWORD IOC       : 1;    // bit 0
+        DWORD DZC       : 1;    // bit 1
+        DWORD OFC       : 1;    // bit 2
+        DWORD UFC       : 1;    // bit 3
+        DWORD IXC       : 1;    // bit 4
+        DWORD res0_1    : 2;
+        DWORD IDC       : 1;    // bit 7
+        DWORD res0_2    : 19;
+        DWORD QC        : 1;    // bit 27
+        DWORD V         : 1;    // AArch32 only
+        DWORD C         : 1;    // AArch32 only
+        DWORD Z         : 1;    // AArch32 only
+        DWORD N         : 1;    // AArch32 only
+    } DUMMYSTRUCTNAME;
+} ARM64_FPSR_REG;
+
+typedef union _AMD64_MXCSR_REG {
+    DWORD Value;
+
+    struct {
+        DWORD IE        : 1;    // bit 0
+        DWORD DE        : 1;    // bit 1
+        DWORD ZE        : 1;    // bit 2
+        DWORD OE        : 1;    // bit 3
+        DWORD UE        : 1;    // bit 4
+        DWORD PE        : 1;    // bit 5
+        DWORD DAZ       : 1;    // bit 6
+        DWORD IM        : 1;    // bit 7
+        DWORD DM        : 1;    // bit 8
+        DWORD ZM        : 1;    // bit 9
+        DWORD OM        : 1;    // bit 10
+        DWORD UM        : 1;    // bit 11
+        DWORD PM        : 1;    // bit 12
+        DWORD RC        : 2;    // bit 14:13
+        DWORD FZ        : 1;    // bit 15
+        DWORD res       : 16;
+    } DUMMYSTRUCTNAME;
+} AMD64_MXCSR_REG;
+
+#if !defined(SORTPP_PASS) && !defined(MIDL_PASS) && !defined(RC_INVOKED)
+
+FORCEINLINE
+DWORD
+_convert_fpcr_fpsr_to_mxcsr (
+    _In_ DWORD Fpcr,
+    _In_ DWORD Fpsr
+    )
+{
+    AMD64_MXCSR_REG MxCSR;
+    ARM64_FPCR_REG Fpcr2;
+    ARM64_FPSR_REG Fpsr2;
+
+    MxCSR.Value = 0;
+    Fpcr2.Value = Fpcr;
+    Fpsr2.Value = Fpsr;
+
+    //
+    // Status flags map 1:1, if set indicates an exception occured.
+    //
+
+    MxCSR.IE = Fpsr2.IOC;
+    MxCSR.DE = Fpsr2.IDC;
+    MxCSR.ZE = Fpsr2.DZC;
+    MxCSR.OE = Fpsr2.OFC;
+    MxCSR.UE = Fpsr2.UFC;
+    MxCSR.PE = Fpsr2.IXC;
+
+    //
+    // Exception enable bit map 1:1, however on X64 set means mask (disable)
+    // while on ARM64 set means enable the exception.  Thus the bit inversion.
+    //
+
+    MxCSR.IM = ~Fpcr2.IOE;
+    MxCSR.DM = ~Fpcr2.IDE;
+    MxCSR.ZM = ~Fpcr2.DZE;
+    MxCSR.OM = ~Fpcr2.OFE;
+    MxCSR.UM = ~Fpcr2.UFE;
+    MxCSR.PM = ~Fpcr2.IXE;
+
+    //
+    // Denormals Are Zeros has not direct mapping on ARM64, use the FZ16 bit
+    // since half-precision floats do not exist in SSE.
+    //
+
+    MxCSR.DAZ = Fpcr2.FZ16;
+
+    //
+    // Rounding modes are the same on X64 and ARM64 except bit swapped in representation.
+    // X64: 00=nearest 01=down 10=up 11=truncate
+    // A64: 00=nearest 10=down 01=up 11=truncate
+    //
+
+    MxCSR.RC = ((Fpcr2.RMode & 2) >> 1) || ((Fpcr2.RMode & 1) << 1);
+
+    //
+    // Flush To Zero bit maps 1:1
+    //
+
+    MxCSR.FZ = Fpcr2.FZ;
+
+    return MxCSR.Value;
+}
+
+FORCEINLINE
+VOID
+_convert_mxcsr_to_fpcr_fpsr (
+    _In_  DWORD MxCsr,
+    _Out_ DWORD *Fpcr,
+    _Out_ DWORD *Fpsr
+    )
+{
+
+    AMD64_MXCSR_REG MxCsr2;
+    ARM64_FPCR_REG Fpcr2;
+    ARM64_FPSR_REG Fpsr2;
+
+    MxCsr2.Value = MxCsr;
+    Fpcr2.Value = 0;
+    Fpsr2.Value = 0;
+
+    //
+    // Status flags map 1:1, if set indicates an exception occured.
+    //
+
+    Fpsr2.IOC = MxCsr2.IE;
+    Fpsr2.IDC = MxCsr2.DE;
+    Fpsr2.DZC = MxCsr2.ZE;
+    Fpsr2.OFC = MxCsr2.OE;
+    Fpsr2.UFC = MxCsr2.UE;
+    Fpsr2.IXC = MxCsr2.PE;
+
+    //
+    // Exception enable bit map 1:1, however on X64 set means mask (disable)
+    // while on ARM64 set means enable the exception.  Thus the bit inversion.
+    //
+
+    Fpcr2.IOE = ~MxCsr2.IM;
+    Fpcr2.IDE = ~MxCsr2.DM;
+    Fpcr2.DZE = ~MxCsr2.ZM;
+    Fpcr2.OFE = ~MxCsr2.OM;
+    Fpcr2.UFE = ~MxCsr2.UM;
+    Fpcr2.IXE = ~MxCsr2.PM;
+
+    //
+    // Denormals Are Zeros has not direct mapping on ARM64, use the FZ16 bit
+    // since half-precision floats do not exist in SSE.
+    //
+
+    Fpcr2.FZ16 = MxCsr2.DAZ;
+
+    //
+    // Rounding modes are the same on X64 and ARM64 except bit swapped in representation.
+    // X64: 00=nearest 01=down 10=up 11=truncate
+    // A64: 00=nearest 10=down 01=up 11=truncate
+    //
+
+    Fpcr2.RMode = ((MxCsr2.RC & 2) >> 1) || ((MxCsr2.RC & 1) << 1);
+
+    //
+    // Flush To Zero bit maps 1:1
+    //
+
+    Fpcr2.FZ = MxCsr2.FZ;
+
+    *Fpcr = Fpcr2.Value;
+    *Fpsr = Fpsr2.Value;
+}
+
+FORCEINLINE
+DWORD
+_convert_cpsr_to_eflags (
+    _In_ DWORD Cpsr
+    )
+
+{
+
+    //
+    // Default to IF=1 and hardcoded bit 1 is set.
+    //
+
+    DWORD Result = 0x0202;
+
+    //
+    // N flag -> S flag
+    // Z flag -> Z flag
+    // C flag -> C flag
+    // V flag -> O flag
+    // SS flag -> T flag
+    //
+
+    Result |= ((Cpsr >> 31) & 1) << 7;
+    Result |= ((Cpsr >> 30) & 1) << 6;
+    Result |= ((Cpsr >> 29) & 1) << 0;
+    Result |= ((Cpsr >> 28) & 1) << 11;
+    Result |= ((Cpsr >> 21) & 1) << 8;
+
+    return Result;
+}
+
+FORCEINLINE
+DWORD
+_convert_eflags_to_cpsr (
+    _In_ DWORD Eflags
+    )
+
+{
+
+    //
+    // Default to 0
+    //
+
+    DWORD Result = 0;
+
+    //
+    // S flag -> N flag
+    // Z flag -> Z flag
+    // C flag -> C flag
+    // O flag -> V flag
+    // T flag -> SS flag
+    //
+
+    Result |= ((Eflags >> 7) & 1) << 31;
+    Result |= ((Eflags >> 6) & 1) << 30;
+    Result |= ((Eflags >> 0) & 1) << 29;
+    Result |= ((Eflags >> 11) & 1) << 28;
+    Result |= ((Eflags >> 8) & 1) << 21;
+
+    return Result;
+}
+
+#endif // !defined(SORTPP_PASS) && !defined(MIDL_PASS) && !defined(RC_INVOKED)
+
+typedef struct DECLSPEC_ALIGN(16) DECLSPEC_NOINITALL _ARM64EC_NT_CONTEXT {
+    union {
+        struct {
+
+            //
+            // AMD64 call register home space. These can't be used by ARM64EC
+            //
+
+            /* +0x000 */ DWORD64 AMD64_P1Home;
+            /* +0x008 */ DWORD64 AMD64_P2Home;
+            /* +0x010 */ DWORD64 AMD64_P3Home;
+            /* +0x018 */ DWORD64 AMD64_P4Home;
+            /* +0x020 */ DWORD64 AMD64_P5Home;
+            /* +0x028 */ DWORD64 AMD64_P6Home;
+
+            //
+            // Control flags.
+            //
+
+            /* +0x030 */ DWORD ContextFlags;
+
+            /* +0x034 */ DWORD AMD64_MxCsr_copy;
+
+            //
+            // Segment Registers and processor flags. These can't be used by
+            // ARM64EC
+            //
+
+            /* +0x038 */ WORD   AMD64_SegCs;
+            /* +0x03a */ WORD   AMD64_SegDs;
+            /* +0x03c */ WORD   AMD64_SegEs;
+            /* +0x03e */ WORD   AMD64_SegFs;
+            /* +0x040 */ WORD   AMD64_SegGs;
+            /* +0x042 */ WORD   AMD64_SegSs;
+
+            //
+            // General purpose flags.
+            //
+
+            /* +0x044 */ DWORD AMD64_EFlags;
+
+            //
+            // Debug registers
+            //
+
+            /* +0x048 */ DWORD64 AMD64_Dr0;
+            /* +0x050 */ DWORD64 AMD64_Dr1;
+            /* +0x058 */ DWORD64 AMD64_Dr2;
+            /* +0x060 */ DWORD64 AMD64_Dr3;
+            /* +0x068 */ DWORD64 AMD64_Dr6;
+            /* +0x070 */ DWORD64 AMD64_Dr7;
+
+            //
+            // Integer registers.
+            //
+
+            /* +0x078 */ DWORD64 X8;     // AMD64_Rax
+            /* +0x080 */ DWORD64 X0;     // AMD64_Rcx
+            /* +0x088 */ DWORD64 X1;     // AMD64_Rdx
+            /* +0x090 */ DWORD64 X27;    // AMD64_Rbx
+            /* +0x098 */ DWORD64 Sp;     // AMD64_Rsp
+            /* +0x0a0 */ DWORD64 Fp;     // AMD64_Rbp
+            /* +0x0a8 */ DWORD64 X25;    // AMD64_Rsi
+            /* +0x0b0 */ DWORD64 X26;    // AMD64_Rdi
+            /* +0x0b8 */ DWORD64 X2;     // AMD64_R8
+            /* +0x0c0 */ DWORD64 X3;     // AMD64_R9
+            /* +0x0c8 */ DWORD64 X4;     // AMD64_R10
+            /* +0x0d0 */ DWORD64 X5;     // AMD64_R11
+            /* +0x0d8 */ DWORD64 X19;    // AMD64_R12
+            /* +0x0e0 */ DWORD64 X20;    // AMD64_R13
+            /* +0x0e8 */ DWORD64 X21;    // AMD64_R14
+            /* +0x0f0 */ DWORD64 X22;    // AMD64_R15
+
+            //
+            // Program counter.
+            //
+
+            /* +0x0f8 */ DWORD64 Pc;     // AMD64_Rip
+
+            //
+            // Floating point state.
+            //
+
+            struct {
+                /* +0x100 */ WORD   AMD64_ControlWord;
+                /* +0x102 */ WORD   AMD64_StatusWord;
+                /* +0x104 */ BYTE  AMD64_TagWord;
+                /* +0x105 */ BYTE  AMD64_Reserved1;
+                /* +0x106 */ WORD   AMD64_ErrorOpcode;
+                /* +0x108 */ DWORD AMD64_ErrorOffset;
+                /* +0x10c */ WORD   AMD64_ErrorSelector;
+                /* +0x10e */ WORD   AMD64_Reserved2;
+                /* +0x110 */ DWORD AMD64_DataOffset;
+                /* +0x114 */ WORD   AMD64_DataSelector;
+                /* +0x116 */ WORD   AMD64_Reserved3;
+
+                /* +0x118 */ DWORD AMD64_MxCsr;
+                /* +0x11c */ DWORD AMD64_MxCsr_Mask;
+
+                /* +0x120 */ DWORD64 Lr;                 // AMD64_St0_Low
+                /* +0x128 */ WORD   X16_0;               // AMD64_St0_High
+                /* +0x12a */ WORD   AMD64_St0_Reserved1;
+                /* +0x12c */ DWORD AMD64_St0_Reserved2;
+                /* +0x130 */ DWORD64 X6;                 // AMD64_St1_Low
+                /* +0x138 */ WORD   X16_1;               // AMD64_St1_High
+                /* +0x13a */ WORD   AMD64_St1_Reserved1;
+                /* +0x13c */ DWORD AMD64_St1_Reserved2;
+                /* +0x140 */ DWORD64 X7;                 // AMD64_St2_Low
+                /* +0x148 */ WORD   X16_2;               // AMD64_St2_High
+                /* +0x14a */ WORD   AMD64_St2_Reserved1;
+                /* +0x14c */ DWORD AMD64_St2_Reserved2;
+                /* +0x150 */ DWORD64 X9;                 // AMD64_St3_Low
+                /* +0x158 */ WORD   X16_3;               // AMD64_St3_High
+                /* +0x15a */ WORD   AMD64_St3_Reserved1;
+                /* +0x15c */ DWORD AMD64_St3_Reserved2;
+                /* +0x160 */ DWORD64 X10;                // AMD64_St4_Low
+                /* +0x168 */ WORD   X17_0;               // AMD64_St4_High
+                /* +0x16a */ WORD   AMD64_St4_Reserved1;
+                /* +0x16c */ DWORD AMD64_St4_Reserved2;
+                /* +0x170 */ DWORD64 X11;                // AMD64_St5_Low
+                /* +0x178 */ WORD   X17_1;               // AMD64_St5_High
+                /* +0x17a */ WORD   AMD64_St5_Reserved1;
+                /* +0x17c */ DWORD AMD64_St5_Reserved2;
+                /* +0x180 */ DWORD64 X12;                // AMD64_St6_Low
+                /* +0x188 */ WORD   X17_2;               // AMD64_St6_High
+                /* +0x18a */ WORD   AMD64_St6_Reserved1;
+                /* +0x18c */ DWORD AMD64_St6_Reserved2;
+                /* +0x190 */ DWORD64 X15;                // AMD64_St7_Low
+                /* +0x198 */ WORD   X17_3;               // AMD64_St7_High;
+                /* +0x19a */ WORD   AMD64_St7_Reserved1;
+                /* +0x19c */ DWORD AMD64_St7_Reserved2;
+
+                /* +0x1a0 */ ARM64_NT_NEON128 V[16];     // AMD64_XmmRegisters[16]
+                /* +0x2a0 */ BYTE  AMD64_XSAVE_FORMAT_Reserved4[96];
+            } DUMMYSTRUCTNAME;
+
+            //
+            // AMD64 Vector registers.
+            //
+
+            /* +0x300 */ ARM64_NT_NEON128 AMD64_VectorRegister[26];
+            /* +0x4a0 */ DWORD64 AMD64_VectorControl;
+
+            //
+            // AMD64 Special debug control registers.
+            //
+
+            /* +0x4a8 */ DWORD64 AMD64_DebugControl;
+            /* +0x4b0 */ DWORD64 AMD64_LastBranchToRip;
+            /* +0x4b8 */ DWORD64 AMD64_LastBranchFromRip;
+            /* +0x4c0 */ DWORD64 AMD64_LastExceptionToRip;
+            /* +0x4c8 */ DWORD64 AMD64_LastExceptionFromRip;
+            /* +0x4d0 */ 
+
+        } DUMMYSTRUCTNAME;
+
+    #if defined(_ARM64EC_)
+
+        CONTEXT AMD64_Context;
+
+    #endif
+
+    } DUMMYUNIONNAME;
+} ARM64EC_NT_CONTEXT, *PARM64EC_NT_CONTEXT;
+
+#if defined(_ARM64EC_) && !defined(RC_INVOKED) && !defined(MIDL_PASS)
+
+C_ASSERT(FIELD_OFFSET(ARM64EC_NT_CONTEXT, X8) == FIELD_OFFSET(CONTEXT, Rax));
+C_ASSERT(FIELD_OFFSET(ARM64EC_NT_CONTEXT, Lr) == FIELD_OFFSET(CONTEXT, FltSave.FloatRegisters));
+C_ASSERT(FIELD_OFFSET(ARM64EC_NT_CONTEXT, V) == FIELD_OFFSET(CONTEXT, Xmm0));
+
+#endif // defined(_ARM64EC_) && !defined(RC_INVOKED) && !defined(MIDL_PASS)
+
 //
 //
 
@@ -6309,28 +7200,7 @@ typedef struct _IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY RUNTIME_FUNCTION, *PRUNTIME_F
 #define UNW_FLAG_EHANDLER       0x1             /* filter handler */
 #define UNW_FLAG_UHANDLER       0x2             /* unwind handler */
 
-//
-// Define unwind history table structures.
-//
-
-#define UNWIND_HISTORY_TABLE_SIZE_ARM64 12
-
 #if defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
-
-#define UNWIND_HISTORY_TABLE_SIZE UNWIND_HISTORY_TABLE_SIZE_ARM64
-
-#endif // defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
-
-
-#if defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
-
-#pragma push_macro("_UNWIND_HISTORY_TABLE_ENTRY_ARM64")
-#undef _UNWIND_HISTORY_TABLE_ENTRY_ARM64
-#define _UNWIND_HISTORY_TABLE_ENTRY_ARM64 _UNWIND_HISTORY_TABLE_ENTRY
-
-#pragma push_macro("_UNWIND_HISTORY_TABLE_ARM64")
-#undef _UNWIND_HISTORY_TABLE_ARM64
-#define _UNWIND_HISTORY_TABLE_ARM64 _UNWIND_HISTORY_TABLE
 
 #pragma push_macro("_DISPATCHER_CONTEXT_ARM64")
 #undef _DISPATCHER_CONTEXT_ARM64
@@ -6338,37 +7208,30 @@ typedef struct _IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY RUNTIME_FUNCTION, *PRUNTIME_F
 
 #endif // defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
 
-typedef struct _UNWIND_HISTORY_TABLE_ENTRY_ARM64 {
-    DWORD64 ImageBase;
-    PARM64_RUNTIME_FUNCTION FunctionEntry;
-} UNWIND_HISTORY_TABLE_ENTRY_ARM64, *PUNWIND_HISTORY_TABLE_ENTRY_ARM64;
-
-#if defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
-
-typedef UNWIND_HISTORY_TABLE_ENTRY_ARM64 UNWIND_HISTORY_TABLE_ENTRY, *PUNWIND_HISTORY_TABLE_ENTRY;
-
-#endif // defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
-
-typedef struct _UNWIND_HISTORY_TABLE_ARM64 {
-    DWORD Count;
-    BYTE  LocalHint;
-    BYTE  GlobalHint;
-    BYTE  Search;
-    BYTE  Once;
-    DWORD64 LowAddress;
-    DWORD64 HighAddress;
-    struct _UNWIND_HISTORY_TABLE_ENTRY_ARM64 Entry[UNWIND_HISTORY_TABLE_SIZE_ARM64];
-} UNWIND_HISTORY_TABLE_ARM64, *PUNWIND_HISTORY_TABLE_ARM64;
-
-#if defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
-
-typedef UNWIND_HISTORY_TABLE_ARM64 UNWIND_HISTORY_TABLE, *PUNWIND_HISTORY_TABLE;
-
-#endif // defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
-
 //
 // Define exception dispatch context structure.
 //
+
+#define NONVOL_INT_NUMREG_ARM64 (11)
+#define NONVOL_FP_NUMREG_ARM64  (8)
+
+#define NONVOL_INT_SIZE_ARM64 (NONVOL_INT_NUMREG_ARM64 * sizeof(DWORD64))
+#define NONVOL_FP_SIZE_ARM64  (NONVOL_FP_NUMREG_ARM64 * sizeof(double))
+
+typedef union _DISPATCHER_CONTEXT_NONVOLREG_ARM64 {
+    BYTE  Buffer[NONVOL_INT_SIZE_ARM64 + NONVOL_FP_SIZE_ARM64];
+
+    struct {
+        DWORD64 GpNvRegs[NONVOL_INT_NUMREG_ARM64];      // [x19, x29(Fp)]
+        double FpNvRegs [NONVOL_FP_NUMREG_ARM64];       // [V8d0, v15d0]
+    } DUMMYSTRUCTNAME;
+} DISPATCHER_CONTEXT_NONVOLREG_ARM64;
+
+#if !defined(RC_INVOKED) && !defined(MIDL_PASS)
+
+C_ASSERT(sizeof(DISPATCHER_CONTEXT_NONVOLREG_ARM64) == (NONVOL_INT_SIZE_ARM64 + NONVOL_FP_SIZE_ARM64));
+
+#endif // !defined(RC_INVOKED) && !defined(MIDL_PASS)
 
 typedef struct _DISPATCHER_CONTEXT_ARM64 {
     ULONG_PTR ControlPc;
@@ -6379,7 +7242,7 @@ typedef struct _DISPATCHER_CONTEXT_ARM64 {
     PARM64_NT_CONTEXT ContextRecord;
     PEXCEPTION_ROUTINE LanguageHandler;
     PVOID HandlerData;
-    struct _UNWIND_HISTORY_TABLE_ARM64 *HistoryTable;
+    struct _UNWIND_HISTORY_TABLE *HistoryTable;
     DWORD ScopeIndex;
     BOOLEAN ControlPcIsUnwound;
     PBYTE  NonVolatileRegisters;
@@ -6388,16 +7251,6 @@ typedef struct _DISPATCHER_CONTEXT_ARM64 {
 #if defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
 
 typedef DISPATCHER_CONTEXT_ARM64 DISPATCHER_CONTEXT, *PDISPATCHER_CONTEXT;
-
-#endif // defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
-
-#if defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
-
-#undef _UNWIND_HISTORY_TABLE_ENTRY_ARM64
-#pragma pop_macro("_UNWIND_HISTORY_TABLE_ENTRY_ARM64")
-
-#undef _UNWIND_HISTORY_TABLE_ARM64
-#pragma pop_macro("_UNWIND_HISTORY_TABLE_ARM64")
 
 #undef _DISPATCHER_CONTEXT_ARM64
 #pragma pop_macro("_DISPATCHER_CONTEXT_ARM64")
@@ -6522,7 +7375,7 @@ DbgRaiseAssertionFailure (
 
 #endif
 
-#if defined(_AMD64_)
+#if defined(_AMD64_) && !defined(_ARM64EC_)
 
 #if defined(_M_AMD64)
 
@@ -6539,7 +7392,7 @@ __int2c (
 
 #endif // !defined(_PREFAST_)
 
-#endif // defined(_M_AMD64)
+#endif // defined(_M_AMD64) && !defined(_ARM64EC_)
 
 #elif defined(_X86_) && !defined(_M_HYBRID_X86_ARM64)
 
@@ -6613,9 +7466,9 @@ __break(
 
 #endif // defined(_M_IA64)
 
-#elif defined(_ARM64_) || defined(_CHPE_X86_ARM64_)
+#elif defined(_ARM64_) || defined(_CHPE_X86_ARM64_) || defined(_ARM64EC_)
 
-#if defined(_M_ARM64) || defined(_M_HYBRID_X86_ARM64)
+#if defined(_M_ARM64) || defined(_M_HYBRID_X86_ARM64) || defined(_M_ARM64EC)
 
 #pragma prefast( push )
 #pragma prefast( disable: 28301 )
@@ -6635,7 +7488,7 @@ __break(
 
 #endif // !defined(_PREFAST_)
 
-#endif // defined(_M_ARM64) || defined(_M_HYBRID_X86_ARM64)
+#endif // defined(_M_ARM64) || defined(_M_HYBRID_X86_ARM64) || defined(_M_ARM64EC)
 
 #elif defined(_ARM_)
 
@@ -7868,7 +8721,7 @@ typedef struct _KNONVOLATILE_CONTEXT_POINTERS {
 // begin_wdm begin_ntminiport
 
 #if !defined(RC_INVOKED) && !defined(MIDL_PASS)
-#if ((defined(_M_AMD64) || defined(_M_IX86)) && !defined(_M_HYBRID_X86_ARM64)) || defined(_M_CEE_PURE)
+#if ((defined(_M_AMD64) || defined(_M_IX86)) && !defined(_M_HYBRID_X86_ARM64) && !defined(_M_ARM64EC)) || defined(_M_CEE_PURE)
 
 #ifdef __cplusplus
 extern "C" {
@@ -8094,7 +8947,7 @@ WriteNoFence64 (
 }
 #endif
 
-#endif // defined(_M_AMD64) || defined(_M_IX86) || defined(_M_CEE_PURE)
+#endif // ((defined(_M_AMD64) || defined(_M_IX86)) && !defined(_M_HYBRID_X86_ARM64) && !defined(_M_ARM64EC)) || defined(_M_CEE_PURE)
 
 //
 // Define "raw" operations which have no ordering or atomicity semantics.
@@ -12803,7 +13656,14 @@ _Struct_size_bytes_(Size) struct _SYSTEM_CPU_SET_INFORMATION {
 
 typedef struct _SYSTEM_CPU_SET_INFORMATION SYSTEM_CPU_SET_INFORMATION, *PSYSTEM_CPU_SET_INFORMATION;
 
-// end_wdm end_ntminiport
+// end_ntminiport
+
+
+typedef struct _SYSTEM_POOL_ZEROING_INFORMATION {
+    BOOLEAN PoolZeroingSupportPresent;
+} SYSTEM_POOL_ZEROING_INFORMATION, *PSYSTEM_POOL_ZEROING_INFORMATION;
+
+// end_wdm
 
 typedef struct _SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
     DWORD64 CycleTime;
@@ -13241,7 +14101,7 @@ typedef struct _MEM_ADDRESS_REQUIREMENTS {
 #define MEM_EXTENDED_PARAMETER_NONPAGED_LARGE           0x00000008
 #define MEM_EXTENDED_PARAMETER_NONPAGED_HUGE            0x00000010
 #define MEM_EXTENDED_PARAMETER_SOFT_FAULT_PAGES         0x00000020
-#define MEM_EXTENDED_PARAMETER_RESERVED                 0x00000040
+#define MEM_EXTENDED_PARAMETER_EC_CODE                  0x00000040
 
 //
 // Use the high DWORD64 bit of the MEM_EXTENDED_PARAMETER to indicate
@@ -13284,6 +14144,20 @@ typedef struct DECLSPEC_ALIGN(8) MEM_EXTENDED_PARAMETER {
     } DUMMYUNIONNAME;
 
 } MEM_EXTENDED_PARAMETER, *PMEM_EXTENDED_PARAMETER;
+
+//
+// Dedicated memory attributes.
+//
+
+#define MEM_DEDICATED_ATTRIBUTE_NOT_SPECIFIED   ((DWORD64) -1)
+
+typedef enum _MEM_DEDICATED_ATTRIBUTE_TYPE {
+    MemDedicatedAttributeReadBandwidth = 0,
+    MemDedicatedAttributeReadLatency,
+    MemDedicatedAttributeWriteBandwidth,
+    MemDedicatedAttributeWriteLatency,
+    MemDedicatedAttributeMax
+} MEM_DEDICATED_ATTRIBUTE_TYPE, *PMEM_DEDICATED_ATTRIBUTE_TYPE;
 
 #define SEC_PARTITION_OWNER_HANDLE  0x00040000  
 #define SEC_64K_PAGES               0x00080000  
@@ -18745,8 +19619,6 @@ typedef PIMAGE_DYNAMIC_RELOCATION32_V2      PIMAGE_DYNAMIC_RELOCATION_V2;
 #define IMAGE_DYNAMIC_RELOCATION_GUARD_IMPORT_CONTROL_TRANSFER  0x00000003
 #define IMAGE_DYNAMIC_RELOCATION_GUARD_INDIR_CONTROL_TRANSFER   0x00000004
 #define IMAGE_DYNAMIC_RELOCATION_GUARD_SWITCHTABLE_BRANCH       0x00000005
-#define IMAGE_DYNAMIC_RELOCATION_MM_SHARED_USER_DATA_VA         0x7FFE0000
-#define IMAGE_DYNAMIC_RELOCATION_KI_USER_SHARED_DATA64          0xFFFFF78000000000UI64
 
 #include "pshpack1.h"
 
@@ -19514,6 +20386,8 @@ typedef struct IMAGE_COR20_HEADER
 // End Image Format
 //
 
+#ifndef _APISETRTLSUPPORT_
+#define _APISETRTLSUPPORT_
 #include <apiset.h>
 
 //
@@ -19576,6 +20450,32 @@ RtlCaptureContext2(
 #pragma endregion
 
 // end_ntifs
+
+#if defined (_AMD64_) || defined(_ARM_) || defined(_ARM64_)
+
+//
+// Define unwind history table structure.
+//
+
+#define UNWIND_HISTORY_TABLE_SIZE 12
+
+typedef struct _UNWIND_HISTORY_TABLE_ENTRY {
+    ULONG_PTR ImageBase;
+    PRUNTIME_FUNCTION FunctionEntry;
+} UNWIND_HISTORY_TABLE_ENTRY, *PUNWIND_HISTORY_TABLE_ENTRY;
+
+typedef struct _UNWIND_HISTORY_TABLE {
+    DWORD Count;
+    BYTE  LocalHint;
+    BYTE  GlobalHint;
+    BYTE  Search;
+    BYTE  Once;
+    ULONG_PTR LowAddress;
+    ULONG_PTR HighAddress;
+    UNWIND_HISTORY_TABLE_ENTRY Entry[UNWIND_HISTORY_TABLE_SIZE];
+} UNWIND_HISTORY_TABLE, *PUNWIND_HISTORY_TABLE;
+
+#endif
 
 #pragma region Application or OneCore Family or Games Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
@@ -19712,6 +20612,17 @@ RtlVirtualUnwind(
     _Inout_opt_ PKNONVOLATILE_CONTEXT_POINTERS ContextPointers
     );
 
+
+#if (NTDDI_VERSION >= NTDDI_WIN10_FE)
+
+NTSYSAPI
+BOOLEAN
+NTAPI
+RtlIsEcCode(
+    _In_ DWORD64 CodePointer
+    );
+
+#endif /* NTDDI_VERSION >= NTDDI_WIN10_FE */
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
@@ -20085,6 +20996,7 @@ RtlCompareMemory(
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion
 
+#endif // _APISETRTLSUPPORT_
 //
 // for move macros
 //
@@ -20496,7 +21408,7 @@ RtlSecureZeroMemory(
 {
     volatile char *vptr = (volatile char *)ptr;
 
-#if defined(_M_AMD64)
+#if defined(_M_AMD64) && !defined(_M_ARM64EC)
 
     __stosb((PBYTE )((DWORD64)vptr), 0, cnt);
 
@@ -20504,7 +21416,7 @@ RtlSecureZeroMemory(
 
     while (cnt) {
 
-#if !defined(_M_CEE) && (defined(_M_ARM) || defined(_M_ARM64))
+#if !defined(_M_CEE) && (defined(_M_ARM) || defined(_M_ARM64) || defined(_M_ARM64EC))
 
         __iso_volatile_store8(vptr, 0);
 
@@ -20518,7 +21430,7 @@ RtlSecureZeroMemory(
         cnt--;
     }
 
-#endif // _M_AMD64
+#endif // _M_AMD64 && !defined(_M_ARM64EC)
 
     return ptr;
 }
@@ -23141,7 +24053,7 @@ typedef VOID (NTAPI *PTP_WAIT_CALLBACK)(
 
 typedef struct _TP_IO TP_IO, *PTP_IO;
 
-#if defined(_M_AMD64) && !defined(__midl)
+#if defined(_M_AMD64) && !defined(_M_ARM64EC) && !defined(__midl)
 
 __forceinline
 struct _TEB *
@@ -23211,7 +24123,7 @@ GetFiberData (
 #endif // _M_ARM && !defined(__midl) && !defined(_M_CEE_PURE)
 
 
-#if defined(_M_ARM64) && !defined(__midl) && !defined(_M_CEE_PURE)
+#if (defined(_M_ARM64) || defined(_M_ARM64EC)) && !defined(__midl) && !defined(_M_CEE_PURE)
 
 __forceinline
 struct _TEB *

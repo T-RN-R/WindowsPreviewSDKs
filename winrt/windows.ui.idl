@@ -25,6 +25,8 @@ namespace Windows
     {
         typedef struct Color Color;
 
+        typedef struct WindowId WindowId;
+
         interface IColorHelper;
 
         interface IColorHelperStatics;
@@ -77,6 +79,12 @@ namespace Windows
             BYTE R;
             BYTE G;
             BYTE B;
+        };
+
+        [contract(Windows.Foundation.UniversalApiContract, 12.0)]
+        struct WindowId
+        {
+            UINT64 Value;
         };
 
         [contract(Windows.Foundation.UniversalApiContract, 1.0)]

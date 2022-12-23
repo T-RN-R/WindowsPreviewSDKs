@@ -2283,25 +2283,29 @@ struct DCompositionInkTrailPoint
 #define INTERFACE IDCompositionDelegatedInkTrail
 DECLARE_INTERFACE_IID_(IDCompositionDelegatedInkTrail, IUnknown, "C2448E9B-547D-4057-8CF5-8144EDE1C2DA")
 {
-    STDMETHOD(StartNewTrail)(THIS_
-        const D2D1_COLOR_F& color);
-
-    // Returns a token to be used when removing points later
+    // Returns a generation id to be used when removing points later
     STDMETHOD(AddTrailPoints)(THIS_
-        _In_reads_(inkPointsCount) DCompositionInkTrailPoint* inkPoints,
+        _In_reads_(inkPointsCount) const DCompositionInkTrailPoint* inkPoints,
         UINT inkPointsCount,
-        _Out_ UINT* removalToken);
+        _Out_ UINT* generationId
+        ) PURE;
 
-    // Returns a token to be used when removing points later
-    STDMETHOD(AddTrailPointsWithCustomPrediction)(THIS_
-        _In_reads_(inkPointsCount) DCompositionInkTrailPoint* inkPoints,
+    // Returns a generation id to be used when removing points later
+    STDMETHOD(AddTrailPointsWithPrediction)(THIS_
+        _In_reads_(inkPointsCount) const DCompositionInkTrailPoint* inkPoints,
         UINT inkPointsCount,
-        _In_reads_(predictedInkPointsCount) DCompositionInkTrailPoint* predictedInkPoints,
+        _In_reads_(predictedInkPointsCount) const DCompositionInkTrailPoint* predictedInkPoints,
         UINT predictedInkPointsCount,
-        _Out_ UINT* removalToken);
+        _Out_ UINT* generationId
+        ) PURE;
 
     STDMETHOD(RemoveTrailPoints)(THIS_
-        UINT32 token);
+        UINT generationId
+        ) PURE;
+
+    STDMETHOD(StartNewTrail)(THIS_
+        const D2D1_COLOR_F& color
+        ) PURE;
 };
 
 //+-----------------------------------------------------------------------------
@@ -2316,14 +2320,16 @@ DECLARE_INTERFACE_IID_(IDCompositionDelegatedInkTrail, IUnknown, "C2448E9B-547D-
 //------------------------------------------------------------------------------
 #undef INTERFACE
 #define INTERFACE IDCompositionInkTrailDevice
-DECLARE_INTERFACE_IID(IDCompositionInkTrailDevice, "DF0C7CEC-CDEB-4D4A-B91C-721BF22F4E6C")
+DECLARE_INTERFACE_IID_(IDCompositionInkTrailDevice, IUnknown, "DF0C7CEC-CDEB-4D4A-B91C-721BF22F4E6C")
 {
     STDMETHOD(CreateDelegatedInkTrail)(
-        _Out_ IDCompositionDelegatedInkTrail** inkTrail);
+        _Out_ IDCompositionDelegatedInkTrail** inkTrail
+        ) PURE;
 
     STDMETHOD(CreateDelegatedInkTrailForSwapChain)(
         _In_ IUnknown* swapChain,
-        _Out_ IDCompositionDelegatedInkTrail** inkTrail);
+        _Out_ IDCompositionDelegatedInkTrail** inkTrail
+        ) PURE;
 };
 
 #endif  // (_WIN32_WINNT >= _WIN32_WINNT_WINTHRESHOLD)

@@ -4123,6 +4123,24 @@ Notes:
 #define DIRECTED_FX_TRANSITION_LIVEDUMP  ((ULONG)0x000001A9L)
 
 //
+// MessageId: EXCEPTION_ON_INVALID_STACK
+//
+// MessageText:
+//
+//  EXCEPTION_ON_INVALID_STACK
+//
+#define EXCEPTION_ON_INVALID_STACK       ((ULONG)0x000001AAL)
+
+//
+// MessageId: UNWIND_ON_INVALID_STACK
+//
+// MessageText:
+//
+//  UNWIND_ON_INVALID_STACK
+//
+#define UNWIND_ON_INVALID_STACK          ((ULONG)0x000001ABL)
+
+//
 // MessageId: VIDEO_MINIPORT_FAILED_LIVEDUMP
 //
 // MessageText:
@@ -4454,6 +4472,15 @@ Notes:
 //  CRASHDUMP_WATCHDOG_TIMEOUT
 //
 #define CRASHDUMP_WATCHDOG_TIMEOUT       ((ULONG)0x000001E6L)
+
+//
+// MessageId: REGISTRY_LIVE_DUMP
+//
+// MessageText:
+//
+//  REGISTRY_LIVE_DUMP
+//
+#define REGISTRY_LIVE_DUMP               ((ULONG)0x000001E7L)
 
 //
 // MessageId: XBOX_VMCTRL_CS_TIMEOUT

@@ -637,6 +637,28 @@
 #define SdLength 0x20
 
 //
+// CHPEV2 EC Code Range Bitmap
+//
+
+#define PeEcCodeBitMap 0x368
+
+//
+// CHPEV2 Per-Thread Emulation Structure Definitions
+//
+
+#define Cv2ciInSimulation 0x0
+#define Cv2ciInSyscallCallback 0x1
+#define Cv2ciEmulatorData 0x28
+#define Cv2ciEmulatorData2 0x30
+#define Cv2ciEmulatorData3 0x38
+#define Cv2ciEmulatorData4 0x40
+#define Cv2ciEmulatorDataInline 0x50
+#define Cv2ciEmulatorStackBase 0x8
+#define Cv2ciEmulatorStackLimit 0x10
+#define Cv2ciContextAmd64 0x18
+#define Cv2ciSuspendDoorbell 0x20
+
+//
 // Thread Environment Block Structure Offset Definitions
 //
 
@@ -679,6 +701,7 @@
 #define TeInstrumentation 0x16b8
 #define TeGdiBatchCount 0x1740
 #define TeGuaranteedStackBytes 0x1748
+#define TeChpeV2CpuAreaInfo 0x1788
 #define TeFlsData 0x17c8
 #define ThreadEnvironmentBlockLength 0x1848
 #define CmThreadEnvironmentBlockOffset 0x2000
@@ -959,7 +982,7 @@
 #define PbCopyReadNoWait 0xa4c
 #define PbCopyReadWait 0xa50
 #define PbCopyReadNoWaitMiss 0xa54
-#define PbAlignmentFixupCount 0x1468
+#define PbAlignmentFixupCount 0x1470
 #define PbExceptionDispatchCount 0xf34
 #define PbProcessorVendorString 0x890
 #define PbFeatureBits 0x894
@@ -979,6 +1002,7 @@
 #define DeferredReady 0x7
 #define GateWaitObsolete 0x8
 #define THREAD_FLAGS_CYCLE_PROFILING_BIT 0x0
+#define DEBUG_ACTIVE_EMULATION_THREAD_BIT 0x6
 
 //
 // Immediate Interprocessor Command Definitions
@@ -1466,6 +1490,7 @@
 //
 
 #define FAST_FAIL_GUARD_ICALL_CHECK_FAILURE 0xa
+#define FAST_FAIL_CONTROL_INVALID_RETURN_ADDRESS 0x39
 #define BASE_PRIORITY_THRESHOLD 0x8
 #define LOW_REALTIME_PRIORITY 0x10
 #define KERNEL_LARGE_STACK_COMMIT 0x8000
@@ -1659,6 +1684,79 @@
 #define DEBUG_ACTIVE_INSTRUMENTED 0x2
 #define DEBUG_ACTIVE_MINIMAL_THREAD 0x4
 #define DEBUG_ACTIVE_MINIMAL_THREAD_BIT 0x2
+
+//
+// ARM64EC Context Frame Offsets
+//
+
+#define EcContextFlags 0x30
+#define EcAMD64_MxCsr_copy 0x34
+#define EcAMD64_SegCs 0x38
+#define EcAMD64_SegDs 0x3a
+#define EcAMD64_SegEs 0x3c
+#define EcAMD64_SegFs 0x3e
+#define EcAMD64_SegGs 0x40
+#define EcAMD64_SegSs 0x42
+#define EcAMD64_EFlags 0x44
+#define EcAMD64_Dr0 0x48
+#define EcAMD64_Dr1 0x50
+#define EcAMD64_Dr2 0x58
+#define EcAMD64_Dr3 0x60
+#define EcAMD64_Dr6 0x68
+#define EcAMD64_Dr7 0x70
+#define EcX8 0x78
+#define EcX0 0x80
+#define EcX1 0x88
+#define EcX27 0x90
+#define EcSp 0x98
+#define EcFp 0xa0
+#define EcX25 0xa8
+#define EcX26 0xb0
+#define EcX2 0xb8
+#define EcX3 0xc0
+#define EcX4 0xc8
+#define EcX5 0xd0
+#define EcX19 0xd8
+#define EcX20 0xe0
+#define EcX21 0xe8
+#define EcX22 0xf0
+#define EcPc 0xf8
+#define EcAMD64_ControlWord 0x100
+#define EcAMD64_StatusWord 0x102
+#define EcAMD64_TagWord 0x104
+#define EcAMD64_ErrorOpcode 0x106
+#define EcAMD64_ErrorOffset 0x108
+#define EcAMD64_ErrorSelector 0x10c
+#define EcAMD64_DataOffset 0x110
+#define EcAMD64_DataSelector 0x114
+#define EcAMD64_DataSelector 0x114
+#define EcAMD64_MxCsr 0x118
+#define EcAMD64_MxCsr_Mask 0x11c
+#define EcLr 0x120
+#define EcX16_0 0x128
+#define EcX6 0x130
+#define EcX16_1 0x138
+#define EcX7 0x140
+#define EcX16_2 0x148
+#define EcX9 0x150
+#define EcX16_3 0x158
+#define EcX10 0x160
+#define EcX17_0 0x168
+#define EcX11 0x170
+#define EcX17_1 0x178
+#define EcX12 0x180
+#define EcX17_2 0x188
+#define EcX15 0x190
+#define EcX17_3 0x198
+#define EcV 0x1a0
+#define EcAMD64_VectorRegister 0x300
+#define EcAMD64_VectorControl 0x4a0
+#define EcAMD64_DebugControl 0x4a8
+#define EcAMD64_LastBranchToRip 0x4b0
+#define EcAMD64_LastBranchFromRip 0x4b8
+#define EcAMD64_LastExceptionToRip 0x4c0
+#define EcAMD64_LastExceptionFromRip 0x4c8
+#define ARM64EC_CONTEXT_LENGTH 0x4d0
 
 //
 // Dispatcher Context Structure Offset Definitions

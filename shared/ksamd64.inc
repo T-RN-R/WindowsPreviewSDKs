@@ -1354,6 +1354,7 @@ KI_EXCEPTION_SEGMENT_NOT_PRESENT equ 010000007H
 TARGET_FREEZE equ 00005H
 KI_DPC_INTERRUPT_FLAGS equ 000AFH
 KI_DPC_THREAD_ACTIVE equ 010000H
+KernelShadowStackTypeRstorssp equ 00002H
 
 ;
 ;  Equates for exceptions which cause system fatal error

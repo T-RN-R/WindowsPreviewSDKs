@@ -18774,7 +18774,7 @@ Notes:
 //
 // MessageText:
 //
-// This command cannot be performed on an eDrive volume where the bands couldn't be enumerated.
+// BitLocker can't enable encryption on this hardware encrypting drive volume because the drive bands couldn't be enumerated.
 //
 #define STATUS_FVE_EDRIVE_BAND_ENUMERATION_FAILED ((NTSTATUS)0xC0210041L)
 

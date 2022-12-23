@@ -2228,7 +2228,7 @@ namespace Windows
                 HRESULT CreateAnimationPropertyInfo([out] [retval] Windows.UI.Composition.AnimationPropertyInfo** result);
                 [overload("CreateRectangleClip")] HRESULT CreateRectangleClip([out] [retval] Windows.UI.Composition.RectangleClip** result);
                 [overload("CreateRectangleClip")] HRESULT CreateRectangleClipWithSides([in] FLOAT left, [in] FLOAT top, [in] FLOAT right, [in] FLOAT bottom, [out] [retval] Windows.UI.Composition.RectangleClip** result);
-                [overload("CreateRectangleClip")] HRESULT CreateRectangleClipWithSidesAndRadius([in] FLOAT left, [in] FLOAT top, [in] FLOAT right, [in] FLOAT bottom, [in] Windows.Foundation.Numerics.Vector2 topLeftRadius, [in] Windows.Foundation.Numerics.Vector2 topRightRadius, [in] Windows.Foundation.Numerics.Vector2 bottomLeftRadius, [in] Windows.Foundation.Numerics.Vector2 bottomRightRadius, [out] [retval] Windows.UI.Composition.RectangleClip** result);
+                [overload("CreateRectangleClip")] HRESULT CreateRectangleClipWithSidesAndRadius([in] FLOAT left, [in] FLOAT top, [in] FLOAT right, [in] FLOAT bottom, [in] Windows.Foundation.Numerics.Vector2 topLeftRadius, [in] Windows.Foundation.Numerics.Vector2 topRightRadius, [in] Windows.Foundation.Numerics.Vector2 bottomRightRadius, [in] Windows.Foundation.Numerics.Vector2 bottomLeftRadius, [out] [retval] Windows.UI.Composition.RectangleClip** result);
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 6.0)]
