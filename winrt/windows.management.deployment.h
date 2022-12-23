@@ -137,6 +137,21 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions_FWD_DEFINED__
 
+#ifndef ____x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace Management {
+            namespace Deployment {
+                interface IAddPackageOptions2;
+            } /* Deployment */
+        } /* Management */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2 ABI::Windows::Management::Deployment::IAddPackageOptions2
+
+#endif // ____x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CManagement_CDeployment_CIAppInstallerManager_FWD_DEFINED__
 #define ____x_ABI_CWindows_CManagement_CDeployment_CIAppInstallerManager_FWD_DEFINED__
 namespace ABI {
@@ -542,6 +557,21 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions_FWD_DEFINED__
 
+#ifndef ____x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace Management {
+            namespace Deployment {
+                interface IRegisterPackageOptions2;
+            } /* Deployment */
+        } /* Management */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2 ABI::Windows::Management::Deployment::IRegisterPackageOptions2
+
+#endif // ____x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CManagement_CDeployment_CISharedPackageContainer_FWD_DEFINED__
 #define ____x_ABI_CWindows_CManagement_CDeployment_CISharedPackageContainer_FWD_DEFINED__
 namespace ABI {
@@ -631,6 +661,21 @@ namespace ABI {
 #define __x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions ABI::Windows::Management::Deployment::IStagePackageOptions
 
 #endif // ____x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace Management {
+            namespace Deployment {
+                interface IStagePackageOptions2;
+            } /* Deployment */
+        } /* Management */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2 ABI::Windows::Management::Deployment::IStagePackageOptions2
+
+#endif // ____x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CManagement_CDeployment_CIUpdateSharedPackageContainerOptions_FWD_DEFINED__
 #define ____x_ABI_CWindows_CManagement_CDeployment_CIUpdateSharedPackageContainerOptions_FWD_DEFINED__
@@ -1169,6 +1214,87 @@ namespace ABI {
 
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 
+#ifndef DEF___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_USE
+#define DEF___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_USE
+#if !defined(RO_NO_TEMPLATE_NAME)
+namespace ABI { namespace Windows { namespace Foundation { namespace Collections {
+template <>
+struct __declspec(uuid("f1fe0d5e-8449-5479-875f-17daeb0027f0"))
+IKeyValuePair<ABI::Windows::Foundation::Uri*, HSTRING> : IKeyValuePair_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Foundation::Uri*, ABI::Windows::Foundation::IUriRuntimeClass*>, HSTRING>
+{
+    static const wchar_t* z_get_rc_name_impl()
+    {
+        return L"Windows.Foundation.Collections.IKeyValuePair`2<Windows.Foundation.Uri, String>";
+    }
+};
+// Define a typedef for the parameterized interface specialization's mangled name.
+// This allows code which uses the mangled name for the parameterized interface to access the
+// correct parameterized interface specialization.
+typedef IKeyValuePair<ABI::Windows::Foundation::Uri*, HSTRING> __FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_t;
+#define __FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING ABI::Windows::Foundation::Collections::__FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_t
+/* Collections */ } /* Foundation */ } /* Windows */ } /* ABI */ }
+
+#endif // !defined(RO_NO_TEMPLATE_NAME)
+#endif /* DEF___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_USE */
+
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+
+#ifndef DEF___FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_USE
+#define DEF___FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_USE
+#if !defined(RO_NO_TEMPLATE_NAME)
+namespace ABI { namespace Windows { namespace Foundation { namespace Collections {
+template <>
+struct __declspec(uuid("0c11a982-9f05-557f-b3e8-3737b26830d1"))
+IIterator<__FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING*> : IIterator_impl<__FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING*>
+{
+    static const wchar_t* z_get_rc_name_impl()
+    {
+        return L"Windows.Foundation.Collections.IIterator`1<Windows.Foundation.Collections.IKeyValuePair`2<Windows.Foundation.Uri, String>>";
+    }
+};
+// Define a typedef for the parameterized interface specialization's mangled name.
+// This allows code which uses the mangled name for the parameterized interface to access the
+// correct parameterized interface specialization.
+typedef IIterator<__FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING*> __FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_t;
+#define __FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING ABI::Windows::Foundation::Collections::__FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_t
+/* Collections */ } /* Foundation */ } /* Windows */ } /* ABI */ }
+
+#endif // !defined(RO_NO_TEMPLATE_NAME)
+#endif /* DEF___FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_USE */
+
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+
+#ifndef DEF___FIIterable_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_USE
+#define DEF___FIIterable_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_USE
+#if !defined(RO_NO_TEMPLATE_NAME)
+namespace ABI { namespace Windows { namespace Foundation { namespace Collections {
+template <>
+struct __declspec(uuid("52129c53-b03d-59b3-a27e-b0385643e9fe"))
+IIterable<__FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING*> : IIterable_impl<__FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING*>
+{
+    static const wchar_t* z_get_rc_name_impl()
+    {
+        return L"Windows.Foundation.Collections.IIterable`1<Windows.Foundation.Collections.IKeyValuePair`2<Windows.Foundation.Uri, String>>";
+    }
+};
+// Define a typedef for the parameterized interface specialization's mangled name.
+// This allows code which uses the mangled name for the parameterized interface to access the
+// correct parameterized interface specialization.
+typedef IIterable<__FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING*> __FIIterable_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_t;
+#define __FIIterable_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING ABI::Windows::Foundation::Collections::__FIIterable_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_t
+/* Collections */ } /* Foundation */ } /* Windows */ } /* ABI */ }
+
+#endif // !defined(RO_NO_TEMPLATE_NAME)
+#endif /* DEF___FIIterable_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_USE */
+
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+
 #ifndef DEF___FIIterator_1_Windows__CFoundation__CUri_USE
 #define DEF___FIIterator_1_Windows__CFoundation__CUri_USE
 #if !defined(RO_NO_TEMPLATE_NAME)
@@ -1412,6 +1538,60 @@ typedef IIterable<ABI::Windows::Management::Deployment::SharedPackageContainerMe
 #endif /* DEF___FIIterable_1_Windows__CManagement__CDeployment__CSharedPackageContainerMember_USE */
 
 #endif // WINDOWS_MANAGEMENT_DEPLOYMENT_SHAREDPACKAGECONTAINERCONTRACT_VERSION >= 0x10000
+
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+
+#ifndef DEF___FIMapView_2_Windows__CFoundation__CUri_HSTRING_USE
+#define DEF___FIMapView_2_Windows__CFoundation__CUri_HSTRING_USE
+#if !defined(RO_NO_TEMPLATE_NAME)
+namespace ABI { namespace Windows { namespace Foundation { namespace Collections {
+template <>
+struct __declspec(uuid("87530605-8bd4-5f0a-85f1-751e8bd20446"))
+IMapView<ABI::Windows::Foundation::Uri*, HSTRING> : IMapView_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Foundation::Uri*, ABI::Windows::Foundation::IUriRuntimeClass*>, HSTRING>
+{
+    static const wchar_t* z_get_rc_name_impl()
+    {
+        return L"Windows.Foundation.Collections.IMapView`2<Windows.Foundation.Uri, String>";
+    }
+};
+// Define a typedef for the parameterized interface specialization's mangled name.
+// This allows code which uses the mangled name for the parameterized interface to access the
+// correct parameterized interface specialization.
+typedef IMapView<ABI::Windows::Foundation::Uri*, HSTRING> __FIMapView_2_Windows__CFoundation__CUri_HSTRING_t;
+#define __FIMapView_2_Windows__CFoundation__CUri_HSTRING ABI::Windows::Foundation::Collections::__FIMapView_2_Windows__CFoundation__CUri_HSTRING_t
+/* Collections */ } /* Foundation */ } /* Windows */ } /* ABI */ }
+
+#endif // !defined(RO_NO_TEMPLATE_NAME)
+#endif /* DEF___FIMapView_2_Windows__CFoundation__CUri_HSTRING_USE */
+
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+
+#ifndef DEF___FIMap_2_Windows__CFoundation__CUri_HSTRING_USE
+#define DEF___FIMap_2_Windows__CFoundation__CUri_HSTRING_USE
+#if !defined(RO_NO_TEMPLATE_NAME)
+namespace ABI { namespace Windows { namespace Foundation { namespace Collections {
+template <>
+struct __declspec(uuid("4c522071-01da-5f85-9d52-29952578a301"))
+IMap<ABI::Windows::Foundation::Uri*, HSTRING> : IMap_impl<ABI::Windows::Foundation::Internal::AggregateType<ABI::Windows::Foundation::Uri*, ABI::Windows::Foundation::IUriRuntimeClass*>, HSTRING>
+{
+    static const wchar_t* z_get_rc_name_impl()
+    {
+        return L"Windows.Foundation.Collections.IMap`2<Windows.Foundation.Uri, String>";
+    }
+};
+// Define a typedef for the parameterized interface specialization's mangled name.
+// This allows code which uses the mangled name for the parameterized interface to access the
+// correct parameterized interface specialization.
+typedef IMap<ABI::Windows::Foundation::Uri*, HSTRING> __FIMap_2_Windows__CFoundation__CUri_HSTRING_t;
+#define __FIMap_2_Windows__CFoundation__CUri_HSTRING ABI::Windows::Foundation::Collections::__FIMap_2_Windows__CFoundation__CUri_HSTRING_t
+/* Collections */ } /* Foundation */ } /* Windows */ } /* ABI */ }
+
+#endif // !defined(RO_NO_TEMPLATE_NAME)
+#endif /* DEF___FIMap_2_Windows__CFoundation__CUri_HSTRING_USE */
+
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 
 
 #ifndef DEF___FIVectorView_1_HSTRING_USE
@@ -2487,7 +2667,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IAddPackageOptions = _uuidof(IAddPackageOptions);
+                MIDL_CONST_ID IID& IID_IAddPackageOptions = __uuidof(IAddPackageOptions);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -2496,6 +2676,48 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions;
 #endif /* !defined(____x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+
+/*
+ *
+ * Interface Windows.Management.Deployment.IAddPackageOptions2
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 15.0
+ *
+ * Interface is a part of the implementation of type Windows.Management.Deployment.AddPackageOptions
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
+#if !defined(____x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Management_Deployment_IAddPackageOptions2[] = L"Windows.Management.Deployment.IAddPackageOptions2";
+namespace ABI {
+    namespace Windows {
+        namespace Management {
+            namespace Deployment {
+                MIDL_INTERFACE("ee515828-bf33-40f7-84af-1b6fad2919d7")
+                IAddPackageOptions2 : public IInspectable
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE get_ExpectedDigests(
+                        __FIMap_2_Windows__CFoundation__CUri_HSTRING** value
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE get_LimitToExistingPackages(
+                        boolean* value
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE put_LimitToExistingPackages(
+                        boolean value
+                        ) = 0;
+                };
+
+                MIDL_CONST_ID IID& IID_IAddPackageOptions2 = __uuidof(IAddPackageOptions2);
+            } /* Deployment */
+        } /* Management */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2;
+#endif /* !defined(____x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
 
 /*
  *
@@ -2531,7 +2753,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IAppInstallerManager = _uuidof(IAppInstallerManager);
+                MIDL_CONST_ID IID& IID_IAppInstallerManager = __uuidof(IAppInstallerManager);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -2570,7 +2792,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IAppInstallerManagerStatics = _uuidof(IAppInstallerManagerStatics);
+                MIDL_CONST_ID IID& IID_IAppInstallerManagerStatics = __uuidof(IAppInstallerManagerStatics);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -2669,7 +2891,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IAutoUpdateSettingsOptions = _uuidof(IAutoUpdateSettingsOptions);
+                MIDL_CONST_ID IID& IID_IAutoUpdateSettingsOptions = __uuidof(IAutoUpdateSettingsOptions);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -2706,7 +2928,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IAutoUpdateSettingsOptionsStatics = _uuidof(IAutoUpdateSettingsOptionsStatics);
+                MIDL_CONST_ID IID& IID_IAutoUpdateSettingsOptionsStatics = __uuidof(IAutoUpdateSettingsOptionsStatics);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -2754,7 +2976,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_ICreateSharedPackageContainerOptions = _uuidof(ICreateSharedPackageContainerOptions);
+                MIDL_CONST_ID IID& IID_ICreateSharedPackageContainerOptions = __uuidof(ICreateSharedPackageContainerOptions);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -2796,7 +3018,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_ICreateSharedPackageContainerResult = _uuidof(ICreateSharedPackageContainerResult);
+                MIDL_CONST_ID IID& IID_ICreateSharedPackageContainerResult = __uuidof(ICreateSharedPackageContainerResult);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -2841,7 +3063,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IDeleteSharedPackageContainerOptions = _uuidof(IDeleteSharedPackageContainerOptions);
+                MIDL_CONST_ID IID& IID_IDeleteSharedPackageContainerOptions = __uuidof(IDeleteSharedPackageContainerOptions);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -2880,7 +3102,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IDeleteSharedPackageContainerResult = _uuidof(IDeleteSharedPackageContainerResult);
+                MIDL_CONST_ID IID& IID_IDeleteSharedPackageContainerResult = __uuidof(IDeleteSharedPackageContainerResult);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -2922,7 +3144,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IDeploymentResult = _uuidof(IDeploymentResult);
+                MIDL_CONST_ID IID& IID_IDeploymentResult = __uuidof(IDeploymentResult);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -2958,7 +3180,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IDeploymentResult2 = _uuidof(IDeploymentResult2);
+                MIDL_CONST_ID IID& IID_IDeploymentResult2 = __uuidof(IDeploymentResult2);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -3003,7 +3225,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IFindSharedPackageContainerOptions = _uuidof(IFindSharedPackageContainerOptions);
+                MIDL_CONST_ID IID& IID_IFindSharedPackageContainerOptions = __uuidof(IFindSharedPackageContainerOptions);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -3042,7 +3264,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IPackageAllUserProvisioningOptions = _uuidof(IPackageAllUserProvisioningOptions);
+                MIDL_CONST_ID IID& IID_IPackageAllUserProvisioningOptions = __uuidof(IPackageAllUserProvisioningOptions);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -3151,7 +3373,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IPackageManager = _uuidof(IPackageManager);
+                MIDL_CONST_ID IID& IID_IPackageManager = __uuidof(IPackageManager);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -3189,7 +3411,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IPackageManager10 = _uuidof(IPackageManager10);
+                MIDL_CONST_ID IID& IID_IPackageManager10 = __uuidof(IPackageManager10);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -3276,7 +3498,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IPackageManager2 = _uuidof(IPackageManager2);
+                MIDL_CONST_ID IID& IID_IPackageManager2 = __uuidof(IPackageManager2);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -3378,7 +3600,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IPackageManager3 = _uuidof(IPackageManager3);
+                MIDL_CONST_ID IID& IID_IPackageManager3 = __uuidof(IPackageManager3);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -3414,7 +3636,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IPackageManager4 = _uuidof(IPackageManager4);
+                MIDL_CONST_ID IID& IID_IPackageManager4 = __uuidof(IPackageManager4);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -3476,7 +3698,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IPackageManager5 = _uuidof(IPackageManager5);
+                MIDL_CONST_ID IID& IID_IPackageManager5 = __uuidof(IPackageManager5);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -3554,7 +3776,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IPackageManager6 = _uuidof(IPackageManager6);
+                MIDL_CONST_ID IID& IID_IPackageManager6 = __uuidof(IPackageManager6);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -3597,7 +3819,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IPackageManager7 = _uuidof(IPackageManager7);
+                MIDL_CONST_ID IID& IID_IPackageManager7 = __uuidof(IPackageManager7);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -3634,7 +3856,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IPackageManager8 = _uuidof(IPackageManager8);
+                MIDL_CONST_ID IID& IID_IPackageManager8 = __uuidof(IPackageManager8);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -3698,7 +3920,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IPackageManager9 = _uuidof(IPackageManager9);
+                MIDL_CONST_ID IID& IID_IPackageManager9 = __uuidof(IPackageManager9);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -3744,7 +3966,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IPackageManagerDebugSettings = _uuidof(IPackageManagerDebugSettings);
+                MIDL_CONST_ID IID& IID_IPackageManagerDebugSettings = __uuidof(IPackageManagerDebugSettings);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -3783,7 +4005,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IPackageUserInformation = _uuidof(IPackageUserInformation);
+                MIDL_CONST_ID IID& IID_IPackageUserInformation = __uuidof(IPackageUserInformation);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -3903,7 +4125,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IPackageVolume = _uuidof(IPackageVolume);
+                MIDL_CONST_ID IID& IID_IPackageVolume = __uuidof(IPackageVolume);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -3945,7 +4167,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IPackageVolume2 = _uuidof(IPackageVolume2);
+                MIDL_CONST_ID IID& IID_IPackageVolume2 = __uuidof(IPackageVolume2);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -4044,7 +4266,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IRegisterPackageOptions = _uuidof(IRegisterPackageOptions);
+                MIDL_CONST_ID IID& IID_IRegisterPackageOptions = __uuidof(IRegisterPackageOptions);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -4053,6 +4275,42 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions;
 #endif /* !defined(____x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+
+/*
+ *
+ * Interface Windows.Management.Deployment.IRegisterPackageOptions2
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 15.0
+ *
+ * Interface is a part of the implementation of type Windows.Management.Deployment.RegisterPackageOptions
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
+#if !defined(____x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Management_Deployment_IRegisterPackageOptions2[] = L"Windows.Management.Deployment.IRegisterPackageOptions2";
+namespace ABI {
+    namespace Windows {
+        namespace Management {
+            namespace Deployment {
+                MIDL_INTERFACE("3dfa9743-86ff-4a11-bc93-434eb6be3a0b")
+                IRegisterPackageOptions2 : public IInspectable
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE get_ExpectedDigests(
+                        __FIMap_2_Windows__CFoundation__CUri_HSTRING** value
+                        ) = 0;
+                };
+
+                MIDL_CONST_ID IID& IID_IRegisterPackageOptions2 = __uuidof(IRegisterPackageOptions2);
+            } /* Deployment */
+        } /* Management */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2;
+#endif /* !defined(____x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
 
 /*
  *
@@ -4094,7 +4352,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_ISharedPackageContainer = _uuidof(ISharedPackageContainer);
+                MIDL_CONST_ID IID& IID_ISharedPackageContainer = __uuidof(ISharedPackageContainer);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -4148,7 +4406,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_ISharedPackageContainerManager = _uuidof(ISharedPackageContainerManager);
+                MIDL_CONST_ID IID& IID_ISharedPackageContainerManager = __uuidof(ISharedPackageContainerManager);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -4191,7 +4449,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_ISharedPackageContainerManagerStatics = _uuidof(ISharedPackageContainerManagerStatics);
+                MIDL_CONST_ID IID& IID_ISharedPackageContainerManagerStatics = __uuidof(ISharedPackageContainerManagerStatics);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -4227,7 +4485,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_ISharedPackageContainerMember = _uuidof(ISharedPackageContainerMember);
+                MIDL_CONST_ID IID& IID_ISharedPackageContainerMember = __uuidof(ISharedPackageContainerMember);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -4264,7 +4522,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_ISharedPackageContainerMemberFactory = _uuidof(ISharedPackageContainerMemberFactory);
+                MIDL_CONST_ID IID& IID_ISharedPackageContainerMemberFactory = __uuidof(ISharedPackageContainerMemberFactory);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -4363,7 +4621,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IStagePackageOptions = _uuidof(IStagePackageOptions);
+                MIDL_CONST_ID IID& IID_IStagePackageOptions = __uuidof(IStagePackageOptions);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -4372,6 +4630,42 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions;
 #endif /* !defined(____x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+
+/*
+ *
+ * Interface Windows.Management.Deployment.IStagePackageOptions2
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 15.0
+ *
+ * Interface is a part of the implementation of type Windows.Management.Deployment.StagePackageOptions
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
+#if !defined(____x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Management_Deployment_IStagePackageOptions2[] = L"Windows.Management.Deployment.IStagePackageOptions2";
+namespace ABI {
+    namespace Windows {
+        namespace Management {
+            namespace Deployment {
+                MIDL_INTERFACE("990c4ccc-6226-4192-ba92-79875fce0d9c")
+                IStagePackageOptions2 : public IInspectable
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE get_ExpectedDigests(
+                        __FIMap_2_Windows__CFoundation__CUri_HSTRING** value
+                        ) = 0;
+                };
+
+                MIDL_CONST_ID IID& IID_IStagePackageOptions2 = __uuidof(IStagePackageOptions2);
+            } /* Deployment */
+        } /* Management */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2;
+#endif /* !defined(____x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
 
 /*
  *
@@ -4408,7 +4702,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IUpdateSharedPackageContainerOptions = _uuidof(IUpdateSharedPackageContainerOptions);
+                MIDL_CONST_ID IID& IID_IUpdateSharedPackageContainerOptions = __uuidof(IUpdateSharedPackageContainerOptions);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -4447,7 +4741,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IUpdateSharedPackageContainerResult = _uuidof(IUpdateSharedPackageContainerResult);
+                MIDL_CONST_ID IID& IID_IUpdateSharedPackageContainerResult = __uuidof(IUpdateSharedPackageContainerResult);
             } /* Deployment */
         } /* Management */
     } /* Windows */
@@ -4468,6 +4762,7 @@ EXTERN_C const IID IID___x_ABI_CWindows_CManagement_CDeployment_CIUpdateSharedPa
  *
  * Class implements the following interfaces:
  *    Windows.Management.Deployment.IAddPackageOptions ** Default Interface **
+ *    Windows.Management.Deployment.IAddPackageOptions2
  *
  * Class Marshaling Behavior:  Agile - Class is agile
  *
@@ -4790,6 +5085,7 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * Class implements the following interfaces:
  *    Windows.Management.Deployment.IRegisterPackageOptions ** Default Interface **
+ *    Windows.Management.Deployment.IRegisterPackageOptions2
  *
  * Class Marshaling Behavior:  Agile - Class is agile
  *
@@ -4879,6 +5175,7 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * Class implements the following interfaces:
  *    Windows.Management.Deployment.IStagePackageOptions ** Default Interface **
+ *    Windows.Management.Deployment.IStagePackageOptions2
  *
  * Class Marshaling Behavior:  Agile - Class is agile
  *
@@ -4940,6 +5237,12 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 typedef interface __x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions __x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions;
 
 #endif // ____x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2 __x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2;
+
+#endif // ____x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CManagement_CDeployment_CIAppInstallerManager_FWD_DEFINED__
 #define ____x_ABI_CWindows_CManagement_CDeployment_CIAppInstallerManager_FWD_DEFINED__
@@ -5103,6 +5406,12 @@ typedef interface __x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOpti
 
 #endif // ____x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions_FWD_DEFINED__
 
+#ifndef ____x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2 __x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2;
+
+#endif // ____x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CManagement_CDeployment_CISharedPackageContainer_FWD_DEFINED__
 #define ____x_ABI_CWindows_CManagement_CDeployment_CISharedPackageContainer_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CManagement_CDeployment_CISharedPackageContainer __x_ABI_CWindows_CManagement_CDeployment_CISharedPackageContainer;
@@ -5138,6 +5447,12 @@ typedef interface __x_ABI_CWindows_CManagement_CDeployment_CISharedPackageContai
 typedef interface __x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions __x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions;
 
 #endif // ____x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2_FWD_DEFINED__
+#define ____x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2 __x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2;
+
+#endif // ____x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CManagement_CDeployment_CIUpdateSharedPackageContainerOptions_FWD_DEFINED__
 #define ____x_ABI_CWindows_CManagement_CDeployment_CIUpdateSharedPackageContainerOptions_FWD_DEFINED__
@@ -6249,6 +6564,220 @@ typedef interface __x_ABI_CWindows_CFoundation_CIUriRuntimeClass __x_ABI_CWindow
 #endif // ____x_ABI_CWindows_CFoundation_CIUriRuntimeClass_FWD_DEFINED__
 
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#if !defined(____FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_INTERFACE_DEFINED__)
+#define ____FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_INTERFACE_DEFINED__
+
+typedef interface __FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING __FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING;
+
+//  Declare the parameterized interface IID.
+EXTERN_C const IID IID___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING;
+
+typedef struct __FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRINGVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* get_Key)(__FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING* This,
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass** result);
+    HRESULT (STDMETHODCALLTYPE* get_Value)(__FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING* This,
+        HSTRING* result);
+
+    END_INTERFACE
+} __FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRINGVtbl;
+
+interface __FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING
+{
+    CONST_VTBL struct __FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRINGVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_get_Key(This, result) \
+    ((This)->lpVtbl->get_Key(This, result))
+
+#define __FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_get_Value(This, result) \
+    ((This)->lpVtbl->get_Value(This, result))
+
+#endif /* COBJMACROS */
+
+#endif // ____FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_INTERFACE_DEFINED__
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#if !defined(____FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_INTERFACE_DEFINED__)
+#define ____FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_INTERFACE_DEFINED__
+
+typedef interface __FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING __FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING;
+
+//  Declare the parameterized interface IID.
+EXTERN_C const IID IID___FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING;
+
+typedef struct __FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRINGVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* get_Current)(__FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING* This,
+        __FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING** result);
+    HRESULT (STDMETHODCALLTYPE* get_HasCurrent)(__FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING* This,
+        boolean* result);
+    HRESULT (STDMETHODCALLTYPE* MoveNext)(__FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING* This,
+        boolean* result);
+    HRESULT (STDMETHODCALLTYPE* GetMany)(__FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING* This,
+        UINT32 itemsLength,
+        __FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING** items,
+        UINT32* result);
+
+    END_INTERFACE
+} __FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRINGVtbl;
+
+interface __FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING
+{
+    CONST_VTBL struct __FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRINGVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_get_Current(This, result) \
+    ((This)->lpVtbl->get_Current(This, result))
+
+#define __FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_get_HasCurrent(This, result) \
+    ((This)->lpVtbl->get_HasCurrent(This, result))
+
+#define __FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_MoveNext(This, result) \
+    ((This)->lpVtbl->MoveNext(This, result))
+
+#define __FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_GetMany(This, itemsLength, items, result) \
+    ((This)->lpVtbl->GetMany(This, itemsLength, items, result))
+
+#endif /* COBJMACROS */
+
+#endif // ____FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_INTERFACE_DEFINED__
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#if !defined(____FIIterable_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_INTERFACE_DEFINED__)
+#define ____FIIterable_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_INTERFACE_DEFINED__
+
+typedef interface __FIIterable_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING __FIIterable_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING;
+
+//  Declare the parameterized interface IID.
+EXTERN_C const IID IID___FIIterable_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING;
+
+typedef struct __FIIterable_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRINGVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIIterable_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__FIIterable_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__FIIterable_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__FIIterable_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__FIIterable_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__FIIterable_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* First)(__FIIterable_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING* This,
+        __FIIterator_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING** result);
+
+    END_INTERFACE
+} __FIIterable_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRINGVtbl;
+
+interface __FIIterable_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING
+{
+    CONST_VTBL struct __FIIterable_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRINGVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __FIIterable_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __FIIterable_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __FIIterable_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __FIIterable_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __FIIterable_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __FIIterable_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __FIIterable_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_First(This, result) \
+    ((This)->lpVtbl->First(This, result))
+
+#endif /* COBJMACROS */
+
+#endif // ____FIIterable_1___FIKeyValuePair_2_Windows__CFoundation__CUri_HSTRING_INTERFACE_DEFINED__
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 #if !defined(____FIIterator_1_Windows__CFoundation__CUri_INTERFACE_DEFINED__)
 #define ____FIIterator_1_Windows__CFoundation__CUri_INTERFACE_DEFINED__
 
@@ -6827,6 +7356,187 @@ interface __FIIterable_1_Windows__CManagement__CDeployment__CSharedPackageContai
 
 #endif // ____FIIterable_1_Windows__CManagement__CDeployment__CSharedPackageContainerMember_INTERFACE_DEFINED__
 #endif // WINDOWS_MANAGEMENT_DEPLOYMENT_SHAREDPACKAGECONTAINERCONTRACT_VERSION >= 0x10000
+
+typedef interface __FIMapView_2_Windows__CFoundation__CUri_HSTRING __FIMapView_2_Windows__CFoundation__CUri_HSTRING;
+
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#if !defined(____FIMapView_2_Windows__CFoundation__CUri_HSTRING_INTERFACE_DEFINED__)
+#define ____FIMapView_2_Windows__CFoundation__CUri_HSTRING_INTERFACE_DEFINED__
+
+typedef interface __FIMapView_2_Windows__CFoundation__CUri_HSTRING __FIMapView_2_Windows__CFoundation__CUri_HSTRING;
+
+//  Declare the parameterized interface IID.
+EXTERN_C const IID IID___FIMapView_2_Windows__CFoundation__CUri_HSTRING;
+
+typedef struct __FIMapView_2_Windows__CFoundation__CUri_HSTRINGVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIMapView_2_Windows__CFoundation__CUri_HSTRING* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__FIMapView_2_Windows__CFoundation__CUri_HSTRING* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__FIMapView_2_Windows__CFoundation__CUri_HSTRING* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__FIMapView_2_Windows__CFoundation__CUri_HSTRING* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__FIMapView_2_Windows__CFoundation__CUri_HSTRING* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__FIMapView_2_Windows__CFoundation__CUri_HSTRING* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* Lookup)(__FIMapView_2_Windows__CFoundation__CUri_HSTRING* This,
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass* key,
+        HSTRING* result);
+    HRESULT (STDMETHODCALLTYPE* get_Size)(__FIMapView_2_Windows__CFoundation__CUri_HSTRING* This,
+        UINT32* result);
+    HRESULT (STDMETHODCALLTYPE* HasKey)(__FIMapView_2_Windows__CFoundation__CUri_HSTRING* This,
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass* key,
+        boolean* result);
+    HRESULT (STDMETHODCALLTYPE* Split)(__FIMapView_2_Windows__CFoundation__CUri_HSTRING* This,
+        __FIMapView_2_Windows__CFoundation__CUri_HSTRING** first,
+        __FIMapView_2_Windows__CFoundation__CUri_HSTRING** second);
+
+    END_INTERFACE
+} __FIMapView_2_Windows__CFoundation__CUri_HSTRINGVtbl;
+
+interface __FIMapView_2_Windows__CFoundation__CUri_HSTRING
+{
+    CONST_VTBL struct __FIMapView_2_Windows__CFoundation__CUri_HSTRINGVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __FIMapView_2_Windows__CFoundation__CUri_HSTRING_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __FIMapView_2_Windows__CFoundation__CUri_HSTRING_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __FIMapView_2_Windows__CFoundation__CUri_HSTRING_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __FIMapView_2_Windows__CFoundation__CUri_HSTRING_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __FIMapView_2_Windows__CFoundation__CUri_HSTRING_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __FIMapView_2_Windows__CFoundation__CUri_HSTRING_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __FIMapView_2_Windows__CFoundation__CUri_HSTRING_Lookup(This, key, result) \
+    ((This)->lpVtbl->Lookup(This, key, result))
+
+#define __FIMapView_2_Windows__CFoundation__CUri_HSTRING_get_Size(This, result) \
+    ((This)->lpVtbl->get_Size(This, result))
+
+#define __FIMapView_2_Windows__CFoundation__CUri_HSTRING_HasKey(This, key, result) \
+    ((This)->lpVtbl->HasKey(This, key, result))
+
+#define __FIMapView_2_Windows__CFoundation__CUri_HSTRING_Split(This, first, second) \
+    ((This)->lpVtbl->Split(This, first, second))
+
+#endif /* COBJMACROS */
+
+#endif // ____FIMapView_2_Windows__CFoundation__CUri_HSTRING_INTERFACE_DEFINED__
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
+#if !defined(____FIMap_2_Windows__CFoundation__CUri_HSTRING_INTERFACE_DEFINED__)
+#define ____FIMap_2_Windows__CFoundation__CUri_HSTRING_INTERFACE_DEFINED__
+
+typedef interface __FIMap_2_Windows__CFoundation__CUri_HSTRING __FIMap_2_Windows__CFoundation__CUri_HSTRING;
+
+//  Declare the parameterized interface IID.
+EXTERN_C const IID IID___FIMap_2_Windows__CFoundation__CUri_HSTRING;
+
+typedef struct __FIMap_2_Windows__CFoundation__CUri_HSTRINGVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIMap_2_Windows__CFoundation__CUri_HSTRING* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__FIMap_2_Windows__CFoundation__CUri_HSTRING* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__FIMap_2_Windows__CFoundation__CUri_HSTRING* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__FIMap_2_Windows__CFoundation__CUri_HSTRING* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__FIMap_2_Windows__CFoundation__CUri_HSTRING* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__FIMap_2_Windows__CFoundation__CUri_HSTRING* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* Lookup)(__FIMap_2_Windows__CFoundation__CUri_HSTRING* This,
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass* key,
+        HSTRING* result);
+    HRESULT (STDMETHODCALLTYPE* get_Size)(__FIMap_2_Windows__CFoundation__CUri_HSTRING* This,
+        UINT32* result);
+    HRESULT (STDMETHODCALLTYPE* HasKey)(__FIMap_2_Windows__CFoundation__CUri_HSTRING* This,
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass* key,
+        boolean* result);
+    HRESULT (STDMETHODCALLTYPE* GetView)(__FIMap_2_Windows__CFoundation__CUri_HSTRING* This,
+        __FIMapView_2_Windows__CFoundation__CUri_HSTRING** result);
+    HRESULT (STDMETHODCALLTYPE* Insert)(__FIMap_2_Windows__CFoundation__CUri_HSTRING* This,
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass* key,
+        HSTRING value,
+        boolean* result);
+    HRESULT (STDMETHODCALLTYPE* Remove)(__FIMap_2_Windows__CFoundation__CUri_HSTRING* This,
+        __x_ABI_CWindows_CFoundation_CIUriRuntimeClass* key);
+    HRESULT (STDMETHODCALLTYPE* Clear)(__FIMap_2_Windows__CFoundation__CUri_HSTRING* This);
+
+    END_INTERFACE
+} __FIMap_2_Windows__CFoundation__CUri_HSTRINGVtbl;
+
+interface __FIMap_2_Windows__CFoundation__CUri_HSTRING
+{
+    CONST_VTBL struct __FIMap_2_Windows__CFoundation__CUri_HSTRINGVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __FIMap_2_Windows__CFoundation__CUri_HSTRING_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __FIMap_2_Windows__CFoundation__CUri_HSTRING_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __FIMap_2_Windows__CFoundation__CUri_HSTRING_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __FIMap_2_Windows__CFoundation__CUri_HSTRING_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __FIMap_2_Windows__CFoundation__CUri_HSTRING_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __FIMap_2_Windows__CFoundation__CUri_HSTRING_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __FIMap_2_Windows__CFoundation__CUri_HSTRING_Lookup(This, key, result) \
+    ((This)->lpVtbl->Lookup(This, key, result))
+
+#define __FIMap_2_Windows__CFoundation__CUri_HSTRING_get_Size(This, result) \
+    ((This)->lpVtbl->get_Size(This, result))
+
+#define __FIMap_2_Windows__CFoundation__CUri_HSTRING_HasKey(This, key, result) \
+    ((This)->lpVtbl->HasKey(This, key, result))
+
+#define __FIMap_2_Windows__CFoundation__CUri_HSTRING_GetView(This, result) \
+    ((This)->lpVtbl->GetView(This, result))
+
+#define __FIMap_2_Windows__CFoundation__CUri_HSTRING_Insert(This, key, value, result) \
+    ((This)->lpVtbl->Insert(This, key, value, result))
+
+#define __FIMap_2_Windows__CFoundation__CUri_HSTRING_Remove(This, key) \
+    ((This)->lpVtbl->Remove(This, key))
+
+#define __FIMap_2_Windows__CFoundation__CUri_HSTRING_Clear(This) \
+    ((This)->lpVtbl->Clear(This))
+
+#endif /* COBJMACROS */
+
+#endif // ____FIMap_2_Windows__CFoundation__CUri_HSTRING_INTERFACE_DEFINED__
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 
 #if !defined(____FIVectorView_1_HSTRING_INTERFACE_DEFINED__)
 #define ____FIVectorView_1_HSTRING_INTERFACE_DEFINED__
@@ -8387,6 +9097,85 @@ interface __x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions
 EXTERN_C const IID IID___x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions;
 #endif /* !defined(____x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+
+/*
+ *
+ * Interface Windows.Management.Deployment.IAddPackageOptions2
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 15.0
+ *
+ * Interface is a part of the implementation of type Windows.Management.Deployment.AddPackageOptions
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
+#if !defined(____x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Management_Deployment_IAddPackageOptions2[] = L"Windows.Management.Deployment.IAddPackageOptions2";
+typedef struct __x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2Vtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* get_ExpectedDigests)(__x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2* This,
+        __FIMap_2_Windows__CFoundation__CUri_HSTRING** value);
+    HRESULT (STDMETHODCALLTYPE* get_LimitToExistingPackages)(__x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2* This,
+        boolean* value);
+    HRESULT (STDMETHODCALLTYPE* put_LimitToExistingPackages)(__x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2* This,
+        boolean value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2Vtbl;
+
+interface __x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2
+{
+    CONST_VTBL struct __x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2_get_ExpectedDigests(This, value) \
+    ((This)->lpVtbl->get_ExpectedDigests(This, value))
+
+#define __x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2_get_LimitToExistingPackages(This, value) \
+    ((This)->lpVtbl->get_LimitToExistingPackages(This, value))
+
+#define __x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2_put_LimitToExistingPackages(This, value) \
+    ((This)->lpVtbl->put_LimitToExistingPackages(This, value))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2;
+#endif /* !defined(____x_ABI_CWindows_CManagement_CDeployment_CIAddPackageOptions2_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
 
 /*
  *
@@ -11110,6 +11899,75 @@ EXTERN_C const IID IID___x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackag
 
 /*
  *
+ * Interface Windows.Management.Deployment.IRegisterPackageOptions2
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 15.0
+ *
+ * Interface is a part of the implementation of type Windows.Management.Deployment.RegisterPackageOptions
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
+#if !defined(____x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Management_Deployment_IRegisterPackageOptions2[] = L"Windows.Management.Deployment.IRegisterPackageOptions2";
+typedef struct __x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2Vtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* get_ExpectedDigests)(__x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2* This,
+        __FIMap_2_Windows__CFoundation__CUri_HSTRING** value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2Vtbl;
+
+interface __x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2
+{
+    CONST_VTBL struct __x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2_get_ExpectedDigests(This, value) \
+    ((This)->lpVtbl->get_ExpectedDigests(This, value))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2;
+#endif /* !defined(____x_ABI_CWindows_CManagement_CDeployment_CIRegisterPackageOptions2_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
+
+/*
+ *
  * Interface Windows.Management.Deployment.ISharedPackageContainer
  *
  * Introduced to Windows.Management.Deployment.SharedPackageContainerContract in version 1.0
@@ -11689,6 +12547,75 @@ EXTERN_C const IID IID___x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOp
 
 /*
  *
+ * Interface Windows.Management.Deployment.IStagePackageOptions2
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 15.0
+ *
+ * Interface is a part of the implementation of type Windows.Management.Deployment.StagePackageOptions
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
+#if !defined(____x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_Management_Deployment_IStagePackageOptions2[] = L"Windows.Management.Deployment.IStagePackageOptions2";
+typedef struct __x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2Vtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* get_ExpectedDigests)(__x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2* This,
+        __FIMap_2_Windows__CFoundation__CUri_HSTRING** value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2Vtbl;
+
+interface __x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2
+{
+    CONST_VTBL struct __x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2_get_ExpectedDigests(This, value) \
+    ((This)->lpVtbl->get_ExpectedDigests(This, value))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2;
+#endif /* !defined(____x_ABI_CWindows_CManagement_CDeployment_CIStagePackageOptions2_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xf0000
+
+/*
+ *
  * Interface Windows.Management.Deployment.IUpdateSharedPackageContainerOptions
  *
  * Introduced to Windows.Management.Deployment.SharedPackageContainerContract in version 1.0
@@ -11856,6 +12783,7 @@ EXTERN_C const IID IID___x_ABI_CWindows_CManagement_CDeployment_CIUpdateSharedPa
  *
  * Class implements the following interfaces:
  *    Windows.Management.Deployment.IAddPackageOptions ** Default Interface **
+ *    Windows.Management.Deployment.IAddPackageOptions2
  *
  * Class Marshaling Behavior:  Agile - Class is agile
  *
@@ -12178,6 +13106,7 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * Class implements the following interfaces:
  *    Windows.Management.Deployment.IRegisterPackageOptions ** Default Interface **
+ *    Windows.Management.Deployment.IRegisterPackageOptions2
  *
  * Class Marshaling Behavior:  Agile - Class is agile
  *
@@ -12267,6 +13196,7 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * Class implements the following interfaces:
  *    Windows.Management.Deployment.IStagePackageOptions ** Default Interface **
+ *    Windows.Management.Deployment.IStagePackageOptions2
  *
  * Class Marshaling Behavior:  Agile - Class is agile
  *

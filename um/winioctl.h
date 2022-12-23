@@ -2182,11 +2182,11 @@ typedef union _STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE {
 
     struct {
 
-        DWORD RetainAsynEvent : 1;
-
-        DWORD LogSpecificField : 4;
-
-        DWORD Reserved : 27;
+        DWORD RetainAsynEvent   :  1;
+        DWORD LogSpecificField  :  4;
+        DWORD Reserved0         :  3;
+        DWORD UUIDIndex         :  7;
+        DWORD Reserved          : 17;
 
     } DUMMYSTRUCTNAME;
 
@@ -10947,6 +10947,8 @@ typedef enum _CHANGER_DEVICE_PROBLEM_TYPE {
 #if (NTDDI_VERSION >= NTDDI_WIN10_FE)
 #define FSCTL_SET_CACHED_RUNS_STATE             CTL_CODE(FILE_DEVICE_FILE_SYSTEM, 276, METHOD_BUFFERED, FILE_ANY_ACCESS)
 #endif
+
+#define FSCTL_LMR_QUERY_INFO     CTL_CODE(FILE_DEVICE_FILE_SYSTEM, 277, METHOD_BUFFERED, FILE_ANY_ACCESS)
 #if (NTDDI_VERSION >= NTDDI_WIN10_NI)
 #define FSCTL_REFS_SET_VOLUME_COMPRESSION_INFO    CTL_CODE(FILE_DEVICE_FILE_SYSTEM, 277, METHOD_BUFFERED, FILE_ANY_ACCESS)
 #define FSCTL_REFS_QUERY_VOLUME_COMPRESSION_INFO  CTL_CODE(FILE_DEVICE_FILE_SYSTEM, 278, METHOD_BUFFERED, FILE_ANY_ACCESS)
@@ -14661,6 +14663,25 @@ typedef struct _CSV_SET_VOLUME_ID {
 typedef struct _CSV_QUERY_VOLUME_ID {
     GUID VolumeId;
 } CSV_QUERY_VOLUME_ID, *PCSV_QUERY_VOLUME_ID;
+
+//
+//========================= FSCTL_LMR_QUERY_INFO =============================
+//
+
+typedef enum _LMR_QUERY_INFO_CLASS {
+    LMRQuerySessionInfo = 1,
+} LMR_QUERY_INFO_CLASS, *PLMR_QUERY_INFO_CLASS;
+
+typedef struct _LMR_QUERY_INFO_PARAM {
+    LMR_QUERY_INFO_CLASS Operation;
+} LMR_QUERY_INFO_PARAM, *PLMR_QUERY_INFO_PARAM;
+
+//
+// Output for the LMRQuerySessionInfo
+//
+typedef struct _LMR_QUERY_SESSION_INFO {
+    UINT64 SessionId;
+} LMR_QUERY_SESSION_INFO, *PLMR_QUERY_SESSION_INFO;
 
 //
 //====================== FSCTL_CSV_QUERY_VETO_FILE_DIRECT_IO =========================

@@ -11595,6 +11595,24 @@ Notes:
 #define STATUS_VRF_VOLATILE_SETTINGS_CONFLICT ((NTSTATUS)0xC0000C0FL)
 
 //
+// MessageId: STATUS_DIF_DRIVER_PLUGIN_MISMATCH
+//
+// MessageText:
+//
+// The given rule class ID is not registered by the caller.
+//
+#define STATUS_DIF_DRIVER_PLUGIN_MISMATCH ((NTSTATUS)0xC0000C74L)
+
+//
+// MessageId: STATUS_DIF_DRIVER_THUNKS_NOT_ALLOWED
+//
+// MessageText:
+//
+// Driver thunks are not added when kernel verification is in effect.
+//
+#define STATUS_DIF_DRIVER_THUNKS_NOT_ALLOWED ((NTSTATUS)0xC0000C75L)
+
+//
 // MessageId: STATUS_DIF_IOCALLBACK_NOT_REPLACED
 //
 // MessageText:
@@ -11934,6 +11952,15 @@ Notes:
 // The local account policy modification request was rejected because the policy is controlled by a regional authority.
 //
 #define STATUS_LOCAL_POLICY_MODIFICATION_NOT_SUPPORTED ((NTSTATUS)0xC000A08AL)
+
+//
+// MessageId: STATUS_POLICY_CONTROLLED_ACCOUNT
+//
+// MessageText:
+//
+// The account is controlled by external policy and cannot be modified.
+//
+#define STATUS_POLICY_CONTROLLED_ACCOUNT ((NTSTATUS)0xC000A08BL)
 
 /*++
 

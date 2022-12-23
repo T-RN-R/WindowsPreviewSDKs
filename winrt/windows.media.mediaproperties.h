@@ -1679,7 +1679,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IAudioEncodingProperties = _uuidof(IAudioEncodingProperties);
+                MIDL_CONST_ID IID& IID_IAudioEncodingProperties = __uuidof(IAudioEncodingProperties);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -1715,7 +1715,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IAudioEncodingProperties2 = _uuidof(IAudioEncodingProperties2);
+                MIDL_CONST_ID IID& IID_IAudioEncodingProperties2 = __uuidof(IAudioEncodingProperties2);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -1751,7 +1751,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IAudioEncodingProperties3 = _uuidof(IAudioEncodingProperties3);
+                MIDL_CONST_ID IID& IID_IAudioEncodingProperties3 = __uuidof(IAudioEncodingProperties3);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -1814,7 +1814,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IAudioEncodingPropertiesStatics = _uuidof(IAudioEncodingPropertiesStatics);
+                MIDL_CONST_ID IID& IID_IAudioEncodingPropertiesStatics = __uuidof(IAudioEncodingPropertiesStatics);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -1859,7 +1859,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IAudioEncodingPropertiesStatics2 = _uuidof(IAudioEncodingPropertiesStatics2);
+                MIDL_CONST_ID IID& IID_IAudioEncodingPropertiesStatics2 = __uuidof(IAudioEncodingPropertiesStatics2);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -1900,7 +1900,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IAudioEncodingPropertiesWithFormatUserData = _uuidof(IAudioEncodingPropertiesWithFormatUserData);
+                MIDL_CONST_ID IID& IID_IAudioEncodingPropertiesWithFormatUserData = __uuidof(IAudioEncodingPropertiesWithFormatUserData);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -1936,7 +1936,7 @@ namespace ABI {
                 public:
                 };
 
-                extern MIDL_CONST_ID IID& IID_IContainerEncodingProperties = _uuidof(IContainerEncodingProperties);
+                MIDL_CONST_ID IID& IID_IContainerEncodingProperties = __uuidof(IContainerEncodingProperties);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -1972,7 +1972,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IContainerEncodingProperties2 = _uuidof(IContainerEncodingProperties2);
+                MIDL_CONST_ID IID& IID_IContainerEncodingProperties2 = __uuidof(IContainerEncodingProperties2);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -2035,7 +2035,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IH264ProfileIdsStatics = _uuidof(IH264ProfileIdsStatics);
+                MIDL_CONST_ID IID& IID_IH264ProfileIdsStatics = __uuidof(IH264ProfileIdsStatics);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -2083,7 +2083,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IImageEncodingProperties = _uuidof(IImageEncodingProperties);
+                MIDL_CONST_ID IID& IID_IImageEncodingProperties = __uuidof(IImageEncodingProperties);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -2119,7 +2119,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IImageEncodingProperties2 = _uuidof(IImageEncodingProperties2);
+                MIDL_CONST_ID IID& IID_IImageEncodingProperties2 = __uuidof(IImageEncodingProperties2);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -2161,7 +2161,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IImageEncodingPropertiesStatics = _uuidof(IImageEncodingPropertiesStatics);
+                MIDL_CONST_ID IID& IID_IImageEncodingPropertiesStatics = __uuidof(IImageEncodingPropertiesStatics);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -2201,7 +2201,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IImageEncodingPropertiesStatics2 = _uuidof(IImageEncodingPropertiesStatics2);
+                MIDL_CONST_ID IID& IID_IImageEncodingPropertiesStatics2 = __uuidof(IImageEncodingPropertiesStatics2);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -2237,7 +2237,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IImageEncodingPropertiesStatics3 = _uuidof(IImageEncodingPropertiesStatics3);
+                MIDL_CONST_ID IID& IID_IImageEncodingPropertiesStatics3 = __uuidof(IImageEncodingPropertiesStatics3);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -2288,7 +2288,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IMediaEncodingProfile = _uuidof(IMediaEncodingProfile);
+                MIDL_CONST_ID IID& IID_IMediaEncodingProfile = __uuidof(IMediaEncodingProfile);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -2333,7 +2333,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IMediaEncodingProfile2 = _uuidof(IMediaEncodingProfile2);
+                MIDL_CONST_ID IID& IID_IMediaEncodingProfile2 = __uuidof(IMediaEncodingProfile2);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -2372,7 +2372,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IMediaEncodingProfile3 = _uuidof(IMediaEncodingProfile3);
+                MIDL_CONST_ID IID& IID_IMediaEncodingProfile3 = __uuidof(IMediaEncodingProfile3);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -2433,7 +2433,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IMediaEncodingProfileStatics = _uuidof(IMediaEncodingProfileStatics);
+                MIDL_CONST_ID IID& IID_IMediaEncodingProfileStatics = __uuidof(IMediaEncodingProfileStatics);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -2474,7 +2474,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IMediaEncodingProfileStatics2 = _uuidof(IMediaEncodingProfileStatics2);
+                MIDL_CONST_ID IID& IID_IMediaEncodingProfileStatics2 = __uuidof(IMediaEncodingProfileStatics2);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -2519,7 +2519,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IMediaEncodingProfileStatics3 = _uuidof(IMediaEncodingProfileStatics3);
+                MIDL_CONST_ID IID& IID_IMediaEncodingProfileStatics3 = __uuidof(IMediaEncodingProfileStatics3);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -2562,7 +2562,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IMediaEncodingProperties = _uuidof(IMediaEncodingProperties);
+                MIDL_CONST_ID IID& IID_IMediaEncodingProperties = __uuidof(IMediaEncodingProperties);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -2715,7 +2715,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IMediaEncodingSubtypesStatics = _uuidof(IMediaEncodingSubtypesStatics);
+                MIDL_CONST_ID IID& IID_IMediaEncodingSubtypesStatics = __uuidof(IMediaEncodingSubtypesStatics);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -2760,7 +2760,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IMediaEncodingSubtypesStatics2 = _uuidof(IMediaEncodingSubtypesStatics2);
+                MIDL_CONST_ID IID& IID_IMediaEncodingSubtypesStatics2 = __uuidof(IMediaEncodingSubtypesStatics2);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -2799,7 +2799,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IMediaEncodingSubtypesStatics3 = _uuidof(IMediaEncodingSubtypesStatics3);
+                MIDL_CONST_ID IID& IID_IMediaEncodingSubtypesStatics3 = __uuidof(IMediaEncodingSubtypesStatics3);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -2835,7 +2835,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IMediaEncodingSubtypesStatics4 = _uuidof(IMediaEncodingSubtypesStatics4);
+                MIDL_CONST_ID IID& IID_IMediaEncodingSubtypesStatics4 = __uuidof(IMediaEncodingSubtypesStatics4);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -2871,7 +2871,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IMediaEncodingSubtypesStatics5 = _uuidof(IMediaEncodingSubtypesStatics5);
+                MIDL_CONST_ID IID& IID_IMediaEncodingSubtypesStatics5 = __uuidof(IMediaEncodingSubtypesStatics5);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -2916,7 +2916,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IMediaEncodingSubtypesStatics6 = _uuidof(IMediaEncodingSubtypesStatics6);
+                MIDL_CONST_ID IID& IID_IMediaEncodingSubtypesStatics6 = __uuidof(IMediaEncodingSubtypesStatics6);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -2961,7 +2961,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IMediaRatio = _uuidof(IMediaRatio);
+                MIDL_CONST_ID IID& IID_IMediaRatio = __uuidof(IMediaRatio);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -3009,7 +3009,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IMpeg2ProfileIdsStatics = _uuidof(IMpeg2ProfileIdsStatics);
+                MIDL_CONST_ID IID& IID_IMpeg2ProfileIdsStatics = __uuidof(IMpeg2ProfileIdsStatics);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -3053,7 +3053,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_ITimedMetadataEncodingProperties = _uuidof(ITimedMetadataEncodingProperties);
+                MIDL_CONST_ID IID& IID_ITimedMetadataEncodingProperties = __uuidof(ITimedMetadataEncodingProperties);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -3102,7 +3102,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_ITimedMetadataEncodingPropertiesStatics = _uuidof(ITimedMetadataEncodingPropertiesStatics);
+                MIDL_CONST_ID IID& IID_ITimedMetadataEncodingPropertiesStatics = __uuidof(ITimedMetadataEncodingPropertiesStatics);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -3162,7 +3162,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IVideoEncodingProperties = _uuidof(IVideoEncodingProperties);
+                MIDL_CONST_ID IID& IID_IVideoEncodingProperties = __uuidof(IVideoEncodingProperties);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -3209,7 +3209,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IVideoEncodingProperties2 = _uuidof(IVideoEncodingProperties2);
+                MIDL_CONST_ID IID& IID_IVideoEncodingProperties2 = __uuidof(IVideoEncodingProperties2);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -3245,7 +3245,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IVideoEncodingProperties3 = _uuidof(IVideoEncodingProperties3);
+                MIDL_CONST_ID IID& IID_IVideoEncodingProperties3 = __uuidof(IVideoEncodingProperties3);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -3281,7 +3281,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IVideoEncodingProperties4 = _uuidof(IVideoEncodingProperties4);
+                MIDL_CONST_ID IID& IID_IVideoEncodingProperties4 = __uuidof(IVideoEncodingProperties4);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -3317,7 +3317,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IVideoEncodingProperties5 = _uuidof(IVideoEncodingProperties5);
+                MIDL_CONST_ID IID& IID_IVideoEncodingProperties5 = __uuidof(IVideoEncodingProperties5);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -3362,7 +3362,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IVideoEncodingPropertiesStatics = _uuidof(IVideoEncodingPropertiesStatics);
+                MIDL_CONST_ID IID& IID_IVideoEncodingPropertiesStatics = __uuidof(IVideoEncodingPropertiesStatics);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -3398,7 +3398,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IVideoEncodingPropertiesStatics2 = _uuidof(IVideoEncodingPropertiesStatics2);
+                MIDL_CONST_ID IID& IID_IVideoEncodingPropertiesStatics2 = __uuidof(IVideoEncodingPropertiesStatics2);
             } /* MediaProperties */
         } /* Media */
     } /* Windows */
@@ -3498,8 +3498,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * RuntimeClass contains static methods.
  *   Static Methods exist on the Windows.Media.MediaProperties.IImageEncodingPropertiesStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.Media.MediaProperties.IImageEncodingPropertiesStatics3 interface starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Media.MediaProperties.IImageEncodingPropertiesStatics2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Media.MediaProperties.IImageEncodingPropertiesStatics3 interface starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Media.MediaProperties.IImageEncodingProperties ** Default Interface **
@@ -3529,8 +3529,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * RuntimeClass contains static methods.
  *   Static Methods exist on the Windows.Media.MediaProperties.IMediaEncodingProfileStatics2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.Media.MediaProperties.IMediaEncodingProfileStatics3 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Media.MediaProperties.IMediaEncodingProfileStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Media.MediaProperties.IMediaEncodingProfileStatics3 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Media.MediaProperties.IMediaEncodingProfile ** Default Interface **
@@ -3556,12 +3556,12 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics6 interface starting with version 10.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics2 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics5 interface starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics3 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics4 interface starting with version 6.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics3 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics6 interface starting with version 10.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics5 interface starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics2 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
@@ -3680,8 +3680,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *   Type can be activated via RoActivateInstance starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Media.MediaProperties.IVideoEncodingPropertiesStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Media.MediaProperties.IVideoEncodingPropertiesStatics2 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Media.MediaProperties.IVideoEncodingPropertiesStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Media.MediaProperties.IVideoEncodingProperties ** Default Interface **
@@ -9056,8 +9056,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * RuntimeClass contains static methods.
  *   Static Methods exist on the Windows.Media.MediaProperties.IImageEncodingPropertiesStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.Media.MediaProperties.IImageEncodingPropertiesStatics3 interface starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Media.MediaProperties.IImageEncodingPropertiesStatics2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Media.MediaProperties.IImageEncodingPropertiesStatics3 interface starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Media.MediaProperties.IImageEncodingProperties ** Default Interface **
@@ -9087,8 +9087,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *
  * RuntimeClass contains static methods.
  *   Static Methods exist on the Windows.Media.MediaProperties.IMediaEncodingProfileStatics2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.Media.MediaProperties.IMediaEncodingProfileStatics3 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Media.MediaProperties.IMediaEncodingProfileStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Media.MediaProperties.IMediaEncodingProfileStatics3 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Media.MediaProperties.IMediaEncodingProfile ** Default Interface **
@@ -9114,12 +9114,12 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics6 interface starting with version 10.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics2 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics5 interface starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics3 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics4 interface starting with version 6.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics3 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics6 interface starting with version 10.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics5 interface starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics2 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
@@ -9238,8 +9238,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *   Type can be activated via RoActivateInstance starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Media.MediaProperties.IVideoEncodingPropertiesStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Media.MediaProperties.IVideoEncodingPropertiesStatics2 interface starting with version 4.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Media.MediaProperties.IVideoEncodingPropertiesStatics interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Media.MediaProperties.IVideoEncodingProperties ** Default Interface **

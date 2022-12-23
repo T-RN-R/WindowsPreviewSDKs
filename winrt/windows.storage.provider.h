@@ -1922,7 +1922,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_ICachedFileUpdaterStatics = _uuidof(ICachedFileUpdaterStatics);
+                MIDL_CONST_ID IID& IID_ICachedFileUpdaterStatics = __uuidof(ICachedFileUpdaterStatics);
             } /* Provider */
         } /* Storage */
     } /* Windows */
@@ -1981,7 +1981,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_ICachedFileUpdaterUI = _uuidof(ICachedFileUpdaterUI);
+                MIDL_CONST_ID IID& IID_ICachedFileUpdaterUI = __uuidof(ICachedFileUpdaterUI);
             } /* Provider */
         } /* Storage */
     } /* Windows */
@@ -2023,7 +2023,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_ICachedFileUpdaterUI2 = _uuidof(ICachedFileUpdaterUI2);
+                MIDL_CONST_ID IID& IID_ICachedFileUpdaterUI2 = __uuidof(ICachedFileUpdaterUI2);
             } /* Provider */
         } /* Storage */
     } /* Windows */
@@ -2074,7 +2074,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IFileUpdateRequest = _uuidof(IFileUpdateRequest);
+                MIDL_CONST_ID IID& IID_IFileUpdateRequest = __uuidof(IFileUpdateRequest);
             } /* Provider */
         } /* Storage */
     } /* Windows */
@@ -2116,7 +2116,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IFileUpdateRequest2 = _uuidof(IFileUpdateRequest2);
+                MIDL_CONST_ID IID& IID_IFileUpdateRequest2 = __uuidof(IFileUpdateRequest2);
             } /* Provider */
         } /* Storage */
     } /* Windows */
@@ -2150,7 +2150,7 @@ namespace ABI {
                     virtual HRESULT STDMETHODCALLTYPE Complete(void) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IFileUpdateRequestDeferral = _uuidof(IFileUpdateRequestDeferral);
+                MIDL_CONST_ID IID& IID_IFileUpdateRequestDeferral = __uuidof(IFileUpdateRequestDeferral);
             } /* Provider */
         } /* Storage */
     } /* Windows */
@@ -2186,7 +2186,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IFileUpdateRequestedEventArgs = _uuidof(IFileUpdateRequestedEventArgs);
+                MIDL_CONST_ID IID& IID_IFileUpdateRequestedEventArgs = __uuidof(IFileUpdateRequestedEventArgs);
             } /* Provider */
         } /* Storage */
     } /* Windows */
@@ -2225,7 +2225,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IStorageProviderFileTypeInfo = _uuidof(IStorageProviderFileTypeInfo);
+                MIDL_CONST_ID IID& IID_IStorageProviderFileTypeInfo = __uuidof(IStorageProviderFileTypeInfo);
             } /* Provider */
         } /* Storage */
     } /* Windows */
@@ -2263,7 +2263,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IStorageProviderFileTypeInfoFactory = _uuidof(IStorageProviderFileTypeInfoFactory);
+                MIDL_CONST_ID IID& IID_IStorageProviderFileTypeInfoFactory = __uuidof(IStorageProviderFileTypeInfoFactory);
             } /* Provider */
         } /* Storage */
     } /* Windows */
@@ -2314,7 +2314,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IStorageProviderGetContentInfoForPathResult = _uuidof(IStorageProviderGetContentInfoForPathResult);
+                MIDL_CONST_ID IID& IID_IStorageProviderGetContentInfoForPathResult = __uuidof(IStorageProviderGetContentInfoForPathResult);
             } /* Provider */
         } /* Storage */
     } /* Windows */
@@ -2359,7 +2359,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IStorageProviderGetPathForContentUriResult = _uuidof(IStorageProviderGetPathForContentUriResult);
+                MIDL_CONST_ID IID& IID_IStorageProviderGetPathForContentUriResult = __uuidof(IStorageProviderGetPathForContentUriResult);
             } /* Provider */
         } /* Storage */
     } /* Windows */
@@ -2397,7 +2397,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IStorageProviderItemPropertiesStatics = _uuidof(IStorageProviderItemPropertiesStatics);
+                MIDL_CONST_ID IID& IID_IStorageProviderItemPropertiesStatics = __uuidof(IStorageProviderItemPropertiesStatics);
             } /* Provider */
         } /* Storage */
     } /* Windows */
@@ -2448,7 +2448,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IStorageProviderItemProperty = _uuidof(IStorageProviderItemProperty);
+                MIDL_CONST_ID IID& IID_IStorageProviderItemProperty = __uuidof(IStorageProviderItemProperty);
             } /* Provider */
         } /* Storage */
     } /* Windows */
@@ -2493,7 +2493,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IStorageProviderItemPropertyDefinition = _uuidof(IStorageProviderItemPropertyDefinition);
+                MIDL_CONST_ID IID& IID_IStorageProviderItemPropertyDefinition = __uuidof(IStorageProviderItemPropertyDefinition);
             } /* Provider */
         } /* Storage */
     } /* Windows */
@@ -2528,7 +2528,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IStorageProviderItemPropertySource = _uuidof(IStorageProviderItemPropertySource);
+                MIDL_CONST_ID IID& IID_IStorageProviderItemPropertySource = __uuidof(IStorageProviderItemPropertySource);
             } /* Provider */
         } /* Storage */
     } /* Windows */
@@ -2573,7 +2573,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IStorageProviderMoreInfoUI = _uuidof(IStorageProviderMoreInfoUI);
+                MIDL_CONST_ID IID& IID_IStorageProviderMoreInfoUI = __uuidof(IStorageProviderMoreInfoUI);
             } /* Provider */
         } /* Storage */
     } /* Windows */
@@ -2608,7 +2608,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IStorageProviderPropertyCapabilities = _uuidof(IStorageProviderPropertyCapabilities);
+                MIDL_CONST_ID IID& IID_IStorageProviderPropertyCapabilities = __uuidof(IStorageProviderPropertyCapabilities);
             } /* Provider */
         } /* Storage */
     } /* Windows */
@@ -2665,7 +2665,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IStorageProviderQuotaUI = _uuidof(IStorageProviderQuotaUI);
+                MIDL_CONST_ID IID& IID_IStorageProviderQuotaUI = __uuidof(IStorageProviderQuotaUI);
             } /* Provider */
         } /* Storage */
     } /* Windows */
@@ -2746,7 +2746,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IStorageProviderStatusUI = _uuidof(IStorageProviderStatusUI);
+                MIDL_CONST_ID IID& IID_IStorageProviderStatusUI = __uuidof(IStorageProviderStatusUI);
             } /* Provider */
         } /* Storage */
     } /* Windows */
@@ -2787,7 +2787,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IStorageProviderStatusUISource = _uuidof(IStorageProviderStatusUISource);
+                MIDL_CONST_ID IID& IID_IStorageProviderStatusUISource = __uuidof(IStorageProviderStatusUISource);
             } /* Provider */
         } /* Storage */
     } /* Windows */
@@ -2822,7 +2822,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IStorageProviderStatusUISourceFactory = _uuidof(IStorageProviderStatusUISourceFactory);
+                MIDL_CONST_ID IID& IID_IStorageProviderStatusUISourceFactory = __uuidof(IStorageProviderStatusUISourceFactory);
             } /* Provider */
         } /* Storage */
     } /* Windows */
@@ -2948,7 +2948,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IStorageProviderSyncRootInfo = _uuidof(IStorageProviderSyncRootInfo);
+                MIDL_CONST_ID IID& IID_IStorageProviderSyncRootInfo = __uuidof(IStorageProviderSyncRootInfo);
             } /* Provider */
         } /* Storage */
     } /* Windows */
@@ -2987,7 +2987,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IStorageProviderSyncRootInfo2 = _uuidof(IStorageProviderSyncRootInfo2);
+                MIDL_CONST_ID IID& IID_IStorageProviderSyncRootInfo2 = __uuidof(IStorageProviderSyncRootInfo2);
             } /* Provider */
         } /* Storage */
     } /* Windows */
@@ -3023,7 +3023,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IStorageProviderSyncRootInfo3 = _uuidof(IStorageProviderSyncRootInfo3);
+                MIDL_CONST_ID IID& IID_IStorageProviderSyncRootInfo3 = __uuidof(IStorageProviderSyncRootInfo3);
             } /* Provider */
         } /* Storage */
     } /* Windows */
@@ -3073,7 +3073,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IStorageProviderSyncRootManagerStatics = _uuidof(IStorageProviderSyncRootManagerStatics);
+                MIDL_CONST_ID IID& IID_IStorageProviderSyncRootManagerStatics = __uuidof(IStorageProviderSyncRootManagerStatics);
             } /* Provider */
         } /* Storage */
     } /* Windows */
@@ -3109,7 +3109,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IStorageProviderSyncRootManagerStatics2 = _uuidof(IStorageProviderSyncRootManagerStatics2);
+                MIDL_CONST_ID IID& IID_IStorageProviderSyncRootManagerStatics2 = __uuidof(IStorageProviderSyncRootManagerStatics2);
             } /* Provider */
         } /* Storage */
     } /* Windows */
@@ -3153,7 +3153,7 @@ namespace ABI {
                     virtual HRESULT STDMETHODCALLTYPE Invoke(void) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IStorageProviderUICommand = _uuidof(IStorageProviderUICommand);
+                MIDL_CONST_ID IID& IID_IStorageProviderUICommand = __uuidof(IStorageProviderUICommand);
             } /* Provider */
         } /* Storage */
     } /* Windows */
@@ -3192,7 +3192,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IStorageProviderUriSource = _uuidof(IStorageProviderUriSource);
+                MIDL_CONST_ID IID& IID_IStorageProviderUriSource = __uuidof(IStorageProviderUriSource);
             } /* Provider */
         } /* Storage */
     } /* Windows */

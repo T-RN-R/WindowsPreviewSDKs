@@ -1228,7 +1228,7 @@ namespace ABI {
                     virtual HRESULT STDMETHODCALLTYPE CancelAsyncOperations(void) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IAtomPubClient = _uuidof(IAtomPubClient);
+                MIDL_CONST_ID IID& IID_IAtomPubClient = __uuidof(IAtomPubClient);
             } /* AtomPub */
         } /* Web */
     } /* Windows */
@@ -1265,7 +1265,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IAtomPubClientFactory = _uuidof(IAtomPubClientFactory);
+                MIDL_CONST_ID IID& IID_IAtomPubClientFactory = __uuidof(IAtomPubClientFactory);
             } /* AtomPub */
         } /* Web */
     } /* Windows */
@@ -1313,7 +1313,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IResourceCollection = _uuidof(IResourceCollection);
+                MIDL_CONST_ID IID& IID_IResourceCollection = __uuidof(IResourceCollection);
             } /* AtomPub */
         } /* Web */
     } /* Windows */
@@ -1352,7 +1352,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IServiceDocument = _uuidof(IServiceDocument);
+                MIDL_CONST_ID IID& IID_IServiceDocument = __uuidof(IServiceDocument);
             } /* AtomPub */
         } /* Web */
     } /* Windows */
@@ -1394,7 +1394,7 @@ namespace ABI {
                         ) = 0;
                 };
 
-                extern MIDL_CONST_ID IID& IID_IWorkspace = _uuidof(IWorkspace);
+                MIDL_CONST_ID IID& IID_IWorkspace = __uuidof(IWorkspace);
             } /* AtomPub */
         } /* Web */
     } /* Windows */
@@ -1411,8 +1411,8 @@ EXTERN_C const IID IID___x_ABI_CWindows_CWeb_CAtomPub_CIWorkspace;
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass can be activated.
- *   Type can be activated via the Windows.Web.AtomPub.IAtomPubClientFactory interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Type can be activated via RoActivateInstance starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Type can be activated via the Windows.Web.AtomPub.IAtomPubClientFactory interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Web.AtomPub.IAtomPubClient ** Default Interface **
@@ -3897,8 +3897,8 @@ EXTERN_C const IID IID___x_ABI_CWindows_CWeb_CAtomPub_CIWorkspace;
  * Introduced to Windows.Foundation.UniversalApiContract in version 1.0
  *
  * RuntimeClass can be activated.
- *   Type can be activated via the Windows.Web.AtomPub.IAtomPubClientFactory interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Type can be activated via RoActivateInstance starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Type can be activated via the Windows.Web.AtomPub.IAtomPubClientFactory interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Web.AtomPub.IAtomPubClient ** Default Interface **

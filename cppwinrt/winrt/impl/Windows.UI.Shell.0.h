@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.220110.5
+// C++/WinRT v2.0.220418.1
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -13,7 +13,6 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Core
 WINRT_EXPORT namespace winrt::Windows::Foundation
 {
     struct EventRegistrationToken;
-    template <typename TResult> struct __declspec(empty_bases) IAsyncOperation;
     template <typename TSender, typename TResult> struct __declspec(empty_bases) TypedEventHandler;
     struct Uri;
 }
@@ -247,7 +246,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Shell_IAdaptiveCard
     {
-        WINRT_IMPL_AUTO(hstring) ToJson() const;
+        auto ToJson() const;
     };
     template <> struct consume<winrt::Windows::UI::Shell::IAdaptiveCard>
     {
@@ -256,7 +255,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Shell_IAdaptiveCardBuilderStatics
     {
-        WINRT_IMPL_AUTO(winrt::Windows::UI::Shell::IAdaptiveCard) CreateAdaptiveCardFromJson(param::hstring const& value) const;
+        auto CreateAdaptiveCardFromJson(param::hstring const& value) const;
     };
     template <> struct consume<winrt::Windows::UI::Shell::IAdaptiveCardBuilderStatics>
     {
@@ -265,8 +264,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Shell_IFocusSession
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(hstring) Id() const;
-        WINRT_IMPL_AUTO(void) End() const;
+        [[nodiscard]] auto Id() const;
+        auto End() const;
     };
     template <> struct consume<winrt::Windows::UI::Shell::IFocusSession>
     {
@@ -275,15 +274,15 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Shell_IFocusSessionManager
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsFocusActive() const;
-        WINRT_IMPL_AUTO(winrt::Windows::UI::Shell::FocusSession) GetSession(param::hstring const& id) const;
-        WINRT_IMPL_AUTO(winrt::Windows::UI::Shell::FocusSession) TryStartFocusSession() const;
-        WINRT_IMPL_AUTO(winrt::Windows::UI::Shell::FocusSession) TryStartFocusSession(winrt::Windows::Foundation::DateTime const& endTime) const;
-        WINRT_IMPL_AUTO(void) DeactivateFocus() const;
-        WINRT_IMPL_AUTO(winrt::event_token) IsFocusActiveChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::Shell::FocusSessionManager, winrt::Windows::Foundation::IInspectable> const& handler) const;
+        [[nodiscard]] auto IsFocusActive() const;
+        auto GetSession(param::hstring const& id) const;
+        auto TryStartFocusSession() const;
+        auto TryStartFocusSession(winrt::Windows::Foundation::DateTime const& endTime) const;
+        auto DeactivateFocus() const;
+        auto IsFocusActiveChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::Shell::FocusSessionManager, winrt::Windows::Foundation::IInspectable> const& handler) const;
         using IsFocusActiveChanged_revoker = impl::event_revoker<winrt::Windows::UI::Shell::IFocusSessionManager, &impl::abi_t<winrt::Windows::UI::Shell::IFocusSessionManager>::remove_IsFocusActiveChanged>;
         [[nodiscard]] IsFocusActiveChanged_revoker IsFocusActiveChanged(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::Shell::FocusSessionManager, winrt::Windows::Foundation::IInspectable> const& handler) const;
-        WINRT_IMPL_AUTO(void) IsFocusActiveChanged(winrt::event_token const& token) const noexcept;
+        auto IsFocusActiveChanged(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<winrt::Windows::UI::Shell::IFocusSessionManager>
     {
@@ -292,8 +291,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Shell_IFocusSessionManagerStatics
     {
-        WINRT_IMPL_AUTO(winrt::Windows::UI::Shell::FocusSessionManager) GetDefault() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSupported() const;
+        auto GetDefault() const;
+        [[nodiscard]] auto IsSupported() const;
     };
     template <> struct consume<winrt::Windows::UI::Shell::IFocusSessionManagerStatics>
     {
@@ -302,9 +301,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Shell_ISecurityAppManager
     {
-        WINRT_IMPL_AUTO(winrt::guid) Register(winrt::Windows::UI::Shell::SecurityAppKind const& kind, param::hstring const& displayName, winrt::Windows::Foundation::Uri const& detailsUri, bool registerPerUser) const;
-        WINRT_IMPL_AUTO(void) Unregister(winrt::Windows::UI::Shell::SecurityAppKind const& kind, winrt::guid const& guidRegistration) const;
-        WINRT_IMPL_AUTO(void) UpdateState(winrt::Windows::UI::Shell::SecurityAppKind const& kind, winrt::guid const& guidRegistration, winrt::Windows::UI::Shell::SecurityAppState const& state, winrt::Windows::UI::Shell::SecurityAppSubstatus const& substatus, winrt::Windows::Foundation::Uri const& detailsUri) const;
+        auto Register(winrt::Windows::UI::Shell::SecurityAppKind const& kind, param::hstring const& displayName, winrt::Windows::Foundation::Uri const& detailsUri, bool registerPerUser) const;
+        auto Unregister(winrt::Windows::UI::Shell::SecurityAppKind const& kind, winrt::guid const& guidRegistration) const;
+        auto UpdateState(winrt::Windows::UI::Shell::SecurityAppKind const& kind, winrt::guid const& guidRegistration, winrt::Windows::UI::Shell::SecurityAppState const& state, winrt::Windows::UI::Shell::SecurityAppSubstatus const& substatus, winrt::Windows::Foundation::Uri const& detailsUri) const;
     };
     template <> struct consume<winrt::Windows::UI::Shell::ISecurityAppManager>
     {
@@ -313,9 +312,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Shell_IShareWindowCommandEventArgs
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::UI::WindowId) WindowId() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(winrt::Windows::UI::Shell::ShareWindowCommand) Command() const;
-        WINRT_IMPL_AUTO(void) Command(winrt::Windows::UI::Shell::ShareWindowCommand const& value) const;
+        [[nodiscard]] auto WindowId() const;
+        [[nodiscard]] auto Command() const;
+        auto Command(winrt::Windows::UI::Shell::ShareWindowCommand const& value) const;
     };
     template <> struct consume<winrt::Windows::UI::Shell::IShareWindowCommandEventArgs>
     {
@@ -324,17 +323,17 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Shell_IShareWindowCommandSource
     {
-        WINRT_IMPL_AUTO(void) Start() const;
-        WINRT_IMPL_AUTO(void) Stop() const;
-        WINRT_IMPL_AUTO(void) ReportCommandChanged() const;
-        WINRT_IMPL_AUTO(winrt::event_token) CommandRequested(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::Shell::ShareWindowCommandSource, winrt::Windows::UI::Shell::ShareWindowCommandEventArgs> const& handler) const;
+        auto Start() const;
+        auto Stop() const;
+        auto ReportCommandChanged() const;
+        auto CommandRequested(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::Shell::ShareWindowCommandSource, winrt::Windows::UI::Shell::ShareWindowCommandEventArgs> const& handler) const;
         using CommandRequested_revoker = impl::event_revoker<winrt::Windows::UI::Shell::IShareWindowCommandSource, &impl::abi_t<winrt::Windows::UI::Shell::IShareWindowCommandSource>::remove_CommandRequested>;
         [[nodiscard]] CommandRequested_revoker CommandRequested(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::Shell::ShareWindowCommandSource, winrt::Windows::UI::Shell::ShareWindowCommandEventArgs> const& handler) const;
-        WINRT_IMPL_AUTO(void) CommandRequested(winrt::event_token const& token) const noexcept;
-        WINRT_IMPL_AUTO(winrt::event_token) CommandInvoked(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::Shell::ShareWindowCommandSource, winrt::Windows::UI::Shell::ShareWindowCommandEventArgs> const& handler) const;
+        auto CommandRequested(winrt::event_token const& token) const noexcept;
+        auto CommandInvoked(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::Shell::ShareWindowCommandSource, winrt::Windows::UI::Shell::ShareWindowCommandEventArgs> const& handler) const;
         using CommandInvoked_revoker = impl::event_revoker<winrt::Windows::UI::Shell::IShareWindowCommandSource, &impl::abi_t<winrt::Windows::UI::Shell::IShareWindowCommandSource>::remove_CommandInvoked>;
         [[nodiscard]] CommandInvoked_revoker CommandInvoked(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::Shell::ShareWindowCommandSource, winrt::Windows::UI::Shell::ShareWindowCommandEventArgs> const& handler) const;
-        WINRT_IMPL_AUTO(void) CommandInvoked(winrt::event_token const& token) const noexcept;
+        auto CommandInvoked(winrt::event_token const& token) const noexcept;
     };
     template <> struct consume<winrt::Windows::UI::Shell::IShareWindowCommandSource>
     {
@@ -343,7 +342,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Shell_IShareWindowCommandSourceStatics
     {
-        WINRT_IMPL_AUTO(winrt::Windows::UI::Shell::ShareWindowCommandSource) GetForCurrentView() const;
+        auto GetForCurrentView() const;
     };
     template <> struct consume<winrt::Windows::UI::Shell::IShareWindowCommandSourceStatics>
     {
@@ -352,12 +351,12 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Shell_ITaskbarManager
     {
-        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsSupported() const;
-        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsPinningAllowed() const;
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<bool>) IsCurrentAppPinnedAsync() const;
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<bool>) IsAppListEntryPinnedAsync(winrt::Windows::ApplicationModel::Core::AppListEntry const& appListEntry) const;
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<bool>) RequestPinCurrentAppAsync() const;
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<bool>) RequestPinAppListEntryAsync(winrt::Windows::ApplicationModel::Core::AppListEntry const& appListEntry) const;
+        [[nodiscard]] auto IsSupported() const;
+        [[nodiscard]] auto IsPinningAllowed() const;
+        auto IsCurrentAppPinnedAsync() const;
+        auto IsAppListEntryPinnedAsync(winrt::Windows::ApplicationModel::Core::AppListEntry const& appListEntry) const;
+        auto RequestPinCurrentAppAsync() const;
+        auto RequestPinAppListEntryAsync(winrt::Windows::ApplicationModel::Core::AppListEntry const& appListEntry) const;
     };
     template <> struct consume<winrt::Windows::UI::Shell::ITaskbarManager>
     {
@@ -366,9 +365,9 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Shell_ITaskbarManager2
     {
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<bool>) IsSecondaryTilePinnedAsync(param::hstring const& tileId) const;
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<bool>) RequestPinSecondaryTileAsync(winrt::Windows::UI::StartScreen::SecondaryTile const& secondaryTile) const;
-        WINRT_IMPL_AUTO(winrt::Windows::Foundation::IAsyncOperation<bool>) TryUnpinSecondaryTileAsync(param::hstring const& tileId) const;
+        auto IsSecondaryTilePinnedAsync(param::hstring const& tileId) const;
+        auto RequestPinSecondaryTileAsync(winrt::Windows::UI::StartScreen::SecondaryTile const& secondaryTile) const;
+        auto TryUnpinSecondaryTileAsync(param::hstring const& tileId) const;
     };
     template <> struct consume<winrt::Windows::UI::Shell::ITaskbarManager2>
     {
@@ -377,7 +376,7 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_UI_Shell_ITaskbarManagerStatics
     {
-        WINRT_IMPL_AUTO(winrt::Windows::UI::Shell::TaskbarManager) GetDefault() const;
+        auto GetDefault() const;
     };
     template <> struct consume<winrt::Windows::UI::Shell::ITaskbarManagerStatics>
     {

@@ -4609,6 +4609,15 @@ Notes:
 #define MDL_CACHE                        ((ULONG)0x000001F4L)
 
 //
+// MessageId: APPLICATION_HANG_KERNEL_LIVEDUMP
+//
+// MessageText:
+//
+//  APPLICATION_HANG_KERNEL_LIVEDUMP
+//
+#define APPLICATION_HANG_KERNEL_LIVEDUMP ((ULONG)0x000001F5L)
+
+//
 // MessageId: MISALIGNED_POINTER_PARAMETER
 //
 // MessageText:

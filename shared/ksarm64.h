@@ -464,7 +464,7 @@
 #define PrInstrumentationCallback 0x390
 #define PrMitigationFlags2 0xa94
 #define KernelProcessObjectLength 0x3f0
-#define ExecutiveProcessObjectLength 0xc80
+#define ExecutiveProcessObjectLength 0xd00
 #define Win32BatchFlushCallout 0x7
 
 //
@@ -501,7 +501,7 @@
 //
 
 #define EtCid 0x4e8
-#define EtPicoContext 0x650
+#define EtPicoContext 0x660
 
 #define ThType 0x0
 #define ThSize 0x2
@@ -569,7 +569,7 @@
 #define ThStackBase 0x38
 #define ThLegoData 0x2f0
 #define KernelThreadObjectLength 0x4a0
-#define ExecutiveThreadObjectLength 0x920
+#define ExecutiveThreadObjectLength 0x9f8
 
 
 //
@@ -727,7 +727,7 @@
 #define TeGuaranteedStackBytes 0x1748
 #define TeChpeV2CpuAreaInfo 0x1788
 #define TeFlsData 0x17c8
-#define ThreadEnvironmentBlockLength 0x1850
+#define ThreadEnvironmentBlockLength 0x1858
 #define CmThreadEnvironmentBlockOffset 0x2000
 #define TLS_MINIMUM_AVAILABLE 0x40
 #define TLS_EXPANSION_SLOTS 0x400
@@ -1552,8 +1552,6 @@
 #define FAST_FAIL_CONTROL_INVALID_RETURN_ADDRESS 0x39
 #define BASE_PRIORITY_THRESHOLD 0x8
 #define LOW_REALTIME_PRIORITY 0x10
-#define KERNEL_LARGE_STACK_COMMIT 0x8000
-#define KERNEL_LARGE_STACK_SIZE 0x12000
 #define DOUBLE_FAULT_STACK_SIZE 0x8000
 #define BREAKPOINT_BREAK 0x0
 #define BREAKPOINT_HW_BREAK 0x7
@@ -1882,6 +1880,19 @@
 #define PsbSelfMap 0x0
 #define PsbTiledTtb0 0x8
 #define ProcessorStartBlockLength 0x10
+
+//
+// Enclave call dispatch frame
+//
+
+#define EcFramePointer 0x0
+#define EcReturnAddress 0x8
+#define EcOriginalFramePointer 0x10
+#define EcOriginalReturn 0x18
+#define EcEnclaveNumber 0x20
+#define EcParameterAddress 0x28
+#define EcParameterValue 0x30
+#define EnclaveDispatchFrameLength 0x40
 
 //
 // EPROCESS
