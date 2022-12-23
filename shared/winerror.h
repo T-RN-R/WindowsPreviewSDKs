@@ -6116,13 +6116,22 @@
 #define ERROR_CERTIFICATE_VALIDATION_PREFERENCE_CONFLICT 817L
 
 //
+// MessageId: ERROR_FT_READ_FROM_COPY_FAILURE
+//
+// MessageText:
+//
+// The specified copy of the requested data could not be read.
+//
+#define ERROR_FT_READ_FROM_COPY_FAILURE  818L
+
+//
 // MessageId: ERROR_SECTION_DIRECT_MAP_ONLY
 //
 // MessageText:
 //
 // The section creation request was failed because it would have been satisfied with a direct map and the caller explicitly signified this was not wanted.
 //
-#define ERROR_SECTION_DIRECT_MAP_ONLY    818L
+#define ERROR_SECTION_DIRECT_MAP_ONLY    819L
 
 //
 // **** Available SYSTEM error codes ****
@@ -12668,6 +12677,15 @@
 // Enabling driver verification is not supported for a driver with  NMI callback(s) registered.
 //
 #define ERROR_VRF_VOLATILE_NMI_REGISTERED 3086L
+
+//
+// MessageId: ERROR_VRF_VOLATILE_SETTINGS_CONFLICT
+//
+// MessageText:
+//
+// Volatile verification settings cannot be changed when verification is enabled from boot or DIF volatile verification is enabled.
+//
+#define ERROR_VRF_VOLATILE_SETTINGS_CONFLICT 3087L
 
 //
 // MessageId: ERROR_DIF_LIVEDUMP_LIMIT_EXCEEDED

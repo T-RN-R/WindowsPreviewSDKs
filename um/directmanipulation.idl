@@ -841,6 +841,145 @@ interface IExpDirectManipulationCompositor : IUnknown
         [in, annotation("_In_")] IUnknown* compositor,
         [out, annotation("_Outptr_")] IUnknown** sharedInteraction);
 }
+
+// Defines the parametric curve types
+typedef enum EXP_DIRECTMANIPULATION_PARAMETRIC_TYPE
+{
+    DIRECTMANIPULATION_PARAMETRIC_NONE = 0x00000,  // None
+    DIRECTMANIPULATION_PARAMETRIC_TRANSLATEX = 0x00001,  // Total Translation in the horizontal axis
+    DIRECTMANIPULATION_PARAMETRIC_TRANSLATEY = 0x00002,  // Total Translation in the vertical axis
+    DIRECTMANIPULATION_PARAMETRIC_ZOOM = 0x00004,  // Zoom
+    DIRECTMANIPULATION_PARAMETRIC_ZOOMX = 0x00040,  // Zoom in the horizontal axis
+    DIRECTMANIPULATION_PARAMETRIC_ZOOMY = 0x00080,  // Zoom in the vertical axis
+    DIRECTMANIPULATION_PARAMETRIC_PANX = 0x00100,  // Amount panned in the horizontal axis
+    DIRECTMANIPULATION_PARAMETRIC_PANY = 0x00200,  // Amount panned in the vertical axis
+    DIRECTMANIPULATION_PARAMETRIC_VELOCITY_TRANSLATEX = 0x10001,  // Rate of change of TranslateX, in milliseconds
+    DIRECTMANIPULATION_PARAMETRIC_VELOCITY_TRANSLATEY = 0x10002,  // Rate of change of TranslateY, in milliseconds
+    DIRECTMANIPULATION_PARAMETRIC_VELOCITY_ZOOM = 0x10004,  // Rate of change of Zoom, in milliseconds
+    DIRECTMANIPULATION_PARAMETRIC_VELOCITY_PANX = 0x10100,  // Rate of change of PanX, in milliseconds
+    DIRECTMANIPULATION_PARAMETRIC_VELOCITY_PANY = 0x10200   // Rate of change of PanY, in milliseconds
+} DIRECTMANIPULATION_PARAMETRIC_TYPE;
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS(DIRECTMANIPULATION_PARAMETRIC_TYPE)")
+
+// Defines a Direct Manipulation parametric motion behavior. (Experimental)
+// This defines the motion of a content using parametric motion curve(s)
+[
+    local,
+    object,
+    uuid(28C7F993-D655-4CFD-AF37-85E9854D44A3),
+    helpstring("IExpDirectManipulationParametricMotionBehavior Interface"),
+    pointer_default(unique)
+]
+interface IExpDirectManipulationParametricMotionBehavior : IUnknown
+{
+    // Creates a parametric motion curve object that can be configured and applied on a parametric motion behavior object.
+    // The retrieved object implements IDirectManipulationParametricMotionCurve.
+    HRESULT CreateCurve([in, annotation("_In_")] REFIID riid,
+        [out, iid_is(riid), retval, annotation("_COM_Outptr_")] void** object);
+
+
+    // Applies a parametric motion curve for the specified source-to-target property type mapping.
+    HRESULT ApplyCurves([in, annotation("_In_")] DWORD targetPropertyType,
+        [in, annotation("_In_")] DWORD sourcePropertyType,
+        [in, annotation("_In_reads_opt_(curveCount)")] IUnknown** curves,
+        [in, annotation("_In_")] DWORD curveCount);
+
+    // Notifies this object that its velocity estimation/accumulation is no longer valid, and resets it.
+    HRESULT ResetVelocity();
+}
+
+// Defines a Direct Manipulation primary instance of the content for a given viewport (Experimental)
+[
+    local,
+    object,
+    uuid(9AB0233D-77E7-4852-934B-648F88FE9B93),
+    helpstring("IExpDirectManipulationPrimaryContent Interface"),
+    pointer_default(unique)
+]
+interface IExpDirectManipulationPrimaryContent : IDirectManipulationPrimaryContent
+{
+    // Set the content transform to the provided value(s), by either animating or jumping
+    // immediately there.
+    HRESULT SetContentTransformValues(
+        [in, annotation("_In_reads_(valueCount)")] const DIRECTMANIPULATION_PARAMETRIC_TYPE* valuesRequested,
+        [in, annotation("_In_reads_(valueCount)")] const float* values,
+        [in, annotation("_In_")] const DWORD valueCount);
+}
+
+// Curve coordinate options
+typedef enum EXP_DIRECTMANIPULATION_CURVE_COORDINATE
+{
+    // The curve coordinates are evaluated in the content coordinate space, which are scaled during zoom.
+    // This is the default.
+    DIRECTMANIPULATION_CURVE_COORDINATE_SCALING = 0,
+
+    // The curve coordinates are evaluated in the viewport coordinate space and are not affected by zoom.
+    DIRECTMANIPULATION_CURVE_COORDINATE_STATIC = 1,
+
+} DIRECTMANIPULATION_CURVE_COORDINATE;
+
+// Parametric definition of motion curve that parametrically maps source motion values onto target motion values.
+[
+    local,
+    object,
+    uuid(52765DD7-B932-4747-9FD3-3C9EFEF979D7),
+    helpstring("IDirectManipulationParametricMotionCurve Interface"),
+    pointer_default(unique)
+]
+interface IExpDirectManipulationParametricMotionCurve : IUnknown
+{
+    // Sets the coordinate that transforms the source values before evaluating the curve.
+    // The staticOriginOffset and the scalingOriginOffset adjusted by the content-scale factor are both applied first.
+    // The optional offsetRange parameter specifies the minimum and maximum values for (staticOriginOffset + scalingOriginOffset * scale)
+    // The curve-coordinate determines how content-scale affects the source values before evaluating the curve.
+    HRESULT SetSourceCoordinate([in, annotation("_In_")] float staticOriginOffset,
+        [in, annotation("_In_")] float scalingOriginOffset,
+        [in, annotation("_In_reads_opt_(2)")] float* offsetRange,
+        [in, annotation("_In_")] DIRECTMANIPULATION_CURVE_COORDINATE curveCoordinate);
+
+    // Sets the coordinate that transforms the target values after evaluating the curve.
+    // The curve-coordinate determines how content-scale affects the target values after evaluating the curve.
+    HRESULT SetTargetCoordinate([in, annotation("_In_")] float staticOriginOffset,
+        [in, annotation("_In_")] float scalingOriginOffset,
+        [in, annotation("_In_reads_opt_(2)")] float* offsetRange,
+        [in, annotation("_In_")] DIRECTMANIPULATION_CURVE_COORDINATE curveCoordinate);
+
+    // Adds a curve-sgement consisting of contiguous line-segments formed by the given list of points in the
+    // curve-coordinate defined on this parametric motion curve object. The points are each given as a pair of
+    // consecutive source and target values.
+    HRESULT AddSegment([in, annotation("_In_reads_(arraySize)")] float* points,
+        [in, annotation("_In_")] DWORD arraySize);
+
+    // Adds a cubic-polynomial curve. The offsetSource offsets the source-values using the curve-coordinate defined
+    // on this parametric motion curve object. This offset also marks the beginning-offset of this curve.
+    HRESULT AddCubic([in, annotation("_In_")] float offsetSource,
+        [in, annotation("_In_")] float constantCoefficient,
+        [in, annotation("_In_")] float linearCoefficient,
+        [in, annotation("_In_")] float quadraticCoefficient,
+        [in, annotation("_In_")] float cubicCoefficient);
+
+    // Adds a hyperbolic tangent curve segment. The formula is:
+    // f(x) = ( tanh ( (x + offsetShift ) * offsetScale ) + resultShift ) * resultScale
+    // The offsetSource parameter marks the beginning offset of this curve but does not shift the curve in any way.
+    HRESULT AddTanh([in, annotation("_In_")] float offsetSource,
+        [in, annotation("_In_")] float offsetShift,
+        [in, annotation("_In_")] float offsetScale,
+        [in, annotation("_In_")] float resultShift,
+        [in, annotation("_In_")] float resultScale);
+
+    // Clears any curves set on this parametric motion curve object and resets the curve-coordinate to initial state.
+    HRESULT Reset();
+}
+
+// Class-id for creating secondary content or primary content parametric motion behavior.
+
+DMANIP_CLSID(
+    ParametricMotionBehavior,
+    { 8A7BD110-3F9D-472D-BA35-DDD2E0CE94A6 },
+    "0x8a7bd110, 0x3f9d, 0x472d, 0xba, 0x35, 0xdd, 0xd2, 0xe0, 0xce, 0x94, 0xa6",
+    { EB72F502-0028-4406-BA4F-FC3D4C06C1E9 },
+    "0xEB72F502, 0x0028, 0x4406, 0xBA, 0x4F, 0xFC, 0x3D, 0x4C, 0x06, 0xC1, 0xE9")
+
 #endif /*LIFTED_SDK*/
 
 

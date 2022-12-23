@@ -549,7 +549,7 @@ typedef struct _D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN
             };
         };
     };
-    D3DKMT_HANDLE                              Reserved;        // Unused
+    UINT                                       InkCookie;
     RECT                                       SourceRect;
     UINT                                       DestWidth;
     UINT                                       DestHeight;

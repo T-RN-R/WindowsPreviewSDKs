@@ -835,7 +835,9 @@ typedef struct {
         UCHAR   LogPageExtendedData     : 1;
         UCHAR   TelemetrySupport        : 1;
         UCHAR   PersistentEventLog      : 1;
-        UCHAR   Reserved                : 3;
+        UCHAR   Reserved0               : 1;
+        UCHAR   TelemetryDataArea4      : 1;
+        UCHAR   Reserved1               : 1;
     } LPA;                      // byte 261.    M - Log Page Attributes (LPA)
 
     UCHAR   ELPE;               // byte 262.    M - Error Log Page Entries (ELPE)
@@ -2075,7 +2077,7 @@ typedef union {
         ULONG   LID         : 8;        // Log Page Identifier (LID)
         ULONG   LSP         : 4;        // Log Specific Field (LSP)
         ULONG   Reserved0   : 3;
-        ULONG   RAE         : 1;        // Reset Asynchronous Event (RAE)
+        ULONG   RAE         : 1;        // Retain Asynchronous Event (RAE)
         ULONG   NUMDL       : 16;       // Number of Lower Dwords (NUMDL)
     } DUMMYSTRUCTNAME;
 
@@ -2200,7 +2202,10 @@ typedef struct _NVME_TELEMETRY_HOST_INITIATED_LOG {
     USHORT  Area1LastBlock;                     // Bytes 8-9
     USHORT  Area2LastBlock;                     // Bytes 10-11
     USHORT  Area3LastBlock;                     // Bytes 12-13
-    UCHAR   Reserved1[368];                     // Bytes 14-381
+    UCHAR   Reserved1[2];                       // Bytes 14-15
+    ULONG   Area4LastBlock;                     // Bytes 16-19
+    UCHAR   Reserved2[361];                     // Bytes 20-380
+    UCHAR   HostInitiatedDataGenerationNumber;  // Byte 381
     UCHAR   ControllerInitiatedDataAvailable;   // Byte 382
     UCHAR   ControllerInitiatedDataGenerationNumber; // Byte 383
     UCHAR   ReasonIdentifier[128];              // Bytes 384-511
@@ -2208,11 +2213,25 @@ typedef struct _NVME_TELEMETRY_HOST_INITIATED_LOG {
 } NVME_TELEMETRY_HOST_INITIATED_LOG, *PNVME_TELEMETRY_HOST_INITIATED_LOG;
 
 //
-// "Telemetry Controller-Initiated Log" structure has the same definition
-// with "Telemetry Host-Initiated Log" structure according to NVMe spec 1.3.
+// "Telemetry Controller-Initiated Log" structure definition.
 //
 
-typedef NVME_TELEMETRY_HOST_INITIATED_LOG NVME_TELEMETRY_CONTROLLER_INITIATED_LOG, *PNVME_TELEMETRY_CONTROLLER_INITIATED_LOG;
+typedef struct _NVME_TELEMETRY_CONTROLLER_INITIATED_LOG {
+
+    UCHAR   LogIdentifier;                      // Byte 0
+    UCHAR   Reserved0[4];                       // Bytes 1-4
+    UCHAR   OrganizationID[3];                  // Bytes 5-7 - IEEE OUI Identifier
+    USHORT  Area1LastBlock;                     // Bytes 8-9
+    USHORT  Area2LastBlock;                     // Bytes 10-11
+    USHORT  Area3LastBlock;                     // Bytes 12-13
+    UCHAR   Reserved1[2];                       // Bytes 14-15
+    ULONG   Area4LastBlock;                     // Bytes 16-19
+    UCHAR   Reserved2[362];                     // Bytes 20-381
+    UCHAR   ControllerInitiatedDataAvailable;   // Byte 382
+    UCHAR   ControllerInitiatedDataGenerationNumber; // Byte 383
+    UCHAR   ReasonIdentifier[128];              // Bytes 384-511
+
+} NVME_TELEMETRY_CONTROLLER_INITIATED_LOG, *PNVME_TELEMETRY_CONTROLLER_INITIATED_LOG;
 
 //
 // Information of log: NVME_LOG_PAGE_FIRMWARE_SLOT_INFO. Size: 512 bytes

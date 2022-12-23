@@ -648,9 +648,9 @@ WbclApiSetPreferredHashAlgID(
 
 HRESULT
 WbclApiInitIterator(
-    _In_    PVOID  pLogBuffer,
-    _In_    UINT32 logSize,
-    _Out_   WBCL_Iterator* pWbclIterator);
+    _In_bytecount_(logSize) PVOID  pLogBuffer,
+    _In_                    UINT32 logSize,
+    _Out_                   WBCL_Iterator* pWbclIterator);
 
 HRESULT
 WbclApiGetCurrentElement(

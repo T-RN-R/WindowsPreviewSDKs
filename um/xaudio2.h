@@ -17,7 +17,7 @@
 #include <sdkddkver.h>
 
 #if(_WIN32_WINNT < _WIN32_WINNT_WIN8)
-#error "This version of XAudio2 is available only in Windows 8 or later. Use the XAudio2 headers and libraries from the DirectX SDK with applications that target Windows 7 and earlier versions."
+#error "This version of XAudio2 is available only in Windows 8 or later. Use the XAudio2 headers and libraries from XAudio2Redist with applications that target Windows 7. See https://aka.ms/xaudio2redist."
 #endif // (_WIN32_WINNT < _WIN32_WINNT_WIN8)
 
 #include <winapifamily.h>
@@ -1222,7 +1222,7 @@ __inline float XAudio2CutoffFrequencyToRadians(float CutoffFrequency, UINT32 Sam
     {
         return XAUDIO2_MAX_FILTER_FREQUENCY;
     }
-    return 2.0f * sinf((float)M_PI * CutoffFrequency / SampleRate);
+    return 2.0f * sinf((float)M_PI * CutoffFrequency / (float)SampleRate);
 }
 
 // Convert from radian frequencies back to absolute frequencies in Hertz
@@ -1241,7 +1241,7 @@ __inline float XAudio2CutoffFrequencyToOnePoleCoefficient(float CutoffFrequency,
     {
         return XAUDIO2_MAX_FILTER_FREQUENCY;
     }
-    return ( 1.0f - powf(1.0f - 2.0f * CutoffFrequency / SampleRate, 2.0f) );
+    return ( 1.0f - powf(1.0f - 2.0f * CutoffFrequency / (float)SampleRate, 2.0f) );
 }
 
 

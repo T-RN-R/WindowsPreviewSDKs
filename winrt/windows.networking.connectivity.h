@@ -2926,6 +2926,9 @@ namespace ABI {
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
                     NetworkAuthenticationType_Owe = 12,
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+                    NetworkAuthenticationType_Wpa3Enterprise = 13,
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
                 };
             } /* Connectivity */
         } /* Networking */
@@ -3007,6 +3010,12 @@ namespace ABI {
                     NetworkEncryptionType_WpaUseGroup = 7,
                     NetworkEncryptionType_RsnUseGroup = 8,
                     NetworkEncryptionType_Ihv = 9,
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+                    NetworkEncryptionType_Gcmp = 10,
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+                    NetworkEncryptionType_Gcmp256 = 11,
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
                 };
             } /* Connectivity */
         } /* Networking */
@@ -10063,6 +10072,9 @@ enum __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkAuthenticationType
 #if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
     NetworkAuthenticationType_Owe = 12,
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xa0000
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+    NetworkAuthenticationType_Wpa3Enterprise = 13,
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 };
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 
@@ -10120,6 +10132,12 @@ enum __x_ABI_CWindows_CNetworking_CConnectivity_CNetworkEncryptionType
     NetworkEncryptionType_WpaUseGroup = 7,
     NetworkEncryptionType_RsnUseGroup = 8,
     NetworkEncryptionType_Ihv = 9,
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+    NetworkEncryptionType_Gcmp = 10,
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+    NetworkEncryptionType_Gcmp256 = 11,
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 };
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x10000
 

@@ -964,6 +964,21 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice3_FWD_DEFINED__
 
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                interface ICompositionGraphicsDevice4;
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4 ABI::Windows::UI::Composition::ICompositionGraphicsDevice4
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionLight_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CICompositionLight_FWD_DEFINED__
 namespace ABI {
@@ -2254,6 +2269,21 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIQuaternionKeyFrameAnimation_FWD_DEFINED__
 
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CIRectangleClip_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CIRectangleClip_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                interface IRectangleClip;
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip ABI::Windows::UI::Composition::IRectangleClip
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CIRectangleClip_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIRedirectVisual_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIRedirectVisual_FWD_DEFINED__
 namespace ABI {
@@ -2644,6 +2674,21 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIVisual3_FWD_DEFINED__
 
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CIVisual4_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CIVisual4_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                interface IVisual4;
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CUI_CComposition_CIVisual4 ABI::Windows::UI::Composition::IVisual4
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CIVisual4_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIVisualCollection_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIVisualCollection_FWD_DEFINED__
 namespace ABI {
@@ -2722,6 +2767,60 @@ namespace ABI {
 // Parameterized interface forward declarations (C++)
 
 // Collection interface definitions
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x20000
+
+#ifndef DEF___FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_USE
+#define DEF___FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_USE
+#if !defined(RO_NO_TEMPLATE_NAME)
+namespace ABI { namespace Windows { namespace Foundation {
+template <>
+struct __declspec(uuid("66613cdd-5076-50d6-ab32-ba76df49c410"))
+IAsyncOperation<ABI::Windows::UI::Composition::ICompositionSurface*> : IAsyncOperation_impl<ABI::Windows::UI::Composition::ICompositionSurface*>
+{
+    static const wchar_t* z_get_rc_name_impl()
+    {
+        return L"Windows.Foundation.IAsyncOperation`1<Windows.UI.Composition.ICompositionSurface>";
+    }
+};
+// Define a typedef for the parameterized interface specialization's mangled name.
+// This allows code which uses the mangled name for the parameterized interface to access the
+// correct parameterized interface specialization.
+typedef IAsyncOperation<ABI::Windows::UI::Composition::ICompositionSurface*> __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_t;
+#define __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface ABI::Windows::Foundation::__FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_t
+/* Foundation */ } /* Windows */ } /* ABI */ }
+
+#endif // !defined(RO_NO_TEMPLATE_NAME)
+#endif /* DEF___FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_USE */
+
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x20000
+
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x20000
+
+#ifndef DEF___FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface_USE
+#define DEF___FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface_USE
+#if !defined(RO_NO_TEMPLATE_NAME)
+namespace ABI { namespace Windows { namespace Foundation {
+template <>
+struct __declspec(uuid("daf572ee-035a-594c-b013-84bd618853cc"))
+IAsyncOperationCompletedHandler<ABI::Windows::UI::Composition::ICompositionSurface*> : IAsyncOperationCompletedHandler_impl<ABI::Windows::UI::Composition::ICompositionSurface*>
+{
+    static const wchar_t* z_get_rc_name_impl()
+    {
+        return L"Windows.Foundation.AsyncOperationCompletedHandler`1<Windows.UI.Composition.ICompositionSurface>";
+    }
+};
+// Define a typedef for the parameterized interface specialization's mangled name.
+// This allows code which uses the mangled name for the parameterized interface to access the
+// correct parameterized interface specialization.
+typedef IAsyncOperationCompletedHandler<ABI::Windows::UI::Composition::ICompositionSurface*> __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface_t;
+#define __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface ABI::Windows::Foundation::__FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface_t
+/* Foundation */ } /* Windows */ } /* ABI */ }
+
+#endif // !defined(RO_NO_TEMPLATE_NAME)
+#endif /* DEF___FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface_USE */
+
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x20000
+
 
 #ifndef DEF___FIIterator_1_float_USE
 #define DEF___FIIterator_1_float_USE
@@ -4987,6 +5086,16 @@ namespace ABI {
         namespace UI {
             namespace Composition {
                 class QuaternionKeyFrameAnimation;
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                class RectangleClip;
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -8072,6 +8181,47 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDe
 
 /*
  *
+ * Interface Windows.UI.Composition.ICompositionGraphicsDevice4
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Composition.CompositionGraphicsDevice
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ICompositionGraphicsDevice4[] = L"Windows.UI.Composition.ICompositionGraphicsDevice4";
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                MIDL_INTERFACE("5a73bff9-a97f-4cf5-ba46-98ef358e71b1")
+                ICompositionGraphicsDevice4 : public IInspectable
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE CaptureAsync(
+                        ABI::Windows::UI::Composition::IVisual* captureVisual,
+                        ABI::Windows::Graphics::SizeInt32 size,
+                        ABI::Windows::Graphics::DirectX::DirectXPixelFormat pixelFormat,
+                        ABI::Windows::Graphics::DirectX::DirectXAlphaMode alphaMode,
+                        FLOAT sdrBoost,
+                        __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface** operation
+                        ) = 0;
+                };
+
+                extern MIDL_CONST_ID IID& IID_ICompositionGraphicsDevice4 = _uuidof(ICompositionGraphicsDevice4);
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
  * Interface Windows.UI.Composition.ICompositionLight
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 3.0
@@ -10766,7 +10916,7 @@ namespace ABI {
     namespace Windows {
         namespace UI {
             namespace Composition {
-                MIDL_INTERFACE("542898d1-6c2f-5db7-bfb8-5d1fe54fb2b4")
+                MIDL_INTERFACE("d3483fad-9a12-53ba-bfc8-88b7ff7977c6")
                 ICompositor7 : public IInspectable
                 {
                 public:
@@ -10775,6 +10925,27 @@ namespace ABI {
                         ) = 0;
                     virtual HRESULT STDMETHODCALLTYPE CreateAnimationPropertyInfo(
                         ABI::Windows::UI::Composition::IAnimationPropertyInfo** result
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE CreateRectangleClip(
+                        ABI::Windows::UI::Composition::IRectangleClip** result
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE CreateRectangleClipWithSides(
+                        FLOAT left,
+                        FLOAT top,
+                        FLOAT right,
+                        FLOAT bottom,
+                        ABI::Windows::UI::Composition::IRectangleClip** result
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE CreateRectangleClipWithSidesAndRadius(
+                        FLOAT left,
+                        FLOAT top,
+                        FLOAT right,
+                        FLOAT bottom,
+                        ABI::Windows::Foundation::Numerics::Vector2 topLeftRadius,
+                        ABI::Windows::Foundation::Numerics::Vector2 topRightRadius,
+                        ABI::Windows::Foundation::Numerics::Vector2 bottomLeftRadius,
+                        ABI::Windows::Foundation::Numerics::Vector2 bottomRightRadius,
+                        ABI::Windows::UI::Composition::IRectangleClip** result
                         ) = 0;
                 };
 
@@ -12110,6 +12281,87 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIQuaternionKeyFrameAni
 
 /*
  *
+ * Interface Windows.UI.Composition.IRectangleClip
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Composition.RectangleClip
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CIRectangleClip_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CIRectangleClip_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IRectangleClip[] = L"Windows.UI.Composition.IRectangleClip";
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                MIDL_INTERFACE("b3e7549e-00b4-5b53-8be8-353f6c433101")
+                IRectangleClip : public IInspectable
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE get_Bottom(
+                        FLOAT* value
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE put_Bottom(
+                        FLOAT value
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE get_BottomLeftRadius(
+                        ABI::Windows::Foundation::Numerics::Vector2* value
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE put_BottomLeftRadius(
+                        ABI::Windows::Foundation::Numerics::Vector2 value
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE get_BottomRightRadius(
+                        ABI::Windows::Foundation::Numerics::Vector2* value
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE put_BottomRightRadius(
+                        ABI::Windows::Foundation::Numerics::Vector2 value
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE get_Left(
+                        FLOAT* value
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE put_Left(
+                        FLOAT value
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE get_Right(
+                        FLOAT* value
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE put_Right(
+                        FLOAT value
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE get_Top(
+                        FLOAT* value
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE put_Top(
+                        FLOAT value
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE get_TopLeftRadius(
+                        ABI::Windows::Foundation::Numerics::Vector2* value
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE put_TopLeftRadius(
+                        ABI::Windows::Foundation::Numerics::Vector2 value
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE get_TopRightRadius(
+                        ABI::Windows::Foundation::Numerics::Vector2* value
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE put_TopRightRadius(
+                        ABI::Windows::Foundation::Numerics::Vector2 value
+                        ) = 0;
+                };
+
+                extern MIDL_CONST_ID IID& IID_IRectangleClip = _uuidof(IRectangleClip);
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIRectangleClip;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIRectangleClip_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
  * Interface Windows.UI.Composition.IRedirectVisual
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 7.0
@@ -13376,6 +13628,45 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIVisual3;
 
 /*
  *
+ * Interface Windows.UI.Composition.IVisual4
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Composition.Visual
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CIVisual4_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CIVisual4_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IVisual4[] = L"Windows.UI.Composition.IVisual4";
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                MIDL_INTERFACE("9476bf11-e24b-5bf9-9ebe-6274109b2711")
+                IVisual4 : public IInspectable
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE get_IsPixelSnappingEnabled(
+                        boolean* value
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE put_IsPixelSnappingEnabled(
+                        boolean value
+                        ) = 0;
+                };
+
+                extern MIDL_CONST_ID IID& IID_IVisual4 = _uuidof(IVisual4);
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIVisual4;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIVisual4_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
  * Interface Windows.UI.Composition.IVisualCollection
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 2.0
@@ -14276,6 +14567,7 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *    Windows.UI.Composition.ICompositionGraphicsDevice ** Default Interface **
  *    Windows.UI.Composition.ICompositionGraphicsDevice2
  *    Windows.UI.Composition.ICompositionGraphicsDevice3
+ *    Windows.UI.Composition.ICompositionGraphicsDevice4
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
@@ -15372,6 +15664,27 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
+ * Class Windows.UI.Composition.RectangleClip
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Class implements the following interfaces:
+ *    Windows.UI.Composition.IRectangleClip ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#ifndef RUNTIMECLASS_Windows_UI_Composition_RectangleClip_DEFINED
+#define RUNTIMECLASS_Windows_UI_Composition_RectangleClip_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_RectangleClip[] = L"Windows.UI.Composition.RectangleClip";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
  * Class Windows.UI.Composition.RedirectVisual
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 7.0
@@ -15740,6 +16053,7 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *    Windows.UI.Composition.IVisual ** Default Interface **
  *    Windows.UI.Composition.IVisual2
  *    Windows.UI.Composition.IVisual3
+ *    Windows.UI.Composition.IVisual4
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
@@ -16134,6 +16448,12 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice2
 typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice3 __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice3;
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice3_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4 __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4;
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionLight_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CICompositionLight_FWD_DEFINED__
@@ -16651,6 +16971,12 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CIQuaternionKeyFrameAnimatio
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIQuaternionKeyFrameAnimation_FWD_DEFINED__
 
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CIRectangleClip_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CIRectangleClip_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CComposition_CIRectangleClip __x_ABI_CWindows_CUI_CComposition_CIRectangleClip;
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CIRectangleClip_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIRedirectVisual_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIRedirectVisual_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CUI_CComposition_CIRedirectVisual __x_ABI_CWindows_CUI_CComposition_CIRedirectVisual;
@@ -16807,6 +17133,12 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CIVisual3 __x_ABI_CWindows_C
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIVisual3_FWD_DEFINED__
 
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CIVisual4_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CIVisual4_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CComposition_CIVisual4 __x_ABI_CWindows_CUI_CComposition_CIVisual4;
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CIVisual4_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIVisualCollection_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIVisualCollection_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CUI_CComposition_CIVisualCollection __x_ABI_CWindows_CUI_CComposition_CIVisualCollection;
@@ -16840,6 +17172,131 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CIVisualUnorderedCollection 
 // Parameterized interface forward declarations (C)
 
 // Collection interface definitions
+
+typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface;
+
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x20000
+#if !defined(____FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_INTERFACE_DEFINED__)
+#define ____FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_INTERFACE_DEFINED__
+
+typedef interface __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface;
+
+//  Declare the parameterized interface IID.
+EXTERN_C const IID IID___FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface;
+
+typedef struct __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurfaceVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* put_Completed)(__FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface* This,
+        __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface* handler);
+    HRESULT (STDMETHODCALLTYPE* get_Completed)(__FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface* This,
+        __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface** result);
+    HRESULT (STDMETHODCALLTYPE* GetResults)(__FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface* This,
+        __x_ABI_CWindows_CUI_CComposition_CICompositionSurface** result);
+
+    END_INTERFACE
+} __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurfaceVtbl;
+
+interface __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface
+{
+    CONST_VTBL struct __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurfaceVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_put_Completed(This, handler) \
+    ((This)->lpVtbl->put_Completed(This, handler))
+
+#define __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_get_Completed(This, result) \
+    ((This)->lpVtbl->get_Completed(This, result))
+
+#define __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_GetResults(This, result) \
+    ((This)->lpVtbl->GetResults(This, result))
+
+#endif /* COBJMACROS */
+
+#endif // ____FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface_INTERFACE_DEFINED__
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x20000
+
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x20000
+#if !defined(____FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface_INTERFACE_DEFINED__)
+#define ____FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface_INTERFACE_DEFINED__
+
+typedef interface __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface;
+
+//  Declare the parameterized interface IID.
+EXTERN_C const IID IID___FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface;
+
+typedef struct __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurfaceVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface* This);
+    HRESULT (STDMETHODCALLTYPE* Invoke)(__FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface* This,
+        __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface* asyncInfo,
+        AsyncStatus asyncStatus);
+
+    END_INTERFACE
+} __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurfaceVtbl;
+
+interface __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface
+{
+    CONST_VTBL struct __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurfaceVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface_Invoke(This, asyncInfo, asyncStatus) \
+    ((This)->lpVtbl->Invoke(This, asyncInfo, asyncStatus))
+
+#endif /* COBJMACROS */
+
+#endif // ____FIAsyncOperationCompletedHandler_1_Windows__CUI__CComposition__CICompositionSurface_INTERFACE_DEFINED__
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x20000
 
 #if !defined(____FIIterator_1_float_INTERFACE_DEFINED__)
 #define ____FIIterator_1_float_INTERFACE_DEFINED__
@@ -24682,6 +25139,80 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDe
 
 /*
  *
+ * Interface Windows.UI.Composition.ICompositionGraphicsDevice4
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Composition.CompositionGraphicsDevice
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ICompositionGraphicsDevice4[] = L"Windows.UI.Composition.ICompositionGraphicsDevice4";
+typedef struct __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4Vtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* CaptureAsync)(__x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4* This,
+        __x_ABI_CWindows_CUI_CComposition_CIVisual* captureVisual,
+        struct __x_ABI_CWindows_CGraphics_CSizeInt32 size,
+        enum __x_ABI_CWindows_CGraphics_CDirectX_CDirectXPixelFormat pixelFormat,
+        enum __x_ABI_CWindows_CGraphics_CDirectX_CDirectXAlphaMode alphaMode,
+        FLOAT sdrBoost,
+        __FIAsyncOperation_1_Windows__CUI__CComposition__CICompositionSurface** operation);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4Vtbl;
+
+interface __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4
+{
+    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_CaptureAsync(This, captureVisual, size, pixelFormat, alphaMode, sdrBoost, operation) \
+    ((This)->lpVtbl->CaptureAsync(This, captureVisual, size, pixelFormat, alphaMode, sdrBoost, operation))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionGraphicsDevice4_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
  * Interface Windows.UI.Composition.ICompositionLight
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 3.0
@@ -29635,6 +30166,24 @@ typedef struct __x_ABI_CWindows_CUI_CComposition_CICompositor7Vtbl
         __x_ABI_CWindows_CSystem_CIDispatcherQueue** value);
     HRESULT (STDMETHODCALLTYPE* CreateAnimationPropertyInfo)(__x_ABI_CWindows_CUI_CComposition_CICompositor7* This,
         __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo** result);
+    HRESULT (STDMETHODCALLTYPE* CreateRectangleClip)(__x_ABI_CWindows_CUI_CComposition_CICompositor7* This,
+        __x_ABI_CWindows_CUI_CComposition_CIRectangleClip** result);
+    HRESULT (STDMETHODCALLTYPE* CreateRectangleClipWithSides)(__x_ABI_CWindows_CUI_CComposition_CICompositor7* This,
+        FLOAT left,
+        FLOAT top,
+        FLOAT right,
+        FLOAT bottom,
+        __x_ABI_CWindows_CUI_CComposition_CIRectangleClip** result);
+    HRESULT (STDMETHODCALLTYPE* CreateRectangleClipWithSidesAndRadius)(__x_ABI_CWindows_CUI_CComposition_CICompositor7* This,
+        FLOAT left,
+        FLOAT top,
+        FLOAT right,
+        FLOAT bottom,
+        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2 topLeftRadius,
+        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2 topRightRadius,
+        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2 bottomLeftRadius,
+        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2 bottomRightRadius,
+        __x_ABI_CWindows_CUI_CComposition_CIRectangleClip** result);
 
     END_INTERFACE
 } __x_ABI_CWindows_CUI_CComposition_CICompositor7Vtbl;
@@ -29669,6 +30218,15 @@ interface __x_ABI_CWindows_CUI_CComposition_CICompositor7
 
 #define __x_ABI_CWindows_CUI_CComposition_CICompositor7_CreateAnimationPropertyInfo(This, result) \
     ((This)->lpVtbl->CreateAnimationPropertyInfo(This, result))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositor7_CreateRectangleClip(This, result) \
+    ((This)->lpVtbl->CreateRectangleClip(This, result))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositor7_CreateRectangleClipWithSides(This, left, top, right, bottom, result) \
+    ((This)->lpVtbl->CreateRectangleClipWithSides(This, left, top, right, bottom, result))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositor7_CreateRectangleClipWithSidesAndRadius(This, left, top, right, bottom, topLeftRadius, topRightRadius, bottomLeftRadius, bottomRightRadius, result) \
+    ((This)->lpVtbl->CreateRectangleClipWithSidesAndRadius(This, left, top, right, bottom, topLeftRadius, topRightRadius, bottomLeftRadius, bottomRightRadius, result))
 
 #endif /* COBJMACROS */
 
@@ -32151,6 +32709,150 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIQuaternionKeyFrameAni
 
 /*
  *
+ * Interface Windows.UI.Composition.IRectangleClip
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Composition.RectangleClip
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CIRectangleClip_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CIRectangleClip_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IRectangleClip[] = L"Windows.UI.Composition.IRectangleClip";
+typedef struct __x_ABI_CWindows_CUI_CComposition_CIRectangleClipVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* get_Bottom)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
+        FLOAT* value);
+    HRESULT (STDMETHODCALLTYPE* put_Bottom)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
+        FLOAT value);
+    HRESULT (STDMETHODCALLTYPE* get_BottomLeftRadius)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
+        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2* value);
+    HRESULT (STDMETHODCALLTYPE* put_BottomLeftRadius)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
+        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2 value);
+    HRESULT (STDMETHODCALLTYPE* get_BottomRightRadius)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
+        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2* value);
+    HRESULT (STDMETHODCALLTYPE* put_BottomRightRadius)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
+        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2 value);
+    HRESULT (STDMETHODCALLTYPE* get_Left)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
+        FLOAT* value);
+    HRESULT (STDMETHODCALLTYPE* put_Left)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
+        FLOAT value);
+    HRESULT (STDMETHODCALLTYPE* get_Right)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
+        FLOAT* value);
+    HRESULT (STDMETHODCALLTYPE* put_Right)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
+        FLOAT value);
+    HRESULT (STDMETHODCALLTYPE* get_Top)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
+        FLOAT* value);
+    HRESULT (STDMETHODCALLTYPE* put_Top)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
+        FLOAT value);
+    HRESULT (STDMETHODCALLTYPE* get_TopLeftRadius)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
+        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2* value);
+    HRESULT (STDMETHODCALLTYPE* put_TopLeftRadius)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
+        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2 value);
+    HRESULT (STDMETHODCALLTYPE* get_TopRightRadius)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
+        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2* value);
+    HRESULT (STDMETHODCALLTYPE* put_TopRightRadius)(__x_ABI_CWindows_CUI_CComposition_CIRectangleClip* This,
+        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2 value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CComposition_CIRectangleClipVtbl;
+
+interface __x_ABI_CWindows_CUI_CComposition_CIRectangleClip
+{
+    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CIRectangleClipVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_get_Bottom(This, value) \
+    ((This)->lpVtbl->get_Bottom(This, value))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_put_Bottom(This, value) \
+    ((This)->lpVtbl->put_Bottom(This, value))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_get_BottomLeftRadius(This, value) \
+    ((This)->lpVtbl->get_BottomLeftRadius(This, value))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_put_BottomLeftRadius(This, value) \
+    ((This)->lpVtbl->put_BottomLeftRadius(This, value))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_get_BottomRightRadius(This, value) \
+    ((This)->lpVtbl->get_BottomRightRadius(This, value))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_put_BottomRightRadius(This, value) \
+    ((This)->lpVtbl->put_BottomRightRadius(This, value))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_get_Left(This, value) \
+    ((This)->lpVtbl->get_Left(This, value))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_put_Left(This, value) \
+    ((This)->lpVtbl->put_Left(This, value))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_get_Right(This, value) \
+    ((This)->lpVtbl->get_Right(This, value))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_put_Right(This, value) \
+    ((This)->lpVtbl->put_Right(This, value))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_get_Top(This, value) \
+    ((This)->lpVtbl->get_Top(This, value))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_put_Top(This, value) \
+    ((This)->lpVtbl->put_Top(This, value))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_get_TopLeftRadius(This, value) \
+    ((This)->lpVtbl->get_TopLeftRadius(This, value))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_put_TopLeftRadius(This, value) \
+    ((This)->lpVtbl->put_TopLeftRadius(This, value))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_get_TopRightRadius(This, value) \
+    ((This)->lpVtbl->get_TopRightRadius(This, value))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIRectangleClip_put_TopRightRadius(This, value) \
+    ((This)->lpVtbl->put_TopRightRadius(This, value))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIRectangleClip;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIRectangleClip_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
  * Interface Windows.UI.Composition.IRedirectVisual
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 7.0
@@ -34487,6 +35189,80 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIVisual3;
 
 /*
  *
+ * Interface Windows.UI.Composition.IVisual4
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Composition.Visual
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CIVisual4_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CIVisual4_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IVisual4[] = L"Windows.UI.Composition.IVisual4";
+typedef struct __x_ABI_CWindows_CUI_CComposition_CIVisual4Vtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CIVisual4* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CIVisual4* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CIVisual4* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CIVisual4* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CIVisual4* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CIVisual4* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* get_IsPixelSnappingEnabled)(__x_ABI_CWindows_CUI_CComposition_CIVisual4* This,
+        boolean* value);
+    HRESULT (STDMETHODCALLTYPE* put_IsPixelSnappingEnabled)(__x_ABI_CWindows_CUI_CComposition_CIVisual4* This,
+        boolean value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CComposition_CIVisual4Vtbl;
+
+interface __x_ABI_CWindows_CUI_CComposition_CIVisual4
+{
+    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CIVisual4Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CUI_CComposition_CIVisual4_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIVisual4_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIVisual4_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIVisual4_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIVisual4_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIVisual4_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIVisual4_get_IsPixelSnappingEnabled(This, value) \
+    ((This)->lpVtbl->get_IsPixelSnappingEnabled(This, value))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIVisual4_put_IsPixelSnappingEnabled(This, value) \
+    ((This)->lpVtbl->put_IsPixelSnappingEnabled(This, value))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIVisual4;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIVisual4_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
  * Interface Windows.UI.Composition.IVisualCollection
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 2.0
@@ -35568,6 +36344,7 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *    Windows.UI.Composition.ICompositionGraphicsDevice ** Default Interface **
  *    Windows.UI.Composition.ICompositionGraphicsDevice2
  *    Windows.UI.Composition.ICompositionGraphicsDevice3
+ *    Windows.UI.Composition.ICompositionGraphicsDevice4
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *
@@ -36664,6 +37441,27 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
+ * Class Windows.UI.Composition.RectangleClip
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Class implements the following interfaces:
+ *    Windows.UI.Composition.IRectangleClip ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#ifndef RUNTIMECLASS_Windows_UI_Composition_RectangleClip_DEFINED
+#define RUNTIMECLASS_Windows_UI_Composition_RectangleClip_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_RectangleClip[] = L"Windows.UI.Composition.RectangleClip";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
  * Class Windows.UI.Composition.RedirectVisual
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 7.0
@@ -37032,6 +37830,7 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *    Windows.UI.Composition.IVisual ** Default Interface **
  *    Windows.UI.Composition.IVisual2
  *    Windows.UI.Composition.IVisual3
+ *    Windows.UI.Composition.IVisual4
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
  *

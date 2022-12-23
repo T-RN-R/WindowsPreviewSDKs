@@ -1452,6 +1452,9 @@ typedef enum _NDIS_802_11_AUTHENTICATION_MODE
 #if(NDIS_SUPPORT_NDIS684)
     Ndis802_11AuthModeOWE,
 #endif // (NDIS_SUPPORT_NDIS684)
+#if (NTDDI_VERSION >= NTDDI_WIN10_FE)
+    Ndis802_11AuthModeWPA3Ent,
+#endif
     Ndis802_11AuthModeMax               // Not a real mode, defined as upper bound
 } NDIS_802_11_AUTHENTICATION_MODE, *PNDIS_802_11_AUTHENTICATION_MODE;
 

@@ -852,6 +852,12 @@ namespace winrt::impl
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGraphicsDevice3)->Trim());
     }
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::UI::Composition::ICompositionSurface>) consume_Windows_UI_Composition_ICompositionGraphicsDevice4<D>::CaptureAsync(Windows::UI::Composition::Visual const& captureVisual, Windows::Graphics::SizeInt32 const& size, Windows::Graphics::DirectX::DirectXPixelFormat const& pixelFormat, Windows::Graphics::DirectX::DirectXAlphaMode const& alphaMode, float sdrBoost) const
+    {
+        void* operation{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositionGraphicsDevice4)->CaptureAsync(*(void**)(&captureVisual), impl::bind_in(size), static_cast<int32_t>(pixelFormat), static_cast<int32_t>(alphaMode), sdrBoost, &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::UI::Composition::ICompositionSurface>{ operation, take_ownership_from_abi };
+    }
     template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::VisualUnorderedCollection) consume_Windows_UI_Composition_ICompositionLight<D>::Targets() const
     {
         void* value{};
@@ -2342,6 +2348,24 @@ namespace winrt::impl
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor7)->CreateAnimationPropertyInfo(&result));
         return Windows::UI::Composition::AnimationPropertyInfo{ result, take_ownership_from_abi };
     }
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::RectangleClip) consume_Windows_UI_Composition_ICompositor7<D>::CreateRectangleClip() const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor7)->CreateRectangleClip(&result));
+        return Windows::UI::Composition::RectangleClip{ result, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::RectangleClip) consume_Windows_UI_Composition_ICompositor7<D>::CreateRectangleClip(float left, float top, float right, float bottom) const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor7)->CreateRectangleClipWithSides(left, top, right, bottom, &result));
+        return Windows::UI::Composition::RectangleClip{ result, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::RectangleClip) consume_Windows_UI_Composition_ICompositor7<D>::CreateRectangleClip(float left, float top, float right, float bottom, Windows::Foundation::Numerics::float2 const& topLeftRadius, Windows::Foundation::Numerics::float2 const& topRightRadius, Windows::Foundation::Numerics::float2 const& bottomLeftRadius, Windows::Foundation::Numerics::float2 const& bottomRightRadius) const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor7)->CreateRectangleClipWithSidesAndRadius(left, top, right, bottom, impl::bind_in(topLeftRadius), impl::bind_in(topRightRadius), impl::bind_in(bottomLeftRadius), impl::bind_in(bottomRightRadius), &result));
+        return Windows::UI::Composition::RectangleClip{ result, take_ownership_from_abi };
+    }
     template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositorStatics<D>::MaxGlobalPlaybackRate() const
     {
         float value{};
@@ -2833,6 +2857,86 @@ namespace winrt::impl
     template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IQuaternionKeyFrameAnimation<D>::InsertKeyFrame(float normalizedProgressKey, Windows::Foundation::Numerics::quaternion const& value, Windows::UI::Composition::CompositionEasingFunction const& easingFunction) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IQuaternionKeyFrameAnimation)->InsertKeyFrameWithEasingFunction(normalizedProgressKey, impl::bind_in(value), *(void**)(&easingFunction)));
+    }
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IRectangleClip<D>::Bottom() const
+    {
+        float value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IRectangleClip)->get_Bottom(&value));
+        return value;
+    }
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IRectangleClip<D>::Bottom(float value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IRectangleClip)->put_Bottom(value));
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_IRectangleClip<D>::BottomLeftRadius() const
+    {
+        Windows::Foundation::Numerics::float2 value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IRectangleClip)->get_BottomLeftRadius(put_abi(value)));
+        return value;
+    }
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IRectangleClip<D>::BottomLeftRadius(Windows::Foundation::Numerics::float2 const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IRectangleClip)->put_BottomLeftRadius(impl::bind_in(value)));
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_IRectangleClip<D>::BottomRightRadius() const
+    {
+        Windows::Foundation::Numerics::float2 value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IRectangleClip)->get_BottomRightRadius(put_abi(value)));
+        return value;
+    }
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IRectangleClip<D>::BottomRightRadius(Windows::Foundation::Numerics::float2 const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IRectangleClip)->put_BottomRightRadius(impl::bind_in(value)));
+    }
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IRectangleClip<D>::Left() const
+    {
+        float value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IRectangleClip)->get_Left(&value));
+        return value;
+    }
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IRectangleClip<D>::Left(float value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IRectangleClip)->put_Left(value));
+    }
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IRectangleClip<D>::Right() const
+    {
+        float value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IRectangleClip)->get_Right(&value));
+        return value;
+    }
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IRectangleClip<D>::Right(float value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IRectangleClip)->put_Right(value));
+    }
+    template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_IRectangleClip<D>::Top() const
+    {
+        float value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IRectangleClip)->get_Top(&value));
+        return value;
+    }
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IRectangleClip<D>::Top(float value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IRectangleClip)->put_Top(value));
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_IRectangleClip<D>::TopLeftRadius() const
+    {
+        Windows::Foundation::Numerics::float2 value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IRectangleClip)->get_TopLeftRadius(put_abi(value)));
+        return value;
+    }
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IRectangleClip<D>::TopLeftRadius(Windows::Foundation::Numerics::float2 const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IRectangleClip)->put_TopLeftRadius(impl::bind_in(value)));
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Numerics::float2) consume_Windows_UI_Composition_IRectangleClip<D>::TopRightRadius() const
+    {
+        Windows::Foundation::Numerics::float2 value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IRectangleClip)->get_TopRightRadius(put_abi(value)));
+        return value;
+    }
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IRectangleClip<D>::TopRightRadius(Windows::Foundation::Numerics::float2 const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IRectangleClip)->put_TopRightRadius(impl::bind_in(value)));
     }
     template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::Visual) consume_Windows_UI_Composition_IRedirectVisual<D>::Source() const
     {
@@ -3489,6 +3593,16 @@ namespace winrt::impl
     template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisual3<D>::IsHitTestVisible(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual3)->put_IsHitTestVisible(value));
+    }
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_UI_Composition_IVisual4<D>::IsPixelSnappingEnabled() const
+    {
+        bool value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual4)->get_IsPixelSnappingEnabled(&value));
+        return value;
+    }
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_UI_Composition_IVisual4<D>::IsPixelSnappingEnabled(bool value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual4)->put_IsPixelSnappingEnabled(value));
     }
     template <typename D> WINRT_IMPL_AUTO(int32_t) consume_Windows_UI_Composition_IVisualCollection<D>::Count() const
     {
@@ -5044,6 +5158,20 @@ namespace winrt::impl
         {
             typename D::abi_guard guard(this->shim());
             this->shim().Trim();
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, Windows::UI::Composition::ICompositionGraphicsDevice4> : produce_base<D, Windows::UI::Composition::ICompositionGraphicsDevice4>
+    {
+        int32_t __stdcall CaptureAsync(void* captureVisual, struct struct_Windows_Graphics_SizeInt32 size, int32_t pixelFormat, int32_t alphaMode, float sdrBoost, void** operation) noexcept final try
+        {
+            clear_abi(operation);
+            typename D::abi_guard guard(this->shim());
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::UI::Composition::ICompositionSurface>>(this->shim().CaptureAsync(*reinterpret_cast<Windows::UI::Composition::Visual const*>(&captureVisual), *reinterpret_cast<Windows::Graphics::SizeInt32 const*>(&size), *reinterpret_cast<Windows::Graphics::DirectX::DirectXPixelFormat const*>(&pixelFormat), *reinterpret_cast<Windows::Graphics::DirectX::DirectXAlphaMode const*>(&alphaMode), sdrBoost));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -7491,6 +7619,30 @@ namespace winrt::impl
             return 0;
         }
         catch (...) { return to_hresult(); }
+        int32_t __stdcall CreateRectangleClip(void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<Windows::UI::Composition::RectangleClip>(this->shim().CreateRectangleClip());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall CreateRectangleClipWithSides(float left, float top, float right, float bottom, void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<Windows::UI::Composition::RectangleClip>(this->shim().CreateRectangleClip(left, top, right, bottom));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall CreateRectangleClipWithSidesAndRadius(float left, float top, float right, float bottom, Windows::Foundation::Numerics::float2 topLeftRadius, Windows::Foundation::Numerics::float2 topRightRadius, Windows::Foundation::Numerics::float2 bottomLeftRadius, Windows::Foundation::Numerics::float2 bottomRightRadius, void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<Windows::UI::Composition::RectangleClip>(this->shim().CreateRectangleClip(left, top, right, bottom, *reinterpret_cast<Windows::Foundation::Numerics::float2 const*>(&topLeftRadius), *reinterpret_cast<Windows::Foundation::Numerics::float2 const*>(&topRightRadius), *reinterpret_cast<Windows::Foundation::Numerics::float2 const*>(&bottomLeftRadius), *reinterpret_cast<Windows::Foundation::Numerics::float2 const*>(&bottomRightRadius)));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
     };
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
@@ -8369,6 +8521,128 @@ namespace winrt::impl
         {
             typename D::abi_guard guard(this->shim());
             this->shim().InsertKeyFrame(normalizedProgressKey, *reinterpret_cast<Windows::Foundation::Numerics::quaternion const*>(&value), *reinterpret_cast<Windows::UI::Composition::CompositionEasingFunction const*>(&easingFunction));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, Windows::UI::Composition::IRectangleClip> : produce_base<D, Windows::UI::Composition::IRectangleClip>
+    {
+        int32_t __stdcall get_Bottom(float* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<float>(this->shim().Bottom());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_Bottom(float value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().Bottom(value);
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_BottomLeftRadius(Windows::Foundation::Numerics::float2* value) noexcept final try
+        {
+            zero_abi<Windows::Foundation::Numerics::float2>(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<Windows::Foundation::Numerics::float2>(this->shim().BottomLeftRadius());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_BottomLeftRadius(Windows::Foundation::Numerics::float2 value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().BottomLeftRadius(*reinterpret_cast<Windows::Foundation::Numerics::float2 const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_BottomRightRadius(Windows::Foundation::Numerics::float2* value) noexcept final try
+        {
+            zero_abi<Windows::Foundation::Numerics::float2>(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<Windows::Foundation::Numerics::float2>(this->shim().BottomRightRadius());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_BottomRightRadius(Windows::Foundation::Numerics::float2 value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().BottomRightRadius(*reinterpret_cast<Windows::Foundation::Numerics::float2 const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_Left(float* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<float>(this->shim().Left());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_Left(float value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().Left(value);
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_Right(float* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<float>(this->shim().Right());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_Right(float value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().Right(value);
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_Top(float* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<float>(this->shim().Top());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_Top(float value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().Top(value);
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_TopLeftRadius(Windows::Foundation::Numerics::float2* value) noexcept final try
+        {
+            zero_abi<Windows::Foundation::Numerics::float2>(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<Windows::Foundation::Numerics::float2>(this->shim().TopLeftRadius());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_TopLeftRadius(Windows::Foundation::Numerics::float2 value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().TopLeftRadius(*reinterpret_cast<Windows::Foundation::Numerics::float2 const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_TopRightRadius(Windows::Foundation::Numerics::float2* value) noexcept final try
+        {
+            zero_abi<Windows::Foundation::Numerics::float2>(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<Windows::Foundation::Numerics::float2>(this->shim().TopRightRadius());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_TopRightRadius(Windows::Foundation::Numerics::float2 value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().TopRightRadius(*reinterpret_cast<Windows::Foundation::Numerics::float2 const*>(&value));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -9491,6 +9765,26 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
+    struct produce<D, Windows::UI::Composition::IVisual4> : produce_base<D, Windows::UI::Composition::IVisual4>
+    {
+        int32_t __stdcall get_IsPixelSnappingEnabled(bool* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<bool>(this->shim().IsPixelSnappingEnabled());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_IsPixelSnappingEnabled(bool value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().IsPixelSnappingEnabled(value);
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
     struct produce<D, Windows::UI::Composition::IVisualCollection> : produce_base<D, Windows::UI::Composition::IVisualCollection>
     {
         int32_t __stdcall get_Count(int32_t* value) noexcept final try
@@ -9782,6 +10076,7 @@ namespace std
     template<> struct hash<winrt::Windows::UI::Composition::ICompositionGraphicsDevice> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ICompositionGraphicsDevice2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ICompositionGraphicsDevice3> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Composition::ICompositionGraphicsDevice4> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ICompositionLight> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ICompositionLight2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ICompositionLight3> : winrt::impl::hash_base {};
@@ -9868,6 +10163,7 @@ namespace std
     template<> struct hash<winrt::Windows::UI::Composition::IPointLight3> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IPowerEasingFunction> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IQuaternionKeyFrameAnimation> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Composition::IRectangleClip> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IRedirectVisual> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IRenderingDeviceReplacedEventArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IScalarKeyFrameAnimation> : winrt::impl::hash_base {};
@@ -9894,6 +10190,7 @@ namespace std
     template<> struct hash<winrt::Windows::UI::Composition::IVisual> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IVisual2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IVisual3> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Composition::IVisual4> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IVisualCollection> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IVisualElement> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IVisualElement2> : winrt::impl::hash_base {};
@@ -9981,6 +10278,7 @@ namespace std
     template<> struct hash<winrt::Windows::UI::Composition::PointLight> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::PowerEasingFunction> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::QuaternionKeyFrameAnimation> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Composition::RectangleClip> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::RedirectVisual> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::RenderingDeviceReplacedEventArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::ScalarKeyFrameAnimation> : winrt::impl::hash_base {};

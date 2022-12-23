@@ -2281,7 +2281,7 @@ struct DCompositionInkTrailPoint
 //------------------------------------------------------------------------------
 #undef INTERFACE
 #define INTERFACE IDCompositionDelegatedInkTrail
-DECLARE_INTERFACE_IID(IDCompositionDelegatedInkTrail, "C2448E9B-547D-4057-8CF5-8144EDE1C2DA")
+DECLARE_INTERFACE_IID_(IDCompositionDelegatedInkTrail, IUnknown, "C2448E9B-547D-4057-8CF5-8144EDE1C2DA")
 {
     STDMETHOD(StartNewTrail)(THIS_
         const D2D1_COLOR_F& color);

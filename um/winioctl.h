@@ -5487,7 +5487,9 @@ typedef struct _REMOVE_ELEMENT_AND_TRUNCATE_REQUEST {
 typedef enum _DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE {
     DeviceInternalStatusDataRequestTypeUndefined = 0,
     DeviceCurrentInternalStatusDataHeader,
-    DeviceCurrentInternalStatusData
+    DeviceCurrentInternalStatusData,
+    DeviceSavedInternalStatusDataHeader,
+    DeviceSavedInternalStatusData
 } DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE, *PDEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE;
 
 typedef enum _DEVICE_INTERNAL_STATUS_DATA_SET {

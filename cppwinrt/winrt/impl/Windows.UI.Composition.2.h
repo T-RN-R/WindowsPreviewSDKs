@@ -250,7 +250,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     };
     struct __declspec(empty_bases) CompositionGraphicsDevice : Windows::UI::Composition::ICompositionGraphicsDevice,
         impl::base<CompositionGraphicsDevice, Windows::UI::Composition::CompositionObject>,
-        impl::require<CompositionGraphicsDevice, Windows::UI::Composition::ICompositionGraphicsDevice2, Windows::UI::Composition::ICompositionGraphicsDevice3, Windows::UI::Composition::ICompositionObject, Windows::UI::Composition::ICompositionObject2, Windows::UI::Composition::ICompositionObject3, Windows::UI::Composition::ICompositionObject4, Windows::Foundation::IClosable, Windows::UI::Composition::IAnimationObject>
+        impl::require<CompositionGraphicsDevice, Windows::UI::Composition::ICompositionGraphicsDevice2, Windows::UI::Composition::ICompositionGraphicsDevice3, Windows::UI::Composition::ICompositionGraphicsDevice4, Windows::UI::Composition::ICompositionObject, Windows::UI::Composition::ICompositionObject2, Windows::UI::Composition::ICompositionObject3, Windows::UI::Composition::ICompositionObject4, Windows::Foundation::IClosable, Windows::UI::Composition::IAnimationObject>
     {
         CompositionGraphicsDevice(std::nullptr_t) noexcept {}
         CompositionGraphicsDevice(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Composition::ICompositionGraphicsDevice(ptr, take_ownership_from_abi) {}
@@ -478,7 +478,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     };
     struct __declspec(empty_bases) ContainerVisual : Windows::UI::Composition::IContainerVisual,
         impl::base<ContainerVisual, Windows::UI::Composition::Visual, Windows::UI::Composition::CompositionObject>,
-        impl::require<ContainerVisual, Windows::UI::Composition::IVisual, Windows::UI::Composition::IVisual2, Windows::UI::Composition::IVisual3, Windows::UI::Composition::ICompositionObject, Windows::UI::Composition::ICompositionObject2, Windows::UI::Composition::ICompositionObject3, Windows::UI::Composition::ICompositionObject4, Windows::Foundation::IClosable, Windows::UI::Composition::IAnimationObject>
+        impl::require<ContainerVisual, Windows::UI::Composition::IVisual, Windows::UI::Composition::IVisual2, Windows::UI::Composition::IVisual3, Windows::UI::Composition::IVisual4, Windows::UI::Composition::ICompositionObject, Windows::UI::Composition::ICompositionObject2, Windows::UI::Composition::ICompositionObject3, Windows::UI::Composition::ICompositionObject4, Windows::Foundation::IClosable, Windows::UI::Composition::IAnimationObject>
     {
         ContainerVisual(std::nullptr_t) noexcept {}
         ContainerVisual(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Composition::IContainerVisual(ptr, take_ownership_from_abi) {}
@@ -555,7 +555,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     };
     struct __declspec(empty_bases) LayerVisual : Windows::UI::Composition::ILayerVisual,
         impl::base<LayerVisual, Windows::UI::Composition::ContainerVisual, Windows::UI::Composition::Visual, Windows::UI::Composition::CompositionObject>,
-        impl::require<LayerVisual, Windows::UI::Composition::ILayerVisual2, Windows::UI::Composition::IContainerVisual, Windows::UI::Composition::IVisual, Windows::UI::Composition::IVisual2, Windows::UI::Composition::IVisual3, Windows::UI::Composition::ICompositionObject, Windows::UI::Composition::ICompositionObject2, Windows::UI::Composition::ICompositionObject3, Windows::UI::Composition::ICompositionObject4, Windows::Foundation::IClosable, Windows::UI::Composition::IAnimationObject>
+        impl::require<LayerVisual, Windows::UI::Composition::ILayerVisual2, Windows::UI::Composition::IContainerVisual, Windows::UI::Composition::IVisual, Windows::UI::Composition::IVisual2, Windows::UI::Composition::IVisual3, Windows::UI::Composition::IVisual4, Windows::UI::Composition::ICompositionObject, Windows::UI::Composition::ICompositionObject2, Windows::UI::Composition::ICompositionObject3, Windows::UI::Composition::ICompositionObject4, Windows::Foundation::IClosable, Windows::UI::Composition::IAnimationObject>
     {
         LayerVisual(std::nullptr_t) noexcept {}
         LayerVisual(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Composition::ILayerVisual(ptr, take_ownership_from_abi) {}
@@ -602,9 +602,16 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
         QuaternionKeyFrameAnimation(std::nullptr_t) noexcept {}
         QuaternionKeyFrameAnimation(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Composition::IQuaternionKeyFrameAnimation(ptr, take_ownership_from_abi) {}
     };
+    struct __declspec(empty_bases) RectangleClip : Windows::UI::Composition::IRectangleClip,
+        impl::base<RectangleClip, Windows::UI::Composition::CompositionClip, Windows::UI::Composition::CompositionObject>,
+        impl::require<RectangleClip, Windows::UI::Composition::ICompositionClip, Windows::UI::Composition::ICompositionClip2, Windows::UI::Composition::ICompositionObject, Windows::UI::Composition::ICompositionObject2, Windows::UI::Composition::ICompositionObject3, Windows::UI::Composition::ICompositionObject4, Windows::Foundation::IClosable, Windows::UI::Composition::IAnimationObject>
+    {
+        RectangleClip(std::nullptr_t) noexcept {}
+        RectangleClip(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Composition::IRectangleClip(ptr, take_ownership_from_abi) {}
+    };
     struct __declspec(empty_bases) RedirectVisual : Windows::UI::Composition::IRedirectVisual,
         impl::base<RedirectVisual, Windows::UI::Composition::ContainerVisual, Windows::UI::Composition::Visual, Windows::UI::Composition::CompositionObject>,
-        impl::require<RedirectVisual, Windows::UI::Composition::IContainerVisual, Windows::UI::Composition::IVisual, Windows::UI::Composition::IVisual2, Windows::UI::Composition::IVisual3, Windows::UI::Composition::ICompositionObject, Windows::UI::Composition::ICompositionObject2, Windows::UI::Composition::ICompositionObject3, Windows::UI::Composition::ICompositionObject4, Windows::Foundation::IClosable, Windows::UI::Composition::IAnimationObject>
+        impl::require<RedirectVisual, Windows::UI::Composition::IContainerVisual, Windows::UI::Composition::IVisual, Windows::UI::Composition::IVisual2, Windows::UI::Composition::IVisual3, Windows::UI::Composition::IVisual4, Windows::UI::Composition::ICompositionObject, Windows::UI::Composition::ICompositionObject2, Windows::UI::Composition::ICompositionObject3, Windows::UI::Composition::ICompositionObject4, Windows::Foundation::IClosable, Windows::UI::Composition::IAnimationObject>
     {
         RedirectVisual(std::nullptr_t) noexcept {}
         RedirectVisual(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Composition::IRedirectVisual(ptr, take_ownership_from_abi) {}
@@ -632,7 +639,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     };
     struct __declspec(empty_bases) ShapeVisual : Windows::UI::Composition::IShapeVisual,
         impl::base<ShapeVisual, Windows::UI::Composition::ContainerVisual, Windows::UI::Composition::Visual, Windows::UI::Composition::CompositionObject>,
-        impl::require<ShapeVisual, Windows::UI::Composition::IContainerVisual, Windows::UI::Composition::IVisual, Windows::UI::Composition::IVisual2, Windows::UI::Composition::IVisual3, Windows::UI::Composition::ICompositionObject, Windows::UI::Composition::ICompositionObject2, Windows::UI::Composition::ICompositionObject3, Windows::UI::Composition::ICompositionObject4, Windows::Foundation::IClosable, Windows::UI::Composition::IAnimationObject>
+        impl::require<ShapeVisual, Windows::UI::Composition::IContainerVisual, Windows::UI::Composition::IVisual, Windows::UI::Composition::IVisual2, Windows::UI::Composition::IVisual3, Windows::UI::Composition::IVisual4, Windows::UI::Composition::ICompositionObject, Windows::UI::Composition::ICompositionObject2, Windows::UI::Composition::ICompositionObject3, Windows::UI::Composition::ICompositionObject4, Windows::Foundation::IClosable, Windows::UI::Composition::IAnimationObject>
     {
         ShapeVisual(std::nullptr_t) noexcept {}
         ShapeVisual(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Composition::IShapeVisual(ptr, take_ownership_from_abi) {}
@@ -674,7 +681,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     };
     struct __declspec(empty_bases) SpriteVisual : Windows::UI::Composition::ISpriteVisual,
         impl::base<SpriteVisual, Windows::UI::Composition::ContainerVisual, Windows::UI::Composition::Visual, Windows::UI::Composition::CompositionObject>,
-        impl::require<SpriteVisual, Windows::UI::Composition::ISpriteVisual2, Windows::UI::Composition::IContainerVisual, Windows::UI::Composition::IVisual, Windows::UI::Composition::IVisual2, Windows::UI::Composition::IVisual3, Windows::UI::Composition::ICompositionObject, Windows::UI::Composition::ICompositionObject2, Windows::UI::Composition::ICompositionObject3, Windows::UI::Composition::ICompositionObject4, Windows::Foundation::IClosable, Windows::UI::Composition::IAnimationObject>
+        impl::require<SpriteVisual, Windows::UI::Composition::ISpriteVisual2, Windows::UI::Composition::IContainerVisual, Windows::UI::Composition::IVisual, Windows::UI::Composition::IVisual2, Windows::UI::Composition::IVisual3, Windows::UI::Composition::IVisual4, Windows::UI::Composition::ICompositionObject, Windows::UI::Composition::ICompositionObject2, Windows::UI::Composition::ICompositionObject3, Windows::UI::Composition::ICompositionObject4, Windows::Foundation::IClosable, Windows::UI::Composition::IAnimationObject>
     {
         SpriteVisual(std::nullptr_t) noexcept {}
         SpriteVisual(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Composition::ISpriteVisual(ptr, take_ownership_from_abi) {}
@@ -723,7 +730,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     };
     struct __declspec(empty_bases) Visual : Windows::UI::Composition::IVisual,
         impl::base<Visual, Windows::UI::Composition::CompositionObject>,
-        impl::require<Visual, Windows::UI::Composition::IVisual2, Windows::UI::Composition::IVisual3, Windows::UI::Composition::ICompositionObject, Windows::UI::Composition::ICompositionObject2, Windows::UI::Composition::ICompositionObject3, Windows::UI::Composition::ICompositionObject4, Windows::Foundation::IClosable, Windows::UI::Composition::IAnimationObject>
+        impl::require<Visual, Windows::UI::Composition::IVisual2, Windows::UI::Composition::IVisual3, Windows::UI::Composition::IVisual4, Windows::UI::Composition::ICompositionObject, Windows::UI::Composition::ICompositionObject2, Windows::UI::Composition::ICompositionObject3, Windows::UI::Composition::ICompositionObject4, Windows::Foundation::IClosable, Windows::UI::Composition::IAnimationObject>
     {
         Visual(std::nullptr_t) noexcept {}
         Visual(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Composition::IVisual(ptr, take_ownership_from_abi) {}

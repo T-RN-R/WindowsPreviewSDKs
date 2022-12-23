@@ -3069,6 +3069,14 @@ NdrOleFree (
 #endif
 #endif
 
+#ifndef DECLSPEC_XFGREUSE
+#if _CONTROL_FLOW_GUARD_XFG
+#define DECLSPEC_XFGREUSE(vtbl, func) __declspec(xfg_reuse_typehash(vtbl, func))
+#else
+#define DECLSPEC_XFGREUSE(vtbl, func)
+#endif
+#endif
+
 #define MIDL_INTERFACE(x)   struct DECLSPEC_UUID(x) DECLSPEC_NOVTABLE
 
 #if _MSC_VER >= 1100
