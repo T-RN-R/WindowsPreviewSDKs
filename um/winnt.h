@@ -12060,7 +12060,8 @@ typedef struct _PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {
             DWORD BlockNonCetBinariesNonEhcont : 1;
             DWORD AuditBlockNonCetBinaries : 1;
             DWORD CetDynamicApisOutOfProcOnly : 1;
-            DWORD ReservedFlags : 23;
+            DWORD SetContextIpValidationRelaxedMode : 1;
+            DWORD ReservedFlags : 22;
 
         } DUMMYSTRUCTNAME;
     } DUMMYUNIONNAME;
@@ -12872,6 +12873,8 @@ typedef struct _SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
 #define PF_AVX2_INSTRUCTIONS_AVAILABLE              40   
 #define PF_AVX512F_INSTRUCTIONS_AVAILABLE           41   
 #define PF_ERMS_AVAILABLE                           42   
+#define PF_ARM_V82_DP_INSTRUCTIONS_AVAILABLE        43   
+#define PF_ARM_V83_JSCVT_INSTRUCTIONS_AVAILABLE     44   
 
 //
 // Known extended CPU state feature BITs
@@ -18778,6 +18781,7 @@ typedef struct _IMAGE_LOAD_CONFIG_DIRECTORY32 {
     DWORD   GuardXFGCheckFunctionPointer;    // VA
     DWORD   GuardXFGDispatchFunctionPointer; // VA
     DWORD   GuardXFGTableDispatchFunctionPointer; // VA
+    DWORD   CastGuardOsDeterminedFailureMode; // VA
 } IMAGE_LOAD_CONFIG_DIRECTORY32, *PIMAGE_LOAD_CONFIG_DIRECTORY32;
 
 typedef struct _IMAGE_LOAD_CONFIG_DIRECTORY64 {
@@ -18828,6 +18832,7 @@ typedef struct _IMAGE_LOAD_CONFIG_DIRECTORY64 {
     ULONGLONG  GuardXFGCheckFunctionPointer;    // VA
     ULONGLONG  GuardXFGDispatchFunctionPointer; // VA
     ULONGLONG  GuardXFGTableDispatchFunctionPointer; // VA
+    ULONGLONG  CastGuardOsDeterminedFailureMode; // VA
 } IMAGE_LOAD_CONFIG_DIRECTORY64, *PIMAGE_LOAD_CONFIG_DIRECTORY64;
 
 // end_ntoshvp
@@ -20300,6 +20305,7 @@ typedef struct _RTL_BARRIER {
 #define FAST_FAIL_RIO_ABORT                         62
 #define FAST_FAIL_INVALID_PFN                       63
 #define FAST_FAIL_GUARD_ICALL_CHECK_FAILURE_XFG     64
+#define FAST_FAIL_CAST_GUARD                        65
 #define FAST_FAIL_INVALID_FAST_FAIL_CODE            0xFFFFFFFF
 
 #if _MSC_VER >= 1610

@@ -25697,6 +25697,12 @@ typedef HRESULT (CALLBACK* PDEBUG_STACK_PROVIDER_ENDTHREADSTACKRECONSTRUCTION)
 
 #if !defined(DEBUG_NO_IMPLEMENTATION) && !defined(_M_CEE_PURE)
 
+// warning C5204: 'DebugBaseEventCallbacks': class has virtual functions,
+// but its trivial destructor is not virtual; instances of objects derived
+// from this class may not be destructed correctly.
+#pragma warning(push)
+#pragma warning(disable:5204)
+
 //
 // DebugBaseEventCallbacks provides a do-nothing base implementation
 // of IDebugEventCallbacks.  A program can derive their own
@@ -25890,6 +25896,14 @@ public:
     }
 };
 
+#pragma warning(pop)
+
+// warning C5204: 'DebugBaseEventCallbacksWide': class has virtual functions,
+// but its trivial destructor is not virtual; instances of objects derived
+// from this class may not be destructed correctly.
+#pragma warning(push)
+#pragma warning(disable:5204)
+
 class DebugBaseEventCallbacksWide : public IDebugEventCallbacksWide
 {
 public:
@@ -26075,6 +26089,8 @@ public:
         return S_OK;
     }
 };
+
+#pragma warning(pop)
 
 #endif // #ifndef DEBUG_NO_IMPLEMENTATION
 

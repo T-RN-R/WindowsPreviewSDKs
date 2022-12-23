@@ -680,8 +680,8 @@
 #define TeGdiBatchCount 0xf70
 #define TeGuaranteedStackBytes 0xf78
 #define TeFlsData 0xfb4
-#define ThreadEnvironmentBlockLength 0x1000
-#define CmThreadEnvironmentBlockOffset 0x1000
+#define ThreadEnvironmentBlockLength 0x1010
+#define CmThreadEnvironmentBlockOffset 0x2000
 #define TLS_MINIMUM_AVAILABLE 0x40
 #define TLS_EXPANSION_SLOTS 0x400
 

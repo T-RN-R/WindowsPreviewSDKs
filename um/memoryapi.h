@@ -294,6 +294,15 @@ GetLargePageMinimum(
     );
 
 WINBASEAPI
+BOOL
+WINAPI
+GetProcessWorkingSetSize(
+    _In_ HANDLE hProcess,
+    _Out_ PSIZE_T lpMinimumWorkingSetSize,
+    _Out_ PSIZE_T lpMaximumWorkingSetSize
+    );
+
+WINBASEAPI
 _Success_(return != FALSE)
 BOOL
 WINAPI
@@ -302,6 +311,15 @@ GetProcessWorkingSetSizeEx(
     _Out_ PSIZE_T lpMinimumWorkingSetSize,
     _Out_ PSIZE_T lpMaximumWorkingSetSize,
     _Out_ PDWORD Flags
+    );
+
+WINBASEAPI
+BOOL
+WINAPI
+SetProcessWorkingSetSize(
+    _In_ HANDLE hProcess,
+    _In_ SIZE_T dwMinimumWorkingSetSize,
+    _In_ SIZE_T dwMaximumWorkingSetSize
     );
 
 WINBASEAPI

@@ -10711,7 +10711,7 @@ typedef struct _NDIS_QOS_OFFLOAD_CAPABILITIES
 
 #endif // (NDIS_SUPPORT_NDIS650)
 
-#if (NDIS_SUPPORT_NDIS684)
+#if (NDIS_SUPPORT_NDIS685)
 
 #define NDIS_QOS_SQ_STATS_REVISION_1            1
 
@@ -10721,20 +10721,14 @@ typedef struct _NDIS_QOS_SQ_STATS
     ULONG               Flags;
     NDIS_QOS_SQ_ID      SqId;
     NDIS_QOS_SQ_TYPE    SqType;
-    UINT64              TxBytesRequested[NDIS_QOS_MAXIMUM_TRAFFIC_CLASSES];
-    UINT64              TxPktsRequested[NDIS_QOS_MAXIMUM_TRAFFIC_CLASSES];
-    UINT64              TxBytesSuccessfullySent[NDIS_QOS_MAXIMUM_TRAFFIC_CLASSES];
-    UINT64              TxPktsSuccessfullySent[NDIS_QOS_MAXIMUM_TRAFFIC_CLASSES];
-    UINT64              TxBytesDroppedByRateLimiting[NDIS_QOS_MAXIMUM_TRAFFIC_CLASSES];
-    UINT64              TxPktsDroppedByRateLimiting[NDIS_QOS_MAXIMUM_TRAFFIC_CLASSES];
-    UINT64              TxBytesDroppedTotal[NDIS_QOS_MAXIMUM_TRAFFIC_CLASSES];
-    UINT64              TxPktsDroppedTotal[NDIS_QOS_MAXIMUM_TRAFFIC_CLASSES];
+    UINT64              BytesTransmitted[NDIS_QOS_MAXIMUM_TRAFFIC_CLASSES]; 
+    UINT64              PktsTransmitted[NDIS_QOS_MAXIMUM_TRAFFIC_CLASSES];
 } NDIS_QOS_SQ_STATS, *PNDIS_QOS_SQ_STATS;
 
 #define NDIS_SIZEOF_QOS_SQ_STATS_REVISION_1     \
-    RTL_SIZEOF_THROUGH_FIELD(NDIS_QOS_SQ_STATS, TxPktsDroppedTotal)
+    RTL_SIZEOF_THROUGH_FIELD(NDIS_QOS_SQ_STATS, PktsTransmitted)
 
-#endif // (NDIS_SUPPORT_NDIS684)
+#endif // (NDIS_SUPPORT_NDIS685)
 
 #if ((NTDDI_VERSION >= NTDDI_WIN10_RS5) || NDIS_SUPPORT_NDIS682)
 

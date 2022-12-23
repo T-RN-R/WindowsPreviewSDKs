@@ -498,10 +498,16 @@ typedef struct _WINHTTP_EXTENDED_HEADER
 #define WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_USE_DNS_TTL     0x00000004
 #define WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_FORCE_CLEARTEXT 0x00000008
 
+//
+// ulMaxCacheEntryAge is specified in minutes
+// ulMinCacheEntryTtl is specifiec in seconds
+//
+
 typedef struct _WINHTTP_RESOLVER_CACHE_CONFIG
 {
     ULONG ulMaxResolverCacheEntries;
     ULONG ulMaxCacheEntryAge;
+    ULONG ulMinCacheEntryTtl;
     ULONGLONG ullFlags;
 } WINHTTP_RESOLVER_CACHE_CONFIG, *PWINHTTP_RESOLVER_CACHE_CONFIG;
 

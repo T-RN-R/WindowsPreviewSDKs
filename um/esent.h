@@ -2094,8 +2094,11 @@ typedef enum
 
 #endif // JET_VERSION >= 0x0A00
 
+#if ( JET_VERSION >= 0x0A01 )
+#define JET_paramUseFlushForWriteDurability     214 //  This controls whether ESE uses Flush or FUA to make sure a write to disk is durable.
+#endif // JET_VERSION >= 0x0A01
 
-#define JET_paramMaxValueInvalid                213 //  This is not a valid parameter. It can change from release to release!
+#define JET_paramMaxValueInvalid                215 //  This is not a valid parameter. It can change from release to release!
 
 
 
@@ -5573,7 +5576,7 @@ JET_ERR JET_API
 JetGetRecordSize(
     _In_ JET_SESID          sesid,
     _In_ JET_TABLEID        tableid,
-    _Out_ JET_RECSIZE *     precsize,
+    _Inout_ JET_RECSIZE *   precsize,
     _In_ const JET_GRBIT    grbit );
 
 #endif // JET_VERSION >= 0x0600
@@ -5590,13 +5593,14 @@ JET_ERR JET_API
 JetGetRecordSize2(
     _In_ JET_SESID          sesid,
     _In_ JET_TABLEID        tableid,
-    _Out_ JET_RECSIZE2 *    precsize,
+    _Inout_ JET_RECSIZE2 *  precsize,
     _In_ const JET_GRBIT    grbit );
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_PKG_ESENT) */
 #pragma endregion
 
 #endif // JET_VERSION >= 0x0601
+
 
 #pragma region Application Family or Esent Package
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_PKG_ESENT)

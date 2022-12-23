@@ -141,6 +141,12 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
         Default = 0,
         InheritFromVisualContent = 1,
     };
+    enum class CompositionEasingFunctionMode : int32_t
+    {
+        In = 0,
+        Out = 1,
+        InOut = 2,
+    };
     enum class CompositionEffectFactoryLoadStatus : int32_t
     {
         Success = 0,
@@ -193,10 +199,13 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     struct IAnimationObject;
     struct IAnimationPropertyInfo;
     struct IAnimationPropertyInfo2;
+    struct IBackEasingFunction;
     struct IBooleanKeyFrameAnimation;
+    struct IBounceEasingFunction;
     struct IBounceScalarNaturalMotionAnimation;
     struct IBounceVector2NaturalMotionAnimation;
     struct IBounceVector3NaturalMotionAnimation;
+    struct ICircleEasingFunction;
     struct IColorKeyFrameAnimation;
     struct ICompositionAnimation;
     struct ICompositionAnimation2;
@@ -224,6 +233,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     struct ICompositionDrawingSurfaceFactory;
     struct ICompositionEasingFunction;
     struct ICompositionEasingFunctionFactory;
+    struct ICompositionEasingFunctionStatics;
     struct ICompositionEffectBrush;
     struct ICompositionEffectFactory;
     struct ICompositionEffectSourceParameter;
@@ -277,6 +287,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     struct ICompositionSurfaceBrush;
     struct ICompositionSurfaceBrush2;
     struct ICompositionSurfaceBrush3;
+    struct ICompositionSurfaceFacade;
     struct ICompositionTarget;
     struct ICompositionTargetFactory;
     struct ICompositionTransform;
@@ -291,6 +302,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     struct ICompositor4;
     struct ICompositor5;
     struct ICompositor6;
+    struct ICompositor7;
     struct ICompositorStatics;
     struct ICompositorWithProjectedShadow;
     struct ICompositorWithRadialGradient;
@@ -302,6 +314,8 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     struct IDistantLight2;
     struct IDropShadow;
     struct IDropShadow2;
+    struct IElasticEasingFunction;
+    struct IExponentialEasingFunction;
     struct IExpressionAnimation;
     struct IImplicitAnimationCollection;
     struct IInsetClip;
@@ -318,6 +332,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     struct IPointLight;
     struct IPointLight2;
     struct IPointLight3;
+    struct IPowerEasingFunction;
     struct IQuaternionKeyFrameAnimation;
     struct IRedirectVisual;
     struct IRenderingDeviceReplacedEventArgs;
@@ -325,6 +340,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     struct IScalarNaturalMotionAnimation;
     struct IScalarNaturalMotionAnimationFactory;
     struct IShapeVisual;
+    struct ISineEasingFunction;
     struct ISpotLight;
     struct ISpotLight2;
     struct ISpotLight3;
@@ -352,10 +368,13 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     struct AmbientLight;
     struct AnimationController;
     struct AnimationPropertyInfo;
+    struct BackEasingFunction;
     struct BooleanKeyFrameAnimation;
+    struct BounceEasingFunction;
     struct BounceScalarNaturalMotionAnimation;
     struct BounceVector2NaturalMotionAnimation;
     struct BounceVector3NaturalMotionAnimation;
+    struct CircleEasingFunction;
     struct ColorKeyFrameAnimation;
     struct CompositionAnimation;
     struct CompositionAnimationGroup;
@@ -414,6 +433,8 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     struct CubicBezierEasingFunction;
     struct DistantLight;
     struct DropShadow;
+    struct ElasticEasingFunction;
+    struct ExponentialEasingFunction;
     struct ExpressionAnimation;
     struct ImplicitAnimationCollection;
     struct InitialValueExpressionCollection;
@@ -424,12 +445,14 @@ WINRT_EXPORT namespace winrt::Windows::UI::Composition
     struct NaturalMotionAnimation;
     struct PathKeyFrameAnimation;
     struct PointLight;
+    struct PowerEasingFunction;
     struct QuaternionKeyFrameAnimation;
     struct RedirectVisual;
     struct RenderingDeviceReplacedEventArgs;
     struct ScalarKeyFrameAnimation;
     struct ScalarNaturalMotionAnimation;
     struct ShapeVisual;
+    struct SineEasingFunction;
     struct SpotLight;
     struct SpringScalarNaturalMotionAnimation;
     struct SpringVector2NaturalMotionAnimation;
@@ -454,10 +477,13 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Composition::IAnimationObject>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IAnimationPropertyInfo>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IAnimationPropertyInfo2>{ using type = interface_category; };
+    template <> struct category<Windows::UI::Composition::IBackEasingFunction>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IBooleanKeyFrameAnimation>{ using type = interface_category; };
+    template <> struct category<Windows::UI::Composition::IBounceEasingFunction>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IBounceScalarNaturalMotionAnimation>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IBounceVector2NaturalMotionAnimation>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IBounceVector3NaturalMotionAnimation>{ using type = interface_category; };
+    template <> struct category<Windows::UI::Composition::ICircleEasingFunction>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IColorKeyFrameAnimation>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::ICompositionAnimation>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::ICompositionAnimation2>{ using type = interface_category; };
@@ -485,6 +511,7 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Composition::ICompositionDrawingSurfaceFactory>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::ICompositionEasingFunction>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::ICompositionEasingFunctionFactory>{ using type = interface_category; };
+    template <> struct category<Windows::UI::Composition::ICompositionEasingFunctionStatics>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::ICompositionEffectBrush>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::ICompositionEffectFactory>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::ICompositionEffectSourceParameter>{ using type = interface_category; };
@@ -538,6 +565,7 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Composition::ICompositionSurfaceBrush>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::ICompositionSurfaceBrush2>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::ICompositionSurfaceBrush3>{ using type = interface_category; };
+    template <> struct category<Windows::UI::Composition::ICompositionSurfaceFacade>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::ICompositionTarget>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::ICompositionTargetFactory>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::ICompositionTransform>{ using type = interface_category; };
@@ -552,6 +580,7 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Composition::ICompositor4>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::ICompositor5>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::ICompositor6>{ using type = interface_category; };
+    template <> struct category<Windows::UI::Composition::ICompositor7>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::ICompositorStatics>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::ICompositorWithProjectedShadow>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::ICompositorWithRadialGradient>{ using type = interface_category; };
@@ -563,6 +592,8 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Composition::IDistantLight2>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IDropShadow>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IDropShadow2>{ using type = interface_category; };
+    template <> struct category<Windows::UI::Composition::IElasticEasingFunction>{ using type = interface_category; };
+    template <> struct category<Windows::UI::Composition::IExponentialEasingFunction>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IExpressionAnimation>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IImplicitAnimationCollection>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IInsetClip>{ using type = interface_category; };
@@ -579,6 +610,7 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Composition::IPointLight>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IPointLight2>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IPointLight3>{ using type = interface_category; };
+    template <> struct category<Windows::UI::Composition::IPowerEasingFunction>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IQuaternionKeyFrameAnimation>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IRedirectVisual>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IRenderingDeviceReplacedEventArgs>{ using type = interface_category; };
@@ -586,6 +618,7 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Composition::IScalarNaturalMotionAnimation>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IScalarNaturalMotionAnimationFactory>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::IShapeVisual>{ using type = interface_category; };
+    template <> struct category<Windows::UI::Composition::ISineEasingFunction>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::ISpotLight>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::ISpotLight2>{ using type = interface_category; };
     template <> struct category<Windows::UI::Composition::ISpotLight3>{ using type = interface_category; };
@@ -613,10 +646,13 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Composition::AmbientLight>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::AnimationController>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::AnimationPropertyInfo>{ using type = class_category; };
+    template <> struct category<Windows::UI::Composition::BackEasingFunction>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::BooleanKeyFrameAnimation>{ using type = class_category; };
+    template <> struct category<Windows::UI::Composition::BounceEasingFunction>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::BounceScalarNaturalMotionAnimation>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::BounceVector2NaturalMotionAnimation>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::BounceVector3NaturalMotionAnimation>{ using type = class_category; };
+    template <> struct category<Windows::UI::Composition::CircleEasingFunction>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::ColorKeyFrameAnimation>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::CompositionAnimation>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::CompositionAnimationGroup>{ using type = class_category; };
@@ -675,6 +711,8 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Composition::CubicBezierEasingFunction>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::DistantLight>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::DropShadow>{ using type = class_category; };
+    template <> struct category<Windows::UI::Composition::ElasticEasingFunction>{ using type = class_category; };
+    template <> struct category<Windows::UI::Composition::ExponentialEasingFunction>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::ExpressionAnimation>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::ImplicitAnimationCollection>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::InitialValueExpressionCollection>{ using type = class_category; };
@@ -685,12 +723,14 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Composition::NaturalMotionAnimation>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::PathKeyFrameAnimation>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::PointLight>{ using type = class_category; };
+    template <> struct category<Windows::UI::Composition::PowerEasingFunction>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::QuaternionKeyFrameAnimation>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::RedirectVisual>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::RenderingDeviceReplacedEventArgs>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::ScalarKeyFrameAnimation>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::ScalarNaturalMotionAnimation>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::ShapeVisual>{ using type = class_category; };
+    template <> struct category<Windows::UI::Composition::SineEasingFunction>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::SpotLight>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::SpringScalarNaturalMotionAnimation>{ using type = class_category; };
     template <> struct category<Windows::UI::Composition::SpringVector2NaturalMotionAnimation>{ using type = class_category; };
@@ -718,6 +758,7 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Composition::CompositionColorSpace>{ using type = enum_category; };
     template <> struct category<Windows::UI::Composition::CompositionCompositeMode>{ using type = enum_category; };
     template <> struct category<Windows::UI::Composition::CompositionDropShadowSourcePolicy>{ using type = enum_category; };
+    template <> struct category<Windows::UI::Composition::CompositionEasingFunctionMode>{ using type = enum_category; };
     template <> struct category<Windows::UI::Composition::CompositionEffectFactoryLoadStatus>{ using type = enum_category; };
     template <> struct category<Windows::UI::Composition::CompositionGetValueStatus>{ using type = enum_category; };
     template <> struct category<Windows::UI::Composition::CompositionGradientExtendMode>{ using type = enum_category; };
@@ -728,10 +769,13 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Composition::AmbientLight> = L"Windows.UI.Composition.AmbientLight";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::AnimationController> = L"Windows.UI.Composition.AnimationController";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::AnimationPropertyInfo> = L"Windows.UI.Composition.AnimationPropertyInfo";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::BackEasingFunction> = L"Windows.UI.Composition.BackEasingFunction";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::BooleanKeyFrameAnimation> = L"Windows.UI.Composition.BooleanKeyFrameAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::BounceEasingFunction> = L"Windows.UI.Composition.BounceEasingFunction";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::BounceScalarNaturalMotionAnimation> = L"Windows.UI.Composition.BounceScalarNaturalMotionAnimation";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::BounceVector2NaturalMotionAnimation> = L"Windows.UI.Composition.BounceVector2NaturalMotionAnimation";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::BounceVector3NaturalMotionAnimation> = L"Windows.UI.Composition.BounceVector3NaturalMotionAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::CircleEasingFunction> = L"Windows.UI.Composition.CircleEasingFunction";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ColorKeyFrameAnimation> = L"Windows.UI.Composition.ColorKeyFrameAnimation";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::CompositionAnimation> = L"Windows.UI.Composition.CompositionAnimation";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::CompositionAnimationGroup> = L"Windows.UI.Composition.CompositionAnimationGroup";
@@ -790,6 +834,8 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Composition::CubicBezierEasingFunction> = L"Windows.UI.Composition.CubicBezierEasingFunction";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::DistantLight> = L"Windows.UI.Composition.DistantLight";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::DropShadow> = L"Windows.UI.Composition.DropShadow";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::ElasticEasingFunction> = L"Windows.UI.Composition.ElasticEasingFunction";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::ExponentialEasingFunction> = L"Windows.UI.Composition.ExponentialEasingFunction";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ExpressionAnimation> = L"Windows.UI.Composition.ExpressionAnimation";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ImplicitAnimationCollection> = L"Windows.UI.Composition.ImplicitAnimationCollection";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::InitialValueExpressionCollection> = L"Windows.UI.Composition.InitialValueExpressionCollection";
@@ -800,12 +846,14 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Composition::NaturalMotionAnimation> = L"Windows.UI.Composition.NaturalMotionAnimation";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::PathKeyFrameAnimation> = L"Windows.UI.Composition.PathKeyFrameAnimation";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::PointLight> = L"Windows.UI.Composition.PointLight";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::PowerEasingFunction> = L"Windows.UI.Composition.PowerEasingFunction";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::QuaternionKeyFrameAnimation> = L"Windows.UI.Composition.QuaternionKeyFrameAnimation";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::RedirectVisual> = L"Windows.UI.Composition.RedirectVisual";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::RenderingDeviceReplacedEventArgs> = L"Windows.UI.Composition.RenderingDeviceReplacedEventArgs";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ScalarKeyFrameAnimation> = L"Windows.UI.Composition.ScalarKeyFrameAnimation";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ScalarNaturalMotionAnimation> = L"Windows.UI.Composition.ScalarNaturalMotionAnimation";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ShapeVisual> = L"Windows.UI.Composition.ShapeVisual";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::SineEasingFunction> = L"Windows.UI.Composition.SineEasingFunction";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::SpotLight> = L"Windows.UI.Composition.SpotLight";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::SpringScalarNaturalMotionAnimation> = L"Windows.UI.Composition.SpringScalarNaturalMotionAnimation";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::SpringVector2NaturalMotionAnimation> = L"Windows.UI.Composition.SpringVector2NaturalMotionAnimation";
@@ -833,6 +881,7 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Composition::CompositionColorSpace> = L"Windows.UI.Composition.CompositionColorSpace";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::CompositionCompositeMode> = L"Windows.UI.Composition.CompositionCompositeMode";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::CompositionDropShadowSourcePolicy> = L"Windows.UI.Composition.CompositionDropShadowSourcePolicy";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::CompositionEasingFunctionMode> = L"Windows.UI.Composition.CompositionEasingFunctionMode";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::CompositionEffectFactoryLoadStatus> = L"Windows.UI.Composition.CompositionEffectFactoryLoadStatus";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::CompositionGetValueStatus> = L"Windows.UI.Composition.CompositionGetValueStatus";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::CompositionGradientExtendMode> = L"Windows.UI.Composition.CompositionGradientExtendMode";
@@ -847,10 +896,13 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IAnimationObject> = L"Windows.UI.Composition.IAnimationObject";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IAnimationPropertyInfo> = L"Windows.UI.Composition.IAnimationPropertyInfo";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IAnimationPropertyInfo2> = L"Windows.UI.Composition.IAnimationPropertyInfo2";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::IBackEasingFunction> = L"Windows.UI.Composition.IBackEasingFunction";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IBooleanKeyFrameAnimation> = L"Windows.UI.Composition.IBooleanKeyFrameAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::IBounceEasingFunction> = L"Windows.UI.Composition.IBounceEasingFunction";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IBounceScalarNaturalMotionAnimation> = L"Windows.UI.Composition.IBounceScalarNaturalMotionAnimation";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IBounceVector2NaturalMotionAnimation> = L"Windows.UI.Composition.IBounceVector2NaturalMotionAnimation";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IBounceVector3NaturalMotionAnimation> = L"Windows.UI.Composition.IBounceVector3NaturalMotionAnimation";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::ICircleEasingFunction> = L"Windows.UI.Composition.ICircleEasingFunction";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IColorKeyFrameAnimation> = L"Windows.UI.Composition.IColorKeyFrameAnimation";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ICompositionAnimation> = L"Windows.UI.Composition.ICompositionAnimation";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ICompositionAnimation2> = L"Windows.UI.Composition.ICompositionAnimation2";
@@ -878,6 +930,7 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ICompositionDrawingSurfaceFactory> = L"Windows.UI.Composition.ICompositionDrawingSurfaceFactory";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ICompositionEasingFunction> = L"Windows.UI.Composition.ICompositionEasingFunction";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ICompositionEasingFunctionFactory> = L"Windows.UI.Composition.ICompositionEasingFunctionFactory";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::ICompositionEasingFunctionStatics> = L"Windows.UI.Composition.ICompositionEasingFunctionStatics";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ICompositionEffectBrush> = L"Windows.UI.Composition.ICompositionEffectBrush";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ICompositionEffectFactory> = L"Windows.UI.Composition.ICompositionEffectFactory";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ICompositionEffectSourceParameter> = L"Windows.UI.Composition.ICompositionEffectSourceParameter";
@@ -931,6 +984,7 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ICompositionSurfaceBrush> = L"Windows.UI.Composition.ICompositionSurfaceBrush";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ICompositionSurfaceBrush2> = L"Windows.UI.Composition.ICompositionSurfaceBrush2";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ICompositionSurfaceBrush3> = L"Windows.UI.Composition.ICompositionSurfaceBrush3";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::ICompositionSurfaceFacade> = L"Windows.UI.Composition.ICompositionSurfaceFacade";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ICompositionTarget> = L"Windows.UI.Composition.ICompositionTarget";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ICompositionTargetFactory> = L"Windows.UI.Composition.ICompositionTargetFactory";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ICompositionTransform> = L"Windows.UI.Composition.ICompositionTransform";
@@ -945,6 +999,7 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ICompositor4> = L"Windows.UI.Composition.ICompositor4";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ICompositor5> = L"Windows.UI.Composition.ICompositor5";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ICompositor6> = L"Windows.UI.Composition.ICompositor6";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::ICompositor7> = L"Windows.UI.Composition.ICompositor7";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ICompositorStatics> = L"Windows.UI.Composition.ICompositorStatics";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ICompositorWithProjectedShadow> = L"Windows.UI.Composition.ICompositorWithProjectedShadow";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ICompositorWithRadialGradient> = L"Windows.UI.Composition.ICompositorWithRadialGradient";
@@ -956,6 +1011,8 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IDistantLight2> = L"Windows.UI.Composition.IDistantLight2";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IDropShadow> = L"Windows.UI.Composition.IDropShadow";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IDropShadow2> = L"Windows.UI.Composition.IDropShadow2";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::IElasticEasingFunction> = L"Windows.UI.Composition.IElasticEasingFunction";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::IExponentialEasingFunction> = L"Windows.UI.Composition.IExponentialEasingFunction";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IExpressionAnimation> = L"Windows.UI.Composition.IExpressionAnimation";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IImplicitAnimationCollection> = L"Windows.UI.Composition.IImplicitAnimationCollection";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IInsetClip> = L"Windows.UI.Composition.IInsetClip";
@@ -972,6 +1029,7 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IPointLight> = L"Windows.UI.Composition.IPointLight";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IPointLight2> = L"Windows.UI.Composition.IPointLight2";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IPointLight3> = L"Windows.UI.Composition.IPointLight3";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::IPowerEasingFunction> = L"Windows.UI.Composition.IPowerEasingFunction";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IQuaternionKeyFrameAnimation> = L"Windows.UI.Composition.IQuaternionKeyFrameAnimation";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IRedirectVisual> = L"Windows.UI.Composition.IRedirectVisual";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IRenderingDeviceReplacedEventArgs> = L"Windows.UI.Composition.IRenderingDeviceReplacedEventArgs";
@@ -979,6 +1037,7 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IScalarNaturalMotionAnimation> = L"Windows.UI.Composition.IScalarNaturalMotionAnimation";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IScalarNaturalMotionAnimationFactory> = L"Windows.UI.Composition.IScalarNaturalMotionAnimationFactory";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::IShapeVisual> = L"Windows.UI.Composition.IShapeVisual";
+    template <> inline constexpr auto& name_v<Windows::UI::Composition::ISineEasingFunction> = L"Windows.UI.Composition.ISineEasingFunction";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ISpotLight> = L"Windows.UI.Composition.ISpotLight";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ISpotLight2> = L"Windows.UI.Composition.ISpotLight2";
     template <> inline constexpr auto& name_v<Windows::UI::Composition::ISpotLight3> = L"Windows.UI.Composition.ISpotLight3";
@@ -1010,10 +1069,13 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IAnimationObject>{ 0xE7141E0A,0x04B8,0x4FC5,{ 0xA4,0xDC,0x19,0x53,0x92,0xE5,0x78,0x07 } }; // E7141E0A-04B8-4FC5-A4DC-195392E57807
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IAnimationPropertyInfo>{ 0xF4716F05,0xED77,0x4E3C,{ 0xB3,0x28,0x5C,0x39,0x85,0xB3,0x73,0x8F } }; // F4716F05-ED77-4E3C-B328-5C3985B3738F
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IAnimationPropertyInfo2>{ 0x591720B4,0x7472,0x5218,{ 0x8B,0x39,0xDF,0xFE,0x61,0x5A,0xE6,0xDA } }; // 591720B4-7472-5218-8B39-DFFE615AE6DA
+    template <> inline constexpr guid guid_v<Windows::UI::Composition::IBackEasingFunction>{ 0xB8560DA4,0x5E3C,0x545D,{ 0xB2,0x63,0x79,0x87,0xA2,0xBD,0x27,0xCB } }; // B8560DA4-5E3C-545D-B263-7987A2BD27CB
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IBooleanKeyFrameAnimation>{ 0x95E23A08,0xD1F4,0x4972,{ 0x97,0x70,0x3E,0xFE,0x68,0xD8,0x2E,0x14 } }; // 95E23A08-D1F4-4972-9770-3EFE68D82E14
+    template <> inline constexpr guid guid_v<Windows::UI::Composition::IBounceEasingFunction>{ 0xE7FDB44B,0xAAD5,0x5174,{ 0x94,0x21,0xEE,0xF8,0xB7,0x5A,0x6A,0x43 } }; // E7FDB44B-AAD5-5174-9421-EEF8B75A6A43
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IBounceScalarNaturalMotionAnimation>{ 0xBAA30DCC,0xA633,0x4618,{ 0x9B,0x06,0x7F,0x7C,0x72,0xC8,0x7C,0xFF } }; // BAA30DCC-A633-4618-9B06-7F7C72C87CFF
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IBounceVector2NaturalMotionAnimation>{ 0xDA344196,0x2154,0x4B3C,{ 0x88,0xAA,0x47,0x36,0x12,0x04,0xEC,0xCD } }; // DA344196-2154-4B3C-88AA-47361204ECCD
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IBounceVector3NaturalMotionAnimation>{ 0x47DABC31,0x10D3,0x4518,{ 0x86,0xF1,0x09,0xCA,0xF7,0x42,0xD1,0x13 } }; // 47DABC31-10D3-4518-86F1-09CAF742D113
+    template <> inline constexpr guid guid_v<Windows::UI::Composition::ICircleEasingFunction>{ 0x1E07222A,0x6F82,0x5A28,{ 0x87,0x48,0x2E,0x92,0xFC,0x46,0xEE,0x2B } }; // 1E07222A-6F82-5A28-8748-2E92FC46EE2B
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IColorKeyFrameAnimation>{ 0x93ADB5E9,0x8E05,0x4593,{ 0x84,0xA3,0xDC,0xA1,0x52,0x78,0x1E,0x56 } }; // 93ADB5E9-8E05-4593-84A3-DCA152781E56
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositionAnimation>{ 0x464C4C2C,0x1CAA,0x4061,{ 0x9B,0x40,0xE1,0x3F,0xDE,0x15,0x03,0xCA } }; // 464C4C2C-1CAA-4061-9B40-E13FDE1503CA
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositionAnimation2>{ 0x369B603E,0xA80F,0x4948,{ 0x93,0xE3,0xED,0x23,0xFB,0x38,0xC6,0xCB } }; // 369B603E-A80F-4948-93E3-ED23FB38C6CB
@@ -1041,6 +1103,7 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositionDrawingSurfaceFactory>{ 0x9497B00A,0x312D,0x46B9,{ 0x9D,0xB3,0x41,0x2F,0xD7,0x94,0x64,0xC8 } }; // 9497B00A-312D-46B9-9DB3-412FD79464C8
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositionEasingFunction>{ 0x5145E356,0xBF79,0x4EA8,{ 0x8C,0xC2,0x6B,0x5B,0x47,0x2E,0x6C,0x9A } }; // 5145E356-BF79-4EA8-8CC2-6B5B472E6C9A
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositionEasingFunctionFactory>{ 0x60840774,0x3DA0,0x4949,{ 0x82,0x00,0x72,0x06,0xC0,0x01,0x90,0xA0 } }; // 60840774-3DA0-4949-8200-7206C00190A0
+    template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositionEasingFunctionStatics>{ 0x17A766B6,0x2936,0x53EA,{ 0xB5,0xAF,0xC6,0x42,0xF4,0xA6,0x10,0x83 } }; // 17A766B6-2936-53EA-B5AF-C642F4A61083
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositionEffectBrush>{ 0xBF7F795E,0x83CC,0x44BF,{ 0xA4,0x47,0x3E,0x3C,0x07,0x17,0x89,0xEC } }; // BF7F795E-83CC-44BF-A447-3E3C071789EC
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositionEffectFactory>{ 0xBE5624AF,0xBA7E,0x4510,{ 0x98,0x50,0x41,0xC0,0xB4,0xFF,0x74,0xDF } }; // BE5624AF-BA7E-4510-9850-41C0B4FF74DF
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositionEffectSourceParameter>{ 0x858AB13A,0x3292,0x4E4E,{ 0xB3,0xBB,0x2B,0x6C,0x65,0x44,0xA6,0xEE } }; // 858AB13A-3292-4E4E-B3BB-2B6C6544A6EE
@@ -1094,6 +1157,7 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositionSurfaceBrush>{ 0xAD016D79,0x1E4C,0x4C0D,{ 0x9C,0x29,0x83,0x33,0x8C,0x87,0xC1,0x62 } }; // AD016D79-1E4C-4C0D-9C29-83338C87C162
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositionSurfaceBrush2>{ 0xD27174D5,0x64F5,0x4692,{ 0x9D,0xC7,0x71,0xB6,0x1D,0x7E,0x58,0x80 } }; // D27174D5-64F5-4692-9DC7-71B61D7E5880
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositionSurfaceBrush3>{ 0x550BB289,0x1FE0,0x42E5,{ 0x81,0x95,0x1E,0xEF,0xA8,0x7F,0xF0,0x8E } }; // 550BB289-1FE0-42E5-8195-1EEFA87FF08E
+    template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositionSurfaceFacade>{ 0xE01622C8,0x2332,0x55C7,{ 0x88,0x68,0xA7,0x31,0x2C,0x5C,0x22,0x9D } }; // E01622C8-2332-55C7-8868-A7312C5C229D
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositionTarget>{ 0xA1BEA8BA,0xD726,0x4663,{ 0x81,0x29,0x6B,0x5E,0x79,0x27,0xFF,0xA6 } }; // A1BEA8BA-D726-4663-8129-6B5E7927FFA6
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositionTargetFactory>{ 0x93CD9D2B,0x8516,0x4B14,{ 0xA8,0xCE,0xF4,0x9E,0x21,0x19,0xEC,0x42 } }; // 93CD9D2B-8516-4B14-A8CE-F49E2119EC42
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositionTransform>{ 0x7CD54529,0xFBED,0x4112,{ 0xAB,0xC5,0x18,0x59,0x06,0xDD,0x92,0x7C } }; // 7CD54529-FBED-4112-ABC5-185906DD927C
@@ -1108,6 +1172,7 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositor4>{ 0xAE47E78A,0x7910,0x4425,{ 0xA4,0x82,0xA0,0x5B,0x75,0x8A,0xDC,0xE9 } }; // AE47E78A-7910-4425-A482-A05B758ADCE9
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositor5>{ 0x48EA31AD,0x7FCD,0x4076,{ 0xA7,0x9C,0x90,0xCC,0x4B,0x85,0x2C,0x9B } }; // 48EA31AD-7FCD-4076-A79C-90CC4B852C9B
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositor6>{ 0x7A38B2BD,0xCEC8,0x4EEB,{ 0x83,0x0F,0xD8,0xD0,0x7A,0xED,0xEB,0xC3 } }; // 7A38B2BD-CEC8-4EEB-830F-D8D07AEDEBC3
+    template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositor7>{ 0x542898D1,0x6C2F,0x5DB7,{ 0xBF,0xB8,0x5D,0x1F,0xE5,0x4F,0xB2,0xB4 } }; // 542898D1-6C2F-5DB7-BFB8-5D1FE54FB2B4
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositorStatics>{ 0x080DB93E,0x121E,0x4D97,{ 0x8B,0x74,0x1D,0xFC,0xF9,0x19,0x87,0xEA } }; // 080DB93E-121E-4D97-8B74-1DFCF91987EA
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositorWithProjectedShadow>{ 0xA2E6330E,0x8A60,0x5A38,{ 0xBB,0x85,0xB4,0x4E,0xA9,0x01,0x67,0x7C } }; // A2E6330E-8A60-5A38-BB85-B44EA901677C
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ICompositorWithRadialGradient>{ 0x98B9C1A7,0x8E71,0x4B53,{ 0xB4,0xA8,0x69,0xBA,0x5D,0x19,0xDC,0x5B } }; // 98B9C1A7-8E71-4B53-B4A8-69BA5D19DC5B
@@ -1119,6 +1184,8 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IDistantLight2>{ 0xDBCDAA1C,0x294B,0x48D7,{ 0xB6,0x0E,0x76,0xDF,0x64,0xAA,0x39,0x2B } }; // DBCDAA1C-294B-48D7-B60E-76DF64AA392B
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IDropShadow>{ 0xCB977C07,0xA154,0x4851,{ 0x85,0xE7,0xA8,0x92,0x4C,0x84,0xFA,0xD8 } }; // CB977C07-A154-4851-85E7-A8924C84FAD8
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IDropShadow2>{ 0x6C4218BC,0x15B9,0x4C2D,{ 0x8D,0x4A,0x07,0x67,0xDF,0x11,0x97,0x7A } }; // 6C4218BC-15B9-4C2D-8D4A-0767DF11977A
+    template <> inline constexpr guid guid_v<Windows::UI::Composition::IElasticEasingFunction>{ 0x66DE6285,0x054E,0x5594,{ 0x84,0x75,0xC2,0x2C,0xB5,0x1F,0x1B,0xD5 } }; // 66DE6285-054E-5594-8475-C22CB51F1BD5
+    template <> inline constexpr guid guid_v<Windows::UI::Composition::IExponentialEasingFunction>{ 0x6F7D1A51,0x98D2,0x5638,{ 0xA3,0x4A,0x00,0x48,0x65,0x54,0xC7,0x50 } }; // 6F7D1A51-98D2-5638-A34A-00486554C750
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IExpressionAnimation>{ 0x6ACC5431,0x7D3D,0x4BF3,{ 0xAB,0xB6,0xF4,0x4B,0xDC,0x48,0x88,0xC1 } }; // 6ACC5431-7D3D-4BF3-ABB6-F44BDC4888C1
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IImplicitAnimationCollection>{ 0x0598A3FF,0x0A92,0x4C9D,{ 0xA4,0x27,0xB2,0x55,0x19,0x25,0x0D,0xBF } }; // 0598A3FF-0A92-4C9D-A427-B25519250DBF
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IInsetClip>{ 0x1E73E647,0x84C7,0x477A,{ 0xB4,0x74,0x58,0x80,0xE0,0x44,0x2E,0x15 } }; // 1E73E647-84C7-477A-B474-5880E0442E15
@@ -1135,6 +1202,7 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IPointLight>{ 0xB18545B3,0x0C5A,0x4AB0,{ 0xBE,0xDC,0x4F,0x35,0x46,0x94,0x82,0x72 } }; // B18545B3-0C5A-4AB0-BEDC-4F3546948272
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IPointLight2>{ 0xEFE98F2C,0x0678,0x4F69,{ 0xB1,0x64,0xA8,0x10,0xD9,0x95,0xBC,0xB7 } }; // EFE98F2C-0678-4F69-B164-A810D995BCB7
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IPointLight3>{ 0x4C0A8367,0xD4E9,0x468A,{ 0x87,0xAE,0x7B,0xA4,0x3A,0xB2,0x94,0x85 } }; // 4C0A8367-D4E9-468A-87AE-7BA43AB29485
+    template <> inline constexpr guid guid_v<Windows::UI::Composition::IPowerEasingFunction>{ 0xC3FF53D6,0x138B,0x5815,{ 0x89,0x1A,0xB7,0xF6,0x15,0xCC,0xC5,0x63 } }; // C3FF53D6-138B-5815-891A-B7F615CCC563
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IQuaternionKeyFrameAnimation>{ 0x404E5835,0xECF6,0x4240,{ 0x85,0x20,0x67,0x12,0x79,0xCF,0x36,0xBC } }; // 404E5835-ECF6-4240-8520-671279CF36BC
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IRedirectVisual>{ 0x8CC6E340,0x8B75,0x5422,{ 0xB0,0x6F,0x09,0xFF,0xE9,0xF8,0x61,0x7E } }; // 8CC6E340-8B75-5422-B06F-09FFE9F8617E
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IRenderingDeviceReplacedEventArgs>{ 0x3A31AC7D,0x28BF,0x4E7A,{ 0x85,0x24,0x71,0x67,0x9D,0x48,0x0F,0x38 } }; // 3A31AC7D-28BF-4E7A-8524-71679D480F38
@@ -1142,6 +1210,7 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IScalarNaturalMotionAnimation>{ 0x94A94581,0xBF92,0x495B,{ 0xB5,0xBD,0xD2,0xC6,0x59,0x43,0x07,0x37 } }; // 94A94581-BF92-495B-B5BD-D2C659430737
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IScalarNaturalMotionAnimationFactory>{ 0x835AA4FC,0x671C,0x41DD,{ 0xAF,0x48,0xAE,0x8D,0xEF,0x8B,0x15,0x29 } }; // 835AA4FC-671C-41DD-AF48-AE8DEF8B1529
     template <> inline constexpr guid guid_v<Windows::UI::Composition::IShapeVisual>{ 0xF2BD13C3,0xBA7E,0x4B0F,{ 0x91,0x26,0xFF,0xB7,0x53,0x6B,0x81,0x76 } }; // F2BD13C3-BA7E-4B0F-9126-FFB7536B8176
+    template <> inline constexpr guid guid_v<Windows::UI::Composition::ISineEasingFunction>{ 0xF1B518BF,0x9563,0x5474,{ 0xBD,0x13,0x44,0xB2,0xDF,0x4B,0x1D,0x58 } }; // F1B518BF-9563-5474-BD13-44B2DF4B1D58
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ISpotLight>{ 0x5A9FE273,0x44A1,0x4F95,{ 0xA4,0x22,0x8F,0xA5,0x11,0x6B,0xDB,0x44 } }; // 5A9FE273-44A1-4F95-A422-8FA5116BDB44
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ISpotLight2>{ 0x64EE615E,0x0686,0x4DEA,{ 0xA9,0xE8,0xBC,0x3A,0x8C,0x70,0x14,0x59 } }; // 64EE615E-0686-4DEA-A9E8-BC3A8C701459
     template <> inline constexpr guid guid_v<Windows::UI::Composition::ISpotLight3>{ 0xE4D03EEA,0x131F,0x480E,{ 0x85,0x9E,0xB8,0x27,0x05,0xB7,0x43,0x60 } }; // E4D03EEA-131F-480E-859E-B82705B74360
@@ -1169,10 +1238,13 @@ namespace winrt::impl
     template <> struct default_interface<Windows::UI::Composition::AmbientLight>{ using type = Windows::UI::Composition::IAmbientLight; };
     template <> struct default_interface<Windows::UI::Composition::AnimationController>{ using type = Windows::UI::Composition::IAnimationController; };
     template <> struct default_interface<Windows::UI::Composition::AnimationPropertyInfo>{ using type = Windows::UI::Composition::IAnimationPropertyInfo; };
+    template <> struct default_interface<Windows::UI::Composition::BackEasingFunction>{ using type = Windows::UI::Composition::IBackEasingFunction; };
     template <> struct default_interface<Windows::UI::Composition::BooleanKeyFrameAnimation>{ using type = Windows::UI::Composition::IBooleanKeyFrameAnimation; };
+    template <> struct default_interface<Windows::UI::Composition::BounceEasingFunction>{ using type = Windows::UI::Composition::IBounceEasingFunction; };
     template <> struct default_interface<Windows::UI::Composition::BounceScalarNaturalMotionAnimation>{ using type = Windows::UI::Composition::IBounceScalarNaturalMotionAnimation; };
     template <> struct default_interface<Windows::UI::Composition::BounceVector2NaturalMotionAnimation>{ using type = Windows::UI::Composition::IBounceVector2NaturalMotionAnimation; };
     template <> struct default_interface<Windows::UI::Composition::BounceVector3NaturalMotionAnimation>{ using type = Windows::UI::Composition::IBounceVector3NaturalMotionAnimation; };
+    template <> struct default_interface<Windows::UI::Composition::CircleEasingFunction>{ using type = Windows::UI::Composition::ICircleEasingFunction; };
     template <> struct default_interface<Windows::UI::Composition::ColorKeyFrameAnimation>{ using type = Windows::UI::Composition::IColorKeyFrameAnimation; };
     template <> struct default_interface<Windows::UI::Composition::CompositionAnimation>{ using type = Windows::UI::Composition::ICompositionAnimation; };
     template <> struct default_interface<Windows::UI::Composition::CompositionAnimationGroup>{ using type = Windows::UI::Composition::ICompositionAnimationGroup; };
@@ -1231,6 +1303,8 @@ namespace winrt::impl
     template <> struct default_interface<Windows::UI::Composition::CubicBezierEasingFunction>{ using type = Windows::UI::Composition::ICubicBezierEasingFunction; };
     template <> struct default_interface<Windows::UI::Composition::DistantLight>{ using type = Windows::UI::Composition::IDistantLight; };
     template <> struct default_interface<Windows::UI::Composition::DropShadow>{ using type = Windows::UI::Composition::IDropShadow; };
+    template <> struct default_interface<Windows::UI::Composition::ElasticEasingFunction>{ using type = Windows::UI::Composition::IElasticEasingFunction; };
+    template <> struct default_interface<Windows::UI::Composition::ExponentialEasingFunction>{ using type = Windows::UI::Composition::IExponentialEasingFunction; };
     template <> struct default_interface<Windows::UI::Composition::ExpressionAnimation>{ using type = Windows::UI::Composition::IExpressionAnimation; };
     template <> struct default_interface<Windows::UI::Composition::ImplicitAnimationCollection>{ using type = Windows::UI::Composition::IImplicitAnimationCollection; };
     template <> struct default_interface<Windows::UI::Composition::InitialValueExpressionCollection>{ using type = Windows::Foundation::Collections::IMap<hstring, hstring>; };
@@ -1241,12 +1315,14 @@ namespace winrt::impl
     template <> struct default_interface<Windows::UI::Composition::NaturalMotionAnimation>{ using type = Windows::UI::Composition::INaturalMotionAnimation; };
     template <> struct default_interface<Windows::UI::Composition::PathKeyFrameAnimation>{ using type = Windows::UI::Composition::IPathKeyFrameAnimation; };
     template <> struct default_interface<Windows::UI::Composition::PointLight>{ using type = Windows::UI::Composition::IPointLight; };
+    template <> struct default_interface<Windows::UI::Composition::PowerEasingFunction>{ using type = Windows::UI::Composition::IPowerEasingFunction; };
     template <> struct default_interface<Windows::UI::Composition::QuaternionKeyFrameAnimation>{ using type = Windows::UI::Composition::IQuaternionKeyFrameAnimation; };
     template <> struct default_interface<Windows::UI::Composition::RedirectVisual>{ using type = Windows::UI::Composition::IRedirectVisual; };
     template <> struct default_interface<Windows::UI::Composition::RenderingDeviceReplacedEventArgs>{ using type = Windows::UI::Composition::IRenderingDeviceReplacedEventArgs; };
     template <> struct default_interface<Windows::UI::Composition::ScalarKeyFrameAnimation>{ using type = Windows::UI::Composition::IScalarKeyFrameAnimation; };
     template <> struct default_interface<Windows::UI::Composition::ScalarNaturalMotionAnimation>{ using type = Windows::UI::Composition::IScalarNaturalMotionAnimation; };
     template <> struct default_interface<Windows::UI::Composition::ShapeVisual>{ using type = Windows::UI::Composition::IShapeVisual; };
+    template <> struct default_interface<Windows::UI::Composition::SineEasingFunction>{ using type = Windows::UI::Composition::ISineEasingFunction; };
     template <> struct default_interface<Windows::UI::Composition::SpotLight>{ using type = Windows::UI::Composition::ISpotLight; };
     template <> struct default_interface<Windows::UI::Composition::SpringScalarNaturalMotionAnimation>{ using type = Windows::UI::Composition::ISpringScalarNaturalMotionAnimation; };
     template <> struct default_interface<Windows::UI::Composition::SpringVector2NaturalMotionAnimation>{ using type = Windows::UI::Composition::ISpringVector2NaturalMotionAnimation; };
@@ -1322,11 +1398,28 @@ namespace winrt::impl
             virtual int32_t __stdcall GetResolvedCompositionObjectProperty(void**) noexcept = 0;
         };
     };
+    template <> struct abi<Windows::UI::Composition::IBackEasingFunction>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall get_Mode(int32_t*) noexcept = 0;
+            virtual int32_t __stdcall get_Amplitude(float*) noexcept = 0;
+        };
+    };
     template <> struct abi<Windows::UI::Composition::IBooleanKeyFrameAnimation>
     {
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall InsertKeyFrame(float, bool) noexcept = 0;
+        };
+    };
+    template <> struct abi<Windows::UI::Composition::IBounceEasingFunction>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall get_Mode(int32_t*) noexcept = 0;
+            virtual int32_t __stdcall get_Bounces(int32_t*) noexcept = 0;
+            virtual int32_t __stdcall get_Bounciness(float*) noexcept = 0;
         };
     };
     template <> struct abi<Windows::UI::Composition::IBounceScalarNaturalMotionAnimation>
@@ -1357,6 +1450,13 @@ namespace winrt::impl
             virtual int32_t __stdcall put_Acceleration(float) noexcept = 0;
             virtual int32_t __stdcall get_Restitution(float*) noexcept = 0;
             virtual int32_t __stdcall put_Restitution(float) noexcept = 0;
+        };
+    };
+    template <> struct abi<Windows::UI::Composition::ICircleEasingFunction>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall get_Mode(int32_t*) noexcept = 0;
         };
     };
     template <> struct abi<Windows::UI::Composition::IColorKeyFrameAnimation>
@@ -1582,6 +1682,23 @@ namespace winrt::impl
     {
         struct __declspec(novtable) type : inspectable_abi
         {
+        };
+    };
+    template <> struct abi<Windows::UI::Composition::ICompositionEasingFunctionStatics>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall CreateCubicBezierEasingFunction(void*, Windows::Foundation::Numerics::float2, Windows::Foundation::Numerics::float2, void**) noexcept = 0;
+            virtual int32_t __stdcall CreateLinearEasingFunction(void*, void**) noexcept = 0;
+            virtual int32_t __stdcall CreateStepEasingFunction(void*, void**) noexcept = 0;
+            virtual int32_t __stdcall CreateStepEasingFunctionWithStepCount(void*, int32_t, void**) noexcept = 0;
+            virtual int32_t __stdcall CreateBackEasingFunction(void*, int32_t, float, void**) noexcept = 0;
+            virtual int32_t __stdcall CreateBounceEasingFunction(void*, int32_t, int32_t, float, void**) noexcept = 0;
+            virtual int32_t __stdcall CreateCircleEasingFunction(void*, int32_t, void**) noexcept = 0;
+            virtual int32_t __stdcall CreateElasticEasingFunction(void*, int32_t, int32_t, float, void**) noexcept = 0;
+            virtual int32_t __stdcall CreateExponentialEasingFunction(void*, int32_t, float, void**) noexcept = 0;
+            virtual int32_t __stdcall CreatePowerEasingFunction(void*, int32_t, float, void**) noexcept = 0;
+            virtual int32_t __stdcall CreateSineEasingFunction(void*, int32_t, void**) noexcept = 0;
         };
     };
     template <> struct abi<Windows::UI::Composition::ICompositionEffectBrush>
@@ -2144,6 +2261,13 @@ namespace winrt::impl
             virtual int32_t __stdcall put_SnapToPixels(bool) noexcept = 0;
         };
     };
+    template <> struct abi<Windows::UI::Composition::ICompositionSurfaceFacade>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall GetRealSurface(void**) noexcept = 0;
+        };
+    };
     template <> struct abi<Windows::UI::Composition::ICompositionTarget>
     {
         struct __declspec(novtable) type : inspectable_abi
@@ -2316,6 +2440,14 @@ namespace winrt::impl
             virtual int32_t __stdcall CreateBooleanKeyFrameAnimation(void**) noexcept = 0;
         };
     };
+    template <> struct abi<Windows::UI::Composition::ICompositor7>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall get_DispatcherQueue(void**) noexcept = 0;
+            virtual int32_t __stdcall CreateAnimationPropertyInfo(void**) noexcept = 0;
+        };
+    };
     template <> struct abi<Windows::UI::Composition::ICompositorStatics>
     {
         struct __declspec(novtable) type : inspectable_abi
@@ -2410,6 +2542,23 @@ namespace winrt::impl
         {
             virtual int32_t __stdcall get_SourcePolicy(int32_t*) noexcept = 0;
             virtual int32_t __stdcall put_SourcePolicy(int32_t) noexcept = 0;
+        };
+    };
+    template <> struct abi<Windows::UI::Composition::IElasticEasingFunction>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall get_Mode(int32_t*) noexcept = 0;
+            virtual int32_t __stdcall get_Oscillations(int32_t*) noexcept = 0;
+            virtual int32_t __stdcall get_Springiness(float*) noexcept = 0;
+        };
+    };
+    template <> struct abi<Windows::UI::Composition::IExponentialEasingFunction>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall get_Mode(int32_t*) noexcept = 0;
+            virtual int32_t __stdcall get_Exponent(float*) noexcept = 0;
         };
     };
     template <> struct abi<Windows::UI::Composition::IExpressionAnimation>
@@ -2565,6 +2714,14 @@ namespace winrt::impl
             virtual int32_t __stdcall put_MaxAttenuationCutoff(float) noexcept = 0;
         };
     };
+    template <> struct abi<Windows::UI::Composition::IPowerEasingFunction>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall get_Mode(int32_t*) noexcept = 0;
+            virtual int32_t __stdcall get_Power(float*) noexcept = 0;
+        };
+    };
     template <> struct abi<Windows::UI::Composition::IQuaternionKeyFrameAnimation>
     {
         struct __declspec(novtable) type : inspectable_abi
@@ -2621,6 +2778,13 @@ namespace winrt::impl
             virtual int32_t __stdcall get_Shapes(void**) noexcept = 0;
             virtual int32_t __stdcall get_ViewBox(void**) noexcept = 0;
             virtual int32_t __stdcall put_ViewBox(void*) noexcept = 0;
+        };
+    };
+    template <> struct abi<Windows::UI::Composition::ISineEasingFunction>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall get_Mode(int32_t*) noexcept = 0;
         };
     };
     template <> struct abi<Windows::UI::Composition::ISpotLight>
@@ -2972,6 +3136,16 @@ namespace winrt::impl
         template <typename D> using type = consume_Windows_UI_Composition_IAnimationPropertyInfo2<D>;
     };
     template <typename D>
+    struct consume_Windows_UI_Composition_IBackEasingFunction
+    {
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionEasingFunctionMode) Mode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) Amplitude() const;
+    };
+    template <> struct consume<Windows::UI::Composition::IBackEasingFunction>
+    {
+        template <typename D> using type = consume_Windows_UI_Composition_IBackEasingFunction<D>;
+    };
+    template <typename D>
     struct consume_Windows_UI_Composition_IBooleanKeyFrameAnimation
     {
         WINRT_IMPL_AUTO(void) InsertKeyFrame(float normalizedProgressKey, bool value) const;
@@ -2979,6 +3153,17 @@ namespace winrt::impl
     template <> struct consume<Windows::UI::Composition::IBooleanKeyFrameAnimation>
     {
         template <typename D> using type = consume_Windows_UI_Composition_IBooleanKeyFrameAnimation<D>;
+    };
+    template <typename D>
+    struct consume_Windows_UI_Composition_IBounceEasingFunction
+    {
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionEasingFunctionMode) Mode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Bounces() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) Bounciness() const;
+    };
+    template <> struct consume<Windows::UI::Composition::IBounceEasingFunction>
+    {
+        template <typename D> using type = consume_Windows_UI_Composition_IBounceEasingFunction<D>;
     };
     template <typename D>
     struct consume_Windows_UI_Composition_IBounceScalarNaturalMotionAnimation
@@ -3015,6 +3200,15 @@ namespace winrt::impl
     template <> struct consume<Windows::UI::Composition::IBounceVector3NaturalMotionAnimation>
     {
         template <typename D> using type = consume_Windows_UI_Composition_IBounceVector3NaturalMotionAnimation<D>;
+    };
+    template <typename D>
+    struct consume_Windows_UI_Composition_ICircleEasingFunction
+    {
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionEasingFunctionMode) Mode() const;
+    };
+    template <> struct consume<Windows::UI::Composition::ICircleEasingFunction>
+    {
+        template <typename D> using type = consume_Windows_UI_Composition_ICircleEasingFunction<D>;
     };
     template <typename D>
     struct consume_Windows_UI_Composition_IColorKeyFrameAnimation
@@ -3298,6 +3492,25 @@ namespace winrt::impl
     template <> struct consume<Windows::UI::Composition::ICompositionEasingFunctionFactory>
     {
         template <typename D> using type = consume_Windows_UI_Composition_ICompositionEasingFunctionFactory<D>;
+    };
+    template <typename D>
+    struct consume_Windows_UI_Composition_ICompositionEasingFunctionStatics
+    {
+        WINRT_IMPL_AUTO(Windows::UI::Composition::CubicBezierEasingFunction) CreateCubicBezierEasingFunction(Windows::UI::Composition::Compositor const& owner, Windows::Foundation::Numerics::float2 const& controlPoint1, Windows::Foundation::Numerics::float2 const& controlPoint2) const;
+        WINRT_IMPL_AUTO(Windows::UI::Composition::LinearEasingFunction) CreateLinearEasingFunction(Windows::UI::Composition::Compositor const& owner) const;
+        WINRT_IMPL_AUTO(Windows::UI::Composition::StepEasingFunction) CreateStepEasingFunction(Windows::UI::Composition::Compositor const& owner) const;
+        WINRT_IMPL_AUTO(Windows::UI::Composition::StepEasingFunction) CreateStepEasingFunction(Windows::UI::Composition::Compositor const& owner, int32_t stepCount) const;
+        WINRT_IMPL_AUTO(Windows::UI::Composition::BackEasingFunction) CreateBackEasingFunction(Windows::UI::Composition::Compositor const& owner, Windows::UI::Composition::CompositionEasingFunctionMode const& mode, float amplitude) const;
+        WINRT_IMPL_AUTO(Windows::UI::Composition::BounceEasingFunction) CreateBounceEasingFunction(Windows::UI::Composition::Compositor const& owner, Windows::UI::Composition::CompositionEasingFunctionMode const& mode, int32_t bounces, float bounciness) const;
+        WINRT_IMPL_AUTO(Windows::UI::Composition::CircleEasingFunction) CreateCircleEasingFunction(Windows::UI::Composition::Compositor const& owner, Windows::UI::Composition::CompositionEasingFunctionMode const& mode) const;
+        WINRT_IMPL_AUTO(Windows::UI::Composition::ElasticEasingFunction) CreateElasticEasingFunction(Windows::UI::Composition::Compositor const& owner, Windows::UI::Composition::CompositionEasingFunctionMode const& mode, int32_t oscillations, float springiness) const;
+        WINRT_IMPL_AUTO(Windows::UI::Composition::ExponentialEasingFunction) CreateExponentialEasingFunction(Windows::UI::Composition::Compositor const& owner, Windows::UI::Composition::CompositionEasingFunctionMode const& mode, float exponent) const;
+        WINRT_IMPL_AUTO(Windows::UI::Composition::PowerEasingFunction) CreatePowerEasingFunction(Windows::UI::Composition::Compositor const& owner, Windows::UI::Composition::CompositionEasingFunctionMode const& mode, float power) const;
+        WINRT_IMPL_AUTO(Windows::UI::Composition::SineEasingFunction) CreateSineEasingFunction(Windows::UI::Composition::Compositor const& owner, Windows::UI::Composition::CompositionEasingFunctionMode const& mode) const;
+    };
+    template <> struct consume<Windows::UI::Composition::ICompositionEasingFunctionStatics>
+    {
+        template <typename D> using type = consume_Windows_UI_Composition_ICompositionEasingFunctionStatics<D>;
     };
     template <typename D>
     struct consume_Windows_UI_Composition_ICompositionEffectBrush
@@ -3970,6 +4183,15 @@ namespace winrt::impl
         template <typename D> using type = consume_Windows_UI_Composition_ICompositionSurfaceBrush3<D>;
     };
     template <typename D>
+    struct consume_Windows_UI_Composition_ICompositionSurfaceFacade
+    {
+        WINRT_IMPL_AUTO(Windows::UI::Composition::ICompositionSurface) GetRealSurface() const;
+    };
+    template <> struct consume<Windows::UI::Composition::ICompositionSurfaceFacade>
+    {
+        template <typename D> using type = consume_Windows_UI_Composition_ICompositionSurfaceFacade<D>;
+    };
+    template <typename D>
     struct consume_Windows_UI_Composition_ICompositionTarget
     {
         [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::Visual) Root() const;
@@ -4170,6 +4392,16 @@ namespace winrt::impl
         template <typename D> using type = consume_Windows_UI_Composition_ICompositor6<D>;
     };
     template <typename D>
+    struct consume_Windows_UI_Composition_ICompositor7
+    {
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::System::DispatcherQueue) DispatcherQueue() const;
+        WINRT_IMPL_AUTO(Windows::UI::Composition::AnimationPropertyInfo) CreateAnimationPropertyInfo() const;
+    };
+    template <> struct consume<Windows::UI::Composition::ICompositor7>
+    {
+        template <typename D> using type = consume_Windows_UI_Composition_ICompositor7<D>;
+    };
+    template <typename D>
     struct consume_Windows_UI_Composition_ICompositorStatics
     {
         [[nodiscard]] WINRT_IMPL_AUTO(float) MaxGlobalPlaybackRate() const;
@@ -4286,6 +4518,27 @@ namespace winrt::impl
     template <> struct consume<Windows::UI::Composition::IDropShadow2>
     {
         template <typename D> using type = consume_Windows_UI_Composition_IDropShadow2<D>;
+    };
+    template <typename D>
+    struct consume_Windows_UI_Composition_IElasticEasingFunction
+    {
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionEasingFunctionMode) Mode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(int32_t) Oscillations() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) Springiness() const;
+    };
+    template <> struct consume<Windows::UI::Composition::IElasticEasingFunction>
+    {
+        template <typename D> using type = consume_Windows_UI_Composition_IElasticEasingFunction<D>;
+    };
+    template <typename D>
+    struct consume_Windows_UI_Composition_IExponentialEasingFunction
+    {
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionEasingFunctionMode) Mode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) Exponent() const;
+    };
+    template <> struct consume<Windows::UI::Composition::IExponentialEasingFunction>
+    {
+        template <typename D> using type = consume_Windows_UI_Composition_IExponentialEasingFunction<D>;
     };
     template <typename D>
     struct consume_Windows_UI_Composition_IExpressionAnimation
@@ -4473,6 +4726,16 @@ namespace winrt::impl
         template <typename D> using type = consume_Windows_UI_Composition_IPointLight3<D>;
     };
     template <typename D>
+    struct consume_Windows_UI_Composition_IPowerEasingFunction
+    {
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionEasingFunctionMode) Mode() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(float) Power() const;
+    };
+    template <> struct consume<Windows::UI::Composition::IPowerEasingFunction>
+    {
+        template <typename D> using type = consume_Windows_UI_Composition_IPowerEasingFunction<D>;
+    };
+    template <typename D>
     struct consume_Windows_UI_Composition_IQuaternionKeyFrameAnimation
     {
         WINRT_IMPL_AUTO(void) InsertKeyFrame(float normalizedProgressKey, Windows::Foundation::Numerics::quaternion const& value) const;
@@ -4543,6 +4806,15 @@ namespace winrt::impl
     template <> struct consume<Windows::UI::Composition::IShapeVisual>
     {
         template <typename D> using type = consume_Windows_UI_Composition_IShapeVisual<D>;
+    };
+    template <typename D>
+    struct consume_Windows_UI_Composition_ISineEasingFunction
+    {
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::UI::Composition::CompositionEasingFunctionMode) Mode() const;
+    };
+    template <> struct consume<Windows::UI::Composition::ISineEasingFunction>
+    {
+        template <typename D> using type = consume_Windows_UI_Composition_ISineEasingFunction<D>;
     };
     template <typename D>
     struct consume_Windows_UI_Composition_ISpotLight

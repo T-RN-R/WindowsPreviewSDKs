@@ -1258,7 +1258,9 @@ namespace Windows
                 [contract(Windows.Foundation.UniversalApiContract, 12.0)]
                 FarFieldSpeech = 5,
                 [contract(Windows.Foundation.UniversalApiContract, 12.0)]
-                UniformSpeech  = 6
+                UniformSpeech  = 6,
+                [contract(Windows.Foundation.UniversalApiContract, 12.0)]
+                VoiceTyping    = 7
             };
 
             [contract(Windows.Foundation.UniversalApiContract, 1.0)]

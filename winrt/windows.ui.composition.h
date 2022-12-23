@@ -229,6 +229,21 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_FWD_DEFINED__
 
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                interface IBackEasingFunction;
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction ABI::Windows::UI::Composition::IBackEasingFunction
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation_FWD_DEFINED__
 namespace ABI {
@@ -243,6 +258,21 @@ namespace ABI {
 #define __x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation ABI::Windows::UI::Composition::IBooleanKeyFrameAnimation
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                interface IBounceEasingFunction;
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction ABI::Windows::UI::Composition::IBounceEasingFunction
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIBounceScalarNaturalMotionAnimation_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIBounceScalarNaturalMotionAnimation_FWD_DEFINED__
@@ -288,6 +318,21 @@ namespace ABI {
 #define __x_ABI_CWindows_CUI_CComposition_CIBounceVector3NaturalMotionAnimation ABI::Windows::UI::Composition::IBounceVector3NaturalMotionAnimation
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIBounceVector3NaturalMotionAnimation_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                interface ICircleEasingFunction;
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction ABI::Windows::UI::Composition::ICircleEasingFunction
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIColorKeyFrameAnimation_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIColorKeyFrameAnimation_FWD_DEFINED__
@@ -693,6 +738,21 @@ namespace ABI {
 #define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionFactory ABI::Windows::UI::Composition::ICompositionEasingFunctionFactory
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionFactory_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                interface ICompositionEasingFunctionStatics;
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics ABI::Windows::UI::Composition::ICompositionEasingFunctionStatics
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionEffectBrush_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CICompositionEffectBrush_FWD_DEFINED__
@@ -1489,6 +1549,21 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceBrush3_FWD_DEFINED__
 
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                interface ICompositionSurfaceFacade;
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade ABI::Windows::UI::Composition::ICompositionSurfaceFacade
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionTarget_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CICompositionTarget_FWD_DEFINED__
 namespace ABI {
@@ -1699,6 +1774,21 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CICompositor6_FWD_DEFINED__
 
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositor7_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CICompositor7_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                interface ICompositor7;
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CUI_CComposition_CICompositor7 ABI::Windows::UI::Composition::ICompositor7
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CICompositor7_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositorStatics_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CICompositorStatics_FWD_DEFINED__
 namespace ABI {
@@ -1863,6 +1953,36 @@ namespace ABI {
 #define __x_ABI_CWindows_CUI_CComposition_CIDropShadow2 ABI::Windows::UI::Composition::IDropShadow2
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIDropShadow2_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                interface IElasticEasingFunction;
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction ABI::Windows::UI::Composition::IElasticEasingFunction
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                interface IExponentialEasingFunction;
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction ABI::Windows::UI::Composition::IExponentialEasingFunction
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIExpressionAnimation_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIExpressionAnimation_FWD_DEFINED__
@@ -2104,6 +2224,21 @@ namespace ABI {
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIPointLight3_FWD_DEFINED__
 
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                interface IPowerEasingFunction;
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction ABI::Windows::UI::Composition::IPowerEasingFunction
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIQuaternionKeyFrameAnimation_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIQuaternionKeyFrameAnimation_FWD_DEFINED__
 namespace ABI {
@@ -2208,6 +2343,21 @@ namespace ABI {
 #define __x_ABI_CWindows_CUI_CComposition_CIShapeVisual ABI::Windows::UI::Composition::IShapeVisual
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIShapeVisual_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_FWD_DEFINED__
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                interface ISineEasingFunction;
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+#define __x_ABI_CWindows_CUI_CComposition_CISineEasingFunction ABI::Windows::UI::Composition::ISineEasingFunction
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CISpotLight_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CISpotLight_FWD_DEFINED__
@@ -4066,6 +4216,16 @@ namespace ABI {
     namespace Windows {
         namespace UI {
             namespace Composition {
+                typedef enum CompositionEasingFunctionMode : int CompositionEasingFunctionMode;
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
                 typedef enum CompositionEffectFactoryLoadStatus : int CompositionEffectFactoryLoadStatus;
             } /* Composition */
         } /* UI */
@@ -4166,7 +4326,27 @@ namespace ABI {
     namespace Windows {
         namespace UI {
             namespace Composition {
+                class BackEasingFunction;
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
                 class BooleanKeyFrameAnimation;
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                class BounceEasingFunction;
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -4197,6 +4377,16 @@ namespace ABI {
         namespace UI {
             namespace Composition {
                 class BounceVector3NaturalMotionAnimation;
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                class CircleEasingFunction;
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -4686,6 +4876,26 @@ namespace ABI {
     namespace Windows {
         namespace UI {
             namespace Composition {
+                class ElasticEasingFunction;
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                class ExponentialEasingFunction;
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
                 class ExpressionAnimation;
             } /* Composition */
         } /* UI */
@@ -4766,6 +4976,16 @@ namespace ABI {
     namespace Windows {
         namespace UI {
             namespace Composition {
+                class PowerEasingFunction;
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
                 class QuaternionKeyFrameAnimation;
             } /* Composition */
         } /* UI */
@@ -4797,6 +5017,16 @@ namespace ABI {
         namespace UI {
             namespace Composition {
                 class ShapeVisual;
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                class SineEasingFunction;
             } /* Composition */
         } /* UI */
     } /* Windows */
@@ -5264,6 +5494,30 @@ namespace ABI {
 
 /*
  *
+ * Struct Windows.UI.Composition.CompositionEasingFunctionMode
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                enum CompositionEasingFunctionMode : int
+                {
+                    CompositionEasingFunctionMode_In = 0,
+                    CompositionEasingFunctionMode_Out = 1,
+                    CompositionEasingFunctionMode_InOut = 2,
+                };
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
  * Struct Windows.UI.Composition.CompositionEffectFactoryLoadStatus
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 2.0
@@ -5718,6 +5972,45 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo
 
 /*
  *
+ * Interface Windows.UI.Composition.IBackEasingFunction
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Composition.BackEasingFunction
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IBackEasingFunction[] = L"Windows.UI.Composition.IBackEasingFunction";
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                MIDL_INTERFACE("b8560da4-5e3c-545d-b263-7987a2bd27cb")
+                IBackEasingFunction : public IInspectable
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE get_Mode(
+                        ABI::Windows::UI::Composition::CompositionEasingFunctionMode* value
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE get_Amplitude(
+                        FLOAT* value
+                        ) = 0;
+                };
+
+                extern MIDL_CONST_ID IID& IID_IBackEasingFunction = _uuidof(IBackEasingFunction);
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
  * Interface Windows.UI.Composition.IBooleanKeyFrameAnimation
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 7.0
@@ -5752,6 +6045,48 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x70000
+
+/*
+ *
+ * Interface Windows.UI.Composition.IBounceEasingFunction
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Composition.BounceEasingFunction
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IBounceEasingFunction[] = L"Windows.UI.Composition.IBounceEasingFunction";
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                MIDL_INTERFACE("e7fdb44b-aad5-5174-9421-eef8b75a6a43")
+                IBounceEasingFunction : public IInspectable
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE get_Mode(
+                        ABI::Windows::UI::Composition::CompositionEasingFunctionMode* value
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE get_Bounces(
+                        INT32* value
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE get_Bounciness(
+                        FLOAT* value
+                        ) = 0;
+                };
+
+                extern MIDL_CONST_ID IID& IID_IBounceEasingFunction = _uuidof(IBounceEasingFunction);
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -5887,6 +6222,42 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIBounceVector3NaturalMotionAnimation;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIBounceVector3NaturalMotionAnimation_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
+
+/*
+ *
+ * Interface Windows.UI.Composition.ICircleEasingFunction
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Composition.CircleEasingFunction
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ICircleEasingFunction[] = L"Windows.UI.Composition.ICircleEasingFunction";
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                MIDL_INTERFACE("1e07222a-6f82-5a28-8748-2e92fc46ee2b")
+                ICircleEasingFunction : public IInspectable
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE get_Mode(
+                        ABI::Windows::UI::Composition::CompositionEasingFunctionMode* value
+                        ) = 0;
+                };
+
+                extern MIDL_CONST_ID IID& IID_ICircleEasingFunction = _uuidof(ICircleEasingFunction);
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -6981,6 +7352,100 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionFactory;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionFactory_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x20000
+
+/*
+ *
+ * Interface Windows.UI.Composition.ICompositionEasingFunctionStatics
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Composition.CompositionEasingFunction
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ICompositionEasingFunctionStatics[] = L"Windows.UI.Composition.ICompositionEasingFunctionStatics";
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                MIDL_INTERFACE("17a766b6-2936-53ea-b5af-c642f4a61083")
+                ICompositionEasingFunctionStatics : public IInspectable
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE CreateCubicBezierEasingFunction(
+                        ABI::Windows::UI::Composition::ICompositor* owner,
+                        ABI::Windows::Foundation::Numerics::Vector2 controlPoint1,
+                        ABI::Windows::Foundation::Numerics::Vector2 controlPoint2,
+                        ABI::Windows::UI::Composition::ICubicBezierEasingFunction** result
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE CreateLinearEasingFunction(
+                        ABI::Windows::UI::Composition::ICompositor* owner,
+                        ABI::Windows::UI::Composition::ILinearEasingFunction** result
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE CreateStepEasingFunction(
+                        ABI::Windows::UI::Composition::ICompositor* owner,
+                        ABI::Windows::UI::Composition::IStepEasingFunction** result
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE CreateStepEasingFunctionWithStepCount(
+                        ABI::Windows::UI::Composition::ICompositor* owner,
+                        INT32 stepCount,
+                        ABI::Windows::UI::Composition::IStepEasingFunction** result
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE CreateBackEasingFunction(
+                        ABI::Windows::UI::Composition::ICompositor* owner,
+                        ABI::Windows::UI::Composition::CompositionEasingFunctionMode mode,
+                        FLOAT amplitude,
+                        ABI::Windows::UI::Composition::IBackEasingFunction** result
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE CreateBounceEasingFunction(
+                        ABI::Windows::UI::Composition::ICompositor* owner,
+                        ABI::Windows::UI::Composition::CompositionEasingFunctionMode mode,
+                        INT32 bounces,
+                        FLOAT bounciness,
+                        ABI::Windows::UI::Composition::IBounceEasingFunction** result
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE CreateCircleEasingFunction(
+                        ABI::Windows::UI::Composition::ICompositor* owner,
+                        ABI::Windows::UI::Composition::CompositionEasingFunctionMode mode,
+                        ABI::Windows::UI::Composition::ICircleEasingFunction** result
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE CreateElasticEasingFunction(
+                        ABI::Windows::UI::Composition::ICompositor* owner,
+                        ABI::Windows::UI::Composition::CompositionEasingFunctionMode mode,
+                        INT32 oscillations,
+                        FLOAT springiness,
+                        ABI::Windows::UI::Composition::IElasticEasingFunction** result
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE CreateExponentialEasingFunction(
+                        ABI::Windows::UI::Composition::ICompositor* owner,
+                        ABI::Windows::UI::Composition::CompositionEasingFunctionMode mode,
+                        FLOAT exponent,
+                        ABI::Windows::UI::Composition::IExponentialEasingFunction** result
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE CreatePowerEasingFunction(
+                        ABI::Windows::UI::Composition::ICompositor* owner,
+                        ABI::Windows::UI::Composition::CompositionEasingFunctionMode mode,
+                        FLOAT power,
+                        ABI::Windows::UI::Composition::IPowerEasingFunction** result
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE CreateSineEasingFunction(
+                        ABI::Windows::UI::Composition::ICompositor* owner,
+                        ABI::Windows::UI::Composition::CompositionEasingFunctionMode mode,
+                        ABI::Windows::UI::Composition::ISineEasingFunction** result
+                        ) = 0;
+                };
+
+                extern MIDL_CONST_ID IID& IID_ICompositionEasingFunctionStatics = _uuidof(ICompositionEasingFunctionStatics);
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -9504,6 +9969,40 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceBru
 
 /*
  *
+ * Interface Windows.UI.Composition.ICompositionSurfaceFacade
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ICompositionSurfaceFacade[] = L"Windows.UI.Composition.ICompositionSurfaceFacade";
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                MIDL_INTERFACE("e01622c8-2332-55c7-8868-a7312c5c229d")
+                ICompositionSurfaceFacade : public IInspectable
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE GetRealSurface(
+                        ABI::Windows::UI::Composition::ICompositionSurface** result
+                        ) = 0;
+                };
+
+                extern MIDL_CONST_ID IID& IID_ICompositionSurfaceFacade = _uuidof(ICompositionSurfaceFacade);
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
  * Interface Windows.UI.Composition.ICompositionTarget
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 2.0
@@ -10252,6 +10751,45 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositor6;
 
 /*
  *
+ * Interface Windows.UI.Composition.ICompositor7
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Composition.Compositor
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CICompositor7_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CICompositor7_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ICompositor7[] = L"Windows.UI.Composition.ICompositor7";
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                MIDL_INTERFACE("542898d1-6c2f-5db7-bfb8-5d1fe54fb2b4")
+                ICompositor7 : public IInspectable
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE get_DispatcherQueue(
+                        ABI::Windows::System::IDispatcherQueue** value
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE CreateAnimationPropertyInfo(
+                        ABI::Windows::UI::Composition::IAnimationPropertyInfo** result
+                        ) = 0;
+                };
+
+                extern MIDL_CONST_ID IID& IID_ICompositor7 = _uuidof(ICompositor7);
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositor7;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositor7_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
  * Interface Windows.UI.Composition.ICompositorStatics
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 6.0
@@ -10702,6 +11240,87 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIDropShadow2;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIDropShadow2_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x50000
+
+/*
+ *
+ * Interface Windows.UI.Composition.IElasticEasingFunction
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Composition.ElasticEasingFunction
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IElasticEasingFunction[] = L"Windows.UI.Composition.IElasticEasingFunction";
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                MIDL_INTERFACE("66de6285-054e-5594-8475-c22cb51f1bd5")
+                IElasticEasingFunction : public IInspectable
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE get_Mode(
+                        ABI::Windows::UI::Composition::CompositionEasingFunctionMode* value
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE get_Oscillations(
+                        INT32* value
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE get_Springiness(
+                        FLOAT* value
+                        ) = 0;
+                };
+
+                extern MIDL_CONST_ID IID& IID_IElasticEasingFunction = _uuidof(IElasticEasingFunction);
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
+ * Interface Windows.UI.Composition.IExponentialEasingFunction
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Composition.ExponentialEasingFunction
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IExponentialEasingFunction[] = L"Windows.UI.Composition.IExponentialEasingFunction";
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                MIDL_INTERFACE("6f7d1a51-98d2-5638-a34a-00486554c750")
+                IExponentialEasingFunction : public IInspectable
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE get_Mode(
+                        ABI::Windows::UI::Composition::CompositionEasingFunctionMode* value
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE get_Exponent(
+                        FLOAT* value
+                        ) = 0;
+                };
+
+                extern MIDL_CONST_ID IID& IID_IExponentialEasingFunction = _uuidof(IExponentialEasingFunction);
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -11410,6 +12029,45 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIPointLight3;
 
 /*
  *
+ * Interface Windows.UI.Composition.IPowerEasingFunction
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Composition.PowerEasingFunction
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IPowerEasingFunction[] = L"Windows.UI.Composition.IPowerEasingFunction";
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                MIDL_INTERFACE("c3ff53d6-138b-5815-891a-b7f615ccc563")
+                IPowerEasingFunction : public IInspectable
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE get_Mode(
+                        ABI::Windows::UI::Composition::CompositionEasingFunctionMode* value
+                        ) = 0;
+                    virtual HRESULT STDMETHODCALLTYPE get_Power(
+                        FLOAT* value
+                        ) = 0;
+                };
+
+                extern MIDL_CONST_ID IID& IID_IPowerEasingFunction = _uuidof(IPowerEasingFunction);
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
  * Interface Windows.UI.Composition.IQuaternionKeyFrameAnimation
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 2.0
@@ -11692,6 +12350,42 @@ namespace ABI {
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIShapeVisual;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIShapeVisual_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
+
+/*
+ *
+ * Interface Windows.UI.Composition.ISineEasingFunction
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Composition.SineEasingFunction
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ISineEasingFunction[] = L"Windows.UI.Composition.ISineEasingFunction";
+namespace ABI {
+    namespace Windows {
+        namespace UI {
+            namespace Composition {
+                MIDL_INTERFACE("f1b518bf-9563-5474-bd13-44b2df4b1d58")
+                ISineEasingFunction : public IInspectable
+                {
+                public:
+                    virtual HRESULT STDMETHODCALLTYPE get_Mode(
+                        ABI::Windows::UI::Composition::CompositionEasingFunctionMode* value
+                        ) = 0;
+                };
+
+                extern MIDL_CONST_ID IID& IID_ISineEasingFunction = _uuidof(ISineEasingFunction);
+            } /* Composition */
+        } /* UI */
+    } /* Windows */
+} /* ABI */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CISineEasingFunction;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -12945,6 +13639,27 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
+ * Class Windows.UI.Composition.BackEasingFunction
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Class implements the following interfaces:
+ *    Windows.UI.Composition.IBackEasingFunction ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#ifndef RUNTIMECLASS_Windows_UI_Composition_BackEasingFunction_DEFINED
+#define RUNTIMECLASS_Windows_UI_Composition_BackEasingFunction_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_BackEasingFunction[] = L"Windows.UI.Composition.BackEasingFunction";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
  * Class Windows.UI.Composition.BooleanKeyFrameAnimation
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 7.0
@@ -12963,6 +13678,27 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_BooleanKeyFrameAnimation[] = L"Windows.UI.Composition.BooleanKeyFrameAnimation";
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x70000
+
+/*
+ *
+ * Class Windows.UI.Composition.BounceEasingFunction
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Class implements the following interfaces:
+ *    Windows.UI.Composition.IBounceEasingFunction ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#ifndef RUNTIMECLASS_Windows_UI_Composition_BounceEasingFunction_DEFINED
+#define RUNTIMECLASS_Windows_UI_Composition_BounceEasingFunction_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_BounceEasingFunction[] = L"Windows.UI.Composition.BounceEasingFunction";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -13026,6 +13762,27 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_BounceVector3NaturalMotionAnimation[] = L"Windows.UI.Composition.BounceVector3NaturalMotionAnimation";
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
+
+/*
+ *
+ * Class Windows.UI.Composition.CircleEasingFunction
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Class implements the following interfaces:
+ *    Windows.UI.Composition.ICircleEasingFunction ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#ifndef RUNTIMECLASS_Windows_UI_Composition_CircleEasingFunction_DEFINED
+#define RUNTIMECLASS_Windows_UI_Composition_CircleEasingFunction_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_CircleEasingFunction[] = L"Windows.UI.Composition.CircleEasingFunction";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -13338,6 +14095,9 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Class Windows.UI.Composition.CompositionEasingFunction
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 2.0
+ *
+ * RuntimeClass contains static methods.
+ *   Static Methods exist on the Windows.UI.Composition.ICompositionEasingFunctionStatics interface starting with version 12.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.UI.Composition.ICompositionEasingFunction ** Default Interface **
@@ -14207,6 +14967,7 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *    Windows.UI.Composition.ICompositorWithProjectedShadow
  *    Windows.UI.Composition.ICompositorWithRadialGradient
  *    Windows.UI.Composition.ICompositorWithVisualSurface
+ *    Windows.UI.Composition.ICompositor7
  *    Windows.Foundation.IClosable
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
@@ -14306,6 +15067,48 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_DropShadow[] = L"Windows.UI.Composition.DropShadow";
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x30000
+
+/*
+ *
+ * Class Windows.UI.Composition.ElasticEasingFunction
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Class implements the following interfaces:
+ *    Windows.UI.Composition.IElasticEasingFunction ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#ifndef RUNTIMECLASS_Windows_UI_Composition_ElasticEasingFunction_DEFINED
+#define RUNTIMECLASS_Windows_UI_Composition_ElasticEasingFunction_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_ElasticEasingFunction[] = L"Windows.UI.Composition.ElasticEasingFunction";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
+ * Class Windows.UI.Composition.ExponentialEasingFunction
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Class implements the following interfaces:
+ *    Windows.UI.Composition.IExponentialEasingFunction ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#ifndef RUNTIMECLASS_Windows_UI_Composition_ExponentialEasingFunction_DEFINED
+#define RUNTIMECLASS_Windows_UI_Composition_ExponentialEasingFunction_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_ExponentialEasingFunction[] = L"Windows.UI.Composition.ExponentialEasingFunction";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -14527,6 +15330,27 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
+ * Class Windows.UI.Composition.PowerEasingFunction
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Class implements the following interfaces:
+ *    Windows.UI.Composition.IPowerEasingFunction ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#ifndef RUNTIMECLASS_Windows_UI_Composition_PowerEasingFunction_DEFINED
+#define RUNTIMECLASS_Windows_UI_Composition_PowerEasingFunction_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_PowerEasingFunction[] = L"Windows.UI.Composition.PowerEasingFunction";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
  * Class Windows.UI.Composition.QuaternionKeyFrameAnimation
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 2.0
@@ -14650,6 +15474,27 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_ShapeVisual[] = L"Windows.UI.Composition.ShapeVisual";
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
+
+/*
+ *
+ * Class Windows.UI.Composition.SineEasingFunction
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Class implements the following interfaces:
+ *    Windows.UI.Composition.ISineEasingFunction ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#ifndef RUNTIMECLASS_Windows_UI_Composition_SineEasingFunction_DEFINED
+#define RUNTIMECLASS_Windows_UI_Composition_SineEasingFunction_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_SineEasingFunction[] = L"Windows.UI.Composition.SineEasingFunction";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -14996,11 +15841,23 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2 __x
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo2_FWD_DEFINED__
 
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction;
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation __x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation;
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction;
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIBounceScalarNaturalMotionAnimation_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIBounceScalarNaturalMotionAnimation_FWD_DEFINED__
@@ -15019,6 +15876,12 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CIBounceVector2NaturalMotion
 typedef interface __x_ABI_CWindows_CUI_CComposition_CIBounceVector3NaturalMotionAnimation __x_ABI_CWindows_CUI_CComposition_CIBounceVector3NaturalMotionAnimation;
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIBounceVector3NaturalMotionAnimation_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction __x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction;
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIColorKeyFrameAnimation_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIColorKeyFrameAnimation_FWD_DEFINED__
@@ -15181,6 +16044,12 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunction 
 typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionFactory __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionFactory;
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionFactory_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics;
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionEffectBrush_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CICompositionEffectBrush_FWD_DEFINED__
@@ -15500,6 +16369,12 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceBrush3 _
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceBrush3_FWD_DEFINED__
 
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade;
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositionTarget_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CICompositionTarget_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositionTarget __x_ABI_CWindows_CUI_CComposition_CICompositionTarget;
@@ -15584,6 +16459,12 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositor6 __x_ABI_CWindo
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CICompositor6_FWD_DEFINED__
 
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositor7_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CICompositor7_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositor7 __x_ABI_CWindows_CUI_CComposition_CICompositor7;
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CICompositor7_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CICompositorStatics_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CICompositorStatics_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CUI_CComposition_CICompositorStatics __x_ABI_CWindows_CUI_CComposition_CICompositorStatics;
@@ -15649,6 +16530,18 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CIDropShadow __x_ABI_CWindow
 typedef interface __x_ABI_CWindows_CUI_CComposition_CIDropShadow2 __x_ABI_CWindows_CUI_CComposition_CIDropShadow2;
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIDropShadow2_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction;
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction;
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIExpressionAnimation_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIExpressionAnimation_FWD_DEFINED__
@@ -15746,6 +16639,12 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CIPointLight3 __x_ABI_CWindo
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIPointLight3_FWD_DEFINED__
 
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction;
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_FWD_DEFINED__
+
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CIQuaternionKeyFrameAnimation_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CIQuaternionKeyFrameAnimation_FWD_DEFINED__
 typedef interface __x_ABI_CWindows_CUI_CComposition_CIQuaternionKeyFrameAnimation __x_ABI_CWindows_CUI_CComposition_CIQuaternionKeyFrameAnimation;
@@ -15787,6 +16686,12 @@ typedef interface __x_ABI_CWindows_CUI_CComposition_CIScalarNaturalMotionAnimati
 typedef interface __x_ABI_CWindows_CUI_CComposition_CIShapeVisual __x_ABI_CWindows_CUI_CComposition_CIShapeVisual;
 
 #endif // ____x_ABI_CWindows_CUI_CComposition_CIShapeVisual_FWD_DEFINED__
+
+#ifndef ____x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_FWD_DEFINED__
+#define ____x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_FWD_DEFINED__
+typedef interface __x_ABI_CWindows_CUI_CComposition_CISineEasingFunction __x_ABI_CWindows_CUI_CComposition_CISineEasingFunction;
+
+#endif // ____x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_FWD_DEFINED__
 
 #ifndef ____x_ABI_CWindows_CUI_CComposition_CISpotLight_FWD_DEFINED__
 #define ____x_ABI_CWindows_CUI_CComposition_CISpotLight_FWD_DEFINED__
@@ -18938,6 +19843,8 @@ typedef enum __x_ABI_CWindows_CUI_CComposition_CCompositionCompositeMode __x_ABI
 
 typedef enum __x_ABI_CWindows_CUI_CComposition_CCompositionDropShadowSourcePolicy __x_ABI_CWindows_CUI_CComposition_CCompositionDropShadowSourcePolicy;
 
+typedef enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode;
+
 typedef enum __x_ABI_CWindows_CUI_CComposition_CCompositionEffectFactoryLoadStatus __x_ABI_CWindows_CUI_CComposition_CCompositionEffectFactoryLoadStatus;
 
 typedef enum __x_ABI_CWindows_CUI_CComposition_CCompositionGetValueStatus __x_ABI_CWindows_CUI_CComposition_CCompositionGetValueStatus;
@@ -19195,6 +20102,22 @@ enum __x_ABI_CWindows_CUI_CComposition_CCompositionDropShadowSourcePolicy
     CompositionDropShadowSourcePolicy_InheritFromVisualContent = 1,
 };
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x50000
+
+/*
+ *
+ * Struct Windows.UI.Composition.CompositionEasingFunctionMode
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode
+{
+    CompositionEasingFunctionMode_In = 0,
+    CompositionEasingFunctionMode_Out = 1,
+    CompositionEasingFunctionMode_InOut = 2,
+};
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -19853,6 +20776,80 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo
 
 /*
  *
+ * Interface Windows.UI.Composition.IBackEasingFunction
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Composition.BackEasingFunction
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IBackEasingFunction[] = L"Windows.UI.Composition.IBackEasingFunction";
+typedef struct __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunctionVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* get_Mode)(__x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction* This,
+        enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode* value);
+    HRESULT (STDMETHODCALLTYPE* get_Amplitude)(__x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction* This,
+        FLOAT* value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunctionVtbl;
+
+interface __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction
+{
+    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunctionVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_get_Mode(This, value) \
+    ((This)->lpVtbl->get_Mode(This, value))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_get_Amplitude(This, value) \
+    ((This)->lpVtbl->get_Amplitude(This, value))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
  * Interface Windows.UI.Composition.IBooleanKeyFrameAnimation
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 7.0
@@ -19920,6 +20917,85 @@ interface __x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIBooleanKeyFrameAnimation_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x70000
+
+/*
+ *
+ * Interface Windows.UI.Composition.IBounceEasingFunction
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Composition.BounceEasingFunction
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IBounceEasingFunction[] = L"Windows.UI.Composition.IBounceEasingFunction";
+typedef struct __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunctionVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* get_Mode)(__x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction* This,
+        enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode* value);
+    HRESULT (STDMETHODCALLTYPE* get_Bounces)(__x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction* This,
+        INT32* value);
+    HRESULT (STDMETHODCALLTYPE* get_Bounciness)(__x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction* This,
+        FLOAT* value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunctionVtbl;
+
+interface __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction
+{
+    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunctionVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_get_Mode(This, value) \
+    ((This)->lpVtbl->get_Mode(This, value))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_get_Bounces(This, value) \
+    ((This)->lpVtbl->get_Bounces(This, value))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_get_Bounciness(This, value) \
+    ((This)->lpVtbl->get_Bounciness(This, value))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -20172,6 +21248,75 @@ interface __x_ABI_CWindows_CUI_CComposition_CIBounceVector3NaturalMotionAnimatio
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIBounceVector3NaturalMotionAnimation;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIBounceVector3NaturalMotionAnimation_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
+
+/*
+ *
+ * Interface Windows.UI.Composition.ICircleEasingFunction
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Composition.CircleEasingFunction
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ICircleEasingFunction[] = L"Windows.UI.Composition.ICircleEasingFunction";
+typedef struct __x_ABI_CWindows_CUI_CComposition_CICircleEasingFunctionVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* get_Mode)(__x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction* This,
+        enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode* value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CComposition_CICircleEasingFunctionVtbl;
+
+interface __x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction
+{
+    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CICircleEasingFunctionVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_get_Mode(This, value) \
+    ((This)->lpVtbl->get_Mode(This, value))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -22231,6 +23376,153 @@ interface __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionFactory
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionFactory;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionFactory_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x20000
+
+/*
+ *
+ * Interface Windows.UI.Composition.ICompositionEasingFunctionStatics
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Composition.CompositionEasingFunction
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ICompositionEasingFunctionStatics[] = L"Windows.UI.Composition.ICompositionEasingFunctionStatics";
+typedef struct __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStaticsVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* CreateCubicBezierEasingFunction)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This,
+        __x_ABI_CWindows_CUI_CComposition_CICompositor* owner,
+        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2 controlPoint1,
+        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2 controlPoint2,
+        __x_ABI_CWindows_CUI_CComposition_CICubicBezierEasingFunction** result);
+    HRESULT (STDMETHODCALLTYPE* CreateLinearEasingFunction)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This,
+        __x_ABI_CWindows_CUI_CComposition_CICompositor* owner,
+        __x_ABI_CWindows_CUI_CComposition_CILinearEasingFunction** result);
+    HRESULT (STDMETHODCALLTYPE* CreateStepEasingFunction)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This,
+        __x_ABI_CWindows_CUI_CComposition_CICompositor* owner,
+        __x_ABI_CWindows_CUI_CComposition_CIStepEasingFunction** result);
+    HRESULT (STDMETHODCALLTYPE* CreateStepEasingFunctionWithStepCount)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This,
+        __x_ABI_CWindows_CUI_CComposition_CICompositor* owner,
+        INT32 stepCount,
+        __x_ABI_CWindows_CUI_CComposition_CIStepEasingFunction** result);
+    HRESULT (STDMETHODCALLTYPE* CreateBackEasingFunction)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This,
+        __x_ABI_CWindows_CUI_CComposition_CICompositor* owner,
+        enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode mode,
+        FLOAT amplitude,
+        __x_ABI_CWindows_CUI_CComposition_CIBackEasingFunction** result);
+    HRESULT (STDMETHODCALLTYPE* CreateBounceEasingFunction)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This,
+        __x_ABI_CWindows_CUI_CComposition_CICompositor* owner,
+        enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode mode,
+        INT32 bounces,
+        FLOAT bounciness,
+        __x_ABI_CWindows_CUI_CComposition_CIBounceEasingFunction** result);
+    HRESULT (STDMETHODCALLTYPE* CreateCircleEasingFunction)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This,
+        __x_ABI_CWindows_CUI_CComposition_CICompositor* owner,
+        enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode mode,
+        __x_ABI_CWindows_CUI_CComposition_CICircleEasingFunction** result);
+    HRESULT (STDMETHODCALLTYPE* CreateElasticEasingFunction)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This,
+        __x_ABI_CWindows_CUI_CComposition_CICompositor* owner,
+        enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode mode,
+        INT32 oscillations,
+        FLOAT springiness,
+        __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction** result);
+    HRESULT (STDMETHODCALLTYPE* CreateExponentialEasingFunction)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This,
+        __x_ABI_CWindows_CUI_CComposition_CICompositor* owner,
+        enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode mode,
+        FLOAT exponent,
+        __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction** result);
+    HRESULT (STDMETHODCALLTYPE* CreatePowerEasingFunction)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This,
+        __x_ABI_CWindows_CUI_CComposition_CICompositor* owner,
+        enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode mode,
+        FLOAT power,
+        __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction** result);
+    HRESULT (STDMETHODCALLTYPE* CreateSineEasingFunction)(__x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics* This,
+        __x_ABI_CWindows_CUI_CComposition_CICompositor* owner,
+        enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode mode,
+        __x_ABI_CWindows_CUI_CComposition_CISineEasingFunction** result);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStaticsVtbl;
+
+interface __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics
+{
+    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStaticsVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_CreateCubicBezierEasingFunction(This, owner, controlPoint1, controlPoint2, result) \
+    ((This)->lpVtbl->CreateCubicBezierEasingFunction(This, owner, controlPoint1, controlPoint2, result))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_CreateLinearEasingFunction(This, owner, result) \
+    ((This)->lpVtbl->CreateLinearEasingFunction(This, owner, result))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_CreateStepEasingFunction(This, owner, result) \
+    ((This)->lpVtbl->CreateStepEasingFunction(This, owner, result))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_CreateStepEasingFunctionWithStepCount(This, owner, stepCount, result) \
+    ((This)->lpVtbl->CreateStepEasingFunctionWithStepCount(This, owner, stepCount, result))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_CreateBackEasingFunction(This, owner, mode, amplitude, result) \
+    ((This)->lpVtbl->CreateBackEasingFunction(This, owner, mode, amplitude, result))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_CreateBounceEasingFunction(This, owner, mode, bounces, bounciness, result) \
+    ((This)->lpVtbl->CreateBounceEasingFunction(This, owner, mode, bounces, bounciness, result))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_CreateCircleEasingFunction(This, owner, mode, result) \
+    ((This)->lpVtbl->CreateCircleEasingFunction(This, owner, mode, result))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_CreateElasticEasingFunction(This, owner, mode, oscillations, springiness, result) \
+    ((This)->lpVtbl->CreateElasticEasingFunction(This, owner, mode, oscillations, springiness, result))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_CreateExponentialEasingFunction(This, owner, mode, exponent, result) \
+    ((This)->lpVtbl->CreateExponentialEasingFunction(This, owner, mode, exponent, result))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_CreatePowerEasingFunction(This, owner, mode, power, result) \
+    ((This)->lpVtbl->CreatePowerEasingFunction(This, owner, mode, power, result))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_CreateSineEasingFunction(This, owner, mode, result) \
+    ((This)->lpVtbl->CreateSineEasingFunction(This, owner, mode, result))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionEasingFunctionStatics_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -26887,6 +28179,73 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceBru
 
 /*
  *
+ * Interface Windows.UI.Composition.ICompositionSurfaceFacade
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ICompositionSurfaceFacade[] = L"Windows.UI.Composition.ICompositionSurfaceFacade";
+typedef struct __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacadeVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* GetRealSurface)(__x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade* This,
+        __x_ABI_CWindows_CUI_CComposition_CICompositionSurface** result);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacadeVtbl;
+
+interface __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade
+{
+    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacadeVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_GetRealSurface(This, result) \
+    ((This)->lpVtbl->GetRealSurface(This, result))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositionSurfaceFacade_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
  * Interface Windows.UI.Composition.ICompositionTarget
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 2.0
@@ -28245,6 +29604,80 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositor6;
 
 /*
  *
+ * Interface Windows.UI.Composition.ICompositor7
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Composition.Compositor
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CICompositor7_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CICompositor7_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ICompositor7[] = L"Windows.UI.Composition.ICompositor7";
+typedef struct __x_ABI_CWindows_CUI_CComposition_CICompositor7Vtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CICompositor7* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CICompositor7* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CICompositor7* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CICompositor7* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CICompositor7* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CICompositor7* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* get_DispatcherQueue)(__x_ABI_CWindows_CUI_CComposition_CICompositor7* This,
+        __x_ABI_CWindows_CSystem_CIDispatcherQueue** value);
+    HRESULT (STDMETHODCALLTYPE* CreateAnimationPropertyInfo)(__x_ABI_CWindows_CUI_CComposition_CICompositor7* This,
+        __x_ABI_CWindows_CUI_CComposition_CIAnimationPropertyInfo** result);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CComposition_CICompositor7Vtbl;
+
+interface __x_ABI_CWindows_CUI_CComposition_CICompositor7
+{
+    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CICompositor7Vtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositor7_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositor7_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositor7_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositor7_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositor7_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositor7_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositor7_get_DispatcherQueue(This, value) \
+    ((This)->lpVtbl->get_DispatcherQueue(This, value))
+
+#define __x_ABI_CWindows_CUI_CComposition_CICompositor7_CreateAnimationPropertyInfo(This, result) \
+    ((This)->lpVtbl->CreateAnimationPropertyInfo(This, result))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CICompositor7;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CICompositor7_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
  * Interface Windows.UI.Composition.ICompositorStatics
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 6.0
@@ -29096,6 +30529,159 @@ interface __x_ABI_CWindows_CUI_CComposition_CIDropShadow2
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIDropShadow2;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIDropShadow2_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x50000
+
+/*
+ *
+ * Interface Windows.UI.Composition.IElasticEasingFunction
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Composition.ElasticEasingFunction
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IElasticEasingFunction[] = L"Windows.UI.Composition.IElasticEasingFunction";
+typedef struct __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunctionVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* get_Mode)(__x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction* This,
+        enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode* value);
+    HRESULT (STDMETHODCALLTYPE* get_Oscillations)(__x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction* This,
+        INT32* value);
+    HRESULT (STDMETHODCALLTYPE* get_Springiness)(__x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction* This,
+        FLOAT* value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunctionVtbl;
+
+interface __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction
+{
+    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunctionVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_get_Mode(This, value) \
+    ((This)->lpVtbl->get_Mode(This, value))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_get_Oscillations(This, value) \
+    ((This)->lpVtbl->get_Oscillations(This, value))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_get_Springiness(This, value) \
+    ((This)->lpVtbl->get_Springiness(This, value))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIElasticEasingFunction_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
+ * Interface Windows.UI.Composition.IExponentialEasingFunction
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Composition.ExponentialEasingFunction
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IExponentialEasingFunction[] = L"Windows.UI.Composition.IExponentialEasingFunction";
+typedef struct __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunctionVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* get_Mode)(__x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction* This,
+        enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode* value);
+    HRESULT (STDMETHODCALLTYPE* get_Exponent)(__x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction* This,
+        FLOAT* value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunctionVtbl;
+
+interface __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction
+{
+    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunctionVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_get_Mode(This, value) \
+    ((This)->lpVtbl->get_Mode(This, value))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_get_Exponent(This, value) \
+    ((This)->lpVtbl->get_Exponent(This, value))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIExponentialEasingFunction_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -30414,6 +32000,80 @@ EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIPointLight3;
 
 /*
  *
+ * Interface Windows.UI.Composition.IPowerEasingFunction
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Composition.PowerEasingFunction
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_IPowerEasingFunction[] = L"Windows.UI.Composition.IPowerEasingFunction";
+typedef struct __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunctionVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* get_Mode)(__x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction* This,
+        enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode* value);
+    HRESULT (STDMETHODCALLTYPE* get_Power)(__x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction* This,
+        FLOAT* value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunctionVtbl;
+
+interface __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction
+{
+    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunctionVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_get_Mode(This, value) \
+    ((This)->lpVtbl->get_Mode(This, value))
+
+#define __x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_get_Power(This, value) \
+    ((This)->lpVtbl->get_Power(This, value))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIPowerEasingFunction_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
  * Interface Windows.UI.Composition.IQuaternionKeyFrameAnimation
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 2.0
@@ -30945,6 +32605,75 @@ interface __x_ABI_CWindows_CUI_CComposition_CIShapeVisual
 EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CIShapeVisual;
 #endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CIShapeVisual_INTERFACE_DEFINED__) */
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
+
+/*
+ *
+ * Interface Windows.UI.Composition.ISineEasingFunction
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Interface is a part of the implementation of type Windows.UI.Composition.SineEasingFunction
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#if !defined(____x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_INTERFACE_DEFINED__)
+#define ____x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_INTERFACE_DEFINED__
+extern const __declspec(selectany) _Null_terminated_ WCHAR InterfaceName_Windows_UI_Composition_ISineEasingFunction[] = L"Windows.UI.Composition.ISineEasingFunction";
+typedef struct __x_ABI_CWindows_CUI_CComposition_CISineEasingFunctionVtbl
+{
+    BEGIN_INTERFACE
+
+    HRESULT (STDMETHODCALLTYPE* QueryInterface)(__x_ABI_CWindows_CUI_CComposition_CISineEasingFunction* This,
+        REFIID riid,
+        void** ppvObject);
+    ULONG (STDMETHODCALLTYPE* AddRef)(__x_ABI_CWindows_CUI_CComposition_CISineEasingFunction* This);
+    ULONG (STDMETHODCALLTYPE* Release)(__x_ABI_CWindows_CUI_CComposition_CISineEasingFunction* This);
+    HRESULT (STDMETHODCALLTYPE* GetIids)(__x_ABI_CWindows_CUI_CComposition_CISineEasingFunction* This,
+        ULONG* iidCount,
+        IID** iids);
+    HRESULT (STDMETHODCALLTYPE* GetRuntimeClassName)(__x_ABI_CWindows_CUI_CComposition_CISineEasingFunction* This,
+        HSTRING* className);
+    HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CUI_CComposition_CISineEasingFunction* This,
+        TrustLevel* trustLevel);
+    HRESULT (STDMETHODCALLTYPE* get_Mode)(__x_ABI_CWindows_CUI_CComposition_CISineEasingFunction* This,
+        enum __x_ABI_CWindows_CUI_CComposition_CCompositionEasingFunctionMode* value);
+
+    END_INTERFACE
+} __x_ABI_CWindows_CUI_CComposition_CISineEasingFunctionVtbl;
+
+interface __x_ABI_CWindows_CUI_CComposition_CISineEasingFunction
+{
+    CONST_VTBL struct __x_ABI_CWindows_CUI_CComposition_CISineEasingFunctionVtbl* lpVtbl;
+};
+
+#ifdef COBJMACROS
+
+#define __x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_QueryInterface(This, riid, ppvObject) \
+    ((This)->lpVtbl->QueryInterface(This, riid, ppvObject))
+
+#define __x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_AddRef(This) \
+    ((This)->lpVtbl->AddRef(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_Release(This) \
+    ((This)->lpVtbl->Release(This))
+
+#define __x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_GetIids(This, iidCount, iids) \
+    ((This)->lpVtbl->GetIids(This, iidCount, iids))
+
+#define __x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_GetRuntimeClassName(This, className) \
+    ((This)->lpVtbl->GetRuntimeClassName(This, className))
+
+#define __x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_GetTrustLevel(This, trustLevel) \
+    ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
+
+#define __x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_get_Mode(This, value) \
+    ((This)->lpVtbl->get_Mode(This, value))
+
+#endif /* COBJMACROS */
+
+EXTERN_C const IID IID___x_ABI_CWindows_CUI_CComposition_CISineEasingFunction;
+#endif /* !defined(____x_ABI_CWindows_CUI_CComposition_CISineEasingFunction_INTERFACE_DEFINED__) */
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -33202,6 +34931,27 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
+ * Class Windows.UI.Composition.BackEasingFunction
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Class implements the following interfaces:
+ *    Windows.UI.Composition.IBackEasingFunction ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#ifndef RUNTIMECLASS_Windows_UI_Composition_BackEasingFunction_DEFINED
+#define RUNTIMECLASS_Windows_UI_Composition_BackEasingFunction_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_BackEasingFunction[] = L"Windows.UI.Composition.BackEasingFunction";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
  * Class Windows.UI.Composition.BooleanKeyFrameAnimation
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 7.0
@@ -33220,6 +34970,27 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_BooleanKeyFrameAnimation[] = L"Windows.UI.Composition.BooleanKeyFrameAnimation";
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x70000
+
+/*
+ *
+ * Class Windows.UI.Composition.BounceEasingFunction
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Class implements the following interfaces:
+ *    Windows.UI.Composition.IBounceEasingFunction ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#ifndef RUNTIMECLASS_Windows_UI_Composition_BounceEasingFunction_DEFINED
+#define RUNTIMECLASS_Windows_UI_Composition_BounceEasingFunction_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_BounceEasingFunction[] = L"Windows.UI.Composition.BounceEasingFunction";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -33283,6 +35054,27 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_BounceVector3NaturalMotionAnimation[] = L"Windows.UI.Composition.BounceVector3NaturalMotionAnimation";
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
+
+/*
+ *
+ * Class Windows.UI.Composition.CircleEasingFunction
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Class implements the following interfaces:
+ *    Windows.UI.Composition.ICircleEasingFunction ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#ifndef RUNTIMECLASS_Windows_UI_Composition_CircleEasingFunction_DEFINED
+#define RUNTIMECLASS_Windows_UI_Composition_CircleEasingFunction_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_CircleEasingFunction[] = L"Windows.UI.Composition.CircleEasingFunction";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -33595,6 +35387,9 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Class Windows.UI.Composition.CompositionEasingFunction
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 2.0
+ *
+ * RuntimeClass contains static methods.
+ *   Static Methods exist on the Windows.UI.Composition.ICompositionEasingFunctionStatics interface starting with version 12.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.UI.Composition.ICompositionEasingFunction ** Default Interface **
@@ -34464,6 +36259,7 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  *    Windows.UI.Composition.ICompositorWithProjectedShadow
  *    Windows.UI.Composition.ICompositorWithRadialGradient
  *    Windows.UI.Composition.ICompositorWithVisualSurface
+ *    Windows.UI.Composition.ICompositor7
  *    Windows.Foundation.IClosable
  *
  * Class Threading Model:  Both Single and Multi Threaded Apartment
@@ -34563,6 +36359,48 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_DropShadow[] = L"Windows.UI.Composition.DropShadow";
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x30000
+
+/*
+ *
+ * Class Windows.UI.Composition.ElasticEasingFunction
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Class implements the following interfaces:
+ *    Windows.UI.Composition.IElasticEasingFunction ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#ifndef RUNTIMECLASS_Windows_UI_Composition_ElasticEasingFunction_DEFINED
+#define RUNTIMECLASS_Windows_UI_Composition_ElasticEasingFunction_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_ElasticEasingFunction[] = L"Windows.UI.Composition.ElasticEasingFunction";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
+ * Class Windows.UI.Composition.ExponentialEasingFunction
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Class implements the following interfaces:
+ *    Windows.UI.Composition.IExponentialEasingFunction ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#ifndef RUNTIMECLASS_Windows_UI_Composition_ExponentialEasingFunction_DEFINED
+#define RUNTIMECLASS_Windows_UI_Composition_ExponentialEasingFunction_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_ExponentialEasingFunction[] = L"Windows.UI.Composition.ExponentialEasingFunction";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *
@@ -34784,6 +36622,27 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 
 /*
  *
+ * Class Windows.UI.Composition.PowerEasingFunction
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Class implements the following interfaces:
+ *    Windows.UI.Composition.IPowerEasingFunction ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#ifndef RUNTIMECLASS_Windows_UI_Composition_PowerEasingFunction_DEFINED
+#define RUNTIMECLASS_Windows_UI_Composition_PowerEasingFunction_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_PowerEasingFunction[] = L"Windows.UI.Composition.PowerEasingFunction";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+
+/*
+ *
  * Class Windows.UI.Composition.QuaternionKeyFrameAnimation
  *
  * Introduced to Windows.Foundation.UniversalApiContract in version 2.0
@@ -34907,6 +36766,27 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
 extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_ShapeVisual[] = L"Windows.UI.Composition.ShapeVisual";
 #endif
 #endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0x60000
+
+/*
+ *
+ * Class Windows.UI.Composition.SineEasingFunction
+ *
+ * Introduced to Windows.Foundation.UniversalApiContract in version 12.0
+ *
+ * Class implements the following interfaces:
+ *    Windows.UI.Composition.ISineEasingFunction ** Default Interface **
+ *
+ * Class Threading Model:  Both Single and Multi Threaded Apartment
+ *
+ * Class Marshaling Behavior:  Agile - Class is agile
+ *
+ */
+#if WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
+#ifndef RUNTIMECLASS_Windows_UI_Composition_SineEasingFunction_DEFINED
+#define RUNTIMECLASS_Windows_UI_Composition_SineEasingFunction_DEFINED
+extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_UI_Composition_SineEasingFunction[] = L"Windows.UI.Composition.SineEasingFunction";
+#endif
+#endif // WINDOWS_FOUNDATION_UNIVERSALAPICONTRACT_VERSION >= 0xc0000
 
 /*
  *

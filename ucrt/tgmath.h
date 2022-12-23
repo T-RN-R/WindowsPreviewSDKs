@@ -11,11 +11,6 @@
 
 #include <corecrt.h>
 
-#pragma warning(push)
-#pragma warning(disable: _UCRT_DISABLED_WARNINGS)
-_UCRT_DISABLE_CLANG_WARNINGS
-_CRT_BEGIN_C_HEADER
-
 #if (_CRT_HAS_CXX17 == 1) && !defined(_CRT_USE_C_TGMATH_H)
 
 #include <ctgmath>
@@ -40,6 +35,11 @@ _CRT_BEGIN_C_HEADER
 #endif // _CRT_SILENCE_NONCONFORMING_TGMATH_H
 
 #else // ^^^^ Default C Support ^^^^ // vvvv C11 Support vvvv
+
+#pragma warning(push)
+#pragma warning(disable: _UCRT_DISABLED_WARNINGS)
+_UCRT_DISABLE_CLANG_WARNINGS
+_CRT_BEGIN_C_HEADER
 
 #define __tgmath_resolve_real_binary_op(X, Y) _Generic((X), \
     long double: 0.0l,                                      \
@@ -639,11 +639,12 @@ inline _Dcomplex __cproj_d(double const __d)
     default:   __cproj_d       \
 )(X)
 
+_CRT_END_C_HEADER
+_UCRT_RESTORE_CLANG_WARNINGS
+#pragma warning(pop) // _UCRT_DISABLED_WARNINGS
+
 #endif // _CRT_HAS_C11 == 0
 
 #endif // (_CRT_HAS_CXX17 == 1) && !defined(_CRT_USE_C_TGMATH_H)
 
-_CRT_END_C_HEADER
-_UCRT_RESTORE_CLANG_WARNINGS
-#pragma warning(pop) // _UCRT_DISABLED_WARNINGS
 #endif // _TGMATH

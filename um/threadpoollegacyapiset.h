@@ -99,6 +99,14 @@ WINBASEAPI
 _Must_inspect_result_
 BOOL
 WINAPI
+DeleteTimerQueue(
+    _In_ HANDLE TimerQueue
+    );
+
+WINBASEAPI
+_Must_inspect_result_
+BOOL
+WINAPI
 DeleteTimerQueueEx(
     _In_ HANDLE TimerQueue,
     _In_opt_ HANDLE CompletionEvent

@@ -805,15 +805,15 @@ interface IDirectManipulationDeferContactService : IUnknown
 }
 
 #ifdef LIFTED_SDK
-// Defines a Direct Manipulation viewport (Lifted)
+// Defines a Direct Manipulation viewport (Experimental)
 [
     local,
     object,
     uuid(2cdef8b7-ac1b-43ce-b8c8-349a54901412),
-    helpstring("IDirectManipulationViewportLifted Interface"),
+    helpstring("IExpDirectManipulationViewport Interface"),
     pointer_default(unique)
 ]
-interface IDirectManipulationViewportLifted : IDirectManipulationViewport2
+interface IExpDirectManipulationViewport : IDirectManipulationViewport2
 {
     HRESULT AddEventHandler(
         [in, annotation("_In_opt_")] IUnknown* inputSite,
@@ -821,15 +821,15 @@ interface IDirectManipulationViewportLifted : IDirectManipulationViewport2
         [out, retval, annotation("_Out_")] DWORD* cookie);
 }
 
-// Defines a Direct Manipulation compositor (Lifted)
+// Defines a Direct Manipulation compositor (Experimental)
 [
     local,
     object,
     uuid(cf49a652-14eb-4d6c-bbf9-951745182122),
-    helpstring("IDirectManipulationCompositorLifted Interface"),
+    helpstring("IExpDirectManipulationCompositor Interface"),
     pointer_default(unique)
 ]
-interface IDirectManipulationCompositorLifted : IUnknown
+interface IExpDirectManipulationCompositor : IUnknown
 {
     HRESULT AddContentAndGetSharedTransform(
         [in, annotation("_In_")] IDirectManipulationContent* content,
@@ -910,7 +910,7 @@ library DirectManipulation
         interface IDirectManipulationCompositor2;
         interface IDirectManipulationFrameInfoProvider;
 #ifdef LIFTED_SDK
-        interface IDirectManipulationCompositorLifted;
+        interface IExpDirectManipulationCompositor;
 #endif //LIFTED_SDK
     }
 

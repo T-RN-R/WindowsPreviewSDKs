@@ -269,9 +269,9 @@ extern "C" {
 // deletion or recoverability of the data on the storage device after command completion. This IOCTL is limited
 // to data disks in regular Windows. In WinPE, this IOCTL is supported for both boot and data disks.
 //
-// Initial implementation requires no input and returns no output other than status. Callers should first
-// call FSCTL_LOCK_VOLUME before calling this ioctl to flush out cached data in upper layers. No waiting of
-// outstanding request completion is done before issuing the command to the device.
+// This IOCTL has an optional input and returns no output other than status. Callers should first call
+// FSCTL_LOCK_VOLUME before calling this ioctl to flush out cached data in upper layers. No waiting of outstanding
+// request completion is done before issuing the command to the device.
 //
 #define IOCTL_STORAGE_REINITIALIZE_MEDIA    CTL_CODE(IOCTL_STORAGE_BASE, 0x0590, METHOD_BUFFERED, FILE_WRITE_ACCESS)
 
@@ -2090,6 +2090,33 @@ typedef enum _STORAGE_PROTOCOL_UFS_DATA_TYPE {
 } STORAGE_PROTOCOL_UFS_DATA_TYPE, *PSTORAGE_PROTOCOL_UFS_DATA_TYPE;
 
 //
+// Below definition is used to specify particular command fields when querying
+// NVMeDataTypeLogPage, and this definition maps to ProtocolDataRequestSubValue4
+// field in STORAGE_PROTOCOL_SPECIFIC_DATA.
+//
+#pragma warning(push)
+#pragma warning(disable:4201) // nameless struct/unions
+#pragma warning(disable:4214) // bit fields other than int to disable this around the struct
+
+typedef union _STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE {
+
+    struct {
+
+        ULONG RetainAsynEvent : 1;
+
+        ULONG LogSpecificField : 4;
+
+        ULONG Reserved : 27;
+
+    } DUMMYSTRUCTNAME;
+
+    ULONG AsUlong;
+
+} STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE, *PSTORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE;
+
+#pragma warning(pop)
+
+//
 // Protocol Data should follow this data structure in the same buffer.
 // The offset of Protocol Data from the beginning of this data structure
 // is reported in data field - "ProtocolDataOffset".
@@ -2109,7 +2136,8 @@ typedef struct _STORAGE_PROTOCOL_SPECIFIC_DATA {
     ULONG   ProtocolDataRequestSubValue2; // First additional data sub request value
 
     ULONG   ProtocolDataRequestSubValue3; // Second additional data sub request value
-    ULONG   Reserved;
+    ULONG   ProtocolDataRequestSubValue4; // Third additional data sub request value
+
 } STORAGE_PROTOCOL_SPECIFIC_DATA, *PSTORAGE_PROTOCOL_SPECIFIC_DATA;
 
 //
