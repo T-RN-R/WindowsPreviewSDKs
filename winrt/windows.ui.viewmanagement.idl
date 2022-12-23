@@ -154,6 +154,8 @@ namespace Windows
 
             interface IApplicationViewScalingStatics;
 
+            interface IApplicationViewSpanningRects;
+
             interface IApplicationViewStatics;
 
             interface IApplicationViewStatics2;
@@ -321,7 +323,9 @@ namespace Windows
             enum ApplicationViewMode
             {
                 Default        = 0,
-                CompactOverlay = 1
+                CompactOverlay = 1,
+                [contract(Windows.Foundation.UniversalApiContract, 11.0)]
+                Spanning       = 2
             };
 
             [contract(Windows.Foundation.UniversalApiContract, 1.0)]
@@ -602,6 +606,14 @@ namespace Windows
             {
                 [propget] HRESULT DisableLayoutScaling([out] [retval] boolean* value);
                 HRESULT TrySetDisableLayoutScaling([in] boolean disableLayoutScaling, [out] [retval] boolean* success);
+            }
+
+            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
+            [exclusiveto(Windows.UI.ViewManagement.ApplicationView)]
+            [uuid(645737E4-A882-4E16-B289-FD860560106A)]
+            interface IApplicationViewSpanningRects : IInspectable
+            {
+                HRESULT GetSpanningRects([out] [retval] Windows.Foundation.Collections.IVectorView<Windows.Foundation.Rect>** result);
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 1.0)]
@@ -1014,6 +1026,7 @@ namespace Windows
                 [contract(Windows.Foundation.UniversalApiContract, 8.0)] interface Windows.UI.ViewManagement.IApplicationView7;
                 [contract(Windows.Foundation.UniversalApiContract, 8.0)] interface Windows.UI.ViewManagement.IApplicationView9;
                 [contract(Windows.Foundation.UniversalApiContract, 8.0)] interface Windows.UI.ViewManagement.IApplicationViewWithContext;
+                [contract(Windows.Foundation.UniversalApiContract, 11.0)] interface Windows.UI.ViewManagement.IApplicationViewSpanningRects;
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 1.0)]

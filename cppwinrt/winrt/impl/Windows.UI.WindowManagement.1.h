@@ -15,12 +15,26 @@ WINRT_EXPORT namespace winrt::Windows::UI::WindowManagement
         IAppWindow(std::nullptr_t = nullptr) noexcept {}
         IAppWindow(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
+    struct __declspec(empty_bases) IAppWindow2 :
+        Windows::Foundation::IInspectable,
+        impl::consume_t<IAppWindow2>
+    {
+        IAppWindow2(std::nullptr_t = nullptr) noexcept {}
+        IAppWindow2(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
     struct __declspec(empty_bases) IAppWindowChangedEventArgs :
         Windows::Foundation::IInspectable,
         impl::consume_t<IAppWindowChangedEventArgs>
     {
         IAppWindowChangedEventArgs(std::nullptr_t = nullptr) noexcept {}
         IAppWindowChangedEventArgs(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IAppWindowChangedEventArgs2 :
+        Windows::Foundation::IInspectable,
+        impl::consume_t<IAppWindowChangedEventArgs2>
+    {
+        IAppWindowChangedEventArgs2(std::nullptr_t = nullptr) noexcept {}
+        IAppWindowChangedEventArgs2(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
     struct __declspec(empty_bases) IAppWindowCloseRequestedEventArgs :
         Windows::Foundation::IInspectable,
@@ -133,6 +147,27 @@ WINRT_EXPORT namespace winrt::Windows::UI::WindowManagement
     {
         IFullScreenPresentationConfiguration(std::nullptr_t = nullptr) noexcept {}
         IFullScreenPresentationConfiguration(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) ISpanningPresentationConfiguration :
+        Windows::Foundation::IInspectable,
+        impl::consume_t<ISpanningPresentationConfiguration>
+    {
+        ISpanningPresentationConfiguration(std::nullptr_t = nullptr) noexcept {}
+        ISpanningPresentationConfiguration(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IWindowInformation :
+        Windows::Foundation::IInspectable,
+        impl::consume_t<IWindowInformation>
+    {
+        IWindowInformation(std::nullptr_t = nullptr) noexcept {}
+        IWindowInformation(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IWindowInformationStatics :
+        Windows::Foundation::IInspectable,
+        impl::consume_t<IWindowInformationStatics>
+    {
+        IWindowInformationStatics(std::nullptr_t = nullptr) noexcept {}
+        IWindowInformationStatics(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
     struct __declspec(empty_bases) IWindowingEnvironment :
         Windows::Foundation::IInspectable,

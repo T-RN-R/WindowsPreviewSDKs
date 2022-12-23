@@ -4186,7 +4186,7 @@ EXTERN_C const IID IID_ID3D12Heap;
             REFIID riid,
             _COM_Outptr_opt_  void **ppvDevice);
         
-        void  ( STDMETHODCALLTYPE *GetDesc )( 
+        D3D12_HEAP_DESC *( STDMETHODCALLTYPE *GetDesc )( 
             ID3D12Heap * This,
             D3D12_HEAP_DESC * RetVal);
         
@@ -4352,7 +4352,7 @@ EXTERN_C const IID IID_ID3D12Resource;
             UINT Subresource,
             _In_opt_  const D3D12_RANGE *pWrittenRange);
         
-        void  ( STDMETHODCALLTYPE *GetDesc )( 
+        D3D12_RESOURCE_DESC *( STDMETHODCALLTYPE *GetDesc )( 
             ID3D12Resource * This,
             D3D12_RESOURCE_DESC * RetVal);
         
@@ -5054,15 +5054,15 @@ EXTERN_C const IID IID_ID3D12DescriptorHeap;
             REFIID riid,
             _COM_Outptr_opt_  void **ppvDevice);
         
-        void  ( STDMETHODCALLTYPE *GetDesc )( 
+        D3D12_DESCRIPTOR_HEAP_DESC *( STDMETHODCALLTYPE *GetDesc )( 
             ID3D12DescriptorHeap * This,
             D3D12_DESCRIPTOR_HEAP_DESC * RetVal);
         
-        void  ( STDMETHODCALLTYPE *GetCPUDescriptorHandleForHeapStart )( 
+        D3D12_CPU_DESCRIPTOR_HANDLE *( STDMETHODCALLTYPE *GetCPUDescriptorHandleForHeapStart )( 
             ID3D12DescriptorHeap * This,
             D3D12_CPU_DESCRIPTOR_HANDLE * RetVal);
         
-        void  ( STDMETHODCALLTYPE *GetGPUDescriptorHandleForHeapStart )( 
+        D3D12_GPU_DESCRIPTOR_HANDLE *( STDMETHODCALLTYPE *GetGPUDescriptorHandleForHeapStart )( 
             ID3D12DescriptorHeap * This,
             D3D12_GPU_DESCRIPTOR_HANDLE * RetVal);
         
@@ -7831,7 +7831,7 @@ EXTERN_C const IID IID_ID3D12CommandQueue;
             _Out_  UINT64 *pGpuTimestamp,
             _Out_  UINT64 *pCpuTimestamp);
         
-        void  ( STDMETHODCALLTYPE *GetDesc )( 
+        D3D12_COMMAND_QUEUE_DESC *( STDMETHODCALLTYPE *GetDesc )( 
             ID3D12CommandQueue * This,
             D3D12_COMMAND_QUEUE_DESC * RetVal);
         
@@ -8315,18 +8315,18 @@ EXTERN_C const IID IID_ID3D12Device;
             _In_  D3D12_CPU_DESCRIPTOR_HANDLE SrcDescriptorRangeStart,
             _In_  D3D12_DESCRIPTOR_HEAP_TYPE DescriptorHeapsType);
         
-        void  ( STDMETHODCALLTYPE *GetResourceAllocationInfo )( 
+        D3D12_RESOURCE_ALLOCATION_INFO *( STDMETHODCALLTYPE *GetResourceAllocationInfo )( 
             ID3D12Device * This,
+            D3D12_RESOURCE_ALLOCATION_INFO * RetVal,
             _In_  UINT visibleMask,
             _In_  UINT numResourceDescs,
-            _In_reads_(numResourceDescs)  const D3D12_RESOURCE_DESC *pResourceDescs,
-            D3D12_RESOURCE_ALLOCATION_INFO * RetVal);
+            _In_reads_(numResourceDescs)  const D3D12_RESOURCE_DESC *pResourceDescs);
         
-        void  ( STDMETHODCALLTYPE *GetCustomHeapProperties )( 
+        D3D12_HEAP_PROPERTIES *( STDMETHODCALLTYPE *GetCustomHeapProperties )( 
             ID3D12Device * This,
+            D3D12_HEAP_PROPERTIES * RetVal,
             _In_  UINT nodeMask,
-            D3D12_HEAP_TYPE heapType,
-            D3D12_HEAP_PROPERTIES * RetVal);
+            D3D12_HEAP_TYPE heapType);
         
         HRESULT ( STDMETHODCALLTYPE *CreateCommittedResource )( 
             ID3D12Device * This,
@@ -8441,7 +8441,7 @@ EXTERN_C const IID IID_ID3D12Device;
             _In_  UINT FirstSubresourceTilingToGet,
             _Out_writes_(*pNumSubresourceTilings)  D3D12_SUBRESOURCE_TILING *pSubresourceTilingsForNonPackedMips);
         
-        void  ( STDMETHODCALLTYPE *GetAdapterLuid )( 
+        LUID *( STDMETHODCALLTYPE *GetAdapterLuid )( 
             ID3D12Device * This,
             LUID * RetVal);
         
@@ -8535,11 +8535,11 @@ EXTERN_C const IID IID_ID3D12Device;
 #define ID3D12Device_CopyDescriptorsSimple(This,NumDescriptors,DestDescriptorRangeStart,SrcDescriptorRangeStart,DescriptorHeapsType)	\
     ( (This)->lpVtbl -> CopyDescriptorsSimple(This,NumDescriptors,DestDescriptorRangeStart,SrcDescriptorRangeStart,DescriptorHeapsType) ) 
 
-#define ID3D12Device_GetResourceAllocationInfo(This,visibleMask,numResourceDescs,pResourceDescs,RetVal)	\
-    ( (This)->lpVtbl -> GetResourceAllocationInfo(This,visibleMask,numResourceDescs,pResourceDescs,RetVal) ) 
+#define ID3D12Device_GetResourceAllocationInfo(This,RetVal,visibleMask,numResourceDescs,pResourceDescs)	\
+    ( (This)->lpVtbl -> GetResourceAllocationInfo(This,RetVal,visibleMask,numResourceDescs,pResourceDescs) ) 
 
-#define ID3D12Device_GetCustomHeapProperties(This,nodeMask,heapType,RetVal)	\
-    ( (This)->lpVtbl -> GetCustomHeapProperties(This,nodeMask,heapType,RetVal) ) 
+#define ID3D12Device_GetCustomHeapProperties(This,RetVal,nodeMask,heapType)	\
+    ( (This)->lpVtbl -> GetCustomHeapProperties(This,RetVal,nodeMask,heapType) ) 
 
 #define ID3D12Device_CreateCommittedResource(This,pHeapProperties,HeapFlags,pDesc,InitialResourceState,pOptimizedClearValue,riidResource,ppvResource)	\
     ( (This)->lpVtbl -> CreateCommittedResource(This,pHeapProperties,HeapFlags,pDesc,InitialResourceState,pOptimizedClearValue,riidResource,ppvResource) ) 
@@ -9175,18 +9175,18 @@ EXTERN_C const IID IID_ID3D12Device1;
             _In_  D3D12_CPU_DESCRIPTOR_HANDLE SrcDescriptorRangeStart,
             _In_  D3D12_DESCRIPTOR_HEAP_TYPE DescriptorHeapsType);
         
-        void  ( STDMETHODCALLTYPE *GetResourceAllocationInfo )( 
+        D3D12_RESOURCE_ALLOCATION_INFO *( STDMETHODCALLTYPE *GetResourceAllocationInfo )( 
             ID3D12Device1 * This,
+            D3D12_RESOURCE_ALLOCATION_INFO * RetVal,
             _In_  UINT visibleMask,
             _In_  UINT numResourceDescs,
-            _In_reads_(numResourceDescs)  const D3D12_RESOURCE_DESC *pResourceDescs,
-            D3D12_RESOURCE_ALLOCATION_INFO * RetVal);
+            _In_reads_(numResourceDescs)  const D3D12_RESOURCE_DESC *pResourceDescs);
         
-        void  ( STDMETHODCALLTYPE *GetCustomHeapProperties )( 
+        D3D12_HEAP_PROPERTIES *( STDMETHODCALLTYPE *GetCustomHeapProperties )( 
             ID3D12Device1 * This,
+            D3D12_HEAP_PROPERTIES * RetVal,
             _In_  UINT nodeMask,
-            D3D12_HEAP_TYPE heapType,
-            D3D12_HEAP_PROPERTIES * RetVal);
+            D3D12_HEAP_TYPE heapType);
         
         HRESULT ( STDMETHODCALLTYPE *CreateCommittedResource )( 
             ID3D12Device1 * This,
@@ -9301,7 +9301,7 @@ EXTERN_C const IID IID_ID3D12Device1;
             _In_  UINT FirstSubresourceTilingToGet,
             _Out_writes_(*pNumSubresourceTilings)  D3D12_SUBRESOURCE_TILING *pSubresourceTilingsForNonPackedMips);
         
-        void  ( STDMETHODCALLTYPE *GetAdapterLuid )( 
+        LUID *( STDMETHODCALLTYPE *GetAdapterLuid )( 
             ID3D12Device1 * This,
             LUID * RetVal);
         
@@ -9416,11 +9416,11 @@ EXTERN_C const IID IID_ID3D12Device1;
 #define ID3D12Device1_CopyDescriptorsSimple(This,NumDescriptors,DestDescriptorRangeStart,SrcDescriptorRangeStart,DescriptorHeapsType)	\
     ( (This)->lpVtbl -> CopyDescriptorsSimple(This,NumDescriptors,DestDescriptorRangeStart,SrcDescriptorRangeStart,DescriptorHeapsType) ) 
 
-#define ID3D12Device1_GetResourceAllocationInfo(This,visibleMask,numResourceDescs,pResourceDescs,RetVal)	\
-    ( (This)->lpVtbl -> GetResourceAllocationInfo(This,visibleMask,numResourceDescs,pResourceDescs,RetVal) ) 
+#define ID3D12Device1_GetResourceAllocationInfo(This,RetVal,visibleMask,numResourceDescs,pResourceDescs)	\
+    ( (This)->lpVtbl -> GetResourceAllocationInfo(This,RetVal,visibleMask,numResourceDescs,pResourceDescs) ) 
 
-#define ID3D12Device1_GetCustomHeapProperties(This,nodeMask,heapType,RetVal)	\
-    ( (This)->lpVtbl -> GetCustomHeapProperties(This,nodeMask,heapType,RetVal) ) 
+#define ID3D12Device1_GetCustomHeapProperties(This,RetVal,nodeMask,heapType)	\
+    ( (This)->lpVtbl -> GetCustomHeapProperties(This,RetVal,nodeMask,heapType) ) 
 
 #define ID3D12Device1_CreateCommittedResource(This,pHeapProperties,HeapFlags,pDesc,InitialResourceState,pOptimizedClearValue,riidResource,ppvResource)	\
     ( (This)->lpVtbl -> CreateCommittedResource(This,pHeapProperties,HeapFlags,pDesc,InitialResourceState,pOptimizedClearValue,riidResource,ppvResource) ) 
@@ -9667,18 +9667,18 @@ EXTERN_C const IID IID_ID3D12Device2;
             _In_  D3D12_CPU_DESCRIPTOR_HANDLE SrcDescriptorRangeStart,
             _In_  D3D12_DESCRIPTOR_HEAP_TYPE DescriptorHeapsType);
         
-        void  ( STDMETHODCALLTYPE *GetResourceAllocationInfo )( 
+        D3D12_RESOURCE_ALLOCATION_INFO *( STDMETHODCALLTYPE *GetResourceAllocationInfo )( 
             ID3D12Device2 * This,
+            D3D12_RESOURCE_ALLOCATION_INFO * RetVal,
             _In_  UINT visibleMask,
             _In_  UINT numResourceDescs,
-            _In_reads_(numResourceDescs)  const D3D12_RESOURCE_DESC *pResourceDescs,
-            D3D12_RESOURCE_ALLOCATION_INFO * RetVal);
+            _In_reads_(numResourceDescs)  const D3D12_RESOURCE_DESC *pResourceDescs);
         
-        void  ( STDMETHODCALLTYPE *GetCustomHeapProperties )( 
+        D3D12_HEAP_PROPERTIES *( STDMETHODCALLTYPE *GetCustomHeapProperties )( 
             ID3D12Device2 * This,
+            D3D12_HEAP_PROPERTIES * RetVal,
             _In_  UINT nodeMask,
-            D3D12_HEAP_TYPE heapType,
-            D3D12_HEAP_PROPERTIES * RetVal);
+            D3D12_HEAP_TYPE heapType);
         
         HRESULT ( STDMETHODCALLTYPE *CreateCommittedResource )( 
             ID3D12Device2 * This,
@@ -9793,7 +9793,7 @@ EXTERN_C const IID IID_ID3D12Device2;
             _In_  UINT FirstSubresourceTilingToGet,
             _Out_writes_(*pNumSubresourceTilings)  D3D12_SUBRESOURCE_TILING *pSubresourceTilingsForNonPackedMips);
         
-        void  ( STDMETHODCALLTYPE *GetAdapterLuid )( 
+        LUID *( STDMETHODCALLTYPE *GetAdapterLuid )( 
             ID3D12Device2 * This,
             LUID * RetVal);
         
@@ -9914,11 +9914,11 @@ EXTERN_C const IID IID_ID3D12Device2;
 #define ID3D12Device2_CopyDescriptorsSimple(This,NumDescriptors,DestDescriptorRangeStart,SrcDescriptorRangeStart,DescriptorHeapsType)	\
     ( (This)->lpVtbl -> CopyDescriptorsSimple(This,NumDescriptors,DestDescriptorRangeStart,SrcDescriptorRangeStart,DescriptorHeapsType) ) 
 
-#define ID3D12Device2_GetResourceAllocationInfo(This,visibleMask,numResourceDescs,pResourceDescs,RetVal)	\
-    ( (This)->lpVtbl -> GetResourceAllocationInfo(This,visibleMask,numResourceDescs,pResourceDescs,RetVal) ) 
+#define ID3D12Device2_GetResourceAllocationInfo(This,RetVal,visibleMask,numResourceDescs,pResourceDescs)	\
+    ( (This)->lpVtbl -> GetResourceAllocationInfo(This,RetVal,visibleMask,numResourceDescs,pResourceDescs) ) 
 
-#define ID3D12Device2_GetCustomHeapProperties(This,nodeMask,heapType,RetVal)	\
-    ( (This)->lpVtbl -> GetCustomHeapProperties(This,nodeMask,heapType,RetVal) ) 
+#define ID3D12Device2_GetCustomHeapProperties(This,RetVal,nodeMask,heapType)	\
+    ( (This)->lpVtbl -> GetCustomHeapProperties(This,RetVal,nodeMask,heapType) ) 
 
 #define ID3D12Device2_CreateCommittedResource(This,pHeapProperties,HeapFlags,pDesc,InitialResourceState,pOptimizedClearValue,riidResource,ppvResource)	\
     ( (This)->lpVtbl -> CreateCommittedResource(This,pHeapProperties,HeapFlags,pDesc,InitialResourceState,pOptimizedClearValue,riidResource,ppvResource) ) 
@@ -10197,18 +10197,18 @@ EXTERN_C const IID IID_ID3D12Device3;
             _In_  D3D12_CPU_DESCRIPTOR_HANDLE SrcDescriptorRangeStart,
             _In_  D3D12_DESCRIPTOR_HEAP_TYPE DescriptorHeapsType);
         
-        void  ( STDMETHODCALLTYPE *GetResourceAllocationInfo )( 
+        D3D12_RESOURCE_ALLOCATION_INFO *( STDMETHODCALLTYPE *GetResourceAllocationInfo )( 
             ID3D12Device3 * This,
+            D3D12_RESOURCE_ALLOCATION_INFO * RetVal,
             _In_  UINT visibleMask,
             _In_  UINT numResourceDescs,
-            _In_reads_(numResourceDescs)  const D3D12_RESOURCE_DESC *pResourceDescs,
-            D3D12_RESOURCE_ALLOCATION_INFO * RetVal);
+            _In_reads_(numResourceDescs)  const D3D12_RESOURCE_DESC *pResourceDescs);
         
-        void  ( STDMETHODCALLTYPE *GetCustomHeapProperties )( 
+        D3D12_HEAP_PROPERTIES *( STDMETHODCALLTYPE *GetCustomHeapProperties )( 
             ID3D12Device3 * This,
+            D3D12_HEAP_PROPERTIES * RetVal,
             _In_  UINT nodeMask,
-            D3D12_HEAP_TYPE heapType,
-            D3D12_HEAP_PROPERTIES * RetVal);
+            D3D12_HEAP_TYPE heapType);
         
         HRESULT ( STDMETHODCALLTYPE *CreateCommittedResource )( 
             ID3D12Device3 * This,
@@ -10323,7 +10323,7 @@ EXTERN_C const IID IID_ID3D12Device3;
             _In_  UINT FirstSubresourceTilingToGet,
             _Out_writes_(*pNumSubresourceTilings)  D3D12_SUBRESOURCE_TILING *pSubresourceTilingsForNonPackedMips);
         
-        void  ( STDMETHODCALLTYPE *GetAdapterLuid )( 
+        LUID *( STDMETHODCALLTYPE *GetAdapterLuid )( 
             ID3D12Device3 * This,
             LUID * RetVal);
         
@@ -10464,11 +10464,11 @@ EXTERN_C const IID IID_ID3D12Device3;
 #define ID3D12Device3_CopyDescriptorsSimple(This,NumDescriptors,DestDescriptorRangeStart,SrcDescriptorRangeStart,DescriptorHeapsType)	\
     ( (This)->lpVtbl -> CopyDescriptorsSimple(This,NumDescriptors,DestDescriptorRangeStart,SrcDescriptorRangeStart,DescriptorHeapsType) ) 
 
-#define ID3D12Device3_GetResourceAllocationInfo(This,visibleMask,numResourceDescs,pResourceDescs,RetVal)	\
-    ( (This)->lpVtbl -> GetResourceAllocationInfo(This,visibleMask,numResourceDescs,pResourceDescs,RetVal) ) 
+#define ID3D12Device3_GetResourceAllocationInfo(This,RetVal,visibleMask,numResourceDescs,pResourceDescs)	\
+    ( (This)->lpVtbl -> GetResourceAllocationInfo(This,RetVal,visibleMask,numResourceDescs,pResourceDescs) ) 
 
-#define ID3D12Device3_GetCustomHeapProperties(This,nodeMask,heapType,RetVal)	\
-    ( (This)->lpVtbl -> GetCustomHeapProperties(This,nodeMask,heapType,RetVal) ) 
+#define ID3D12Device3_GetCustomHeapProperties(This,RetVal,nodeMask,heapType)	\
+    ( (This)->lpVtbl -> GetCustomHeapProperties(This,RetVal,nodeMask,heapType) ) 
 
 #define ID3D12Device3_CreateCommittedResource(This,pHeapProperties,HeapFlags,pDesc,InitialResourceState,pOptimizedClearValue,riidResource,ppvResource)	\
     ( (This)->lpVtbl -> CreateCommittedResource(This,pHeapProperties,HeapFlags,pDesc,InitialResourceState,pOptimizedClearValue,riidResource,ppvResource) ) 
@@ -10830,7 +10830,7 @@ EXTERN_C const IID IID_ID3D12ProtectedResourceSession;
         D3D12_PROTECTED_SESSION_STATUS ( STDMETHODCALLTYPE *GetSessionStatus )( 
             ID3D12ProtectedResourceSession * This);
         
-        void  ( STDMETHODCALLTYPE *GetDesc )( 
+        D3D12_PROTECTED_RESOURCE_SESSION_DESC *( STDMETHODCALLTYPE *GetDesc )( 
             ID3D12ProtectedResourceSession * This,
             D3D12_PROTECTED_RESOURCE_SESSION_DESC * RetVal);
         
@@ -11109,18 +11109,18 @@ EXTERN_C const IID IID_ID3D12Device4;
             _In_  D3D12_CPU_DESCRIPTOR_HANDLE SrcDescriptorRangeStart,
             _In_  D3D12_DESCRIPTOR_HEAP_TYPE DescriptorHeapsType);
         
-        void  ( STDMETHODCALLTYPE *GetResourceAllocationInfo )( 
+        D3D12_RESOURCE_ALLOCATION_INFO *( STDMETHODCALLTYPE *GetResourceAllocationInfo )( 
             ID3D12Device4 * This,
+            D3D12_RESOURCE_ALLOCATION_INFO * RetVal,
             _In_  UINT visibleMask,
             _In_  UINT numResourceDescs,
-            _In_reads_(numResourceDescs)  const D3D12_RESOURCE_DESC *pResourceDescs,
-            D3D12_RESOURCE_ALLOCATION_INFO * RetVal);
+            _In_reads_(numResourceDescs)  const D3D12_RESOURCE_DESC *pResourceDescs);
         
-        void  ( STDMETHODCALLTYPE *GetCustomHeapProperties )( 
+        D3D12_HEAP_PROPERTIES *( STDMETHODCALLTYPE *GetCustomHeapProperties )( 
             ID3D12Device4 * This,
+            D3D12_HEAP_PROPERTIES * RetVal,
             _In_  UINT nodeMask,
-            D3D12_HEAP_TYPE heapType,
-            D3D12_HEAP_PROPERTIES * RetVal);
+            D3D12_HEAP_TYPE heapType);
         
         HRESULT ( STDMETHODCALLTYPE *CreateCommittedResource )( 
             ID3D12Device4 * This,
@@ -11235,7 +11235,7 @@ EXTERN_C const IID IID_ID3D12Device4;
             _In_  UINT FirstSubresourceTilingToGet,
             _Out_writes_(*pNumSubresourceTilings)  D3D12_SUBRESOURCE_TILING *pSubresourceTilingsForNonPackedMips);
         
-        void  ( STDMETHODCALLTYPE *GetAdapterLuid )( 
+        LUID *( STDMETHODCALLTYPE *GetAdapterLuid )( 
             ID3D12Device4 * This,
             LUID * RetVal);
         
@@ -11327,13 +11327,13 @@ EXTERN_C const IID IID_ID3D12Device4;
             REFIID riid,
             _COM_Outptr_opt_  void **ppvResource);
         
-        void  ( STDMETHODCALLTYPE *GetResourceAllocationInfo1 )( 
+        D3D12_RESOURCE_ALLOCATION_INFO *( STDMETHODCALLTYPE *GetResourceAllocationInfo1 )( 
             ID3D12Device4 * This,
+            D3D12_RESOURCE_ALLOCATION_INFO * RetVal,
             UINT visibleMask,
             UINT numResourceDescs,
             _In_reads_(numResourceDescs)  const D3D12_RESOURCE_DESC *pResourceDescs,
-            _Out_writes_opt_(numResourceDescs)  D3D12_RESOURCE_ALLOCATION_INFO1 *pResourceAllocationInfo1,
-            D3D12_RESOURCE_ALLOCATION_INFO * RetVal);
+            _Out_writes_opt_(numResourceDescs)  D3D12_RESOURCE_ALLOCATION_INFO1 *pResourceAllocationInfo1);
         
         END_INTERFACE
     } ID3D12Device4Vtbl;
@@ -11425,11 +11425,11 @@ EXTERN_C const IID IID_ID3D12Device4;
 #define ID3D12Device4_CopyDescriptorsSimple(This,NumDescriptors,DestDescriptorRangeStart,SrcDescriptorRangeStart,DescriptorHeapsType)	\
     ( (This)->lpVtbl -> CopyDescriptorsSimple(This,NumDescriptors,DestDescriptorRangeStart,SrcDescriptorRangeStart,DescriptorHeapsType) ) 
 
-#define ID3D12Device4_GetResourceAllocationInfo(This,visibleMask,numResourceDescs,pResourceDescs,RetVal)	\
-    ( (This)->lpVtbl -> GetResourceAllocationInfo(This,visibleMask,numResourceDescs,pResourceDescs,RetVal) ) 
+#define ID3D12Device4_GetResourceAllocationInfo(This,RetVal,visibleMask,numResourceDescs,pResourceDescs)	\
+    ( (This)->lpVtbl -> GetResourceAllocationInfo(This,RetVal,visibleMask,numResourceDescs,pResourceDescs) ) 
 
-#define ID3D12Device4_GetCustomHeapProperties(This,nodeMask,heapType,RetVal)	\
-    ( (This)->lpVtbl -> GetCustomHeapProperties(This,nodeMask,heapType,RetVal) ) 
+#define ID3D12Device4_GetCustomHeapProperties(This,RetVal,nodeMask,heapType)	\
+    ( (This)->lpVtbl -> GetCustomHeapProperties(This,RetVal,nodeMask,heapType) ) 
 
 #define ID3D12Device4_CreateCommittedResource(This,pHeapProperties,HeapFlags,pDesc,InitialResourceState,pOptimizedClearValue,riidResource,ppvResource)	\
     ( (This)->lpVtbl -> CreateCommittedResource(This,pHeapProperties,HeapFlags,pDesc,InitialResourceState,pOptimizedClearValue,riidResource,ppvResource) ) 
@@ -11522,8 +11522,8 @@ EXTERN_C const IID IID_ID3D12Device4;
 #define ID3D12Device4_CreateReservedResource1(This,pDesc,InitialState,pOptimizedClearValue,pProtectedSession,riid,ppvResource)	\
     ( (This)->lpVtbl -> CreateReservedResource1(This,pDesc,InitialState,pOptimizedClearValue,pProtectedSession,riid,ppvResource) ) 
 
-#define ID3D12Device4_GetResourceAllocationInfo1(This,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1,RetVal)	\
-    ( (This)->lpVtbl -> GetResourceAllocationInfo1(This,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1,RetVal) ) 
+#define ID3D12Device4_GetResourceAllocationInfo1(This,RetVal,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1)	\
+    ( (This)->lpVtbl -> GetResourceAllocationInfo1(This,RetVal,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1) ) 
 
 #endif /* COBJMACROS */
 
@@ -11684,7 +11684,7 @@ EXTERN_C const IID IID_ID3D12SwapChainAssistant;
         ULONG ( STDMETHODCALLTYPE *Release )( 
             ID3D12SwapChainAssistant * This);
         
-        void  ( STDMETHODCALLTYPE *GetLUID )( 
+        LUID *( STDMETHODCALLTYPE *GetLUID )( 
             ID3D12SwapChainAssistant * This,
             LUID * RetVal);
         
@@ -12799,18 +12799,18 @@ EXTERN_C const IID IID_ID3D12Device5;
             _In_  D3D12_CPU_DESCRIPTOR_HANDLE SrcDescriptorRangeStart,
             _In_  D3D12_DESCRIPTOR_HEAP_TYPE DescriptorHeapsType);
         
-        void  ( STDMETHODCALLTYPE *GetResourceAllocationInfo )( 
+        D3D12_RESOURCE_ALLOCATION_INFO *( STDMETHODCALLTYPE *GetResourceAllocationInfo )( 
             ID3D12Device5 * This,
+            D3D12_RESOURCE_ALLOCATION_INFO * RetVal,
             _In_  UINT visibleMask,
             _In_  UINT numResourceDescs,
-            _In_reads_(numResourceDescs)  const D3D12_RESOURCE_DESC *pResourceDescs,
-            D3D12_RESOURCE_ALLOCATION_INFO * RetVal);
+            _In_reads_(numResourceDescs)  const D3D12_RESOURCE_DESC *pResourceDescs);
         
-        void  ( STDMETHODCALLTYPE *GetCustomHeapProperties )( 
+        D3D12_HEAP_PROPERTIES *( STDMETHODCALLTYPE *GetCustomHeapProperties )( 
             ID3D12Device5 * This,
+            D3D12_HEAP_PROPERTIES * RetVal,
             _In_  UINT nodeMask,
-            D3D12_HEAP_TYPE heapType,
-            D3D12_HEAP_PROPERTIES * RetVal);
+            D3D12_HEAP_TYPE heapType);
         
         HRESULT ( STDMETHODCALLTYPE *CreateCommittedResource )( 
             ID3D12Device5 * This,
@@ -12925,7 +12925,7 @@ EXTERN_C const IID IID_ID3D12Device5;
             _In_  UINT FirstSubresourceTilingToGet,
             _Out_writes_(*pNumSubresourceTilings)  D3D12_SUBRESOURCE_TILING *pSubresourceTilingsForNonPackedMips);
         
-        void  ( STDMETHODCALLTYPE *GetAdapterLuid )( 
+        LUID *( STDMETHODCALLTYPE *GetAdapterLuid )( 
             ID3D12Device5 * This,
             LUID * RetVal);
         
@@ -13017,13 +13017,13 @@ EXTERN_C const IID IID_ID3D12Device5;
             REFIID riid,
             _COM_Outptr_opt_  void **ppvResource);
         
-        void  ( STDMETHODCALLTYPE *GetResourceAllocationInfo1 )( 
+        D3D12_RESOURCE_ALLOCATION_INFO *( STDMETHODCALLTYPE *GetResourceAllocationInfo1 )( 
             ID3D12Device5 * This,
+            D3D12_RESOURCE_ALLOCATION_INFO * RetVal,
             UINT visibleMask,
             UINT numResourceDescs,
             _In_reads_(numResourceDescs)  const D3D12_RESOURCE_DESC *pResourceDescs,
-            _Out_writes_opt_(numResourceDescs)  D3D12_RESOURCE_ALLOCATION_INFO1 *pResourceAllocationInfo1,
-            D3D12_RESOURCE_ALLOCATION_INFO * RetVal);
+            _Out_writes_opt_(numResourceDescs)  D3D12_RESOURCE_ALLOCATION_INFO1 *pResourceAllocationInfo1);
         
         HRESULT ( STDMETHODCALLTYPE *CreateLifetimeTracker )( 
             ID3D12Device5 * This,
@@ -13162,11 +13162,11 @@ EXTERN_C const IID IID_ID3D12Device5;
 #define ID3D12Device5_CopyDescriptorsSimple(This,NumDescriptors,DestDescriptorRangeStart,SrcDescriptorRangeStart,DescriptorHeapsType)	\
     ( (This)->lpVtbl -> CopyDescriptorsSimple(This,NumDescriptors,DestDescriptorRangeStart,SrcDescriptorRangeStart,DescriptorHeapsType) ) 
 
-#define ID3D12Device5_GetResourceAllocationInfo(This,visibleMask,numResourceDescs,pResourceDescs,RetVal)	\
-    ( (This)->lpVtbl -> GetResourceAllocationInfo(This,visibleMask,numResourceDescs,pResourceDescs,RetVal) ) 
+#define ID3D12Device5_GetResourceAllocationInfo(This,RetVal,visibleMask,numResourceDescs,pResourceDescs)	\
+    ( (This)->lpVtbl -> GetResourceAllocationInfo(This,RetVal,visibleMask,numResourceDescs,pResourceDescs) ) 
 
-#define ID3D12Device5_GetCustomHeapProperties(This,nodeMask,heapType,RetVal)	\
-    ( (This)->lpVtbl -> GetCustomHeapProperties(This,nodeMask,heapType,RetVal) ) 
+#define ID3D12Device5_GetCustomHeapProperties(This,RetVal,nodeMask,heapType)	\
+    ( (This)->lpVtbl -> GetCustomHeapProperties(This,RetVal,nodeMask,heapType) ) 
 
 #define ID3D12Device5_CreateCommittedResource(This,pHeapProperties,HeapFlags,pDesc,InitialResourceState,pOptimizedClearValue,riidResource,ppvResource)	\
     ( (This)->lpVtbl -> CreateCommittedResource(This,pHeapProperties,HeapFlags,pDesc,InitialResourceState,pOptimizedClearValue,riidResource,ppvResource) ) 
@@ -13259,8 +13259,8 @@ EXTERN_C const IID IID_ID3D12Device5;
 #define ID3D12Device5_CreateReservedResource1(This,pDesc,InitialState,pOptimizedClearValue,pProtectedSession,riid,ppvResource)	\
     ( (This)->lpVtbl -> CreateReservedResource1(This,pDesc,InitialState,pOptimizedClearValue,pProtectedSession,riid,ppvResource) ) 
 
-#define ID3D12Device5_GetResourceAllocationInfo1(This,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1,RetVal)	\
-    ( (This)->lpVtbl -> GetResourceAllocationInfo1(This,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1,RetVal) ) 
+#define ID3D12Device5_GetResourceAllocationInfo1(This,RetVal,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1)	\
+    ( (This)->lpVtbl -> GetResourceAllocationInfo1(This,RetVal,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1) ) 
 
 
 #define ID3D12Device5_CreateLifetimeTracker(This,pOwner,riid,ppvTracker)	\
@@ -14112,18 +14112,18 @@ EXTERN_C const IID IID_ID3D12Device6;
             _In_  D3D12_CPU_DESCRIPTOR_HANDLE SrcDescriptorRangeStart,
             _In_  D3D12_DESCRIPTOR_HEAP_TYPE DescriptorHeapsType);
         
-        void  ( STDMETHODCALLTYPE *GetResourceAllocationInfo )( 
+        D3D12_RESOURCE_ALLOCATION_INFO *( STDMETHODCALLTYPE *GetResourceAllocationInfo )( 
             ID3D12Device6 * This,
+            D3D12_RESOURCE_ALLOCATION_INFO * RetVal,
             _In_  UINT visibleMask,
             _In_  UINT numResourceDescs,
-            _In_reads_(numResourceDescs)  const D3D12_RESOURCE_DESC *pResourceDescs,
-            D3D12_RESOURCE_ALLOCATION_INFO * RetVal);
+            _In_reads_(numResourceDescs)  const D3D12_RESOURCE_DESC *pResourceDescs);
         
-        void  ( STDMETHODCALLTYPE *GetCustomHeapProperties )( 
+        D3D12_HEAP_PROPERTIES *( STDMETHODCALLTYPE *GetCustomHeapProperties )( 
             ID3D12Device6 * This,
+            D3D12_HEAP_PROPERTIES * RetVal,
             _In_  UINT nodeMask,
-            D3D12_HEAP_TYPE heapType,
-            D3D12_HEAP_PROPERTIES * RetVal);
+            D3D12_HEAP_TYPE heapType);
         
         HRESULT ( STDMETHODCALLTYPE *CreateCommittedResource )( 
             ID3D12Device6 * This,
@@ -14238,7 +14238,7 @@ EXTERN_C const IID IID_ID3D12Device6;
             _In_  UINT FirstSubresourceTilingToGet,
             _Out_writes_(*pNumSubresourceTilings)  D3D12_SUBRESOURCE_TILING *pSubresourceTilingsForNonPackedMips);
         
-        void  ( STDMETHODCALLTYPE *GetAdapterLuid )( 
+        LUID *( STDMETHODCALLTYPE *GetAdapterLuid )( 
             ID3D12Device6 * This,
             LUID * RetVal);
         
@@ -14330,13 +14330,13 @@ EXTERN_C const IID IID_ID3D12Device6;
             REFIID riid,
             _COM_Outptr_opt_  void **ppvResource);
         
-        void  ( STDMETHODCALLTYPE *GetResourceAllocationInfo1 )( 
+        D3D12_RESOURCE_ALLOCATION_INFO *( STDMETHODCALLTYPE *GetResourceAllocationInfo1 )( 
             ID3D12Device6 * This,
+            D3D12_RESOURCE_ALLOCATION_INFO * RetVal,
             UINT visibleMask,
             UINT numResourceDescs,
             _In_reads_(numResourceDescs)  const D3D12_RESOURCE_DESC *pResourceDescs,
-            _Out_writes_opt_(numResourceDescs)  D3D12_RESOURCE_ALLOCATION_INFO1 *pResourceAllocationInfo1,
-            D3D12_RESOURCE_ALLOCATION_INFO * RetVal);
+            _Out_writes_opt_(numResourceDescs)  D3D12_RESOURCE_ALLOCATION_INFO1 *pResourceAllocationInfo1);
         
         HRESULT ( STDMETHODCALLTYPE *CreateLifetimeTracker )( 
             ID3D12Device6 * This,
@@ -14482,11 +14482,11 @@ EXTERN_C const IID IID_ID3D12Device6;
 #define ID3D12Device6_CopyDescriptorsSimple(This,NumDescriptors,DestDescriptorRangeStart,SrcDescriptorRangeStart,DescriptorHeapsType)	\
     ( (This)->lpVtbl -> CopyDescriptorsSimple(This,NumDescriptors,DestDescriptorRangeStart,SrcDescriptorRangeStart,DescriptorHeapsType) ) 
 
-#define ID3D12Device6_GetResourceAllocationInfo(This,visibleMask,numResourceDescs,pResourceDescs,RetVal)	\
-    ( (This)->lpVtbl -> GetResourceAllocationInfo(This,visibleMask,numResourceDescs,pResourceDescs,RetVal) ) 
+#define ID3D12Device6_GetResourceAllocationInfo(This,RetVal,visibleMask,numResourceDescs,pResourceDescs)	\
+    ( (This)->lpVtbl -> GetResourceAllocationInfo(This,RetVal,visibleMask,numResourceDescs,pResourceDescs) ) 
 
-#define ID3D12Device6_GetCustomHeapProperties(This,nodeMask,heapType,RetVal)	\
-    ( (This)->lpVtbl -> GetCustomHeapProperties(This,nodeMask,heapType,RetVal) ) 
+#define ID3D12Device6_GetCustomHeapProperties(This,RetVal,nodeMask,heapType)	\
+    ( (This)->lpVtbl -> GetCustomHeapProperties(This,RetVal,nodeMask,heapType) ) 
 
 #define ID3D12Device6_CreateCommittedResource(This,pHeapProperties,HeapFlags,pDesc,InitialResourceState,pOptimizedClearValue,riidResource,ppvResource)	\
     ( (This)->lpVtbl -> CreateCommittedResource(This,pHeapProperties,HeapFlags,pDesc,InitialResourceState,pOptimizedClearValue,riidResource,ppvResource) ) 
@@ -14579,8 +14579,8 @@ EXTERN_C const IID IID_ID3D12Device6;
 #define ID3D12Device6_CreateReservedResource1(This,pDesc,InitialState,pOptimizedClearValue,pProtectedSession,riid,ppvResource)	\
     ( (This)->lpVtbl -> CreateReservedResource1(This,pDesc,InitialState,pOptimizedClearValue,pProtectedSession,riid,ppvResource) ) 
 
-#define ID3D12Device6_GetResourceAllocationInfo1(This,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1,RetVal)	\
-    ( (This)->lpVtbl -> GetResourceAllocationInfo1(This,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1,RetVal) ) 
+#define ID3D12Device6_GetResourceAllocationInfo1(This,RetVal,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1)	\
+    ( (This)->lpVtbl -> GetResourceAllocationInfo1(This,RetVal,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1) ) 
 
 
 #define ID3D12Device6_CreateLifetimeTracker(This,pOwner,riid,ppvTracker)	\
@@ -14722,11 +14722,11 @@ EXTERN_C const IID IID_ID3D12ProtectedResourceSession1;
         D3D12_PROTECTED_SESSION_STATUS ( STDMETHODCALLTYPE *GetSessionStatus )( 
             ID3D12ProtectedResourceSession1 * This);
         
-        void  ( STDMETHODCALLTYPE *GetDesc )( 
+        D3D12_PROTECTED_RESOURCE_SESSION_DESC *( STDMETHODCALLTYPE *GetDesc )( 
             ID3D12ProtectedResourceSession1 * This,
             D3D12_PROTECTED_RESOURCE_SESSION_DESC * RetVal);
         
-        void  ( STDMETHODCALLTYPE *GetDesc1 )( 
+        D3D12_PROTECTED_RESOURCE_SESSION_DESC1 *( STDMETHODCALLTYPE *GetDesc1 )( 
             ID3D12ProtectedResourceSession1 * This,
             D3D12_PROTECTED_RESOURCE_SESSION_DESC1 * RetVal);
         
@@ -14978,18 +14978,18 @@ EXTERN_C const IID IID_ID3D12Device7;
             _In_  D3D12_CPU_DESCRIPTOR_HANDLE SrcDescriptorRangeStart,
             _In_  D3D12_DESCRIPTOR_HEAP_TYPE DescriptorHeapsType);
         
-        void  ( STDMETHODCALLTYPE *GetResourceAllocationInfo )( 
+        D3D12_RESOURCE_ALLOCATION_INFO *( STDMETHODCALLTYPE *GetResourceAllocationInfo )( 
             ID3D12Device7 * This,
+            D3D12_RESOURCE_ALLOCATION_INFO * RetVal,
             _In_  UINT visibleMask,
             _In_  UINT numResourceDescs,
-            _In_reads_(numResourceDescs)  const D3D12_RESOURCE_DESC *pResourceDescs,
-            D3D12_RESOURCE_ALLOCATION_INFO * RetVal);
+            _In_reads_(numResourceDescs)  const D3D12_RESOURCE_DESC *pResourceDescs);
         
-        void  ( STDMETHODCALLTYPE *GetCustomHeapProperties )( 
+        D3D12_HEAP_PROPERTIES *( STDMETHODCALLTYPE *GetCustomHeapProperties )( 
             ID3D12Device7 * This,
+            D3D12_HEAP_PROPERTIES * RetVal,
             _In_  UINT nodeMask,
-            D3D12_HEAP_TYPE heapType,
-            D3D12_HEAP_PROPERTIES * RetVal);
+            D3D12_HEAP_TYPE heapType);
         
         HRESULT ( STDMETHODCALLTYPE *CreateCommittedResource )( 
             ID3D12Device7 * This,
@@ -15104,7 +15104,7 @@ EXTERN_C const IID IID_ID3D12Device7;
             _In_  UINT FirstSubresourceTilingToGet,
             _Out_writes_(*pNumSubresourceTilings)  D3D12_SUBRESOURCE_TILING *pSubresourceTilingsForNonPackedMips);
         
-        void  ( STDMETHODCALLTYPE *GetAdapterLuid )( 
+        LUID *( STDMETHODCALLTYPE *GetAdapterLuid )( 
             ID3D12Device7 * This,
             LUID * RetVal);
         
@@ -15196,13 +15196,13 @@ EXTERN_C const IID IID_ID3D12Device7;
             REFIID riid,
             _COM_Outptr_opt_  void **ppvResource);
         
-        void  ( STDMETHODCALLTYPE *GetResourceAllocationInfo1 )( 
+        D3D12_RESOURCE_ALLOCATION_INFO *( STDMETHODCALLTYPE *GetResourceAllocationInfo1 )( 
             ID3D12Device7 * This,
+            D3D12_RESOURCE_ALLOCATION_INFO * RetVal,
             UINT visibleMask,
             UINT numResourceDescs,
             _In_reads_(numResourceDescs)  const D3D12_RESOURCE_DESC *pResourceDescs,
-            _Out_writes_opt_(numResourceDescs)  D3D12_RESOURCE_ALLOCATION_INFO1 *pResourceAllocationInfo1,
-            D3D12_RESOURCE_ALLOCATION_INFO * RetVal);
+            _Out_writes_opt_(numResourceDescs)  D3D12_RESOURCE_ALLOCATION_INFO1 *pResourceAllocationInfo1);
         
         HRESULT ( STDMETHODCALLTYPE *CreateLifetimeTracker )( 
             ID3D12Device7 * This,
@@ -15361,11 +15361,11 @@ EXTERN_C const IID IID_ID3D12Device7;
 #define ID3D12Device7_CopyDescriptorsSimple(This,NumDescriptors,DestDescriptorRangeStart,SrcDescriptorRangeStart,DescriptorHeapsType)	\
     ( (This)->lpVtbl -> CopyDescriptorsSimple(This,NumDescriptors,DestDescriptorRangeStart,SrcDescriptorRangeStart,DescriptorHeapsType) ) 
 
-#define ID3D12Device7_GetResourceAllocationInfo(This,visibleMask,numResourceDescs,pResourceDescs,RetVal)	\
-    ( (This)->lpVtbl -> GetResourceAllocationInfo(This,visibleMask,numResourceDescs,pResourceDescs,RetVal) ) 
+#define ID3D12Device7_GetResourceAllocationInfo(This,RetVal,visibleMask,numResourceDescs,pResourceDescs)	\
+    ( (This)->lpVtbl -> GetResourceAllocationInfo(This,RetVal,visibleMask,numResourceDescs,pResourceDescs) ) 
 
-#define ID3D12Device7_GetCustomHeapProperties(This,nodeMask,heapType,RetVal)	\
-    ( (This)->lpVtbl -> GetCustomHeapProperties(This,nodeMask,heapType,RetVal) ) 
+#define ID3D12Device7_GetCustomHeapProperties(This,RetVal,nodeMask,heapType)	\
+    ( (This)->lpVtbl -> GetCustomHeapProperties(This,RetVal,nodeMask,heapType) ) 
 
 #define ID3D12Device7_CreateCommittedResource(This,pHeapProperties,HeapFlags,pDesc,InitialResourceState,pOptimizedClearValue,riidResource,ppvResource)	\
     ( (This)->lpVtbl -> CreateCommittedResource(This,pHeapProperties,HeapFlags,pDesc,InitialResourceState,pOptimizedClearValue,riidResource,ppvResource) ) 
@@ -15458,8 +15458,8 @@ EXTERN_C const IID IID_ID3D12Device7;
 #define ID3D12Device7_CreateReservedResource1(This,pDesc,InitialState,pOptimizedClearValue,pProtectedSession,riid,ppvResource)	\
     ( (This)->lpVtbl -> CreateReservedResource1(This,pDesc,InitialState,pOptimizedClearValue,pProtectedSession,riid,ppvResource) ) 
 
-#define ID3D12Device7_GetResourceAllocationInfo1(This,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1,RetVal)	\
-    ( (This)->lpVtbl -> GetResourceAllocationInfo1(This,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1,RetVal) ) 
+#define ID3D12Device7_GetResourceAllocationInfo1(This,RetVal,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1)	\
+    ( (This)->lpVtbl -> GetResourceAllocationInfo1(This,RetVal,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1) ) 
 
 
 #define ID3D12Device7_CreateLifetimeTracker(This,pOwner,riid,ppvTracker)	\
@@ -15716,18 +15716,18 @@ EXTERN_C const IID IID_ID3D12Device8;
             _In_  D3D12_CPU_DESCRIPTOR_HANDLE SrcDescriptorRangeStart,
             _In_  D3D12_DESCRIPTOR_HEAP_TYPE DescriptorHeapsType);
         
-        void  ( STDMETHODCALLTYPE *GetResourceAllocationInfo )( 
+        D3D12_RESOURCE_ALLOCATION_INFO *( STDMETHODCALLTYPE *GetResourceAllocationInfo )( 
             ID3D12Device8 * This,
+            D3D12_RESOURCE_ALLOCATION_INFO * RetVal,
             _In_  UINT visibleMask,
             _In_  UINT numResourceDescs,
-            _In_reads_(numResourceDescs)  const D3D12_RESOURCE_DESC *pResourceDescs,
-            D3D12_RESOURCE_ALLOCATION_INFO * RetVal);
+            _In_reads_(numResourceDescs)  const D3D12_RESOURCE_DESC *pResourceDescs);
         
-        void  ( STDMETHODCALLTYPE *GetCustomHeapProperties )( 
+        D3D12_HEAP_PROPERTIES *( STDMETHODCALLTYPE *GetCustomHeapProperties )( 
             ID3D12Device8 * This,
+            D3D12_HEAP_PROPERTIES * RetVal,
             _In_  UINT nodeMask,
-            D3D12_HEAP_TYPE heapType,
-            D3D12_HEAP_PROPERTIES * RetVal);
+            D3D12_HEAP_TYPE heapType);
         
         HRESULT ( STDMETHODCALLTYPE *CreateCommittedResource )( 
             ID3D12Device8 * This,
@@ -15842,7 +15842,7 @@ EXTERN_C const IID IID_ID3D12Device8;
             _In_  UINT FirstSubresourceTilingToGet,
             _Out_writes_(*pNumSubresourceTilings)  D3D12_SUBRESOURCE_TILING *pSubresourceTilingsForNonPackedMips);
         
-        void  ( STDMETHODCALLTYPE *GetAdapterLuid )( 
+        LUID *( STDMETHODCALLTYPE *GetAdapterLuid )( 
             ID3D12Device8 * This,
             LUID * RetVal);
         
@@ -15934,13 +15934,13 @@ EXTERN_C const IID IID_ID3D12Device8;
             REFIID riid,
             _COM_Outptr_opt_  void **ppvResource);
         
-        void  ( STDMETHODCALLTYPE *GetResourceAllocationInfo1 )( 
+        D3D12_RESOURCE_ALLOCATION_INFO *( STDMETHODCALLTYPE *GetResourceAllocationInfo1 )( 
             ID3D12Device8 * This,
+            D3D12_RESOURCE_ALLOCATION_INFO * RetVal,
             UINT visibleMask,
             UINT numResourceDescs,
             _In_reads_(numResourceDescs)  const D3D12_RESOURCE_DESC *pResourceDescs,
-            _Out_writes_opt_(numResourceDescs)  D3D12_RESOURCE_ALLOCATION_INFO1 *pResourceAllocationInfo1,
-            D3D12_RESOURCE_ALLOCATION_INFO * RetVal);
+            _Out_writes_opt_(numResourceDescs)  D3D12_RESOURCE_ALLOCATION_INFO1 *pResourceAllocationInfo1);
         
         HRESULT ( STDMETHODCALLTYPE *CreateLifetimeTracker )( 
             ID3D12Device8 * This,
@@ -16009,13 +16009,13 @@ EXTERN_C const IID IID_ID3D12Device8;
             _In_  REFIID riid,
             _COM_Outptr_  void **ppSession);
         
-        void  ( STDMETHODCALLTYPE *GetResourceAllocationInfo2 )( 
+        D3D12_RESOURCE_ALLOCATION_INFO *( STDMETHODCALLTYPE *GetResourceAllocationInfo2 )( 
             ID3D12Device8 * This,
+            D3D12_RESOURCE_ALLOCATION_INFO * RetVal,
             UINT visibleMask,
             UINT numResourceDescs,
             _In_reads_(numResourceDescs)  const D3D12_RESOURCE_DESC1 *pResourceDescs,
-            _Out_writes_opt_(numResourceDescs)  D3D12_RESOURCE_ALLOCATION_INFO1 *pResourceAllocationInfo1,
-            D3D12_RESOURCE_ALLOCATION_INFO * RetVal);
+            _Out_writes_opt_(numResourceDescs)  D3D12_RESOURCE_ALLOCATION_INFO1 *pResourceAllocationInfo1);
         
         HRESULT ( STDMETHODCALLTYPE *CreateCommittedResource2 )( 
             ID3D12Device8 * This,
@@ -16145,11 +16145,11 @@ EXTERN_C const IID IID_ID3D12Device8;
 #define ID3D12Device8_CopyDescriptorsSimple(This,NumDescriptors,DestDescriptorRangeStart,SrcDescriptorRangeStart,DescriptorHeapsType)	\
     ( (This)->lpVtbl -> CopyDescriptorsSimple(This,NumDescriptors,DestDescriptorRangeStart,SrcDescriptorRangeStart,DescriptorHeapsType) ) 
 
-#define ID3D12Device8_GetResourceAllocationInfo(This,visibleMask,numResourceDescs,pResourceDescs,RetVal)	\
-    ( (This)->lpVtbl -> GetResourceAllocationInfo(This,visibleMask,numResourceDescs,pResourceDescs,RetVal) ) 
+#define ID3D12Device8_GetResourceAllocationInfo(This,RetVal,visibleMask,numResourceDescs,pResourceDescs)	\
+    ( (This)->lpVtbl -> GetResourceAllocationInfo(This,RetVal,visibleMask,numResourceDescs,pResourceDescs) ) 
 
-#define ID3D12Device8_GetCustomHeapProperties(This,nodeMask,heapType,RetVal)	\
-    ( (This)->lpVtbl -> GetCustomHeapProperties(This,nodeMask,heapType,RetVal) ) 
+#define ID3D12Device8_GetCustomHeapProperties(This,RetVal,nodeMask,heapType)	\
+    ( (This)->lpVtbl -> GetCustomHeapProperties(This,RetVal,nodeMask,heapType) ) 
 
 #define ID3D12Device8_CreateCommittedResource(This,pHeapProperties,HeapFlags,pDesc,InitialResourceState,pOptimizedClearValue,riidResource,ppvResource)	\
     ( (This)->lpVtbl -> CreateCommittedResource(This,pHeapProperties,HeapFlags,pDesc,InitialResourceState,pOptimizedClearValue,riidResource,ppvResource) ) 
@@ -16242,8 +16242,8 @@ EXTERN_C const IID IID_ID3D12Device8;
 #define ID3D12Device8_CreateReservedResource1(This,pDesc,InitialState,pOptimizedClearValue,pProtectedSession,riid,ppvResource)	\
     ( (This)->lpVtbl -> CreateReservedResource1(This,pDesc,InitialState,pOptimizedClearValue,pProtectedSession,riid,ppvResource) ) 
 
-#define ID3D12Device8_GetResourceAllocationInfo1(This,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1,RetVal)	\
-    ( (This)->lpVtbl -> GetResourceAllocationInfo1(This,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1,RetVal) ) 
+#define ID3D12Device8_GetResourceAllocationInfo1(This,RetVal,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1)	\
+    ( (This)->lpVtbl -> GetResourceAllocationInfo1(This,RetVal,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1) ) 
 
 
 #define ID3D12Device8_CreateLifetimeTracker(This,pOwner,riid,ppvTracker)	\
@@ -16282,8 +16282,8 @@ EXTERN_C const IID IID_ID3D12Device8;
     ( (This)->lpVtbl -> CreateProtectedResourceSession1(This,pDesc,riid,ppSession) ) 
 
 
-#define ID3D12Device8_GetResourceAllocationInfo2(This,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1,RetVal)	\
-    ( (This)->lpVtbl -> GetResourceAllocationInfo2(This,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1,RetVal) ) 
+#define ID3D12Device8_GetResourceAllocationInfo2(This,RetVal,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1)	\
+    ( (This)->lpVtbl -> GetResourceAllocationInfo2(This,RetVal,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1) ) 
 
 #define ID3D12Device8_CreateCommittedResource2(This,pHeapProperties,HeapFlags,pDesc,InitialResourceState,pOptimizedClearValue,pProtectedSession,riidResource,ppvResource)	\
     ( (This)->lpVtbl -> CreateCommittedResource2(This,pHeapProperties,HeapFlags,pDesc,InitialResourceState,pOptimizedClearValue,pProtectedSession,riidResource,ppvResource) ) 
@@ -16388,7 +16388,7 @@ EXTERN_C const IID IID_ID3D12Resource1;
             UINT Subresource,
             _In_opt_  const D3D12_RANGE *pWrittenRange);
         
-        void  ( STDMETHODCALLTYPE *GetDesc )( 
+        D3D12_RESOURCE_DESC *( STDMETHODCALLTYPE *GetDesc )( 
             ID3D12Resource1 * This,
             D3D12_RESOURCE_DESC * RetVal);
         
@@ -16572,7 +16572,7 @@ EXTERN_C const IID IID_ID3D12Resource2;
             UINT Subresource,
             _In_opt_  const D3D12_RANGE *pWrittenRange);
         
-        void  ( STDMETHODCALLTYPE *GetDesc )( 
+        D3D12_RESOURCE_DESC *( STDMETHODCALLTYPE *GetDesc )( 
             ID3D12Resource2 * This,
             D3D12_RESOURCE_DESC * RetVal);
         
@@ -16605,7 +16605,7 @@ EXTERN_C const IID IID_ID3D12Resource2;
             REFIID riid,
             _COM_Outptr_opt_  void **ppProtectedSession);
         
-        void  ( STDMETHODCALLTYPE *GetDesc1 )( 
+        D3D12_RESOURCE_DESC1 *( STDMETHODCALLTYPE *GetDesc1 )( 
             ID3D12Resource2 * This,
             D3D12_RESOURCE_DESC1 * RetVal);
         
@@ -16759,7 +16759,7 @@ EXTERN_C const IID IID_ID3D12Heap1;
             REFIID riid,
             _COM_Outptr_opt_  void **ppvDevice);
         
-        void  ( STDMETHODCALLTYPE *GetDesc )( 
+        D3D12_HEAP_DESC *( STDMETHODCALLTYPE *GetDesc )( 
             ID3D12Heap1 * This,
             D3D12_HEAP_DESC * RetVal);
         
@@ -18631,7 +18631,7 @@ EXTERN_C const IID IID_ID3D12ShaderCacheSession;
         void ( STDMETHODCALLTYPE *SetDeleteOnDestroy )( 
             ID3D12ShaderCacheSession * This);
         
-        void  ( STDMETHODCALLTYPE *GetDesc )( 
+        D3D12_SHADER_CACHE_SESSION_DESC *( STDMETHODCALLTYPE *GetDesc )( 
             ID3D12ShaderCacheSession * This,
             D3D12_SHADER_CACHE_SESSION_DESC * RetVal);
         
@@ -18740,7 +18740,7 @@ EXTERN_C const IID IID_ID3D12Device9;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
     
-    MIDL_INTERFACE("90855797-7a46-4c5e-8677-981761d63588")
+    MIDL_INTERFACE("4c80e962-f032-4f60-bc9e-ebc2cfa1d83c")
     ID3D12Device9 : public ID3D12Device8
     {
     public:
@@ -18752,6 +18752,12 @@ EXTERN_C const IID IID_ID3D12Device9;
         virtual HRESULT STDMETHODCALLTYPE ShaderCacheControl( 
             D3D12_SHADER_CACHE_KIND_FLAGS Kinds,
             D3D12_SHADER_CACHE_CONTROL_FLAGS Control) = 0;
+        
+        virtual HRESULT STDMETHODCALLTYPE CreateCommandQueue1( 
+            _In_  const D3D12_COMMAND_QUEUE_DESC *pDesc,
+            REFIID CreatorID,
+            REFIID riid,
+            _COM_Outptr_  void **ppCommandQueue) = 0;
         
     };
     
@@ -18906,18 +18912,18 @@ EXTERN_C const IID IID_ID3D12Device9;
             _In_  D3D12_CPU_DESCRIPTOR_HANDLE SrcDescriptorRangeStart,
             _In_  D3D12_DESCRIPTOR_HEAP_TYPE DescriptorHeapsType);
         
-        void  ( STDMETHODCALLTYPE *GetResourceAllocationInfo )( 
+        D3D12_RESOURCE_ALLOCATION_INFO *( STDMETHODCALLTYPE *GetResourceAllocationInfo )( 
             ID3D12Device9 * This,
+            D3D12_RESOURCE_ALLOCATION_INFO * RetVal,
             _In_  UINT visibleMask,
             _In_  UINT numResourceDescs,
-            _In_reads_(numResourceDescs)  const D3D12_RESOURCE_DESC *pResourceDescs,
-            D3D12_RESOURCE_ALLOCATION_INFO * RetVal);
+            _In_reads_(numResourceDescs)  const D3D12_RESOURCE_DESC *pResourceDescs);
         
-        void  ( STDMETHODCALLTYPE *GetCustomHeapProperties )( 
+        D3D12_HEAP_PROPERTIES *( STDMETHODCALLTYPE *GetCustomHeapProperties )( 
             ID3D12Device9 * This,
+            D3D12_HEAP_PROPERTIES * RetVal,
             _In_  UINT nodeMask,
-            D3D12_HEAP_TYPE heapType,
-            D3D12_HEAP_PROPERTIES * RetVal);
+            D3D12_HEAP_TYPE heapType);
         
         HRESULT ( STDMETHODCALLTYPE *CreateCommittedResource )( 
             ID3D12Device9 * This,
@@ -19032,7 +19038,7 @@ EXTERN_C const IID IID_ID3D12Device9;
             _In_  UINT FirstSubresourceTilingToGet,
             _Out_writes_(*pNumSubresourceTilings)  D3D12_SUBRESOURCE_TILING *pSubresourceTilingsForNonPackedMips);
         
-        void  ( STDMETHODCALLTYPE *GetAdapterLuid )( 
+        LUID *( STDMETHODCALLTYPE *GetAdapterLuid )( 
             ID3D12Device9 * This,
             LUID * RetVal);
         
@@ -19124,13 +19130,13 @@ EXTERN_C const IID IID_ID3D12Device9;
             REFIID riid,
             _COM_Outptr_opt_  void **ppvResource);
         
-        void  ( STDMETHODCALLTYPE *GetResourceAllocationInfo1 )( 
+        D3D12_RESOURCE_ALLOCATION_INFO *( STDMETHODCALLTYPE *GetResourceAllocationInfo1 )( 
             ID3D12Device9 * This,
+            D3D12_RESOURCE_ALLOCATION_INFO * RetVal,
             UINT visibleMask,
             UINT numResourceDescs,
             _In_reads_(numResourceDescs)  const D3D12_RESOURCE_DESC *pResourceDescs,
-            _Out_writes_opt_(numResourceDescs)  D3D12_RESOURCE_ALLOCATION_INFO1 *pResourceAllocationInfo1,
-            D3D12_RESOURCE_ALLOCATION_INFO * RetVal);
+            _Out_writes_opt_(numResourceDescs)  D3D12_RESOURCE_ALLOCATION_INFO1 *pResourceAllocationInfo1);
         
         HRESULT ( STDMETHODCALLTYPE *CreateLifetimeTracker )( 
             ID3D12Device9 * This,
@@ -19199,13 +19205,13 @@ EXTERN_C const IID IID_ID3D12Device9;
             _In_  REFIID riid,
             _COM_Outptr_  void **ppSession);
         
-        void  ( STDMETHODCALLTYPE *GetResourceAllocationInfo2 )( 
+        D3D12_RESOURCE_ALLOCATION_INFO *( STDMETHODCALLTYPE *GetResourceAllocationInfo2 )( 
             ID3D12Device9 * This,
+            D3D12_RESOURCE_ALLOCATION_INFO * RetVal,
             UINT visibleMask,
             UINT numResourceDescs,
             _In_reads_(numResourceDescs)  const D3D12_RESOURCE_DESC1 *pResourceDescs,
-            _Out_writes_opt_(numResourceDescs)  D3D12_RESOURCE_ALLOCATION_INFO1 *pResourceAllocationInfo1,
-            D3D12_RESOURCE_ALLOCATION_INFO * RetVal);
+            _Out_writes_opt_(numResourceDescs)  D3D12_RESOURCE_ALLOCATION_INFO1 *pResourceAllocationInfo1);
         
         HRESULT ( STDMETHODCALLTYPE *CreateCommittedResource2 )( 
             ID3D12Device9 * This,
@@ -19255,6 +19261,13 @@ EXTERN_C const IID IID_ID3D12Device9;
             ID3D12Device9 * This,
             D3D12_SHADER_CACHE_KIND_FLAGS Kinds,
             D3D12_SHADER_CACHE_CONTROL_FLAGS Control);
+        
+        HRESULT ( STDMETHODCALLTYPE *CreateCommandQueue1 )( 
+            ID3D12Device9 * This,
+            _In_  const D3D12_COMMAND_QUEUE_DESC *pDesc,
+            REFIID CreatorID,
+            REFIID riid,
+            _COM_Outptr_  void **ppCommandQueue);
         
         END_INTERFACE
     } ID3D12Device9Vtbl;
@@ -19346,11 +19359,11 @@ EXTERN_C const IID IID_ID3D12Device9;
 #define ID3D12Device9_CopyDescriptorsSimple(This,NumDescriptors,DestDescriptorRangeStart,SrcDescriptorRangeStart,DescriptorHeapsType)	\
     ( (This)->lpVtbl -> CopyDescriptorsSimple(This,NumDescriptors,DestDescriptorRangeStart,SrcDescriptorRangeStart,DescriptorHeapsType) ) 
 
-#define ID3D12Device9_GetResourceAllocationInfo(This,visibleMask,numResourceDescs,pResourceDescs,RetVal)	\
-    ( (This)->lpVtbl -> GetResourceAllocationInfo(This,visibleMask,numResourceDescs,pResourceDescs,RetVal) ) 
+#define ID3D12Device9_GetResourceAllocationInfo(This,RetVal,visibleMask,numResourceDescs,pResourceDescs)	\
+    ( (This)->lpVtbl -> GetResourceAllocationInfo(This,RetVal,visibleMask,numResourceDescs,pResourceDescs) ) 
 
-#define ID3D12Device9_GetCustomHeapProperties(This,nodeMask,heapType,RetVal)	\
-    ( (This)->lpVtbl -> GetCustomHeapProperties(This,nodeMask,heapType,RetVal) ) 
+#define ID3D12Device9_GetCustomHeapProperties(This,RetVal,nodeMask,heapType)	\
+    ( (This)->lpVtbl -> GetCustomHeapProperties(This,RetVal,nodeMask,heapType) ) 
 
 #define ID3D12Device9_CreateCommittedResource(This,pHeapProperties,HeapFlags,pDesc,InitialResourceState,pOptimizedClearValue,riidResource,ppvResource)	\
     ( (This)->lpVtbl -> CreateCommittedResource(This,pHeapProperties,HeapFlags,pDesc,InitialResourceState,pOptimizedClearValue,riidResource,ppvResource) ) 
@@ -19443,8 +19456,8 @@ EXTERN_C const IID IID_ID3D12Device9;
 #define ID3D12Device9_CreateReservedResource1(This,pDesc,InitialState,pOptimizedClearValue,pProtectedSession,riid,ppvResource)	\
     ( (This)->lpVtbl -> CreateReservedResource1(This,pDesc,InitialState,pOptimizedClearValue,pProtectedSession,riid,ppvResource) ) 
 
-#define ID3D12Device9_GetResourceAllocationInfo1(This,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1,RetVal)	\
-    ( (This)->lpVtbl -> GetResourceAllocationInfo1(This,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1,RetVal) ) 
+#define ID3D12Device9_GetResourceAllocationInfo1(This,RetVal,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1)	\
+    ( (This)->lpVtbl -> GetResourceAllocationInfo1(This,RetVal,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1) ) 
 
 
 #define ID3D12Device9_CreateLifetimeTracker(This,pOwner,riid,ppvTracker)	\
@@ -19483,8 +19496,8 @@ EXTERN_C const IID IID_ID3D12Device9;
     ( (This)->lpVtbl -> CreateProtectedResourceSession1(This,pDesc,riid,ppSession) ) 
 
 
-#define ID3D12Device9_GetResourceAllocationInfo2(This,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1,RetVal)	\
-    ( (This)->lpVtbl -> GetResourceAllocationInfo2(This,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1,RetVal) ) 
+#define ID3D12Device9_GetResourceAllocationInfo2(This,RetVal,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1)	\
+    ( (This)->lpVtbl -> GetResourceAllocationInfo2(This,RetVal,visibleMask,numResourceDescs,pResourceDescs,pResourceAllocationInfo1) ) 
 
 #define ID3D12Device9_CreateCommittedResource2(This,pHeapProperties,HeapFlags,pDesc,InitialResourceState,pOptimizedClearValue,pProtectedSession,riidResource,ppvResource)	\
     ( (This)->lpVtbl -> CreateCommittedResource2(This,pHeapProperties,HeapFlags,pDesc,InitialResourceState,pOptimizedClearValue,pProtectedSession,riidResource,ppvResource) ) 
@@ -19504,6 +19517,9 @@ EXTERN_C const IID IID_ID3D12Device9;
 
 #define ID3D12Device9_ShaderCacheControl(This,Kinds,Control)	\
     ( (This)->lpVtbl -> ShaderCacheControl(This,Kinds,Control) ) 
+
+#define ID3D12Device9_CreateCommandQueue1(This,pDesc,CreatorID,riid,ppCommandQueue)	\
+    ( (This)->lpVtbl -> CreateCommandQueue1(This,pDesc,CreatorID,riid,ppCommandQueue) ) 
 
 #endif /* COBJMACROS */
 
@@ -21360,7 +21376,7 @@ DEFINE_GUID(IID_ID3D12GraphicsCommandList3,0x6FDA83A7,0xB84C,0x4E38,0x9A,0xC8,0x
 DEFINE_GUID(IID_ID3D12MetaCommand,0xDBB84C27,0x36CE,0x4FC9,0xB8,0x01,0xF0,0x48,0xC4,0x6A,0xC5,0x70);
 DEFINE_GUID(IID_ID3D12GraphicsCommandList4,0x8754318e,0xd3a9,0x4541,0x98,0xcf,0x64,0x5b,0x50,0xdc,0x48,0x74);
 DEFINE_GUID(IID_ID3D12ShaderCacheSession,0x28e2495d,0x0f64,0x4ae4,0xa6,0xec,0x12,0x92,0x55,0xdc,0x49,0xa8);
-DEFINE_GUID(IID_ID3D12Device9,0x90855797,0x7a46,0x4c5e,0x86,0x77,0x98,0x17,0x61,0xd6,0x35,0x88);
+DEFINE_GUID(IID_ID3D12Device9,0x4c80e962,0xf032,0x4f60,0xbc,0x9e,0xeb,0xc2,0xcf,0xa1,0xd8,0x3c);
 DEFINE_GUID(IID_ID3D12Tools,0x7071e1f0,0xe84b,0x4b33,0x97,0x4f,0x12,0xfa,0x49,0xde,0x65,0xc5);
 DEFINE_GUID(IID_ID3D12GraphicsCommandList5,0x55050859,0x4024,0x474c,0x87,0xf5,0x64,0x72,0xea,0xee,0x44,0xea);
 DEFINE_GUID(IID_ID3D12GraphicsCommandList6,0xc3827890,0xe548,0x4cfa,0x96,0xcf,0x56,0x89,0xa9,0x37,0x0f,0x80);

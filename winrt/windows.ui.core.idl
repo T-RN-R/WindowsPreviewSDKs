@@ -114,6 +114,8 @@ namespace Windows
     namespace UI
     {
         runtimeclass UIContext;
+
+        runtimeclass WindowReference;
     }
 }
 namespace Windows
@@ -227,6 +229,8 @@ namespace Windows
             interface ICoreWindowStatic;
 
             interface ICoreWindowWithContext;
+
+            interface ICoreWindowWithWindowReference;
 
             interface IIdleDispatchedHandlerArgs;
 
@@ -976,6 +980,14 @@ namespace Windows
                 [propget] HRESULT UIContext([out] [retval] Windows.UI.UIContext** value);
             }
 
+            [contract(Windows.Foundation.UniversalApiContract, 11.0)]
+            [exclusiveto(Windows.UI.Core.CoreWindow)]
+            [uuid(66422EBA-C088-4C94-BD8B-5EDA8FDEB273)]
+            interface ICoreWindowWithWindowReference : IInspectable
+            {
+                [propget] HRESULT WindowReference([out] [retval] Windows.UI.WindowReference** value);
+            }
+
             [contract(Windows.Foundation.UniversalApiContract, 1.0)]
             [exclusiveto(Windows.UI.Core.IdleDispatchedHandlerArgs)]
             [uuid(98BB6A24-DC1C-43CB-B4ED-D1C0EB2391F3)]
@@ -1204,6 +1216,7 @@ namespace Windows
                 [contract(Windows.Foundation.UniversalApiContract, 4.0)] interface Windows.UI.Core.ICoreWindow4;
                 [contract(Windows.Foundation.UniversalApiContract, 5.0)] interface Windows.UI.Core.ICoreWindow5;
                 [contract(Windows.Foundation.UniversalApiContract, 8.0)] interface Windows.UI.Core.ICoreWindowWithContext;
+                [contract(Windows.Foundation.UniversalApiContract, 11.0)] interface Windows.UI.Core.ICoreWindowWithWindowReference;
             }
 
             [activatable(Windows.UI.Core.CoreWindowDialogsContract, 1.0)]

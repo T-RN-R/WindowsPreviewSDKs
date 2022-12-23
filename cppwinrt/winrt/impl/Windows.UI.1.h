@@ -57,5 +57,19 @@ WINRT_EXPORT namespace winrt::Windows::UI
         IUIContext(std::nullptr_t = nullptr) noexcept {}
         IUIContext(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
+    struct __declspec(empty_bases) IWindowReference :
+        Windows::Foundation::IInspectable,
+        impl::consume_t<IWindowReference>
+    {
+        IWindowReference(std::nullptr_t = nullptr) noexcept {}
+        IWindowReference(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IWindowReferenceStatics :
+        Windows::Foundation::IInspectable,
+        impl::consume_t<IWindowReferenceStatics>
+    {
+        IWindowReferenceStatics(std::nullptr_t = nullptr) noexcept {}
+        IWindowReferenceStatics(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
 }
 #endif

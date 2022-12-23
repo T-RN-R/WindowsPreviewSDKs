@@ -468,7 +468,7 @@ EXTERN_C const IID IID_ID3D12VideoDecoderHeap;
             REFIID riid,
             _COM_Outptr_opt_  void **ppvDevice);
         
-        void  ( STDMETHODCALLTYPE *GetDesc )( 
+        D3D12_VIDEO_DECODER_HEAP_DESC *( STDMETHODCALLTYPE *GetDesc )( 
             ID3D12VideoDecoderHeap * This,
             D3D12_VIDEO_DECODER_HEAP_DESC * RetVal);
         
@@ -725,7 +725,7 @@ EXTERN_C const IID IID_ID3D12VideoDecoder;
             REFIID riid,
             _COM_Outptr_opt_  void **ppvDevice);
         
-        void  ( STDMETHODCALLTYPE *GetDesc )( 
+        D3D12_VIDEO_DECODER_DESC *( STDMETHODCALLTYPE *GetDesc )( 
             ID3D12VideoDecoder * This,
             D3D12_VIDEO_DECODER_DESC * RetVal);
         
@@ -1117,7 +1117,7 @@ EXTERN_C const IID IID_ID3D12VideoProcessor;
             UINT NumInputStreamDescs,
             _Out_writes_(NumInputStreamDescs)  D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC *pInputStreamDescs);
         
-        void  ( STDMETHODCALLTYPE *GetOutputStreamDesc )( 
+        D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC *( STDMETHODCALLTYPE *GetOutputStreamDesc )( 
             ID3D12VideoProcessor * This,
             D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC * RetVal);
         
@@ -2647,7 +2647,7 @@ EXTERN_C const IID IID_ID3D12VideoMotionEstimator;
             REFIID riid,
             _COM_Outptr_opt_  void **ppvDevice);
         
-        void  ( STDMETHODCALLTYPE *GetDesc )( 
+        D3D12_VIDEO_MOTION_ESTIMATOR_DESC *( STDMETHODCALLTYPE *GetDesc )( 
             ID3D12VideoMotionEstimator * This,
             D3D12_VIDEO_MOTION_ESTIMATOR_DESC * RetVal);
         
@@ -2802,7 +2802,7 @@ EXTERN_C const IID IID_ID3D12VideoMotionVectorHeap;
             REFIID riid,
             _COM_Outptr_opt_  void **ppvDevice);
         
-        void  ( STDMETHODCALLTYPE *GetDesc )( 
+        D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC *( STDMETHODCALLTYPE *GetDesc )( 
             ID3D12VideoMotionVectorHeap * This,
             D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC * RetVal);
         
@@ -3599,7 +3599,7 @@ EXTERN_C const IID IID_ID3D12VideoDecoder1;
             REFIID riid,
             _COM_Outptr_opt_  void **ppvDevice);
         
-        void  ( STDMETHODCALLTYPE *GetDesc )( 
+        D3D12_VIDEO_DECODER_DESC *( STDMETHODCALLTYPE *GetDesc )( 
             ID3D12VideoDecoder1 * This,
             D3D12_VIDEO_DECODER_DESC * RetVal);
         
@@ -3732,7 +3732,7 @@ EXTERN_C const IID IID_ID3D12VideoDecoderHeap1;
             REFIID riid,
             _COM_Outptr_opt_  void **ppvDevice);
         
-        void  ( STDMETHODCALLTYPE *GetDesc )( 
+        D3D12_VIDEO_DECODER_HEAP_DESC *( STDMETHODCALLTYPE *GetDesc )( 
             ID3D12VideoDecoderHeap1 * This,
             D3D12_VIDEO_DECODER_HEAP_DESC * RetVal);
         
@@ -3876,7 +3876,7 @@ EXTERN_C const IID IID_ID3D12VideoProcessor1;
             UINT NumInputStreamDescs,
             _Out_writes_(NumInputStreamDescs)  D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC *pInputStreamDescs);
         
-        void  ( STDMETHODCALLTYPE *GetOutputStreamDesc )( 
+        D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC *( STDMETHODCALLTYPE *GetOutputStreamDesc )( 
             ID3D12VideoProcessor1 * This,
             D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC * RetVal);
         
@@ -4020,7 +4020,7 @@ EXTERN_C const IID IID_ID3D12VideoExtensionCommand;
             REFIID riid,
             _COM_Outptr_opt_  void **ppvDevice);
         
-        void  ( STDMETHODCALLTYPE *GetDesc )( 
+        D3D12_VIDEO_EXTENSION_COMMAND_DESC *( STDMETHODCALLTYPE *GetDesc )( 
             ID3D12VideoExtensionCommand * This,
             D3D12_VIDEO_EXTENSION_COMMAND_DESC * RetVal);
         

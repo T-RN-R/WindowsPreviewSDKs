@@ -25,7 +25,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::ViewManagement
         ActivationViewSwitcher(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::ViewManagement::IActivationViewSwitcher(ptr, take_ownership_from_abi) {}
     };
     struct __declspec(empty_bases) ApplicationView : Windows::UI::ViewManagement::IApplicationView,
-        impl::require<ApplicationView, Windows::UI::ViewManagement::IApplicationView2, Windows::UI::ViewManagement::IApplicationView3, Windows::UI::ViewManagement::IApplicationView4, Windows::UI::ViewManagement::IApplicationView7, Windows::UI::ViewManagement::IApplicationView9, Windows::UI::ViewManagement::IApplicationViewWithContext>
+        impl::require<ApplicationView, Windows::UI::ViewManagement::IApplicationView2, Windows::UI::ViewManagement::IApplicationView3, Windows::UI::ViewManagement::IApplicationView4, Windows::UI::ViewManagement::IApplicationView7, Windows::UI::ViewManagement::IApplicationView9, Windows::UI::ViewManagement::IApplicationViewWithContext, Windows::UI::ViewManagement::IApplicationViewSpanningRects>
     {
         ApplicationView(std::nullptr_t) noexcept {}
         ApplicationView(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::ViewManagement::IApplicationView(ptr, take_ownership_from_abi) {}

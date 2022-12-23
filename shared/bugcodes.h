@@ -4402,6 +4402,15 @@ Notes:
 #define DEVICE_DIAGNOSTIC_LOG_LIVEDUMP   ((ULONG)0x000001E1L)
 
 //
+// MessageId: AZURE_DEVICE_FW_DUMP
+//
+// MessageText:
+//
+//  AZURE_DEVICE_FW_DUMP
+//
+#define AZURE_DEVICE_FW_DUMP             ((ULONG)0x000001E2L)
+
+//
 // MessageId: XBOX_VMCTRL_CS_TIMEOUT
 //
 // MessageText:
@@ -4463,15 +4472,6 @@ Notes:
 //  XBOX_SECURITY_FAILUE
 //
 #define XBOX_SECURITY_FAILUE             ((ULONG)0x00000421L)
-
-//
-// MessageId: XBOX_BAD_DISPLAYSOURCE_HANDLE
-//
-// MessageText:
-//
-//  XBOX_BAD_DISPLAYSOURCE_HANDLE
-//
-#define XBOX_BAD_DISPLAYSOURCE_HANDLE    ((ULONG)0x00000422L)
 
 //
 // MessageId: HYPERVISOR_ERROR

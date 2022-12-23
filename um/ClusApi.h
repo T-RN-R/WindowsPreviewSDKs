@@ -50,6 +50,7 @@ Revision History:
 // NT12 upgrade versions
 #define NINETEEN_H1_UPGRADE_VERSION  1
 #define NINETEEN_H2_UPGRADE_VERSION  2
+#define MN_UPGRADE_VERSION           3
 
 #define CLUSREG_NAME_MIXED_MODE                    L"MixedMode"
 

@@ -860,7 +860,7 @@
 #define PcStartCycles 0xec8
 #define PcSpBase 0xc4c
 #define PcCycleCounterHigh 0xef0
-#define ProcessorControlRegisterLength 0x6ae0
+#define ProcessorControlRegisterLength 0x6b60
 
 //
 // Defines for user shared data
@@ -912,7 +912,7 @@
 #define PbPacketBarrier 0x600
 #define PbDeferredReadyListHead 0x604
 #define PbLookasideIrpFloat 0x650
-#define PbRequestMailbox 0x6100
+#define PbRequestMailbox 0x6180
 #define PbMailbox 0x680
 #define PbDpcGate 0x700
 #define PbWaitListHead 0x780

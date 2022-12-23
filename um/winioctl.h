@@ -1132,7 +1132,8 @@ typedef enum __WRAPPED__ _STORAGE_PROPERTY_ID {
     StorageDeviceZonedDeviceProperty,
     StorageDeviceUnsafeShutdownCount,
     StorageDeviceEnduranceProperty,
-    StorageDeviceLedStateProperty
+    StorageDeviceLedStateProperty,
+    StorageDeviceSelfEncryptionProperty = 64
 } STORAGE_PROPERTY_ID, *PSTORAGE_PROPERTY_ID;
 
 //
@@ -1686,7 +1687,10 @@ typedef struct __WRAPPED__ _DEVICE_LB_PROVISIONING_DESCRIPTOR {
     BYTE  UnmapGranularityAlignmentValid : 1;
 
     __WRAPPED__
-    BYTE  Reserved0 : 2;
+    BYTE  GetFreeSpaceSupported : 1;        // Supports DeviceDsmAction_GetFreeSpace
+
+    __WRAPPED__
+    BYTE  MapSupported : 1;                 // Supports DeviceDsmAction_Map
 
     __WRAPPED__
     BYTE  Reserved1[7];
@@ -2230,9 +2234,10 @@ typedef enum _STORAGE_PROTOCOL_ATA_DATA_TYPE {
 
 typedef enum _STORAGE_PROTOCOL_UFS_DATA_TYPE {
     UfsDataTypeUnknown = 0,
-    UfsDataTypeQueryDescriptor, // Retrieved by command - QUERY UPIU
-    UfsDataTypeQueryAttribute,  // Retrieved by command - QUERY UPIU
-    UfsDataTypeQueryFlag,       // Retrieved by command - QUERY UPIU
+    UfsDataTypeQueryDescriptor,         // Retrieved by command - QUERY UPIU
+    UfsDataTypeQueryAttribute,          // Retrieved by command - QUERY UPIU
+    UfsDataTypeQueryFlag,               // Retrieved by command - QUERY UPIU
+    UfsDataTypeQueryDmeAttribute,       // Retrieved by command - QUERY UPIU
     UfsDataTypeMax,
 } STORAGE_PROTOCOL_UFS_DATA_TYPE, *PSTORAGE_PROTOCOL_UFS_DATA_TYPE;
 
@@ -3052,6 +3057,19 @@ typedef struct _STORAGE_DEVICE_LED_STATE_DESCRIPTOR {
     DWORDLONG State;
 
 } STORAGE_DEVICE_LED_STATE_DESCRIPTOR, *PSTORAGE_DEVICE_LED_STATE_DESCRIPTOR;
+
+//
+// Output buffer for StorageDeviceSelfEncryptionProperty.
+//
+typedef struct _STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
+
+    DWORD Version;
+
+    DWORD Size;
+
+    BOOLEAN SupportsSelfEncryption;
+
+} STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY, *PSTORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY;
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -10410,6 +10428,9 @@ typedef enum _CHANGER_DEVICE_PROBLEM_TYPE {
 #define FSCTL_ENABLE_PER_IO_FLAGS               CTL_CODE(FILE_DEVICE_FILE_SYSTEM, 267, METHOD_BUFFERED, FILE_ANY_ACCESS)
 #endif /* _WIN64 */
 #endif /* (_WIN32_WINNT >= _WIN32_WINNT_WIN10_RS5) */
+#if (NTDDI_VERSION >= NTDDI_WIN10_RS5)
+#define FSCTL_QUERY_ASYNC_DUPLICATE_EXTENTS_STATUS  CTL_CODE(FILE_DEVICE_FILE_SYSTEM, 268, METHOD_BUFFERED, FILE_ANY_ACCESS)
+#endif
 //
 // AVIO IOCTLS.
 //
@@ -11058,7 +11079,7 @@ typedef struct {
 #endif
 #pragma warning(disable:4201)       // unnamed struct
 
-typedef struct {
+typedef struct _MARK_HANDLE_INFO {
 
 #if (NTDDI_VERSION >= NTDDI_WIN8)
     union {
@@ -11070,7 +11091,7 @@ typedef struct {
 #endif /*NTDDI_VERSION >= NTDDI_WIN8 */
 
     HANDLE VolumeHandle;
-    DWORD HandleInfo;
+    DWORD HandleInfo;           //Flags
 
 } MARK_HANDLE_INFO, *PMARK_HANDLE_INFO;
 
@@ -11079,7 +11100,7 @@ typedef struct {
 //  32/64 Bit thunking support structure
 //
 
-typedef struct {
+typedef struct _MARK_HANDLE_INFO32 {
 
 #if (NTDDI_VERSION >= NTDDI_WIN8)
     union {
@@ -11090,7 +11111,7 @@ typedef struct {
     DWORD UsnSourceInfo;
 #endif /*NTDDI_VERSION >= NTDDI_WIN8 */
     UINT32 VolumeHandle;
-    DWORD HandleInfo;
+    DWORD HandleInfo;           //Flags
 
 } MARK_HANDLE_INFO32, *PMARK_HANDLE_INFO32;
 #endif
@@ -11134,29 +11155,29 @@ typedef struct {
 //
 //  Flags for the HandleInfo field above
 //
-//  Introduced in W2K
+//  Introduced in W2K:
 //  MARK_HANDLE_PROTECT_CLUSTERS - disallow any defragmenting (FSCTL_MOVE_FILE) until the
 //      the handle is closed
 //
-//  Introduced in Vista
+//  Introduced in Vista:
 //  MARK_HANDLE_TXF_SYSTEM_LOG - indicates that this stream is being used as the Txf
-//      log for an RM on the volume.  Must be called in the kernel using
-//      IRP_MN_KERNEL_CALL.
+//      log for an RM on the volume.  Must be called in the kernel using IRP_MN_KERNEL_CALL.
 //
-//  MARK_HANDLE_NOT_TXF_SYSTEM_LOG - indicates that this user is no longer using this
-//      object as a log file.
+//  MARK_HANDLE_NOT_TXF_SYSTEM_LOG - indicates that this component is no longer using this
+//      object as a TxF log file.
 //
-//  Introduced in Win7
+//  Introduced in Win7:
 //  MARK_HANDLE_REALTIME - only supported by the UDFS file system.  Marks the device
 //      to do realtime streaming of video
 //
 //  MARK_HANDLE_NOT_REALTIME - only supported by the UDFS file system.  Marks the device
-//      to do realtime streaming of video
+//      to no longer do realtime streaming of video
 //
 //  MARK_HANDLE_CLOUD_SYNC - this flag is deprecated and is no longer used
 //
 //  Introduced in Win8
-//  MARK_HANDLE_READ_COPY - indicates the data must be read from the specified copy.
+//  MARK_HANDLE_READ_COPY - indicates the data must be read from the specified copy
+//      of data.  Only supported for spaces redundent volumes.
 //
 //  MARK_HANDLE_NOT_READ_COPY - indicates the data is no longer to be read from a specific copy.
 //
@@ -11187,13 +11208,14 @@ typedef struct {
 //      If a write is seen the operation is failed with STATUS_MARKED_TO_DISALLOW_WRITES
 //
 //  Introduced in RS4 (win10)
-//  MARK_HANDLE_ENABLE_CPU_CACHE - Flag reserved for internal Microsoft use, it is
-//      only used on the
+//  MARK_HANDLE_ENABLE_CPU_CACHE - Flag reserved for internal Microsoft use
 //
 
 #define MARK_HANDLE_PROTECT_CLUSTERS                    (0x00000001)
+//#define ReservedForFutureUse                          (0x00000002)
 #define MARK_HANDLE_TXF_SYSTEM_LOG                      (0x00000004)
 #define MARK_HANDLE_NOT_TXF_SYSTEM_LOG                  (0x00000008)
+//#define ReservedForFutureUse                          (0x00000010)
 
 #endif /* NTDDI_VERSION >= NTDDI_WIN2K */
 
@@ -11201,8 +11223,7 @@ typedef struct {
 
 #define MARK_HANDLE_REALTIME                            (0x00000020)
 #define MARK_HANDLE_NOT_REALTIME                        (0x00000040)
-#define MARK_HANDLE_FILTER_METADATA                     (0x00000200)        // 8.1 and newer
-#define MARK_HANDLE_CLOUD_SYNC                          (0x00000800)
+#define MARK_HANDLE_CLOUD_SYNC                          (0x00000800)    //deprecated flag - do not use
 
 #endif /* NTDDI_VERSION >= NTDDI_WIN7 */
 
@@ -11210,9 +11231,15 @@ typedef struct {
 
 #define MARK_HANDLE_READ_COPY                           (0x00000080)
 #define MARK_HANDLE_NOT_READ_COPY                       (0x00000100)
-#define MARK_HANDLE_RETURN_PURGE_FAILURE                (0x00000400)        // 8.1 and newer
 
 #endif /*NTDDI_VERSION >= NTDDI_WIN8 */
+
+#if (NTDDI_VERSION >= NTDDI_WINBLUE) || (NTDDI_VERSION >= NTDDI_WIN7)       //Win7 check is for backward compatibility
+
+#define MARK_HANDLE_FILTER_METADATA                     (0x00000200)        // 8.1 and newer
+#define MARK_HANDLE_RETURN_PURGE_FAILURE                (0x00000400)        // 8.1 and newer
+
+#endif /*NTDDI_VERSION >= NTDDI_WINBLUE */
 
 #if (NTDDI_VERSION >= NTDDI_WINTHRESHOLD)
 
@@ -11227,6 +11254,12 @@ typedef struct {
 #define MARK_HANDLE_ENABLE_CPU_CACHE                    (0x10000000)
 
 #endif /*NTDDI_VERSION >= NTDDI_WIN10_RS4 */
+
+#if (NTDDI_VERSION >= NTDDI_WIN10_MN)
+
+#endif /*NTDDI_VERSION >= NTDDI_WIN10_MN */
+
+
 
 //
 //==================== FSCTL_SECURITY_ID_CHECK ======================
@@ -13885,6 +13918,7 @@ typedef enum _CSV_CONTROL_OP {
     CsvControlEnableCaching                      = 0x14,
     CsvControlStartForceDFO                      = 0x15,
     CsvControlStopForceDFO                       = 0x16,
+    CsvControlQueryMdsPathNoPause                = 0x17,
 } CSV_CONTROL_OP, *PCSV_CONTROL_OP;
 
 typedef struct _CSV_CONTROL_PARAM {
@@ -15390,6 +15424,38 @@ typedef struct _DUPLICATE_EXTENTS_DATA_EX32 {
 #endif /* ((NTDDI_VERSION >= NTDDI_WIN10_RS3) && defined(_WIN64)) */
 
 #endif /* (NTDDI_VERSION >= NTDDI_WIN10_RS3) */
+
+#if (NTDDI_VERSION >= NTDDI_WIN10_RS5)
+
+//
+//=============== FSCTL_QUERY_ASYNC_DUPLICATE_EXTENTS_STATUS ==================
+//
+
+typedef enum _DUPLICATE_EXTENTS_STATE {
+
+    FileSnapStateInactive = 0,
+    FileSnapStateSource,
+    FileSnapStateTarget,
+
+} DUPLICATE_EXTENTS_STATE, *PDUPLICATE_EXTENTS_STATE;
+
+typedef struct _ASYNC_DUPLICATE_EXTENTS_STATUS {
+    
+    DWORD Version;
+    
+    DUPLICATE_EXTENTS_STATE State;
+
+    DWORDLONG SourceFileOffset;
+    DWORDLONG TargetFileOffset;
+    DWORDLONG ByteCount;
+
+    DWORDLONG BytesDuplicated;
+
+} ASYNC_DUPLICATE_EXTENTS_STATUS, *PASYNC_DUPLICATE_EXTENTS_STATUS;
+
+#define ASYNC_DUPLICATE_EXTENTS_STATUS_V1   sizeof(ASYNC_DUPLICATE_EXTENTS_STATUS)
+
+#endif
 
 #if (_WIN32_WINNT >= _WIN32_WINNT_WIN10_RS2)
 

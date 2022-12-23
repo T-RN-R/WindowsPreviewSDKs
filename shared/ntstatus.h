@@ -11210,7 +11210,16 @@ Notes:
 //
 // Enabling driver verification is not supported for a driver with  NMI callback(s) registered.
 //
-#define STATUS_VRF_VOLATILE_NMI_REGISTERED ((NTSTATUS)0xC0000C7FL)
+#define STATUS_VRF_VOLATILE_NMI_REGISTERED ((NTSTATUS)0xC0000C0EL)
+
+//
+// MessageId: STATUS_DIF_BINDING_API_NOT_FOUND
+//
+// MessageText:
+//
+// One or more DDI is not yet supported by DIF.
+//
+#define STATUS_DIF_BINDING_API_NOT_FOUND ((NTSTATUS)0xC0000C7FL)
 
 // End of Verifier Errors
 //

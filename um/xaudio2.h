@@ -563,7 +563,7 @@ DECLARE_INTERFACE_(IXAudio2, IUnknown)
 #define INTERFACE IXAudio2Extension
 DECLARE_INTERFACE_(IXAudio2Extension, IUnknown)
 {
-    // NAME: IXAudio2::QueryInterface
+    // NAME: IXAudio2Extension::QueryInterface
     // DESCRIPTION: Queries for a given COM interface on the XAudio2 object.
     //              Only IID_IUnknown, IID_IXAudio2 and IID_IXaudio2Extension are supported.
     //
@@ -573,17 +573,17 @@ DECLARE_INTERFACE_(IXAudio2Extension, IUnknown)
     //
     STDMETHOD(QueryInterface) (THIS_ REFIID riid, _COM_Outptr_ void** ppvInterface) PURE;
 
-    // NAME: IXAudio2::AddRef
+    // NAME: IXAudio2Extension::AddRef
     // DESCRIPTION: Adds a reference to the XAudio2 object.
     //
     STDMETHOD_(ULONG, AddRef) (THIS) PURE;
 
-    // NAME: IXAudio2::Release
+    // NAME: IXAudio2Extension::Release
     // DESCRIPTION: Releases a reference to the XAudio2 object.
     //
     STDMETHOD_(ULONG, Release) (THIS) PURE;
 
-    // NAME: IXAudio2::GetProcessingQuantum
+    // NAME: IXAudio2Extension::GetProcessingQuantum
     // DESCRIPTION: Returns the processing quantum
     //              quantumMilliseconds = (1000.0f * quantumNumerator / quantumDenominator)
     //
@@ -593,7 +593,7 @@ DECLARE_INTERFACE_(IXAudio2Extension, IUnknown)
     //
     STDMETHOD_(void, GetProcessingQuantum)(THIS_ _Out_ UINT32* quantumNumerator, _Out_range_(!= , 0) UINT32* quantumDenominator);
 
-    // NAME: IXAudio2::GetProcessor
+    // NAME: IXAudio2Extension::GetProcessor
     // DESCRIPTION: Returns the number of the processor used by XAudio2
     //
     // ARGUMENTS:

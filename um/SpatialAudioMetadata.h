@@ -118,8 +118,8 @@ extern "C"{
 /* [local] */ 
 
 #include <winapifamily.h>
-#pragma region Application Family
-#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
+#pragma region Application and Games Family
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES)
 #define SPATIAL_AUDIO_STANDARD_COMMANDS_START   200     // 200 and above is reserved
 #define SPATIAL_AUDIO_POSITION                   (SPATIAL_AUDIO_STANDARD_COMMANDS_START)
 #define SPATIAL_AUDIO_POSITION_BYTE_COUNT        (sizeof(float) * 3)     // 3 (XYZ) 32-Bit Floats
@@ -1353,7 +1353,7 @@ EXTERN_C const IID IID_ISpatialAudioObjectRenderStreamForMetadata;
 #define SPTLAUD_MD_CLNT_E_FORMAT_MISMATCH                     AUDCLNT_ERR(0x0223)
 #define SPTLAUD_MD_CLNT_E_BUFFER_STILL_ATTACHED               AUDCLNT_ERR(0x0224)
 #define SPTLAUD_MD_CLNT_E_ITEMS_LOCKED_FOR_WRITING            AUDCLNT_ERR(0x0225)
-#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */
 
 
 extern RPC_IF_HANDLE __MIDL_itf_spatialaudiometadata_0000_0009_v0_0_c_ifspec;
