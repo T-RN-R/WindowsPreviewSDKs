@@ -3300,6 +3300,16 @@ namespace winrt::impl
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual2)->put_RelativeSizeAdjustment(impl::bind_in(value)));
     }
+    template <typename D> auto consume_Windows_UI_Composition_IVisual3<D>::IsTransparentForHitTest() const
+    {
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual3)->get_IsTransparentForHitTest(&value));
+        return value;
+    }
+    template <typename D> auto consume_Windows_UI_Composition_IVisual3<D>::IsTransparentForHitTest(bool value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::IVisual3)->put_IsTransparentForHitTest(value));
+    }
     template <typename D> auto consume_Windows_UI_Composition_IVisualCollection<D>::Count() const
     {
         int32_t value;
@@ -8985,6 +8995,26 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
+    struct produce<D, Windows::UI::Composition::IVisual3> : produce_base<D, Windows::UI::Composition::IVisual3>
+    {
+        int32_t __stdcall get_IsTransparentForHitTest(bool* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<bool>(this->shim().IsTransparentForHitTest());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_IsTransparentForHitTest(bool value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().IsTransparentForHitTest(value);
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
     struct produce<D, Windows::UI::Composition::IVisualCollection> : produce_base<D, Windows::UI::Composition::IVisualCollection>
     {
         int32_t __stdcall get_Count(int32_t* value) noexcept final try
@@ -9320,6 +9350,7 @@ namespace std
     template<> struct hash<winrt::Windows::UI::Composition::IVector4KeyFrameAnimation> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IVisual> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IVisual2> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Composition::IVisual3> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IVisualCollection> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IVisualElement> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Composition::IVisualFactory> : winrt::impl::hash_base {};

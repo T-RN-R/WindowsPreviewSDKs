@@ -33,6 +33,7 @@
 // C4324: structure was padded due to __declspec(align()) (/W4)
 // C4514: unreferenced inline function has been removed (/Wall)
 // C4574: 'MACRO' is defined to be '0': did you mean to use '#if MACRO'? (/Wall)
+// C4668: '__cplusplus' is not defined as a preprocessor macro (/Wall)
 // C4710: function not inlined (/Wall)
 // C4793: 'function' is compiled as native code (/Wall and /W1 under /clr:pure)
 // C4820: padding after data member (/Wall)

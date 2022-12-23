@@ -1625,6 +1625,7 @@ typedef EXCEPTION_ROUTINE *PEXCEPTION_ROUTINE;
 #define PRODUCT_XBOX_ERAOS                          0x000000C3
 #define PRODUCT_XBOX_DURANGOHOSTOS                  0x000000C4
 #define PRODUCT_XBOX_SCARLETTHOSTOS                 0x000000C5
+#define PRODUCT_AZURESTACKHCI_SERVER_CORE           0x00000196
 
 #define PRODUCT_UNLICENSED                          0xABCDABCD
 
@@ -10401,7 +10402,7 @@ typedef struct _SECURITY_DESCRIPTOR {
 
    } SECURITY_DESCRIPTOR, *PISECURITY_DESCRIPTOR;
 
-   
+
 typedef struct _SECURITY_OBJECT_AI_PARAMS {
     DWORD Size;             //Set to sizeof(SECURITY_OBJECT_AI_PARAMS)
     DWORD ConstraintMask;
@@ -10723,6 +10724,7 @@ typedef struct _SE_ACCESS_REPLY
 #define SE_SESSION_IMPERSONATION_CAPABILITY L"sessionImpersonation"
 #define SE_MUMA_CAPABILITY L"muma"
 #define SE_DEVELOPMENT_MODE_NETWORK_CAPABILITY L"developmentModeNetwork"
+#define SE_PERMISSIVE_LEARNING_MODE_CAPABILITY L"permissiveLearningMode"
 
 // end_ntosifs
 
@@ -11104,8 +11106,8 @@ typedef struct _TOKEN_BNO_ISOLATION_INFORMATION {
 //
 //      These #defines and data structures (almost) exactly mirror
 //      the Token_XXX definitions (except for PWSTR/PUNICODE changes)
-//      in ntseapi.w as well as AUTHZ_XXX in authz.w. 
-//      Keep them in sync. 
+//      in ntseapi.w as well as AUTHZ_XXX in authz.w.
+//      Keep them in sync.
 //
 //
 //  Security attribute data types ...
@@ -11179,7 +11181,7 @@ typedef struct _CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
 
 #define CLAIM_SECURITY_ATTRIBUTE_DISABLED_BY_DEFAULT 0x0008
 
-// 
+//
 // Attribute is disabled.
 //
 
@@ -11219,7 +11221,7 @@ typedef struct _CLAIM_SECURITY_ATTRIBUTE_V1 {
     //  Case insensitive Unicode string.
     //
 
-    PWSTR   Name; 
+    PWSTR   Name;
 
     //
     //  Data type of attribute.
@@ -11400,7 +11402,7 @@ typedef DWORD SECURITY_INFORMATION, *PSECURITY_INFORMATION;
 #define LABEL_SECURITY_INFORMATION                  (0x00000010L)
 #define ATTRIBUTE_SECURITY_INFORMATION              (0x00000020L)
 #define SCOPE_SECURITY_INFORMATION                  (0x00000040L)
-#define PROCESS_TRUST_LABEL_SECURITY_INFORMATION    (0x00000080L) 
+#define PROCESS_TRUST_LABEL_SECURITY_INFORMATION    (0x00000080L)
 #define ACCESS_FILTER_SECURITY_INFORMATION          (0x00000100L)
 #define BACKUP_SECURITY_INFORMATION                 (0x00010000L)
 
@@ -11448,6 +11450,7 @@ typedef enum _SE_IMAGE_SIGNATURE_TYPE
     SeImageSignatureCatalogNotCached,
     SeImageSignatureCatalogHint,
     SeImageSignaturePackageCatalog,
+    SeImageSignaturePplMitigated
 } SE_IMAGE_SIGNATURE_TYPE, *PSE_IMAGE_SIGNATURE_TYPE;
 
 

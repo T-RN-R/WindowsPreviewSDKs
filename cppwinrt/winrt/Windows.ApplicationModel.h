@@ -439,6 +439,30 @@ namespace winrt::impl
         check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::IPackage8)->get_IsStub(&value));
         return value;
     }
+    template <typename D> auto consume_Windows_ApplicationModel_IPackage9<D>::FindHostRuntimeProviders() const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::IPackage9)->FindHostRuntimeProviders(&result));
+        return Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Package>{ result, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_ApplicationModel_IPackage9<D>::FindHostRuntimeConsumerApps() const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::IPackage9)->FindHostRuntimeConsumerApps(&result));
+        return Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::AppInfo>{ result, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_ApplicationModel_IPackage9<D>::IsHostRuntimeProvider() const
+    {
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::IPackage9)->get_IsHostRuntimeProvider(&value));
+        return value;
+    }
+    template <typename D> auto consume_Windows_ApplicationModel_IPackage9<D>::IsHostRuntimeConsumer() const
+    {
+        bool value;
+        check_hresult(WINRT_IMPL_SHIM(Windows::ApplicationModel::IPackage9)->get_IsHostRuntimeConsumer(&value));
+        return value;
+    }
     template <typename D> auto consume_Windows_ApplicationModel_IPackageCatalog<D>::PackageStaging(Windows::Foundation::TypedEventHandler<Windows::ApplicationModel::PackageCatalog, Windows::ApplicationModel::PackageStagingEventArgs> const& handler) const
     {
         winrt::event_token token;
@@ -1733,6 +1757,42 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
+    struct produce<D, Windows::ApplicationModel::IPackage9> : produce_base<D, Windows::ApplicationModel::IPackage9>
+    {
+        int32_t __stdcall FindHostRuntimeProviders(void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::Package>>(this->shim().FindHostRuntimeProviders());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall FindHostRuntimeConsumerApps(void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<Windows::Foundation::Collections::IVectorView<Windows::ApplicationModel::AppInfo>>(this->shim().FindHostRuntimeConsumerApps());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_IsHostRuntimeProvider(bool* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<bool>(this->shim().IsHostRuntimeProvider());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_IsHostRuntimeConsumer(bool* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<bool>(this->shim().IsHostRuntimeConsumer());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
     struct produce<D, Windows::ApplicationModel::IPackageCatalog> : produce_base<D, Windows::ApplicationModel::IPackageCatalog>
     {
         int32_t __stdcall add_PackageStaging(void* handler, winrt::event_token* token) noexcept final try
@@ -2794,6 +2854,7 @@ namespace std
     template<> struct hash<winrt::Windows::ApplicationModel::IPackage6> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::ApplicationModel::IPackage7> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::ApplicationModel::IPackage8> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::ApplicationModel::IPackage9> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::ApplicationModel::IPackageCatalog> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::ApplicationModel::IPackageCatalog2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::ApplicationModel::IPackageCatalog3> : winrt::impl::hash_base {};

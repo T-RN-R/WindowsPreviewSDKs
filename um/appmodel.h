@@ -50,6 +50,8 @@ extern "C" {
 #pragma region Application Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
 
+/* ---------------------------------------------------------------- */
+
 // Identity Types
 #include <pshpack4.h>
 
@@ -544,6 +546,10 @@ GetStagedPackageOrigin(
 #define PACKAGE_FILTER_STATIC               PACKAGE_PROPERTY_STATIC
 #define PACKAGE_PROPERTY_DYNAMIC            0x00100000
 #define PACKAGE_FILTER_DYNAMIC              PACKAGE_PROPERTY_DYNAMIC
+#if NTDDI_VERSION >= NTDDI_WIN10_MN
+#define PACKAGE_PROPERTY_HOSTRUNTIME        0x00200000
+#define PACKAGE_FILTER_HOSTRUNTIME          PACKAGE_PROPERTY_HOSTRUNTIME
+#endif
 
 #if defined(NTDDI_VERSION) && (NTDDI_VERSION >= NTDDI_WINBLUE)
 #pragma deprecated("PACKAGE_FILTER_ALL_LOADED")
@@ -642,6 +648,26 @@ GetPackageApplicationIds(
     _Out_opt_ UINT32* count
     );
 
+
+#if NTDDI_VERSION >= NTDDI_WIN10_19H1
+WINBASEAPI
+_Success_(return == ERROR_SUCCESS)
+LONG
+WINAPI
+GetPackageInfo2(
+    _In_ PACKAGE_INFO_REFERENCE packageInfoReference,
+    _In_ const UINT32 flags,
+    _In_ PackagePathType packagePathType,
+    _Inout_ UINT32* bufferLength,
+    _Out_writes_bytes_opt_(*bufferLength) BYTE* buffer,
+    _Out_opt_ UINT32* count
+    );
+
+#endif // NTDDI_VERSION >= NTDDI_WIN10_19H1
+
+/* ---------------------------------------------------------------- */
+
+// Appmodel Policy
 
 typedef enum AppPolicyLifecycleManagement
 {
@@ -783,21 +809,7 @@ AppPolicyGetCreateFileAccess(
     );
 
 
-#if NTDDI_VERSION >= NTDDI_WIN10_19H1
-WINBASEAPI
-_Success_(return == ERROR_SUCCESS)
-LONG
-WINAPI
-GetPackageInfo2(
-    _In_ PACKAGE_INFO_REFERENCE packageInfoReference,
-    _In_ const UINT32 flags,
-    _In_ PackagePathType packagePathType,
-    _Inout_ UINT32* bufferLength,
-    _Out_writes_bytes_opt_(*bufferLength) BYTE* buffer,
-    _Out_opt_ UINT32* count
-    );
-
-#endif // NTDDI_VERSION >= NTDDI_WIN10_19H1
+/* ---------------------------------------------------------------- */
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP)
 #pragma endregion

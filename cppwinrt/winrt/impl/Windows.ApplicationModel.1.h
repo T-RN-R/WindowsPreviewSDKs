@@ -169,6 +169,13 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel
         IPackage8(std::nullptr_t = nullptr) noexcept {}
         IPackage8(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
+    struct __declspec(empty_bases) IPackage9 :
+        Windows::Foundation::IInspectable,
+        impl::consume_t<IPackage9>
+    {
+        IPackage9(std::nullptr_t = nullptr) noexcept {}
+        IPackage9(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
     struct __declspec(empty_bases) IPackageCatalog :
         Windows::Foundation::IInspectable,
         impl::consume_t<IPackageCatalog>

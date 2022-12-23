@@ -11213,6 +11213,33 @@ Notes:
 #define STATUS_VRF_VOLATILE_NMI_REGISTERED ((NTSTATUS)0xC0000C0EL)
 
 //
+// MessageId: STATUS_DIF_VOLATILE_PLUGIN_IS_NOT_RUNNING
+//
+// MessageText:
+//
+// Currently no plugin is running.
+//
+#define STATUS_DIF_VOLATILE_PLUGIN_IS_NOT_RUNNING ((NTSTATUS)0xC0000C7CL)
+
+//
+// MessageId: STATUS_DIF_VOLATILE_PLUGIN_CHANGE_NOT_ALLOWED
+//
+// MessageText:
+//
+// Currently running plugin must be removed before applying a new plugin.
+//
+#define STATUS_DIF_VOLATILE_PLUGIN_CHANGE_NOT_ALLOWED ((NTSTATUS)0xC0000C7DL)
+
+//
+// MessageId: STATUS_DIF_VOLATILE_NOT_ALLOWED
+//
+// MessageText:
+//
+// The plugin is not allowed to run in volatile mode.
+//
+#define STATUS_DIF_VOLATILE_NOT_ALLOWED  ((NTSTATUS)0xC0000C7EL)
+
+//
 // MessageId: STATUS_DIF_BINDING_API_NOT_FOUND
 //
 // MessageText:

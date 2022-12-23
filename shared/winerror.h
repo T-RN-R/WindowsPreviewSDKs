@@ -12528,6 +12528,33 @@
 #define ERROR_VRF_VOLATILE_NMI_REGISTERED 3086L
 
 //
+// MessageId: ERROR_DIF_VOLATILE_PLUGIN_IS_NOT_RUNNING
+//
+// MessageText:
+//
+// Currently no plugin is running.
+//
+#define ERROR_DIF_VOLATILE_PLUGIN_IS_NOT_RUNNING 3196L
+
+//
+// MessageId: ERROR_DIF_VOLATILE_PLUGIN_CHANGE_NOT_ALLOWED
+//
+// MessageText:
+//
+// Currently running plugin must be removed before applying a new plugin.
+//
+#define ERROR_DIF_VOLATILE_PLUGIN_CHANGE_NOT_ALLOWED 3197L
+
+//
+// MessageId: ERROR_DIF_VOLATILE_NOT_ALLOWED
+//
+// MessageText:
+//
+// The plugin is not allowed to run in volatile mode.
+//
+#define ERROR_DIF_VOLATILE_NOT_ALLOWED   3198L
+
+//
 // MessageId: ERROR_DIF_BINDING_API_NOT_FOUND
 //
 // MessageText:
@@ -56055,6 +56082,15 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 // The StateRepository cache is not initialized.
 //
 #define STATEREPOSITORY_E_CACHE_NOT_INIITALIZED _HRESULT_TYPEDEF_(0x80670015L)
+
+//
+// MessageId: STATEREPOSITORY_E_DEPENDENCY_NOT_RESOLVED
+//
+// MessageText:
+//
+// Package dependency criteria could not be resolved.
+//
+#define STATEREPOSITORY_E_DEPENDENCY_NOT_RESOLVED _HRESULT_TYPEDEF_(0x80670016L)
 
 //
 // Spaceport errors

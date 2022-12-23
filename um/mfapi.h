@@ -2303,6 +2303,19 @@ DEFINE_GUID(MFAudioFormat_Dolby_AC3, // == MEDIASUBTYPE_DOLBY_AC3 defined in ksu
 0xe06d802c, 0xdb46, 0x11cf, 0xb4, 0xd1, 0x00, 0x80, 0x05f, 0x6c, 0xbb, 0xea);
 DEFINE_GUID(MFAudioFormat_Dolby_DDPlus, // == MEDIASUBTYPE_DOLBY_DDPLUS defined in wmcodecdsp.h
 0xa7fb87af, 0x2d02, 0x42fb, 0xa4, 0xd4, 0x5, 0xcd, 0x93, 0x84, 0x3b, 0xdd);
+
+// {9d8dccc6-d156-4fb8-979c-a85be7d21dfa}
+// This format is used for AC-4 streams that use ac4_syncframe and the optional crc
+// at the end of each frame. The frames might not be aligned with IMFSample boundaries.
+DEFINE_GUID(MFAudioFormat_Dolby_AC4_V1_ES,
+0x9d8dccc6, 0xd156, 0x4fb8, 0x97, 0x9c, 0xa8, 0x5b, 0xe7, 0xd2, 0x1d, 0xfa);
+
+// {7e58c9f9-b070-45f4-8ccd-a99a0417c1ac}
+// This format is used for AC-4 version 2 bit streams (may include Immersive Stereo) that use ac4_syncframe
+// and the optional crc at the end of each frame. The frames might not be aligned with IMFSample boundaries.
+DEFINE_GUID(MFAudioFormat_Dolby_AC4_V2_ES,
+0x7e58c9f9, 0xb070, 0x45f4, 0x8c, 0xcd, 0xa9, 0x9a, 0x04, 0x17, 0xc1, 0xac);
+
 DEFINE_GUID(MFAudioFormat_Vorbis,      // {8D2FD10B-5841-4a6b-8905-588FEC1ADED9}
 0x8D2FD10B, 0x5841, 0x4a6b, 0x89, 0x05, 0x58, 0x8F, 0xEC, 0x1A, 0xDE, 0xD9);
 DEFINE_GUID(MFAudioFormat_DTS_RAW, // == MEDIASUBTYPE_DTS defined in ksuuids.h

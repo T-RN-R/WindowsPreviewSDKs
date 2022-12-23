@@ -2456,6 +2456,7 @@ typedef _Enum_is_bitflag_ enum _SUITE_TYPE {
 #define PRODUCT_XBOX_ERAOS                          0x000000C3
 #define PRODUCT_XBOX_DURANGOHOSTOS                  0x000000C4
 #define PRODUCT_XBOX_SCARLETTHOSTOS                 0x000000C5
+#define PRODUCT_AZURESTACKHCI_SERVER_CORE           0x00000196
 
 #define PRODUCT_UNLICENSED                          0xABCDABCD
 

@@ -648,7 +648,9 @@ typedef struct _WINHTTP_EXTENDED_HEADER
 
 #define WINHTTP_OPTION_SET_GLOBAL_CALLBACK              163
 
-#define WINHTTP_LAST_OPTION                             WINHTTP_OPTION_SET_GLOBAL_CALLBACK
+#define WINHTTP_OPTION_HTTP2_KEEPALIVE                  164
+
+#define WINHTTP_LAST_OPTION                             WINHTTP_OPTION_HTTP2_KEEPALIVE
 
 #define WINHTTP_OPTION_USERNAME                         0x1000
 #define WINHTTP_OPTION_PASSWORD                         0x1001
@@ -1047,6 +1049,14 @@ typedef WINHTTP_STATUS_CALLBACK * LPWINHTTP_STATUS_CALLBACK;
 //
 
 #define WINHTTP_QUERY_FLAG_TRAILERS                0x02000000
+
+//
+// WINHTTP_QUERY_FLAG_WIRE_ENCODING - if this bit is set in the dwInfoLevel parameter
+// of WinHttpQueryHeaders(), then the value of the header will be returned
+// with as it gets encoded when sent over the wire.
+//
+
+#define WINHTTP_QUERY_FLAG_WIRE_ENCODING           0x01000000
 
 
 //
