@@ -467,7 +467,7 @@ PrUserTime equ 00380H
 PrInstrumentationCallback equ 003D8H
 PrMitigationFlags2 equ 009D4H
 KernelProcessObjectLength equ 00438H
-ExecutiveProcessObjectLength equ 00B00H
+ExecutiveProcessObjectLength equ 00B40H
 Win32BatchFlushCallout equ 00007H
 
 ;
@@ -484,9 +484,9 @@ PfBucketShift equ 00030H
 PfBuffer equ 00038H
 PfSegment equ 00040H
 PfAffinity equ 00048H
-PfSource equ 000F8H
-PfStarted equ 000FAH
-ProfileObjectLength equ 00100H
+PfSource equ 00158H
+PfStarted equ 0015AH
+ProfileObjectLength equ 00160H
 
 ;
 ;  Queue Object Structure Offset Definitions
@@ -989,7 +989,7 @@ PcInterruptCount equ 082C0H
 PcDebuggerSavedIRQL equ 082D8H
 PcStartCycles equ 08300H
 RTL_RETPOLINE_STUBS_UNWIND_INFO_MAX_SIZE equ 001F4H
-ProcessorControlRegisterLength equ 020040H
+ProcessorControlRegisterLength equ 02C040H
 
 ;
 ;  Defines kernel process structure
@@ -2047,7 +2047,7 @@ IoInformation equ 00008H
 ;  KAFFINITY_EX size
 ;
 
-AffinityExLength equ 000A8H
+AffinityExLength equ 00108H
 
 ;
 ;  WoW Compatibility mode transition thunk

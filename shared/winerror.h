@@ -6107,6 +6107,15 @@
 #define ERROR_SERVER_TRANSPORT_CONFLICT  816L
 
 //
+// MessageId: ERROR_SECTION_DIRECT_MAP_ONLY
+//
+// MessageText:
+//
+// The section creation request was failed because it would have been satisfied with a direct map and the caller explicitly signified this was not wanted.
+//
+#define ERROR_SECTION_DIRECT_MAP_ONLY    817L
+
+//
 // **** Available SYSTEM error codes ****
 //
 //
@@ -28910,7 +28919,7 @@
 //
 // MessageText:
 //
-// The package deployment failed because its publisher is not in the signed namespace.
+// The package deployment failed because it must allow external content to be deployed with an external location.
 //
 #define ERROR_PACKAGE_EXTERNAL_LOCATION_NOT_ALLOWED 15662L
 

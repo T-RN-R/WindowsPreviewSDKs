@@ -71,6 +71,7 @@ WINRT_EXPORT namespace winrt::Windows::Networking::Connectivity
         RsnaPsk = 8,
         Ihv = 9,
         Wpa3 = 10,
+        Wpa3Enterprise192Bits = 10,
         Wpa3Sae = 11,
         Owe = 12,
     };

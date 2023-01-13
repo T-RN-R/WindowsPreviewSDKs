@@ -19163,7 +19163,12 @@ typedef struct _IMAGE_DEBUG_DIRECTORY {
 #define IMAGE_DEBUG_TYPE_REPRO                  16
 #define IMAGE_DEBUG_TYPE_EX_DLLCHARACTERISTICS  20
 
-#define IMAGE_DLLCHARACTERISTICS_EX_CET_COMPAT  0x1
+#define IMAGE_DLLCHARACTERISTICS_EX_CET_COMPAT                                  0x01
+#define IMAGE_DLLCHARACTERISTICS_EX_CET_COMPAT_STRICT_MODE                      0x02
+#define IMAGE_DLLCHARACTERISTICS_EX_CET_SET_CONTEXT_IP_VALIDATION_RELAXED_MODE  0x04
+#define IMAGE_DLLCHARACTERISTICS_EX_CET_DYNAMIC_APIS_ALLOW_IN_PROC              0x08
+#define IMAGE_DLLCHARACTERISTICS_EX_CET_RESERVED_1                              0x10  // Reserved for CET policy *downgrade* only!
+#define IMAGE_DLLCHARACTERISTICS_EX_CET_RESERVED_2                              0x20  // Reserved for CET policy *downgrade* only!
 
 
 typedef struct _IMAGE_COFF_SYMBOLS_HEADER {
