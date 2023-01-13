@@ -729,6 +729,12 @@ extern "C" {
 #define LOCALE_SSHORTESTPM            0x0000007f   // Shortest PM designator, eg "P"
 #endif
 
+
+#if (NTDDI_VERSION >= NTDDI_WIN10_MN)
+#define LOCALE_IUSEUTF8LEGACYACP     0x00000666   // default ansi code page (use of Unicode is recommended instead)
+#define LOCALE_IUSEUTF8LEGACYOEMCP   0x00000999   // default oem code page (use of Unicode is recommended instead)
+#endif
+
 //
 // DEPRECATED LCTYPEs
 //

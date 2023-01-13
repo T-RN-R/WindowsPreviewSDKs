@@ -111,6 +111,7 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel
     struct IPackage6;
     struct IPackage7;
     struct IPackage8;
+    struct IPackage9;
     struct IPackageCatalog;
     struct IPackageCatalog2;
     struct IPackageCatalog3;
@@ -198,6 +199,7 @@ namespace winrt::impl
     template <> struct category<Windows::ApplicationModel::IPackage6>{ using type = interface_category; };
     template <> struct category<Windows::ApplicationModel::IPackage7>{ using type = interface_category; };
     template <> struct category<Windows::ApplicationModel::IPackage8>{ using type = interface_category; };
+    template <> struct category<Windows::ApplicationModel::IPackage9>{ using type = interface_category; };
     template <> struct category<Windows::ApplicationModel::IPackageCatalog>{ using type = interface_category; };
     template <> struct category<Windows::ApplicationModel::IPackageCatalog2>{ using type = interface_category; };
     template <> struct category<Windows::ApplicationModel::IPackageCatalog3>{ using type = interface_category; };
@@ -329,6 +331,7 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackage6>{ L"Windows.ApplicationModel.IPackage6" };
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackage7>{ L"Windows.ApplicationModel.IPackage7" };
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackage8>{ L"Windows.ApplicationModel.IPackage8" };
+    template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackage9>{ L"Windows.ApplicationModel.IPackage9" };
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageCatalog>{ L"Windows.ApplicationModel.IPackageCatalog" };
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageCatalog2>{ L"Windows.ApplicationModel.IPackageCatalog2" };
     template <> inline constexpr auto& name_v<Windows::ApplicationModel::IPackageCatalog3>{ L"Windows.ApplicationModel.IPackageCatalog3" };
@@ -382,6 +385,7 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::IPackage6>{ 0x8B1AD942,0x12D7,0x4754,{ 0xAE,0x4E,0x63,0x8C,0xBC,0x0E,0x3A,0x2E } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::IPackage7>{ 0x86FF8D31,0xA2E4,0x45E0,{ 0x97,0x32,0x28,0x3A,0x6D,0x88,0xFD,0xE1 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::IPackage8>{ 0x2C584F7B,0xCE2A,0x4BE6,{ 0xA0,0x93,0x77,0xCF,0xBB,0x2A,0x7E,0xA1 } };
+    template <> inline constexpr guid guid_v<Windows::ApplicationModel::IPackage9>{ 0x71C3C2B9,0x9722,0x43D7,{ 0xA4,0x8F,0x77,0xD4,0x3B,0x6F,0x90,0x84 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::IPackageCatalog>{ 0x230A3751,0x9DE3,0x4445,{ 0xBE,0x74,0x91,0xFB,0x32,0x5A,0xBE,0xFE } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::IPackageCatalog2>{ 0x96A60C36,0x8FF7,0x4344,{ 0xB6,0xBF,0xEE,0x64,0xC2,0x20,0x7E,0xD2 } };
     template <> inline constexpr guid guid_v<Windows::ApplicationModel::IPackageCatalog3>{ 0x96DD5C88,0x8837,0x43F9,{ 0x90,0x15,0x03,0x34,0x34,0xBA,0x14,0xF3 } };
@@ -645,6 +649,16 @@ namespace winrt::impl
             virtual int32_t __stdcall GetLogoAsRandomAccessStreamReference(Windows::Foundation::Size, void**) noexcept = 0;
             virtual int32_t __stdcall GetAppListEntries(void**) noexcept = 0;
             virtual int32_t __stdcall get_IsStub(bool*) noexcept = 0;
+        };
+    };
+    template <> struct abi<Windows::ApplicationModel::IPackage9>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall FindHostRuntimeProviders(void**) noexcept = 0;
+            virtual int32_t __stdcall FindHostRuntimeConsumerApps(void**) noexcept = 0;
+            virtual int32_t __stdcall get_IsHostRuntimeProvider(bool*) noexcept = 0;
+            virtual int32_t __stdcall get_IsHostRuntimeConsumer(bool*) noexcept = 0;
         };
     };
     template <> struct abi<Windows::ApplicationModel::IPackageCatalog>
@@ -1175,6 +1189,18 @@ namespace winrt::impl
     template <> struct consume<Windows::ApplicationModel::IPackage8>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_IPackage8<D>;
+    };
+    template <typename D>
+    struct consume_Windows_ApplicationModel_IPackage9
+    {
+        auto FindHostRuntimeProviders() const;
+        auto FindHostRuntimeConsumerApps() const;
+        [[nodiscard]] auto IsHostRuntimeProvider() const;
+        [[nodiscard]] auto IsHostRuntimeConsumer() const;
+    };
+    template <> struct consume<Windows::ApplicationModel::IPackage9>
+    {
+        template <typename D> using type = consume_Windows_ApplicationModel_IPackage9<D>;
     };
     template <typename D>
     struct consume_Windows_ApplicationModel_IPackageCatalog

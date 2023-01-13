@@ -100,7 +100,7 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel
         static auto TryUnlockFeature(param::hstring const& featureId, param::hstring const& token, param::hstring const& attestation);
     };
     struct __declspec(empty_bases) Package : Windows::ApplicationModel::IPackage,
-        impl::require<Package, Windows::ApplicationModel::IPackage2, Windows::ApplicationModel::IPackage3, Windows::ApplicationModel::IPackageWithMetadata, Windows::ApplicationModel::IPackage4, Windows::ApplicationModel::IPackage5, Windows::ApplicationModel::IPackage6, Windows::ApplicationModel::IPackage7, Windows::ApplicationModel::IPackage8>
+        impl::require<Package, Windows::ApplicationModel::IPackage2, Windows::ApplicationModel::IPackage3, Windows::ApplicationModel::IPackageWithMetadata, Windows::ApplicationModel::IPackage4, Windows::ApplicationModel::IPackage5, Windows::ApplicationModel::IPackage6, Windows::ApplicationModel::IPackage7, Windows::ApplicationModel::IPackage8, Windows::ApplicationModel::IPackage9>
     {
         Package(std::nullptr_t) noexcept {}
         Package(void* ptr, take_ownership_from_abi_t) noexcept : Windows::ApplicationModel::IPackage(ptr, take_ownership_from_abi) {}

@@ -208,6 +208,7 @@
 #define PS_MITIGATION_OPTION_RETURN_FLOW_GUARD 0x10
 #define PS_MITIGATION_OPTION_RESTRICT_SET_THREAD_CONTEXT 0x13
 #define PS_MITIGATION_OPTION_CET_USER_SHADOW_STACKS 0x1f
+#define PsneKiUserCallbackDispatcher 0x30
 
 //
 // User Shared Data Structure Offset Definitions
