@@ -4096,8 +4096,8 @@ EXTERN_C const IID IID___x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIUpload
  *
  * RuntimeClass contains static methods.
  *   Static Methods exist on the Windows.Networking.BackgroundTransfer.IBackgroundDownloaderStaticMethods interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.Networking.BackgroundTransfer.IBackgroundDownloaderStaticMethods2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Networking.BackgroundTransfer.IBackgroundDownloaderUserConsent interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Networking.BackgroundTransfer.IBackgroundDownloaderStaticMethods2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Networking.BackgroundTransfer.IBackgroundDownloader ** Default Interface **
@@ -11108,8 +11108,8 @@ EXTERN_C const IID IID___x_ABI_CWindows_CNetworking_CBackgroundTransfer_CIUpload
  *
  * RuntimeClass contains static methods.
  *   Static Methods exist on the Windows.Networking.BackgroundTransfer.IBackgroundDownloaderStaticMethods interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
- *   Static Methods exist on the Windows.Networking.BackgroundTransfer.IBackgroundDownloaderStaticMethods2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Networking.BackgroundTransfer.IBackgroundDownloaderUserConsent interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Networking.BackgroundTransfer.IBackgroundDownloaderStaticMethods2 interface starting with version 1.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Networking.BackgroundTransfer.IBackgroundDownloader ** Default Interface **
