@@ -917,6 +917,7 @@
         <!-- Package Extensions -->
         <xs:enumeration value="windows.errorReporting"/>
         <xs:enumeration value="windows.eventTracing"/>
+        <xs:enumeration value="windows.userMutablePackageDirectories"/>
     </xs:restriction>
   </xs:simpleType>
 

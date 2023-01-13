@@ -4464,7 +4464,7 @@ namespace winrt::impl
         WINRT_IMPL_AUTO(Windows::UI::Composition::AnimationPropertyInfo) CreateAnimationPropertyInfo() const;
         WINRT_IMPL_AUTO(Windows::UI::Composition::RectangleClip) CreateRectangleClip() const;
         WINRT_IMPL_AUTO(Windows::UI::Composition::RectangleClip) CreateRectangleClip(float left, float top, float right, float bottom) const;
-        WINRT_IMPL_AUTO(Windows::UI::Composition::RectangleClip) CreateRectangleClip(float left, float top, float right, float bottom, Windows::Foundation::Numerics::float2 const& topLeftRadius, Windows::Foundation::Numerics::float2 const& topRightRadius, Windows::Foundation::Numerics::float2 const& bottomLeftRadius, Windows::Foundation::Numerics::float2 const& bottomRightRadius) const;
+        WINRT_IMPL_AUTO(Windows::UI::Composition::RectangleClip) CreateRectangleClip(float left, float top, float right, float bottom, Windows::Foundation::Numerics::float2 const& topLeftRadius, Windows::Foundation::Numerics::float2 const& topRightRadius, Windows::Foundation::Numerics::float2 const& bottomRightRadius, Windows::Foundation::Numerics::float2 const& bottomLeftRadius) const;
     };
     template <> struct consume<Windows::UI::Composition::ICompositor7>
     {

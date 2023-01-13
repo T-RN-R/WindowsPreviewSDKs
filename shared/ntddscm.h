@@ -121,6 +121,7 @@ DEFINE_GUID(GUID_SCM_PD_PASSTHROUGH_INVDIMM, 0x4309AC30, 0x0D11, 0x11E4, 0x91, 0
 #define IOCTL_SCM_BUS_GET_PHYSICAL_DEVICES          CTL_CODE(IOCTL_SCMBUS_BASE, SCMBUS_FUNCTION(0x01), METHOD_BUFFERED, FILE_ANY_ACCESS)
 #define IOCTL_SCM_BUS_GET_REGIONS                   CTL_CODE(IOCTL_SCMBUS_BASE, SCMBUS_FUNCTION(0x02), METHOD_BUFFERED, FILE_ANY_ACCESS)
 #define IOCTL_SCM_BUS_QUERY_PROPERTY                CTL_CODE(IOCTL_SCMBUS_BASE, SCMBUS_FUNCTION(0x03), METHOD_BUFFERED, FILE_ANY_ACCESS)
+#define IOCTL_SCM_BUS_SET_PROPERTY                  CTL_CODE(IOCTL_SCMBUS_BASE, SCMBUS_FUNCTION(0x05), METHOD_BUFFERED, FILE_WRITE_ACCESS)
 
 //
 // This IOCTL does not require any input nor produce any output data.
@@ -435,12 +436,51 @@ typedef enum _SCM_BUS_QUERY_TYPE {
     ScmBusQuery_Max
 } SCM_BUS_QUERY_TYPE, *PSCM_BUS_QUERY_TYPE;
 
+
+//
+// IOCTL_SCM_BUS_SET_PROPERTY
+//
+// Input Buffer:
+//      An SCM_BUS_PROPERTY_SET structure that describes the type of set
+//      being done, the property being set, and any additional parameters
+//      the set requires.
+//
+//  Output Buffer:
+//      Contains a buffer to place the results of the set into. Since all
+//      property descriptors can be cast into an SCM_BUS_DESCRIPTOR_HEADER,
+//      the IOCTL can be called once with a small buffer then again using
+//      a buffer as large as the header reports is necessary.
+//
+
+
+//
+// Types of sets
+//
+
+typedef enum _SCM_BUS_SET_TYPE {
+    ScmBusSet_Descriptor = 0, // Retrieves the descriptor
+    ScmBusSet_IsSupported,    // Used to test whether the descriptor is supported
+
+    ScmBusSet_Max
+} SCM_BUS_SET_TYPE, *PSCM_BUS_SET_TYPE;
+
+
 typedef enum _SCM_BUS_PROPERTY_ID {
 
     //
     // Runtime Firmware Activation Information.
     //
     ScmBusProperty_RuntimeFwActivationInfo = 0,
+
+    //
+    // Special Purpose Memory Information.
+    //
+    ScmBusProperty_SpecialPurposeMemoryInfo = 1,
+
+    //
+    // Activate/Deactivate the Special Purpose Memory.
+    //
+    ScmBusProperty_SpecialPurposeMemoryState = 2,
 
     ScmBusProperty_Max
 } SCM_BUS_PROPERTY_ID, *PSCM_BUS_PROPERTY_ID;
@@ -566,6 +606,116 @@ typedef struct _SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
     ULONGLONG PlatformSupportedMaxIOAccessQuiesceTimeInUSecs;
 
 } SCM_BUS_RUNTIME_FW_ACTIVATION_INFO, *PSCM_BUS_RUNTIME_FW_ACTIVATION_INFO;
+
+//
+// Output buffer for ScmBusProperty_SpecialPurposeMemoryInfo
+//
+typedef struct _SCM_BUS_SPECIAL_PURPOSE_DEVICE_INFO {
+
+    //
+    // The special purpose device GUID.
+    //
+    GUID DeviceGuid;
+
+    //
+    // The special purpose device number.
+    //
+    ULONG DeviceNumber;
+
+    struct {
+
+        //
+        // Indicates if the special purpose memory is created by registry settings.
+        //
+        ULONG ForcedSpecialPurposeMemory : 1;
+
+        //
+        // Indicates if the special purpose memory is initialized.
+        //
+        ULONG Initialized : 1;
+
+        ULONG Reserved : 30;
+    } Flags;
+
+    //
+    // The special purpose device size in bytes.
+    //
+    ULONGLONG DeviceSize;
+
+} SCM_BUS_SPECIAL_PURPOSE_DEVICE_INFO, *PSCM_BUS_SPECIAL_PURPOSE_DEVICE_INFO;
+
+typedef struct _SCM_BUS_SPECIAL_PURPOSE_DEVICES_INFO {
+
+    //
+    // Sizeof() of this structure serves as the version.
+    //
+    ULONG Version;
+
+    //
+    // The total size of the data structure, including all the elements in the
+    // Devices array.
+    //
+    ULONG Size;
+
+    //
+    // The number of valid elements in the Devices array.
+    //
+    ULONG DeviceCount;
+
+    //
+    // Array of special purpose device infos.
+    //
+    SCM_BUS_SPECIAL_PURPOSE_DEVICE_INFO Devices[ANYSIZE_ARRAY];
+
+} SCM_BUS_SPECIAL_PURPOSE_DEVICES_INFO, *PSCM_BUS_SPECIAL_PURPOSE_DEVICES_INFO;
+
+
+//
+// Set structure - additional parameters for specific sets can follow
+// the header
+//
+
+typedef struct _SCM_BUS_PROPERTY_SET {
+
+    //
+    // Sizeof() of this structure serves as the version.
+    //
+    ULONG Version;
+
+    //
+    // The size of this structure, including any additional
+    // parameters.
+    //
+    ULONG Size;
+
+    //
+    // ID of the property being set.
+    //
+    SCM_BUS_PROPERTY_ID PropertyId;
+
+    //
+    // The type of set being performed.
+    //
+    SCM_BUS_SET_TYPE SetType;
+
+    //
+    // Space for additional parameters if necessary.
+    //
+    UCHAR AdditionalParameters[ANYSIZE_ARRAY];
+
+} SCM_BUS_PROPERTY_SET, *PSCM_BUS_PROPERTY_SET;
+
+//
+// Input AdditionalParameters for ScmBusProperty_SpecialPurposeMemoryState
+//
+
+typedef struct _SCM_BUS_SPECIAL_PURPOSE_MEMORY_STATE {
+
+    //
+    // Special Purpose Memory state (Deactivate - FALSE, Activate - TRUE).
+    //
+    BOOLEAN ActivateState;
+} SCM_BUS_SPECIAL_PURPOSE_MEMORY_STATE, *PSCM_BUS_SPECIAL_PURPOSE_MEMORY_STATE;
 
 
 //

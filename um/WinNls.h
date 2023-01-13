@@ -723,6 +723,9 @@ extern "C" {
 #if (WINVER >= _WIN32_WINNT_WIN8)
 #define LOCALE_SRELATIVELONGDATE      0x0000007c   // Long date without year, day of week, month, date, eg: for lock screen
 #endif
+#if (WINVER >= _WIN32_WINNT_WINBLUE)
+#define LOCALE_ICONSTRUCTEDLOCALE     0x0000007d   // Flags if this locale is constructed.  Avoid using.
+#endif
 
 #if (WINVER >= _WIN32_WINNT_WIN10)
 #define LOCALE_SSHORTESTAM            0x0000007e   // Shortest AM designator, eg "A"

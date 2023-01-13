@@ -10,8 +10,10 @@
 #pragma once
 #endif // _MSC_VER
 
+// begin_winnt
 #ifndef _APISETRTLSUPPORT_
 #define _APISETRTLSUPPORT_
+// end_winnt
 
 // begin_winnt begin_wdm
 #include <apiset.h>
@@ -92,6 +94,32 @@ RtlCaptureContext2(
 #pragma endregion
 
 // end_ntifs
+
+#if defined (_AMD64_) || defined(_ARM_) || defined(_ARM64_)
+
+//
+// Define unwind history table structure.
+//
+
+#define UNWIND_HISTORY_TABLE_SIZE 12
+
+typedef struct _UNWIND_HISTORY_TABLE_ENTRY {
+    ULONG_PTR ImageBase;
+    PRUNTIME_FUNCTION FunctionEntry;
+} UNWIND_HISTORY_TABLE_ENTRY, *PUNWIND_HISTORY_TABLE_ENTRY;
+
+typedef struct _UNWIND_HISTORY_TABLE {
+    ULONG Count;
+    UCHAR LocalHint;
+    UCHAR GlobalHint;
+    UCHAR Search;
+    UCHAR Once;
+    ULONG_PTR LowAddress;
+    ULONG_PTR HighAddress;
+    UNWIND_HISTORY_TABLE_ENTRY Entry[UNWIND_HISTORY_TABLE_SIZE];
+} UNWIND_HISTORY_TABLE, *PUNWIND_HISTORY_TABLE;
+
+#endif
 
 #pragma region Application or OneCore Family or Games Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
@@ -254,6 +282,17 @@ RtlVirtualUnwind2(
 #endif /* NTDDI_VERSION >= NTDDI_WIN10_FE */
 
 // begin_winnt
+
+#if (NTDDI_VERSION >= NTDDI_WIN10_FE)
+
+NTSYSAPI
+BOOLEAN
+NTAPI
+RtlIsEcCode(
+    _In_ ULONG64 CodePointer
+    );
+
+#endif /* NTDDI_VERSION >= NTDDI_WIN10_FE */
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
@@ -704,4 +743,7 @@ RtlCompareMemory(
 #pragma warning(pop)
 #endif
 
+// begin_winnt
 #endif // _APISETRTLSUPPORT_
+// end_winnt
+

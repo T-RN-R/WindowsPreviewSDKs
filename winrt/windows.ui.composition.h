@@ -10943,8 +10943,8 @@ namespace ABI {
                         FLOAT bottom,
                         ABI::Windows::Foundation::Numerics::Vector2 topLeftRadius,
                         ABI::Windows::Foundation::Numerics::Vector2 topRightRadius,
-                        ABI::Windows::Foundation::Numerics::Vector2 bottomLeftRadius,
                         ABI::Windows::Foundation::Numerics::Vector2 bottomRightRadius,
+                        ABI::Windows::Foundation::Numerics::Vector2 bottomLeftRadius,
                         ABI::Windows::UI::Composition::IRectangleClip** result
                         ) = 0;
                 };
@@ -30181,8 +30181,8 @@ typedef struct __x_ABI_CWindows_CUI_CComposition_CICompositor7Vtbl
         FLOAT bottom,
         struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2 topLeftRadius,
         struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2 topRightRadius,
-        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2 bottomLeftRadius,
         struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2 bottomRightRadius,
+        struct __x_ABI_CWindows_CFoundation_CNumerics_CVector2 bottomLeftRadius,
         __x_ABI_CWindows_CUI_CComposition_CIRectangleClip** result);
 
     END_INTERFACE
@@ -30225,8 +30225,8 @@ interface __x_ABI_CWindows_CUI_CComposition_CICompositor7
 #define __x_ABI_CWindows_CUI_CComposition_CICompositor7_CreateRectangleClipWithSides(This, left, top, right, bottom, result) \
     ((This)->lpVtbl->CreateRectangleClipWithSides(This, left, top, right, bottom, result))
 
-#define __x_ABI_CWindows_CUI_CComposition_CICompositor7_CreateRectangleClipWithSidesAndRadius(This, left, top, right, bottom, topLeftRadius, topRightRadius, bottomLeftRadius, bottomRightRadius, result) \
-    ((This)->lpVtbl->CreateRectangleClipWithSidesAndRadius(This, left, top, right, bottom, topLeftRadius, topRightRadius, bottomLeftRadius, bottomRightRadius, result))
+#define __x_ABI_CWindows_CUI_CComposition_CICompositor7_CreateRectangleClipWithSidesAndRadius(This, left, top, right, bottom, topLeftRadius, topRightRadius, bottomRightRadius, bottomLeftRadius, result) \
+    ((This)->lpVtbl->CreateRectangleClipWithSidesAndRadius(This, left, top, right, bottom, topLeftRadius, topRightRadius, bottomRightRadius, bottomLeftRadius, result))
 
 #endif /* COBJMACROS */
 

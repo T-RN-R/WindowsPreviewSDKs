@@ -7,7 +7,7 @@
 #pragma once
 #endif
 
-#include <windows.ui.composition.h>
+#include <Windows.ui.composition.h>
 #include <sdkddkver.h>
 
 #ifndef BUILD_WINDOWS
@@ -173,8 +173,6 @@ DECLARE_INTERFACE_IID_(IDesktopWindowTargetInterop, IUnknown, "35DBF59E-E3F9-45B
 
 
 } // namespace Desktop
-
-
 
 } // namespace Composition
 } // namespace UI

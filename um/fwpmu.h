@@ -1058,6 +1058,15 @@ DEFINE_GUID(
    0xb1, 0x23, 0x18, 0xbc, 0xd7, 0xe6, 0x50, 0x71
 );
 
+// 1EC6C7E1-FDD9-478A-B55F-FF8BA1D2C17D
+DEFINE_GUID(
+   FWPM_SUBLAYER_MPSSVC_TENANT_RESTRICTIONS,
+   0x1ec6c7e1,
+   0xfdd9,
+   0x478a,
+   0xb5, 0x5f, 0xff, 0x8b, 0xa1, 0xd2, 0xc1, 0x7d
+);
+
 #endif // (NTDDI_VERSION >= NTDDI_WIN8)
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -2446,6 +2455,15 @@ DEFINE_GUID(
    0x46b8,
    0x4457,
    0x8f, 0x84, 0xb0, 0x5e, 0x05, 0xd3, 0xc6, 0x22
+);
+
+// d0718ff9-44da-4f50-9dc2-c963a4247613
+DEFINE_GUID(
+   FWPM_PROVIDER_MPSSVC_TENANT_RESTRICTIONS,
+   0xd0718ff9,
+   0x44da,
+   0x4f50,
+   0x9d, 0xc2, 0xc9, 0x63, 0xa4, 0x24, 0x76, 0x13
 );
 #endif // (NTDDI_VERSION >= NTDDI_WIN8)
 
@@ -5043,6 +5061,38 @@ FwpmNetEventSubscribe4(
    _Out_ HANDLE* eventsHandle
    );
 
+#endif // (NTDDI_VERSION >= NTDDI_WIN10_RS5)
+
+
+#if (NTDDI_VERSION >= NTDDI_WIN10_RS5)
+///////////////////////////////////////////////////////////////////////////////
+//
+// Functions for Tracking Dynamic Keyword Changes
+//
+///////////////////////////////////////////////////////////////////////////////
+#define FWPM_NOTIFY_ADDRESSES_AUTO_RESOLVE 0x01ui64
+#define FWPM_NOTIFY_ADDRESSES_NON_AUTO_RESOLVE 0x02ui64
+#define FWPM_NOTIFY_GRANULAR 0x04ui64
+
+typedef void (CALLBACK *FWPM_DYNAMIC_KEYWORD_CALLBACK0)(
+                           _Inout_ void* notification,
+                           _Inout_ void* context
+                           );
+
+DWORD
+WINAPI
+FwpmDynamicKeywordSubscribe0(
+   _In_ DWORD flags,
+   _In_ FWPM_DYNAMIC_KEYWORD_CALLBACK0 callback,
+   _In_opt_ void* context,
+   _Out_ HANDLE* subscriptionHandle
+   );
+
+DWORD
+WINAPI
+FwpmDynamicKeywordUnsubscribe0(
+   _Inout_ HANDLE subscriptionHandle
+   );
 #endif // (NTDDI_VERSION >= NTDDI_WIN10_RS5)
 
 

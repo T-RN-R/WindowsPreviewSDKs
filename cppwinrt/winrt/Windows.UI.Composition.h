@@ -2360,10 +2360,10 @@ namespace winrt::impl
         check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor7)->CreateRectangleClipWithSides(left, top, right, bottom, &result));
         return Windows::UI::Composition::RectangleClip{ result, take_ownership_from_abi };
     }
-    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::RectangleClip) consume_Windows_UI_Composition_ICompositor7<D>::CreateRectangleClip(float left, float top, float right, float bottom, Windows::Foundation::Numerics::float2 const& topLeftRadius, Windows::Foundation::Numerics::float2 const& topRightRadius, Windows::Foundation::Numerics::float2 const& bottomLeftRadius, Windows::Foundation::Numerics::float2 const& bottomRightRadius) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::UI::Composition::RectangleClip) consume_Windows_UI_Composition_ICompositor7<D>::CreateRectangleClip(float left, float top, float right, float bottom, Windows::Foundation::Numerics::float2 const& topLeftRadius, Windows::Foundation::Numerics::float2 const& topRightRadius, Windows::Foundation::Numerics::float2 const& bottomRightRadius, Windows::Foundation::Numerics::float2 const& bottomLeftRadius) const
     {
         void* result{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor7)->CreateRectangleClipWithSidesAndRadius(left, top, right, bottom, impl::bind_in(topLeftRadius), impl::bind_in(topRightRadius), impl::bind_in(bottomLeftRadius), impl::bind_in(bottomRightRadius), &result));
+        check_hresult(WINRT_IMPL_SHIM(Windows::UI::Composition::ICompositor7)->CreateRectangleClipWithSidesAndRadius(left, top, right, bottom, impl::bind_in(topLeftRadius), impl::bind_in(topRightRadius), impl::bind_in(bottomRightRadius), impl::bind_in(bottomLeftRadius), &result));
         return Windows::UI::Composition::RectangleClip{ result, take_ownership_from_abi };
     }
     template <typename D> WINRT_IMPL_AUTO(float) consume_Windows_UI_Composition_ICompositorStatics<D>::MaxGlobalPlaybackRate() const
@@ -7635,11 +7635,11 @@ namespace winrt::impl
             return 0;
         }
         catch (...) { return to_hresult(); }
-        int32_t __stdcall CreateRectangleClipWithSidesAndRadius(float left, float top, float right, float bottom, Windows::Foundation::Numerics::float2 topLeftRadius, Windows::Foundation::Numerics::float2 topRightRadius, Windows::Foundation::Numerics::float2 bottomLeftRadius, Windows::Foundation::Numerics::float2 bottomRightRadius, void** result) noexcept final try
+        int32_t __stdcall CreateRectangleClipWithSidesAndRadius(float left, float top, float right, float bottom, Windows::Foundation::Numerics::float2 topLeftRadius, Windows::Foundation::Numerics::float2 topRightRadius, Windows::Foundation::Numerics::float2 bottomRightRadius, Windows::Foundation::Numerics::float2 bottomLeftRadius, void** result) noexcept final try
         {
             clear_abi(result);
             typename D::abi_guard guard(this->shim());
-            *result = detach_from<Windows::UI::Composition::RectangleClip>(this->shim().CreateRectangleClip(left, top, right, bottom, *reinterpret_cast<Windows::Foundation::Numerics::float2 const*>(&topLeftRadius), *reinterpret_cast<Windows::Foundation::Numerics::float2 const*>(&topRightRadius), *reinterpret_cast<Windows::Foundation::Numerics::float2 const*>(&bottomLeftRadius), *reinterpret_cast<Windows::Foundation::Numerics::float2 const*>(&bottomRightRadius)));
+            *result = detach_from<Windows::UI::Composition::RectangleClip>(this->shim().CreateRectangleClip(left, top, right, bottom, *reinterpret_cast<Windows::Foundation::Numerics::float2 const*>(&topLeftRadius), *reinterpret_cast<Windows::Foundation::Numerics::float2 const*>(&topRightRadius), *reinterpret_cast<Windows::Foundation::Numerics::float2 const*>(&bottomRightRadius), *reinterpret_cast<Windows::Foundation::Numerics::float2 const*>(&bottomLeftRadius)));
             return 0;
         }
         catch (...) { return to_hresult(); }

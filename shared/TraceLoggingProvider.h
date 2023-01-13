@@ -3907,7 +3907,7 @@ Note: Using pragma(comment /include AnnotationFunction) to ensure the
 annotation is included into the PDB. Alternative would be taking the
 function's address, but that interferes with control flow graph data.
 */
-#if defined(_M_HYBRID)
+#if defined(_M_HYBRID) || defined(_M_ARM64EC)
 #define _tlgAnnotationFunc_imp1(storageVariable) __pragma(comment(linker, "/include:#" _tlg_STRINGIZE(_tlg_PASTE2(_tlgDefineProvider_annotation_, storageVariable)))) //
 #elif defined(_M_IX86) || defined(_X86_) // x86 requires leading underscore
 #define _tlgAnnotationFunc_imp1(storageVariable) __pragma(comment(linker, "/include:_" _tlg_STRINGIZE(_tlg_PASTE2(_tlgDefineProvider_annotation_, storageVariable))))

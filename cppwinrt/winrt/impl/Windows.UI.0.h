@@ -19,6 +19,7 @@ WINRT_EXPORT namespace winrt::Windows::UI
     struct UIContentRoot;
     struct UIContext;
     struct Color;
+    struct WindowId;
 }
 namespace winrt::impl
 {
@@ -34,11 +35,13 @@ namespace winrt::impl
     template <> struct category<Windows::UI::UIContentRoot>{ using type = class_category; };
     template <> struct category<Windows::UI::UIContext>{ using type = class_category; };
     template <> struct category<Windows::UI::Color>{ using type = struct_category<uint8_t, uint8_t, uint8_t, uint8_t>; };
+    template <> struct category<Windows::UI::WindowId>{ using type = struct_category<uint64_t>; };
     template <> inline constexpr auto& name_v<Windows::UI::ColorHelper> = L"Windows.UI.ColorHelper";
     template <> inline constexpr auto& name_v<Windows::UI::Colors> = L"Windows.UI.Colors";
     template <> inline constexpr auto& name_v<Windows::UI::UIContentRoot> = L"Windows.UI.UIContentRoot";
     template <> inline constexpr auto& name_v<Windows::UI::UIContext> = L"Windows.UI.UIContext";
     template <> inline constexpr auto& name_v<Windows::UI::Color> = L"Windows.UI.Color";
+    template <> inline constexpr auto& name_v<Windows::UI::WindowId> = L"Windows.UI.WindowId";
     template <> inline constexpr auto& name_v<Windows::UI::IColorHelper> = L"Windows.UI.IColorHelper";
     template <> inline constexpr auto& name_v<Windows::UI::IColorHelperStatics> = L"Windows.UI.IColorHelperStatics";
     template <> inline constexpr auto& name_v<Windows::UI::IColorHelperStatics2> = L"Windows.UI.IColorHelperStatics2";
@@ -453,6 +456,14 @@ namespace winrt::impl
     template <> struct abi<Windows::UI::Color>
     {
         using type = struct_Windows_UI_Color;
+    };
+    struct struct_Windows_UI_WindowId
+    {
+        uint64_t Value;
+    };
+    template <> struct abi<Windows::UI::WindowId>
+    {
+        using type = struct_Windows_UI_WindowId;
     };
 }
 #endif

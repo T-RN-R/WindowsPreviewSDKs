@@ -86,10 +86,10 @@ namespace winrt::impl
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironment2)->PostMessageToReceiverWithTelemetryAsync(impl::bind_in(receiverId), *(void**)(&message), *(void**)(&telemetryParameters), &operation));
         return Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageResult>{ operation, take_ownership_from_abi };
     }
-    template <typename D> WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentUserInfo) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment3<D>::GetIsolatedWindowsEnvironmentUserInfo() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentUserInfo) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment3<D>::GetUserInfo() const
     {
         void* result{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironment3)->GetIsolatedWindowsEnvironmentUserInfo(&result));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironment3)->GetUserInfo(&result));
         return Windows::Security::Isolation::IsolatedWindowsEnvironmentUserInfo{ result, take_ownership_from_abi };
     }
     template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileResult>) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment3<D>::ShareFileAsync(param::hstring const& filePath, Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileRequestOptions const& options) const
@@ -162,10 +162,10 @@ namespace winrt::impl
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile)->Close());
     }
-    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentFile2<D>::ContainerPath() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentFile2<D>::GuestPath() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile2)->get_ContainerPath(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile2)->get_GuestPath(&value));
         return hstring{ value, take_ownership_from_abi };
     }
     template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentFile2<D>::IsReadOnly() const
@@ -289,16 +289,6 @@ namespace winrt::impl
     template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions<D>::AllowCameraAndMicrophoneAccess(bool value) const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions)->put_AllowCameraAndMicrophoneAccess(value));
-    }
-    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions2<D>::WindowAnnotationOverride() const
-    {
-        void* value{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions2)->get_WindowAnnotationOverride(&value));
-        return hstring{ value, take_ownership_from_abi };
-    }
-    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOptions2<D>::WindowAnnotationOverride(param::hstring const& value) const
-    {
-        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions2)->put_WindowAnnotationOverride(*(void**)(&value)));
     }
     template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::Collections::IVector<hstring>) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentOwnerRegistrationData<D>::ShareableFolders() const
     {
@@ -462,33 +452,23 @@ namespace winrt::impl
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentTelemetryParameters)->put_CorrelationId(impl::bind_in(value)));
     }
-    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentUserInfo<D>::EnvironmentUserSID() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentUserInfo<D>::EnvironmentUserSid() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentUserInfo)->get_EnvironmentUserSID(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentUserInfo)->get_EnvironmentUserSid(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentUserInfo<D>::EnvironmentUsername() const
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentUserInfo<D>::EnvironmentUserName() const
     {
         void* value{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentUserInfo)->get_EnvironmentUsername(&value));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentUserInfo)->get_EnvironmentUserName(&value));
         return hstring{ value, take_ownership_from_abi };
     }
-    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentUserInfo<D>::IsLoginComplete() const
-    {
-        bool value{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentUserInfo)->get_IsLoginComplete(&value));
-        return value;
-    }
-    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentUserInfo<D>::WaitForLogin() const
-    {
-        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentUserInfo)->WaitForLogin());
-    }
-    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentUserInfo<D>::WaitForLoginAsync() const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<bool>) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentUserInfo<D>::TryWaitForLogonAsync() const
     {
         void* operation{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentUserInfo)->WaitForLoginAsync(&operation));
-        return Windows::Foundation::IAsyncAction{ operation, take_ownership_from_abi };
+        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentUserInfo)->TryWaitForLogonAsync(&operation));
+        return Windows::Foundation::IAsyncOperation<bool>{ operation, take_ownership_from_abi };
     }
     template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsHostMessengerStatics<D>::PostMessageToReceiver(winrt::guid const& receiverId, param::vector_view<Windows::Foundation::IInspectable> const& message) const
     {
@@ -648,11 +628,11 @@ namespace winrt::impl
     template <typename D>
     struct produce<D, Windows::Security::Isolation::IIsolatedWindowsEnvironment3> : produce_base<D, Windows::Security::Isolation::IIsolatedWindowsEnvironment3>
     {
-        int32_t __stdcall GetIsolatedWindowsEnvironmentUserInfo(void** result) noexcept final try
+        int32_t __stdcall GetUserInfo(void** result) noexcept final try
         {
             clear_abi(result);
             typename D::abi_guard guard(this->shim());
-            *result = detach_from<Windows::Security::Isolation::IsolatedWindowsEnvironmentUserInfo>(this->shim().GetIsolatedWindowsEnvironmentUserInfo());
+            *result = detach_from<Windows::Security::Isolation::IsolatedWindowsEnvironmentUserInfo>(this->shim().GetUserInfo());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -773,11 +753,11 @@ namespace winrt::impl
     template <typename D>
     struct produce<D, Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile2> : produce_base<D, Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile2>
     {
-        int32_t __stdcall get_ContainerPath(void** value) noexcept final try
+        int32_t __stdcall get_GuestPath(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<hstring>(this->shim().ContainerPath());
+            *value = detach_from<hstring>(this->shim().GuestPath());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -963,27 +943,6 @@ namespace winrt::impl
         {
             typename D::abi_guard guard(this->shim());
             this->shim().AllowCameraAndMicrophoneAccess(value);
-            return 0;
-        }
-        catch (...) { return to_hresult(); }
-    };
-#endif
-#ifndef WINRT_LEAN_AND_MEAN
-    template <typename D>
-    struct produce<D, Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions2> : produce_base<D, Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions2>
-    {
-        int32_t __stdcall get_WindowAnnotationOverride(void** value) noexcept final try
-        {
-            clear_abi(value);
-            typename D::abi_guard guard(this->shim());
-            *value = detach_from<hstring>(this->shim().WindowAnnotationOverride());
-            return 0;
-        }
-        catch (...) { return to_hresult(); }
-        int32_t __stdcall put_WindowAnnotationOverride(void* value) noexcept final try
-        {
-            typename D::abi_guard guard(this->shim());
-            this->shim().WindowAnnotationOverride(*reinterpret_cast<hstring const*>(&value));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1275,41 +1234,27 @@ namespace winrt::impl
     template <typename D>
     struct produce<D, Windows::Security::Isolation::IIsolatedWindowsEnvironmentUserInfo> : produce_base<D, Windows::Security::Isolation::IIsolatedWindowsEnvironmentUserInfo>
     {
-        int32_t __stdcall get_EnvironmentUserSID(void** value) noexcept final try
+        int32_t __stdcall get_EnvironmentUserSid(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<hstring>(this->shim().EnvironmentUserSID());
+            *value = detach_from<hstring>(this->shim().EnvironmentUserSid());
             return 0;
         }
         catch (...) { return to_hresult(); }
-        int32_t __stdcall get_EnvironmentUsername(void** value) noexcept final try
+        int32_t __stdcall get_EnvironmentUserName(void** value) noexcept final try
         {
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
-            *value = detach_from<hstring>(this->shim().EnvironmentUsername());
+            *value = detach_from<hstring>(this->shim().EnvironmentUserName());
             return 0;
         }
         catch (...) { return to_hresult(); }
-        int32_t __stdcall get_IsLoginComplete(bool* value) noexcept final try
-        {
-            typename D::abi_guard guard(this->shim());
-            *value = detach_from<bool>(this->shim().IsLoginComplete());
-            return 0;
-        }
-        catch (...) { return to_hresult(); }
-        int32_t __stdcall WaitForLogin() noexcept final try
-        {
-            typename D::abi_guard guard(this->shim());
-            this->shim().WaitForLogin();
-            return 0;
-        }
-        catch (...) { return to_hresult(); }
-        int32_t __stdcall WaitForLoginAsync(void** operation) noexcept final try
+        int32_t __stdcall TryWaitForLogonAsync(void** operation) noexcept final try
         {
             clear_abi(operation);
             typename D::abi_guard guard(this->shim());
-            *operation = detach_from<Windows::Foundation::IAsyncAction>(this->shim().WaitForLoginAsync());
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<bool>>(this->shim().TryWaitForLogonAsync());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1581,7 +1526,6 @@ namespace std
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentHostStatics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentLaunchFileResult> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions> : winrt::impl::hash_base {};
-    template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationData> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationResult> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationStatics> : winrt::impl::hash_base {};

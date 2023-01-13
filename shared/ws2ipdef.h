@@ -161,7 +161,8 @@ typedef enum _PMTUD_STATE {
 #define IP_RECVTCLASS             40 // Receive packet traffic class.
 #define IP_RECVTOS                40 // Receive packet Type Of Service (TOS).
 #define IP_ORIGINAL_ARRIVAL_IF    47 // Original Arrival Interface Index.
-#define IP_ECN                    50 // Receive ECN codepoints in the IP header.
+#define IP_ECN                    50 // IP ECN codepoint.
+#define IP_RECVECN                50 // Receive ECN codepoints in the IP header.
 #define IP_PKTINFO_EX             51 // Receive extended packet information.
 #define IP_WFP_REDIRECT_RECORDS   60 // WFP's Connection Redirect Records.
 #define IP_WFP_REDIRECT_CONTEXT   70 // WFP's Connection Redirect Context.
@@ -798,7 +799,8 @@ typedef struct ip_msfilter {
 #define IPV6_RECVRTHDR        38 // Receive the routing header.
 #define IPV6_TCLASS           39 // Packet traffic class.
 #define IPV6_RECVTCLASS       40 // Receive packet traffic class.
-#define IPV6_ECN              50 // Receive ECN codepoints in the IP header.
+#define IPV6_ECN              50 // IPv6 ECN codepoint.
+#define IPV6_RECVECN          50 // Receive ECN codepoints in the IPv6 header.
 #define IPV6_PKTINFO_EX       51 // Receive extended packet information.
 #define IPV6_WFP_REDIRECT_RECORDS   60 // WFP's Connection Redirect Records
 #define IPV6_WFP_REDIRECT_CONTEXT   70 // WFP's Connection Redirect Context
