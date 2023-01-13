@@ -66,6 +66,7 @@ WINRT_EXPORT namespace winrt::Windows::Security::Isolation
         EnvironmentUnavailable = 2,
         FileNotFound = 3,
         TimedOut = 4,
+        SharedWithWrongAttribute = 5,
     };
     enum class IsolatedWindowsEnvironmentOwnerRegistrationStatus : int32_t
     {
@@ -93,6 +94,15 @@ WINRT_EXPORT namespace winrt::Windows::Security::Isolation
         Processing = 1,
         Completed = 2,
     };
+    enum class IsolatedWindowsEnvironmentShareFileStatus : int32_t
+    {
+        Success = 0,
+        UnknownFailure = 1,
+        EnvironmentUnavailable = 2,
+        SharedWithWrongAttribute = 3,
+        FileNotFound = 4,
+        AccessDenied = 5,
+    };
     enum class IsolatedWindowsEnvironmentShareFolderStatus : int32_t
     {
         Success = 0,
@@ -115,6 +125,7 @@ WINRT_EXPORT namespace winrt::Windows::Security::Isolation
     struct IIsolatedWindowsEnvironmentCreateResult;
     struct IIsolatedWindowsEnvironmentFactory;
     struct IIsolatedWindowsEnvironmentFile;
+    struct IIsolatedWindowsEnvironmentFile2;
     struct IIsolatedWindowsEnvironmentHostStatics;
     struct IIsolatedWindowsEnvironmentLaunchFileResult;
     struct IIsolatedWindowsEnvironmentOptions;
@@ -124,6 +135,8 @@ WINRT_EXPORT namespace winrt::Windows::Security::Isolation
     struct IIsolatedWindowsEnvironmentOwnerRegistrationStatics;
     struct IIsolatedWindowsEnvironmentPostMessageResult;
     struct IIsolatedWindowsEnvironmentProcess;
+    struct IIsolatedWindowsEnvironmentShareFileRequestOptions;
+    struct IIsolatedWindowsEnvironmentShareFileResult;
     struct IIsolatedWindowsEnvironmentShareFolderRequestOptions;
     struct IIsolatedWindowsEnvironmentShareFolderResult;
     struct IIsolatedWindowsEnvironmentStartProcessResult;
@@ -142,6 +155,8 @@ WINRT_EXPORT namespace winrt::Windows::Security::Isolation
     struct IsolatedWindowsEnvironmentOwnerRegistrationResult;
     struct IsolatedWindowsEnvironmentPostMessageResult;
     struct IsolatedWindowsEnvironmentProcess;
+    struct IsolatedWindowsEnvironmentShareFileRequestOptions;
+    struct IsolatedWindowsEnvironmentShareFileResult;
     struct IsolatedWindowsEnvironmentShareFolderRequestOptions;
     struct IsolatedWindowsEnvironmentShareFolderResult;
     struct IsolatedWindowsEnvironmentStartProcessResult;
@@ -160,6 +175,7 @@ namespace winrt::impl
     template <> struct category<Windows::Security::Isolation::IIsolatedWindowsEnvironmentCreateResult>{ using type = interface_category; };
     template <> struct category<Windows::Security::Isolation::IIsolatedWindowsEnvironmentFactory>{ using type = interface_category; };
     template <> struct category<Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile2>{ using type = interface_category; };
     template <> struct category<Windows::Security::Isolation::IIsolatedWindowsEnvironmentHostStatics>{ using type = interface_category; };
     template <> struct category<Windows::Security::Isolation::IIsolatedWindowsEnvironmentLaunchFileResult>{ using type = interface_category; };
     template <> struct category<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions>{ using type = interface_category; };
@@ -169,6 +185,8 @@ namespace winrt::impl
     template <> struct category<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationStatics>{ using type = interface_category; };
     template <> struct category<Windows::Security::Isolation::IIsolatedWindowsEnvironmentPostMessageResult>{ using type = interface_category; };
     template <> struct category<Windows::Security::Isolation::IIsolatedWindowsEnvironmentProcess>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFileRequestOptions>{ using type = interface_category; };
+    template <> struct category<Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFileResult>{ using type = interface_category; };
     template <> struct category<Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFolderRequestOptions>{ using type = interface_category; };
     template <> struct category<Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFolderResult>{ using type = interface_category; };
     template <> struct category<Windows::Security::Isolation::IIsolatedWindowsEnvironmentStartProcessResult>{ using type = interface_category; };
@@ -187,6 +205,8 @@ namespace winrt::impl
     template <> struct category<Windows::Security::Isolation::IsolatedWindowsEnvironmentOwnerRegistrationResult>{ using type = class_category; };
     template <> struct category<Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageResult>{ using type = class_category; };
     template <> struct category<Windows::Security::Isolation::IsolatedWindowsEnvironmentProcess>{ using type = class_category; };
+    template <> struct category<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileRequestOptions>{ using type = class_category; };
+    template <> struct category<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileResult>{ using type = class_category; };
     template <> struct category<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderRequestOptions>{ using type = class_category; };
     template <> struct category<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderResult>{ using type = class_category; };
     template <> struct category<Windows::Security::Isolation::IsolatedWindowsEnvironmentStartProcessResult>{ using type = class_category; };
@@ -204,6 +224,7 @@ namespace winrt::impl
     template <> struct category<Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageStatus>{ using type = enum_category; };
     template <> struct category<Windows::Security::Isolation::IsolatedWindowsEnvironmentProcessState>{ using type = enum_category; };
     template <> struct category<Windows::Security::Isolation::IsolatedWindowsEnvironmentProgressState>{ using type = enum_category; };
+    template <> struct category<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileStatus>{ using type = enum_category; };
     template <> struct category<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderStatus>{ using type = enum_category; };
     template <> struct category<Windows::Security::Isolation::IsolatedWindowsEnvironmentStartProcessStatus>{ using type = enum_category; };
     template <> struct category<Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateProgress>{ using type = struct_category<Windows::Security::Isolation::IsolatedWindowsEnvironmentProgressState, uint32_t>; };
@@ -220,6 +241,8 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentOwnerRegistrationResult> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationResult";
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageResult> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageResult";
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentProcess> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentProcess";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileRequestOptions> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileRequestOptions";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileResult> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileResult";
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderRequestOptions> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderRequestOptions";
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderResult> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderResult";
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentStartProcessResult> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentStartProcessResult";
@@ -237,6 +260,7 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageStatus> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageStatus";
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentProcessState> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentProcessState";
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentProgressState> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentProgressState";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileStatus> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileStatus";
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderStatus> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderStatus";
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentStartProcessStatus> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentStartProcessStatus";
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateProgress> = L"Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateProgress";
@@ -246,6 +270,7 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentCreateResult> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentCreateResult";
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentFactory> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentFactory";
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentFile";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile2> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentFile2";
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentHostStatics> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentHostStatics";
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentLaunchFileResult> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentLaunchFileResult";
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOptions";
@@ -255,6 +280,8 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationStatics> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentOwnerRegistrationStatics";
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentPostMessageResult> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentPostMessageResult";
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentProcess> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentProcess";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFileRequestOptions> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFileRequestOptions";
+    template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFileResult> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFileResult";
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFolderRequestOptions> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFolderRequestOptions";
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFolderResult> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentShareFolderResult";
     template <> inline constexpr auto& name_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentStartProcessResult> = L"Windows.Security.Isolation.IIsolatedWindowsEnvironmentStartProcessResult";
@@ -270,6 +297,7 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentCreateResult>{ 0xEF9A5E58,0xDCD7,0x45C2,{ 0x9C,0x85,0xAB,0x64,0x2A,0x71,0x5E,0x8E } }; // EF9A5E58-DCD7-45C2-9C85-AB642A715E8E
     template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentFactory>{ 0x1ACA93E7,0xE804,0x454D,{ 0x84,0x66,0xF9,0x89,0x7C,0x20,0xB0,0xF6 } }; // 1ACA93E7-E804-454D-8466-F9897C20B0F6
     template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile>{ 0x4D5AE1EF,0x029F,0x4101,{ 0x8C,0x35,0xFE,0x91,0xBF,0x9C,0xD5,0xF0 } }; // 4D5AE1EF-029F-4101-8C35-FE91BF9CD5F0
+    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile2>{ 0x4EEB8DEC,0xAD5D,0x4B0A,{ 0xB7,0x54,0xF3,0x6C,0x3D,0x46,0xD6,0x84 } }; // 4EEB8DEC-AD5D-4B0A-B754-F36C3D46D684
     template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentHostStatics>{ 0x2C0E22C7,0x05A0,0x517A,{ 0xB8,0x1C,0x6E,0xE8,0x79,0x0C,0x38,0x1F } }; // 2C0E22C7-05A0-517A-B81C-6EE8790C381F
     template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentLaunchFileResult>{ 0x685D4176,0xF6E0,0x4569,{ 0xB1,0xAA,0x21,0x5C,0x0F,0xF5,0xB2,0x57 } }; // 685D4176-F6E0-4569-B1AA-215C0FF5B257
     template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions>{ 0xB71D98F7,0x61F0,0x4008,{ 0xB2,0x07,0x0B,0xF9,0xEB,0x2D,0x76,0xF2 } }; // B71D98F7-61F0-4008-B207-0BF9EB2D76F2
@@ -279,6 +307,8 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationStatics>{ 0x10951754,0x204B,0x5EC9,{ 0x9D,0xE3,0xDF,0x79,0x2D,0x07,0x4A,0x61 } }; // 10951754-204B-5EC9-9DE3-DF792D074A61
     template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentPostMessageResult>{ 0x0DFA28FA,0x2EF0,0x4D8F,{ 0xB3,0x41,0x31,0x71,0xB2,0xDF,0x93,0xB1 } }; // 0DFA28FA-2EF0-4D8F-B341-3171B2DF93B1
     template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentProcess>{ 0xA858C3EF,0x8172,0x4F10,{ 0xAF,0x93,0xCB,0xE6,0x0A,0xF8,0x8D,0x09 } }; // A858C3EF-8172-4F10-AF93-CBE60AF88D09
+    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFileRequestOptions>{ 0xC9190ED8,0x0FD0,0x4946,{ 0xBB,0x88,0x11,0x7A,0x60,0x73,0x7B,0x61 } }; // C9190ED8-0FD0-4946-BB88-117A60737B61
+    template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFileResult>{ 0xAEC7CAA7,0x9AC6,0x4BF5,{ 0x8B,0x91,0x5C,0x1A,0xDF,0x0D,0x7D,0x00 } }; // AEC7CAA7-9AC6-4BF5-8B91-5C1ADF0D7D00
     template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFolderRequestOptions>{ 0xC405EB7D,0x7053,0x4F6A,{ 0x9B,0x87,0x74,0x68,0x46,0xED,0x19,0xB2 } }; // C405EB7D-7053-4F6A-9B87-746846ED19B2
     template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFolderResult>{ 0x556BA72E,0xCA9D,0x4211,{ 0xB1,0x43,0x1C,0xED,0xC8,0x6E,0xB2,0xFE } }; // 556BA72E-CA9D-4211-B143-1CEDC86EB2FE
     template <> inline constexpr guid guid_v<Windows::Security::Isolation::IIsolatedWindowsEnvironmentStartProcessResult>{ 0x8FA1DC2F,0x57DA,0x4BB5,{ 0x9C,0x06,0xFA,0x07,0x2D,0x20,0x32,0xE2 } }; // 8FA1DC2F-57DA-4BB5-9C06-FA072D2032E2
@@ -297,6 +327,8 @@ namespace winrt::impl
     template <> struct default_interface<Windows::Security::Isolation::IsolatedWindowsEnvironmentOwnerRegistrationResult>{ using type = Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationResult; };
     template <> struct default_interface<Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageResult>{ using type = Windows::Security::Isolation::IIsolatedWindowsEnvironmentPostMessageResult; };
     template <> struct default_interface<Windows::Security::Isolation::IsolatedWindowsEnvironmentProcess>{ using type = Windows::Security::Isolation::IIsolatedWindowsEnvironmentProcess; };
+    template <> struct default_interface<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileRequestOptions>{ using type = Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFileRequestOptions; };
+    template <> struct default_interface<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileResult>{ using type = Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFileResult; };
     template <> struct default_interface<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderRequestOptions>{ using type = Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFolderRequestOptions; };
     template <> struct default_interface<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderResult>{ using type = Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFolderResult; };
     template <> struct default_interface<Windows::Security::Isolation::IsolatedWindowsEnvironmentStartProcessResult>{ using type = Windows::Security::Isolation::IIsolatedWindowsEnvironmentStartProcessResult; };
@@ -332,6 +364,8 @@ namespace winrt::impl
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall GetIsolatedWindowsEnvironmentUserInfo(void**) noexcept = 0;
+            virtual int32_t __stdcall ShareFileAsync(void*, void*, void**) noexcept = 0;
+            virtual int32_t __stdcall ShareFileWithTelemetryAsync(void*, void*, void*, void**) noexcept = 0;
         };
     };
     template <> struct abi<Windows::Security::Isolation::IIsolatedWindowsEnvironmentCreateResult>
@@ -360,6 +394,14 @@ namespace winrt::impl
             virtual int32_t __stdcall get_Id(winrt::guid*) noexcept = 0;
             virtual int32_t __stdcall get_HostPath(void**) noexcept = 0;
             virtual int32_t __stdcall Close() noexcept = 0;
+        };
+    };
+    template <> struct abi<Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile2>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall get_ContainerPath(void**) noexcept = 0;
+            virtual int32_t __stdcall get_IsReadOnly(bool*) noexcept = 0;
         };
     };
     template <> struct abi<Windows::Security::Isolation::IIsolatedWindowsEnvironmentHostStatics>
@@ -455,6 +497,23 @@ namespace winrt::impl
             virtual int32_t __stdcall WaitForExitAsync(void**) noexcept = 0;
         };
     };
+    template <> struct abi<Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFileRequestOptions>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall get_AllowWrite(bool*) noexcept = 0;
+            virtual int32_t __stdcall put_AllowWrite(bool) noexcept = 0;
+        };
+    };
+    template <> struct abi<Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFileResult>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall get_Status(int32_t*) noexcept = 0;
+            virtual int32_t __stdcall get_ExtendedError(winrt::hresult*) noexcept = 0;
+            virtual int32_t __stdcall get_File(void**) noexcept = 0;
+        };
+    };
     template <> struct abi<Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFolderRequestOptions>
     {
         struct __declspec(novtable) type : inspectable_abi
@@ -494,6 +553,9 @@ namespace winrt::impl
         {
             virtual int32_t __stdcall get_EnvironmentUserSID(void**) noexcept = 0;
             virtual int32_t __stdcall get_EnvironmentUsername(void**) noexcept = 0;
+            virtual int32_t __stdcall get_IsLoginComplete(bool*) noexcept = 0;
+            virtual int32_t __stdcall WaitForLogin() noexcept = 0;
+            virtual int32_t __stdcall WaitForLoginAsync(void**) noexcept = 0;
         };
     };
     template <> struct abi<Windows::Security::Isolation::IIsolatedWindowsHostMessengerStatics>
@@ -559,6 +621,8 @@ namespace winrt::impl
     struct consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment3
     {
         WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentUserInfo) GetIsolatedWindowsEnvironmentUserInfo() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileResult>) ShareFileAsync(param::hstring const& filePath, Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileRequestOptions const& options) const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileResult>) ShareFileAsync(param::hstring const& filePath, Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileRequestOptions const& options, Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters const& telemetryParameters) const;
     };
     template <> struct consume<Windows::Security::Isolation::IIsolatedWindowsEnvironment3>
     {
@@ -597,6 +661,16 @@ namespace winrt::impl
     template <> struct consume<Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile>
     {
         template <typename D> using type = consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentFile<D>;
+    };
+    template <typename D>
+    struct consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentFile2
+    {
+        [[nodiscard]] WINRT_IMPL_AUTO(hstring) ContainerPath() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsReadOnly() const;
+    };
+    template <> struct consume<Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile2>
+    {
+        template <typename D> using type = consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentFile2<D>;
     };
     template <typename D>
     struct consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentHostStatics
@@ -710,6 +784,27 @@ namespace winrt::impl
         template <typename D> using type = consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentProcess<D>;
     };
     template <typename D>
+    struct consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentShareFileRequestOptions
+    {
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) AllowWrite() const;
+        WINRT_IMPL_AUTO(void) AllowWrite(bool value) const;
+    };
+    template <> struct consume<Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFileRequestOptions>
+    {
+        template <typename D> using type = consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentShareFileRequestOptions<D>;
+    };
+    template <typename D>
+    struct consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentShareFileResult
+    {
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileStatus) Status() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(winrt::hresult) ExtendedError() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentFile) File() const;
+    };
+    template <> struct consume<Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFileResult>
+    {
+        template <typename D> using type = consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentShareFileResult<D>;
+    };
+    template <typename D>
     struct consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentShareFolderRequestOptions
     {
         [[nodiscard]] WINRT_IMPL_AUTO(bool) AllowWrite() const;
@@ -755,6 +850,9 @@ namespace winrt::impl
     {
         [[nodiscard]] WINRT_IMPL_AUTO(hstring) EnvironmentUserSID() const;
         [[nodiscard]] WINRT_IMPL_AUTO(hstring) EnvironmentUsername() const;
+        [[nodiscard]] WINRT_IMPL_AUTO(bool) IsLoginComplete() const;
+        WINRT_IMPL_AUTO(void) WaitForLogin() const;
+        WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) WaitForLoginAsync() const;
     };
     template <> struct consume<Windows::Security::Isolation::IIsolatedWindowsEnvironmentUserInfo>
     {

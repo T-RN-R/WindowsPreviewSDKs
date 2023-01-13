@@ -92,6 +92,18 @@ namespace winrt::impl
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironment3)->GetIsolatedWindowsEnvironmentUserInfo(&result));
         return Windows::Security::Isolation::IsolatedWindowsEnvironmentUserInfo{ result, take_ownership_from_abi };
     }
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileResult>) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment3<D>::ShareFileAsync(param::hstring const& filePath, Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileRequestOptions const& options) const
+    {
+        void* operation{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironment3)->ShareFileAsync(*(void**)(&filePath), *(void**)(&options), &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileResult>{ operation, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileResult>) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironment3<D>::ShareFileAsync(param::hstring const& filePath, Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileRequestOptions const& options, Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters const& telemetryParameters) const
+    {
+        void* operation{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironment3)->ShareFileWithTelemetryAsync(*(void**)(&filePath), *(void**)(&options), *(void**)(&telemetryParameters), &operation));
+        return Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileResult>{ operation, take_ownership_from_abi };
+    }
     template <typename D> WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateStatus) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentCreateResult<D>::Status() const
     {
         Windows::Security::Isolation::IsolatedWindowsEnvironmentCreateStatus value{};
@@ -149,6 +161,18 @@ namespace winrt::impl
     template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentFile<D>::Close() const
     {
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile)->Close());
+    }
+    template <typename D> WINRT_IMPL_AUTO(hstring) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentFile2<D>::ContainerPath() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile2)->get_ContainerPath(&value));
+        return hstring{ value, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentFile2<D>::IsReadOnly() const
+    {
+        bool value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile2)->get_IsReadOnly(&value));
+        return value;
     }
     template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentHostStatics<D>::IsReady() const
     {
@@ -360,6 +384,34 @@ namespace winrt::impl
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentProcess)->WaitForExitAsync(&operation));
         return Windows::Foundation::IAsyncAction{ operation, take_ownership_from_abi };
     }
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentShareFileRequestOptions<D>::AllowWrite() const
+    {
+        bool value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFileRequestOptions)->get_AllowWrite(&value));
+        return value;
+    }
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentShareFileRequestOptions<D>::AllowWrite(bool value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFileRequestOptions)->put_AllowWrite(value));
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileStatus) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentShareFileResult<D>::Status() const
+    {
+        Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileStatus value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFileResult)->get_Status(reinterpret_cast<int32_t*>(&value)));
+        return value;
+    }
+    template <typename D> WINRT_IMPL_AUTO(winrt::hresult) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentShareFileResult<D>::ExtendedError() const
+    {
+        winrt::hresult value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFileResult)->get_ExtendedError(put_abi(value)));
+        return value;
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::Security::Isolation::IsolatedWindowsEnvironmentFile) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentShareFileResult<D>::File() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFileResult)->get_File(&value));
+        return Windows::Security::Isolation::IsolatedWindowsEnvironmentFile{ value, take_ownership_from_abi };
+    }
     template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentShareFolderRequestOptions<D>::AllowWrite() const
     {
         bool value{};
@@ -421,6 +473,22 @@ namespace winrt::impl
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentUserInfo)->get_EnvironmentUsername(&value));
         return hstring{ value, take_ownership_from_abi };
+    }
+    template <typename D> WINRT_IMPL_AUTO(bool) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentUserInfo<D>::IsLoginComplete() const
+    {
+        bool value{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentUserInfo)->get_IsLoginComplete(&value));
+        return value;
+    }
+    template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentUserInfo<D>::WaitForLogin() const
+    {
+        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentUserInfo)->WaitForLogin());
+    }
+    template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncAction) consume_Windows_Security_Isolation_IIsolatedWindowsEnvironmentUserInfo<D>::WaitForLoginAsync() const
+    {
+        void* operation{};
+        check_hresult(WINRT_IMPL_SHIM(Windows::Security::Isolation::IIsolatedWindowsEnvironmentUserInfo)->WaitForLoginAsync(&operation));
+        return Windows::Foundation::IAsyncAction{ operation, take_ownership_from_abi };
     }
     template <typename D> WINRT_IMPL_AUTO(void) consume_Windows_Security_Isolation_IIsolatedWindowsHostMessengerStatics<D>::PostMessageToReceiver(winrt::guid const& receiverId, param::vector_view<Windows::Foundation::IInspectable> const& message) const
     {
@@ -588,6 +656,22 @@ namespace winrt::impl
             return 0;
         }
         catch (...) { return to_hresult(); }
+        int32_t __stdcall ShareFileAsync(void* filePath, void* options, void** operation) noexcept final try
+        {
+            clear_abi(operation);
+            typename D::abi_guard guard(this->shim());
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileResult>>(this->shim().ShareFileAsync(*reinterpret_cast<hstring const*>(&filePath), *reinterpret_cast<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileRequestOptions const*>(&options)));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall ShareFileWithTelemetryAsync(void* filePath, void* options, void* telemetryParameters, void** operation) noexcept final try
+        {
+            clear_abi(operation);
+            typename D::abi_guard guard(this->shim());
+            *operation = detach_from<Windows::Foundation::IAsyncOperation<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileResult>>(this->shim().ShareFileAsync(*reinterpret_cast<hstring const*>(&filePath), *reinterpret_cast<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileRequestOptions const*>(&options), *reinterpret_cast<Windows::Security::Isolation::IsolatedWindowsEnvironmentTelemetryParameters const*>(&telemetryParameters)));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
     };
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
@@ -680,6 +764,27 @@ namespace winrt::impl
         {
             typename D::abi_guard guard(this->shim());
             this->shim().Close();
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile2> : produce_base<D, Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile2>
+    {
+        int32_t __stdcall get_ContainerPath(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<hstring>(this->shim().ContainerPath());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_IsReadOnly(bool* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<bool>(this->shim().IsReadOnly());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1029,6 +1134,55 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
+    struct produce<D, Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFileRequestOptions> : produce_base<D, Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFileRequestOptions>
+    {
+        int32_t __stdcall get_AllowWrite(bool* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<bool>(this->shim().AllowWrite());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_AllowWrite(bool value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().AllowWrite(value);
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFileResult> : produce_base<D, Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFileResult>
+    {
+        int32_t __stdcall get_Status(int32_t* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileStatus>(this->shim().Status());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_ExtendedError(winrt::hresult* value) noexcept final try
+        {
+            zero_abi<winrt::hresult>(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::hresult>(this->shim().ExtendedError());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_File(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<Windows::Security::Isolation::IsolatedWindowsEnvironmentFile>(this->shim().File());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
     struct produce<D, Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFolderRequestOptions> : produce_base<D, Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFolderRequestOptions>
     {
         int32_t __stdcall get_AllowWrite(bool* value) noexcept final try
@@ -1134,6 +1288,28 @@ namespace winrt::impl
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
             *value = detach_from<hstring>(this->shim().EnvironmentUsername());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_IsLoginComplete(bool* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<bool>(this->shim().IsLoginComplete());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall WaitForLogin() noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().WaitForLogin();
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall WaitForLoginAsync(void** operation) noexcept final try
+        {
+            clear_abi(operation);
+            typename D::abi_guard guard(this->shim());
+            *operation = detach_from<Windows::Foundation::IAsyncAction>(this->shim().WaitForLoginAsync());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1315,6 +1491,10 @@ WINRT_EXPORT namespace winrt::Windows::Security::Isolation
         IsolatedWindowsEnvironmentOwnerRegistrationData(impl::call_factory_cast<IsolatedWindowsEnvironmentOwnerRegistrationData(*)(Windows::Foundation::IActivationFactory const&), IsolatedWindowsEnvironmentOwnerRegistrationData>([](Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<IsolatedWindowsEnvironmentOwnerRegistrationData>(); }))
     {
     }
+    inline IsolatedWindowsEnvironmentShareFileRequestOptions::IsolatedWindowsEnvironmentShareFileRequestOptions() :
+        IsolatedWindowsEnvironmentShareFileRequestOptions(impl::call_factory_cast<IsolatedWindowsEnvironmentShareFileRequestOptions(*)(Windows::Foundation::IActivationFactory const&), IsolatedWindowsEnvironmentShareFileRequestOptions>([](Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<IsolatedWindowsEnvironmentShareFileRequestOptions>(); }))
+    {
+    }
     inline IsolatedWindowsEnvironmentShareFolderRequestOptions::IsolatedWindowsEnvironmentShareFolderRequestOptions() :
         IsolatedWindowsEnvironmentShareFolderRequestOptions(impl::call_factory_cast<IsolatedWindowsEnvironmentShareFolderRequestOptions(*)(Windows::Foundation::IActivationFactory const&), IsolatedWindowsEnvironmentShareFolderRequestOptions>([](Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<IsolatedWindowsEnvironmentShareFolderRequestOptions>(); }))
     {
@@ -1397,6 +1577,7 @@ namespace std
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentCreateResult> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentFactory> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentFile2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentHostStatics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentLaunchFileResult> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentOptions> : winrt::impl::hash_base {};
@@ -1406,6 +1587,8 @@ namespace std
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentOwnerRegistrationStatics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentPostMessageResult> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentProcess> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFileRequestOptions> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFileResult> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFolderRequestOptions> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentShareFolderResult> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IIsolatedWindowsEnvironmentStartProcessResult> : winrt::impl::hash_base {};
@@ -1424,6 +1607,8 @@ namespace std
     template<> struct hash<winrt::Windows::Security::Isolation::IsolatedWindowsEnvironmentOwnerRegistrationResult> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IsolatedWindowsEnvironmentPostMessageResult> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IsolatedWindowsEnvironmentProcess> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileRequestOptions> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFileResult> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderRequestOptions> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IsolatedWindowsEnvironmentShareFolderResult> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Security::Isolation::IsolatedWindowsEnvironmentStartProcessResult> : winrt::impl::hash_base {};

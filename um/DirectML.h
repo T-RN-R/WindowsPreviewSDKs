@@ -265,6 +265,10 @@ enum DML_OPERATOR_TYPE
     DML_OPERATOR_RESAMPLE_GRAD,
     DML_OPERATOR_SLICE_GRAD,
     DML_OPERATOR_ADAM_OPTIMIZER,
+    DML_OPERATOR_ARGMIN,
+    DML_OPERATOR_ARGMAX,
+    DML_OPERATOR_ROI_ALIGN,
+    DML_OPERATOR_GATHER_ND1,
 #endif // DML_TARGET_VERSION >= 0x3000
 };
 
@@ -1568,10 +1572,53 @@ struct DML_ADAM_OPTIMIZER_OPERATOR_DESC
     const DML_TENSOR_DESC* OutputParametersTensor;
     const DML_TENSOR_DESC* OutputFirstMomentTensor;
     const DML_TENSOR_DESC* OutputSecondMomentTensor;
-    float LearningRate;
-    float Beta1;
-    float Beta2;
-    float Epsilon;
+    FLOAT LearningRate;
+    FLOAT Beta1;
+    FLOAT Beta2;
+    FLOAT Epsilon;
+};
+
+struct DML_ARGMIN_OPERATOR_DESC
+{
+    const DML_TENSOR_DESC* InputTensor;
+    const DML_TENSOR_DESC* OutputTensor;
+    UINT AxisCount;
+    _Field_size_(AxisCount) const UINT* Axes;
+    DML_AXIS_DIRECTION AxisDirection;
+};
+
+struct DML_ARGMAX_OPERATOR_DESC
+{
+    const DML_TENSOR_DESC* InputTensor;
+    const DML_TENSOR_DESC* OutputTensor;
+    UINT AxisCount;
+    _Field_size_(AxisCount) const UINT* Axes;
+    DML_AXIS_DIRECTION AxisDirection;
+};
+
+struct DML_ROI_ALIGN_OPERATOR_DESC
+{
+    const DML_TENSOR_DESC* InputTensor;
+    const DML_TENSOR_DESC* ROITensor;
+    const DML_TENSOR_DESC* BatchIndicesTensor;
+    const DML_TENSOR_DESC* OutputTensor;
+    DML_REDUCE_FUNCTION ReductionFunction;
+    DML_INTERPOLATION_MODE InterpolationMode;
+    FLOAT SpatialScaleX;
+    FLOAT SpatialScaleY;
+    FLOAT OutOfBoundsInputValue;
+    UINT MinimumSamplesPerOutput;
+    UINT MaximumSamplesPerOutput;
+};
+
+struct DML_GATHER_ND1_OPERATOR_DESC
+{
+    const DML_TENSOR_DESC* InputTensor;
+    const DML_TENSOR_DESC* IndicesTensor;
+    const DML_TENSOR_DESC* OutputTensor;
+    UINT InputDimensionCount;
+    UINT IndicesDimensionCount;
+    UINT BatchDimensionCount;
 };
 
 #endif // DML_TARGET_VERSION >= 0x3000

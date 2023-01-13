@@ -1565,6 +1565,7 @@ enum SymTagEnum
 #define SYMFLAG_PUBLIC_CODE         0x00400000
 #define SYMFLAG_REGREL_ALIASINDIR   0x00800000
 #define SYMFLAG_FIXUP_ARM64X        0x01000000
+#define SYMFLAG_GLOBAL              0x02000000
 
 // this resets SymNext/Prev to the beginning
 // of the module passed in the address field
