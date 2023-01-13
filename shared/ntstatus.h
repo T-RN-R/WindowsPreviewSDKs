@@ -11249,6 +11249,15 @@ Notes:
 #define STATUS_VRF_VOLATILE_NMI_REGISTERED ((NTSTATUS)0xC0000C0EL)
 
 //
+// MessageId: STATUS_DIF_LIVEDUMP_LIMIT_EXCEEDED
+//
+// MessageText:
+//
+// Verifier's internal data size exceeds the limit of live dump secondary data.
+//
+#define STATUS_DIF_LIVEDUMP_LIMIT_EXCEEDED ((NTSTATUS)0xC0000C77L)
+
+//
 // MessageId: STATUS_DIF_VOLATILE_SECTION_NOT_LOCKED
 //
 // MessageText:
@@ -11267,13 +11276,13 @@ Notes:
 #define STATUS_DIF_VOLATILE_DRIVER_HOTPATCHED ((NTSTATUS)0xC0000C79L)
 
 //
-// MessageId: STATUS_DIF_VOLATILE_INVALID_RULE_CLASS
+// MessageId: STATUS_DIF_VOLATILE_INVALID_INFO
 //
 // MessageText:
 //
-// The passed rule classes are invalid.
+// The passed system DIF information is invalid.
 //
-#define STATUS_DIF_VOLATILE_INVALID_RULE_CLASS ((NTSTATUS)0xC0000C7AL)
+#define STATUS_DIF_VOLATILE_INVALID_INFO ((NTSTATUS)0xC0000C7AL)
 
 //
 // MessageId: STATUS_DIF_VOLATILE_DRIVER_IS_NOT_RUNNING

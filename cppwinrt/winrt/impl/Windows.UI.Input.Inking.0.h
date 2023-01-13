@@ -158,6 +158,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Input::Inking
     struct IInkSynchronizer;
     struct IInkUnprocessedInput;
     struct IPenAndInkSettings;
+    struct IPenAndInkSettings2;
     struct IPenAndInkSettingsStatics;
     struct DelegatedInkBallpointRenderParameters;
     struct DelegatedInkTrail;
@@ -235,6 +236,7 @@ namespace winrt::impl
     template <> struct category<Windows::UI::Input::Inking::IInkSynchronizer>{ using type = interface_category; };
     template <> struct category<Windows::UI::Input::Inking::IInkUnprocessedInput>{ using type = interface_category; };
     template <> struct category<Windows::UI::Input::Inking::IPenAndInkSettings>{ using type = interface_category; };
+    template <> struct category<Windows::UI::Input::Inking::IPenAndInkSettings2>{ using type = interface_category; };
     template <> struct category<Windows::UI::Input::Inking::IPenAndInkSettingsStatics>{ using type = interface_category; };
     template <> struct category<Windows::UI::Input::Inking::DelegatedInkBallpointRenderParameters>{ using type = class_category; };
     template <> struct category<Windows::UI::Input::Inking::DelegatedInkTrail>{ using type = class_category; };
@@ -359,6 +361,7 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::IInkSynchronizer> = L"Windows.UI.Input.Inking.IInkSynchronizer";
     template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::IInkUnprocessedInput> = L"Windows.UI.Input.Inking.IInkUnprocessedInput";
     template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::IPenAndInkSettings> = L"Windows.UI.Input.Inking.IPenAndInkSettings";
+    template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::IPenAndInkSettings2> = L"Windows.UI.Input.Inking.IPenAndInkSettings2";
     template <> inline constexpr auto& name_v<Windows::UI::Input::Inking::IPenAndInkSettingsStatics> = L"Windows.UI.Input.Inking.IPenAndInkSettingsStatics";
     template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::IDelegatedInkBallpointRenderParameters>{ 0xC7DB8BC7,0x224A,0x48F8,{ 0xBE,0x43,0x08,0x33,0x21,0x41,0xFB,0xC5 } }; // C7DB8BC7-224A-48F8-BE43-08332141FBC5
     template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::IDelegatedInkTrail>{ 0x2FD347FD,0xF42B,0x41F0,{ 0x96,0xF9,0x00,0x16,0xCD,0x41,0x84,0xDA } }; // 2FD347FD-F42B-41F0-96F9-0016CD4184DA
@@ -407,6 +410,7 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::IInkSynchronizer>{ 0x9B9EA160,0xAE9B,0x45F9,{ 0x84,0x07,0x4B,0x49,0x3B,0x16,0x36,0x61 } }; // 9B9EA160-AE9B-45F9-8407-4B493B163661
     template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::IInkUnprocessedInput>{ 0xDB4445E0,0x8398,0x4921,{ 0xAC,0x3B,0xAB,0x97,0x8C,0x5B,0xA2,0x56 } }; // DB4445E0-8398-4921-AC3B-AB978C5BA256
     template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::IPenAndInkSettings>{ 0xBC2CEB8F,0x0066,0x44A8,{ 0xBB,0x7A,0xB8,0x39,0xB3,0xDE,0xB8,0xF5 } }; // BC2CEB8F-0066-44A8-BB7A-B839B3DEB8F5
+    template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::IPenAndInkSettings2>{ 0x3262DA53,0x1F44,0x55E2,{ 0x99,0x29,0xEB,0xF7,0x7E,0x54,0x81,0xB8 } }; // 3262DA53-1F44-55E2-9929-EBF77E5481B8
     template <> inline constexpr guid guid_v<Windows::UI::Input::Inking::IPenAndInkSettingsStatics>{ 0xED6DD036,0x5708,0x5C3C,{ 0x96,0xDB,0xF2,0xF5,0x52,0xEA,0xB6,0x41 } }; // ED6DD036-5708-5C3C-96DB-F2F552EAB641
     template <> struct default_interface<Windows::UI::Input::Inking::DelegatedInkBallpointRenderParameters>{ using type = Windows::UI::Input::Inking::IDelegatedInkBallpointRenderParameters; };
     template <> struct default_interface<Windows::UI::Input::Inking::DelegatedInkTrail>{ using type = Windows::UI::Input::Inking::IDelegatedInkTrail; };
@@ -921,6 +925,13 @@ namespace winrt::impl
             virtual int32_t __stdcall get_FontFamilyName(void**) noexcept = 0;
             virtual int32_t __stdcall get_UserConsentsToHandwritingTelemetryCollection(bool*) noexcept = 0;
             virtual int32_t __stdcall get_IsTouchHandwritingEnabled(bool*) noexcept = 0;
+        };
+    };
+    template <> struct abi<Windows::UI::Input::Inking::IPenAndInkSettings2>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall SetPenHandedness(int32_t) noexcept = 0;
         };
     };
     template <> struct abi<Windows::UI::Input::Inking::IPenAndInkSettingsStatics>
@@ -1538,6 +1549,15 @@ namespace winrt::impl
     template <> struct consume<Windows::UI::Input::Inking::IPenAndInkSettings>
     {
         template <typename D> using type = consume_Windows_UI_Input_Inking_IPenAndInkSettings<D>;
+    };
+    template <typename D>
+    struct consume_Windows_UI_Input_Inking_IPenAndInkSettings2
+    {
+        WINRT_IMPL_AUTO(void) SetPenHandedness(Windows::UI::Input::Inking::PenHandedness const& value) const;
+    };
+    template <> struct consume<Windows::UI::Input::Inking::IPenAndInkSettings2>
+    {
+        template <typename D> using type = consume_Windows_UI_Input_Inking_IPenAndInkSettings2<D>;
     };
     template <typename D>
     struct consume_Windows_UI_Input_Inking_IPenAndInkSettingsStatics

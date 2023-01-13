@@ -60,6 +60,7 @@ typedef void*           HCN_NETWORK;
 typedef HCN_NETWORK*    PHCN_NETWORK;
 
 /// Return a list of existing Networks
+
 HRESULT
 WINAPI
 HcnEnumerateNetworks(
@@ -69,6 +70,7 @@ HcnEnumerateNetworks(
     );
 
 /// Create a Network
+
 HRESULT
 WINAPI
 HcnCreateNetwork(
@@ -79,6 +81,7 @@ HcnCreateNetwork(
     );
 
 /// Lookup an existing network
+
 HRESULT
 WINAPI
 HcnOpenNetwork(
@@ -88,6 +91,7 @@ HcnOpenNetwork(
     );
 
 /// Modify the settings of a Network
+
 HRESULT
 WINAPI
 HcnModifyNetwork(
@@ -97,6 +101,7 @@ HcnModifyNetwork(
     );
 
 /// Query Network settings
+
 HRESULT
 WINAPI
 HcnQueryNetworkProperties(
@@ -107,6 +112,7 @@ HcnQueryNetworkProperties(
     );
 
 /// Delete a Network
+
 HRESULT
 WINAPI
 HcnDeleteNetwork(
@@ -115,6 +121,7 @@ HcnDeleteNetwork(
     );
 
 /// Close a handle to a Network
+
 HRESULT
 WINAPI
 HcnCloseNetwork(
@@ -129,6 +136,7 @@ typedef void*           HCN_NAMESPACE;
 typedef HCN_NAMESPACE*  PHCN_NAMESPACE;
 
 /// Return a list of existing Namespaces
+
 HRESULT
 WINAPI
 HcnEnumerateNamespaces(
@@ -138,6 +146,7 @@ HcnEnumerateNamespaces(
     );
 
 /// Create a Namespace
+
 HRESULT
 WINAPI
 HcnCreateNamespace(
@@ -148,6 +157,7 @@ HcnCreateNamespace(
     );
 
 /// Lookup an existing Namespace
+
 HRESULT
 WINAPI
 HcnOpenNamespace(
@@ -157,6 +167,7 @@ HcnOpenNamespace(
     );
 
 /// Modify the settings of a Namespace
+
 HRESULT
 WINAPI
 HcnModifyNamespace(
@@ -166,6 +177,7 @@ HcnModifyNamespace(
     );
 
 /// Query Namespace settings
+
 HRESULT
 WINAPI
 HcnQueryNamespaceProperties(
@@ -176,6 +188,7 @@ HcnQueryNamespaceProperties(
     );
 
 /// Delete a Namespace
+
 HRESULT
 WINAPI
 HcnDeleteNamespace(
@@ -184,6 +197,7 @@ HcnDeleteNamespace(
     );
 
 /// Close a handle to a Namespace
+
 HRESULT
 WINAPI
 HcnCloseNamespace(
@@ -198,6 +212,7 @@ typedef void*           HCN_ENDPOINT;
 typedef HCN_ENDPOINT*   PHCN_ENDPOINT;
 
 /// Return a list of existing Endpoints
+
 HRESULT
 WINAPI
 HcnEnumerateEndpoints(
@@ -207,6 +222,7 @@ HcnEnumerateEndpoints(
     );
 
 /// Create an Endpoint
+
 HRESULT
 WINAPI
 HcnCreateEndpoint(
@@ -218,6 +234,7 @@ HcnCreateEndpoint(
     );
 
 /// Lookup an existing Endpoint
+
 HRESULT
 WINAPI
 HcnOpenEndpoint(
@@ -227,6 +244,7 @@ HcnOpenEndpoint(
     );
 
 /// Modify the settings of an Endpoint
+
 HRESULT
 WINAPI
 HcnModifyEndpoint(
@@ -236,6 +254,7 @@ HcnModifyEndpoint(
     );
 
 /// Query Endpoint properties
+
 HRESULT
 WINAPI
 HcnQueryEndpointProperties(
@@ -246,6 +265,7 @@ HcnQueryEndpointProperties(
     );
 
 /// Delete an Endpoint
+
 HRESULT
 WINAPI
 HcnDeleteEndpoint(
@@ -254,6 +274,7 @@ HcnDeleteEndpoint(
     );
 
 /// Close a handle to an Endpoint
+
 HRESULT
 WINAPI
 HcnCloseEndpoint(
@@ -268,6 +289,7 @@ typedef void*               HCN_LOADBALANCER;
 typedef HCN_LOADBALANCER*     PHCN_LOADBALANCER;
 
 /// Return a list of existing LoadBalancers
+
 HRESULT
 WINAPI
 HcnEnumerateLoadBalancers(
@@ -277,6 +299,7 @@ HcnEnumerateLoadBalancers(
     );
 
 /// Create a LoadBalancer
+
 HRESULT
 WINAPI
 HcnCreateLoadBalancer(
@@ -287,6 +310,7 @@ HcnCreateLoadBalancer(
     );
 
 /// Lookup an existing LoadBalancer
+
 HRESULT
 WINAPI
 HcnOpenLoadBalancer(
@@ -296,6 +320,7 @@ HcnOpenLoadBalancer(
     );
 
 /// Modify the settings of a PolcyList
+
 HRESULT
 WINAPI
 HcnModifyLoadBalancer(
@@ -305,6 +330,7 @@ HcnModifyLoadBalancer(
     );
 
 /// Query PolcyList settings
+
 HRESULT
 WINAPI
 HcnQueryLoadBalancerProperties(
@@ -315,6 +341,7 @@ HcnQueryLoadBalancerProperties(
     );
 
 /// Delete a LoadBalancer
+
 HRESULT
 WINAPI
 HcnDeleteLoadBalancer(
@@ -323,6 +350,7 @@ HcnDeleteLoadBalancer(
     );
 
 /// Close a handle to a LoadBalancer
+
 HRESULT
 WINAPI
 HcnCloseLoadBalancer(
@@ -337,6 +365,7 @@ typedef void* HCN_SERVICE;
 typedef HCN_SERVICE* PHCN_SERVICE;
 
 /// Registers a callback function to receive notifications of service-wide events
+
 HRESULT
 WINAPI
 HcnRegisterServiceCallback(
@@ -346,6 +375,7 @@ HcnRegisterServiceCallback(
     );
 
 /// Unregisters from service-wide notifications
+
 HRESULT
 WINAPI
 HcnUnregisterServiceCallback(

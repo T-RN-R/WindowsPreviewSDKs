@@ -159,7 +159,8 @@ WINRT_EXPORT namespace winrt::Windows::UI::Input::Inking
         InkUnprocessedInput(std::nullptr_t) noexcept {}
         InkUnprocessedInput(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Input::Inking::IInkUnprocessedInput(ptr, take_ownership_from_abi) {}
     };
-    struct __declspec(empty_bases) PenAndInkSettings : Windows::UI::Input::Inking::IPenAndInkSettings
+    struct __declspec(empty_bases) PenAndInkSettings : Windows::UI::Input::Inking::IPenAndInkSettings,
+        impl::require<PenAndInkSettings, Windows::UI::Input::Inking::IPenAndInkSettings2>
     {
         PenAndInkSettings(std::nullptr_t) noexcept {}
         PenAndInkSettings(void* ptr, take_ownership_from_abi_t) noexcept : Windows::UI::Input::Inking::IPenAndInkSettings(ptr, take_ownership_from_abi) {}

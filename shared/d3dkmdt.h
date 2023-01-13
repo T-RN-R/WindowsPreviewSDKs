@@ -2149,15 +2149,16 @@ typedef struct _D3DKMT_WDDM_2_9_CAPS
         struct
         {
             _Field_range_(DXGK_FEATURE_SUPPORT_ALWAYS_OFF, DXGK_FEATURE_SUPPORT_ALWAYS_ON)
-            UINT    HwSchSupportState   :  2;   // DXGK_FEATURE_SUPPORT_* value that specifies driver support state for GPU supports hardware scheduling
-            UINT    HwSchEnabled        :  1;   // Specifies whether the hardware scheduling is currently enabled for this GPU
-            UINT    Reserved            : 29;
+            UINT    HwSchSupportState           :  2;   // DXGK_FEATURE_SUPPORT_* value that specifies driver support state for GPU supports hardware scheduling
+            UINT    HwSchEnabled                :  1;   // Specifies whether the hardware scheduling is currently enabled for this GPU
+            UINT    SelfRefreshMemorySupported  :  1;   // Specifies whether Self Refresh Memory is supported for this GPU
+            UINT    Reserved                    : 28;
         };
         UINT Value;
     };
 } D3DKMT_WDDM_2_9_CAPS;
 
-#endif
+#endif // (DXGKDDI_INTERFACE_VERSION >= DXGKDDI_INTERFACE_VERSION_WDDM2_9)
 
 typedef struct _D3DKMT_TRACKEDWORKLOAD_SUPPORT
 {

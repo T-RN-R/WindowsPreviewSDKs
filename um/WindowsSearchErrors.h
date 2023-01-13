@@ -7189,7 +7189,7 @@
 #define QUERY_E_DUPLICATE_RANGE_NAME     ((HRESULT)0x8004161BL)
 
 //
-// Codes 0x1650-0x167f are reserved for QUERYLIB (see qutil\h\qutilerr.mc)
+// Codes 0x1650-0x167f are reserved for QUERYLIB (see querylib\include\qutilerr.mc)
 //
 //
 // MessageId: QPLIST_E_CANT_OPEN_FILE

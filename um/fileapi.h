@@ -61,7 +61,6 @@ CreateDirectoryW(
     _In_ LPCWSTR lpPathName,
     _In_opt_ LPSECURITY_ATTRIBUTES lpSecurityAttributes
     );
-
 #ifdef UNICODE
 #define CreateDirectory  CreateDirectoryW
 #else
@@ -99,7 +98,6 @@ CreateFileW(
     _In_ DWORD dwFlagsAndAttributes,
     _In_opt_ HANDLE hTemplateFile
     );
-
 #ifdef UNICODE
 #define CreateFile  CreateFileW
 #else
@@ -144,7 +142,6 @@ WINAPI
 DeleteFileW(
     _In_ LPCWSTR lpFileName
     );
-
 #ifdef UNICODE
 #define DeleteFile  DeleteFileW
 #else
@@ -225,7 +222,6 @@ FindFirstChangeNotificationW(
     _In_ BOOL bWatchSubtree,
     _In_ DWORD dwNotifyFilter
     );
-
 #ifdef UNICODE
 #define FindFirstChangeNotification  FindFirstChangeNotificationW
 #else
@@ -253,7 +249,6 @@ FindFirstFileW(
     _In_ LPCWSTR lpFileName,
     _Out_ LPWIN32_FIND_DATAW lpFindFileData
     );
-
 #ifdef UNICODE
 #define FindFirstFile  FindFirstFileW
 #else
@@ -285,7 +280,6 @@ FindFirstFileExW(
     _Reserved_ LPVOID lpSearchFilter,
     _In_ DWORD dwAdditionalFlags
     );
-
 #ifdef UNICODE
 #define FindFirstFileEx  FindFirstFileExW
 #else
@@ -340,7 +334,6 @@ FindNextFileW(
     _In_ HANDLE hFindFile,
     _Out_ LPWIN32_FIND_DATAW lpFindFileData
     );
-
 #ifdef UNICODE
 #define FindNextFile  FindNextFileW
 #else
@@ -407,7 +400,6 @@ GetDiskFreeSpaceW(
     _Out_opt_ LPDWORD lpNumberOfFreeClusters,
     _Out_opt_ LPDWORD lpTotalNumberOfClusters
     );
-
 #ifdef UNICODE
 #define GetDiskFreeSpace  GetDiskFreeSpaceW
 #else
@@ -433,7 +425,6 @@ GetDiskFreeSpaceExW(
     _Out_opt_ PULARGE_INTEGER lpTotalNumberOfBytes,
     _Out_opt_ PULARGE_INTEGER lpTotalNumberOfFreeBytes
     );
-
 #ifdef UNICODE
 #define GetDiskFreeSpaceEx  GetDiskFreeSpaceExW
 #else
@@ -552,7 +543,6 @@ GetDiskSpaceInformationW(
     _In_opt_ LPCWSTR rootPath,
     _Out_ DISK_SPACE_INFORMATION* diskSpaceInfo
     );
-
 #ifdef UNICODE
 #define GetDiskSpaceInformation  GetDiskSpaceInformationW
 #else
@@ -578,7 +568,6 @@ WINAPI
 GetDriveTypeW(
     _In_opt_ LPCWSTR lpRootPathName
     );
-
 #ifdef UNICODE
 #define GetDriveType  GetDriveTypeW
 #else
@@ -607,7 +596,6 @@ WINAPI
 GetFileAttributesW(
     _In_ LPCWSTR lpFileName
     );
-
 #ifdef UNICODE
 #define GetFileAttributes  GetFileAttributesW
 #else
@@ -631,7 +619,6 @@ GetFileAttributesExW(
     _In_ GET_FILEEX_INFO_LEVELS fInfoLevelId,
     _Out_writes_bytes_(sizeof(WIN32_FILE_ATTRIBUTE_DATA)) LPVOID lpFileInformation
     );
-
 #ifdef UNICODE
 #define GetFileAttributesEx  GetFileAttributesExW
 #else
@@ -715,7 +702,6 @@ GetFinalPathNameByHandleW(
     _In_ DWORD cchFilePath,
     _In_ DWORD dwFlags
     );
-
 #ifdef UNICODE
 #define GetFinalPathNameByHandle  GetFinalPathNameByHandleW
 #else
@@ -1023,7 +1009,6 @@ WINAPI
 RemoveDirectoryW(
     _In_ LPCWSTR lpPathName
     );
-
 #ifdef UNICODE
 #define RemoveDirectory  RemoveDirectoryW
 #else
@@ -1052,7 +1037,6 @@ SetFileAttributesW(
     _In_ LPCWSTR lpFileName,
     _In_ DWORD dwFileAttributes
     );
-
 #ifdef UNICODE
 #define SetFileAttributes  SetFileAttributesW
 #else
@@ -1291,7 +1275,6 @@ GetCompressedFileSizeW(
     _In_ LPCWSTR lpFileName,
     _Out_opt_ LPDWORD lpFileSizeHigh
     );
-
 #ifdef UNICODE
 #define GetCompressedFileSize  GetCompressedFileSizeW
 #else
@@ -1466,6 +1449,7 @@ SetFileApisToANSI(
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 
 #if (NTDDI_VERSION >= NTDDI_WIN10_FE)
+
 WINBASEAPI
 _Success_(return > 0 && return < BufferLength)
 DWORD

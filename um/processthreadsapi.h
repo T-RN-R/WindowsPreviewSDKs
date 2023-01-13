@@ -186,12 +186,12 @@ CreateThread(
     _In_ DWORD dwCreationFlags,
     _Out_opt_ LPDWORD lpThreadId
     );
-
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
 #pragma region Application Family or OneCore Family or Games Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
+
 WINBASEAPI
 _Ret_maybenull_
 HANDLE
@@ -274,12 +274,12 @@ WINAPI
 ExitThread(
     _In_ DWORD dwExitCode
     );
-
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
 #pragma region Desktop Family or OneCore Family or Games Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
+
 WINBASEAPI
 BOOL
 WINAPI
@@ -287,7 +287,6 @@ TerminateThread(
     _In_ HANDLE hThread,
     _In_ DWORD dwExitCode
     );
-
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
@@ -382,7 +381,6 @@ CreateProcessW(
     _In_ LPSTARTUPINFOW lpStartupInfo,
     _Out_ LPPROCESS_INFORMATION lpProcessInformation
     );
-
 #ifdef UNICODE
 #define CreateProcess  CreateProcessW
 #else
@@ -422,7 +420,6 @@ WINAPI
 GetStartupInfoW(
     _Out_ LPSTARTUPINFOW lpStartupInfo
     );
-
 #ifdef UNICODE
 #define GetStartupInfo  GetStartupInfoW
 #endif
@@ -690,6 +687,19 @@ SetProcessDynamicEHContinuationTargets(
     _In_ HANDLE Process,
     _In_ USHORT NumberOfTargets,
     _Inout_updates_(NumberOfTargets) PPROCESS_DYNAMIC_EH_CONTINUATION_TARGET Targets
+    );
+
+#endif
+
+#if (NTDDI_VERSION >= NTDDI_WIN10_FE)
+
+WINBASEAPI
+BOOL
+WINAPI
+SetProcessDynamicEnforcedCetCompatibleRanges(
+    _In_ HANDLE Process,
+    _In_ USHORT NumberOfRanges,
+    _Inout_updates_(NumberOfRanges) PPROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE Ranges
     );
 
 #endif

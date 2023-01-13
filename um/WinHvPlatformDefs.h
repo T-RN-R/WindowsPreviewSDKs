@@ -321,6 +321,7 @@ typedef enum WHV_PARTITION_PROPERTY_CODE
     // Nested virtualization support is experimental and not supported.
     WHvPartitionPropertyCodeNestedVirtualization    = 0x00000004,
     WHvPartitionPropertyCodeX64MsrExitBitmap        = 0x00000005,
+    WHvPartitionPropertyCodePrimaryNumaNode         = 0x00000006,
 
     WHvPartitionPropertyCodeProcessorFeatures       = 0x00001001,
     WHvPartitionPropertyCodeProcessorClFlushSize    = 0x00001002,
@@ -404,6 +405,7 @@ typedef union WHV_PARTITION_PROPERTY
     BOOL ApicRemoteRead;
     WHV_PROCESSOR_FEATURES_BANKS ProcessorFeaturesBanks;
     UINT64 ReferenceTime;
+    USHORT PrimaryNumaNode;
 } WHV_PARTITION_PROPERTY;
 
 //

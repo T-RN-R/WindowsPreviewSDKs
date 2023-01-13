@@ -2655,6 +2655,7 @@ typedef enum D3D12_QUERY_TYPE
     D3D12_QUERY_TYPE_SO_STATISTICS_STREAM2          = 6,
     D3D12_QUERY_TYPE_SO_STATISTICS_STREAM3          = 7,
     D3D12_QUERY_TYPE_VIDEO_DECODE_STATISTICS        = 8,
+    D3D12_QUERY_TYPE_PIPELINE_STATISTICS1           = 10,
 
 } D3D12_QUERY_TYPE;
 
@@ -4505,6 +4506,7 @@ typedef enum D3D12_DRED_VERSION
     D3D12_DRED_VERSION_1_0 = 0x1,
     D3D12_DRED_VERSION_1_1 = 0x2,
     D3D12_DRED_VERSION_1_2 = 0x3,
+    D3D12_DRED_VERSION_1_3 = 0x4,
 } D3D12_DRED_VERSION;
 
 typedef enum D3D12_DRED_FLAGS
@@ -4605,6 +4607,29 @@ typedef struct D3D12_DRED_PAGE_FAULT_OUTPUT1
     [annotation("_Out_")] const D3D12_DRED_ALLOCATION_NODE1 *pHeadRecentFreedAllocationNode;
 } D3D12_DRED_PAGE_FAULT_OUTPUT1;
 
+typedef enum D3D12_DRED_PAGE_FAULT_FLAGS
+{
+    D3D12_DRED_PAGE_FAULT_FLAGS_NONE = 0,
+} D3D12_DRED_PAGE_FAULT_FLAGS;
+cpp_quote("DEFINE_ENUM_FLAG_OPERATORS( D3D12_DRED_PAGE_FAULT_FLAGS );")
+
+typedef enum D3D12_DRED_DEVICE_STATE
+{
+    D3D12_DRED_DEVICE_STATE_UNKNOWN             = 0, // Only known if DRED event occurred
+    D3D12_DRED_DEVICE_STATE_HUNG                = 3,
+    D3D12_DRED_DEVICE_STATE_FAULT               = 6,
+    D3D12_DRED_DEVICE_STATE_PAGEFAULT           = 7,
+} D3D12_DRED_DEVICE_STATE;
+
+typedef struct D3D12_DRED_PAGE_FAULT_OUTPUT2
+{
+    D3D12_GPU_VIRTUAL_ADDRESS PageFaultVA; //If the device removal was due to GPU Fault, this contains the VA of the faulting op
+    [annotation("_Out_")] const D3D12_DRED_ALLOCATION_NODE1 *pHeadExistingAllocationNode;
+    [annotation("_Out_")] const D3D12_DRED_ALLOCATION_NODE1 *pHeadRecentFreedAllocationNode;
+    D3D12_DRED_PAGE_FAULT_FLAGS PageFaultFlags;
+    
+} D3D12_DRED_PAGE_FAULT_OUTPUT2;
+
 typedef struct D3D12_DEVICE_REMOVED_EXTENDED_DATA1
 {
     HRESULT DeviceRemovedReason;
@@ -4619,6 +4644,14 @@ typedef struct D3D12_DEVICE_REMOVED_EXTENDED_DATA2
     D3D12_DRED_PAGE_FAULT_OUTPUT1 PageFaultOutput;
 } D3D12_DEVICE_REMOVED_EXTENDED_DATA2;
 
+typedef struct D3D12_DEVICE_REMOVED_EXTENDED_DATA3
+{
+    HRESULT DeviceRemovedReason;
+    D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1 AutoBreadcrumbsOutput;
+    D3D12_DRED_PAGE_FAULT_OUTPUT2 PageFaultOutput;
+    D3D12_DRED_DEVICE_STATE DeviceState;
+} D3D12_DEVICE_REMOVED_EXTENDED_DATA3;
+
 typedef struct D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA
 {
     D3D12_DRED_VERSION Version; // Version of the DRED data
@@ -4627,6 +4660,7 @@ typedef struct D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA
         D3D12_DEVICE_REMOVED_EXTENDED_DATA Dred_1_0;
         D3D12_DEVICE_REMOVED_EXTENDED_DATA1 Dred_1_1;
         D3D12_DEVICE_REMOVED_EXTENDED_DATA2 Dred_1_2;
+        D3D12_DEVICE_REMOVED_EXTENDED_DATA3 Dred_1_3;
     };
 } D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA;
 
@@ -4661,6 +4695,14 @@ interface ID3D12DeviceRemovedExtendedData1
 {
     HRESULT GetAutoBreadcrumbsOutput1([annotation("_Out_")] D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1 *pOutput);
     HRESULT GetPageFaultAllocationOutput1([annotation("_Out_")] D3D12_DRED_PAGE_FAULT_OUTPUT1 *pOutput);
+};
+
+[uuid(67FC5816-E4CA-4915-BF18-42541272DA54), object, local, pointer_default(unique)]
+interface ID3D12DeviceRemovedExtendedData2
+    : ID3D12DeviceRemovedExtendedData1
+{
+    HRESULT GetPageFaultAllocationOutput2([annotation("_Out_")] D3D12_DRED_PAGE_FAULT_OUTPUT2 *pOutput);
+    D3D12_DRED_DEVICE_STATE GetDeviceState();
 };
 
 typedef enum D3D12_BACKGROUND_PROCESSING_MODE
@@ -5357,6 +5399,7 @@ cpp_quote( "DEFINE_GUID(IID_ID3D12DeviceRemovedExtendedDataSettings,0x82BC481C,0
 cpp_quote( "DEFINE_GUID(IID_ID3D12DeviceRemovedExtendedDataSettings1,0xDBD5AE51,0x3317,0x4F0A,0xAD,0xF9,0x1D,0x7C,0xED,0xCA,0xAE,0x0B);" )
 cpp_quote( "DEFINE_GUID(IID_ID3D12DeviceRemovedExtendedData,0x98931D33,0x5AE8,0x4791,0xAA,0x3C,0x1A,0x73,0xA2,0x93,0x4E,0x71);" )
 cpp_quote( "DEFINE_GUID(IID_ID3D12DeviceRemovedExtendedData1,0x9727A022,0xCF1D,0x4DDA,0x9E,0xBA,0xEF,0xFA,0x65,0x3F,0xC5,0x06);" )
+cpp_quote( "DEFINE_GUID(IID_ID3D12DeviceRemovedExtendedData2,0x67FC5816,0xE4CA,0x4915,0xBF,0x18,0x42,0x54,0x12,0x72,0xDA,0x54);" )
 cpp_quote( "DEFINE_GUID(IID_ID3D12Device6,0xc70b221b,0x40e4,0x4a17,0x89,0xaf,0x02,0x5a,0x07,0x27,0xa6,0xdc);" )
 cpp_quote( "DEFINE_GUID(IID_ID3D12ProtectedResourceSession1,0xD6F12DD6,0x76FB,0x406E,0x89,0x61,0x42,0x96,0xEE,0xFC,0x04,0x09);" )
 cpp_quote( "DEFINE_GUID(IID_ID3D12Device7,0x5c014b53,0x68a1,0x4b9b,0x8b,0xd1,0xdd,0x60,0x46,0xb9,0x35,0x8b);" )

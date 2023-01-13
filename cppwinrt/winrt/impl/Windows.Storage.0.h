@@ -59,6 +59,7 @@ WINRT_EXPORT namespace winrt::Windows::Storage
         Roaming = 1,
         Temporary = 2,
         LocalCache = 3,
+        SharedLocal = 4,
     };
     enum class CreationCollisionOption : int32_t
     {

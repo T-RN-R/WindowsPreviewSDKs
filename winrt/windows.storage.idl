@@ -442,10 +442,12 @@ namespace Windows
         [contract(Windows.Foundation.UniversalApiContract, 1.0)]
         enum ApplicationDataLocality
         {
-            Local      = 0,
-            Roaming    = 1,
-            Temporary  = 2,
-            LocalCache = 3
+            Local       = 0,
+            Roaming     = 1,
+            Temporary   = 2,
+            LocalCache  = 3,
+            [contract(Windows.Foundation.UniversalApiContract, 12.0)]
+            SharedLocal = 4
         };
 
         [contract(Windows.Foundation.UniversalApiContract, 1.0)]

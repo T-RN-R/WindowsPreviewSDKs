@@ -13,7 +13,7 @@
 #error DirectX Math requires C++
 #endif
 
-#define DIRECTX_MATH_VERSION 315
+#define DIRECTX_MATH_VERSION 316
 
 #if defined(_MSC_VER) && defined(_GAMING_XBOX) && defined(_M_X64) && !defined(_XM_F16C_INTRINSICS_) && !defined(_XM_NO_INTRINSICS_)
 #define _XM_F16C_INTRINSICS_
@@ -334,11 +334,11 @@ namespace DirectX
     // Vector intrinsic: Four 32 bit floating point components aligned on a 16 byte
     // boundary and mapped to hardware vector registers
 #if defined(_XM_SSE_INTRINSICS_) && !defined(_XM_NO_INTRINSICS_)
-    typedef __m128 XMVECTOR;
+    using XMVECTOR = __m128;
 #elif defined(_XM_ARM_NEON_INTRINSICS_) && !defined(_XM_NO_INTRINSICS_)
-    typedef float32x4_t XMVECTOR;
+    using XMVECTOR = float32x4_t;
 #else
-    typedef __vector4 XMVECTOR;
+    using XMVECTOR = __vector4;
 #endif
 
     // Fix-up for (1st-3rd) XMVECTOR parameters that are pass-in-register for x86, ARM, ARM64, and vector call; by reference otherwise
