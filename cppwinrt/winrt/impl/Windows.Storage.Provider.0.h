@@ -75,7 +75,7 @@ WINRT_EXPORT namespace winrt::Windows::Storage::Provider
         ValidationRequired = 0x1,
         StreamingAllowed = 0x2,
         AutoDehydrationAllowed = 0x4,
-        FullRestartHydrationRequired = 0x8,
+        AllowFullRestartHydration = 0x8,
     };
     enum class StorageProviderInSyncPolicy : uint32_t
     {

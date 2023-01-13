@@ -3251,6 +3251,27 @@ HttpIsFeatureSupported(
     _In_ HTTP_FEATURE_ID FeatureId
     );
 
+HTTPAPI_LINKAGE
+ULONG
+WINAPI
+HttpDelegateRequestEx(
+    _In_ HANDLE RequestQueueHandle,
+    _In_ HANDLE DelegateQueueHandle,
+    _In_ HTTP_REQUEST_ID RequestId,
+    _In_ HTTP_URL_GROUP_ID DelegateUrlGroupId,
+    _In_ ULONG PropertyInfoSetSize,
+    _In_ PHTTP_DELEGATE_REQUEST_PROPERTY_INFO PropertyInfoSet
+    );
+
+HTTPAPI_LINKAGE
+ULONG
+WINAPI
+HttpFindUrlGroupId(
+    _In_ PCWSTR FullyQualifiedUrl,
+    _In_ HANDLE RequestQueueHandle,
+    _Out_ PHTTP_URL_GROUP_ID UrlGroupId
+    );
+
 
 #endif // _WIN32_WINNT >= 0x0600
 
