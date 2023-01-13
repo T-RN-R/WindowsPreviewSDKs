@@ -6,8 +6,6 @@
 *                                                                               *
 ********************************************************************************/
 
-
-
 #ifdef _MSC_VER
 #pragma once
 #endif // _MSC_VER
@@ -88,14 +86,12 @@ GlobalMemoryStatusEx(
     _Out_ LPMEMORYSTATUSEX lpBuffer
     );
 
-
 WINBASEAPI
 VOID
 WINAPI
 GetSystemInfo(
     _Out_ LPSYSTEM_INFO lpSystemInfo
     );
-
 
 WINBASEAPI
 VOID
@@ -104,7 +100,6 @@ GetSystemTime(
     _Out_ LPSYSTEMTIME lpSystemTime
     );
 
-
 WINBASEAPI
 VOID
 WINAPI
@@ -112,14 +107,12 @@ GetSystemTimeAsFileTime(
     _Out_ LPFILETIME lpSystemTimeAsFileTime
     );
 
-
 WINBASEAPI
 VOID
 WINAPI
 GetLocalTime(
     _Out_ LPSYSTEMTIME lpSystemTime
     );
-
 
 #if (NTDDI_VERSION >= NTDDI_WIN10_VB)
 
@@ -129,7 +122,6 @@ WINAPI
 IsUserCetAvailableInEnvironment(
     _In_ DWORD UserCetEnvironment
     );
-
 
 #endif
 
@@ -149,7 +141,6 @@ GetSystemLeapSecondInformation(
     _Out_ PDWORD Flags
     );
 
-
 #endif
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
@@ -167,7 +158,6 @@ GetVersion(
     VOID
     );
 
-
 WINBASEAPI
 BOOL
 WINAPI
@@ -175,10 +165,8 @@ SetLocalTime(
     _In_ CONST SYSTEMTIME* lpSystemTime
     );
 
-
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
-
 
 #pragma region Application Family or OneCore Family or Games Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
@@ -191,7 +179,6 @@ GetTickCount(
     VOID
     );
 
-
 #if (_WIN32_WINNT >= 0x0600)
 
 WINBASEAPI
@@ -200,7 +187,6 @@ WINAPI
 GetTickCount64(
     VOID
     );
-
 
 #endif
 
@@ -220,7 +206,6 @@ GetSystemTimeAdjustment(
     _Out_ PBOOL lpTimeAdjustmentDisabled
     );
 
-
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
@@ -236,7 +221,6 @@ GetSystemTimeAdjustmentPrecise(
     _Out_ PDWORD64 lpTimeIncrement,
     _Out_ PBOOL lpTimeAdjustmentDisabled
     );
-
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion
@@ -388,7 +372,6 @@ SetComputerNameExW(
     _In_ LPCWSTR lpBuffer
     );
 
-
 #ifdef UNICODE
 #define SetComputerNameEx SetComputerNameExW
 #endif
@@ -399,7 +382,6 @@ WINAPI
 SetSystemTime(
     _In_ CONST SYSTEMTIME* lpSystemTime
     );
-
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion
@@ -439,7 +421,6 @@ GetLogicalProcessorInformation(
     _Inout_ PDWORD ReturnedLength
     );
 
-
 #if (_WIN32_WINNT >= _WIN32_WINNT_WIN7)
 
 WINBASEAPI
@@ -450,7 +431,6 @@ GetLogicalProcessorInformationEx(
     _Out_writes_bytes_to_opt_(*ReturnedLength,*ReturnedLength) PSYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX Buffer,
     _Inout_ PDWORD ReturnedLength
     );
-
 
 #endif // (_WIN32_WINNT >= _WIN32_WINNT_WIN7)
 
@@ -463,7 +443,6 @@ GetNativeSystemInfo(
     _Out_ LPSYSTEM_INFO lpSystemInfo
     );
 
-
 #endif // (_WIN32_WINNT >= _WIN32_WINNT_WINXP)
 
 #if (_WIN32_WINNT >= _WIN32_WINNT_WIN8)
@@ -474,7 +453,6 @@ WINAPI
 GetSystemTimePreciseAsFileTime(
     _Out_ LPFILETIME lpSystemTimeAsFileTime
     );
-
 
 #endif // (_WIN32_WINNT >= _WIN32_WINNT_WIN8)
 
@@ -497,7 +475,6 @@ GetProductInfo(
     _Out_ PDWORD pdwReturnedProductType
     );
 
-
 #endif // (_WIN32_WINNT >= _WIN32_WINNT_VISTA)
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
@@ -517,7 +494,6 @@ VerSetConditionMask(
     _In_ UCHAR Condition
     );
 
-
 #endif // (NTDDI_VERSION >= NTDDI_WIN2K)
 
 #if (_WIN32_WINNT >= _WIN32_WINNT_WIN8)
@@ -528,7 +504,6 @@ WINAPI
 GetOsSafeBootMode(
     _Out_ PDWORD Flags
     );
-
 
 #endif // (_WIN32_WINNT >= _WIN32_WINNT_WIN8)
 
@@ -547,7 +522,6 @@ EnumSystemFirmwareTables(
     _In_ DWORD BufferSize
     );
 
-
 WINBASEAPI
 UINT
 WINAPI
@@ -557,7 +531,6 @@ GetSystemFirmwareTable(
     _Out_writes_bytes_to_opt_(BufferSize,return) PVOID pFirmwareTableBuffer,
     _In_ DWORD BufferSize
     );
-
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_APP) */
 #pragma endregion
@@ -575,7 +548,6 @@ DnsHostnameToComputerNameExW(
     _Inout_ LPDWORD nSize
     );
 
-
 WINBASEAPI
 _Success_(return != FALSE)
 BOOL
@@ -583,7 +555,6 @@ WINAPI
 GetPhysicallyInstalledSystemMemory(
     _Out_ PULONGLONG TotalMemoryInKilobytes
     );
-
 
 #define SCEX2_ALT_NETBIOS_NAME 0x00000001
 
@@ -595,7 +566,6 @@ SetComputerNameEx2W(
     _In_ DWORD Flags,
     _In_ LPCWSTR lpBuffer
     );
-
 
 #ifdef UNICODE
 #define SetComputerNameEx2 SetComputerNameEx2W
@@ -610,7 +580,6 @@ SetSystemTimeAdjustment(
     _In_ BOOL bTimeAdjustmentDisabled
     );
 
-
 WINBASEAPI
 _Success_(return != FALSE)
 BOOL
@@ -620,14 +589,12 @@ SetSystemTimeAdjustmentPrecise(
     _In_ BOOL bTimeAdjustmentDisabled
     );
 
-
 WINBASEAPI
 BOOL
 WINAPI
 InstallELAMCertificateInfo(
     _In_ HANDLE ELAMFile
     );
-
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion
@@ -642,7 +609,6 @@ GetProcessorSystemCycleTime(
     _Out_writes_bytes_to_opt_(*ReturnedLength,*ReturnedLength) PSYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION Buffer,
     _Inout_ PDWORD ReturnedLength
     );
-
 
 #endif // (_WIN32_WINNT >= _WIN32_WINNT_WIN7)
 
@@ -674,7 +640,6 @@ WINAPI
 GetIntegratedDisplaySize(
     _Out_ double* sizeInInches
     );
-
 
 #endif // (_WIN32_WINNT >= _WIN32_WINNT_WINTHRESHOLD)
 
@@ -711,7 +676,6 @@ SetComputerNameExA(
     _In_ COMPUTER_NAME_FORMAT NameType,
     _In_ LPCSTR lpBuffer
     );
-
 
 #ifndef UNICODE
 #define SetComputerNameEx SetComputerNameExA

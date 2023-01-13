@@ -14,8 +14,6 @@ Revision History:
 
 --*/
 
-
-
 #ifdef _MSC_VER
 #pragma once
 #endif // _MSC_VER
@@ -197,12 +195,12 @@ extern "C" {
 #define SDDL_ALL_APP_PACKAGES               TEXT("AC")      // All applications running in an app package context
 #define SDDL_RDS_REMOTE_ACCESS_SERVERS      TEXT("RA")      // Servers in this group enable users of RemoteApp programs and personal virtual desktops access to these resources.
 #define SDDL_RDS_ENDPOINT_SERVERS           TEXT("ES")      // Servers in this group run virtual machines and host sessions where users RemoteApp programs and personal virtual desktops run.
-#define SDDL_RDS_MANAGEMENT_SERVERS         TEXT("MS")      // Servers in this group can perform routine administrative actions on servers running Remote Desktop Services. 
+#define SDDL_RDS_MANAGEMENT_SERVERS         TEXT("MS")      // Servers in this group can perform routine administrative actions on servers running Remote Desktop Services.
 #define SDDL_USER_MODE_DRIVERS              TEXT("UD")      // UserMode driver
-#define SDDL_HYPER_V_ADMINS                 TEXT("HA")      // Members of this group have complete and unrestricted access to all features of Hyper-V. 
-#define SDDL_CLONEABLE_CONTROLLERS          TEXT("CN")      // Members of this group that are domain controllers may be cloned. 
-#define SDDL_ACCESS_CONTROL_ASSISTANCE_OPS  TEXT("AA")      // Members of this group can remotely query authorization attributes and permissions for resources on this computer. 
-#define SDDL_REMOTE_MANAGEMENT_USERS        TEXT("RM")      // Members of this group can access WMI resources over management protocols (such as WS-Management via the Windows Remote Management service). This applies only to WMI namespaces that grant access to the user. 
+#define SDDL_HYPER_V_ADMINS                 TEXT("HA")      // Members of this group have complete and unrestricted access to all features of Hyper-V.
+#define SDDL_CLONEABLE_CONTROLLERS          TEXT("CN")      // Members of this group that are domain controllers may be cloned.
+#define SDDL_ACCESS_CONTROL_ASSISTANCE_OPS  TEXT("AA")      // Members of this group can remotely query authorization attributes and permissions for resources on this computer.
+#define SDDL_REMOTE_MANAGEMENT_USERS        TEXT("RM")      // Members of this group can access WMI resources over management protocols (such as WS-Management via the Windows Remote Management service). This applies only to WMI namespaces that grant access to the user.
 #define SDDL_AUTHORITY_ASSERTED             TEXT("AS")      // Authentication Authority Asserted
 #define SDDL_SERVICE_ASSERTED               TEXT("SS")      // Authentication Service Asserted
 #define SDDL_PROTECTED_USERS                TEXT("AP")      // Members of this group are afforded additional protections against authentication security threats.
@@ -368,12 +366,9 @@ ConvertSecurityDescriptorToStringSecurityDescriptorW(
 
 #endif /* !defined(_NTDDK_) */
 
-
-
 #ifdef __cplusplus
 }
 #endif
 
 #endif  // endif __SDDL_H__
-
 

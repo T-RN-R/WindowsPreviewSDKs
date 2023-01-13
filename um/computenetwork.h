@@ -1,8 +1,6 @@
 // computenetwork.ext: ApiSet Contract for ext-ms-win-hyperv-computenetwork-l1
 // Copyright (c) Microsoft Corporation. All rights reserved.
 
-
-
 #pragma once
 
 #ifndef HCN_CLIENT_H
@@ -22,7 +20,7 @@ extern "C" {
 /////////////////////////////////////////////////////////////////////////
 /// Notifications
 
-/// Notifications indicated to callbacks 
+/// Notifications indicated to callbacks
 typedef enum HCN_NOTIFICATIONS
 {
        HcnNotificationInvalid                         = 0x00000000,
@@ -70,7 +68,6 @@ HcnEnumerateNetworks(
     _Outptr_opt_ PWSTR* ErrorRecord
     );
 
-
 /// Create a Network
 HRESULT
 WINAPI
@@ -81,7 +78,6 @@ HcnCreateNetwork(
     _Outptr_opt_ PWSTR* ErrorRecord
     );
 
-
 /// Lookup an existing network
 HRESULT
 WINAPI
@@ -91,7 +87,6 @@ HcnOpenNetwork(
     _Outptr_opt_ PWSTR* ErrorRecord
     );
 
-
 /// Modify the settings of a Network
 HRESULT
 WINAPI
@@ -100,7 +95,6 @@ HcnModifyNetwork(
     _In_ PCWSTR Settings,
     _Outptr_opt_ PWSTR* ErrorRecord
     );
-
 
 /// Query Network settings
 HRESULT
@@ -112,7 +106,6 @@ HcnQueryNetworkProperties(
     _Outptr_opt_ PWSTR* ErrorRecord
     );
 
-
 /// Delete a Network
 HRESULT
 WINAPI
@@ -121,14 +114,12 @@ HcnDeleteNetwork(
     _Outptr_opt_ PWSTR* ErrorRecord
     );
 
-
 /// Close a handle to a Network
 HRESULT
 WINAPI
 HcnCloseNetwork(
     _In_ HCN_NETWORK Network
     );
-
 
 /////////////////////////////////////////////////////////////////////////
 /// Hcn Namespace
@@ -146,7 +137,6 @@ HcnEnumerateNamespaces(
     _Outptr_opt_ PWSTR* ErrorRecord
     );
 
-
 /// Create a Namespace
 HRESULT
 WINAPI
@@ -157,7 +147,6 @@ HcnCreateNamespace(
     _Outptr_opt_ PWSTR* ErrorRecord
     );
 
-
 /// Lookup an existing Namespace
 HRESULT
 WINAPI
@@ -167,7 +156,6 @@ HcnOpenNamespace(
     _Outptr_opt_ PWSTR* ErrorRecord
     );
 
-
 /// Modify the settings of a Namespace
 HRESULT
 WINAPI
@@ -176,7 +164,6 @@ HcnModifyNamespace(
     _In_ PCWSTR Settings,
     _Outptr_opt_ PWSTR* ErrorRecord
     );
-
 
 /// Query Namespace settings
 HRESULT
@@ -188,7 +175,6 @@ HcnQueryNamespaceProperties(
     _Outptr_opt_ PWSTR* ErrorRecord
     );
 
-
 /// Delete a Namespace
 HRESULT
 WINAPI
@@ -197,14 +183,12 @@ HcnDeleteNamespace(
     _Outptr_opt_ PWSTR* ErrorRecord
     );
 
-
 /// Close a handle to a Namespace
 HRESULT
 WINAPI
 HcnCloseNamespace(
     _In_ HCN_NAMESPACE Namespace
     );
-
 
 /////////////////////////////////////////////////////////////////////////
 /// Hcn Endpoint
@@ -222,7 +206,6 @@ HcnEnumerateEndpoints(
     _Outptr_opt_ PWSTR* ErrorRecord
     );
 
-
 /// Create an Endpoint
 HRESULT
 WINAPI
@@ -234,7 +217,6 @@ HcnCreateEndpoint(
     _Outptr_opt_ PWSTR* ErrorRecord
     );
 
-
 /// Lookup an existing Endpoint
 HRESULT
 WINAPI
@@ -244,7 +226,6 @@ HcnOpenEndpoint(
     _Outptr_opt_ PWSTR* ErrorRecord
     );
 
-
 /// Modify the settings of an Endpoint
 HRESULT
 WINAPI
@@ -253,7 +234,6 @@ HcnModifyEndpoint(
     _In_ PCWSTR Settings,
     _Outptr_opt_ PWSTR* ErrorRecord
     );
-
 
 /// Query Endpoint properties
 HRESULT
@@ -265,7 +245,6 @@ HcnQueryEndpointProperties(
     _Outptr_opt_ PWSTR* ErrorRecord
     );
 
-
 /// Delete an Endpoint
 HRESULT
 WINAPI
@@ -274,14 +253,12 @@ HcnDeleteEndpoint(
     _Outptr_opt_ PWSTR* ErrorRecord
     );
 
-
 /// Close a handle to an Endpoint
 HRESULT
 WINAPI
 HcnCloseEndpoint(
     _In_ HCN_ENDPOINT Endpoint
     );
-
 
 /////////////////////////////////////////////////////////////////////////
 /// Hcn LoadBalancer
@@ -299,7 +276,6 @@ HcnEnumerateLoadBalancers(
     _Outptr_opt_ PWSTR* ErrorRecord
     );
 
-
 /// Create a LoadBalancer
 HRESULT
 WINAPI
@@ -310,7 +286,6 @@ HcnCreateLoadBalancer(
     _Outptr_opt_ PWSTR* ErrorRecord
     );
 
-
 /// Lookup an existing LoadBalancer
 HRESULT
 WINAPI
@@ -320,7 +295,6 @@ HcnOpenLoadBalancer(
     _Outptr_opt_ PWSTR* ErrorRecord
     );
 
-
 /// Modify the settings of a PolcyList
 HRESULT
 WINAPI
@@ -329,7 +303,6 @@ HcnModifyLoadBalancer(
     _In_ PCWSTR Settings,
     _Outptr_opt_ PWSTR* ErrorRecord
     );
-
 
 /// Query PolcyList settings
 HRESULT
@@ -341,7 +314,6 @@ HcnQueryLoadBalancerProperties(
     _Outptr_opt_ PWSTR* ErrorRecord
     );
 
-
 /// Delete a LoadBalancer
 HRESULT
 WINAPI
@@ -350,14 +322,12 @@ HcnDeleteLoadBalancer(
     _Outptr_opt_ PWSTR* ErrorRecord
     );
 
-
 /// Close a handle to a LoadBalancer
 HRESULT
 WINAPI
 HcnCloseLoadBalancer(
     _In_ HCN_LOADBALANCER LoadBalancer
     );
-
 
 /////////////////////////////////////////////////////////////////////////
 /// Hcn Service
@@ -375,14 +345,12 @@ HcnRegisterServiceCallback(
     _Outptr_ HCN_CALLBACK* CallbackHandle
     );
 
-
 /// Unregisters from service-wide notifications
 HRESULT
 WINAPI
 HcnUnregisterServiceCallback(
     _In_ HCN_CALLBACK CallbackHandle
     );
-
 
 #ifdef __cplusplus
 }
@@ -393,11 +361,8 @@ HcnUnregisterServiceCallback(
 
 #endif
 
-
 #ifndef ext_ms_win_hyperv_computenetwork_l1_1_0_query_routines
 #define ext_ms_win_hyperv_computenetwork_l1_1_0_query_routines
-
-
 
 //
 //Private Extension API Query Routines

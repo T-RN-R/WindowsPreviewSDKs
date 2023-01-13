@@ -28933,13 +28933,31 @@
 #define ERROR_INSTALL_RESOLVE_HOSTRUNTIME_DEPENDENCY_FAILED 15665L
 
 //
+// MessageId: ERROR_MACHINE_SCOPE_NOT_ALLOWED
+//
+// MessageText:
+//
+// The package deployment failed because it uses a machine scope but doesn't have the required capability.
+//
+#define ERROR_MACHINE_SCOPE_NOT_ALLOWED  15666L
+
+//
+// MessageId: ERROR_CLASSIC_COMPAT_MODE_NOT_ALLOWED
+//
+// MessageText:
+//
+// The package deployment failed because it uses classic compatmode but doesn't have the required capability.
+//
+#define ERROR_CLASSIC_COMPAT_MODE_NOT_ALLOWED 15667L
+
+//
 // MessageId: ERROR_STAGEFROMUPDATEAGENT_PACKAGE_NOT_APPLICABLE
 //
 // MessageText:
 //
 // AppxUpdateAgent attempted to stage a package that is not applicable.
 //
-#define ERROR_STAGEFROMUPDATEAGENT_PACKAGE_NOT_APPLICABLE 15666L
+#define ERROR_STAGEFROMUPDATEAGENT_PACKAGE_NOT_APPLICABLE 15668L
 
 //////////////////////////
 //                      //

@@ -9,7 +9,6 @@
 //
 //----------------------------------------------------------------------------
 
-
 #include <apiset.h>
 #include <apisetcconv.h>
 
@@ -383,7 +382,6 @@ CoGetMalloc(
     _Outptr_ LPMALLOC  FAR * ppMalloc
     );
 
-
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
 
@@ -397,13 +395,11 @@ CreateStreamOnHGlobal(
     _Outptr_ LPSTREAM  FAR * ppstm
     );
 
-
 _Check_return_ WINOLEAPI
 GetHGlobalFromStream(
     _In_ LPSTREAM pstm,
     _Out_ HGLOBAL  FAR * phglobal
     );
-
 
 /* init/uninit */
 
@@ -411,7 +407,6 @@ WINOLEAPI_(void)
 CoUninitialize(
     void
     );
-
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 #pragma endregion
@@ -423,7 +418,6 @@ WINOLEAPI_(DWORD)
 CoGetCurrentProcess(
     void
     );
-
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
@@ -440,7 +434,6 @@ CoInitializeEx(
     _In_ DWORD dwCoInit
     );
 
-
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 #pragma endregion
 
@@ -452,7 +445,6 @@ CoGetCallerTID(
     _Out_ LPDWORD lpdwTID
     );
 
-
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
 
@@ -463,7 +455,6 @@ WINOLEAPI
 CoGetCurrentLogicalThreadId(
     _Out_ GUID* pguid
     );
-
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
@@ -480,7 +471,6 @@ CoGetContextToken(
     _Out_ ULONG_PTR* pToken
     );
 
-
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 #pragma endregion
 
@@ -493,7 +483,6 @@ CoGetDefaultContext(
     _In_ REFIID riid,
     _Outptr_ void** ppv
     );
-
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
@@ -512,7 +501,6 @@ CoGetApartmentType(
     _Out_ APTTYPE* pAptType,
     _Out_ APTTYPEQUALIFIER* pAptQualifier
     );
-
 
 #endif
 
@@ -546,7 +534,6 @@ CoDecodeProxy(
     _Out_ PServerInformation pServerInformation
     );
 
-
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
 
@@ -565,7 +552,6 @@ CoDecrementMTAUsage(
     _In_ CO_MTA_USAGE_COOKIE Cookie
     );
 
-
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 #pragma endregion
 
@@ -576,7 +562,6 @@ WINOLEAPI
 CoAllowUnmarshalerCLSID(
     _In_ REFCLSID clsid
     );
-
 
 // Predefine _EXE_INITIALIZE_MTA to have the runtime initialize an MTA for your process
 // prior to initializing globals (i.e. dynamic initializers)
@@ -606,7 +591,6 @@ CoGetObjectContext(
     _In_ REFIID riid,
     _Outptr_ LPVOID  FAR * ppv
     );
-
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
@@ -655,7 +639,6 @@ CoSuspendClassObjects(
     void
     );
 
-
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 #pragma endregion
 
@@ -667,12 +650,10 @@ CoAddRefServerProcess(
     void
     );
 
-
 WINOLEAPI_(ULONG)
 CoReleaseServerProcess(
     void
     );
-
 
 _Check_return_ WINOLEAPI
 CoGetPSClsid(
@@ -686,13 +667,11 @@ CoRegisterPSClsid(
     _In_ REFCLSID rclsid
     );
 
-
 // Registering surrogate processes
 _Check_return_ WINOLEAPI
 CoRegisterSurrogate(
     _In_ LPSURROGATE pSurrogate
     );
-
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
@@ -729,7 +708,6 @@ CoUnmarshalInterface(
     _COM_Outptr_ LPVOID  FAR * ppv
     );
 
-
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
 
@@ -748,7 +726,6 @@ CoUnmarshalHresult(
     _Out_ HRESULT  FAR * phresult
     );
 
-
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
 
@@ -766,7 +743,6 @@ CoDisconnectObject(
     _In_ DWORD dwReserved
     );
 
-
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
 
@@ -779,7 +755,6 @@ CoLockObjectExternal(
     _In_ BOOL fLock,
     _In_ BOOL fLastUnlockReleases
     );
-
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
@@ -797,7 +772,6 @@ CoGetStandardMarshal(
     _Outptr_ LPMARSHAL  FAR * ppMarshal
     );
 
-
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
 
@@ -810,7 +784,6 @@ CoGetStdMarshalEx(
     _In_ DWORD smexflags,
     _Outptr_ LPUNKNOWN  FAR * ppUnkInner
     );
-
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
@@ -836,7 +809,6 @@ CoIsHandlerConnected(
     _In_ LPUNKNOWN pUnk
     );
 
-
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
 
@@ -851,14 +823,12 @@ CoMarshalInterThreadInterfaceInStream(
     _Outptr_ LPSTREAM* ppStm
     );
 
-
 _Check_return_ WINOLEAPI
 CoGetInterfaceAndReleaseStream(
     _In_ LPSTREAM pStm,
     _In_ REFIID iid,
     _COM_Outptr_ LPVOID  FAR * ppv
     );
-
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
@@ -871,7 +841,6 @@ CoCreateFreeThreadedMarshaler(
     _In_opt_ LPUNKNOWN punkOuter,
     _Outptr_ LPUNKNOWN* ppunkMarshal
     );
-
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 #pragma endregion
@@ -906,7 +875,6 @@ CoDisconnectContext(
     DWORD dwTimeout
     );
 
-
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
 
@@ -933,7 +901,6 @@ CoInitializeSecurity(
     _In_opt_ void* pReserved3
     );
 
-
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 #pragma endregion
 
@@ -945,7 +912,6 @@ CoGetCallContext(
     _In_ REFIID riid,
     _Outptr_ void** ppInterface
     );
-
 
 _Check_return_ WINOLEAPI
 CoQueryProxyBlanket(
@@ -959,7 +925,6 @@ CoQueryProxyBlanket(
     _Out_opt_ DWORD* pCapabilites
     );
 
-
 _Check_return_ WINOLEAPI
 CoSetProxyBlanket(
     _In_ IUnknown* pProxy,
@@ -972,13 +937,11 @@ CoSetProxyBlanket(
     _In_ DWORD dwCapabilities
     );
 
-
 _Check_return_ WINOLEAPI
 CoCopyProxy(
     _In_ IUnknown* pProxy,
     _Outptr_ IUnknown** ppCopy
     );
-
 
 _Check_return_ WINOLEAPI
 CoQueryClientBlanket(
@@ -991,25 +954,21 @@ CoQueryClientBlanket(
     _Inout_opt_ DWORD* pCapabilities
     );
 
-
 _Check_return_ WINOLEAPI
 CoImpersonateClient(
     void
     );
-
 
 _Check_return_ WINOLEAPI
 CoRevertToSelf(
     void
     );
 
-
 _Check_return_ WINOLEAPI
 CoQueryAuthenticationServices(
     _Out_ DWORD* pcAuthSvc,
     _Outptr_result_buffer_(*pcAuthSvc) SOLE_AUTHENTICATION_SERVICE** asAuthSvc
     );
-
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
@@ -1022,7 +981,6 @@ CoSwitchCallContext(
     _In_opt_ IUnknown* pNewObject,
     _Outptr_ IUnknown** ppOldObject
     );
-
 
 #define COM_RIGHTS_EXECUTE 1
 #define COM_RIGHTS_EXECUTE_LOCAL 2
@@ -1051,7 +1009,6 @@ CoCreateInstance(
     _COM_Outptr_ _At_(*ppv, _Post_readable_size_(_Inexpressible_(varies))) LPVOID  FAR * ppv
     );
 
-
 #endif // (WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES))
 #pragma endregion
 
@@ -1071,7 +1028,6 @@ CoCreateInstanceEx(
     _Inout_updates_(dwCount) MULTI_QI* pResults
     );
 
-
 #endif // DCOM
 
 #if (_WIN32_WINNT >= 0x0602)
@@ -1086,12 +1042,10 @@ CoCreateInstanceFromApp(
     _Inout_updates_(dwCount) MULTI_QI* pResults
     );
 
-
 #endif // (_WIN32_WINNT >= 0x0602)
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
-
 
 #pragma region Desktop or OneCore Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
@@ -1101,11 +1055,8 @@ CoRegisterActivationFilter(
     _In_ IActivationFilter* pActivationFilter
     );
 
-
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
-
-
 
 /* Call related APIs */
 // DCOM
@@ -1121,12 +1072,10 @@ CoGetCancelObject(
     _Outptr_ void** ppUnk
     );
 
-
 _Check_return_ WINOLEAPI
 CoSetCancelObject(
     _In_opt_ IUnknown* pUnk
     );
-
 
 _Check_return_ WINOLEAPI
 CoCancelCall(
@@ -1134,24 +1083,20 @@ CoCancelCall(
     _In_ ULONG ulTimeout
     );
 
-
 _Check_return_ WINOLEAPI
 CoTestCancel(
     void
     );
-
 
 _Check_return_ WINOLEAPI
 CoEnableCallCancellation(
     _In_opt_ LPVOID pReserved
     );
 
-
 _Check_return_ WINOLEAPI
 CoDisableCallCancellation(
     _In_opt_ LPVOID pReserved
     );
-
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
@@ -1187,7 +1132,6 @@ IIDFromString(
     _Out_ LPIID lpiid
     );
 
-
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 #pragma endregion
 
@@ -1206,7 +1150,6 @@ CLSIDFromProgID(
     _Out_ LPCLSID lpclsid
     );
 
-
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 #pragma endregion
 
@@ -1220,12 +1163,10 @@ StringFromGUID2(
     _In_ int cchMax
     );
 
-
 _Check_return_ WINOLEAPI
 CoCreateGuid(
     _Out_ GUID  FAR * pguid
     );
-
 
 /* Prop variant support */
 
@@ -1238,19 +1179,16 @@ PropVariantCopy(
     _In_ const PROPVARIANT* pvarSrc
     );
 
-
 WINOLEAPI
 PropVariantClear(
     _Inout_ PROPVARIANT* pvar
     );
-
 
 WINOLEAPI
 FreePropVariantArray(
     _In_ ULONG cVariants,
     _Inout_updates_(cVariants) PROPVARIANT* rgvars
     );
-
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 #pragma endregion
@@ -1282,7 +1220,6 @@ CoWaitForMultipleHandles(
     _Out_ LPDWORD lpdwindex
     );
 
-
 /* Flags for Synchronization API and Classes */
 
 typedef enum tagCOWAIT_FLAGS
@@ -1313,7 +1250,6 @@ CoWaitForMultipleObjects(
     _Out_ LPDWORD lpdwindex
     );
 
-
 #endif // (NTDDI_VERSION >= NTDDI_WIN8)
 
 #define CWMO_MAX_HANDLES 56
@@ -1332,7 +1268,6 @@ CoGetTreatAsClass(
     _Out_ LPCLSID pClsidNew
     );
 
-
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
 
@@ -1347,7 +1282,6 @@ _Check_return_ WINOLEAPI
 CoInvalidateRemoteMachineBindings(
     _In_ LPOLESTR pszMachineName
     );
-
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
@@ -1372,7 +1306,6 @@ RoGetAgileReference(
     _In_ IUnknown* pUnk,
     _COM_Outptr_ IAgileReference** ppAgileReference
     );
-
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
@@ -1413,7 +1346,6 @@ CoTaskMemFree(
     _Frees_ptr_opt_ LPVOID pv
     );
 
-
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 #pragma endregion
 
@@ -1431,7 +1363,6 @@ CLSIDFromProgIDEx(
     _Out_ LPCLSID lpclsid
     );
 
-
 #if (NTDDI_VERSION >= NTDDI_WIN10_VB)
 
 #if !defined(_CO_DEVICE_CATALOG_)
@@ -1447,13 +1378,11 @@ CoRegisterDeviceCatalog(
     _Out_ CO_DEVICE_CATALOG_COOKIE* cookie
     );
 
-
 _Check_return_
 WINOLEAPI
 CoRevokeDeviceCatalog(
     _In_ CO_DEVICE_CATALOG_COOKIE cookie
     );
-
 
 #endif
 

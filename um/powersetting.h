@@ -1,12 +1,10 @@
 /********************************************************************************
 *                                                                               *
-* powersetting.h -- ApiSet Contract for api-ms-win-power-setting-l1-1-0         *  
+* powersetting.h -- ApiSet Contract for api-ms-win-power-setting-l1-1-0         *
 *                                                                               *
 * Copyright (c) Microsoft Corporation. All rights reserved.                     *
 *                                                                               *
 ********************************************************************************/
-
-
 
 #ifdef _MSC_VER
 #if (_MSC_VER > 1000)

@@ -13,8 +13,6 @@ Abstract:
 
 --*/
 
-
-
 #ifndef _WINREG_
 #define _WINREG_
 
@@ -24,7 +22,6 @@ Abstract:
 #include <apisetcconv.h>
 #include <minwindef.h>
 #include <minwinbase.h>
-
 
 #ifdef _MAC
 #include <macwin32.h>
@@ -41,7 +38,6 @@ extern "C" {
 
 #pragma region Application Family or Desktop Family or OneCore Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
-
 
 #ifndef WINVER
 #define WINVER 0x0500   // version 5.0
@@ -247,7 +243,6 @@ RegCloseKey(
     _In_ HKEY hKey
     );
 
-
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 #pragma endregion
 
@@ -272,7 +267,6 @@ RegOpenUserClassesRoot(
     _Out_ PHKEY phkResult
     );
 
-
 WINADVAPI
 LSTATUS
 APIENTRY
@@ -280,7 +274,6 @@ RegOpenCurrentUser(
     _In_ REGSAM samDesired,
     _Out_ PHKEY phkResult
     );
-
 
 WINADVAPI
 LSTATUS
@@ -295,7 +288,6 @@ APIENTRY
 RegDisablePredefinedCacheEx(
     VOID
     );
-
 
 WINADVAPI
 LSTATUS
@@ -704,7 +696,6 @@ RegFlushKey(
     _In_ HKEY hKey
     );
 
-
 WINADVAPI
 LSTATUS
 APIENTRY
@@ -714,7 +705,6 @@ RegGetKeySecurity(
     _Out_writes_bytes_opt_(*lpcbSecurityDescriptor) PSECURITY_DESCRIPTOR pSecurityDescriptor,
     _Inout_ LPDWORD lpcbSecurityDescriptor
     );
-
 
 WINADVAPI
 LSTATUS
@@ -750,7 +740,6 @@ RegNotifyChangeKeyValue(
     _In_opt_ HANDLE hEvent,
     _In_ BOOL fAsynchronous
     );
-
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
@@ -1099,7 +1088,6 @@ RegSetKeySecurity(
     _In_ SECURITY_INFORMATION SecurityInformation,
     _In_ PSECURITY_DESCRIPTOR pSecurityDescriptor
     );
-
 
 WINADVAPI
 LSTATUS
@@ -1613,7 +1601,6 @@ RegSaveKeyExW(
 #define RegSaveKeyEx  RegSaveKeyExA
 #endif // !UNICODE
 
-
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
 
@@ -1624,7 +1611,6 @@ RegSaveKeyExW(
 #ifdef __cplusplus
 }
 #endif
-
 
 #endif // _WINREG_
 

@@ -6,8 +6,6 @@
 *                                                                               *
 ********************************************************************************/
 
-
-
 #ifdef _MSC_VER
 #pragma once
 #endif // _MSC_VER
@@ -38,7 +36,6 @@ LoadPackagedLibrary(
     _Reserved_ DWORD Reserved
     );
 
-
 #endif // _WIN32_WINNT >= 0x0602
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
@@ -58,7 +55,6 @@ QueryOptionalDelayLoadedAPI(
     _In_ LPCSTR lpProcName,
     _Reserved_ DWORD Reserved
     );
-
 
 #endif // _WIN32_WINNT >= 0x0602
 

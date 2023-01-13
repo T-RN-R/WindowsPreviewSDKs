@@ -12,8 +12,6 @@
 //    This header file provides API function signatures for querying gaming device information.
 //
 
-
-
 #ifdef MSC_VER
 #pragma once
 #endif
@@ -64,7 +62,6 @@ STDAPI
 GetGamingDeviceModelInformation(
     _Out_ GAMING_DEVICE_MODEL_INFORMATION* information
     );
-
 
 #if defined(__cplusplus)
 } // end extern "C"

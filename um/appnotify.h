@@ -6,8 +6,6 @@
 *                                                                               *
 ********************************************************************************/
 
-
-
 #ifndef _APISET_PSMAPPNOTIFY_H_
 #define _APISET_PSMAPPNOTIFY_H_
 
@@ -52,7 +50,6 @@ RegisterAppStateChangeNotification(
     _Out_ PAPPSTATE_REGISTRATION* Registration
     );
 
-
 APICONTRACT
 VOID
 NTAPI
@@ -60,15 +57,14 @@ UnregisterAppStateChangeNotification(
     _Inout_ PAPPSTATE_REGISTRATION Registration
     );
 
+typedef
+VOID
+(*PAPPCONSTRAIN_CHANGE_ROUTINE) (
+    _In_ BOOLEAN Constrained,
+    _In_ PVOID Context
+);
 
-typedef 
-VOID 
-(*PAPPCONSTRAIN_CHANGE_ROUTINE) ( 
-    _In_ BOOLEAN Constrained, 
-    _In_ PVOID Context 
-); 
-
-typedef struct _APPCONSTRAIN_REGISTRATION *PAPPCONSTRAIN_REGISTRATION; 
+typedef struct _APPCONSTRAIN_REGISTRATION *PAPPCONSTRAIN_REGISTRATION;
 
 APICONTRACT
 ULONG
@@ -78,7 +74,6 @@ RegisterAppConstrainedChangeNotification(
     _In_opt_ PVOID Context,
     _Out_ PAPPCONSTRAIN_REGISTRATION* Registration
     );
- 
 
 APICONTRACT
 VOID
@@ -86,7 +81,6 @@ NTAPI
 UnregisterAppConstrainedChangeNotification(
     _Inout_ PAPPCONSTRAIN_REGISTRATION Registration
     );
- 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */
 #pragma endregion

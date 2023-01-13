@@ -1,8 +1,6 @@
 // HyperVDeviceVirtualization.h: ApiSet Contract for ext-ms-win-hyperv-devicevirtualization-l1-1
 // Copyright (c) Microsoft Corporation. All rights reserved.
 
-
-
 #ifndef _HYPERV_DEVICE_VIRTUALIZATION_H_
 #define _HYPERV_DEVICE_VIRTUALIZATION_H_
 
@@ -82,13 +80,11 @@ HdvInitializeDeviceHost(
     _Out_ HDV_HOST* deviceHostHandle
     );
 
-
 HRESULT
 WINAPI
 HdvTeardownDeviceHost(
     _In_ HDV_HOST deviceHostHandle
     );
-
 
 HRESULT
 WINAPI
@@ -102,7 +98,6 @@ HdvCreateDeviceInstance(
     _Out_ HDV_DEVICE* deviceHandle
     );
 
-
 HRESULT
 WINAPI
 HdvReadGuestMemory(
@@ -112,7 +107,6 @@ HdvReadGuestMemory(
     _Out_writes_(byteCount) BYTE* buffer
     );
 
-
 HRESULT
 WINAPI
 HdvWriteGuestMemory(
@@ -121,7 +115,6 @@ HdvWriteGuestMemory(
     _In_ UINT32 byteCount,
     _In_reads_(byteCount) const BYTE* buffer
     );
-
 
 HRESULT
 WINAPI
@@ -133,14 +126,12 @@ HdvCreateGuestMemoryAperture(
     _Out_ PVOID* mappedAddress
     );
 
-
 HRESULT
 WINAPI
 HdvDestroyGuestMemoryAperture(
     _In_ HDV_DEVICE requestor,
     _In_ PVOID mappedAddress
     );
-
 
 HRESULT
 WINAPI
@@ -149,11 +140,6 @@ HdvDeliverGuestInterrupt(
     _In_ UINT64 msiAddress,
     _In_ UINT32 msiData
     );
-
-
-
-
-
 
 HRESULT
 WINAPI
@@ -166,7 +152,6 @@ HdvRegisterDoorbell(
     _In_ HANDLE DoorbellEvent
     );
 
-
 HRESULT
 WINAPI
 HdvUnregisterDoorbell(
@@ -176,7 +161,6 @@ HdvUnregisterDoorbell(
     _In_ UINT64 TriggerValue,
     _In_ UINT64 Flags
     );
-
 
 //
 // PCI device interface.
@@ -271,11 +255,8 @@ typedef struct HDV_PCI_DEVICE_INTERFACE
 
 #endif // _HYPERV_DEVICE_VIRTUALIZATION_H_
 
-
 #ifndef ext_ms_win_hyperv_devicevirtualization_l1_2_0_query_routines
 #define ext_ms_win_hyperv_devicevirtualization_l1_2_0_query_routines
-
-
 
 //
 //Private Extension API Query Routines

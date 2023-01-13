@@ -1,12 +1,10 @@
 /********************************************************************************
 *                                                                               *
-* timerapi.h -- ApiSet Contract for api-ms-win-mm-time-l1-1-0                   *  
+* timerapi.h -- ApiSet Contract for api-ms-win-mm-time-l1-1-0                   *
 *                                                                               *
 * Copyright (c) Microsoft Corporation. All rights reserved.                     *
 *                                                                               *
 ********************************************************************************/
-
-
 
 #ifdef _MSC_VER
 #pragma once
@@ -18,7 +16,6 @@
 #include <apiset.h>
 #include <apisetcconv.h>
 
-
 #include <mmsyscom.h>
 
 #ifdef __cplusplus
@@ -28,7 +25,7 @@ extern "C" {
 #pragma region Desktop Family or OneCore Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM)
 
-#ifndef MMNOTIMER  
+#ifndef MMNOTIMER
 /****************************************************************************
 
                             Timer support
@@ -39,7 +36,6 @@ extern "C" {
 #define TIMERR_NOERROR        (0)                  /* no error */
 #define TIMERR_NOCANDO        (TIMERR_BASE+1)      /* request not completed */
 #define TIMERR_STRUCT         (TIMERR_BASE+33)     /* time struct size */
-
 
 /* timer device capabilities data structure */
 typedef struct timecaps_tag {
@@ -89,8 +85,7 @@ timeEndPeriod(
     _In_ UINT uPeriod
     );
 
-
-#endif  /* ifndef MMNOTIMER */  
+#endif  /* ifndef MMNOTIMER */
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion
@@ -100,5 +95,4 @@ timeEndPeriod(
 #endif
 
 #endif // _TIMERAPI_H_
-
 

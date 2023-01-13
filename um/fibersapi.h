@@ -6,8 +6,6 @@
 *                                                                               *
 ********************************************************************************/
 
-
-
 #ifdef _MSC_VER
 #pragma once
 #endif // _MSC_VER
@@ -39,14 +37,12 @@ FlsAlloc(
     _In_opt_ PFLS_CALLBACK_FUNCTION lpCallback
     );
 
-
 WINBASEAPI
 PVOID
 WINAPI
 FlsGetValue(
     _In_ DWORD dwFlsIndex
     );
-
 
 WINBASEAPI
 BOOL
@@ -56,14 +52,12 @@ FlsSetValue(
     _In_opt_ PVOID lpFlsData
     );
 
-
 WINBASEAPI
 BOOL
 WINAPI
 FlsFree(
     _In_ DWORD dwFlsIndex
     );
-
 
 #endif // (_WIN32_WINNT >= 0x0600)
 
@@ -81,7 +75,6 @@ WINAPI
 IsThreadAFiber(
     VOID
     );
-
 
 #endif // (_WIN32_WINNT >= 0x0600)
 

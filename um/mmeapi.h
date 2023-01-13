@@ -1,12 +1,10 @@
 /********************************************************************************
 *                                                                               *
-* mmeapi.h -- ApiSet Contract for api-ms-win-mm-mme-l1-1-0                      *  
+* mmeapi.h -- ApiSet Contract for api-ms-win-mm-mme-l1-1-0                      *
 *                                                                               *
 * Copyright (c) Microsoft Corporation. All rights reserved.                     *
 *                                                                               *
 ********************************************************************************/
-
-
 
 #ifdef _MSC_VER
 #pragma once
@@ -78,7 +76,6 @@ typedef WAVECALLBACK FAR *LPWAVECALLBACK;
 #define  WAVE_MAPPED_DEFAULT_COMMUNICATION_DEVICE   0x0010
 #endif /* (WINVER >= 0x0400) */
 
-
 /* wave data block header */
 typedef struct wavehdr_tag {
     LPSTR       lpData;                 /* pointer to locked data buffer */
@@ -97,7 +94,6 @@ typedef struct wavehdr_tag {
 #define WHDR_BEGINLOOP  0x00000004  /* loop start block */
 #define WHDR_ENDLOOP    0x00000008  /* loop end block */
 #define WHDR_INQUEUE    0x00000010  /* reserved for driver */
-
 
 /* waveform output device capabilities structure */
 #ifdef _WIN32
@@ -190,7 +186,6 @@ typedef struct waveoutcaps_tag {
 #define WAVECAPS_LRVOLUME       0x0008   /* separate left-right volume control */
 #define WAVECAPS_SYNC           0x0010
 #define WAVECAPS_SAMPLEACCURATE 0x0020
-
 
 /* waveform input device capabilities structure */
 #ifdef _WIN32
@@ -299,7 +294,6 @@ typedef struct waveincaps_tag {
 #define WAVE_FORMAT_96M16      0x00040000       /* 96     kHz, Mono,   16-bit */
 #define WAVE_FORMAT_96S16      0x00080000       /* 96     kHz, Stereo, 16-bit */
 
-
 #ifndef WAVE_FORMAT_PCM
 
 /* OLD general waveform format structure (information common to all formats) */
@@ -313,7 +307,6 @@ typedef struct waveformat_tag {
 
 /* flags for wFormatTag field of WAVEFORMAT */
 #define WAVE_FORMAT_PCM     1
-
 
 /* specific waveform format structure for PCM data */
 typedef struct pcmwaveformat_tag {
@@ -351,7 +344,6 @@ WINAPI
 waveOutGetNumDevs(
     void
     );
-
 
 #ifdef _WIN32
 
@@ -446,7 +438,6 @@ waveOutOpen(
     _In_opt_ DWORD_PTR dwInstance,
     _In_ DWORD fdwOpen
     );
-
 
 WINMMAPI
 MMRESULT
@@ -559,7 +550,6 @@ waveOutGetID(
     _Out_ LPUINT puDeviceID
     );
 
-
 #if (WINVER >= 0x030a)
 #ifdef _WIN32
 WINMMAPI
@@ -583,7 +573,6 @@ WINAPI
 waveInGetNumDevs(
     void
     );
-
 
 #ifdef _WIN32
 
@@ -657,7 +646,6 @@ waveInOpen(
     _In_ DWORD fdwOpen
     );
 
-
 WINMMAPI
 MMRESULT
 WINAPI
@@ -729,7 +717,6 @@ waveInGetID(
     _In_ HWAVEIN hwi,
     _In_ LPUINT puDeviceID
     );
-
 
 #if (WINVER >= 0x030a)
 #ifdef _WIN32
@@ -815,7 +802,6 @@ typedef WORD FAR *LPKEYARRAY;
 #define MIDI_CACHE_BESTFIT  2
 #define MIDI_CACHE_QUERY    3
 #define MIDI_UNCACHE        4
-
 
 /* MIDI output device capabilities structure */
 #ifdef _WIN32
@@ -1128,7 +1114,6 @@ midiStreamClose(
     _In_ HMIDISTRM hms
     );
 
-
 WINMMAPI
 MMRESULT
 WINAPI
@@ -1146,7 +1131,6 @@ midiStreamPosition(
     _Out_writes_bytes_(cbmmt) LPMMTIME lpmmt,
     _In_ UINT cbmmt
     );
-
 
 WINMMAPI
 MMRESULT
@@ -1177,7 +1161,6 @@ WINAPI
 midiStreamStop(
     _In_ HMIDISTRM hms
     );
-
 
 #ifdef _WIN32
 WINMMAPI
@@ -1371,7 +1354,6 @@ midiOutGetID(
     _Out_ LPUINT puDeviceID
     );
 
-
 #if (WINVER >= 0x030a)
 #ifdef _WIN32
 WINMMAPI
@@ -1395,7 +1377,6 @@ WINAPI
 midiInGetNumDevs(
     void
     );
-
 
 #ifdef _WIN32
 
@@ -1525,7 +1506,6 @@ midiInGetID(
     _Out_ LPUINT puDeviceID
     );
 
-
 #if (WINVER >= 0x030a)
 #ifdef _WIN32
 WINMMAPI
@@ -1554,7 +1534,6 @@ DWORD WINAPI midiInMessage(HMIDIIN hmi, UINT uMsg, DWORD dw1, DWORD dw2);
 
 /* device ID for aux device mapper */
 #define AUX_MAPPER     ((UINT)-1)
-
 
 /* Auxiliary audio device capabilities structure */
 #ifdef _WIN32
@@ -1696,7 +1675,6 @@ auxGetVolume(
     _Out_ LPDWORD pdwVolume
     );
 
-
 #if (WINVER >= 0x030a)
 #ifdef _WIN32
 WINMMAPI
@@ -1760,7 +1738,6 @@ WINAPI
 mixerGetNumDevs(
     void
     );
-
 
 #ifdef _WIN32
 
@@ -1873,14 +1850,12 @@ mixerOpen(
     _In_ DWORD fdwOpen
     );
 
-
 WINMMAPI
 MMRESULT
 WINAPI
 mixerClose(
     _In_ HMIXER hmx
     );
-
 
 WINMMAPI
 DWORD
@@ -1891,7 +1866,6 @@ mixerMessage(
     _In_opt_ DWORD_PTR dwParam1,
     _In_opt_ DWORD_PTR dwParam2
     );
-
 
 #ifdef _WIN32
 
@@ -2071,7 +2045,6 @@ mixerGetID(
     _Out_ UINT  FAR * puMxId,
     _In_ DWORD fdwId
     );
-
 
 /* */
 /*  MIXERCONTROL */
@@ -2448,7 +2421,6 @@ mixerSetControlDetails(
     _In_ DWORD fdwDetails
     );
 
-
 #define MIXER_SETCONTROLDETAILSF_VALUE      0x00000000L
 #define MIXER_SETCONTROLDETAILSF_CUSTOM     0x00000001L
 
@@ -2464,5 +2436,4 @@ mixerSetControlDetails(
 #endif
 
 #endif // _MMEAPI_H_
-
 

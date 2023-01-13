@@ -6,8 +6,6 @@
 *                                                                                       *
 *****************************************************************************************/
 
-
-
 #pragma once
 
 #include <apiset.h>
@@ -18,7 +16,7 @@
 
 #if (NTDDI_VERSION >= NTDDI_WIN10_MN)
 
-typedef enum _LicenseProtectionStatus 
+typedef enum _LicenseProtectionStatus
 {
     Success,
     LicenseKeyNotFound,
@@ -27,14 +25,12 @@ typedef enum _LicenseProtectionStatus
     LicenseKeyAlreadyExists,
 } LicenseProtectionStatus;
 
-
 STDAPI
 RegisterLicenseKeyWithExpiration(
     _In_ PCWSTR licenseKey,
     _In_ UINT32 validityInDays,
     _Out_ LicenseProtectionStatus* status
     );
-
 
 STDAPI
 ValidateLicenseKeyProtection(
@@ -43,7 +39,6 @@ ValidateLicenseKeyProtection(
     _Out_ PFILETIME notValidAfter,
     _Out_ LicenseProtectionStatus* status
     );
-
 
 #endif // (NTDDI_VERSION >= NTDDI_WIN10_MN)
 

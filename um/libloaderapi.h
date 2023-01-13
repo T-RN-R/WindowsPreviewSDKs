@@ -6,8 +6,6 @@
 *                                                                               *
 ********************************************************************************/
 
-
-
 #ifdef _MSC_VER
 #pragma once
 #endif // _MSC_VER
@@ -136,7 +134,6 @@ DisableThreadLibraryCalls(
     _In_ HMODULE hLibModule
     );
 
-
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
@@ -153,7 +150,6 @@ FindResourceExW(
     _In_ LPCWSTR lpName,
     _In_ WORD wLanguage
     );
-
 
 #ifdef UNICODE
 #define FindResourceEx  FindResourceExW
@@ -179,7 +175,6 @@ FindStringOrdinal(
     _In_ BOOL bIgnoreCase
     );
 
-
 #endif // (_WIN32_WINNT >= _WIN32_WINNT_WIN7)
 
 WINBASEAPI
@@ -189,7 +184,6 @@ FreeLibrary(
     _In_ HMODULE hLibModule
     );
 
-
 WINBASEAPI
 DECLSPEC_NORETURN
 VOID
@@ -198,7 +192,6 @@ FreeLibraryAndExitThread(
     _In_ HMODULE hLibModule,
     _In_ DWORD dwExitCode
     );
-
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
@@ -213,7 +206,6 @@ FreeResource(
     _In_ HGLOBAL hResData
     );
 
-    
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion
 
@@ -346,7 +338,6 @@ GetProcAddress(
     _In_ LPCSTR lpProcName
     );
 
-
 #define CURRENT_IMPORT_REDIRECTION_VERSION      1
 
 typedef struct _REDIRECTION_FUNCTION_DESCRIPTOR {
@@ -443,7 +434,6 @@ LoadResource(
     _In_ HRSRC hResInfo
     );
 
-
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 #pragma endregion
 
@@ -489,7 +479,6 @@ LockResource(
     _In_ HGLOBAL hResData
     );
 
-
 WINBASEAPI
 DWORD
 WINAPI
@@ -497,7 +486,6 @@ SizeofResource(
     _In_opt_ HMODULE hModule,
     _In_ HRSRC hResInfo
     );
-
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 #pragma endregion
@@ -514,7 +502,6 @@ AddDllDirectory(
     _In_ PCWSTR NewDirectory
     );
 
-
 WINBASEAPI
 BOOL
 WINAPI
@@ -522,14 +509,12 @@ RemoveDllDirectory(
     _In_ DLL_DIRECTORY_COOKIE Cookie
     );
 
-
 WINBASEAPI
 BOOL
 WINAPI
 SetDefaultDllDirectories(
     _In_ DWORD DirectoryFlags
     );
-
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 #pragma endregion
@@ -647,7 +632,6 @@ FindResourceW(
     _In_ LPCWSTR lpType
     );
 
-
 #ifdef UNICODE
 #define FindResource  FindResourceW
 #endif
@@ -690,7 +674,6 @@ EnumResourceNamesW(
     _In_ LONG_PTR lParam
     );
 
-
 WINBASEAPI
 BOOL
 WINAPI
@@ -700,7 +683,6 @@ EnumResourceNamesA(
     _In_ ENUMRESNAMEPROCA lpEnumFunc,
     _In_ LONG_PTR lParam
     );
-
 
 #ifdef UNICODE
 #define EnumResourceNames  EnumResourceNamesW

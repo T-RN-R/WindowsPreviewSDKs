@@ -1086,7 +1086,7 @@
 //
 // MessageText:
 //
-// The per-user filter pool for session %2 could not be removed.%1
+// The per-user filter pool for session %2 and user context token %3 could not be removed.%1
 //
 #define EVENT_FILTERPOOL_DELETE_FAILED   0xC0000C1FL
 
@@ -1104,7 +1104,7 @@
 //
 // MessageText:
 //
-// The per-user filter pool for session %2 could not be added <%3,%4>.%1
+// The per-user filter pool for session %2 and user context token %3 could not be added <%4,%5>.%1
 //
 #define EVENT_DETAILED_FILTERPOOL_ADD_FAILED 0xC0000C21L
 

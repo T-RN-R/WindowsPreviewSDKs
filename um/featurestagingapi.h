@@ -6,8 +6,6 @@
 *                                                                                *
 **********************************************************************************/
 
-
-
 #ifndef _APISET_WIL_FEATURESTAGING_
 #define _APISET_WIL_FEATURESTAGING_
 
@@ -64,7 +62,6 @@ GetFeatureEnabledState(
     FEATURE_CHANGE_TIME changeTime
     );
 
-
 EXTERN_C
 void
 RecordFeatureUsage(
@@ -74,14 +71,12 @@ RecordFeatureUsage(
     _In_ PCSTR originName
     );
 
-
 EXTERN_C
 void
 RecordFeatureError(
     UINT32 featureId,
     _In_ const FEATURE_ERROR* error
     );
-
 
 EXTERN_C
 void
@@ -91,13 +86,11 @@ SubscribeFeatureStateChangeNotification(
     _In_opt_ void* context
     );
 
-
 EXTERN_C
 void
 UnsubscribeFeatureStateChangeNotification(
     _In_ _Post_invalid_ FEATURE_STATE_CHANGE_SUBSCRIPTION subscription
     );
-
 
 EXTERN_C
 UINT32

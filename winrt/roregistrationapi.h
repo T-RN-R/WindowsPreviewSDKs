@@ -6,8 +6,6 @@
  **                                                                         **
  *****************************************************************************/
 
-
-
 #ifndef __ROREGISTRATIONAPI_H_
 #define __ROREGISTRATIONAPI_H_
 
@@ -37,13 +35,13 @@
 #endif // _ROAPI_
 
 #ifdef ROREGISTRATION_NO_ABI_PREFIX
-#ifdef __cplusplus 
+#ifdef __cplusplus
 typedef Windows::Foundation::IActivatableClassRegistration *PActivatableClassRegistration;
 #else
 typedef __x_Windows_CFoundation_CIActivatableClassRegistration *PActivatableClassRegistration;
 #endif
 #else // ifdef ROREGISTRATION_NO_ABI_PREFIX
-#ifdef __cplusplus 
+#ifdef __cplusplus
 typedef ABI::Windows::Foundation::IActivatableClassRegistration *PActivatableClassRegistration;
 #else
 typedef __x_ABI_CWindows_CFoundation_CIActivatableClassRegistration *PActivatableClassRegistration;
@@ -63,7 +61,6 @@ RoGetActivatableClassRegistration(
     _COM_Outptr_ PActivatableClassRegistration* activatableClassRegistration
     );
 
-
 ROAPI
 _On_failure_(_At_(*activatableClassIds, _Post_ _Null_))
 _Check_return_
@@ -74,7 +71,6 @@ RoGetServerActivatableClasses(
     _When_(return >= 0, _Outptr_result_buffer_(*count)) HSTRING** activatableClassIds,
     _Out_ DWORD* count
     );
-
 
 #ifdef __cplusplus
 }
@@ -91,7 +87,7 @@ namespace ABI
         namespace Foundation
         {
             // Query activation catalog
-            _Check_return_ 
+            _Check_return_
             inline HRESULT GetActivatableClassRegistration(
                 _In_ HSTRING activatableClassId,
                 _COM_Outptr_ PActivatableClassRegistration *activatableClassRegistration
@@ -102,9 +98,9 @@ namespace ABI
 
             // Query activation catalog
             _On_failure_(_At_(*activatableClassIds, _Post_ _Null_))
-            _Check_return_ 
-            inline HRESULT GetServerActivatableClasses( 
-                       _In_ HSTRING serverName, 
+            _Check_return_
+            inline HRESULT GetServerActivatableClasses(
+                       _In_ HSTRING serverName,
                        _When_(return >= 0, _Outptr_result_buffer_(*count)) HSTRING **activatableClassIds,
                        _Out_ DWORD *count)
             {

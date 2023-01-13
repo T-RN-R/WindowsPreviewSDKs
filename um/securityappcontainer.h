@@ -6,8 +6,6 @@
 *                                                                               *
 ********************************************************************************/
 
-
-
 #ifdef _MSC_VER
 #pragma once
 #endif // _MSC_VER
@@ -17,7 +15,6 @@
 
 #include <apiset.h>
 #include <apisetcconv.h>
-
 
 #include <minwindef.h>
 #include <minwinbase.h>
@@ -44,7 +41,6 @@ GetAppContainerNamedObjectPath(
     _Out_writes_opt_(ObjectPathLength) LPWSTR ObjectPath,
     _Out_ PULONG ReturnLength
     );
-
 
 #endif
 

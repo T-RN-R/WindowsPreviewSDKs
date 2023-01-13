@@ -25,8 +25,6 @@ Notes:
 
 --*/
 
-
-
 #include <winapifamily.h>
 
 #pragma region Desktop Family or OneCore Family
@@ -42,7 +40,6 @@ Notes:
 #if _MSC_VER > 1000
 #pragma once
 #endif
-
 
 #ifdef __cplusplus
 extern "C" {
@@ -254,7 +251,6 @@ typedef struct _SHARE_INFO_1503 {
     GUID shi1503_sharefilter;
 } SHARE_INFO_1503, *PSHARE_INFO_1503, *LPSHARE_INFO_1503;
 
-
 //
 // NetShareAlias functions
 //
@@ -329,7 +325,6 @@ typedef struct _SERVER_ALIAS_INFO_0 {
 #define SHI1_NUM_ELEMENTS       4
 #define SHI2_NUM_ELEMENTS       10
 
-
 //
 // Share types (shi1_type and shi2_type fields).
 //
@@ -342,7 +337,7 @@ typedef struct _SERVER_ALIAS_INFO_0 {
 #define STYPE_MASK              0x000000FF              // AND with shi_type to
 
 #define STYPE_RESERVED1         0x01000000              // Reserved for internal processing
-#define STYPE_RESERVED2         0x02000000            
+#define STYPE_RESERVED2         0x02000000
 #define STYPE_RESERVED3         0x04000000
 #define STYPE_RESERVED4         0x08000000
 #define STYPE_RESERVED5         0x00100000
@@ -378,7 +373,7 @@ typedef struct _SERVER_ALIAS_INFO_0 {
 #define SHI1005_FLAGS_RESERVED                  0x10000          // Reserved for internal use
 #define SHI1005_FLAGS_DISABLE_CLIENT_BUFFERING  0x20000          // Used to set the allowed client buffering
 #define SHI1005_FLAGS_IDENTITY_REMOTING         0x40000          // Allows auth tunneling
-#define SHI1005_FLAGS_CLUSTER_MANAGED           0x80000          // Used to prevent share from being modified by users 
+#define SHI1005_FLAGS_CLUSTER_MANAGED           0x80000          // Used to prevent share from being modified by users
 
 //
 // The subset of 1005 infolevel flags that can be set via the API
@@ -453,7 +448,6 @@ NetSessionGetInfo(
     LPBYTE *bufptr
     );
 
-
 //
 // Data Structures - Session
 //
@@ -499,11 +493,9 @@ typedef struct _SESSION_INFO_502 {
     LMSTR     sesi502_transport;
 } SESSION_INFO_502, *PSESSION_INFO_502, *LPSESSION_INFO_502;
 
-
 //
 // Special Values and Constants - Session
 //
-
 
 //
 // Bits defined in sesi1_user_flags.
@@ -564,9 +556,6 @@ typedef struct _CONNECTION_INFO_1 {
 } CONNECTION_INFO_1, *PCONNECTION_INFO_1, *LPCONNECTION_INFO_1;
 
 #endif // _LMCONNECTION_
-
-
-
 
 //
 // FILE API
@@ -668,11 +657,9 @@ typedef struct _SERVER_CERTIFICATE_INFO_0 {
 #define PERM_FILE_WRITE     0x2 // user has write access
 #define PERM_FILE_CREATE    0x4 // user has create access
 
-
 #ifdef __cplusplus
 }
 #endif
-
 
 #endif // _LMFILE_
 

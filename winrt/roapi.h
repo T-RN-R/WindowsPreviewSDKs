@@ -1,7 +1,5 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 
-
-
 #ifndef __ROAPI_H_
 #define __ROAPI_H_
 
@@ -63,13 +61,11 @@ RoInitialize(
     _In_ RO_INIT_TYPE initType
     );
 
-
 ROAPI
 void
 WINAPI
 RoUninitialize(
     );
-
 
 ROAPI
 _Check_return_
@@ -79,7 +75,6 @@ RoActivateInstance(
     _In_ HSTRING activatableClassId,
     _COM_Outptr_ IInspectable** instance
     );
-
 
 ROAPI
 _Check_return_
@@ -92,14 +87,12 @@ RoRegisterActivationFactories(
     _Out_ RO_REGISTRATION_COOKIE* cookie
     );
 
-
 ROAPI
 void
 WINAPI
 RoRevokeActivationFactories(
     _In_ RO_REGISTRATION_COOKIE cookie
     );
-
 
 ROAPI
 _Check_return_
@@ -110,7 +103,6 @@ RoGetActivationFactory(
     _In_ REFIID iid,
     _COM_Outptr_ void** factory
     );
-
 
 typedef interface IApartmentShutdown IApartmentShutdown;
 DECLARE_HANDLE(APARTMENT_SHUTDOWN_REGISTRATION_COOKIE);
@@ -125,7 +117,6 @@ RoRegisterForApartmentShutdown(
     _Out_ APARTMENT_SHUTDOWN_REGISTRATION_COOKIE* regCookie
     );
 
-
 ROAPI
 _Check_return_
 HRESULT
@@ -134,7 +125,6 @@ RoUnregisterForApartmentShutdown(
     _In_ APARTMENT_SHUTDOWN_REGISTRATION_COOKIE regCookie
     );
 
-
 ROAPI
 _Check_return_
 HRESULT
@@ -142,7 +132,6 @@ WINAPI
 RoGetApartmentIdentifier(
     _Out_ UINT64* apartmentIdentifier
     );
-
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion
@@ -216,11 +205,11 @@ namespace Windows
             RoRevokeActivationFactories(cookie);
         }
 
-        // get activation factory 
+        // get activation factory
         template<class T>
         _Check_return_
         __inline HRESULT GetActivationFactory(
-            _In_        HSTRING activatableClassId, 
+            _In_        HSTRING activatableClassId,
             _COM_Outptr_ T**     factory)
         {
             return RoGetActivationFactory(activatableClassId, IID_PPV_ARGS(factory));
@@ -228,7 +217,7 @@ namespace Windows
     }
 }
 
-namespace ABI 
+namespace ABI
 {
     namespace Windows
     {
@@ -274,11 +263,11 @@ namespace ABI
                 RoRevokeActivationFactories(cookie);
             }
 
-            // get activation factory 
+            // get activation factory
             template<class T>
             _Check_return_
             __inline HRESULT GetActivationFactory(
-                _In_        HSTRING activatableClassId, 
+                _In_        HSTRING activatableClassId,
                 _COM_Outptr_ T**     factory)
             {
                 return RoGetActivationFactory(activatableClassId, IID_PPV_ARGS(factory));

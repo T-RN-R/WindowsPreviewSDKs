@@ -793,10 +793,27 @@ EXTERN_C const __declspec(selectany) GUID PROPERTY_DYNAMIC_TIME_ZONE_INFORMATION
 //
 // Output to this query - It passes 1 WTS_PROPERTY_VALUE structure. Protocol needs to set it to:
 //          pPropertyEntriesOut[0].Type = WTS_VALUE_TYPE_ULONG;
-//          pPropertyEntriesOut[0].u.strVal.pstrVal = (0 = Don't do fast reconnect, 1 = Do fast reconnect)
+//          pPropertyEntriesOut[0].u.strVal.ulVal = (0 = Don't do fast reconnect, 1 = Do fast reconnect)
 //
 EXTERN_C const _declspec(selectany) GUID PROPERTY_TYPE_GET_FAST_RECONNECT = /* 6212d757-0043-4862-99c3-9f3059ac2a3b*/
 { 0x6212d757, 0x0043, 0x4862,{ 0x99, 0xc3, 0x9f, 0x30, 0x59, 0xac, 0x2a, 0x3b } };
+
+
+// ************************************************************************
+
+
+// ************** PROPERTY_TYPE_ENABLE_UNIVERSAL_APPS_FOR_CUSTOM_SHELL ******************
+// 
+// This is used to get whether Universal Apps should be enabled or not for Custom shells based on the stack
+// 
+// There are no inputs to this query.
+//
+// Output to this query - It passes 1 WTS_PROPERTY_VALUE structure. Protocol needs to set it to:
+//          pPropertyEntriesOut[0].Type = WTS_VALUE_TYPE_ULONG;
+//          pPropertyEntriesOut[0].u.strVal.ulVal = (0 = Don't enable Universal Apps for Custom Shell, 1 = Enable Universal Apps for Custom Shell)
+//
+EXTERN_C const _declspec(selectany) GUID PROPERTY_TYPE_ENABLE_UNIVERSAL_APPS_FOR_CUSTOM_SHELL = /* ed2c3fda-338d-4d3f-81a3-e767310d908e*/
+{ 0xed2c3fda, 0x338d, 0x4d3f,{ 0x81, 0xa3, 0xe7, 0x67, 0x31, 0x0d, 0x90, 0x8e } };
 
 #endif
 

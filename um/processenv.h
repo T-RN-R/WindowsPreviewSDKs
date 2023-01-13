@@ -6,8 +6,6 @@
 *                                                                               *
 ********************************************************************************/
 
-
-
 #ifdef _MSC_VER
 #pragma once
 #endif // _MSC_VER
@@ -17,7 +15,6 @@
 
 #include <apiset.h>
 #include <apisetcconv.h>
-
 
 #include <minwindef.h>
 
@@ -52,7 +49,6 @@ GetStdHandle(
     _In_ DWORD nStdHandle
     );
 
-
 WINBASEAPI
 BOOL
 WINAPI
@@ -60,7 +56,6 @@ SetStdHandle(
     _In_ DWORD nStdHandle,
     _In_ HANDLE hHandle
     );
-
 
 #if (_WIN32_WINNT >= 0x0600)
 
@@ -72,7 +67,6 @@ SetStdHandleEx(
     _In_ HANDLE hHandle,
     _Out_opt_ PHANDLE phPrevValue
     );
-
 
 #endif // _WIN32_WINNT >= 0x0600
 
@@ -110,7 +104,6 @@ GetEnvironmentStrings(
     VOID
     );
 
-
 WINBASEAPI
 _NullNull_terminated_
 LPWCH
@@ -118,7 +111,6 @@ WINAPI
 GetEnvironmentStringsW(
     VOID
     );
-
 
 #ifdef UNICODE
 #define GetEnvironmentStrings  GetEnvironmentStringsW
@@ -282,7 +274,6 @@ SearchPathW(
     _Out_opt_ LPWSTR* lpFilePart
     );
 
-
 #ifdef UNICODE
 #define SearchPath  SearchPathW
 #else
@@ -300,7 +291,6 @@ SearchPathA(
     _Out_writes_to_opt_(nBufferLength,return + 1) LPSTR lpBuffer,
     _Out_opt_ LPSTR* lpFilePart
     );
-
 
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 

@@ -6,8 +6,6 @@
 *                                                                               *
 ********************************************************************************/
 
-
-
 #ifdef _MSC_VER
 #pragma once
 #endif // _MSC_VER
@@ -38,7 +36,6 @@ CreateIoCompletionPort(
     _In_ DWORD NumberOfConcurrentThreads
     );
 
-
 WINBASEAPI
 BOOL
 WINAPI
@@ -49,7 +46,6 @@ GetQueuedCompletionStatus(
     _Out_ LPOVERLAPPED* lpOverlapped,
     _In_ DWORD dwMilliseconds
     );
-
 
 #if (_WIN32_WINNT >= 0x0600)
 
@@ -65,7 +61,6 @@ GetQueuedCompletionStatusEx(
     _In_ BOOL fAlertable
     );
 
-
 #endif // _WIN32_WINNT >= 0x0600
 
 WINBASEAPI
@@ -77,7 +72,6 @@ PostQueuedCompletionStatus(
     _In_ ULONG_PTR dwCompletionKey,
     _In_opt_ LPOVERLAPPED lpOverlapped
     );
-
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
@@ -99,7 +93,6 @@ DeviceIoControl(
     _Inout_opt_ LPOVERLAPPED lpOverlapped
     );
 
-
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
@@ -116,7 +109,6 @@ GetOverlappedResult(
     _In_ BOOL bWait
     );
 
-
 #if (_WIN32_WINNT >= 0x0600)
 
 WINBASEAPI
@@ -126,7 +118,6 @@ CancelIoEx(
     _In_ HANDLE hFile,
     _In_opt_ LPOVERLAPPED lpOverlapped
     );
-
 
 #endif // _WIN32_WINNT >= 0x0600
 
@@ -143,7 +134,6 @@ CancelIo(
     _In_ HANDLE hFile
     );
 
-
 WINBASEAPI
 BOOL
 WINAPI
@@ -154,7 +144,6 @@ GetOverlappedResultEx(
     _In_ DWORD dwMilliseconds,
     _In_ BOOL bAlertable
     );
-
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES) */
 #pragma endregion
@@ -170,7 +159,6 @@ WINAPI
 CancelSynchronousIo(
     _In_ HANDLE hThread
     );
-
 
 #endif // _WIN32_WINNT >= 0x0600
 

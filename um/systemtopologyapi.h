@@ -6,8 +6,6 @@
 *                                                                               *
 ********************************************************************************/
 
-
-
 #ifdef _MSC_VER
 #pragma once
 #endif // _MSC_VER
@@ -34,7 +32,6 @@ GetNumaHighestNodeNumber(
     _Out_ PULONG HighestNodeNumber
     );
 
-
 #endif // WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_SYSTEM | WINAPI_PARTITION_GAMES)
 #pragma endregion
 
@@ -51,7 +48,6 @@ GetNumaNodeProcessorMaskEx(
     _Out_ PGROUP_AFFINITY ProcessorMask
     );
 
-
 #endif // (_WIN32_WINNT >=0x0601)
 
 #if _WIN32_WINNT >= 0x0601
@@ -63,7 +59,6 @@ GetNumaProximityNodeEx(
     _In_ ULONG ProximityId,
     _Out_ PUSHORT NodeNumber
     );
-
 
 #endif // (_WIN32_WINNT >=0x0601)
 

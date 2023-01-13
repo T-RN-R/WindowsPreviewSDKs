@@ -6,8 +6,6 @@
 *                                                                               *
 ********************************************************************************/
 
-
-
 #ifndef _APISETSRPEXT_
 #define _APISETSRPEXT_
 
@@ -57,19 +55,16 @@ SrpCreateThreadNetworkContext(
     _Out_ HTHREAD_NETWORK_CONTEXT* threadNetworkContext
     );
 
-
 STDAPI
 SrpCloseThreadNetworkContext(
     _Inout_ HTHREAD_NETWORK_CONTEXT* threadNetworkContext
     );
-
 
 STDAPI
 SrpSetTokenEnterpriseId(
     _In_ HANDLE tokenHandle,
     _In_opt_ PCWSTR enterpriseId
     );
-
 
 STDAPI
 SrpGetEnterpriseIds(
@@ -79,18 +74,15 @@ SrpGetEnterpriseIds(
     _Out_ PULONG enterpriseIdCount
     );
 
-
 STDAPI
 SrpEnablePermissiveModeFileEncryption(
     _In_opt_ PCWSTR enterpriseId
     );
 
-
 STDAPI
 SrpDisablePermissiveModeFileEncryption(
     VOID
     );
-
 
 #endif /* _WIN32_WINNT >= _WIN32_WINNT_WINTHRESHOLD */
 
@@ -110,13 +102,11 @@ SrpGetEnterprisePolicy(
     _Out_ ENTERPRISE_DATA_POLICIES* policyFlags
     );
 
-
 NTSTATUS
 SrpIsTokenService(
     _In_ HANDLE TokenHandle,
     _Out_ BOOLEAN* IsTokenService
     );
-
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 #pragma endregion
@@ -133,7 +123,6 @@ SrpDoesPolicyAllowAppExecution(
     _In_ const PACKAGE_ID* packageId,
     _Out_ BOOL* isAllowed
     );
-
 
 #endif /* _WIN32_WINNT >= _WIN32_WINNT_WINTHRESHOLD */
 
@@ -165,18 +154,14 @@ SrpHostingTerminate(
     _In_ SRPHOSTING_TYPE Type
 );
 
-
 #ifdef __cplusplus
 }
 #endif
 
 #endif // APISETSRPEXT
 
-
 #ifndef ext_ms_win_security_srp_l1_1_1_query_routines
 #define ext_ms_win_security_srp_l1_1_1_query_routines
-
-
 
 //
 //Private Extension API Query Routines
@@ -187,7 +172,6 @@ extern "C" {
 #endif
 
 #if (_WIN32_WINNT >= _WIN32_WINNT_WINTHRESHOLD)
-
 
 BOOLEAN
 __stdcall
@@ -227,7 +211,6 @@ IsSrpDisablePermissiveModeFileEncryptionPresent(
 
 #endif /* _WIN32_WINNT >= _WIN32_WINNT_WINTHRESHOLD */
 
-
 BOOLEAN
 __stdcall
 IsSrpGetEnterprisePolicyPresent(
@@ -242,7 +225,6 @@ IsSrpIsTokenServicePresent(
 
 #if (_WIN32_WINNT >= _WIN32_WINNT_WINTHRESHOLD)
 
-
 BOOLEAN
 __stdcall
 IsSrpDoesPolicyAllowAppExecutionPresent(
@@ -250,7 +232,6 @@ IsSrpDoesPolicyAllowAppExecutionPresent(
     );
 
 #endif /* _WIN32_WINNT >= _WIN32_WINNT_WINTHRESHOLD */
-
 
 #ifdef __cplusplus
 }
