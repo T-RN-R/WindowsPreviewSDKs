@@ -282,6 +282,14 @@ The following would be ok:
   #endif // __cplusplus
 #endif
 
+#ifndef TLG_NULL
+  #ifndef __cplusplus
+    #define TLG_NULL NULL
+  #else
+    #define TLG_NULL nullptr
+  #endif // __cplusplus
+#endif // TLG_NULL
+
 #ifndef TLG_DEBUG
   #if (DBG || defined(DEBUG) || defined(_DEBUG)) && !defined(NDEBUG)
     #define TLG_DEBUG 1
@@ -791,7 +799,7 @@ TraceLoggingWriteActivity(hProvider, eventName, NULL, NULL, args...).
     _tlgWrite_imp(_tlgWriteTransfer, \
     hProvider, eventName, \
     (LPCGUID, LPCGUID), \
-    (NULL, NULL), \
+    (TLG_NULL, TLG_NULL), \
     __VA_ARGS__)
 
 /*
@@ -2704,7 +2712,7 @@ TraceLoggingRegister(
     TraceLoggingHProvider _Inout_ hProvider)
 {
     TLG_PAGED_CODE();
-    return TraceLoggingRegisterEx(hProvider, NULL, NULL);
+    return TraceLoggingRegisterEx(hProvider, TLG_NULL, TLG_NULL);
 }
 
 _IRQL_requires_max_(PASSIVE_LEVEL)

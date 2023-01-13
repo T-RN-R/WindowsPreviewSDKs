@@ -98,22 +98,22 @@ typedef INTERNET_PORT * LPINTERNET_PORT;
 // the API succeeded (in this case dwError will be ERROR_SUCCESS)
 //
 
-typedef struct
+typedef struct _WINHTTP_ASYNC_RESULT
 {
     DWORD_PTR dwResult;  // indicates which async API has encountered an error
     DWORD dwError;       // the error code if the API failed
-} WINHTTP_ASYNC_RESULT, *LPWINHTTP_ASYNC_RESULT;
+} WINHTTP_ASYNC_RESULT, *LPWINHTTP_ASYNC_RESULT, *PWINHTTP_ASYNC_RESULT;
 
 
 //
 // HTTP_VERSION_INFO - query or set global HTTP version (1.0 or 1.1)
 //
 
-typedef struct
+typedef struct _HTTP_VERSION_INFO
 {
     DWORD dwMajorVersion;
     DWORD dwMinorVersion;
-} HTTP_VERSION_INFO, *LPHTTP_VERSION_INFO;
+} HTTP_VERSION_INFO, *LPHTTP_VERSION_INFO, *PHTTP_VERSION_INFO;
 
 
 //
@@ -147,7 +147,7 @@ typedef int INTERNET_SCHEME, *LPINTERNET_SCHEME;
 
 #pragma warning( disable : 4121 )   // disable alignment warning
 
-typedef struct
+typedef struct _WINHTTP_URL_COMPONENTS
 {
     DWORD   dwStructSize;       // size of this structure. Used in version check
     LPWSTR  lpszScheme;         // pointer to scheme name
@@ -176,12 +176,12 @@ typedef LPURL_COMPONENTS LPURL_COMPONENTSW;
 // set proxy information on a WinHttpOpen() handle
 //
 
-typedef struct
+typedef struct _WINHTTP_PROXY_INFO
 {
     DWORD  dwAccessType;      // see WINHTTP_ACCESS_* types below
     LPWSTR lpszProxy;         // proxy server list
     LPWSTR lpszProxyBypass;   // proxy bypass list
-} WINHTTP_PROXY_INFO, *LPWINHTTP_PROXY_INFO;
+} WINHTTP_PROXY_INFO, *LPWINHTTP_PROXY_INFO, *PWINHTTP_PROXY_INFO;
 
 typedef WINHTTP_PROXY_INFO WINHTTP_PROXY_INFOW;
 typedef LPWINHTTP_PROXY_INFO LPWINHTTP_PROXY_INFOW;
@@ -192,7 +192,7 @@ typedef LPWINHTTP_PROXY_INFO LPWINHTTP_PROXY_INFOW;
 #pragma region Application Family or OneCore Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 
-typedef struct
+typedef struct _WINHTTP_AUTOPROXY_OPTIONS
 {
     DWORD   dwFlags;
     DWORD   dwAutoDetectFlags;
@@ -200,7 +200,7 @@ typedef struct
     LPVOID  lpvReserved;
     DWORD   dwReserved;
     BOOL    fAutoLogonIfChallenged;
-} WINHTTP_AUTOPROXY_OPTIONS;
+} WINHTTP_AUTOPROXY_OPTIONS, *PWINHTTP_AUTOPROXY_OPTIONS;
 
 #define WINHTTP_AUTOPROXY_AUTO_DETECT           0x00000001
 #define WINHTTP_AUTOPROXY_CONFIG_URL            0x00000002
@@ -296,7 +296,7 @@ typedef struct _WINHTTP_PROXY_SETTINGS
 // the server
 //
 
-typedef struct
+typedef struct _WINHTTP_CERTIFICATE_INFO
 {
     //
     // ftExpiry - date the certificate expires.
@@ -318,7 +318,7 @@ typedef struct
     LPWSTR lpszSubjectInfo;
 
     //
-    // lpszIssuerInfo - the name of orgainzation, site, and server
+    // lpszIssuerInfo - the name of organization, site, and server
     //   the cert was issues by.
     //
 
@@ -351,7 +351,7 @@ typedef struct
 
     DWORD dwKeySize;
 
-} WINHTTP_CERTIFICATE_INFO;
+} WINHTTP_CERTIFICATE_INFO, *PWINHTTP_CERTIFICATE_INFO;
 
 #ifdef _WS2DEF_
 
@@ -1207,7 +1207,6 @@ typedef WINHTTP_STATUS_CALLBACK * LPWINHTTP_STATUS_CALLBACK;
 #define WINHTTP_NO_ADDITIONAL_HEADERS   NULL
 #define WINHTTP_NO_REQUEST_DATA         NULL
 
-
 // WinHttpQueryHeaders prettifiers for optional parameters.
 #define WINHTTP_HEADER_NAME_BY_INDEX           NULL
 #define WINHTTP_NO_OUTPUT_BUFFER               NULL
@@ -1219,13 +1218,13 @@ typedef WINHTTP_STATUS_CALLBACK * LPWINHTTP_STATUS_CALLBACK;
 #pragma region Application Family or OneCore Family
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM)
 
-typedef struct
+typedef struct _WINHTTP_CURRENT_USER_IE_PROXY_CONFIG
 {
     BOOL    fAutoDetect;
     LPWSTR  lpszAutoConfigUrl;
     LPWSTR  lpszProxy;
     LPWSTR  lpszProxyBypass;
-} WINHTTP_CURRENT_USER_IE_PROXY_CONFIG;
+} WINHTTP_CURRENT_USER_IE_PROXY_CONFIG, *PWINHTTP_CURRENT_USER_IE_PROXY_CONFIG;
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_SYSTEM) */
 #pragma endregion

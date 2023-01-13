@@ -2646,7 +2646,8 @@ typedef enum _HTTP_REQUEST_PROPERTY
     HttpRequestPropertyTcpInfoV1,
     HttpRequestPropertySni,
     HttpRequestPropertyStreamError,
-    HttpRequestPropertyWskTiming
+    HttpRequestPropertyWskApiTimings,
+    HttpRequestPropertyQuicApiTimings
 } HTTP_REQUEST_PROPERTY, *PHTTP_REQUEST_PROPERTY;
 
 typedef struct _HTTP_QUERY_REQUEST_QUALIFIER_TCP
@@ -2702,6 +2703,66 @@ typedef struct _HTTP_WSK_API_TIMINGS
     ULONGLONG ControlSocketCount;
     ULONGLONG ControlSocketSum;
 } HTTP_WSK_API_TIMINGS, *PHTTP_WSK_API_TIMINGS;
+
+typedef struct _HTTP_QUIC_STREAM_API_TIMINGS
+{
+    ULONGLONG OpenCount;
+    ULONGLONG OpenSum;
+    ULONGLONG CloseCount;
+    ULONGLONG CloseSum;
+
+    ULONGLONG StartCount;
+    ULONGLONG StartSum;
+    ULONGLONG ShutdownCount;
+    ULONGLONG ShutdownSum;
+
+    ULONGLONG SendCount;
+    ULONGLONG SendSum;
+
+    ULONGLONG ReceiveSetEnabledCount;
+    ULONGLONG ReceiveSetEnabledSum;
+
+    ULONGLONG GetParamCount;
+    ULONGLONG GetParamSum;
+
+    ULONGLONG SetParamCount;
+    ULONGLONG SetParamSum;
+
+    ULONGLONG SetCallbackHandlerCount;
+    ULONGLONG SetCallbackHandlerSum;
+
+} HTTP_QUIC_STREAM_API_TIMINGS, *PHTTP_QUIC_STREAM_API_TIMINGS;
+
+typedef struct _HTTP_QUIC_CONNECTION_API_TIMINGS
+{
+    ULONGLONG OpenTime;
+    ULONGLONG CloseTime;
+
+    ULONGLONG StartTime;
+    ULONGLONG ShutdownTime;
+
+    ULONGLONG SecConfigCreateTime;
+    ULONGLONG SecConfigDeleteTime;
+
+    ULONGLONG GetParamCount;
+    ULONGLONG GetParamSum;
+
+    ULONGLONG SetParamCount;
+    ULONGLONG SetParamSum;
+
+    ULONGLONG SetCallbackHandlerCount;
+    ULONGLONG SetCallbackHandlerSum;
+
+    HTTP_QUIC_STREAM_API_TIMINGS ControlStreamTimings;
+
+} HTTP_QUIC_CONNECTION_API_TIMINGS, *PHTTP_QUIC_CONNECTION_API_TIMINGS;
+
+typedef struct _HTTP_QUIC_API_TIMINGS
+{
+    HTTP_QUIC_CONNECTION_API_TIMINGS ConnectionTimings;
+    HTTP_QUIC_STREAM_API_TIMINGS StreamTimings;
+
+} HTTP_QUIC_API_TIMINGS, *PHTTP_QUIC_API_TIMINGS;
 
 
 //
