@@ -5064,38 +5064,6 @@ FwpmNetEventSubscribe4(
 #endif // (NTDDI_VERSION >= NTDDI_WIN10_RS5)
 
 
-#if (NTDDI_VERSION >= NTDDI_WIN10_RS5)
-///////////////////////////////////////////////////////////////////////////////
-//
-// Functions for Tracking Dynamic Keyword Changes
-//
-///////////////////////////////////////////////////////////////////////////////
-#define FWPM_NOTIFY_ADDRESSES_AUTO_RESOLVE 0x01ui64
-#define FWPM_NOTIFY_ADDRESSES_NON_AUTO_RESOLVE 0x02ui64
-#define FWPM_NOTIFY_GRANULAR 0x04ui64
-
-typedef void (CALLBACK *FWPM_DYNAMIC_KEYWORD_CALLBACK0)(
-                           _Inout_ void* notification,
-                           _Inout_ void* context
-                           );
-
-DWORD
-WINAPI
-FwpmDynamicKeywordSubscribe0(
-   _In_ DWORD flags,
-   _In_ FWPM_DYNAMIC_KEYWORD_CALLBACK0 callback,
-   _In_opt_ void* context,
-   _Out_ HANDLE* subscriptionHandle
-   );
-
-DWORD
-WINAPI
-FwpmDynamicKeywordUnsubscribe0(
-   _Inout_ HANDLE subscriptionHandle
-   );
-#endif // (NTDDI_VERSION >= NTDDI_WIN10_RS5)
-
-
 #if (NTDDI_VERSION >= NTDDI_WIN7)
 
 ///////////////////////////////////////////////////////////////////////////////

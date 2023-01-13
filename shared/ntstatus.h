@@ -10277,6 +10277,24 @@ Notes:
 //
 #define STATUS_FT_READ_FROM_COPY_FAILURE ((NTSTATUS)0xC00004BFL)
 
+//
+// MessageId: STATUS_STORAGE_STACK_ACCESS_DENIED
+//
+// MessageText:
+//
+// The storage stack returned STATUS_ACCESS_DENEID for the current operation.
+//
+#define STATUS_STORAGE_STACK_ACCESS_DENIED ((NTSTATUS)0xC00004C0L)
+
+//
+// MessageId: STATUS_INSUFFICIENT_VIRTUAL_ADDR_RESOURCES
+//
+// MessageText:
+//
+// Insufficient Virtual Address resources to complete the operation.
+//
+#define STATUS_INSUFFICIENT_VIRTUAL_ADDR_RESOURCES ((NTSTATUS)0xC00004C1L)
+
 
 //     **** New SYSTEM error codes can be inserted here ****
 

@@ -581,6 +581,7 @@ typedef enum {
     NVME_STATUS_NVM_CONFLICTING_ATTRIBUTES                          = 0x80,         // Dataset Management, Read, Write
     NVME_STATUS_NVM_INVALID_PROTECTION_INFORMATION                  = 0x81,         // Compare, Read, Write, Write Zeroes
     NVME_STATUS_NVM_ATTEMPTED_WRITE_TO_READ_ONLY_RANGE              = 0x82,         // Dataset Management, Write, Write Uncorrectable, Write Zeroes
+    NVME_STATUS_NVM_COMMAND_SIZE_LIMIT_EXCEEDED                     = 0x83,         // Dataset Management
 
     NVME_STATUS_ZONE_BOUNDARY_ERROR                                 = 0xB8,         // Compare, Read, Verify, Write, Write Uncorrectable, Write Zeroes, Copy, Zone Append
     NVME_STATUS_ZONE_FULL                                           = 0xB9,         // Write, Write Uncorrectable, Write Zeroes, Copy, Zone Append
@@ -676,8 +677,12 @@ typedef enum {
     NVME_FEATURE_LBA_STATUS_INFORMATION_REPORT_INTERVAL = 0x15,
     NVME_FEATURE_HOST_BEHAVIOR_SUPPORT                  = 0x16,
     NVME_FEATURE_SANITIZE_CONFIG                        = 0x17,
-    NVME_FEATURE_ENDURANCE_GROUP_EVENT_CONFIG           = 0x18, 
+    NVME_FEATURE_ENDURANCE_GROUP_EVENT_CONFIG           = 0x18,
     NVME_FEATURE_IO_COMMAND_SET_PROFILE                 = 0x19,
+
+    NVME_FEATURE_ENHANCED_CONTROLLER_METADATA           = 0x7D,
+    NVME_FEATURE_CONTROLLER_METADATA                    = 0x7E,
+    NVME_FEATURE_NAMESPACE_METADATA                     = 0x7F,
 
     NVME_FEATURE_NVM_SOFTWARE_PROGRESS_MARKER           = 0x80,
     NVME_FEATURE_NVM_HOST_IDENTIFIER                    = 0x81,
@@ -765,7 +770,7 @@ typedef union {
 typedef union {
 
     struct {
-        USHORT  NVMSETID;       	// NVM Set Identifier
+        USHORT  NVMSETID;               // NVM Set Identifier
         USHORT  Reserved;
     } DUMMYSTRUCTNAME;
     
@@ -1434,14 +1439,30 @@ typedef struct {
 } NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET, *PNVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET;
 
 //
-// Output of NVME_IDENTIFY_CNS_SPECIFIC_CONTROLLER_IO_COMMAND_SET (0x06)
+// Output of NVME_IDENTIFY_CNS_SPECIFIC_CONTROLLER_IO_COMMAND_SET (0x06) with Command Set Identifier (0x00)
+//
+typedef struct {
+    UCHAR           VSL;                // byte 0       O - Verify Size Limit (VZL)
+    UCHAR           WZSL;               // byte 1       O - Write Zeroes Size Limit (WZSL)
+    UCHAR           WUSL;               // byte 2       O - Write Uncorrectable Size Limit (WUSL)
+
+    UCHAR           DMRL;               // byte 3       O - Dataset Management Ranges Limit (DMRL)
+    ULONG           DMRSL;              // byte 4:7     O - Dataset Management Range Size Limit (DMRSL)
+    ULONGLONG       DMSL;               // byte 8:15    O - Dataset Management Size Limit (DMSL)
+
+    UCHAR           Reserved[4080];     // byte 16:4095
+
+} NVME_IDENTIFY_NVM_SPECIFIC_CONTROLLER_IO_COMMAND_SET, *PNVME_IDENTIFY_NVM_SPECIFIC_CONTROLLER_IO_COMMAND_SET;
+
+//
+// Output of NVME_IDENTIFY_CNS_SPECIFIC_CONTROLLER_IO_COMMAND_SET (0x06) with Command Set Identifier (0x02)
 //
 typedef struct {
     UCHAR           ZASL;               // byte 0.          O - Zone Append Size Limit (ZASL)
 
     UCHAR           Reserved[4095];     // byte 1:4095
 
-} NVME_IDENTIFY_SPECIFIC_CONTROLLER_IO_COMMAND_SET, *PNVME_IDENTIFY_SPECIFIC_CONTROLLER_IO_COMMAND_SET;
+} NVME_IDENTIFY_ZNS_SPECIFIC_CONTROLLER_IO_COMMAND_SET, *PNVME_IDENTIFY_ZNS_SPECIFIC_CONTROLLER_IO_COMMAND_SET;
 
 //
 // Output of NVME_IDENTIFY_CNS_CONTROLLER_LIST_OF_NSID (0x12)/NVME_IDENTIFY_CNS_CONTROLLER_LIST_OF_NVM_SUBSYSTEM (0x13)
@@ -2073,6 +2094,98 @@ typedef union {
 } NVME_CDW11_FEATURE_IO_COMMAND_SET_PROFILE, *PNVME_CDW11_FEATURE_IO_COMMAND_SET_PROFILE;
 
 //
+// Parameters for NVME_FEATURE_ENHANDED_CONTROLLER_METADATA, NVME_FEATURE_CONTROLLER_METADATA, NVME_FEATURE_NAMESPACE_METADATA
+//
+typedef union {
+
+    struct {
+        ULONG GDHM      : 1;    // Generate Default Host Metadata (GDHM)
+        ULONG Reserved  : 31;
+    } DUMMYSTRUCTNAME;
+
+    ULONG AsUlong;
+
+} NVME_CDW11_FEATURE_GET_HOST_METADATA, *PNVME_CDW11_FEATURE_GET_HOST_METADATA;
+
+typedef enum {
+
+    NVME_HOST_METADATA_ADD_REPLACE_ENTRY        = 0,
+    NVME_HOST_METADATA_DELETE_ENTRY_MULTIPLE    = 1,
+    NVME_HOST_METADATA_ADD_ENTRY_MULTIPLE       = 2,
+
+} NVME_HOST_METADATA_ELEMENT_ACTIONS;
+
+typedef union {
+
+    struct {
+        ULONG Reserved0 : 13;
+
+        ULONG EA        : 2;    // Element Action (EA), value defined in enum NVME_HOST_METADATA_ELEMENT_ACTIONS
+
+        ULONG Reserved1 : 17;
+    } DUMMYSTRUCTNAME;
+
+    ULONG AsUlong;
+
+} NVME_CDW11_FEATURE_SET_HOST_METADATA, *PNVME_CDW11_FEATURE_SET_HOST_METADATA;
+
+typedef enum {
+
+    NVME_CONTROLLER_METADATA_OPERATING_SYSTEM_CONTROLLER_NAME   = 0x1,
+    NVME_CONTROLLER_METADATA_OPERATING_SYSTEM_DRIVER_NAME       = 0x2,
+    NVME_CONTROLLER_METADATA_OPERATING_SYSTEM_DRIVER_VERSION    = 0x3,
+    NVME_CONTROLLER_METADATA_PREBOOT_CONTROLLER_NAME            = 0x4,
+    NVME_CONTROLLER_METADATA_PREBOOT_DRIVER_NAME                = 0x5,
+    NVME_CONTROLLER_METADATA_PREBOOT_DRIVER_VERSION             = 0x6,
+    NVME_CONTROLLER_METADATA_SYSTEM_PROCESSOR_MODEL             = 0x7,
+    NVME_CONTROLLER_METADATA_CHIPSET_DRIVER_NAME                = 0x8,
+    NVME_CONTROLLER_METADATA_CHIPSET_DRIVER_VERSION             = 0x9,
+    NVME_CONTROLLER_METADATA_OPERATING_SYSTEM_NAME_AND_BUILD    = 0xA,
+    NVME_CONTROLLER_METADATA_SYSTEM_PRODUCT_NAME                = 0xB,
+    NVME_CONTROLLER_METADATA_FIRMWARE_VERSION                   = 0xC,
+    NVME_CONTROLLER_METADATA_OPERATING_SYSTEM_DRIVER_FILENAME   = 0xD,
+    NVME_CONTROLLER_METADATA_DISPLAY_DRIVER_NAME                = 0xE,
+    NVME_CONTROLLER_METADATA_DISPLAY_DRIVER_VERSION             = 0xF,
+    NVME_CONTROLLER_METADATA_HOST_DETERMINED_FAILURE_RECORD     = 0x10,
+
+} NVME_CONTROLLER_METADATA_ELEMENT_TYPES;
+
+typedef enum {
+
+    NVME_NAMESPACE_METADATA_OPERATING_SYSTEM_NAMESPACE_NAME             = 0x1,
+    NVME_NAMESPACE_METADATA_PREBOOT_NAMESPACE_NAME                      = 0x2,
+    NVME_NAMESPACE_METADATA_OPERATING_SYSTEM_NAMESPACE_NAME_QUALIFIER_1 = 0x3,
+    NVME_NAMESPACE_METADATA_OPERATING_SYSTEM_NAMESPACE_NAME_QUALIFIER_2 = 0x4,
+
+} NVME_NAMESPACE_METADATA_ELEMENT_TYPES;
+
+typedef struct {
+
+    ULONG ET        : 6;        // Element Type (ET), value defined in enum NVME_CONTROLLER_METADATA_ELEMENT_TYPES, NVME_NAMESPACE_METADATA_ELEMENT_TYPES
+
+    ULONG Reserved0 : 2;
+
+    ULONG ER        : 4;        // Element Revision (ER)
+
+    ULONG Reserved1 : 4;
+
+    ULONG ELEN      : 16;       // Element Length (ELEN), element value length in bytes
+
+    UCHAR EVAL[ANYSIZE_ARRAY];  // Element Value (EVAL), UTF-8 string
+
+} NVME_HOST_METADATA_ELEMENT_DESCRIPTOR, *PNVME_HOST_METADATA_ELEMENT_DESCRIPTOR;
+
+typedef struct {
+
+    UCHAR NumberOfMetadataElementDescriptors;
+
+    UCHAR Reserved0;
+
+    UCHAR MetadataElementDescriptors[4094]; // Use NVME_HOST_METADATA_ELEMENT_DESCRIPTOR to access this list.
+
+} NVME_FEATURE_HOST_METADATA_DATA, *PNVME_FEATURE_HOST_METADATA_DATA;
+
+//
 // Parameter for NVME_FEATURE_ERROR_INJECTION
 // This is from OCP NVMe Cloud SSD spec.
 //
@@ -2288,6 +2401,8 @@ typedef union {
     NVME_CDW11_FEATURE_HOST_IDENTIFIER                  HostIdentifier;
     NVME_CDW11_FEATURE_RESERVATION_PERSISTENCE          ReservationPersistence;
     NVME_CDW11_FEATURE_RESERVATION_NOTIFICATION_MASK    ReservationNotificationMask;
+    NVME_CDW11_FEATURE_GET_HOST_METADATA                GetHostMetadata;
+    NVME_CDW11_FEATURE_SET_HOST_METADATA                SetHostMetadata;
 
     ULONG   AsUlong;
 } NVME_CDW11_FEATURES, *PNVME_CDW11_FEATURES;

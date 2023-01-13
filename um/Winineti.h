@@ -2269,6 +2269,7 @@ typedef struct _INTERNET_GLOBAL_CALLBACK
     INTERNET_GLOBAL_NOTIFICATION_CALLBACK pfnGlobalNotificationCallback;
     DWORD dwNotifications;
     PVOID pvContext;
+    ULONGLONG ullPriority;
     GUID guidRegistrationId;
 } INTERNET_GLOBAL_CALLBACK;
 

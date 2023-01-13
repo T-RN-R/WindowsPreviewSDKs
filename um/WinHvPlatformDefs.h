@@ -250,7 +250,7 @@ C_ASSERT(sizeof(WHV_PROCESSOR_FEATURES_BANKS) == 8 * (WHV_PROCESSOR_FEATURES_BAN
 // Synthetic processor features for exo partitions.
 //
 
-typedef union _WHV_SYNTHETIC_PROCESSOR_FEATURES
+typedef union WHV_SYNTHETIC_PROCESSOR_FEATURES
 {
     struct
     {
@@ -726,7 +726,7 @@ typedef union WHV_ADVISE_GPA_RANGE
 
 C_ASSERT(sizeof(WHV_ADVISE_GPA_RANGE) == 4);
 
-typedef enum _WHV_CACHE_TYPE {
+typedef enum WHV_CACHE_TYPE {
     WHvCacheTypeUncached         = 0,
     WHvCacheTypeWriteCombining   = 1,
     WHvCacheTypeWriteThrough     = 4,
@@ -741,7 +741,7 @@ typedef enum _WHV_CACHE_TYPE {
 //
 // Control flags used by WHvReadGpaRange and WHvWriteGpaRange
 //
-typedef union _WHV_ACCESS_GPA_CONTROLS
+typedef union WHV_ACCESS_GPA_CONTROLS
 {
     UINT64 AsUINT64;
     struct
@@ -1130,7 +1130,8 @@ typedef union WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER
         UINT64 NmiNotification:1;
         UINT64 InterruptNotification:1;
         UINT64 InterruptPriority:4;
-        UINT64 Reserved:58;
+        UINT64 Reserved:42;
+        UINT64 Sint:16;
     };
 
     UINT64 AsUINT64;
@@ -1215,6 +1216,15 @@ typedef union WHV_X64_PENDING_DEBUG_EXCEPTION
 
 C_ASSERT(sizeof(WHV_X64_PENDING_DEBUG_EXCEPTION) == 8);
 
+typedef struct WHV_SYNIC_SINT_DELIVERABLE_CONTEXT
+{
+    UINT16 DeliverableSints;
+    UINT16 Reserved1;
+    UINT32 Reserved2;
+} WHV_SYNIC_SINT_DELIVERABLE_CONTEXT;
+
+C_ASSERT(sizeof(WHV_SYNIC_SINT_DELIVERABLE_CONTEXT) == 8);
+
 //
 // Register values
 //
@@ -1261,6 +1271,7 @@ typedef enum WHV_RUN_VP_EXIT_REASON
     WHvRunVpExitReasonX64InterruptWindow     = 0x00000007,
     WHvRunVpExitReasonX64Halt                = 0x00000008,
     WHvRunVpExitReasonX64ApicEoi             = 0x00000009,
+    WHvRunVpExitReasonSynicSintDeliverable   = 0x0000000A,
 
     // Additional exits that can be configured through partition properties
     WHvRunVpExitReasonX64MsrAccess           = 0x00001000,
@@ -1658,6 +1669,7 @@ typedef struct WHV_RUN_VP_EXIT_CONTEXT
         WHV_HYPERCALL_CONTEXT Hypercall;
         WHV_X64_APIC_INIT_SIPI_CONTEXT ApicInitSipi;
         WHV_X64_APIC_WRITE_CONTEXT ApicWrite;
+        WHV_SYNIC_SINT_DELIVERABLE_CONTEXT SynicSintDeliverable;
     };
 } WHV_RUN_VP_EXIT_CONTEXT;
 
@@ -1803,7 +1815,7 @@ typedef enum WHV_VIRTUAL_PROCESSOR_STATE_TYPE
 // Synic definitions
 //
 
-typedef struct _WHV_SYNIC_EVENT_PARAMETERS
+typedef struct WHV_SYNIC_EVENT_PARAMETERS
 {
     UINT32 VpIndex;
     UINT8 TargetSint;
@@ -1966,14 +1978,14 @@ C_ASSERT(sizeof(WHV_VPCI_INTERRUPT_TARGET) == 12);
 // Triggers
 //
 
-typedef enum _WHV_TRIGGER_TYPE
+typedef enum WHV_TRIGGER_TYPE
 {
     WHvTriggerTypeInterrupt = 0,
     WHvTriggerTypeSynicEvent = 1,
     WHvTriggerTypeDeviceInterrupt = 2,
 } WHV_TRIGGER_TYPE;
 
-typedef struct _WHV_TRIGGER_PARAMETERS
+typedef struct WHV_TRIGGER_PARAMETERS
 {
     WHV_TRIGGER_TYPE TriggerType;
     UINT32 Reserved;
@@ -2017,13 +2029,13 @@ C_ASSERT(sizeof(WHV_VIRTUAL_PROCESSOR_PROPERTY) == 16);
 // Notification ports
 //
 
-typedef enum _WHV_NOTIFICATION_PORT_TYPE
+typedef enum WHV_NOTIFICATION_PORT_TYPE
 {
     WHvNotificationPortTypeEvent = 2,
     WHvNotificationPortTypeDoorbell = 4,
 } WHV_NOTIFICATION_PORT_TYPE;
 
-typedef struct _WHV_NOTIFICATION_PORT_PARAMETERS
+typedef struct WHV_NOTIFICATION_PORT_PARAMETERS
 {
     WHV_NOTIFICATION_PORT_TYPE NotificationPortType;
     UINT32 Reserved;
@@ -2040,7 +2052,7 @@ typedef struct _WHV_NOTIFICATION_PORT_PARAMETERS
 
 C_ASSERT(sizeof(WHV_NOTIFICATION_PORT_PARAMETERS) == 32);
 
-typedef enum _WHV_NOTIFICATION_PORT_PROPERTY_CODE
+typedef enum WHV_NOTIFICATION_PORT_PROPERTY_CODE
 {
     WHvNotificationPortPropertyPreferredTargetVp = 1,
     WHvNotificationPortPropertyPreferredTargetDuration = 5,

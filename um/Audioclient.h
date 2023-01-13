@@ -110,6 +110,13 @@ typedef interface ISimpleAudioVolume ISimpleAudioVolume;
 #endif 	/* __ISimpleAudioVolume_FWD_DEFINED__ */
 
 
+#ifndef __IAudioClientDuckingControl_FWD_DEFINED__
+#define __IAudioClientDuckingControl_FWD_DEFINED__
+typedef interface IAudioClientDuckingControl IAudioClientDuckingControl;
+
+#endif 	/* __IAudioClientDuckingControl_FWD_DEFINED__ */
+
+
 #ifndef __IAudioStreamVolume_FWD_DEFINED__
 #define __IAudioStreamVolume_FWD_DEFINED__
 typedef interface IAudioStreamVolume IAudioStreamVolume;
@@ -1724,11 +1731,111 @@ EXTERN_C const IID IID_ISimpleAudioVolume;
 /* interface __MIDL_itf_audioclient_0000_0009 */
 /* [local] */ 
 
-#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */
+typedef /* [v1_enum] */ 
+enum AUDIO_DUCKING_OPTIONS
+    {
+        AUDIO_DUCKING_OPTIONS_DEFAULT	= 0,
+        AUDIO_DUCKING_OPTIONS_DO_NOT_DUCK_OTHER_STREAMS	= 0x1
+    } 	AUDIO_DUCKING_OPTIONS;
+
+DEFINE_ENUM_FLAG_OPERATORS(AUDIO_DUCKING_OPTIONS);
 
 
 extern RPC_IF_HANDLE __MIDL_itf_audioclient_0000_0009_v0_0_c_ifspec;
 extern RPC_IF_HANDLE __MIDL_itf_audioclient_0000_0009_v0_0_s_ifspec;
+
+#ifndef __IAudioClientDuckingControl_INTERFACE_DEFINED__
+#define __IAudioClientDuckingControl_INTERFACE_DEFINED__
+
+/* interface IAudioClientDuckingControl */
+/* [local][unique][uuid][object] */ 
+
+
+EXTERN_C const IID IID_IAudioClientDuckingControl;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("C789D381-A28C-4168-B28F-D3A837924DC3")
+    IAudioClientDuckingControl : public IUnknown
+    {
+    public:
+        virtual HRESULT STDMETHODCALLTYPE SetDuckingOptionsForCurrentStream( 
+            /* [in] */ AUDIO_DUCKING_OPTIONS options) = 0;
+        
+    };
+    
+    
+#else 	/* C style interface */
+
+    typedef struct IAudioClientDuckingControlVtbl
+    {
+        BEGIN_INTERFACE
+        
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            IAudioClientDuckingControl * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            _COM_Outptr_  void **ppvObject);
+        
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            IAudioClientDuckingControl * This);
+        
+        DECLSPEC_XFGVIRT(IUnknown, Release)
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            IAudioClientDuckingControl * This);
+        
+        DECLSPEC_XFGVIRT(IAudioClientDuckingControl, SetDuckingOptionsForCurrentStream)
+        HRESULT ( STDMETHODCALLTYPE *SetDuckingOptionsForCurrentStream )( 
+            IAudioClientDuckingControl * This,
+            /* [in] */ AUDIO_DUCKING_OPTIONS options);
+        
+        END_INTERFACE
+    } IAudioClientDuckingControlVtbl;
+
+    interface IAudioClientDuckingControl
+    {
+        CONST_VTBL struct IAudioClientDuckingControlVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define IAudioClientDuckingControl_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define IAudioClientDuckingControl_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define IAudioClientDuckingControl_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define IAudioClientDuckingControl_SetDuckingOptionsForCurrentStream(This,options)	\
+    ( (This)->lpVtbl -> SetDuckingOptionsForCurrentStream(This,options) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __IAudioClientDuckingControl_INTERFACE_DEFINED__ */
+
+
+/* interface __MIDL_itf_audioclient_0000_0010 */
+/* [local] */ 
+
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */
+
+
+extern RPC_IF_HANDLE __MIDL_itf_audioclient_0000_0010_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_audioclient_0000_0010_v0_0_s_ifspec;
 
 #ifndef __IAudioStreamVolume_INTERFACE_DEFINED__
 #define __IAudioStreamVolume_INTERFACE_DEFINED__
@@ -1884,7 +1991,7 @@ EXTERN_C const IID IID_IAudioStreamVolume;
 #endif 	/* __IAudioStreamVolume_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_audioclient_0000_0010 */
+/* interface __MIDL_itf_audioclient_0000_0011 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP | WINAPI_PARTITION_GAMES) */
@@ -1937,8 +2044,8 @@ typedef struct AMBISONICS_PARAMS
 
 
 
-extern RPC_IF_HANDLE __MIDL_itf_audioclient_0000_0010_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_audioclient_0000_0010_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_audioclient_0000_0011_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_audioclient_0000_0011_v0_0_s_ifspec;
 
 #ifndef __IAudioAmbisonicsControl_INTERFACE_DEFINED__
 #define __IAudioAmbisonicsControl_INTERFACE_DEFINED__
@@ -2065,7 +2172,7 @@ EXTERN_C const IID IID_IAudioAmbisonicsControl;
 #endif 	/* __IAudioAmbisonicsControl_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_audioclient_0000_0011 */
+/* interface __MIDL_itf_audioclient_0000_0012 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */
@@ -2074,8 +2181,8 @@ EXTERN_C const IID IID_IAudioAmbisonicsControl;
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
 
 
-extern RPC_IF_HANDLE __MIDL_itf_audioclient_0000_0011_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_audioclient_0000_0011_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_audioclient_0000_0012_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_audioclient_0000_0012_v0_0_s_ifspec;
 
 #ifndef __IChannelAudioVolume_INTERFACE_DEFINED__
 #define __IChannelAudioVolume_INTERFACE_DEFINED__
@@ -2235,7 +2342,7 @@ EXTERN_C const IID IID_IChannelAudioVolume;
 #endif 	/* __IChannelAudioVolume_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_audioclient_0000_0012 */
+/* interface __MIDL_itf_audioclient_0000_0013 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
@@ -2287,8 +2394,8 @@ EXTERN_C const IID IID_IChannelAudioVolume;
 #pragma endregion
 
 
-extern RPC_IF_HANDLE __MIDL_itf_audioclient_0000_0012_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_audioclient_0000_0012_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_audioclient_0000_0013_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_audioclient_0000_0013_v0_0_s_ifspec;
 
 /* Additional Prototypes for ALL interfaces */
 

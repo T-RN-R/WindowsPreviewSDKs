@@ -3477,6 +3477,24 @@
 #define ERROR_CIMFS_IMAGE_VERSION_NOT_SUPPORTED 471L
 
 //
+// MessageId: ERROR_STORAGE_STACK_ACCESS_DENIED
+//
+// MessageText:
+//
+// The storage stack returned STATUS_ACCESS_DENEID for the current operation.
+//
+#define ERROR_STORAGE_STACK_ACCESS_DENIED 472L
+
+//
+// MessageId: ERROR_INSUFFICIENT_VIRTUAL_ADDR_RESOURCES
+//
+// MessageText:
+//
+// Insufficient Virtual Address resources to complete the operation.
+//
+#define ERROR_INSUFFICIENT_VIRTUAL_ADDR_RESOURCES 473L
+
+//
 // **** Available SYSTEM error codes ****
 //
 //
