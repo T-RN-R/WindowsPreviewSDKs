@@ -125,6 +125,7 @@
 
 #define COPYENGINE_E_WARNED_BY_DLP_POLICY                          _HRESULT_TYPEDEF_(0x8027004DL) // The file is warned against being copied per DLP policy
 #define COPYENGINE_E_BLOCKED_BY_DLP_POLICY                         _HRESULT_TYPEDEF_(0x8027004EL) // The file cannot be copied per DLP policy
+#define COPYENGINE_E_SILENT_FAIL_BY_DLP_POLICY                     _HRESULT_TYPEDEF_(0x8027004FL) // The file cannot be copied per DLP policy, and the caller is requested to silently fail
 
 //  error codes without a more specific group use FACILITY_SHELL and 0x01 in the second lowest byte.
 #define NETCACHE_E_NEGATIVE_CACHE           _HRESULT_TYPEDEF_(0x80270100L) // The item requested is in the negative net parsing cache

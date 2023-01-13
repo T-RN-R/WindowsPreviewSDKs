@@ -671,7 +671,7 @@ UmsSchedulerThreadYield equ 00002H
 PeBeingDebugged equ 00002H
 PeProcessParameters equ 00020H
 PeKernelCallbackTable equ 00058H
-ProcessEnvironmentBlockLength equ 007D0H
+ProcessEnvironmentBlockLength equ 007C8H
 
 ;
 ;  Process Parameters Block Structure Offset Definitions

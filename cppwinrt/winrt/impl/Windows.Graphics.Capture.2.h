@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200316.3
+// C++/WinRT v2.0.200303.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -28,13 +28,17 @@ WINRT_EXPORT namespace winrt::Windows::Graphics::Capture
         static auto Create(Windows::Graphics::DirectX::Direct3D11::IDirect3DDevice const& device, Windows::Graphics::DirectX::DirectXPixelFormat const& pixelFormat, int32_t numberOfBuffers, Windows::Graphics::SizeInt32 const& size);
         static auto CreateFreeThreaded(Windows::Graphics::DirectX::Direct3D11::IDirect3DDevice const& device, Windows::Graphics::DirectX::DirectXPixelFormat const& pixelFormat, int32_t numberOfBuffers, Windows::Graphics::SizeInt32 const& size);
     };
+    struct GraphicsCaptureAccess
+    {
+        GraphicsCaptureAccess() = delete;
+        static auto RequestAccessAsync(Windows::Graphics::Capture::GraphicsCaptureAccessKind const& request);
+    };
     struct __declspec(empty_bases) GraphicsCaptureItem : Windows::Graphics::Capture::IGraphicsCaptureItem
     {
         GraphicsCaptureItem(std::nullptr_t) noexcept {}
         GraphicsCaptureItem(void* ptr, take_ownership_from_abi_t) noexcept : Windows::Graphics::Capture::IGraphicsCaptureItem(ptr, take_ownership_from_abi) {}
         static auto CreateFromVisual(Windows::UI::Composition::Visual const& visual);
         static auto CreateFromWindowReference(Windows::UI::WindowReference const& windowReference);
-        static auto RequestProgrammaticCaptureAccessAsync();
     };
     struct __declspec(empty_bases) GraphicsCapturePicker : Windows::Graphics::Capture::IGraphicsCapturePicker
     {

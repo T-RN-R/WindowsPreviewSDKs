@@ -1,4 +1,4 @@
-// C++/WinRT v2.0.200316.3
+// C++/WinRT v2.0.200303.2
 
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
@@ -6,7 +6,7 @@
 #ifndef WINRT_Windows_Perception_Spatial_Surfaces_H
 #define WINRT_Windows_Perception_Spatial_Surfaces_H
 #include "winrt/base.h"
-static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200316.3"), "Mismatched C++/WinRT headers.");
+static_assert(winrt::check_version(CPPWINRT_VERSION, "2.0.200303.2"), "Mismatched C++/WinRT headers.");
 #include "winrt/Windows.Perception.Spatial.h"
 #include "winrt/impl/Windows.Foundation.2.h"
 #include "winrt/impl/Windows.Foundation.Collections.2.h"

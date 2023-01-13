@@ -235,6 +235,13 @@ typedef interface IAppxManifestHostRuntimeDependency IAppxManifestHostRuntimeDep
 #endif 	/* __IAppxManifestHostRuntimeDependency_FWD_DEFINED__ */
 
 
+#ifndef __IAppxManifestHostRuntimeDependency2_FWD_DEFINED__
+#define __IAppxManifestHostRuntimeDependency2_FWD_DEFINED__
+typedef interface IAppxManifestHostRuntimeDependency2 IAppxManifestHostRuntimeDependency2;
+
+#endif 	/* __IAppxManifestHostRuntimeDependency2_FWD_DEFINED__ */
+
+
 #ifndef __IAppxManifestOptionalPackageInfo_FWD_DEFINED__
 #define __IAppxManifestOptionalPackageInfo_FWD_DEFINED__
 typedef interface IAppxManifestOptionalPackageInfo IAppxManifestOptionalPackageInfo;
@@ -3913,6 +3920,86 @@ EXTERN_C const IID IID_IAppxManifestHostRuntimeDependency;
 
 
 #endif 	/* __IAppxManifestHostRuntimeDependency_INTERFACE_DEFINED__ */
+
+
+#ifndef __IAppxManifestHostRuntimeDependency2_INTERFACE_DEFINED__
+#define __IAppxManifestHostRuntimeDependency2_INTERFACE_DEFINED__
+
+/* interface IAppxManifestHostRuntimeDependency2 */
+/* [ref][uuid][object] */ 
+
+
+EXTERN_C const IID IID_IAppxManifestHostRuntimeDependency2;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("C26F23A8-EE10-4AD6-B898-2B4D7AEBFE6A")
+    IAppxManifestHostRuntimeDependency2 : public IUnknown
+    {
+    public:
+        virtual HRESULT STDMETHODCALLTYPE GetPackageFamilyName( 
+            /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *packageFamilyName) = 0;
+        
+    };
+    
+    
+#else 	/* C style interface */
+
+    typedef struct IAppxManifestHostRuntimeDependency2Vtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            __RPC__in IAppxManifestHostRuntimeDependency2 * This,
+            /* [in] */ __RPC__in REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            _COM_Outptr_  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            __RPC__in IAppxManifestHostRuntimeDependency2 * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            __RPC__in IAppxManifestHostRuntimeDependency2 * This);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetPackageFamilyName )( 
+            __RPC__in IAppxManifestHostRuntimeDependency2 * This,
+            /* [retval][string][out] */ __RPC__deref_out_opt_string LPWSTR *packageFamilyName);
+        
+        END_INTERFACE
+    } IAppxManifestHostRuntimeDependency2Vtbl;
+
+    interface IAppxManifestHostRuntimeDependency2
+    {
+        CONST_VTBL struct IAppxManifestHostRuntimeDependency2Vtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define IAppxManifestHostRuntimeDependency2_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define IAppxManifestHostRuntimeDependency2_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define IAppxManifestHostRuntimeDependency2_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define IAppxManifestHostRuntimeDependency2_GetPackageFamilyName(This,packageFamilyName)	\
+    ( (This)->lpVtbl -> GetPackageFamilyName(This,packageFamilyName) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __IAppxManifestHostRuntimeDependency2_INTERFACE_DEFINED__ */
 
 
 #ifndef __IAppxManifestOptionalPackageInfo_INTERFACE_DEFINED__
@@ -8087,7 +8174,7 @@ EXTERN_C const IID IID_IAppxPackagingDiagnosticEventSinkManager;
 #endif 	/* __IAppxPackagingDiagnosticEventSinkManager_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_appxpackaging_0000_0070 */
+/* interface __MIDL_itf_appxpackaging_0000_0071 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP) */
@@ -8135,8 +8222,8 @@ typedef struct APPX_ENCRYPTED_EXEMPTIONS
 
 
 
-extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0070_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0070_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0071_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0071_v0_0_s_ifspec;
 
 #ifndef __IAppxEncryptionFactory_INTERFACE_DEFINED__
 #define __IAppxEncryptionFactory_INTERFACE_DEFINED__
@@ -9018,7 +9105,7 @@ EXTERN_C const IID IID_IAppxEncryptedBundleWriter2;
 #endif 	/* __IAppxEncryptedBundleWriter2_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_appxpackaging_0000_0078 */
+/* interface __MIDL_itf_appxpackaging_0000_0079 */
 /* [local] */ 
 
 typedef /* [v1_enum] */ 
@@ -9038,8 +9125,8 @@ enum APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS
 DEFINE_ENUM_FLAG_OPERATORS(APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS);
 
 
-extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0078_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0078_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0079_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0079_v0_0_s_ifspec;
 
 #ifndef __IAppxEncryptedBundleWriter3_INTERFACE_DEFINED__
 #define __IAppxEncryptedBundleWriter3_INTERFACE_DEFINED__
@@ -9297,15 +9384,15 @@ EXTERN_C const IID IID_IAppxPackageEditor;
 #endif 	/* __IAppxPackageEditor_INTERFACE_DEFINED__ */
 
 
-/* interface __MIDL_itf_appxpackaging_0000_0080 */
+/* interface __MIDL_itf_appxpackaging_0000_0081 */
 /* [local] */ 
 
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 #pragma endregion
 
 
-extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0080_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0080_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0081_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0081_v0_0_s_ifspec;
 
 
 #ifndef __APPXPACKAGING_LIBRARY_DEFINED__
@@ -9366,14 +9453,14 @@ AppxPackageEditor;
 #endif
 #endif /* __APPXPACKAGING_LIBRARY_DEFINED__ */
 
-/* interface __MIDL_itf_appxpackaging_0000_0081 */
+/* interface __MIDL_itf_appxpackaging_0000_0082 */
 /* [local] */ 
 
 #endif // (NTDDI >= NTDDI_WIN7)
 
 
-extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0081_v0_0_c_ifspec;
-extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0081_v0_0_s_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0082_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_appxpackaging_0000_0082_v0_0_s_ifspec;
 
 /* Additional Prototypes for ALL interfaces */
 
