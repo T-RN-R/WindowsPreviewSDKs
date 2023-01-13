@@ -1269,7 +1269,9 @@ namespace Windows
                 VideoPreview = 0,
                 VideoRecord  = 1,
                 Audio        = 2,
-                Photo        = 3
+                Photo        = 3,
+                [contract(Windows.Foundation.UniversalApiContract, 12.0)]
+                Metadata     = 4
             };
 
             [contract(Windows.Foundation.UniversalApiContract, 1.0)]

@@ -3630,6 +3630,13 @@ DEFINE_GUID(AM_MEDIA_TYPE_REPRESENTATION,
 DEFINE_GUID(FORMAT_MFVideoFormat,
 0xaed4ab2d, 0x7326, 0x43cb, 0x94, 0x64, 0xc8, 0x79, 0xca, 0xb9, 0xc4, 0x3d);
 
+#if (WINVER >= _WIN32_WINNT_FE)
+// {2C8FA20C-82BB-4782-90A0-98A2A5BD8EF8}
+DEFINE_GUID(MFMediaType_Metadata, 
+0x2c8fa20c, 0x82bb, 0x4782, 0x90, 0xa0, 0x98, 0xa2, 0xa5, 0xbd, 0x8e, 0xf8);
+#endif // (WINVER >= _WIN32_WINNT_FE)
+
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////  Media Type functions //////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
