@@ -57118,6 +57118,24 @@ FORCEINLINE _Translates_Win32_to_HRESULT_(x) HRESULT HRESULT_FROM_WIN32(unsigned
 #define ERROR_SPACES_MARK_DIRTY          _HRESULT_TYPEDEF_(0x80E70020L)
 
 //
+// MessageId: ERROR_SPACES_FLUSH_METADATA
+//
+// MessageText:
+//
+// The cache metadata needs to be written and flushed.
+//
+#define ERROR_SPACES_FLUSH_METADATA      _HRESULT_TYPEDEF_(0x80E70025L)
+
+//
+// MessageId: ERROR_SPACES_CACHE_FULL
+//
+// MessageText:
+//
+// The cache is full.
+//
+#define ERROR_SPACES_CACHE_FULL          _HRESULT_TYPEDEF_(0x80E70026L)
+
+//
 // Volsnap errors
 //
 // Success

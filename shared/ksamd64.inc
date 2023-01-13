@@ -922,8 +922,8 @@ PcKernelDirectoryTableBase equ 0A000H
 PcExceptionStack equ 083A8H
 PcExceptionStackActive equ 083A6H
 PcDpcRequestSummary equ 0353CH
-PcTransitionShadowStack equ 09260H
-PcKernelShadowStackInitial equ 09268H
+PcTransitionShadowStack equ 097A0H
+PcKernelShadowStackInitial equ 097A8H
 ;
 ;
 CPU_AMD equ 00001H
@@ -1072,7 +1072,7 @@ PbContextSwitches equ 02D3CH
 PbTargetCount equ 02D84H
 PbIpiFrozen equ 02D88H
 PbRequestMailbox equ 0BEC0H
-PbMailbox equ 09000H
+PbMailbox equ 09540H
 PbDpcList equ 03340H
 PbDpcLock equ 03350H
 PbDpcCount equ 0335CH
@@ -1114,7 +1114,7 @@ PbVendorString equ 08950H
 ProcessorBlockLength equ 0BF00H
 PbShadowFlags equ 09E98H
 PbTrappedSecurityDomain equ 000F0H
-PbKernelShadowStackInitial equ 090E8H
+PbKernelShadowStackInitial equ 09628H
 
 ;
 ;  Time Fields (TIME_FIELDS) Structure Offset Definitions

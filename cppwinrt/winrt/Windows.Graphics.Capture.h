@@ -123,16 +123,16 @@ namespace winrt::impl
         check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Capture::IGraphicsCaptureItemStatics)->CreateFromVisual(*(void**)(&visual), &result));
         return Windows::Graphics::Capture::GraphicsCaptureItem{ result, take_ownership_from_abi };
     }
-    template <typename D> WINRT_IMPL_AUTO(Windows::Graphics::Capture::GraphicsCaptureItem) consume_Windows_Graphics_Capture_IGraphicsCaptureItemStatics2<D>::CreateFromWindowId(Windows::UI::WindowId const& windowId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Graphics::Capture::GraphicsCaptureItem) consume_Windows_Graphics_Capture_IGraphicsCaptureItemStatics2<D>::TryCreateFromWindowId(Windows::UI::WindowId const& windowId) const
     {
         void* result{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Capture::IGraphicsCaptureItemStatics2)->CreateFromWindowId(impl::bind_in(windowId), &result));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Capture::IGraphicsCaptureItemStatics2)->TryCreateFromWindowId(impl::bind_in(windowId), &result));
         return Windows::Graphics::Capture::GraphicsCaptureItem{ result, take_ownership_from_abi };
     }
-    template <typename D> WINRT_IMPL_AUTO(Windows::Graphics::Capture::GraphicsCaptureItem) consume_Windows_Graphics_Capture_IGraphicsCaptureItemStatics2<D>::CreateFromDisplayId(Windows::Graphics::DisplayId const& displayId) const
+    template <typename D> WINRT_IMPL_AUTO(Windows::Graphics::Capture::GraphicsCaptureItem) consume_Windows_Graphics_Capture_IGraphicsCaptureItemStatics2<D>::TryCreateFromDisplayId(Windows::Graphics::DisplayId const& displayId) const
     {
         void* result{};
-        check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Capture::IGraphicsCaptureItemStatics2)->CreateFromDisplayId(impl::bind_in(displayId), &result));
+        check_hresult(WINRT_IMPL_SHIM(Windows::Graphics::Capture::IGraphicsCaptureItemStatics2)->TryCreateFromDisplayId(impl::bind_in(displayId), &result));
         return Windows::Graphics::Capture::GraphicsCaptureItem{ result, take_ownership_from_abi };
     }
     template <typename D> WINRT_IMPL_AUTO(Windows::Foundation::IAsyncOperation<Windows::Graphics::Capture::GraphicsCaptureItem>) consume_Windows_Graphics_Capture_IGraphicsCapturePicker<D>::PickSingleItemAsync() const
@@ -348,19 +348,19 @@ namespace winrt::impl
     template <typename D>
     struct produce<D, Windows::Graphics::Capture::IGraphicsCaptureItemStatics2> : produce_base<D, Windows::Graphics::Capture::IGraphicsCaptureItemStatics2>
     {
-        int32_t __stdcall CreateFromWindowId(struct struct_Windows_UI_WindowId windowId, void** result) noexcept final try
+        int32_t __stdcall TryCreateFromWindowId(struct struct_Windows_UI_WindowId windowId, void** result) noexcept final try
         {
             clear_abi(result);
             typename D::abi_guard guard(this->shim());
-            *result = detach_from<Windows::Graphics::Capture::GraphicsCaptureItem>(this->shim().CreateFromWindowId(*reinterpret_cast<Windows::UI::WindowId const*>(&windowId)));
+            *result = detach_from<Windows::Graphics::Capture::GraphicsCaptureItem>(this->shim().TryCreateFromWindowId(*reinterpret_cast<Windows::UI::WindowId const*>(&windowId)));
             return 0;
         }
         catch (...) { return to_hresult(); }
-        int32_t __stdcall CreateFromDisplayId(struct struct_Windows_Graphics_DisplayId displayId, void** result) noexcept final try
+        int32_t __stdcall TryCreateFromDisplayId(struct struct_Windows_Graphics_DisplayId displayId, void** result) noexcept final try
         {
             clear_abi(result);
             typename D::abi_guard guard(this->shim());
-            *result = detach_from<Windows::Graphics::Capture::GraphicsCaptureItem>(this->shim().CreateFromDisplayId(*reinterpret_cast<Windows::Graphics::DisplayId const*>(&displayId)));
+            *result = detach_from<Windows::Graphics::Capture::GraphicsCaptureItem>(this->shim().TryCreateFromDisplayId(*reinterpret_cast<Windows::Graphics::DisplayId const*>(&displayId)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -465,13 +465,13 @@ WINRT_EXPORT namespace winrt::Windows::Graphics::Capture
     {
         return impl::call_factory<GraphicsCaptureItem, IGraphicsCaptureItemStatics>([&](IGraphicsCaptureItemStatics const& f) { return f.CreateFromVisual(visual); });
     }
-    inline auto GraphicsCaptureItem::CreateFromWindowId(Windows::UI::WindowId const& windowId)
+    inline auto GraphicsCaptureItem::TryCreateFromWindowId(Windows::UI::WindowId const& windowId)
     {
-        return impl::call_factory<GraphicsCaptureItem, IGraphicsCaptureItemStatics2>([&](IGraphicsCaptureItemStatics2 const& f) { return f.CreateFromWindowId(windowId); });
+        return impl::call_factory<GraphicsCaptureItem, IGraphicsCaptureItemStatics2>([&](IGraphicsCaptureItemStatics2 const& f) { return f.TryCreateFromWindowId(windowId); });
     }
-    inline auto GraphicsCaptureItem::CreateFromDisplayId(Windows::Graphics::DisplayId const& displayId)
+    inline auto GraphicsCaptureItem::TryCreateFromDisplayId(Windows::Graphics::DisplayId const& displayId)
     {
-        return impl::call_factory<GraphicsCaptureItem, IGraphicsCaptureItemStatics2>([&](IGraphicsCaptureItemStatics2 const& f) { return f.CreateFromDisplayId(displayId); });
+        return impl::call_factory<GraphicsCaptureItem, IGraphicsCaptureItemStatics2>([&](IGraphicsCaptureItemStatics2 const& f) { return f.TryCreateFromDisplayId(displayId); });
     }
     inline GraphicsCapturePicker::GraphicsCapturePicker() :
         GraphicsCapturePicker(impl::call_factory_cast<GraphicsCapturePicker(*)(Windows::Foundation::IActivationFactory const&), GraphicsCapturePicker>([](Windows::Foundation::IActivationFactory const& f) { return f.template ActivateInstance<GraphicsCapturePicker>(); }))

@@ -250,11 +250,11 @@ namespace Windows
 
             [contract(Windows.Foundation.UniversalApiContract, 12.0)]
             [exclusiveto(Windows.Graphics.Capture.GraphicsCaptureItem)]
-            [uuid(6ACE9542-FBF2-5A4C-9D19-9972A6210818)]
+            [uuid(3B92ACC9-E584-5862-BF5C-9C316C6D2DBB)]
             interface IGraphicsCaptureItemStatics2 : IInspectable
             {
-                HRESULT CreateFromWindowId([in] Windows.UI.WindowId windowId, [out] [retval] Windows.Graphics.Capture.GraphicsCaptureItem** result);
-                HRESULT CreateFromDisplayId([in] Windows.Graphics.DisplayId displayId, [out] [retval] Windows.Graphics.Capture.GraphicsCaptureItem** result);
+                HRESULT TryCreateFromWindowId([in] Windows.UI.WindowId windowId, [out] [retval] Windows.Graphics.Capture.GraphicsCaptureItem** result);
+                HRESULT TryCreateFromDisplayId([in] Windows.Graphics.DisplayId displayId, [out] [retval] Windows.Graphics.Capture.GraphicsCaptureItem** result);
             }
 
             [contract(Windows.Foundation.UniversalApiContract, 6.0)]

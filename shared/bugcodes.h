@@ -4483,6 +4483,15 @@ Notes:
 #define REGISTRY_LIVE_DUMP               ((ULONG)0x000001E7L)
 
 //
+// MessageId: INVALID_THREAD_AFFINITY_STATE
+//
+// MessageText:
+//
+//  INVALID_THREAD_AFFINITY_STATE
+//
+#define INVALID_THREAD_AFFINITY_STATE    ((ULONG)0x000001E8L)
+
+//
 // MessageId: XBOX_VMCTRL_CS_TIMEOUT
 //
 // MessageText:

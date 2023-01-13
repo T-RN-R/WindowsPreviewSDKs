@@ -1237,6 +1237,9 @@ typedef struct FWPM_NET_EVENT_HEADER3_
 } FWPM_NET_EVENT_HEADER3;
 cpp_quote("#endif //(NTDDI_VERSION >= NTDDI_WINTHRESHOLD)")
 
+// NOTE: If FWPM_NET_EVENT_TYPE is being updated, you MUST update FWPM_NET_EVENT_INTERNAL_TYPE in fwpptypes.idl
+// so that the first part of the _INTERNAL_ struct exactly matches the current FWPM_NET_EVENT_TYPE
+//
 // Types of network events fired by WFP/IPsec.
 typedef [v1_enum] enum FWPM_NET_EVENT_TYPE_
 {

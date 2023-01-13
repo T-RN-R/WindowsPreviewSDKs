@@ -3752,6 +3752,7 @@ MFInitMediaTypeFromMPEG2VideoInfo(
     _In_opt_                const GUID*             pSubtype = NULL
     );
 
+#ifndef NOBITMAP
 STDAPI
 MFCalculateBitmapImageSize(
     _In_reads_bytes_(cbBufSize)  const BITMAPINFOHEADER* pBMIH,
@@ -3759,6 +3760,7 @@ MFCalculateBitmapImageSize(
     _Out_                   UINT32*                 pcbImageSize,
     _Out_opt_               BOOL*                   pbKnown = NULL
     );
+#endif // NOBITMAP
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
@@ -3815,6 +3817,7 @@ MFInitMediaTypeFromMPEG2VideoInfo(
     _In_opt_                const GUID*             pSubtype
     );
 
+#ifndef NOBITMAP
 STDAPI
 MFCalculateBitmapImageSize(
     _In_reads_bytes_(cbBufSize)  const BITMAPINFOHEADER* pBMIH,
@@ -3822,6 +3825,7 @@ MFCalculateBitmapImageSize(
     _Out_                   UINT32*                 pcbImageSize,
     _Out_opt_               BOOL*                   pbKnown
     );
+#endif // NOBITMAP
 #endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP | WINAPI_PARTITION_GAMES) */
 #pragma endregion
 
@@ -3989,6 +3993,7 @@ MFIsFormatYUV(
 //
 //  These depend on BITMAPINFOHEADER being defined
 //
+#ifndef NOBITMAP
 STDAPI MFCreateVideoMediaTypeFromBitMapInfoHeader(
     _In_ const BITMAPINFOHEADER* pbmihBitMapInfoHeader,
     DWORD dwPixelAspectRatioX,
@@ -4000,6 +4005,7 @@ STDAPI MFCreateVideoMediaTypeFromBitMapInfoHeader(
     DWORD dwMaxBitRate,
     _Out_ IMFVideoMediaType** ppIVideoMediaType
     );
+#endif // NOBITMAP
 
 STDAPI MFGetStrideForBitmapInfoHeader(
     DWORD format,
@@ -4015,6 +4021,7 @@ STDAPI MFGetPlaneSize(
     );
 
 #if (WINVER >= _WIN32_WINNT_WIN7)
+#ifndef NOBITMAP
 //
 // MFCreateVideoMediaTypeFromBitMapInfoHeaderEx
 //
@@ -4031,6 +4038,7 @@ STDAPI MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(
     DWORD dwMaxBitRate,
     _Out_ IMFVideoMediaType** ppIVideoMediaType
     );
+#endif // NOBITMAP
 #endif // (WINVER >= _WIN32_WINNT_WIN7)
 
 //

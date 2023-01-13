@@ -132,6 +132,16 @@ HcsGetLayerVhdMountPath(
     _Outptr_ PWSTR* mountPath
     );
 
+// Same as HcsSetupBaseOSLayer except that this works on a volume.
+
+HRESULT
+WINAPI
+HcsSetupBaseOSVolume(
+    _In_ PCWSTR layerPath,
+    _In_ PCWSTR volumePath,
+    _In_ PCWSTR options
+    );
+
 #ifdef __cplusplus
 }
 #endif
@@ -141,8 +151,8 @@ HcsGetLayerVhdMountPath(
 
 #endif // _HYPERV_COMPUTESTORAGE_H_
 
-#ifndef ext_ms_win_hyperv_computestorage_l1_1_0_query_routines
-#define ext_ms_win_hyperv_computestorage_l1_1_0_query_routines
+#ifndef ext_ms_win_hyperv_computestorage_l1_1_1_query_routines
+#define ext_ms_win_hyperv_computestorage_l1_1_1_query_routines
 
 //
 //Private Extension API Query Routines
@@ -215,6 +225,12 @@ IsHcsFormatWritableLayerVhdPresent(
 BOOLEAN
 __stdcall
 IsHcsGetLayerVhdMountPathPresent(
+    VOID
+    );
+
+BOOLEAN
+__stdcall
+IsHcsSetupBaseOSVolumePresent(
     VOID
     );
 

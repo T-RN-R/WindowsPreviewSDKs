@@ -116,7 +116,7 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<Windows::Graphics::Capture::IGraphicsCaptureAccessStatics>{ 0x743ED370,0x06EC,0x5040,{ 0xA5,0x8A,0x90,0x1F,0x0F,0x75,0x70,0x95 } }; // 743ED370-06EC-5040-A58A-901F0F757095
     template <> inline constexpr guid guid_v<Windows::Graphics::Capture::IGraphicsCaptureItem>{ 0x79C3F95B,0x31F7,0x4EC2,{ 0xA4,0x64,0x63,0x2E,0xF5,0xD3,0x07,0x60 } }; // 79C3F95B-31F7-4EC2-A464-632EF5D30760
     template <> inline constexpr guid guid_v<Windows::Graphics::Capture::IGraphicsCaptureItemStatics>{ 0xA87EBEA5,0x457C,0x5788,{ 0xAB,0x47,0x0C,0xF1,0xD3,0x63,0x7E,0x74 } }; // A87EBEA5-457C-5788-AB47-0CF1D3637E74
-    template <> inline constexpr guid guid_v<Windows::Graphics::Capture::IGraphicsCaptureItemStatics2>{ 0x6ACE9542,0xFBF2,0x5A4C,{ 0x9D,0x19,0x99,0x72,0xA6,0x21,0x08,0x18 } }; // 6ACE9542-FBF2-5A4C-9D19-9972A6210818
+    template <> inline constexpr guid guid_v<Windows::Graphics::Capture::IGraphicsCaptureItemStatics2>{ 0x3B92ACC9,0xE584,0x5862,{ 0xBF,0x5C,0x9C,0x31,0x6C,0x6D,0x2D,0xBB } }; // 3B92ACC9-E584-5862-BF5C-9C316C6D2DBB
     template <> inline constexpr guid guid_v<Windows::Graphics::Capture::IGraphicsCapturePicker>{ 0x5A1711B3,0xAD79,0x4B4A,{ 0x93,0x36,0x13,0x18,0xFD,0xDE,0x35,0x39 } }; // 5A1711B3-AD79-4B4A-9336-1318FDDE3539
     template <> inline constexpr guid guid_v<Windows::Graphics::Capture::IGraphicsCaptureSession>{ 0x814E42A9,0xF70F,0x4AD7,{ 0x93,0x9B,0xFD,0xDC,0xC6,0xEB,0x88,0x0D } }; // 814E42A9-F70F-4AD7-939B-FDDCC6EB880D
     template <> inline constexpr guid guid_v<Windows::Graphics::Capture::IGraphicsCaptureSession2>{ 0x2C39AE40,0x7D2E,0x5044,{ 0x80,0x4E,0x8B,0x67,0x99,0xD4,0xCF,0x9E } }; // 2C39AE40-7D2E-5044-804E-8B6799D4CF9E
@@ -190,8 +190,8 @@ namespace winrt::impl
     {
         struct __declspec(novtable) type : inspectable_abi
         {
-            virtual int32_t __stdcall CreateFromWindowId(struct struct_Windows_UI_WindowId, void**) noexcept = 0;
-            virtual int32_t __stdcall CreateFromDisplayId(struct struct_Windows_Graphics_DisplayId, void**) noexcept = 0;
+            virtual int32_t __stdcall TryCreateFromWindowId(struct struct_Windows_UI_WindowId, void**) noexcept = 0;
+            virtual int32_t __stdcall TryCreateFromDisplayId(struct struct_Windows_Graphics_DisplayId, void**) noexcept = 0;
         };
     };
     template <> struct abi<Windows::Graphics::Capture::IGraphicsCapturePicker>
@@ -311,8 +311,8 @@ namespace winrt::impl
     template <typename D>
     struct consume_Windows_Graphics_Capture_IGraphicsCaptureItemStatics2
     {
-        WINRT_IMPL_AUTO(Windows::Graphics::Capture::GraphicsCaptureItem) CreateFromWindowId(Windows::UI::WindowId const& windowId) const;
-        WINRT_IMPL_AUTO(Windows::Graphics::Capture::GraphicsCaptureItem) CreateFromDisplayId(Windows::Graphics::DisplayId const& displayId) const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Capture::GraphicsCaptureItem) TryCreateFromWindowId(Windows::UI::WindowId const& windowId) const;
+        WINRT_IMPL_AUTO(Windows::Graphics::Capture::GraphicsCaptureItem) TryCreateFromDisplayId(Windows::Graphics::DisplayId const& displayId) const;
     };
     template <> struct consume<Windows::Graphics::Capture::IGraphicsCaptureItemStatics2>
     {

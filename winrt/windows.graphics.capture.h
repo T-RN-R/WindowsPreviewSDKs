@@ -1012,15 +1012,15 @@ namespace ABI {
     namespace Windows {
         namespace Graphics {
             namespace Capture {
-                MIDL_INTERFACE("6ace9542-fbf2-5a4c-9d19-9972a6210818")
+                MIDL_INTERFACE("3b92acc9-e584-5862-bf5c-9c316c6d2dbb")
                 IGraphicsCaptureItemStatics2 : public IInspectable
                 {
                 public:
-                    virtual HRESULT STDMETHODCALLTYPE CreateFromWindowId(
+                    virtual HRESULT STDMETHODCALLTYPE TryCreateFromWindowId(
                         ABI::Windows::UI::WindowId windowId,
                         ABI::Windows::Graphics::Capture::IGraphicsCaptureItem** result
                         ) = 0;
-                    virtual HRESULT STDMETHODCALLTYPE CreateFromDisplayId(
+                    virtual HRESULT STDMETHODCALLTYPE TryCreateFromDisplayId(
                         ABI::Windows::Graphics::DisplayId displayId,
                         ABI::Windows::Graphics::Capture::IGraphicsCaptureItem** result
                         ) = 0;
@@ -1294,8 +1294,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 6.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Graphics.Capture.IGraphicsCaptureItemStatics2 interface starting with version 12.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Graphics.Capture.IGraphicsCaptureItemStatics interface starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Graphics.Capture.IGraphicsCaptureItemStatics2 interface starting with version 12.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Graphics.Capture.IGraphicsCaptureItem ** Default Interface **
@@ -2431,10 +2431,10 @@ typedef struct __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItemStatics2
         HSTRING* className);
     HRESULT (STDMETHODCALLTYPE* GetTrustLevel)(__x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItemStatics2* This,
         TrustLevel* trustLevel);
-    HRESULT (STDMETHODCALLTYPE* CreateFromWindowId)(__x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItemStatics2* This,
+    HRESULT (STDMETHODCALLTYPE* TryCreateFromWindowId)(__x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItemStatics2* This,
         struct __x_ABI_CWindows_CUI_CWindowId windowId,
         __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItem** result);
-    HRESULT (STDMETHODCALLTYPE* CreateFromDisplayId)(__x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItemStatics2* This,
+    HRESULT (STDMETHODCALLTYPE* TryCreateFromDisplayId)(__x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItemStatics2* This,
         struct __x_ABI_CWindows_CGraphics_CDisplayId displayId,
         __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItem** result);
 
@@ -2466,11 +2466,11 @@ interface __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItemStatics2
 #define __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItemStatics2_GetTrustLevel(This, trustLevel) \
     ((This)->lpVtbl->GetTrustLevel(This, trustLevel))
 
-#define __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItemStatics2_CreateFromWindowId(This, windowId, result) \
-    ((This)->lpVtbl->CreateFromWindowId(This, windowId, result))
+#define __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItemStatics2_TryCreateFromWindowId(This, windowId, result) \
+    ((This)->lpVtbl->TryCreateFromWindowId(This, windowId, result))
 
-#define __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItemStatics2_CreateFromDisplayId(This, displayId, result) \
-    ((This)->lpVtbl->CreateFromDisplayId(This, displayId, result))
+#define __x_ABI_CWindows_CGraphics_CCapture_CIGraphicsCaptureItemStatics2_TryCreateFromDisplayId(This, displayId, result) \
+    ((This)->lpVtbl->TryCreateFromDisplayId(This, displayId, result))
 
 #endif /* COBJMACROS */
 
@@ -2906,8 +2906,8 @@ extern const __declspec(selectany) _Null_terminated_ WCHAR RuntimeClass_Windows_
  * Introduced to Windows.Foundation.UniversalApiContract in version 6.0
  *
  * RuntimeClass contains static methods.
- *   Static Methods exist on the Windows.Graphics.Capture.IGraphicsCaptureItemStatics2 interface starting with version 12.0 of the Windows.Foundation.UniversalApiContract API contract
  *   Static Methods exist on the Windows.Graphics.Capture.IGraphicsCaptureItemStatics interface starting with version 7.0 of the Windows.Foundation.UniversalApiContract API contract
+ *   Static Methods exist on the Windows.Graphics.Capture.IGraphicsCaptureItemStatics2 interface starting with version 12.0 of the Windows.Foundation.UniversalApiContract API contract
  *
  * Class implements the following interfaces:
  *    Windows.Graphics.Capture.IGraphicsCaptureItem ** Default Interface **

@@ -3474,6 +3474,9 @@ typedef enum _PROC_THREAD_ATTRIBUTE_NUM {
     ProcThreadAttributeMachineType                  = 25,
     ProcThreadAttributeComponentFilter              = 26,
 #endif
+#if (NTDDI_VERSION >= NTDDI_WIN10_FE)
+    ProcThreadAttributeEnableOptionalXStateFeatures = 27,
+#endif
 } PROC_THREAD_ATTRIBUTE_NUM;
 #endif
 
@@ -3522,6 +3525,11 @@ typedef enum _PROC_THREAD_ATTRIBUTE_NUM {
 #if (NTDDI_VERSION >= NTDDI_WIN10_MN)
 #define PROC_THREAD_ATTRIBUTE_MACHINE_TYPE \
     ProcThreadAttributeValue (ProcThreadAttributeMachineType, FALSE, TRUE, FALSE)
+#endif
+
+#if (NTDDI_VERSION >= NTDDI_WIN10_FE)
+#define PROC_THREAD_ATTRIBUTE_ENABLE_OPTIONAL_XSTATE_FEATURES \
+    ProcThreadAttributeValue (ProcThreadAttributeEnableOptionalXStateFeatures, TRUE, TRUE, FALSE)
 #endif
 
 #if (_WIN32_WINNT >= _WIN32_WINNT_WIN7)
